@@ -1,0 +1,1183 @@
+<!-- 
+=============================================================================
+NECTOR.UI TEMPLATE: SENJA (KAFE & ANGKRINGAN MODERN)
+Kategori: Cafe / Angkringan / Kuliner Lokal / UMKM
+File Path: templates/cafe/template02.html (juga tersedia di templates/angkringan/template01.html)
+Preview Live: http://localhost:5173/templates/cafe/template02.html
+
+PETUNJUK PENGGUNAAN & KOMENTAR:
+- File ini mandiri (HTML + CSS + JS) dan siap dijalankan langsung di browser!
+- Kamu bisa langsung edit teks, ganti harga nasi kucing/sate, dan tambahkan catatan kamu di sini.
+- Buka langsung dengan double-click di browser atau melalui etalase & preview NECTOR.UI.
+=============================================================================
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#f7f3eb">
+  <title>SENJA — Kopi, Nasi, dan Cerita</title>
+  <meta name="description" content="Tempat nongkrong dengan kopi, nasi kucing, sate angkringan, dan cerita sampai malam.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f7f3eb;
+      --paper: #fffdf8;
+      --ink: #30261f;
+      --muted: #85776b;
+      --rust: #b85f3d;
+      --rust-dark: #93472d;
+      --olive: #68704e;
+      --line: #e8dfd2;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+      --container: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body, button, a { font-family: var(--sans); }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: min(var(--container), calc(100% - 64px));
+      margin-inline: auto;
+    }
+
+    .announcement {
+      background: var(--ink);
+      color: #f9eee0;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .announcement span { color: #e5a17e; }
+
+    .navbar {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 243, 235, .94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(48, 38, 31, .08);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--rust);
+      color: white;
+      font-family: var(--serif);
+      font-size: 22px;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    .brand-caption {
+      display: block;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 1.7px;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 31px;
+      color: #5e5146;
+      font-size: 13px;
+    }
+
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover { color: var(--rust); }
+
+    .nav-cta, .button {
+      min-height: 46px;
+      padding: 0 21px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--rust);
+      border: 1px solid var(--rust);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      transition: background .2s, transform .2s;
+    }
+
+    .nav-cta:hover, .button:hover {
+      background: var(--rust-dark);
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: #d9cabb;
+    }
+
+    .button.secondary:hover {
+      background: var(--paper);
+      border-color: var(--rust);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      font-size: 23px;
+    }
+
+    /* HERO */
+
+    .hero { padding: 36px 0 72px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      align-items: center;
+      gap: 58px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--rust);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    .hero h1 {
+      margin: 24px 0;
+      font-family: var(--serif);
+      font-size: clamp(44px, 5.5vw, 76px);
+      font-weight: 500;
+      letter-spacing: -2.8px;
+      line-height: 1.04;
+    }
+
+    .hero h1 em {
+      color: var(--rust);
+      font-weight: 500;
+    }
+
+    .hero-description {
+      max-width: 410px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .avatar-stack { display: flex; }
+
+    .avatar-stack span {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      margin-left: -6px;
+      border: 2px solid var(--cream);
+      border-radius: 50%;
+      background: #dfc3a3;
+      color: var(--ink);
+      font-size: 9px;
+    }
+
+    .avatar-stack span:first-child { margin-left: 0; }
+    .hero-note strong { color: var(--ink); }
+
+    .hero-visual {
+      min-height: 490px;
+      position: relative;
+      overflow: hidden;
+      background: #d4b29a;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 35% 0 0;
+      background: linear-gradient(transparent, rgba(25, 18, 13, .63));
+      pointer-events: none;
+    }
+
+    .hero-label {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 26px;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      color: white;
+    }
+
+    .hero-label small {
+      display: block;
+      margin-bottom: 8px;
+      color: #e9c5ac;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-label h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .open-badge {
+      padding: 10px 13px;
+      border: 1px solid rgba(255,255,255,.55);
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
+    /* BRAND STRIP */
+
+    .brand-strip {
+      background: var(--ink);
+      color: #f7eee2;
+      padding: 24px 0;
+    }
+
+    .strip-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .strip-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .strip-number {
+      color: #d58b68;
+      font-family: var(--serif);
+      font-size: 25px;
+    }
+
+    .strip-divider {
+      width: 1px;
+      height: 30px;
+      background: #51443a;
+    }
+
+    /* MENU */
+
+    .section { padding: 100px 0; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .section-heading h2 {
+      max-width: 530px;
+      margin: 15px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(34px, 4vw, 48px);
+      font-weight: 500;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+    }
+
+    .section-heading p {
+      max-width: 330px;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .filter-btn {
+      padding: 11px 17px;
+      border: 1px solid #ded4c7;
+      background: transparent;
+      color: #66574b;
+      font-size: 11px;
+      transition: all .2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: white;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .menu-card {
+      min-width: 0;
+      background: var(--paper);
+      border: 1px solid #eee6da;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(48,38,31,.08);
+    }
+
+    .menu-card[hidden] { display: none; }
+
+    .menu-photo {
+      position: relative;
+      aspect-ratio: 1 / .83;
+      overflow: hidden;
+      background: #e3d5c5;
+    }
+
+    .menu-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .menu-card:hover .menu-photo img { transform: scale(1.045); }
+
+    .menu-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 7px 9px;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+
+    .menu-info { padding: 17px 17px 19px; }
+
+    .menu-category {
+      margin-bottom: 7px;
+      color: var(--rust);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .menu-info h3 {
+      margin-bottom: 7px;
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .menu-info p {
+      min-height: 36px;
+      margin-bottom: 17px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    .menu-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding-top: 13px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .menu-price small {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 400;
+    }
+
+    .menu-footer {
+      margin-top: 30px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    /* EXPERIENCE */
+
+    .experience {
+      background: #eae1d3;
+      padding: 85px 0;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .experience-image {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+    }
+
+    .experience-copy h2 {
+      margin: 18px 0;
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 51px);
+      font-weight: 500;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+    }
+
+    .experience-copy > p {
+      color: #75685d;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 19px;
+      margin: 30px 0;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .feature-number {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #cfc0ac;
+      color: var(--rust);
+      font-family: var(--serif);
+      font-size: 16px;
+    }
+
+    .feature h3 {
+      margin: 2px 0 5px;
+      font-size: 13px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #75685d;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    /* QUOTE */
+
+    .quote-section {
+      padding: 85px 0;
+      text-align: center;
+    }
+
+    .quote-mark {
+      color: var(--rust);
+      font-family: var(--serif);
+      font-size: 64px;
+      line-height: 1;
+    }
+
+    .quote-section blockquote {
+      max-width: 730px;
+      margin: 15px auto 22px;
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 43px);
+      line-height: 1.35;
+    }
+
+    .quote-section p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* VISIT */
+
+    .visit {
+      background: var(--olive);
+      color: white;
+      padding: 75px 0;
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .visit .eyebrow { color: #e5b295; }
+
+    .visit h2 {
+      max-width: 620px;
+      margin: 17px 0 12px;
+      font-family: var(--serif);
+      font-size: clamp(35px, 4.5vw, 54px);
+      font-weight: 500;
+      letter-spacing: -1px;
+      line-height: 1.13;
+    }
+
+    .visit p {
+      max-width: 520px;
+      margin-bottom: 0;
+      color: #e1e2d5;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .visit .button {
+      background: var(--cream);
+      border-color: var(--cream);
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .visit .button:hover { background: white; }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 0;
+      background: #28221d;
+      color: #f7eee2;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid #4b4036;
+    }
+
+    .footer-brand .brand-caption { color: #b8a99a; }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 23px;
+      color: #c6b7a8;
+      font-size: 11px;
+    }
+
+    .footer-links a:hover { color: white; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 22px;
+      color: #a99b8e;
+      font-size: 10px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .hero-grid { gap: 32px; }
+      .hero-visual { min-height: 430px; }
+      .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .experience-grid { gap: 40px; }
+      .nav-links { gap: 18px; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: calc(100% - 36px); }
+      .announcement { font-size: 9px; letter-spacing: 1px; }
+      .navbar { height: 70px; }
+      .menu-toggle { display: grid; place-items: center; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 69px;
+        left: 0;
+        right: 0;
+        padding: 22px 24px 26px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links .nav-cta {
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      .hero { padding: 42px 0 48px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero h1 { max-width: 520px; font-size: clamp(46px, 12vw, 68px); }
+      .hero-description { font-size: 13px; }
+      .hero-visual { min-height: 400px; }
+      .hero-label h2 { font-size: 24px; }
+      .open-badge { font-size: 9px; }
+
+      .strip-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px 14px;
+      }
+
+      .strip-divider { display: none; }
+      .strip-item { font-size: 10px; }
+      .strip-number { font-size: 23px; }
+
+      .section { padding: 70px 0; }
+      .section-heading { align-items: start; flex-direction: column; gap: 14px; }
+      .section-heading h2 { font-size: 38px; }
+      .section-heading p { font-size: 12px; }
+      .menu-grid { gap: 12px; }
+      .menu-photo { aspect-ratio: 1 / .9; }
+      .menu-info { padding: 13px 12px 15px; }
+      .menu-info h3 { font-size: 17px; }
+      .menu-info p { font-size: 10px; }
+      .menu-price { font-size: 12px; }
+      .menu-tag { top: 8px; left: 8px; font-size: 8px; }
+
+      .experience { padding: 65px 0; }
+      .experience-grid { grid-template-columns: 1fr; gap: 34px; }
+      .experience-image { height: 360px; }
+      .experience-copy h2 { font-size: 42px; }
+
+      .quote-section { padding: 65px 18px; }
+      .visit { padding: 60px 0; }
+      .visit-grid { grid-template-columns: 1fr; gap: 25px; }
+      .visit h2 { font-size: 43px; }
+      .visit .button { justify-self: start; }
+
+      .footer-top, .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links { gap: 15px; }
+    }
+
+    @media (max-width: 380px) {
+      .container { width: calc(100% - 28px); }
+      .brand-name { font-size: 22px; }
+      .hero-actions .button { padding: 0 14px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-photo { aspect-ratio: 1.5 / 1; }
+      .menu-info p { min-height: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    Buka setiap hari · <span>16.00 — 00.00 WIB</span> · Mampir sebentar, pulang bawa cerita
+  </div>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#beranda" aria-label="SENJA beranda">
+        <span class="brand-mark">S.</span>
+        <span>
+          <span class="brand-name">SENJA</span>
+          <span class="brand-caption">Kopi, nasi, dan cerita</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a>
+        <a href="#menu">Menu</a>
+        <a href="#cerita">Tentang Kami</a>
+        <a href="#lokasi">Lokasi</a>
+        <a class="nav-cta" href="#menu">Lihat Menu ↗</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Angkringan rasa masa kini</div>
+          <h1>Yang dicari bukan cuma <em>kopi.</em></h1>
+          <p class="hero-description">
+            Ada nasi kucing hangat, sate yang baru dibakar,
+            kopi favorit, dan obrolan yang nggak terasa sampai malam.
+            Semua punya tempat di sini.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#menu">Jelajahi Menu <span>↗</span></a>
+            <a class="button secondary" href="#cerita">Kenalan dengan SENJA</a>
+          </div>
+
+          <div class="hero-note">
+            <div class="avatar-stack" aria-hidden="true">
+              <span>AR</span><span>DI</span><span>NA</span><span>+</span>
+            </div>
+            <span><strong>Tempat pulang kedua.</strong><br>Datang sendiri, pulang kenal banyak orang.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85"
+            alt="Suasana tempat makan yang hangat untuk berkumpul"
+            fetchpriority="high"
+          >
+          <div class="hero-label">
+            <div>
+              <small>Tempat nongkrong, setiap hari</small>
+              <h2>Pelan-pelan, nikmati malam.</h2>
+            </div>
+            <div class="open-badge">16.00 — 00.00</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand-strip" aria-label="Keunggulan SENJA">
+      <div class="container strip-inner">
+        <div class="strip-item"><span class="strip-number">01</span><span>Kopi racikan<br>setiap hari</span></div>
+        <div class="strip-divider"></div>
+        <div class="strip-item"><span class="strip-number">02</span><span>Angkringan<br>harga bersahabat</span></div>
+        <div class="strip-divider"></div>
+        <div class="strip-item"><span class="strip-number">03</span><span>Ruang nyaman<br>buat cerita</span></div>
+        <div class="strip-divider"></div>
+        <div class="strip-item"><span class="strip-number">04</span><span>Buka sampai<br>tengah malam</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Dari dapur SENJA</div>
+            <h2>Teman ngobrol yang<br>selalu bikin kangen.</h2>
+          </div>
+          <p>Dari tegukan kopi pertama sampai sate terakhir. Pilih favoritmu, pesan secukupnya, nikmati selagi hangat.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter kategori menu">
+          <button class="filter-btn active" data-filter="semua" aria-pressed="true">Semua Menu</button>
+          <button class="filter-btn" data-filter="kopi" aria-pressed="false">Kopi & Minuman</button>
+          <button class="filter-btn" data-filter="angkringan" aria-pressed="false">Angkringan</button>
+          <button class="filter-btn" data-filter="camilan" aria-pressed="false">Camilan</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+          <article class="menu-card" data-category="kopi">
+            <div class="menu-photo">
+              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Es kopi susu dalam gelas" loading="lazy">
+              <span class="menu-tag">Favorit</span>
+            </div>
+            <div class="menu-info">
+              <div class="menu-category">Kopi & Minuman</div>
+              <h3>Es Kopi Senja</h3>
+              <p>Espresso, susu creamy, dan gula aren dengan rasa seimbang.</p>
+              <div class="menu-price"><span>Rp18.000</span><small>250 ml</small></div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="angkringan">
+            <div class="menu-photo">
+              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80" alt="Hidangan gurih yang cocok untuk makan bersama" loading="lazy">
+              <span class="menu-tag">Wajib coba</span>
+            </div>
+            <div class="menu-info">
+              <div class="menu-category">Angkringan</div>
+              <h3>Nasi Kucing Sambal</h3>
+              <p>Nasi hangat dengan lauk gurih dan sambal khas rumahan.</p>
+              <div class="menu-price"><span>Rp5.000</span><small>per bungkus</small></div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="angkringan">
+            <div class="menu-photo">
+              <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=700&q=80" alt="Sate panggang dengan bumbu" loading="lazy">
+              <span class="menu-tag">Baru dibakar</span>
+            </div>
+            <div class="menu-info">
+              <div class="menu-category">Angkringan</div>
+              <h3>Sate-satean</h3>
+              <p>Pilihan sate gurih yang dibakar saat dipesan.</p>
+              <div class="menu-price"><span>Rp3.000</span><small>mulai dari</small></div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="camilan">
+            <div class="menu-photo">
+              <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80" alt="Camilan renyah untuk teman minum kopi" loading="lazy">
+            </div>
+            <div class="menu-info">
+              <div class="menu-category">Camilan</div>
+              <h3>Gorengan Hangat</h3>
+              <p>Tempe, tahu, dan bakwan renyah untuk menemani obrolan.</p>
+              <div class="menu-price"><span>Rp2.000</span><small>per buah</small></div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="kopi">
+            <div class="menu-photo">
+              <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80" alt="Kopi hitam hangat di atas meja" loading="lazy">
+            </div>
+            <div class="menu-info">
+              <div class="menu-category">Kopi & Minuman</div>
+              <h3>Kopi Tubruk</h3>
+              <p>Kopi hitam sederhana dengan aroma yang akrab.</p>
+              <div class="menu-price"><span>Rp10.000</span><small>per cangkir</small></div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="camilan">
+            <div class="menu-photo">
+              <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80" alt="Kentang goreng untuk camilan" loading="lazy">
+            </div>
+            <div class="menu-info">
+              <div class="menu-category">Camilan</div>
+              <h3>Kentang Goreng</h3>
+              <p>Kentang renyah dengan pilihan saus untuk dinikmati bareng.</p>
+              <div class="menu-price"><span>Rp15.000</span><small>per porsi</small></div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="kopi">
+            <div class="menu-photo">
+              <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=700&q=80" alt="Minuman dingin untuk sore hari" loading="lazy">
+            </div>
+            <div class="menu-info">
+              <div class="menu-category">Kopi & Minuman</div>
+              <h3>Es Teh Kampung</h3>
+              <p>Teh wangi, dingin, dan pas untuk menemani menu apa saja.</p>
+              <div class="menu-price"><span>Rp6.000</span><small>per gelas</small></div>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="angkringan">
+            <div class="menu-photo">
+              <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80" alt="Semangkuk mi hangat dengan topping" loading="lazy">
+              <span class="menu-tag">Comfort food</span>
+            </div>
+            <div class="menu-info">
+              <div class="menu-category">Angkringan</div>
+              <h3>Mi Nyemek</h3>
+              <p>Mi hangat berkuah sedikit dengan bumbu gurih dan topping.</p>
+              <div class="menu-price"><span>Rp14.000</span><small>per porsi</small></div>
+            </div>
+          </article>
+        </div>
+
+        <p class="menu-footer">
+          Harga dan menu di atas merupakan contoh untuk template.<br>
+          Silakan sesuaikan dengan menu asli tempat usahamu.
+        </p>
+      </div>
+    </section>
+
+    <section class="experience" id="cerita">
+      <div class="container experience-grid">
+        <img
+          class="experience-image"
+          src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=85"
+          alt="Interior tempat makan dengan suasana hangat"
+          loading="lazy"
+        >
+
+        <div class="experience-copy">
+          <div class="eyebrow">Bukan sekadar tempat makan</div>
+          <h2>Datang karena lapar. Betah karena suasana.</h2>
+          <p>
+            SENJA membawa kesederhanaan angkringan ke ruang nongkrong
+            yang lebih nyaman. Tetap akrab, tetap terjangkau, tanpa
+            kehilangan rasa lokal yang kita kenal sejak dulu.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature">
+              <div class="feature-number">01</div>
+              <div>
+                <h3>Rasa lokal, selalu dekat</h3>
+                <p>Menu sehari-hari yang familiar dan cocok dinikmati kapan saja.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-number">02</div>
+              <div>
+                <h3>Ruang untuk semua cerita</h3>
+                <p>Pas untuk mengerjakan tugas, ketemu teman, atau rehat setelah hari panjang.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-number">03</div>
+              <div>
+                <h3>Harga tetap bersahabat</h3>
+                <p>Nongkrong nyaman nggak harus menunggu tanggal muda.</p>
+              </div>
+            </div>
+          </div>
+
+          <a class="button" href="#lokasi">Temukan SENJA ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="container">
+        <div class="quote-mark">“</div>
+        <blockquote>
+          Beberapa cerita terbaik dimulai dari pertanyaan sederhana:
+          “Nongkrong di mana malam ini?”
+        </blockquote>
+        <p>SENJA — Kopi, nasi, dan cerita.</p>
+      </div>
+    </section>
+
+    <section class="visit" id="lokasi">
+      <div class="container visit-grid">
+        <div>
+          <div class="eyebrow">Meja kamu sudah menunggu</div>
+          <h2>Malam ini, jangan buru-buru pulang.</h2>
+          <p>
+            Ajak teman, pesan kopi favorit, dan biarkan obrolan berjalan.
+            Kami tunggu di SENJA.
+          </p>
+        </div>
+        <a
+          class="button"
+          href="https://wa.me/6285219583336?text=Halo%20SENJA,%20mau%20tanya%20menu%20dan%20lokasi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Chat WhatsApp / Lokasi ↗
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand footer-brand" href="#beranda">
+          <span class="brand-mark">S.</span>
+          <span>
+            <span class="brand-name">SENJA</span>
+            <span class="brand-caption">Kopi, nasi, dan cerita</span>
+          </span>
+        </a>
+
+        <div class="footer-links">
+          <a href="#beranda">Beranda</a>
+          <a href="#menu">Menu</a>
+          <a href="#cerita">Tentang</a>
+          <a href="#lokasi">Lokasi</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> SENJA. Dibuat untuk menikmati hal sederhana.</span>
+        <span>Template konsep café & angkringan.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup navigasi" : "Buka navigasi"
+      );
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // Close navigation after selecting a link
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka navigasi");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Interactive menu category filter
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const menuCards = document.querySelectorAll(".menu-card");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedCategory = button.dataset.filter;
+
+        filterButtons.forEach((item) => {
+          const isActive = item === button;
+          item.classList.toggle("active", isActive);
+          item.setAttribute("aria-pressed", String(isActive));
+        });
+
+        menuCards.forEach((card) => {
+          const shouldShow =
+            selectedCategory === "semua" ||
+            card.dataset.category === selectedCategory;
+
+          card.hidden = !shouldShow;
+        });
+      });
+    });
+
+    // Automatically update copyright year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

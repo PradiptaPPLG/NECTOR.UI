@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Levain — Artisan Sourdough Bakery & Pastry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-stone: #FFFDF9;
+      --crust-brown: #3C2415;
+      --golden-bake: #D97706;
+      --flour-cream: #FAF4E8;
+      --line-subtle: #EDE4D3;
+      --text-muted: #786B5F;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-stone);
+      color: var(--crust-brown);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-stone);
+      border-bottom: 1px solid var(--line-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .brand-mark {
+      font-family: 'Newsreader', serif;
+      font-size: 22px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--crust-brown);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-kicker {
+      font-size: 10px;
+      font-family: monospace;
+      color: var(--golden-bake);
+      letter-spacing: 0.1em;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--crust-brown);
+      text-decoration: none;
+    }
+
+    .btn-preorder {
+      background-color: var(--crust-brown);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 150ms ease;
+    }
+
+    .btn-preorder:hover {
+      background-color: var(--golden-bake);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0 50px;
+      border-bottom: 1px solid var(--line-subtle);
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .kicker {
+      font-size: 11px;
+      font-family: monospace;
+      letter-spacing: 0.08em;
+      color: var(--golden-bake);
+      background: var(--flour-cream);
+      border: 1px solid var(--line-subtle);
+      padding: 3px 8px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: 'Newsreader', serif;
+      font-size: clamp(2rem, 3.6vw, 2.9rem);
+      font-weight: 600;
+      line-height: 1.18;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      max-width: 480px;
+    }
+
+    .hero-img-box {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--line-subtle);
+      box-shadow: 0 8px 24px -4px rgba(60, 36, 21, 0.1);
+    }
+
+    .hero-img-box img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Oven Drop Schedule */
+    .schedule-bar {
+      background: var(--flour-cream);
+      border: 1px solid var(--line-subtle);
+      border-radius: 6px;
+      padding: 24px 28px;
+      margin: 40px 0 60px;
+    }
+
+    .schedule-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line-subtle);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .schedule-head h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 20px;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .sched-item {
+      background: #FFFFFF;
+      border: 1px solid var(--line-subtle);
+      border-radius: 4px;
+      padding: 14px;
+    }
+
+    .sched-time {
+      font-family: monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--golden-bake);
+      margin-bottom: 4px;
+    }
+
+    .sched-name {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .sched-badge {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: monospace;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* Pastry Grid */
+    .pastry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .pastry-card {
+      background: #FFFFFF;
+      border: 1px solid var(--line-subtle);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pastry-img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .pastry-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .pastry-title {
+      font-family: 'Newsreader', serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .pastry-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .pastry-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--line-subtle);
+      padding-top: 10px;
+    }
+
+    .pastry-price {
+      font-family: monospace;
+      font-weight: 700;
+      color: var(--golden-bake);
+    }
+
+    .btn-card-order {
+      background: var(--crust-brown);
+      color: #FFF;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+
+    footer {
+      border-top: 1px solid var(--line-subtle);
+      padding: 30px 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .hero-split, .schedule-grid, .pastry-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-row">
+      <a href="#" class="brand-mark">
+        MAISON LEVAIN
+        <span class="brand-kicker">ARTISAN BOULANGERIE · JAKARTA</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#jadwal">Jadwal Roti Hangat</a>
+        <a href="#pastry">Menu Pastry</a>
+        <a href="#lokasi">Lokasi Toko</a>
+      </nav>
+      <a href="https://wa.me/6285219583336?text=Halo%20Maison%20Levain,%20saya%20mau%20pre-order%20roti%20sourdough%20/%20pastry" target="_blank" class="btn-preorder">
+        Pre-Order WhatsApp →
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-split">
+      <div>
+        <span class="kicker">FERMENTASI ALAMI 36 JAM</span>
+        <h1>Roti Sourdough Murni & Pastry Mentega Prancis.</h1>
+        <p>
+          Dibuat setiap subuh menggunakan ragi liar murni (wild levain), tepung gandum non-bleached, dan mentega fermentasi AOP Charentes-Poitou. Renyah di luar, kenyal berpori di dalam.
+        </p>
+        <a href="#jadwal" class="btn-preorder">Lihat Jam Roti Keluar Oven</a>
+      </div>
+      <div class="hero-img-box">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Fresh Baked Artisan Bread">
+      </div>
+    </div>
+  </section>
+
+  <!-- Drop Schedule -->
+  <section class="container" id="jadwal">
+    <div class="schedule-bar">
+      <div class="schedule-head">
+        <div>
+          <h3>Jadwal Roti Keluar Oven (Bake Schedule)</h3>
+          <p style="font-size: 12px; color: var(--text-muted);">Datang tepat waktu untuk menikmati sensasi hangat renyah sempurna.</p>
+        </div>
+        <span style="font-size: 11px; font-family: monospace; color: var(--golden-bake);">● SETIAP SELASA — MINGGU</span>
+      </div>
+      <div class="schedule-grid">
+        <div class="sched-item">
+          <div class="sched-time">07:00 WIB</div>
+          <div class="sched-name">Country Sourdough</div>
+          <span class="sched-badge">BATANG UTAMA · CRUST TEBAL</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-time">08:30 WIB</div>
+          <div class="sched-name">Classic Butter Croissant</div>
+          <span class="sched-badge">24 LAPISAN BUTTER AOP</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-time">09:30 WIB</div>
+          <div class="sched-name">Pain au Chocolat</div>
+          <span class="sched-badge">VALRHONA DARK CHOCOLATE 66%</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-time">11:00 WIB</div>
+          <div class="sched-name">Rosemary Sea Salt Focaccia</div>
+          <span class="sched-badge">EXTRA VIRGIN OLIVE OIL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pastry Menu Grid -->
+  <section class="container" id="pastry">
+    <div style="text-align: center; margin-bottom: 36px;">
+      <h2 style="font-family: 'Newsreader', serif; font-size: 28px; margin-bottom: 6px;">Koleksi Pastry & Viennoiserie</h2>
+      <p style="font-size: 13px; color: var(--text-muted);">Pesan satuan atau hampers box berisi 4-6 buah untuk orang tersayang.</p>
+    </div>
+
+    <div class="pastry-grid">
+      <div class="pastry-card">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Croissant" class="pastry-img">
+        <div class="pastry-body">
+          <div>
+            <h4 class="pastry-title">Traditional Butter Croissant</h4>
+            <p class="pastry-desc">Honeycomb crumb berongga sempurna, renyah rapuh dengan rasa mentega susu gurih yang lumer di lidah.</p>
+          </div>
+          <div class="pastry-foot">
+            <span class="pastry-price">Rp 26.000</span>
+            <a href="https://wa.me/6285219583336?text=Pesan%20Butter%20Croissant" target="_blank" class="btn-card-order">Pesan</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pastry-card">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=600&q=80" alt="Sourdough Loaf" class="pastry-img">
+        <div class="pastry-body">
+          <div>
+            <h4 class="pastry-title">Classic Country Sourdough Loaf</h4>
+            <p class="pastry-desc">Berat 750g. Fermentasi dingin 36 jam. Ramah pencernaan dengan asam karamel yang seimbang.</p>
+          </div>
+          <div class="pastry-foot">
+            <span class="pastry-price">Rp 48.000</span>
+            <a href="https://wa.me/6285219583336?text=Pesan%20Country%20Sourdough" target="_blank" class="btn-card-order">Pesan</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pastry-card">
+        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=600&q=80" alt="Almond Croissant" class="pastry-img">
+        <div class="pastry-body">
+          <div>
+            <h4 class="pastry-title">Double Baked Almond Croissant</h4>
+            <p class="pastry-desc">Diisi frangipane almond manis lembut, dipanggang dua kali dengan taburan kacang almond renyah.</p>
+          </div>
+          <div class="pastry-foot">
+            <span class="pastry-price">Rp 34.000</span>
+            <a href="https://wa.me/6285219583336?text=Pesan%20Almond%20Croissant" target="_blank" class="btn-card-order">Pesan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Maison Levain Boulangerie. Jl. Cipete Raya No. 28, Jakarta Selatan.</p>
+      <p style="font-family: monospace; font-size: 11px; margin-top: 4px;">NECTOR.UI TEMPLATE SHOWCASE · STATUS: PRODUCTION-READY</p>
+    </div>
+  </footer>
+
+</body>
+</html>

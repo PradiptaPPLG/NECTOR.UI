@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#7A1F2B">
+  <title>Raso Mandeh — Dashboard Etalase & POS Rumah Makan Padang</title>
+  <meta name="description" content="Dashboard Etalase Menu dan Point of Sale (POS) Rumah Makan Padang Raso Mandeh. Autentik Minangkabau sejak 1950.">
+
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --marun: #7A1F2B;
+      --marun-dark: #58141e;
+      --marun-light: #9a2a38;
+      --marun-subtle: #fdf2f4;
+      --gold: #C9A227;
+      --gold-dark: #a6841c;
+      --gold-light: #fef8e7;
+      --paper: #F5EFE2;
+      --card-bg: #FFFFFF;
+      --charcoal: #241B16;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --border-gold: rgba(201, 162, 39, 0.28);
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: #f1ede4;
+      color: var(--charcoal);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #dcd4c5; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #b8ac96; }
+
+    /* Layout Wrapper */
+    .pos-wrapper {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      background: #f4efe6;
+    }
+
+    /* Left Pane: Menu Showcase & Categories */
+    .pos-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: #faf7f2;
+      position: relative;
+      border-right: 1px solid #e5dccf;
+    }
+
+    /* Header Bar */
+    .pos-header {
+      height: 70px;
+      background: #ffffff;
+      border-bottom: 1px solid #e7dfd2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--marun) 0%, var(--marun-dark) 100%);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(122, 31, 43, 0.25);
+      border: 1px solid rgba(201, 162, 39, 0.4);
+    }
+
+    .brand-info h1 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--marun);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .brand-info p {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    /* Top Right Controls */
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .search-box {
+      position: relative;
+      width: 320px;
+    }
+
+    .search-box input {
+      width: 100%;
+      height: 42px;
+      padding: 0 16px 0 40px;
+      border-radius: 10px;
+      border: 1px solid #ded5c7;
+      background: #fbf9f5;
+      font-size: 13px;
+      color: var(--charcoal);
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-box input:focus {
+      background: #ffffff;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      pointer-events: none;
+    }
+
+    .branch-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--gold-light);
+      border: 1px solid rgba(201, 162, 39, 0.35);
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #6d550f;
+    }
+
+    .branch-pill .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    /* Category Filter Strip */
+    .category-strip {
+      background: #ffffff;
+      border-bottom: 1px solid #e7dfd2;
+      padding: 12px 24px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      flex-shrink: 0;
+    }
+
+    .cat-btn {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid #ded6c9;
+      background: #faf7f2;
+      color: #475569;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cat-btn:hover {
+      border-color: var(--gold);
+      color: var(--marun);
+      background: #ffffff;
+    }
+
+    .cat-btn.active {
+      background: var(--marun);
+      color: #ffffff;
+      border-color: var(--marun);
+      box-shadow: 0 4px 12px rgba(122, 31, 43, 0.22);
+    }
+
+    /* Etalase Grid */
+    .etalase-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .etalase-banner {
+      background: linear-gradient(100deg, var(--marun) 0%, #4a1018 100%);
+      border-radius: 18px;
+      padding: 22px 28px;
+      color: #ffffff;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      box-shadow: 0 8px 24px rgba(122, 31, 43, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .etalase-banner::after {
+      content: "✦";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 120px;
+      color: rgba(201, 162, 39, 0.08);
+      font-family: var(--font-serif);
+      pointer-events: none;
+    }
+
+    .etalase-banner h2 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #fff9ed;
+    }
+
+    .etalase-banner p {
+      font-size: 13px;
+      color: #f1ded0;
+      max-width: 540px;
+      line-height: 1.5;
+    }
+
+    .banner-badge {
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      white-space: nowrap;
+    }
+
+    /* Grid of Dishes */
+    .dish-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 18px;
+      padding-bottom: 40px;
+    }
+
+    .dish-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #e7ded2;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .dish-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(36, 27, 22, 0.09);
+      border-color: var(--gold);
+    }
+
+    .dish-photo-wrap {
+      height: 145px;
+      position: relative;
+      background: #ece3d3;
+      overflow: hidden;
+    }
+
+    .dish-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .dish-card:hover .dish-photo-wrap img {
+      transform: scale(1.07);
+    }
+
+    .tag-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .tag-signature {
+      background: var(--marun);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .tag-favorit {
+      background: var(--gold);
+      color: var(--charcoal);
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .rating-pill {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #b45309;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .dish-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .dish-cat-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--gold-dark);
+      margin-bottom: 4px;
+    }
+
+    .dish-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.25;
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .dish-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .dish-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f1ece1;
+      padding-top: 12px;
+      margin-top: auto;
+    }
+
+    .dish-price {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--marun);
+    }
+
+    .dish-add-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--paper);
+      border: 1px solid #ded6c8;
+      color: var(--marun);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dish-card:hover .dish-add-btn {
+      background: var(--marun);
+      color: #ffffff;
+      border-color: var(--marun);
+    }
+
+    /* RIGHT COLUMN: ORDER CART & CHECKOUT */
+    .pos-cart-panel {
+      width: 380px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid #e5dccf;
+      flex-shrink: 0;
+      box-shadow: -4px 0 20px rgba(36, 27, 22, 0.04);
+      z-index: 20;
+    }
+
+    .cart-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #eee7db;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+    }
+
+    .cart-header h2 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .cart-badge-count {
+      background: var(--marun-subtle);
+      color: var(--marun);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(122, 31, 43, 0.15);
+    }
+
+    /* Mode Tabs: Walk-in vs Scan */
+    .cart-tabs {
+      display: flex;
+      padding: 6px 16px;
+      background: #f7f3eb;
+      gap: 6px;
+      border-bottom: 1px solid #ede4d6;
+    }
+
+    .cart-tab-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .cart-tab-btn.active {
+      background: #ffffff;
+      color: var(--marun);
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* Customer Form in Cart */
+    .cart-cust-form {
+      padding: 14px 18px;
+      background: #ffffff;
+      border-bottom: 1px solid #f0e9dd;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid #e2d9cc;
+      background: #fbf9f5;
+      padding: 0 12px;
+      font-size: 12px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .form-input:focus {
+      background: #ffffff;
+      border-color: var(--gold);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .form-select {
+      flex: 1;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid #e2d9cc;
+      background: #fbf9f5;
+      padding: 0 10px;
+      font-size: 12px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .table-picker-btn {
+      padding: 0 14px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid #e2d9cc;
+      background: #fbf9f5;
+      color: var(--charcoal);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .table-picker-btn.has-table {
+      background: var(--gold-light);
+      border-color: var(--gold);
+      color: #785e13;
+    }
+
+    /* Cart Items Scroll Area */
+    .cart-items-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #faf7f2;
+    }
+
+    .cart-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 40px 20px;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    .cart-empty-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #eee7db;
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .cart-empty p {
+      font-size: 13px;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    .cart-item-card {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e8e0d4;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .cart-item-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #eee7db;
+      flex-shrink: 0;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cart-item-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--charcoal);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 2px;
+    }
+
+    .cart-item-price {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold-dark);
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f4efe6;
+      border-radius: 8px;
+      padding: 2px;
+      border: 1px solid #e5dcce;
+    }
+
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: #ffffff;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--charcoal);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 0.15s;
+    }
+
+    .qty-btn:hover {
+      background: var(--marun);
+      color: #ffffff;
+    }
+
+    .qty-num {
+      width: 22px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* Cart Summary & Footer */
+    .cart-footer {
+      background: #ffffff;
+      border-top: 1px solid #ebd9c5;
+      padding: 18px 20px;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.04);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 8px;
+      border-top: 1px dashed #e2d7c7;
+      margin-bottom: 14px;
+    }
+
+    .summary-total span:first-child {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #64748b;
+    }
+
+    .summary-total-price {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--marun);
+    }
+
+    .btn-checkout {
+      width: 100%;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--marun) 0%, var(--marun-dark) 100%);
+      border: none;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(122, 31, 43, 0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-checkout:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(122, 31, 43, 0.45);
+    }
+
+    .btn-clear-cart {
+      margin-top: 8px;
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: underline;
+    }
+
+    .btn-clear-cart:hover {
+      color: #ef4444;
+    }
+
+    /* Table Picker Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 10, 8, 0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      place-items: center;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: grid;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 580px;
+      border-radius: 20px;
+      border: 1px solid #ebd9c5;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-head {
+      padding: 18px 24px;
+      border-bottom: 1px solid #eee7db;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #faf7f2;
+    }
+
+    .modal-head h3 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--marun);
+    }
+
+    .modal-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #e2d9cc;
+      cursor: pointer;
+      font-size: 16px;
+      display: grid;
+      place-items: center;
+      color: #64748b;
+    }
+
+    .tables-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding: 24px;
+      max-height: 420px;
+      overflow-y: auto;
+    }
+
+    .table-box {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      border: 2px solid #e7ded2;
+      background: #faf7f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .table-box.available {
+      background: #fdfbf7;
+      border-color: rgba(201, 162, 39, 0.4);
+    }
+
+    .table-box.available:hover {
+      background: var(--gold-light);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .table-box.selected {
+      background: var(--marun-subtle);
+      border-color: var(--marun);
+      box-shadow: 0 0 0 3px rgba(122, 31, 43, 0.2);
+    }
+
+    .table-box.occupied {
+      background: #fee2e2;
+      border-color: #fca5a5;
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .table-box.reserved {
+      background: #fef3c7;
+      border-color: #fcd34d;
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .table-number {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-bottom: 2px;
+    }
+
+    .table-status {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .table-status.st-avail { background: #dcfce7; color: #15803d; }
+    .table-status.st-occ { background: #fecaca; color: #b91c1c; }
+    .table-status.st-res { background: #fde68a; color: #b45309; }
+
+    .modal-foot {
+      padding: 14px 24px;
+      background: #faf7f2;
+      border-top: 1px solid #eee7db;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Toast Notification */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: var(--charcoal);
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      border: 1px solid rgba(201, 162, 39, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Success Checkout Overlay */
+    .success-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 10, 8, 0.65);
+      backdrop-filter: blur(6px);
+      display: none;
+      place-items: center;
+      z-index: 200;
+      padding: 20px;
+    }
+
+    .success-overlay.active {
+      display: grid;
+    }
+
+    .success-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 36px 32px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+      border: 1px solid #eee5d8;
+      animation: modalFadeIn 0.25s ease-out;
+    }
+
+    .success-icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #dcfce7;
+      color: #16a34a;
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+      margin: 0 auto 18px;
+      box-shadow: 0 0 0 8px #f0fdf4;
+    }
+
+    .success-card h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .success-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .order-ticket-preview {
+      background: #faf7f2;
+      border: 1px dashed #dcd3c5;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 24px;
+      text-align: left;
+      font-size: 12px;
+    }
+
+    .ticket-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      body, .pos-wrapper {
+        overflow-y: auto;
+        height: auto;
+        flex-direction: column;
+      }
+      .pos-main { border-right: none; }
+      .pos-cart-panel {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #e5dccf;
+      }
+      .dish-grid { grid-template-columns: repeat(2, 1fr); }
+      .search-box { width: 180px; }
+      .tables-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .dish-grid { grid-template-columns: 1fr; }
+      .pos-header { padding: 0 16px; }
+      .search-box { display: none; }
+      .etalase-container { padding: 16px; }
+      .tables-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pos-wrapper">
+
+    <!-- LEFT MAIN: MENU & ETALASE -->
+    <main class="pos-main">
+      
+      <!-- Top Navigation -->
+      <header class="pos-header">
+        <div class="brand-section">
+          <div class="brand-badge">RM</div>
+          <div class="brand-info">
+            <h1>RASO MANDEH</h1>
+            <p>Etalase Masakan Minang &bull; Sejak 1950</p>
+          </div>
+        </div>
+
+        <div class="header-controls">
+          <div class="search-box">
+            <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Cari rendang, ayam pop, kakap...">
+          </div>
+
+          <div class="branch-pill">
+            <span class="dot"></span>
+            <span id="activeBranchText">Cabang Senopati, Jaksel</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Category Navigation -->
+      <nav class="category-strip" id="categoryStrip">
+        <button class="cat-btn active" data-category="all">✨ Semua Lauk</button>
+        <button class="cat-btn" data-category="daging">🥩 Daging Sapi</button>
+        <button class="cat-btn" data-category="ayam">🍗 Ayam & Olahan</button>
+        <button class="cat-btn" data-category="ikan">🐟 Ikan & Gulai</button>
+        <button class="cat-btn" data-category="sayur">🥬 Sayur & Sambal</button>
+        <button class="cat-btn" data-category="topping">🍲 Pelengkap</button>
+        <button class="cat-btn" data-category="minuman">🍹 Minuman Segar</button>
+      </nav>
+
+      <!-- Dishes Showcase -->
+      <div class="etalase-container">
+        
+        <!-- Minang Gonjong Banner -->
+        <div class="etalase-banner">
+          <div>
+            <h2>Etalase Hidangan Autentik Minangkabau</h2>
+            <p>Dimasak segar setiap subuh menggunakan santan kelapa murni, cabai merah keriting Payakumbuh, dan racikan rempah keluarga selama 73 tahun.</p>
+          </div>
+          <div class="banner-badge">50+ Hidangan Hari Ini</div>
+        </div>
+
+        <!-- Dishes Grid -->
+        <div class="dish-grid" id="dishGrid">
+          <!-- Rendered via JS -->
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- RIGHT PANEL: CART & CHECKOUT -->
+    <aside class="pos-cart-panel">
+      
+      <!-- Cart Header -->
+      <div class="cart-header">
+        <h2>Pesanan Pelanggan</h2>
+        <span class="cart-badge-count" id="cartCountBadge">0 Menu</span>
+      </div>
+
+      <!-- Mode Tabs -->
+      <div class="cart-tabs">
+        <button class="cart-tab-btn active" id="tabWalkin" onclick="switchOrderMode('walkin')">
+          🛍️ Walk-in Kasir
+        </button>
+        <button class="cart-tab-btn" id="tabScan" onclick="switchOrderMode('scan')">
+          📱 Scan QR Web
+        </button>
+      </div>
+
+      <!-- Customer Form -->
+      <div class="cart-cust-form">
+        <input type="text" id="custNameInput" class="form-input" placeholder="Nama Pelanggan / Atas Nama (mis: Budi)">
+        
+        <div class="form-row">
+          <select id="serviceTypeSelect" class="form-select" onchange="handleServiceTypeChange()">
+            <option value="dine-in">Dine-in (Makan Sini)</option>
+            <option value="takeaway">Takeaway (Bungkus)</option>
+          </select>
+
+          <button type="button" class="table-picker-btn" id="tablePickerBtn" onclick="openTableModal()">
+            🪑 <span id="tablePickerText">Pilih Meja</span>
+          </button>
+        </div>
+
+        <select id="branchSelect" class="form-select" onchange="handleBranchChange()">
+          <option value="1">Raso Mandeh — Senopati (Jakarta Selatan)</option>
+          <option value="2">Raso Mandeh — Riau (Bandung)</option>
+          <option value="3">Raso Mandeh — Manyar (Surabaya)</option>
+          <option value="4">Raso Mandeh — Pasar Atas (Bukittinggi)</option>
+        </select>
+      </div>
+
+      <!-- Scrollable Cart Items -->
+      <div class="cart-items-scroll" id="cartItemsList">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Cart Footer & Summary -->
+      <div class="cart-footer">
+        <div class="summary-row">
+          <span>Total Porsi</span>
+          <span id="summaryTotalPortions" style="font-weight:700; color:var(--charcoal);">0 Porsi</span>
+        </div>
+        <div class="summary-total">
+          <span>Total Tagihan</span>
+          <span class="summary-total-price" id="summaryTotalPrice">Rp 0</span>
+        </div>
+
+        <button class="btn-checkout" id="btnCheckout" onclick="processCheckout()">
+          <span>Konfirmasi & Cetak Pesanan</span>
+          <span>↗</span>
+        </button>
+
+        <button class="btn-clear-cart" onclick="clearCart()">Kosongkan Pesanan</button>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- TABLE PICKER MODAL -->
+  <div class="modal-overlay" id="tableModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h3>Pilih Meja Pelanggan</h3>
+          <p style="font-size:12px; color:var(--muted); margin-top:2px;">Meja tersedia untuk cabang terpilih</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeTableModal()">✕</button>
+      </div>
+
+      <div class="tables-grid" id="tablesGrid">
+        <!-- Rendered via JS -->
+      </div>
+
+      <div class="modal-foot">
+        <div style="display:flex; gap:12px; font-size:11px; color:var(--muted);">
+          <span>🟢 Kosong</span>
+          <span>🔴 Terisi</span>
+          <span>🟡 Reservasi</span>
+        </div>
+        <button type="button" style="padding:6px 14px; background:#eee7db; border:none; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer;" onclick="selectNoTable()">Batal Meja</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT SUCCESS MODAL -->
+  <div class="success-overlay" id="successModal">
+    <div class="success-card">
+      <div class="success-icon-wrap">✓</div>
+      <h3>Pesanan Berhasil Dicatat!</h3>
+      <p>Transaksi telah masuk ke sistem dapur Raso Mandeh dan siap disajikan selagi hangat.</p>
+
+      <div class="order-ticket-preview" id="orderTicketPreview">
+        <!-- Rendered via JS -->
+      </div>
+
+      <div style="display:flex; gap:10px;">
+        <button type="button" class="btn-checkout" style="flex:1;" onclick="sendToWhatsApp()">
+          📲 Kirim Bukti ke WhatsApp
+        </button>
+        <button type="button" style="padding:0 18px; height:48px; border-radius:12px; background:#eee7db; border:none; font-size:13px; font-weight:700; cursor:pointer;" onclick="closeSuccessModal()">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING TOAST -->
+  <div class="toast-box" id="toastBox">
+    <span style="color:var(--gold); font-size:16px;">✦</span>
+    <span id="toastText">Menu ditambahkan ke pesanan</span>
+  </div>
+
+  <!-- DATA & LOGIC -->
+  <script>
+    // Authentic dishes from Raso Mandeh
+    const menuItems = [
+      {
+        id: 1,
+        nama: "Rendang Daging Sapi",
+        kategori: "daging",
+        deskripsi: "Rendang daging sapi khas Payakumbuh dimasak perlahan selama 8 jam dengan kelapa kental & rempah warisan 1950.",
+        foto: "/templates/padang/menu/nasi-padang-rendang.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        badge: "Signature",
+        rating: 4.9,
+        harga: 35000,
+        stock: 24
+      },
+      {
+        id: 2,
+        nama: "Ayam Pop Istimewa",
+        kategori: "ayam",
+        deskripsi: "Ayam kampung muda dimasak air kelapa, digoreng kilat mentega, disajikan dengan sambal tomat cabe merah khas Bukittinggi.",
+        foto: "/templates/padang/menu/nasi-padang-ayam-pop.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
+        badge: "Favorit",
+        rating: 4.8,
+        harga: 32000,
+        stock: 18
+      },
+      {
+        id: 3,
+        nama: "Gulai Kepala Ikan Kakap",
+        kategori: "ikan",
+        deskripsi: "Kepala kakap merah segar dengan kuah gulai rempah kuning pekat, daun ruku-ruku, dan sensasi asam belimbing wuluh.",
+        foto: "/templates/padang/menu/nasi-padang-gulai-kepala-kakap.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80",
+        badge: "Signature",
+        rating: 4.9,
+        harga: 85000,
+        stock: 8
+      },
+      {
+        id: 4,
+        nama: "Dendeng Batokok Lado Mudo",
+        kategori: "daging",
+        deskripsi: "Daging sapi iris tipis dipipihkan lalu dipanggang arang batok dan disiram sambal lado mudo hijau harum menggiurkan.",
+        foto: "/templates/padang/menu/nasi-padang-dendeng-batokok.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        badge: "Signature",
+        rating: 4.9,
+        harga: 35000,
+        stock: 15
+      },
+      {
+        id: 5,
+        nama: "Dendeng Balado Renyah",
+        kategori: "daging",
+        deskripsi: "Daging sapi iris tipis digoreng garing lalu disiram sambal balado merah pedas manis gurih yang menggugah selera.",
+        foto: "/templates/padang/menu/nasi-padang-dendeng-balado.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        badge: "Favorit",
+        rating: 4.8,
+        harga: 35000,
+        stock: 20
+      },
+      {
+        id: 6,
+        nama: "Ayam Bakar Bumbu Padang",
+        kategori: "ayam",
+        deskripsi: "Ayam bakar dengan lumuran bumbu rempah padang yang karamelisasi wangi arang batok kelapa asli.",
+        foto: "/templates/padang/menu/nasi-padang-ayam-bakar.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=600&q=80",
+        badge: "Favorit",
+        rating: 4.8,
+        harga: 31000,
+        stock: 22
+      },
+      {
+        id: 7,
+        nama: "Ayam Gulai Santan Kuning",
+        kategori: "ayam",
+        deskripsi: "Ayam kampung dimasak dalam kuah gulai santan kelapa murni dengan rempah kuning, serai, dan daun salam.",
+        foto: "/templates/padang/menu/nasi-padang-ayam-gulai.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
+        badge: null,
+        rating: 4.7,
+        harga: 31000,
+        stock: 14
+      },
+      {
+        id: 8,
+        nama: "Ayam Goreng Lengkuas Padang",
+        kategori: "ayam",
+        deskripsi: "Ayam goreng bumbu rempah Padang, bertabur remah lengkuas gurih dan renyah di luar, juicy di dalam.",
+        foto: "/templates/padang/menu/nasi-padang-ayam-goreng.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
+        badge: null,
+        rating: 4.6,
+        harga: 31000,
+        stock: 16
+      },
+      {
+        id: 9,
+        nama: "Ikan Asam Padeh Segar",
+        kategori: "ikan",
+        deskripsi: "Ikan segar bumbu asam padeh merah pedas tanpa santan, sangat kaya rempah serai dan daun kunyit Minang.",
+        foto: "/templates/padang/menu/nasi-pasang-ikan-asam-padeh.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80",
+        badge: "Baru",
+        rating: 4.7,
+        harga: 32000,
+        stock: 10
+      },
+      {
+        id: 10,
+        nama: "Gulai Tunjang Kikil Empuk",
+        kategori: "daging",
+        deskripsi: "Kikil sapi pilihan dimasak lunak dalam kuah gulai santan kuning dengan rempah lengkap dan rasa gurih mendalam.",
+        foto: "/templates/padang/menu/nasi-padang-gulai-tunjang-kikil.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        badge: null,
+        rating: 4.7,
+        harga: 35000,
+        stock: 12
+      },
+      {
+        id: 11,
+        nama: "Gulai Tambusu (Usus Telur)",
+        kategori: "daging",
+        deskripsi: "Usus sapi diisi telur bebek dan tahu berbumbu, dimasak dalam kuah gulai santan kental khas Ranah Minang.",
+        foto: "/templates/padang/menu/nasi-padang-gulai-tambusu.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        badge: "Langka",
+        rating: 4.8,
+        harga: 32000,
+        stock: 9
+      },
+      {
+        id: 12,
+        nama: "Paru Sapi Goreng Renyah",
+        kategori: "daging",
+        deskripsi: "Paru sapi empuk direbus rempah Minang lalu diiris tipis digoreng garing kriuk, gurih nikmat tiada tara.",
+        foto: "/templates/padang/menu/nasi-padang-paru-sapi-goreng.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        badge: null,
+        rating: 4.6,
+        harga: 30000,
+        stock: 15
+      },
+      {
+        id: 13,
+        nama: "Telur Dadar Barendo Padang",
+        kategori: "topping",
+        deskripsi: "Telur dadar bebek berenda tebal dengan daun bawang dan cabai giling, renyah di tepi dan lembut di tengah.",
+        foto: "/templates/padang/menu/nasi-padang-telur-dadar.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
+        badge: "Favorit",
+        rating: 4.8,
+        harga: 8000,
+        stock: 35
+      },
+      {
+        id: 14,
+        nama: "Perkedel Kentang Minang",
+        kategori: "topping",
+        deskripsi: "Perkedel kentang tumbuk halus dengan bumbu bawang putih goreng dan celupan telur renyah.",
+        foto: "/templates/padang/menu/nasi-padang-perkedel-kentang.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
+        badge: null,
+        rating: 4.6,
+        harga: 5000,
+        stock: 40
+      },
+      {
+        id: 15,
+        nama: "Paket Sambal Ijo & Daun Singkong",
+        kategori: "sayur",
+        deskripsi: "Sambal lado mudo ulek kasar minyak kelapa dan rebusan pucuk daun singkong muda segar.",
+        foto: "/templates/padang/items/sambel-ijo-merah.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80",
+        badge: null,
+        rating: 4.7,
+        harga: 5000,
+        stock: 60
+      },
+      {
+        id: 16,
+        nama: "Gulai Nangka Cubadak",
+        kategori: "sayur",
+        deskripsi: "Gulai nangka muda khas kapau dengan santan ringan yang meresap sempurna dan harum serai.",
+        foto: "/templates/padang/items/nangka-cubadak.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80",
+        badge: null,
+        rating: 4.6,
+        harga: 5000,
+        stock: 50
+      },
+      {
+        id: 17,
+        nama: "Es Teh Manis Minang Jumbo",
+        kategori: "minuman",
+        deskripsi: "Seduhan teh wangi pekat khas Ranah Minang disajikan dingin segar pelepas dahaga.",
+        foto: "/templates/padang/items/teh-plastik.webp",
+        fallbackFoto: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80",
+        badge: "Segar",
+        rating: 4.8,
+        harga: 5000,
+        stock: 100
+      }
+    ];
+
+    // Mock tables
+    const tableList = [
+      { id: "M01", label: "Meja 01", cap: "4 Kursi", status: "available" },
+      { id: "M02", label: "Meja 02", cap: "2 Kursi", status: "occupied" },
+      { id: "M03", label: "Meja 03", cap: "4 Kursi", status: "available" },
+      { id: "M04", label: "Meja 04", cap: "6 Kursi", status: "available" },
+      { id: "M05", label: "Meja 05", cap: "4 Kursi", status: "reserved" },
+      { id: "M06", label: "Meja 06", cap: "2 Kursi", status: "available" },
+      { id: "M07", label: "Meja 07", cap: "4 Kursi", status: "available" },
+      { id: "M08", label: "Meja 08", cap: "8 Kursi (VIP)", status: "available" }
+    ];
+
+    // State
+    let cart = [];
+    let currentCategory = "all";
+    let searchQuery = "";
+    let selectedTable = "";
+    let orderMode = "walkin";
+    let lastOrderNumber = "RM-" + Math.floor(100000 + Math.random() * 900000);
+
+    // Helpers
+    function formatRupiah(num) {
+      return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        minimumFractionDigits: 0
+      }).format(num);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toastBox");
+      document.getElementById("toastText").textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    // Render Dishes
+    function renderDishes() {
+      const grid = document.getElementById("dishGrid");
+      grid.innerHTML = "";
+
+      const filtered = menuItems.filter(item => {
+        const matchCat = currentCategory === "all" || item.kategori === currentCategory;
+        const matchSearch = item.nama.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            item.deskripsi.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchCat && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align:center; padding:60px 20px; color:#94a3b8;">
+            <p style="font-size:16px; font-weight:600;">Tidak ada hidangan yang cocok dengan kata kunci.</p>
+            <p style="font-size:12px; margin-top:4px;">Coba gunakan nama lain seperti Rendang, Ayam, atau Gulai.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "dish-card";
+        card.onclick = () => addToCart(item);
+
+        let badgeHtml = "";
+        if (item.badge === "Signature") {
+          badgeHtml = `<span class="tag-badge tag-signature">Signature</span>`;
+        } else if (item.badge) {
+          badgeHtml = `<span class="tag-badge tag-favorit">${item.badge}</span>`;
+        }
+
+        card.innerHTML = `
+          <div class="dish-photo-wrap">
+            <img src="${item.foto}" alt="${item.nama}" loading="lazy" onerror="this.onerror=null;this.src='${item.fallbackFoto}'">
+            ${badgeHtml}
+            <div class="rating-pill">★ ${item.rating}</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-cat-label">${item.kategori}</div>
+            <h3 class="dish-title">${item.nama}</h3>
+            <p class="dish-desc">${item.deskripsi}</p>
+            <div class="dish-foot">
+              <span class="dish-price">${formatRupiah(item.harga)}</span>
+              <button class="dish-add-btn" aria-label="Tambah ${item.nama}">+</button>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Cart operations
+    function addToCart(dish) {
+      const found = cart.find(i => i.id === dish.id);
+      if (found) {
+        found.qty += 1;
+      } else {
+        cart.push({
+          id: dish.id,
+          nama: dish.nama,
+          harga: dish.harga,
+          foto: dish.foto,
+          fallbackFoto: dish.fallbackFoto,
+          qty: 1
+        });
+      }
+      showToast(`${dish.nama} ditambahkan ke pesanan`);
+      renderCart();
+    }
+
+    function changeCartQty(id, delta) {
+      const idx = cart.findIndex(i => i.id === id);
+      if (idx !== -1) {
+        cart[idx].qty += delta;
+        if (cart[idx].qty <= 0) {
+          cart.splice(idx, 1);
+        }
+      }
+      renderCart();
+    }
+
+    function clearCart() {
+      cart = [];
+      renderCart();
+      showToast("Keranjang telah dikosongkan");
+    }
+
+    function renderCart() {
+      const list = document.getElementById("cartItemsList");
+      const badge = document.getElementById("cartCountBadge");
+      const totalPortions = document.getElementById("summaryTotalPortions");
+      const totalPrice = document.getElementById("summaryTotalPrice");
+
+      const totalQty = cart.reduce((acc, i) => acc + i.qty, 0);
+      const totalAmount = cart.reduce((acc, i) => acc + (i.harga * i.qty), 0);
+
+      badge.textContent = `${totalQty} Menu`;
+      totalPortions.textContent = `${totalQty} Porsi`;
+      totalPrice.textContent = formatRupiah(totalAmount);
+
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div class="cart-empty">
+            <div class="cart-empty-icon">🍲</div>
+            <p>Belum ada hidangan dipilih</p>
+            <span style="font-size:11px; color:#94a3b8; margin-top:4px;">Klik pada kartu hidangan di etalase untuk memasukkan pesanan.</span>
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = "";
+      cart.forEach(item => {
+        const itemEl = document.createElement("div");
+        itemEl.className = "cart-item-card";
+        itemEl.innerHTML = `
+          <img class="cart-item-img" src="${item.foto}" alt="${item.nama}" onerror="this.onerror=null;this.src='${item.fallbackFoto}'">
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.nama}</div>
+            <div class="cart-item-price">${formatRupiah(item.harga)}</div>
+          </div>
+          <div class="cart-qty-ctrl">
+            <button class="qty-btn" onclick="event.stopPropagation(); changeCartQty(${item.id}, -1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="event.stopPropagation(); changeCartQty(${item.id}, 1)">+</button>
+          </div>
+        `;
+        list.appendChild(itemEl);
+      });
+    }
+
+    // Category Buttons
+    document.querySelectorAll(".cat-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentCategory = btn.dataset.category;
+        renderDishes();
+      });
+    });
+
+    // Search
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      searchQuery = e.target.value.trim();
+      renderDishes();
+    });
+
+    // Branch Change
+    function handleBranchChange() {
+      const sel = document.getElementById("branchSelect");
+      const text = sel.options[sel.selectedIndex].text;
+      document.getElementById("activeBranchText").textContent = text.replace("Raso Mandeh — ", "");
+      showToast("Cabang aktif: " + text);
+    }
+
+    // Service Type Change
+    function handleServiceTypeChange() {
+      const type = document.getElementById("serviceTypeSelect").value;
+      const btn = document.getElementById("tablePickerBtn");
+      if (type === "takeaway") {
+        btn.style.display = "none";
+        selectedTable = "";
+        document.getElementById("tablePickerText").textContent = "Pilih Meja";
+        btn.classList.remove("has-table");
+      } else {
+        btn.style.display = "flex";
+      }
+    }
+
+    // Switch Order Mode
+    function switchOrderMode(mode) {
+      orderMode = mode;
+      document.getElementById("tabWalkin").classList.toggle("active", mode === "walkin");
+      document.getElementById("tabScan").classList.toggle("active", mode === "scan");
+
+      if (mode === "scan") {
+        showToast("Mode Scan QR Web Aktif");
+      } else {
+        showToast("Mode Walk-in Kasir Aktif");
+      }
+    }
+
+    // Table Modal
+    function openTableModal() {
+      const modal = document.getElementById("tableModal");
+      const grid = document.getElementById("tablesGrid");
+      grid.innerHTML = "";
+
+      tableList.forEach(table => {
+        const box = document.createElement("div");
+        box.className = `table-box ${table.status} ${selectedTable === table.label ? 'selected' : ''}`;
+
+        let stLabel = "Kosong";
+        let stClass = "st-avail";
+        if (table.status === "occupied") { stLabel = "Terisi"; stClass = "st-occ"; }
+        if (table.status === "reserved") { stLabel = "Booking"; stClass = "st-res"; }
+
+        box.innerHTML = `
+          <div class="table-number">${table.label.replace("Meja ", "M-")}</div>
+          <div class="table-status ${stClass}">${stLabel}</div>
+          <span style="font-size:10px; color:#94a3b8; margin-top:4px;">${table.cap}</span>
+        `;
+
+        if (table.status === "available") {
+          box.onclick = () => {
+            selectedTable = table.label;
+            document.getElementById("tablePickerText").textContent = table.label;
+            document.getElementById("tablePickerBtn").classList.add("has-table");
+            closeTableModal();
+            showToast("Meja terpilih: " + table.label);
+          };
+        }
+
+        grid.appendChild(box);
+      });
+
+      modal.classList.add("active");
+    }
+
+    function closeTableModal() {
+      document.getElementById("tableModal").classList.remove("active");
+    }
+
+    function selectNoTable() {
+      selectedTable = "";
+      document.getElementById("tablePickerText").textContent = "Pilih Meja";
+      document.getElementById("tablePickerBtn").classList.remove("has-table");
+      closeTableModal();
+    }
+
+    // Checkout
+    function processCheckout() {
+      if (cart.length === 0) {
+        alert("Keranjang masih kosong! Silakan pilih minimal 1 hidangan masakan Padang.");
+        return;
+      }
+
+      const custName = document.getElementById("custNameInput").value.trim() || "Pelanggan";
+      const serviceType = document.getElementById("serviceTypeSelect").value;
+      const branchName = document.getElementById("branchSelect").options[document.getElementById("branchSelect").selectedIndex].text;
+      const totalAmount = cart.reduce((acc, i) => acc + (i.harga * i.qty), 0);
+      const totalQty = cart.reduce((acc, i) => acc + i.qty, 0);
+
+      lastOrderNumber = "RM-" + Math.floor(100000 + Math.random() * 900000);
+
+      const ticket = document.getElementById("orderTicketPreview");
+      ticket.innerHTML = `
+        <div class="ticket-row"><strong>No. Pesanan:</strong> <span>${lastOrderNumber}</span></div>
+        <div class="ticket-row"><strong>Pelanggan:</strong> <span>${custName}</span></div>
+        <div class="ticket-row"><strong>Layanan:</strong> <span style="text-transform:capitalize;">${serviceType} ${selectedTable ? '(' + selectedTable + ')' : ''}</span></div>
+        <div class="ticket-row"><strong>Cabang:</strong> <span>${branchName}</span></div>
+        <div style="border-top:1px dashed #dcd3c5; margin:10px 0;"></div>
+        <div style="margin-bottom:8px; font-weight:700;">Daftar Lauk:</div>
+        ${cart.map(i => `
+          <div class="ticket-row" style="color:#475569;">
+            <span>${i.qty}x ${i.nama}</span>
+            <span>${formatRupiah(i.harga * i.qty)}</span>
+          </div>
+        `).join("")}
+        <div style="border-top:1px dashed #dcd3c5; margin:10px 0;"></div>
+        <div class="ticket-row" style="font-size:14px; font-weight:800; color:var(--marun);">
+          <span>TOTAL:</span>
+          <span>${formatRupiah(totalAmount)}</span>
+        </div>
+      `;
+
+      document.getElementById("successModal").classList.add("active");
+    }
+
+    function closeSuccessModal() {
+      document.getElementById("successModal").classList.remove("active");
+      clearCart();
+      document.getElementById("custNameInput").value = "";
+    }
+
+    function sendToWhatsApp() {
+      const custName = document.getElementById("custNameInput").value.trim() || "Pelanggan";
+      const serviceType = document.getElementById("serviceTypeSelect").value;
+      const totalAmount = cart.reduce((acc, i) => acc + (i.harga * i.qty), 0);
+
+      const itemsText = cart.map(i => `• ${i.qty}x ${i.nama} (${formatRupiah(i.harga * i.qty)})`).join("%0A");
+      const message = `*PESANAN NASI PADANG — RASO MANDEH*%0A` +
+        `No. Pesanan: *${lastOrderNumber}*%0A` +
+        `Pelanggan: ${custName}%0A` +
+        `Tipe: ${serviceType} ${selectedTable ? '[' + selectedTable + ']' : ''}%0A%0A` +
+        `*Rincian Menu:*%0A${itemsText}%0A%0A` +
+        `*Total: ${formatRupiah(totalAmount)}*%0A%0A` +
+        `Mohon segera diproses di dapur Raso Mandeh. Terima kasih!`;
+
+      window.open(`https://wa.me/6285219583336?text=${message}`, "_blank");
+    }
+
+    // Init
+    window.addEventListener("DOMContentLoaded", () => {
+      renderDishes();
+      renderCart();
+    });
+  </script>
+
+</body>
+</html>

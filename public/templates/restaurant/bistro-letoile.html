@@ -1,0 +1,370 @@
+<!-- 
+=============================================================================
+NECTOR.UI TEMPLATE: BISTRO L'ÉTOILE (PARISIAN BISTRO & NATURAL WINE BAR)
+Kategori: Restaurant / Hospitality / Fine Dining
+File: templates/restaurant/template01.html
+Preview Live: http://localhost:5173/templates/restaurant/template01.html
+
+PETUNJUK PENGGUNAAN & KOMENTAR:
+- File ini mandiri (HTML + CSS + JS) dan siap dijalankan langsung di browser!
+- Kamu bisa langsung edit teks, menu, harga, dan tambahkan catatan kamu di sini.
+- Buka langsung dengan double-click atau melalui live preview NECTOR.UI.
+=============================================================================
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bistro L'Étoile — Cuisine Contemporaine & Cave Naturelle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-linen: #FAF7F2;
+      --burgundy: #2B0E14;
+      --brass: #C5A059;
+      --charcoal: #1F1A1B;
+      --hairline: #E8E2D8;
+      --muted: #6B6264;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-linen);
+      color: var(--charcoal);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+    header {
+      border-bottom: 1px solid var(--hairline);
+      background-color: var(--bg-linen);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--burgundy);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .brand-sub {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--brass);
+      display: block;
+      font-family: monospace;
+    }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--charcoal); text-decoration: none; font-size: 13px; font-weight: 500; }
+    .btn-reserve-nav {
+      background-color: var(--burgundy);
+      color: #FFFFFF;
+      padding: 9px 18px;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 150ms ease;
+    }
+    .btn-reserve-nav:hover { background-color: var(--brass); }
+    .hero-section {
+      padding: 70px 0 50px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-tag {
+      font-size: 11px;
+      font-family: monospace;
+      color: var(--brass);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.2;
+      color: var(--burgundy);
+      margin-bottom: 20px;
+    }
+    .hero-desc { font-size: 15px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+    .hero-info-pills { display: flex; gap: 12px; flex-wrap: wrap; }
+    .info-pill {
+      font-size: 12px;
+      font-family: monospace;
+      background: #FFFFFF;
+      border: 1px solid var(--hairline);
+      padding: 6px 12px;
+      border-radius: 2px;
+      color: var(--muted);
+    }
+    .hero-img-wrap {
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--hairline);
+      box-shadow: 0 12px 28px rgba(43, 14, 20, 0.08);
+    }
+    .hero-img-wrap img { width: 100%; height: 340px; object-fit: cover; display: block; }
+    
+    /* Interactive Menu Tabs */
+    .menu-section { padding: 60px 0 80px; }
+    .menu-head { text-align: center; margin-bottom: 32px; }
+    .menu-title { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--burgundy); margin-bottom: 8px; }
+    .menu-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
+    .tab-btn {
+      background: none;
+      border: 1px solid var(--hairline);
+      padding: 8px 18px;
+      font-family: monospace;
+      font-size: 12px;
+      cursor: pointer;
+      border-radius: 2px;
+      color: var(--muted);
+      transition: all 150ms ease;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--burgundy);
+      color: #FFFFFF;
+      border-color: var(--burgundy);
+    }
+    .menu-container {
+      background: #FFFFFF;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .course-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px dashed var(--hairline);
+    }
+    .course-item:last-child { border-bottom: none; }
+    .c-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--burgundy); }
+    .c-desc { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .c-price { font-family: monospace; font-size: 14px; font-weight: 600; color: var(--brass); }
+    
+    /* Working Reservation Form */
+    .reservation-section {
+      background: #FFFFFF;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+    .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .res-title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--burgundy); margin-bottom: 8px; }
+    .form-row { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 11px; font-family: monospace; color: var(--muted); margin-bottom: 6px; }
+    .form-input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--hairline);
+      border-radius: 2px;
+      font-size: 13px;
+      background: var(--bg-linen);
+      color: var(--charcoal);
+      outline: none;
+    }
+    .form-input:focus { border-color: var(--burgundy); }
+    .btn-submit-res {
+      background: var(--burgundy);
+      color: #FFFFFF;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 150ms ease;
+    }
+    .btn-submit-res:hover { background: var(--brass); }
+    footer { border-top: 1px solid var(--hairline); padding: 30px 0; text-align: center; font-size: 12px; color: var(--muted); }
+    @media (max-width: 768px) {
+      .hero-grid, .res-grid { grid-template-columns: 1fr; }
+      .menu-container, .reservation-section { padding: 24px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="brand-title">
+        BISTRO L'ÉTOILE
+        <span class="brand-sub">PARIS 11E · ARRONDISSEMENT VOLTAIRE</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#menu">Carte & Vins</a>
+        <a href="#cave">La Cave</a>
+        <a href="#reservation">Réservation</a>
+      </nav>
+      <a href="#reservation" class="btn-reserve-nav">
+        Réserver une Table →
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero-section">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-tag">BISTRONOMIE & VINS NATURELS · GUIDE ÉDITORIAL 2026</span>
+          <h1 class="hero-headline">Cuisine de Saison, Produits Fermiers & Bouteilles Singulières.</h1>
+          <p class="hero-desc">
+            Niché au cœur du 11ème arrondissement, L'Étoile propose une cuisine vive et honnête rythmée par les arrivages du jour et plus de 180 références de vignerons biodynamiques.
+          </p>
+          <div class="hero-info-pills">
+            <span class="info-pill">● MARDI — SAMEDI : 19H00 — 23H30</span>
+            <span class="info-pill">34 RUE DE BELLEVILLE</span>
+          </div>
+        </div>
+        <div class="hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Bistro Dining Table">
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Menu Section -->
+    <section class="container menu-section" id="menu">
+      <div class="menu-head">
+        <h2 class="menu-title">La Carte du Soir</h2>
+        <div class="menu-tabs">
+          <button class="tab-btn active" onclick="switchMenu('degustation', this)">Menu Dégustation (5-Temps)</button>
+          <button class="tab-btn" onclick="switchMenu('alacarte', this)">À La Carte</button>
+          <button class="tab-btn" onclick="switchMenu('vins', this)">Vins Naturels</button>
+        </div>
+      </div>
+
+      <div class="menu-container" id="menu-content">
+        <!-- Content rendered via JS -->
+      </div>
+    </section>
+
+    <!-- Table Reservation Section -->
+    <section class="container" id="reservation">
+      <div class="reservation-section">
+        <div class="res-grid">
+          <div>
+            <span class="hero-tag">RÉSERVATION EN LIGNE DIRECTE</span>
+            <h3 class="res-title">Réserver Votre Table à L'Étoile</h3>
+            <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 20px;">
+              Nous gardons quelques tables au bar pour les arrivées spontanées, mais la réservation est vivement conseillée pour les tables en salle.
+            </p>
+            <div style="font-size: 12px; font-family: monospace; color: var(--burgundy);">
+              <div>TÉLÉPHONE / WHATSAPP: +62 852-1958-3336</div>
+              <div style="margin-top: 6px;">CONFIRMATION INSTANTANÉE PAR MESSAGE</div>
+            </div>
+          </div>
+
+          <form onsubmit="handleReserve(event)">
+            <div class="form-row">
+              <label class="form-label">NOM COMPLET</label>
+              <input type="text" id="res-name" class="form-input" placeholder="ex: Jean Dupont" required>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;" class="form-row">
+              <div>
+                <label class="form-label">DATE</label>
+                <input type="date" id="res-date" class="form-input" required>
+              </div>
+              <div>
+                <label class="form-label">CONVIVES</label>
+                <select id="res-guests" class="form-input">
+                  <option>2 Personnes</option>
+                  <option>3 Personnes</option>
+                  <option>4 Personnes</option>
+                  <option>5+ Personnes</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn-submit-res">Confirmer la Réservation via WhatsApp →</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Bistro L'Étoile Paris. Terroir vivant, respect des cycles maraîchers.</p>
+      <p style="font-family: monospace; font-size: 11px; margin-top: 4px; color: var(--muted);">NECTOR.UI TEMPLATE SHOWCASE · RESTAURANT SPECIFICATION</p>
+    </div>
+  </footer>
+
+  <script>
+    const menus = {
+      degustation: [
+        { name: "Tartare de Veau de Lait & Huître Creuse", desc: "Émulsion d'aneth sauvage, caprons frits et huile de livèche", price: "18 €" },
+        { name: "Poulpe de Roche Rôti au Binchotan", desc: "Crème de maïs brûlé, nduja artisanale et jeunes pousses d'estragon", price: "24 €" },
+        { name: "Pigeon Fermier du Poitou", desc: "Betterave crapaudine en croûte de sel, jus réduit au genièvre", price: "32 €" },
+        { name: "Pavlova Poire Confite & Poivre Timut", desc: "Glace au lait cru fermier, meringue craquante et sirop de baies", price: "14 €" }
+      ],
+      alacarte: [
+        { name: "Asperges Blanches des Landes", desc: "Sabayon au beurre noisette, poutargue râpée", price: "16 €" },
+        { name: "Lieu Jaune de Ligne de Saint-Gilles", desc: "Purée de panais vanillé, bouillon dashi aux herbes côtières", price: "28 €" },
+        { name: "Côte de Cochon Cul Noir du Limousin", desc: "Pour 2 personnes, pommes grenailles fondantes au thym", price: "54 €" }
+      ],
+      vins: [
+        { name: "Domaine Valette — Mâcon Chaintré 2021", desc: "Bourgogne Blanc · Chardonnay vivant, minéralité tendue et beurrée", price: "52 €" },
+        { name: "Yvon Métras — Fleurie Printemps 2022", desc: "Beaujolais Rouge · Gamay vibrant, fruits noirs croquants, sans soufre", price: "64 €" },
+        { name: "Olivier Horiot — Sève En Barmont 2017", desc: "Champagne · Rosé de saignée, pureté racée, bulles de dentelle", price: "92 €" }
+      ]
+    };
+
+    function renderMenu(key) {
+      const items = menus[key];
+      const container = document.getElementById('menu-content');
+      container.innerHTML = items.map(item => `
+        <div class="course-item">
+          <div>
+            <div class="c-name">${item.name}</div>
+            <div class="c-desc">${item.desc}</div>
+          </div>
+          <div class="c-price">${item.price}</div>
+        </div>
+      `).join('');
+    }
+
+    function switchMenu(key, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderMenu(key);
+    }
+
+    function handleReserve(e) {
+      e.preventDefault();
+      const name = document.getElementById('res-name').value;
+      const date = document.getElementById('res-date').value;
+      const guests = document.getElementById('res-guests').value;
+      const text = encodeURIComponent(`Bonjour Bistro L'Étoile! Je souhaite réserver une table pour ${guests} le ${date} au nom de ${name}.`);
+      window.open(`https://wa.me/6285219583336?text=${text}`, '_blank');
+    }
+
+    // Default load
+    renderMenu('degustation');
+  </script>
+</body>
+</html>

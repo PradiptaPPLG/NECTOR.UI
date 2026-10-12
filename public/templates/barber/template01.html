@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Heritage Barber — Classic Gentlemen Grooming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #121316;
+      --card-dark: #1A1C20;
+      --tan-leather: #C28B53;
+      --border-dark: #2A2D34;
+      --text-white: #EDEDED;
+      --text-muted: #8E939E;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      background: var(--bg-dark);
+      border-bottom: 1px solid var(--border-dark);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .brand-mark {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    .brand-meta {
+      font-size: 10px;
+      font-family: monospace;
+      color: var(--tan-leather);
+      letter-spacing: 0.12em;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      color: var(--text-white);
+      text-decoration: none;
+    }
+
+    .btn-booking {
+      background: var(--tan-leather);
+      color: #121316;
+      padding: 9px 18px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0 50px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .kicker {
+      font-size: 11px;
+      font-family: monospace;
+      color: var(--tan-leather);
+      background: rgba(194, 139, 83, 0.12);
+      border: 1px solid rgba(194, 139, 83, 0.3);
+      padding: 3px 8px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      max-width: 480px;
+    }
+
+    .hero-img {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Menu Servis */
+    .service-section {
+      padding: 60px 0;
+    }
+
+    .sec-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .sec-head h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border-dark);
+      border-radius: 6px;
+      padding: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .svc-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .svc-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .svc-price-box {
+      text-align: right;
+    }
+
+    .svc-price {
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--tan-leather);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .btn-book-svc {
+      background: transparent;
+      border: 1px solid var(--tan-leather);
+      color: var(--tan-leather);
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn-book-svc:hover {
+      background: var(--tan-leather);
+      color: #121316;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-dark);
+      padding: 30px 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .hero-split, .services-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-row">
+      <a href="#" class="brand-mark">
+        THE HERITAGE BARBERSHOP
+        <span class="brand-meta">EST. 2018 · MASTER BARBERS & GROOMING</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#servis">Daftar Servis</a>
+        <a href="#kapster">Profil Kapster</a>
+        <a href="#lokasi">Lokasi & Jam</a>
+      </nav>
+      <a href="https://wa.me/6285219583336?text=Halo%20The%20Heritage%20Barber,%20saya%20mau%20booking%20jadwal%20potong%20rambut" target="_blank" class="btn-booking">
+        Booking Kursi →
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-split">
+      <div>
+        <span class="kicker">PREMIER GENTLEMEN HAIRCUT</span>
+        <h1>Potongan Presisi & Cukur Tradisional Handuk Hangat.</h1>
+        <p>
+          Tempat para pria merawat penampilan dengan kapster bersertifikat, kursi barber vintage nyaman, dan produk pomade tonic berkualitas internasional.
+        </p>
+        <a href="#servis" class="btn-booking">Lihat Menu Layanan</a>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Barbershop Chair and Grooming">
+      </div>
+    </div>
+  </section>
+
+  <section class="container service-section" id="servis">
+    <div class="sec-head">
+      <h2>Daftar Servis & Tarif</h2>
+      <p style="font-size: 13px; color: var(--text-muted);">Termasuk keramas pijat relaksasi kepala, tonic rambut, dan styling pomade.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div>
+          <div class="svc-title">The Heritage Classic Cut</div>
+          <div class="svc-desc">Konsultasi gaya, potong rambut detail, cuci rambut, handuk hangat, dan styling. (45 Menit)</div>
+        </div>
+        <div class="svc-price-box">
+          <span class="svc-price">Rp 65.000</span>
+          <a href="https://wa.me/6285219583336?text=Booking%20Classic%20Cut" target="_blank" class="btn-book-svc">Book</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="svc-title">Traditional Hot Towel Shave</div>
+          <div class="svc-desc">Cukur jenggot/kumis pisau lurus, kompres handuk hangat 2x, aftershave balm wangi. (30 Menit)</div>
+        </div>
+        <div class="svc-price-box">
+          <span class="svc-price">Rp 50.000</span>
+          <a href="https://wa.me/6285219583336?text=Booking%20Hot%20Towel%20Shave" target="_blank" class="btn-book-svc">Book</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="svc-title">Gentleman Executive (Full Package)</div>
+          <div class="svc-desc">Haircut + Shave + Facial Scrub Charcoal + Pijat Bahu Relaksasi. (70 Menit)</div>
+        </div>
+        <div class="svc-price-box">
+          <span class="svc-price">Rp 120.000</span>
+          <a href="https://wa.me/6285219583336?text=Booking%20Executive%20Package" target="_blank" class="btn-book-svc">Book</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="svc-title">Black Mask & Ear Singeing</div>
+          <div class="svc-desc">Pembersihan komedo pori-pori dan perawatan telinga bersih higienis. (20 Menit)</div>
+        </div>
+        <div class="svc-price-box">
+          <span class="svc-price">Rp 40.000</span>
+          <a href="https://wa.me/6285219583336?text=Booking%20Black%20Mask" target="_blank" class="btn-book-svc">Book</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 The Heritage Barbershop. Jl. Panglima Polim IX No. 12, Jakarta Selatan.</p>
+      <p style="font-family: monospace; font-size: 11px; margin-top: 4px;">NECTOR.UI TEMPLATE SHOWCASE · STATUS: PRODUCTION-READY</p>
+    </div>
+  </footer>
+
+</body>
+</html>
