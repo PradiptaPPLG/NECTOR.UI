@@ -83,7 +83,7 @@ export const TemplateThumbnail: React.FC<Props> = ({ template, showBrowserChrome
 
   const content = (
     <div className="thumb-live-webpage-stage">
-      <ScaledIframeThumbnail htmlPath={htmlPath} title={title} />
+      <ScaledIframeThumbnail htmlPath={htmlPath || ''} title={title} />
     </div>
   );
 
@@ -97,11 +97,7 @@ export const TemplateThumbnail: React.FC<Props> = ({ template, showBrowserChrome
     </BrowserFrame>
   );
 };
-w=500&q=80" alt="Sipara Fresh Drink" />
-      </div>
-    </div>
-  </div>
-);
+
 
 
 

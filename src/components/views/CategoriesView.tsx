@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Building, Heart, Utensils, Scissors, Flower2, Wheat, Store, Sparkles } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles } from 'lucide-react';
 
 interface Props {
   templates: Template[];

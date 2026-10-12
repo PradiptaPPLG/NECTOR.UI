@@ -2,9 +2,6 @@ import type { Template } from '../types';
 
 export const TEMPLATES_DATA: Template[] = [
   {
-    id: 'tpl-11',8'
-  },
-  {
     id: 'tpl-11',
     slug: 'savore-cafe',
     title: 'SAVORÉ',
