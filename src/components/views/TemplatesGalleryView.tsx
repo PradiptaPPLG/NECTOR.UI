@@ -75,16 +75,16 @@ export const TemplatesGalleryView: React.FC<Props> = ({
         {/* Page Header */}
         <div className="gallery-header">
           <div className="gallery-title-group">
-            <span className="mono badge-subtle">TEMPLATE CATALOG</span>
-            <h1 className="gallery-heading">Production Website Templates</h1>
+            <span className="mono badge-subtle">KATALOG TEMPLATE</span>
+            <h1 className="gallery-heading">Koleksi Template Website Siap Pakai</h1>
             <p className="gallery-sub">
-              Explore meticulously art-directed digital systems. Inspect real source files, test responsive viewports, and copy reconstructed AI prompts.
+              Eksplorasi sistem web fungsional yang dirancang cermat. Inspeksi kode sumber asli, uji responsivitas viewport layar, dan salin prompt AI terstruktur.
             </p>
           </div>
 
           <div className="gallery-stats mono">
-            <span>INDEX COUNT: {filteredTemplates.length} OF {templates.length}</span>
-            <span>FORMAT: HTML5 / REACT / TS</span>
+            <span>JUMLAH INDEX: {filteredTemplates.length} DARI {templates.length}</span>
+            <span>FORMAT: HTML5 / VANILLA CSS / JS</span>
           </div>
         </div>
 
@@ -109,9 +109,9 @@ export const TemplatesGalleryView: React.FC<Props> = ({
               onChange={e => setSortBy(e.target.value as any)}
               className="sort-select mono"
             >
-              <option value="featured">Sort: Featured</option>
-              <option value="newest">Sort: Newest</option>
-              <option value="alphabetical">Sort: Alphabetical (A-Z)</option>
+              <option value="featured">Urutkan: Unggulan</option>
+              <option value="newest">Urutkan: Terbaru</option>
+              <option value="alphabetical">Urutkan: Abjad (A-Z)</option>
             </select>
           </div>
         </div>
@@ -120,9 +120,9 @@ export const TemplatesGalleryView: React.FC<Props> = ({
         {filteredTemplates.length === 0 ? (
           <div className="gallery-empty-state">
             <div className="empty-icon mono">00</div>
-            <h3>No templates match your criteria</h3>
+            <h3>Tidak ada template yang sesuai kriteria</h3>
             <p>
-              We couldn't find any design matching "{searchQuery}". Try selecting another category or resetting the search filter.
+              Kami tidak menemukan desain yang cocok dengan "{searchQuery}". Coba pilih kategori lain atau atur ulang filter pencarian.
             </p>
             <button
               className="btn-reset-filters"
@@ -131,7 +131,7 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                 onSelectCategory('all');
               }}
             >
-              Reset Search & Filters
+              Reset Pencarian &amp; Filter
             </button>
           </div>
         ) : (
@@ -145,7 +145,7 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                 >
                   <TemplateThumbnail template={template} />
                   <div className="card-hover-overlay">
-                    <span className="overlay-btn">Open Preview & Inspector</span>
+                    <span className="overlay-btn">Buka Preview &amp; Inspeksi</span>
                   </div>
                 </div>
 
@@ -156,8 +156,8 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                     <button
                       className={`card-save-btn ${isSaved(template.id) ? 'saved' : ''}`}
                       onClick={() => onToggleSave(template.id)}
-                      title={isSaved(template.id) ? 'Remove from collection' : 'Save to collection'}
-                      aria-label="Save template"
+                      title={isSaved(template.id) ? 'Hapus dari koleksi tersimpan' : 'Simpan ke koleksi pribadi'}
+                      aria-label="Simpan template"
                     >
                       <Bookmark size={15} />
                     </button>
@@ -182,7 +182,7 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                     <button
                       className="btn-action-primary"
                       onClick={() => onSelectTemplate(template, 'preview')}
-                      title="Open interactive viewport preview"
+                      title="Buka preview viewport interaktif"
                     >
                       <Eye size={13} />
                       <span>Preview</span>
@@ -190,15 +190,15 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                     <button
                       className="btn-action-ghost"
                       onClick={() => onSelectTemplate(template, 'code')}
-                      title="Inspect source code"
+                      title="Inspeksi kode sumber"
                     >
                       <Code size={13} />
-                      <span>Code</span>
+                      <span>Kode</span>
                     </button>
                     <button
                       className="btn-action-ghost"
                       onClick={() => onSelectTemplate(template, 'prompt')}
-                      title="Inspect generation prompt"
+                      title="Inspeksi prompt rekonstruksi"
                     >
                       <Sparkles size={13} />
                       <span>Prompt</span>
@@ -208,11 +208,11 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-action-commission"
-                      title={`Commission similar design on WhatsApp for ${template.title}`}
+                      title={`Pesan website serupa via WhatsApp untuk ${template.title}`}
                       onClick={e => e.stopPropagation()}
                     >
                       <MessageSquare size={13} />
-                      <span>Commission</span>
+                      <span>Pesan Kustom</span>
                     </a>
                   </div>
                 </div>

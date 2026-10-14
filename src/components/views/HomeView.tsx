@@ -54,19 +54,19 @@ export const HomeView: React.FC<Props> = ({
         <div className="container hero-container">
           <div className="hero-text-col">
             <div className="hero-meta mono">
-              <span className="hero-badge">DIGITAL DESIGN ARCHIVE</span>
+              <span className="hero-badge">ARSIP DESAIN DIGITAL</span>
               <span>EST. 2026</span>
-              <span>VERIFIED ANTI-SLOP SPEC</span>
+              <span>STANDAR BEBAS AI-SLOP</span>
             </div>
             <h1 className="hero-headline">
-              Production-grade website templates designed with editorial rigor.
+              Template website siap pakai dengan standar editorial tinggi.
             </h1>
             <p className="hero-paragraph">
-              Inspect semantic source code, copy structured AI design prompts, test real responsive viewports, and commission bespoke web projects. Crafted by senior engineers to eliminate generic AI patterns.
+              Inspeksi kode sumber semantik, salin prompt desain terstruktur, uji responsivitas layar nyata, dan pesan website kustom. Dirancang cermat tanpa pola generik AI.
             </p>
             <div className="hero-actions">
               <button className="btn-hero-primary" onClick={() => onNavigate('templates')}>
-                <span>Explore All Templates ({templates.length})</span>
+                <span>Jelajahi Semua Template ({templates.length})</span>
                 <ArrowRight size={15} />
               </button>
               <button className="btn-hero-secondary" onClick={() => onNavigate('categories')}>
@@ -115,7 +115,7 @@ export const HomeView: React.FC<Props> = ({
                     onClick={() => onSelectTemplate(currentHeroTemplate)}
                   >
                     <Eye size={13} />
-                    <span>Inspect & Preview</span>
+                    <span>Inspeksi & Preview</span>
                   </button>
                   <a
                     href={getTemplateCommissionUrl(currentHeroTemplate.title)}
@@ -125,7 +125,7 @@ export const HomeView: React.FC<Props> = ({
                     onClick={e => e.stopPropagation()}
                   >
                     <Sparkles size={13} />
-                    <span>Commission Custom</span>
+                    <span>Pesan Versi Kustom</span>
                   </a>
                 </div>
               </div>
@@ -139,11 +139,11 @@ export const HomeView: React.FC<Props> = ({
         <div className="container">
           <div className="section-header">
             <div>
-              <span className="section-kicker mono">CURATED HIGHLIGHTS</span>
-              <h2 className="section-title">Selected Archive Releases</h2>
+              <span className="section-kicker mono">KOLEKSI UNGGULAN</span>
+              <h2 className="section-title">Rilisan Template Terpilih</h2>
             </div>
             <button className="section-link-btn" onClick={() => onNavigate('templates')}>
-              <span>View full catalog</span>
+              <span>Lihat semua katalog</span>
               <ArrowRight size={14} />
             </button>
           </div>
@@ -154,7 +154,7 @@ export const HomeView: React.FC<Props> = ({
                 <div className="card-thumb-container" onClick={() => onSelectTemplate(template)}>
                   <TemplateThumbnail template={template} />
                   <div className="card-hover-overlay">
-                    <span className="overlay-btn">Inspect & Preview</span>
+                    <span className="overlay-btn">Inspeksi & Preview</span>
                   </div>
                 </div>
 
@@ -167,8 +167,8 @@ export const HomeView: React.FC<Props> = ({
                         e.stopPropagation();
                         onToggleSave(template.id);
                       }}
-                      title={isSaved(template.id) ? 'Remove from collection' : 'Save to collection'}
-                      aria-label="Save template"
+                      title={isSaved(template.id) ? 'Hapus dari koleksi tersimpan' : 'Simpan ke koleksi pribadi'}
+                      aria-label="Simpan template"
                     >
                       <Bookmark size={15} />
                     </button>
@@ -192,18 +192,18 @@ export const HomeView: React.FC<Props> = ({
                     </button>
                     <button className="btn-action-ghost" onClick={() => onSelectTemplate(template, 'code')}>
                       <Code size={13} />
-                      <span>Code</span>
+                      <span>Kode</span>
                     </button>
                     <a
                       href={getTemplateCommissionUrl(template.title)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-action-commission"
-                      title={`Commission similar design for ${template.title}`}
+                      title={`Pesan website serupa untuk ${template.title}`}
                       onClick={e => e.stopPropagation()}
                     >
                       <MessageSquare size={13} />
-                      <span>Commission</span>
+                      <span>Pesan Kustom</span>
                     </a>
                   </div>
                 </div>
@@ -218,8 +218,8 @@ export const HomeView: React.FC<Props> = ({
         <div className="container">
           <div className="section-header">
             <div>
-              <span className="section-kicker mono">SYSTEMATIC TAXONOMY</span>
-              <h2 className="section-title">Browse by Discipline & Context</h2>
+              <span className="section-kicker mono">KLASIFIKASI SISTEMATIS</span>
+              <h2 className="section-title">Jelajahi Berdasarkan Kategori & Bidang</h2>
             </div>
           </div>
 
@@ -237,7 +237,7 @@ export const HomeView: React.FC<Props> = ({
                 }}
               >
                 <div className="cat-top">
-                  <span className="cat-count mono">{cat.count} AVAILABLE</span>
+                  <span className="cat-count mono">{cat.count} TEMPLATE</span>
                   <ArrowRight size={14} className="cat-arrow" />
                 </div>
                 <h3 className="cat-title">{cat.label}</h3>
@@ -248,25 +248,23 @@ export const HomeView: React.FC<Props> = ({
         </div>
       </section>
 
-
-
       {/* Recently Added Section */}
       <section className="recent-section">
         <div className="container">
           <div className="section-header">
             <div>
-              <span className="section-kicker mono">TIMELINE ARCHIVE</span>
-              <h2 className="section-title">Recently Published Templates</h2>
+              <span className="section-kicker mono">LINIMASA RILISAN</span>
+              <h2 className="section-title">Template yang Baru Diterbitkan</h2>
             </div>
           </div>
 
           <div className="recent-table">
             <div className="recent-table-head mono">
-              <span>PUBLISHED</span>
-              <span>TEMPLATE</span>
-              <span>CATEGORY</span>
-              <span>TECH STACK</span>
-              <span>ACTION</span>
+              <span>TANGGAL</span>
+              <span>NAMA TEMPLATE</span>
+              <span>KATEGORI</span>
+              <span>TEKNOLOGI</span>
+              <span>AKSI</span>
             </div>
             {recentTemplates.map(item => (
               <div key={item.id} className="recent-row" onClick={() => onSelectTemplate(item)}>
@@ -276,7 +274,7 @@ export const HomeView: React.FC<Props> = ({
                 <span className="recent-tech mono">{item.technologies.slice(0, 2).join(', ')}</span>
                 <span className="recent-action">
                   <button className="recent-view-btn" onClick={(e) => { e.stopPropagation(); onSelectTemplate(item); }}>
-                    Inspect
+                    Inspeksi
                   </button>
                 </span>
               </div>

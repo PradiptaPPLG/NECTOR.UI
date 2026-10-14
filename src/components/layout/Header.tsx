@@ -26,10 +26,10 @@ export const Header: React.FC<Props> = ({
   const [isSearchActive, setIsSearchActive] = useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'templates', label: 'Etalase & Templates' },
-    { id: 'categories', label: 'Categories' },
-    { id: 'collection', label: `My Collection${savedCount > 0 ? ` (${savedCount})` : ''}` },
+    { id: 'home', label: 'Beranda' },
+    { id: 'templates', label: 'Katalog Template' },
+    { id: 'categories', label: 'Kategori' },
+    { id: 'collection', label: `Koleksi Saya${savedCount > 0 ? ` (${savedCount})` : ''}` },
   ];
 
   const handleNavClick = (id: string) => {
@@ -46,11 +46,11 @@ export const Header: React.FC<Props> = ({
             <span className="brand-accent-box">N</span>
             <span className="brand-name">NECTOR<span className="brand-dot">.</span>UI</span>
           </button>
-          <span className="brand-edition mono">ARCHIVE '26</span>
+          <span className="brand-edition mono">ARSIP '26</span>
         </div>
 
         {/* Desktop Primary Navigation */}
-        <nav className="desktop-nav" aria-label="Main Navigation">
+        <nav className="desktop-nav" aria-label="Navigasi Utama">
           {navItems.map(item => (
             <button
               key={item.id}
@@ -69,7 +69,7 @@ export const Header: React.FC<Props> = ({
             <Search size={15} className="search-icon" />
             <input
               type="text"
-              placeholder="Search templates, tech, styles..."
+              placeholder="Cari template, teknologi, kategori..."
               value={searchQuery}
               onChange={e => onSearchChange(e.target.value)}
               onFocus={() => setIsSearchActive(true)}
@@ -87,8 +87,8 @@ export const Header: React.FC<Props> = ({
           <button
             className="action-icon-btn collection-btn"
             onClick={() => handleNavClick('collection')}
-            title="My Saved Collection"
-            aria-label="View Saved Collection"
+            title="Koleksi Tersimpan"
+            aria-label="Lihat Koleksi Tersimpan"
           >
             <Bookmark size={16} />
             {savedCount > 0 && <span className="counter-badge mono">{savedCount}</span>}
@@ -98,18 +98,18 @@ export const Header: React.FC<Props> = ({
           <button
             className="action-icon-btn theme-toggle-btn"
             onClick={onToggleTheme}
-            title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
-            aria-label="Toggle theme"
+            title={`Beralih ke Mode ${theme === 'light' ? 'Gelap' : 'Terang'}`}
+            aria-label="Ganti tema tampilan"
           >
             {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
           </button>
 
-          {/* Commission CTA (Prominent but restrained) */}
+          {/* Commission CTA */}
           <button
             className="btn-commission-header"
             onClick={onOpenCommissionModal}
           >
-            <span>Commission a Website</span>
+            <span>Pesan Website Kustom</span>
             <ArrowUpRight size={14} />
           </button>
 
@@ -117,7 +117,7 @@ export const Header: React.FC<Props> = ({
           <button
             className="mobile-hamburger-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Navigation Menu"
+            aria-label="Buka Menu Navigasi"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -131,7 +131,7 @@ export const Header: React.FC<Props> = ({
             <Search size={15} />
             <input
               type="text"
-              placeholder="Search templates..."
+              placeholder="Cari template..."
               value={searchQuery}
               onChange={e => onSearchChange(e.target.value)}
               className="mobile-search-input"
@@ -146,7 +146,7 @@ export const Header: React.FC<Props> = ({
               >
                 <span>{item.label}</span>
                 {item.id === 'collection' && savedCount > 0 && (
-                  <span className="mono badge-small">{savedCount} saved</span>
+                  <span className="mono badge-small">{savedCount} tersimpan</span>
                 )}
               </button>
             ))}
@@ -159,7 +159,7 @@ export const Header: React.FC<Props> = ({
                 onOpenCommissionModal();
               }}
             >
-              Commission a Website (WhatsApp)
+              Pesan Website Kustom (WhatsApp)
             </button>
           </div>
         </div>

@@ -28,19 +28,19 @@ export const CollectionView: React.FC<Props> = ({
       <div className="container">
         <div className="coll-header">
           <div>
-            <span className="mono badge-subtle">PERSONAL ARCHIVE</span>
-            <h1 className="coll-heading">My Saved Collection</h1>
+            <span className="mono badge-subtle">KOLEKSI PRIBADI</span>
+            <h1 className="coll-heading">Koleksi yang Kamu Simpan</h1>
             <p className="coll-sub">
-              Your bookmarked templates are saved locally in your browser storage. Inspect their source code anytime or use them as a reference to commission a tailored website.
+              Template yang kamu tandai tersimpan di memori browser lokal. Kamu dapat menginspeksi kode sumbernya kapan saja atau menjadikannya acuan untuk memesan website kustom.
             </p>
           </div>
 
           {savedTemplates.length > 0 && (
             <div className="coll-header-actions">
-              <span className="mono coll-count">{savedTemplates.length} SAVED</span>
+              <span className="mono coll-count">{savedTemplates.length} TERSIMPAN</span>
               <button className="coll-clear-btn" onClick={onClearCollection}>
                 <Trash2 size={13} />
-                <span>Clear All</span>
+                <span>Hapus Semua</span>
               </button>
             </div>
           )}
@@ -51,12 +51,12 @@ export const CollectionView: React.FC<Props> = ({
             <div className="empty-icon mono">
               <Bookmark size={32} />
             </div>
-            <h3>Your collection is empty</h3>
+            <h3>Koleksi kamu masih kosong</h3>
             <p>
-              You haven't bookmarked any website templates yet. Click the bookmark icon on any template card in the catalog to add it here.
+              Kamu belum menyimpan template apa pun. Klik ikon bookmark pada kartu template di katalog untuk menyimpannya di sini.
             </p>
             <button className="btn-explore-collection" onClick={onNavigateToGallery}>
-              <span>Explore Template Catalog</span>
+              <span>Jelajahi Katalog Template</span>
               <ArrowRight size={14} />
             </button>
           </div>
@@ -67,7 +67,7 @@ export const CollectionView: React.FC<Props> = ({
                 <div className="card-thumb-container" onClick={() => onSelectTemplate(template)}>
                   <TemplateThumbnail template={template} />
                   <div className="card-hover-overlay">
-                    <span className="overlay-btn">Inspect & Preview</span>
+                    <span className="overlay-btn">Inspeksi &amp; Preview</span>
                   </div>
                 </div>
 
@@ -77,8 +77,8 @@ export const CollectionView: React.FC<Props> = ({
                     <button
                       className="card-save-btn saved"
                       onClick={() => onToggleSave(template.id)}
-                      title="Remove from collection"
-                      aria-label="Remove from collection"
+                      title="Hapus dari koleksi tersimpan"
+                      aria-label="Hapus dari koleksi"
                     >
                       <Bookmark size={15} />
                     </button>
@@ -102,18 +102,18 @@ export const CollectionView: React.FC<Props> = ({
                     </button>
                     <button className="btn-action-ghost" onClick={() => onSelectTemplate(template, 'code')}>
                       <Code size={13} />
-                      <span>Code</span>
+                      <span>Kode</span>
                     </button>
                     <a
                       href={getTemplateCommissionUrl(template.title)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-action-commission"
-                      title={`Commission similar design for ${template.title}`}
+                      title={`Pesan website serupa untuk ${template.title}`}
                       onClick={e => e.stopPropagation()}
                     >
                       <MessageSquare size={13} />
-                      <span>Commission</span>
+                      <span>Pesan Kustom</span>
                     </a>
                   </div>
                 </div>

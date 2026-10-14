@@ -13,10 +13,10 @@ export const Footer: React.FC<Props> = ({ onNavigate }) => {
         {/* Top Commission Banner */}
         <div className="footer-commission-banner">
           <div className="fc-left">
-            <span className="fc-tag mono">BESPOKE CLIENT SERVICE</span>
-            <h2 className="fc-title">Have a specific design vision in mind?</h2>
+            <span className="fc-tag mono">LAYANAN DESAIN KUSTOM</span>
+            <h2 className="fc-title">Punya visi desain spesifik untuk bisnismu?</h2>
             <p className="fc-desc">
-              We design and engineer tailored websites for architectural studios, independent founders, private estates, and luxury wedding celebrations.
+              Kami merancang dan membangun website fungsional berstandar tinggi untuk studio arsitektur, pendiri independen, ritel UMKM, hingga perayaan pernikahan.
             </p>
           </div>
           <div className="fc-right">
@@ -27,12 +27,12 @@ export const Footer: React.FC<Props> = ({ onNavigate }) => {
               className="fc-cta-btn"
             >
               <MessageSquare size={16} />
-              <span>Commission via WhatsApp</span>
+              <span>Konsultasi via WhatsApp</span>
               <ArrowUpRight size={14} />
             </a>
             <div className="fc-contact-meta mono">
-              <span>Direct: {DISPLAY_PHONE}</span>
-              <span>Availability: 2 Projects / Month</span>
+              <span>WhatsApp: {DISPLAY_PHONE}</span>
+              <span>Ketersediaan: 2 Proyek / Bulan</span>
             </div>
           </div>
         </div>
@@ -48,25 +48,25 @@ export const Footer: React.FC<Props> = ({ onNavigate }) => {
               <span className="brand-name">NECTOR.UI</span>
             </div>
             <p className="footer-bio">
-              A curated digital design archive and frontend component laboratory. Built with deliberate typography, non-slop standards, and functional source code.
+              Arsip kurasi desain digital dan laboratorium komponen frontend siap pakai. Dibangun dengan tipografi terarah, standar bebas slop, dan kode sumber fungsional.
             </p>
             <div className="footer-antislop-badge mono">
               <ShieldCheck size={14} />
-              <span>VERIFIED ANTI-SLOP CRAFT SPEC</span>
+              <span>STANDAR KUALITAS BEBAS AI-SLOP</span>
             </div>
           </div>
 
           <div className="footer-col">
-            <h4 className="footer-col-title mono">EXPLORE CATALOG</h4>
+            <h4 className="footer-col-title mono">JELAJAHI KATALOG</h4>
             <ul className="footer-links">
-              <li><button onClick={() => onNavigate('templates')}>Etalase Templates</button></li>
+              <li><button onClick={() => onNavigate('templates')}>Katalog Template</button></li>
               <li><button onClick={() => onNavigate('categories')}>Semua Kategori</button></li>
-              <li><button onClick={() => onNavigate('collection')}>My Saved Collection</button></li>
+              <li><button onClick={() => onNavigate('collection')}>Koleksi Tersimpan</button></li>
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4 className="footer-col-title mono">CURATED DISCIPLINES</h4>
+            <h4 className="footer-col-title mono">KATEGORI ETALASE</h4>
             <ul className="footer-links">
               <li><button onClick={() => onNavigate('templates', 'perpustakaan')}>Perpustakaan & Arsip</button></li>
               <li><button onClick={() => onNavigate('templates', 'kasir')}>Kasir & POS Minimarket</button></li>
@@ -79,12 +79,12 @@ export const Footer: React.FC<Props> = ({ onNavigate }) => {
           </div>
 
           <div className="footer-col">
-            <h4 className="footer-col-title mono">STUDIO DIRECTORY</h4>
+            <h4 className="footer-col-title mono">DIREKTORI STUDIO</h4>
             <div className="footer-meta-block mono">
-              <div>LOCATION: JAKARTA & COPENHAGEN</div>
+              <div>LOKASI: JAKARTA & BANDUNG</div>
               <div>WHATSAPP: {DISPLAY_PHONE}</div>
-              <div>INSPECTOR: SYNTAX HIGHLIGHTED</div>
-              <div>PROMPT ENGINE: RECONSTRUCTED SPEC</div>
+              <div>INSPEKTUR: HIGHLIGHT SINTAKS</div>
+              <div>MESIN PROMPT: SPESIFIKASI REKONSTRUKSI</div>
             </div>
           </div>
         </div>
@@ -92,14 +92,14 @@ export const Footer: React.FC<Props> = ({ onNavigate }) => {
         {/* Bottom Legal / Anti-Slop Credit */}
         <div className="footer-bottom">
           <div className="fb-copy mono">
-            © 2026 NECTOR.UI. ALL RIGHTS RESERVED. CRAFT OVER DECORATION.
+            © 2026 NECTOR.UI. HAK CIPTA DILINDUNGI. KUALITAS DAN KERAJINAN TANGAN.
           </div>
           <div className="fb-rules mono">
-            <span>NO PLACEHOLDER CARDS</span>
+            <span>TANPA KOMPONEN PALSU</span>
             <span>·</span>
-            <span>NO SYNTHETIC METRICS</span>
+            <span>TANPA METRIK SINTETIS</span>
             <span>·</span>
-            <span>PURE USABLE CODE</span>
+            <span>KODE SUMBER NYATA &amp; BERFUNGSI</span>
           </div>
         </div>
       </div>

@@ -88,10 +88,10 @@ export const CategoriesView: React.FC<Props> = ({
     <div className="categories-view">
       <div className="container">
         <div className="cat-page-header">
-          <span className="mono badge-subtle">ARCHIVE INDEX</span>
-          <h1 className="cat-page-heading">Browse Design Disciplines</h1>
+          <span className="mono badge-subtle">INDEX KATEGORI</span>
+          <h1 className="cat-page-heading">Jelajahi Kategori Desain</h1>
           <p className="cat-page-sub">
-            NECTOR.UI classifies web systems by functional discipline. Every collection is purposefully art-directed according to its subject matter.
+            NECTOR.UI mengelompokkan template website berdasarkan fungsi dan bidang usaha nyata. Setiap koleksi dirancang dengan estetika autentik yang disesuaikan dengan karakternya.
           </p>
         </div>
 
@@ -112,14 +112,14 @@ export const CategoriesView: React.FC<Props> = ({
                   <div className="cci-icon-box" style={{ color: cat.accent }}>
                     <Icon size={20} />
                   </div>
-                  <span className="mono cci-count">{count} TEMPLATES</span>
+                  <span className="mono cci-count">{count} TEMPLATE</span>
                 </div>
 
                 <h3 className="cci-title">{cat.title}</h3>
                 <p className="cci-desc">{cat.desc}</p>
 
                 <div className="cci-action mono">
-                  <span>Explore {cat.title}</span>
+                  <span>Buka Etalase {cat.title}</span>
                   <ArrowRight size={13} />
                 </div>
               </div>
