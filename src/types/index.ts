@@ -11,6 +11,7 @@ export type Category =
   | 'barber'
   | 'pottery'
   | 'organik'
+  | 'buah'
   | 'kasir'
   | 'perpustakaan'
   | 'restaurant'

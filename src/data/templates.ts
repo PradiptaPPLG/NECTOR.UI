@@ -673,8 +673,78 @@ export function TanahLiatStudio() {
     publishedAt: '2026-05-04',
     livePreviewAvailable: true,
     accentColor: '#234133'
+  },
+  {
+    id: 'tpl-22',
+    slug: 'rukun-buah-segar',
+    title: 'Rukun Buah',
+    tagline: 'Pasar & kedai buah segar harian — sistem timbangan digital presisi, garansi manis brix, & layanan potong higienis',
+    description: 'Template website penjualan buah segar dan retail pasar buah modern dengan desain organic-rounded anti-slop. Dilengkapi etalase 12 buah segar (Lokal Nusantara & Impor Premium) dengan foto jernih, sistem simulasi timbangan digital interaktif (preset 250g, 500g, 1kg, 2kg, kalkulasi harga gramatur otomatis), opsi kupas & potong siap santap, modal profil rasa (Brix sweetness meter, tingkat asam, tekstur daging buah), serta keranjang timbangan dinamis yang langsung menghasilkan rekap pesanan siap kirim ke WhatsApp.',
+    category: 'buah',
+    tags: ['Toko Buah', 'Pasar Buah Segar', 'Sistem Timbangan', 'Retail Buah', 'Garansi Manis Brix', 'Kupas & Potong', 'WhatsApp Order'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Outfit & Plus Jakarta Sans'],
+    thumbnailSvgType: 'buah',
+    previewComponentKey: 'fruit-rukun-buah',
+    htmlPath: '/templates/buah/rukun-buah.html',
+    htmlFolderPath: 'templates/buah/rukun-buah.html',
+    features: [
+      '100% file mandiri tunggal (HTML + CSS + JS) siap buka di browser tanpa dependensi eksternal',
+      'Sistem timbangan digital interaktif dengan visual LED screen, kalkulator harga gramatur dinamis, dan estimasi berat muatan',
+      'Katalog 12 buah segar dengan foto nyata berkualitas, filter multi-kategori, dan live search instan',
+      'Indikator kualitas nyata: Brix Sweetness Meter (°Bx), tingkat keasaman, asal kebun, dan tips penyimpanan ideal',
+      'Pilihan servis potong higienis dan wadah food-grade siap santap',
+      'Keranjang timbangan slide-out dengan akumulasi total kilogram dan checkout WhatsApp terformat rapi'
+    ],
+    usageInstructions: [
+      'Buka templates/buah/rukun-buah.html di code editor Anda.',
+      'Sesuaikan daftar buah, foto produk, dan harga per kilogram pada array FRUIT_PRODUCTS.',
+      'Ubah nomor WhatsApp pada fungsi checkoutWhatsApp dengan kontak kasir toko buah Anda.',
+      'Dapat digunakan sebagai website etalase katalog online maupun display tablet timbangan di counter toko.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'rukun-buah.html',
+        language: 'html',
+        content: `<!-- Rukun Buah — Pasar & Kedai Buah Segar dengan Sistem Timbangan Digital -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>RUKUN BUAH — Pasar & Kedai Buah Segar</title>
+</head>
+<body>
+  <div class="top-ticker">PANEN HARI INI: MANGGA HARUM MANIS 15° BRIX</div>
+  <header class="site-header">
+    <div class="brand-text"><h1>RUKUN BUAH</h1></div>
+  </header>
+  <main>
+    <section class="hero-scale-card">
+      <div class="scale-digital-display">
+        <div class="scale-weight-val">0.500<small>kg</small></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website toko buah segar dan sistem timbangan digital interaktif Rukun Buah berstandar anti-slop.',
+      designDirection: 'Fresh organic fruit market: Botanical Leaf Green (#2D6A4F), Warm Paper Cream (#FAF7F0), Citrus Papaya (#E8590C), dan Mango Honey (#D97706). Rounded containers 16-24px elegan anti-slop.',
+      layoutAndGrid: 'Top panen ticker, masthead toko buah, hero split dengan simulasi meja timbang digital interaktif, katalog etalase responsif 4 kolom, studio timbangan tera, dan keranjang pesanan slide-out.',
+      typographyAndColor: 'Outfit display bold untuk nama buah dan angka timbangan, Plus Jakarta Sans untuk kenyamanan membaca deskripsi.',
+      interactions: 'Simulasi timbangan digital real-time, pilihan gramatur 250g-2kg per buah, modal profil rasa dan brix kemanisan, serta integrasi pemesanan WhatsApp otomatis.',
+      technicalRequirements: 'Zero dependencies, 100% standalone single-file HTML, responsif smartphone hingga desktop.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-05-08',
+    livePreviewAvailable: true,
+    accentColor: '#2D6A4F'
   }
 ];
+
 
 
 

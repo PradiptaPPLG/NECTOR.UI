@@ -1,0 +1,2471 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#2D6A4F">
+  <meta name="description" content="Rukun Buah — Toko buah segar harian dengan sistem timbangan digital presisi, garansi manis, dan layanan potong higienis.">
+  <title>RUKUN BUAH — Pasar & Kedai Buah Segar</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit for organic, crisp modern feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Palette: Fresh organic botanical greens with lively fruit accents */
+      --bg-cream: #FAF7F0;
+      --surface-white: #FFFFFF;
+      --surface-subtle: #F4EFE6;
+      --surface-dark: #1A382B;
+      
+      --brand-green-deep: #1B4332;
+      --brand-green: #2D6A4F;
+      --brand-green-light: #52B788;
+      --brand-green-tint: #E8F5E9;
+      
+      --accent-citrus: #E8590C;
+      --accent-citrus-light: #FFF4E6;
+      --accent-mango: #D97706;
+      --accent-mango-light: #FEF3C7;
+      --accent-ruby: #9E1B46;
+      --accent-ruby-light: #FDE8EF;
+      
+      --ink-primary: #1C241E;
+      --ink-secondary: #4A5568;
+      --ink-muted: #718096;
+      --border-hairline: #E5DFC9;
+      --border-soft: #D8D0BA;
+
+      /* Tasteful rounded container tokens (allowed by user) */
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 22px;
+      --radius-xl: 32px;
+      --radius-pill: 999px;
+
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-display: 'Outfit', sans-serif;
+      
+      --shadow-sm: 0 2px 6px rgba(27, 67, 50, 0.05);
+      --shadow-md: 0 8px 24px rgba(27, 67, 50, 0.08);
+      --shadow-lg: 0 16px 36px rgba(27, 67, 50, 0.12);
+      
+      --max-w: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    img { max-width: 100%; display: block; object-fit: cover; }
+
+    .container {
+      width: min(var(--max-w), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .mono {
+      font-feature-settings: "tnum" 1, "cv01" 1;
+      letter-spacing: -0.01em;
+    }
+
+    /* Top Ticker Bar */
+    .top-ticker {
+      background: var(--brand-green-deep);
+      color: #E8F5E9;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .ticker-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-badge {
+      background: var(--accent-citrus);
+      color: #FFF;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Navigation Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: rgba(250, 247, 240, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--brand-green);
+      color: #FFF;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-md);
+      font-size: 22px;
+      box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+    }
+    .brand-text h1 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      color: var(--brand-green-deep);
+    }
+    .brand-text span {
+      font-size: 11px;
+      color: var(--ink-secondary);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover {
+      color: var(--brand-green);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-scale-quick {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-soft);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--brand-green-deep);
+      transition: all 0.2s ease;
+    }
+    .btn-scale-quick:hover {
+      background: var(--brand-green-tint);
+      border-color: var(--brand-green);
+    }
+
+    .btn-cart-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand-green);
+      color: #FFF;
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(45, 106, 79, 0.3);
+      transition: all 0.2s ease;
+    }
+    .btn-cart-trigger:hover {
+      background: var(--brand-green-deep);
+      transform: translateY(-1px);
+    }
+    .cart-badge-count {
+      background: var(--accent-citrus);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 48px 0 32px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand-green-tint);
+      color: var(--brand-green);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(45, 106, 79, 0.2);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.5vw, 54px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--brand-green-deep);
+      margin-bottom: 20px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--accent-citrus);
+      text-decoration: underline;
+      text-decoration-color: rgba(232, 89, 12, 0.3);
+      text-underline-offset: 6px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--ink-secondary);
+      max-width: 580px;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .hero-features-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .feat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-white);
+      border: 1px solid var(--border-hairline);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Interactive Hero Scale Widget Card */
+    .hero-scale-card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .scale-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed var(--border-soft);
+      margin-bottom: 20px;
+    }
+    .scale-status-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand-green);
+      background: var(--brand-green-tint);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .scale-status-dot span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-green);
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Realistic Digital Scale Visual Screen */
+    .scale-digital-display {
+      background: #111D15;
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      color: #E2FCE5;
+      margin-bottom: 20px;
+      border: 2px solid #203A2B;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .scale-screen-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      font-weight: 700;
+      color: #6DE88D;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .scale-screen-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .scale-weight-val {
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 800;
+      color: #55F279;
+      letter-spacing: -1px;
+      text-shadow: 0 0 12px rgba(85, 242, 121, 0.4);
+    }
+    .scale-weight-val small {
+      font-size: 18px;
+      font-weight: 600;
+      color: #A3E7B1;
+      margin-left: 4px;
+    }
+    .scale-price-display {
+      text-align: right;
+    }
+    .scale-price-label {
+      font-size: 10px;
+      color: #94A3B8;
+      text-transform: uppercase;
+    }
+    .scale-price-val {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: #FBBF24;
+      text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+    }
+
+    /* Fruit Picker inside Hero Scale */
+    .scale-fruit-selector {
+      margin-bottom: 16px;
+    }
+    .scale-fruit-selector label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-secondary);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .fruit-chips-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+    .chip-fruit-btn {
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-hairline);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      color: var(--ink-primary);
+    }
+    .chip-fruit-btn.active {
+      background: var(--brand-green-deep);
+      color: #FFF;
+      border-color: var(--brand-green-deep);
+    }
+
+    /* Weight Preset Buttons */
+    .weight-preset-group {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .btn-preset {
+      padding: 9px 4px;
+      border-radius: var(--radius-md);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-soft);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-primary);
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .btn-preset.active {
+      background: var(--accent-citrus);
+      color: white;
+      border-color: var(--accent-citrus);
+      box-shadow: 0 4px 10px rgba(232, 89, 12, 0.25);
+    }
+
+    /* Cut service toggle */
+    .prep-option-box {
+      background: var(--surface-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-hairline);
+    }
+    .prep-option-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-primary);
+    }
+    .prep-option-label small {
+      display: block;
+      font-size: 11px;
+      color: var(--ink-muted);
+      font-weight: 400;
+    }
+    .switch-toggle {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: #CBD5E1;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .switch-toggle.active {
+      background: var(--brand-green);
+    }
+    .switch-toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .switch-toggle.active::after {
+      transform: translateX(20px);
+    }
+
+    .btn-add-scaled {
+      width: 100%;
+      background: var(--brand-green);
+      color: white;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(45, 106, 79, 0.25);
+      transition: all 0.2s ease;
+    }
+    .btn-add-scaled:hover {
+      background: var(--brand-green-deep);
+      transform: translateY(-2px);
+    }
+
+    /* Category Tabs */
+    .category-section {
+      padding: 40px 0 20px;
+    }
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .sec-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--brand-green);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .sec-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--brand-green-deep);
+      letter-spacing: -0.5px;
+    }
+    
+    .cat-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .cat-tab-btn {
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-white);
+      border: 1px solid var(--border-hairline);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-secondary);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .cat-tab-btn.active {
+      background: var(--brand-green-deep);
+      color: #FFF;
+      border-color: var(--brand-green-deep);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Search & Filter Bar */
+    .filter-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+      background: var(--surface-white);
+      padding: 12px 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-hairline);
+    }
+    .search-input-box {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .search-input-box input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 14px;
+      color: var(--ink-primary);
+      font-family: inherit;
+    }
+    .count-indicator {
+      font-size: 13px;
+      color: var(--ink-muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .fruit-card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .fruit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-soft);
+    }
+    .card-photo-box {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      background: var(--surface-subtle);
+    }
+    .card-photo-box img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease;
+    }
+    .fruit-card:hover .card-photo-box img {
+      transform: scale(1.06);
+    }
+    .card-badges-float {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 2;
+    }
+    .badge-origin {
+      background: rgba(26, 56, 43, 0.85);
+      backdrop-filter: blur(8px);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.3px;
+    }
+    .badge-sweetness {
+      background: var(--accent-citrus);
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .card-stock-tag {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(4px);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      color: var(--brand-green-deep);
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink-primary);
+      line-height: 1.2;
+    }
+    .card-desc {
+      font-size: 12.5px;
+      color: var(--ink-secondary);
+      margin-bottom: 14px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Price per Kg / 100gr info */
+    .card-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .price-main {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--brand-green-deep);
+    }
+    .price-unit {
+      font-size: 11px;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    /* Weight selector inside product card */
+    .card-weight-ctrl {
+      background: var(--surface-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin-bottom: 14px;
+      border: 1px solid var(--border-hairline);
+    }
+    .cwc-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink-secondary);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .cwc-calc-result {
+      color: var(--accent-citrus);
+      font-weight: 800;
+    }
+    .card-weight-presets {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+    .cwp-btn {
+      flex: 1;
+      padding: 6px 2px;
+      background: #FFF;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink-secondary);
+      text-align: center;
+      transition: all 0.15s;
+    }
+    .cwp-btn.active {
+      background: var(--brand-green);
+      color: #FFF;
+      border-color: var(--brand-green);
+    }
+    .card-prep-check {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--ink-secondary);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .card-prep-check input {
+      accent-color: var(--brand-green);
+      cursor: pointer;
+    }
+
+    /* Card Action Buttons */
+    .card-actions-row {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .btn-card-add {
+      flex: 1;
+      background: var(--brand-green);
+      color: #FFF;
+      padding: 10px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-card-add:hover {
+      background: var(--brand-green-deep);
+    }
+    .btn-card-info {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border-soft);
+      border-radius: 50%;
+      color: var(--ink-secondary);
+      transition: all 0.15s;
+    }
+    .btn-card-info:hover {
+      background: var(--surface-subtle);
+      color: var(--brand-green);
+    }
+
+    /* Big Interactive Digital Scale Studio Section */
+    .scale-studio-section {
+      background: var(--surface-dark);
+      color: #FFF;
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      margin: 40px 0 70px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .scale-studio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .ss-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #6DE88D;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .ss-title {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .ss-desc {
+      font-size: 15px;
+      color: #A3B899;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    
+    .timbangan-device {
+      background: #10261D;
+      border: 2px solid #234E3C;
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: inset 0 2px 20px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+    .scale-platter {
+      width: 220px;
+      height: 18px;
+      background: #718096;
+      border-radius: 4px;
+      margin: 0 auto 12px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .scale-platter::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 10px;
+      background: #4A5568;
+    }
+    .scale-fruit-on-platter {
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: -10px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+      animation: fruitBounce 0.4s ease;
+    }
+    @keyframes fruitBounce {
+      0% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+    .device-screen {
+      background: #000;
+      border: 2px solid #2D6A4F;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-top: 16px;
+      color: #48E572;
+      font-family: 'Courier New', monospace;
+    }
+    .screen-indicator-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #A3E7B1;
+      margin-bottom: 4px;
+    }
+    .screen-digits {
+      font-size: 40px;
+      font-weight: 800;
+      color: #55F279;
+      letter-spacing: 2px;
+    }
+    .scale-control-knobs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .knob-btn {
+      background: #234E3C;
+      color: #FFF;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      transition: background 0.15s;
+    }
+    .knob-btn:hover {
+      background: var(--brand-green);
+    }
+
+    /* Quality Assurances 4 Grid */
+    .assurances-section {
+      padding: 20px 0 70px;
+    }
+    .assurances-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .as-card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .as-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .as-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--brand-green-deep);
+      margin-bottom: 6px;
+    }
+    .as-desc {
+      font-size: 12.5px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    /* Slide-out Cart Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .cart-drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(440px, 100%);
+      background: var(--surface-white);
+      z-index: 101;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    }
+    .cart-drawer-overlay.active .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface-subtle);
+    }
+    .cart-header h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--brand-green-deep);
+    }
+    .btn-close-cart {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #FFF;
+      border: 1px solid var(--border-soft);
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      color: var(--ink-secondary);
+    }
+
+    .cart-items-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .cart-empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--ink-muted);
+    }
+    .cart-empty-state span {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .cart-item-row {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      background: var(--surface-subtle);
+      padding: 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-hairline);
+    }
+    .cir-img {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+    .cir-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin-bottom: 2px;
+    }
+    .cir-weight {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand-green);
+    }
+    .cir-prep {
+      font-size: 11px;
+      color: var(--accent-citrus);
+      font-weight: 600;
+    }
+    .cir-price {
+      text-align: right;
+    }
+    .cir-price-val {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--brand-green-deep);
+    }
+    .btn-del-item {
+      font-size: 11px;
+      color: #EF4444;
+      display: block;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .cart-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-hairline);
+      background: var(--bg-cream);
+    }
+    .cart-total-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--ink-secondary);
+    }
+    .cart-grand-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border-soft);
+    }
+    .cgt-label {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink-primary);
+    }
+    .cgt-val {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--brand-green-deep);
+    }
+
+    .cart-wa-input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-soft);
+      font-size: 13px;
+      margin-bottom: 10px;
+      background: white;
+      font-family: inherit;
+    }
+    .btn-checkout-wa {
+      width: 100%;
+      background: #25D366;
+      color: #07471E;
+      padding: 14px;
+      border-radius: var(--radius-pill);
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s;
+    }
+    .btn-checkout-wa:hover {
+      background: #1EBE5B;
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    /* Product Detail Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(6px);
+      z-index: 120;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+    .btn-close-modal {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 34px;
+      height: 34px;
+      background: var(--surface-subtle);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      color: var(--ink-secondary);
+      z-index: 5;
+    }
+    .modal-split {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .modal-fruit-photo {
+      height: 260px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface-subtle);
+    }
+    .modal-fruit-photo img {
+      width: 100%;
+      height: 100%;
+    }
+    .modal-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--brand-green);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--brand-green-deep);
+      margin-bottom: 8px;
+    }
+    .modal-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent-citrus);
+      margin-bottom: 12px;
+    }
+    .modal-desc {
+      font-size: 13px;
+      color: var(--ink-secondary);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    
+    /* Taste Radar Bars */
+    .taste-meter-wrap {
+      background: var(--surface-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 18px;
+    }
+    .taste-row {
+      margin-bottom: 8px;
+    }
+    .taste-row:last-child { margin-bottom: 0; }
+    .taste-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--ink-primary);
+    }
+    .taste-bar-bg {
+      height: 6px;
+      background: #E2E8F0;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+    }
+    .taste-bar-fill {
+      height: 100%;
+      background: var(--brand-green);
+      border-radius: var(--radius-pill);
+    }
+
+    /* Toast Alert */
+    .toast-pill {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--brand-green-deep);
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      z-index: 150;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast-pill.active {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--brand-green-deep);
+      color: #E2E8F0;
+      padding: 56px 0 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer-brand h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: #FFF;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    .footer-brand p {
+      font-size: 13px;
+      color: #A0AEC0;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 800;
+      color: #6DE88D;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+    }
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: #CBD5E1;
+    }
+    .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 12px;
+      color: #94A3B8;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .scale-studio-grid { grid-template-columns: 1fr; }
+      .assurances-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .assurances-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .modal-split { grid-template-columns: 1fr; }
+      .modal-fruit-photo { height: 180px; }
+      .scale-studio-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Ticker -->
+  <div class="top-ticker">
+    <div class="container">
+      <div class="ticker-content">
+        <span class="ticker-badge">PETIK SUBUH</span>
+        <span>🍇 Panen Hari Ini: Mangga Harum Manis 15° Brix • Jeruk Berastagi Manis Asli • Anggur Shine Muscat Manis Garing</span>
+        <span class="mono" style="margin-left: auto;">Buka Setiap Hari 06.30 — 21.30 WIB</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrap">
+        <!-- Logo -->
+        <a href="#beranda" class="brand-logo">
+          <div class="brand-icon">🍊</div>
+          <div class="brand-text">
+            <h1>RUKUN BUAH</h1>
+            <span>Pasar Buah Segar & Timbangan Harian</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="nav-links">
+          <li><a href="#etalase">Etalase Buah</a></li>
+          <li><a href="#timbangan-studio">Meja Timbang</a></li>
+          <li><a href="#jaminan">Garansi Segar</a></li>
+          <li><a href="#kontak">Lokasi Kedai</a></li>
+        </ul>
+
+        <!-- Action Buttons -->
+        <div class="nav-actions">
+          <a href="#timbangan-studio" class="btn-scale-quick">
+            <span>⚖️ Timbang Live</span>
+          </a>
+          <button class="btn-cart-trigger" onclick="openCartDrawer()" title="Buka Keranjang Timbangan">
+            <span>Keranjang</span>
+            <span class="cart-badge-count" id="navCartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Interactive Live Scale Widget -->
+  <section class="hero-section" id="beranda">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Left Hero Text -->
+        <div class="hero-left-col">
+          <span class="hero-pill-tag">🌱 Pasar Buah Kurasi Terpilih</span>
+          <h2 class="hero-title">
+            Buah Segar Petik Kebun, <em>Timbang Pas</em> Sampai Gram Terakhir.
+          </h2>
+          <p class="hero-desc">
+            Dari mangga harum manis matang pohon hingga anggur renyah tanpa biji. Bebas tentukan timbangan mulai 250 gram, minta dikupas siap makan higienis, atau dikirim instan berpendingin ke meja Anda.
+          </p>
+
+          <!-- Key Trust Badges -->
+          <div class="hero-features-chips">
+            <span class="feat-chip">⚖️ Tera Metrologi Sah</span>
+            <span class="feat-chip">🍉 Manis Teruji Brix</span>
+            <span class="feat-chip">🔪 Gratis Kupas Higienis</span>
+            <span class="feat-chip">🛵 Kirim Dingin 1-2 Jam</span>
+          </div>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="#etalase" class="btn-add-scaled" style="width: auto; padding: 12px 24px;">
+              <span>Jelajahi 12 Buah Pilihan</span>
+              <span>↓</span>
+            </a>
+            <a href="#timbangan-studio" class="btn-scale-quick" style="padding: 12px 20px; font-size: 14px;">
+              <span>Simulasi Timbangan Digital →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Hero Scale Widget -->
+        <div class="hero-scale-card">
+          <div class="scale-card-head">
+            <div>
+              <span class="mono" style="font-size: 11px; font-weight: 800; color: var(--brand-green);">SIMULASI TIMBANG INSTAN</span>
+              <h3 style="font-family: var(--font-display); font-size: 18px; font-weight: 800;">Pilih Buah & Cek Timbangan</h3>
+            </div>
+            <div class="scale-status-dot">
+              <span></span> TERA READY
+            </div>
+          </div>
+
+          <!-- Digital Scale Screen -->
+          <div class="scale-digital-display">
+            <div class="scale-screen-top">
+              <span>Digital Scale · Model RB-2026</span>
+              <span id="heroScaleTare">TARE: 0.00 kg</span>
+            </div>
+            <div class="scale-screen-main">
+              <div class="scale-weight-val" id="heroScaleWeight">
+                0.500<small>kg</small>
+              </div>
+              <div class="scale-price-display">
+                <span class="scale-price-label">Subtotal</span>
+                <div class="scale-price-val" id="heroScalePrice">Rp 14.000</div>
+              </div>
+            </div>
+            <div style="font-size: 11px; color: #9AE6B4; margin-top: 6px;" id="heroFruitUnitInfo">
+              Mangga Harum Manis Probolinggo @ Rp 28.000/kg (± 1-2 buah)
+            </div>
+          </div>
+
+          <!-- Fruit Selector Quick Chips -->
+          <div class="scale-fruit-selector">
+            <label>1. Pilih Jenis Buah:</label>
+            <div class="fruit-chips-row" id="heroFruitChips">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Weight Preset Buttons -->
+          <div style="margin-bottom: 6px;">
+            <label style="font-size: 12px; font-weight: 700; color: var(--ink-secondary); text-transform: uppercase;">2. Pilih Berat Timbangan:</label>
+          </div>
+          <div class="weight-preset-group">
+            <button class="btn-preset" data-weight="250" onclick="setHeroWeight(250)">250 gr</button>
+            <button class="btn-preset active" data-weight="500" onclick="setHeroWeight(500)">500 gr (½ kg)</button>
+            <button class="btn-preset" data-weight="1000" onclick="setHeroWeight(1000)">1.000 gr (1 kg)</button>
+            <button class="btn-preset" data-weight="2000" onclick="setHeroWeight(2000)">2.000 gr (2 kg)</button>
+          </div>
+
+          <!-- Cut & Prep Service Option -->
+          <div class="prep-option-box">
+            <div class="prep-option-label">
+              Minta Dikupas & Potong Siap Santap
+              <small>Higienis, wadah food-grade & garpu buah (+Rp 2.000)</small>
+            </div>
+            <div class="switch-toggle" id="heroCutToggle" onclick="toggleHeroCut()"></div>
+          </div>
+
+          <!-- Add to Cart CTA -->
+          <button class="btn-add-scaled" onclick="addHeroItemToCart()">
+            <span>🛒 Masukkan Hasil Timbangan ke Keranjang</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section class="category-section" id="etalase">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <span class="sec-kicker">Koleksi Petik Harian</span>
+          <h2 class="sec-title">Etalase Buah Segar Pilihan</h2>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="cat-tabs" id="categoryTabs">
+          <button class="cat-tab-btn active" onclick="filterCategory('all', this)">Semua Buah (12)</button>
+          <button class="cat-tab-btn" onclick="filterCategory('lokal', this)">Lokal Juara (6)</button>
+          <button class="cat-tab-btn" onclick="filterCategory('impor', this)">Impor Premium (3)</button>
+          <button class="cat-tab-btn" onclick="filterCategory('potong', this)">Siap Santap (2)</button>
+          <button class="cat-tab-btn" onclick="filterCategory('parcel', this)">Parcel & Hadiah (1)</button>
+        </div>
+      </div>
+
+      <!-- Search & Status Bar -->
+      <div class="filter-toolbar">
+        <div class="search-input-box">
+          <span style="font-size: 16px;">🔍</span>
+          <input type="text" id="searchInput" placeholder="Cari mangga, semangka, jeruk berastagi, anggur muscat..." oninput="handleSearch(this.value)">
+        </div>
+        <div class="count-indicator" id="productCountInfo">Menampilkan 12 buah segar</div>
+      </div>
+
+      <!-- Fruit Cards Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Digital Scale Studio Section -->
+  <section class="container" id="timbangan-studio">
+    <div class="scale-studio-section">
+      <div class="scale-studio-grid">
+        <!-- Text Left -->
+        <div>
+          <span class="ss-tag">STANDAR METROLOGI LEGAL 2026</span>
+          <h2 class="ss-title">Transparansi Timbangan Digital Rukun Buah</h2>
+          <p class="ss-desc">
+            Kami menolak praktik pembulatan sepihak. Setiap buah ditaruh di atas timbangan tera bersertifikat yang ditera ulang rutin. Berapapun gram yang Anda timbang, harganya dihitung presisi proporsional.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="color: #6DE88D; font-size: 18px;">✓</span>
+              <span style="font-size: 14px;"><strong>Ketelitian 1 Gram:</strong> Bobot nettonya akurat, tara wadah dinolkan terlebih dahulu.</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="color: #6DE88D; font-size: 18px;">✓</span>
+              <span style="font-size: 14px;"><strong>Foto Timbangan Asli:</strong> Pelanggan online dikirimkan foto struk timbangan riil via WhatsApp sebelum kurir jalan.</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="color: #6DE88D; font-size: 18px;">✓</span>
+              <span style="font-size: 14px;"><strong>Garansi Manis & Utuh:</strong> Jika asam berlebih atau busuk di dalam, fotokan dan dapatkan pengganti hari itu juga.</span>
+            </div>
+          </div>
+
+          <a href="#etalase" class="btn-preset" style="display: inline-block; padding: 12px 24px; background: #6DE88D; color: #10261D; border-radius: var(--radius-pill); font-size: 14px; font-weight: 800;">
+            Pilih Buah di Etalase Sekarang
+          </a>
+        </div>
+
+        <!-- Scale Hardware Mockup Visual Right -->
+        <div class="timbangan-device">
+          <div class="scale-fruit-on-platter" id="studioFruitEmoji">🍉</div>
+          <div class="scale-platter"></div>
+          
+          <div class="device-screen">
+            <div class="screen-indicator-row">
+              <span>CAP 15.000 kg</span>
+              <span>e=1g d=1g</span>
+              <span>NET STABLE</span>
+            </div>
+            <div class="screen-digits" id="studioDisplayDigits">
+              1.250 <span style="font-size: 20px;">kg</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #FBBF24; margin-top: 6px;">
+              <span id="studioFruitName">Semangka Merah Non-Biji</span>
+              <span id="studioFruitPrice">Total: Rp 17.500</span>
+            </div>
+          </div>
+
+          <div class="scale-control-knobs">
+            <button class="knob-btn" onclick="sampleStudioScale('Mangga Harum Manis', 0.850, 23800, '🥭')">🥭 Mangga (850g)</button>
+            <button class="knob-btn" onclick="sampleStudioScale('Semangka Merah', 1.750, 24500, '🍉')">🍉 Semangka (1.75kg)</button>
+            <button class="knob-btn" onclick="sampleStudioScale('Anggur Shine Muscat', 0.500, 39500, '🍇')">🍇 Muscat (500g)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Quality Assurances -->
+  <section class="assurances-section" id="jaminan">
+    <div class="container">
+      <div style="text-align: center; max-width: 620px; margin: 0 auto 36px;">
+        <span class="sec-kicker">Standar Pelayanan</span>
+        <h2 class="sec-title">4 Komitmen Belanja di Rukun Buah</h2>
+      </div>
+
+      <div class="assurances-grid">
+        <div class="as-card">
+          <div class="as-icon">🍯</div>
+          <h3 class="as-title">Garansi Manis Alami</h3>
+          <p class="as-desc">Diuji menggunakan refraktometer Brix. Jika buah berasa hambar atau mengecewakan, kami tukar baru tanpa ribet.</p>
+        </div>
+        <div class="as-card">
+          <div class="as-icon">⚖️</div>
+          <h3 class="as-title">Timbangan Tera Sah</h3>
+          <p class="as-desc">Timbangan bersertifikasi Badan Metrologi. Bebas beli gramatur berapa pun tanpa dipaksa genap 1 kg.</p>
+        </div>
+        <div class="as-card">
+          <div class="as-icon">🔪</div>
+          <h3 class="as-title">Potong Bersih Higienis</h3>
+          <p class="as-desc">Dibersihkan dengan air ozone dan dipotong dengan pisau stainless steril food-grade sesaat sebelum diantar.</p>
+        </div>
+        <div class="as-card">
+          <div class="as-icon">🛵</div>
+          <h3 class="as-title">Cold-Bag Delivery</h3>
+          <p class="as-desc">Pengiriman instan roda dua menggunakan tas insulated berpendingin agar buah tetap sejuk sampai tujuan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="kontak">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🍊 RUKUN BUAH</h3>
+          <p>
+            Pasar buah segar pilihan keluarga. Menghubungkan hasil panen petani nusantara dan buah impor pilihan langsung ke meja rumah Anda dengan timbangan transparan dan jujur.
+          </p>
+          <div style="margin-top: 16px; font-size: 13px; color: #6DE88D;">
+            ● Kedai Buka Setiap Hari: 06.30 — 21.30 WIB
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kategori Buah</h4>
+          <ul class="footer-links-list">
+            <li><a href="#etalase">Mangga & Pepaya Manis</a></li>
+            <li><a href="#etalase">Jeruk Lokal & Impor</a></li>
+            <li><a href="#etalase">Anggur & Apel Renyah</a></li>
+            <li><a href="#etalase">Semangka & Melon Segar</a></li>
+            <li><a href="#etalase">Buah Potong & Salad</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Layanan Toko</h4>
+          <ul class="footer-links-list">
+            <li><a href="#timbangan-studio">Timbangan Kustom Gram</a></li>
+            <li><a href="#etalase">Kupas & Potong Siap Saji</a></li>
+            <li><a href="#etalase">Parcel Hantaran & Buah Sakit</a></li>
+            <li><a href="#jaminan">Syarat Garansi Manis</a></li>
+            <li><a href="#kontak">Pemesanan Grosir / Restoran</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Lokasi & WhatsApp</h4>
+          <ul class="footer-links-list">
+            <li>📍 Jl. Kebun Raya No. 18, Bandung</li>
+            <li>📱 WhatsApp: +62 852-1958-3336</li>
+            <li>🛵 Pengiriman: Gosend / Grab / Kurir Toko</li>
+            <li>💳 Pembayaran: QRIS / Transfer / COD</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>© 2026 RUKUN BUAH — Pasar & Kedai Buah Segar. Craft by NECTOR.UI.</span>
+        <span>Akurat · Manis · Tanpa Slop</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-out Cart Drawer (Keranjang Timbangan) -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="handleOverlayClick(event)">
+    <aside class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <div>
+          <h3>Keranjang Timbangan</h3>
+          <span class="mono" style="font-size: 12px; color: var(--brand-green); font-weight: 700;" id="cartTotalWeight">Total Bobot: 0 kg</span>
+        </div>
+        <button class="btn-close-cart" onclick="closeCartDrawer()" title="Tutup Keranjang">✕</button>
+      </div>
+
+      <div class="cart-items-scroll" id="cartItemsList">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-total-stats">
+          <span>Jumlah Item Buah:</span>
+          <strong id="cartItemCountText">0 Jenis Buah</strong>
+        </div>
+        <div class="cart-total-stats">
+          <span>Total Berat Muatan:</span>
+          <strong id="cartItemWeightText">0.00 kg</strong>
+        </div>
+
+        <div class="cart-grand-total">
+          <span class="cgt-label">Total Belanja:</span>
+          <span class="cgt-val" id="cartGrandTotalVal">Rp 0</span>
+        </div>
+
+        <!-- Order inputs for WhatsApp -->
+        <input type="text" id="orderCustomerName" class="cart-wa-input" placeholder="Nama Penerima (misal: Ibu Rina)">
+        <input type="text" id="orderCustomerAddress" class="cart-wa-input" placeholder="Alamat Pengiriman / Patokan Rumah">
+        
+        <button class="btn-checkout-wa" onclick="checkoutWhatsApp()">
+          <span>💬 Kirim Rincian Pesanan ke WhatsApp</span>
+        </button>
+        <div style="text-align: center; font-size: 11px; color: var(--ink-muted); margin-top: 8px;">
+          Pesanan langsung terhubung ke kasir Rukun Buah untuk cek stok & ongkir.
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Product Detail Modal -->
+  <div class="modal-backdrop" id="productModal" onclick="handleModalBackdropClick(event)">
+    <div class="modal-card" id="modalCard">
+      <button class="btn-close-modal" onclick="closeProductModal()">✕</button>
+      <div class="modal-split">
+        <div class="modal-fruit-photo">
+          <img id="modalImg" src="" alt="Detail Buah">
+        </div>
+        <div>
+          <span class="modal-kicker" id="modalCategory">KATEGORI BUAH</span>
+          <h3 class="modal-title" id="modalTitle">Nama Buah</h3>
+          <div class="modal-price" id="modalPrice">Rp 0 / kg</div>
+          <p class="modal-desc" id="modalDesc">Deskripsi lengkap profil rasa buah.</p>
+
+          <!-- Taste Profile Indicators -->
+          <div class="taste-meter-wrap">
+            <div class="taste-row">
+              <div class="taste-label-row">
+                <span>Kemanisan (Brix Index)</span>
+                <strong id="modalBrixVal">14° Brix</strong>
+              </div>
+              <div class="taste-bar-bg"><div class="taste-bar-fill" id="modalBrixBar" style="width: 80%;"></div></div>
+            </div>
+            <div class="taste-row">
+              <div class="taste-label-row">
+                <span>Tingkat Keasaman</span>
+                <span id="modalAcidVal">Rendah (Manis Lembut)</span>
+              </div>
+              <div class="taste-bar-bg"><div class="taste-bar-fill" id="modalAcidBar" style="width: 30%; background: #E8590C;"></div></div>
+            </div>
+            <div class="taste-row">
+              <div class="taste-label-row">
+                <span>Tekstur Daging Buah</span>
+                <span id="modalTextureVal">Lembut & Berair</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #166534; margin-bottom: 16px;" id="modalStorageNote">
+            💡 <strong>Saran Simpan:</strong> Simpan di suhu ruang 2 hari hingga harum maksimal, lalu dinginkan di kulkas.
+          </div>
+
+          <button class="btn-add-scaled" id="btnModalAddToCart" onclick="addCurrentModalToCart()">
+            <span>➕ Masukkan ke Keranjang Timbangan</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Pill -->
+  <div class="toast-pill" id="toastPill">
+    <span id="toastIcon">⚖️</span>
+    <span id="toastMessage">Berhasil ditambahkan ke timbangan!</span>
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    // 1. Data Katalog Buah Segar
+    const FRUIT_PRODUCTS = [
+      {
+        id: 'buah-01',
+        name: 'Mangga Harum Manis Probolinggo',
+        category: 'lokal',
+        categoryName: 'Lokal Favorit',
+        origin: 'Probolinggo, Jatim',
+        brix: '15° Brix',
+        brixPercent: 88,
+        acidity: 'Sangat Rendah (Legit)',
+        acidPercent: 20,
+        texture: 'Daging Tebal, Lembut, Serat Halus',
+        pricePerKg: 28000,
+        image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=700&q=80',
+        stock: '18.5 kg siap timbang',
+        desc: 'Mangga harum manis asli Probolinggo hasil petik matang pohon. Aromanya harum semerbak, daging tebal berwarna kuning jingga dengan rasa manis legit tanpa asam.',
+        storage: 'Suhu ruang 2 hari hingga harum semerbak, tahan 5 hari di laci buah kulkas.'
+      },
+      {
+        id: 'buah-02',
+        name: 'Jeruk Berastagi Manis Segar',
+        category: 'lokal',
+        categoryName: 'Lokal Favorit',
+        origin: 'Berastagi, Sumut',
+        brix: '13° Brix',
+        brixPercent: 75,
+        acidity: 'Sedang Menyegarkan',
+        acidPercent: 45,
+        texture: 'Bulir Air Melimpah, Kulit Tipis',
+        pricePerKg: 24000,
+        image: 'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=700&q=80',
+        stock: '24.0 kg siap timbang',
+        desc: 'Jeruk khas dataran tinggi Karo Berastagi. Kulit hijau semburat kuning, bulir airnya sangat banyak dengan perpaduan manis segar yang bikin mata melek.',
+        storage: 'Tahan hingga 7 hari di suhu ruang kering sejuk.'
+      },
+      {
+        id: 'buah-03',
+        name: 'Semangka Merah Non-Biji',
+        category: 'lokal',
+        categoryName: 'Lokal Favorit',
+        origin: 'Banyuwangi, Jatim',
+        brix: '12° Brix',
+        brixPercent: 70,
+        acidity: 'Nol (Segar Murni)',
+        acidPercent: 10,
+        texture: 'Renyah Berpasir, Air Melimpah',
+        pricePerKg: 14000,
+        image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=700&q=80',
+        stock: '42.0 kg siap timbang',
+        desc: 'Semangka merah tanpa biji berukuran bulat besar. Daging buah merah merona padat, renyah manis kaya air, sangat cocok untuk hidangan keluarga di siang hari.',
+        storage: 'Kondisi utuh tahan 10 hari. Setelah dipotong simpan di wadah kedap dalam kulkas.'
+      },
+      {
+        id: 'buah-04',
+        name: 'Alpukat Mentega Super Jumbo',
+        category: 'lokal',
+        categoryName: 'Lokal Favorit',
+        origin: 'Lampung Barat',
+        brix: '8° Brix',
+        brixPercent: 45,
+        acidity: 'Gurih Creamy',
+        acidPercent: 10,
+        texture: 'Padat Pulen Seperti Mentega',
+        pricePerKg: 36000,
+        image: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=700&q=80',
+        stock: '15.0 kg siap timbang',
+        desc: 'Alpukat mentega grade super dengan daging tebal warna kuning keemasan. Teksturnya pulen legit, tidak pahit, dan bebas serat hitam.',
+        storage: 'Jika masih keras simpan di suhu ruang, begitu empuk segera konsumsi atau masukkan kulkas.'
+      },
+      {
+        id: 'buah-05',
+        name: 'Anggur Shine Muscat Green',
+        category: 'impor',
+        categoryName: 'Impor Premium',
+        origin: 'Okayama / Impor',
+        brix: '18° Brix',
+        brixPercent: 95,
+        acidity: 'Sangat Rendah (Floral)',
+        acidPercent: 15,
+        texture: 'Renyah Garing, Tanpa Biji',
+        pricePerKg: 79000,
+        image: 'https://images.unsplash.com/photo-1596363505729-4190a9506133?auto=format&fit=crop&w=700&q=80',
+        stock: '8.5 kg siap timbang',
+        desc: 'Anggur hijau premium berbutir besar padat. Kulitnya tipis renyah bisa langsung dimakan, tanpa biji, dan beraroma wangi bunga persik yang manis mewah.',
+        storage: 'Simpan di chiller kulkas dalam kantong berlubang, jangan dicuci sebelum disimpan.'
+      },
+      {
+        id: 'buah-06',
+        name: 'Buah Naga Merah Super',
+        category: 'lokal',
+        categoryName: 'Lokal Favorit',
+        origin: 'Banyuwangi, Jatim',
+        brix: '13° Brix',
+        brixPercent: 72,
+        acidity: 'Rendah Lembut',
+        acidPercent: 15,
+        texture: 'Daging Gelap Berbiji Halus Renyah',
+        pricePerKg: 19000,
+        image: 'https://images.unsplash.com/photo-1527325678964-54921661f888?auto=format&fit=crop&w=700&q=80',
+        stock: '21.0 kg siap timbang',
+        desc: 'Buah naga merah organik kaya antioksidan dan serat. Rasanya manis segar menyejukkan, warna ungunya sangat pekat kaya betasianin alami.',
+        storage: 'Tahan hingga 5-7 hari di suhu ruang sejuk.'
+      },
+      {
+        id: 'buah-07',
+        name: 'Apel Fuji Wang Shan Raksasa',
+        category: 'impor',
+        categoryName: 'Impor Premium',
+        origin: 'Shandong / Impor',
+        brix: '14° Brix',
+        brixPercent: 80,
+        acidity: 'Manis Gurih Seimbang',
+        acidPercent: 25,
+        texture: 'Garing Renyah Berair',
+        pricePerKg: 38000,
+        image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=700&q=80',
+        stock: '28.0 kg siap timbang',
+        desc: 'Apel Fuji Wang Shan berukuran besar dengan guratan warna merah semu madu. Tekstur renyah dan berair gurih, tidak mudah benyek saat dikunyah.',
+        storage: 'Tahan hingga 2-3 minggu di dalam kompartemen kulkas.'
+      },
+      {
+        id: 'buah-08',
+        name: 'Pisang Cavendish Sunpride Matang',
+        category: 'lokal',
+        categoryName: 'Lokal Favorit',
+        origin: 'Lampung Timur',
+        brix: '16° Brix',
+        brixPercent: 85,
+        acidity: 'Nol (Creamy Manis)',
+        acidPercent: 10,
+        texture: 'Lembut Padat Mengenyangkan',
+        pricePerKg: 22000,
+        image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=700&q=80',
+        stock: '30.0 kg siap timbang',
+        desc: 'Pisang cavendish mulus bersih tanpa getah liar. Daging buah putih krem empuk beraroma khas, kaya kalium dan sumber energi instan harian.',
+        storage: 'Gantung di suhu ruang sejuk, jangan dimasukkan ke kulkas agar kulit tidak menghitam.'
+      },
+      {
+        id: 'buah-09',
+        name: 'Nanas Madu Subang Kupas/Utuh',
+        category: 'lokal',
+        categoryName: 'Lokal Favorit',
+        origin: 'Subang, Jabar',
+        brix: '14° Brix',
+        brixPercent: 78,
+        acidity: 'Segar Menggigit',
+        acidPercent: 40,
+        texture: 'Renyah Berair Manis Madu',
+        pricePerKg: 18000,
+        image: 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=700&q=80',
+        stock: '16.0 kg siap timbang',
+        desc: 'Nanas madu asli Subang yang terkenal manis dan tidak gatal di lidah. Daging berwarna kuning madu berkilau, cocok dimakan langsung maupun dibuat rujak.',
+        storage: 'Setelah dikupas, habiskan dalam 2 hari penyimpanan dingin kulkas.'
+      },
+      {
+        id: 'buah-10',
+        name: 'Pir Singo Korea Golden Round',
+        category: 'impor',
+        categoryName: 'Impor Premium',
+        origin: 'Korea / Impor',
+        brix: '13° Brix',
+        brixPercent: 75,
+        acidity: 'Sangat Rendah Sejuk',
+        acidPercent: 15,
+        texture: 'Sangat Berair & Garing Halus',
+        pricePerKg: 42000,
+        image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=700&q=80',
+        stock: '12.0 kg siap timbang',
+        desc: 'Pir Singo berbentuk bulat besar berkulit cokelat keemasan. Daging buahnya luar biasa berair dingin dengan rasa manis alami pereda dahaga.',
+        storage: 'Simpan di kulkas agar rasa segarnya semakin maksimal.'
+      },
+      {
+        id: 'buah-11',
+        name: 'Semangka & Melon Potong Siap Santap',
+        category: 'potong',
+        categoryName: 'Buah Potong Segar',
+        origin: 'Dapur Higienis Toko',
+        brix: '13° Brix',
+        brixPercent: 76,
+        acidity: 'Segar Manis',
+        acidPercent: 15,
+        texture: 'Dadu Dingin Siap Makan',
+        pricePerKg: 32000,
+        image: 'https://images.unsplash.com/photo-1519996529931-28324d5a630e?auto=format&fit=crop&w=700&q=80',
+        stock: '25 bowl siap kirim',
+        desc: 'Kombinasi semangka merah, melon madu, dan nanas manis yang dipotong rapi higienis ke dalam bowl tertutup rapat food-grade lengkap dengan garpu buah.',
+        storage: 'Wajib simpan di kulkas, konsumsi terbaik dalam 24 jam.'
+      },
+      {
+        id: 'buah-12',
+        name: 'Keranjang Parcel Buah Hantaran Sehat',
+        category: 'parcel',
+        categoryName: 'Parcel & Hadiah',
+        origin: 'Kurasi Aneka Kebun',
+        brix: 'Variatif Manis',
+        brixPercent: 85,
+        acidity: 'Koleksi Harmonis',
+        acidPercent: 20,
+        texture: 'Koleksi 6 Jenis Buah Pilihan',
+        pricePerKg: 185000,
+        image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=700&q=80',
+        stock: '8 paket ready stock',
+        desc: 'Keranjang anyaman bambu eksklusif berisi apel fuji, anggur muscat, pir singo, jeruk berastagi, dan mangga harum manis. Dihias pita satin & kartu ucapan.',
+        storage: 'Tahan 4-5 hari dalam suhu ruang ber-AC.'
+      }
+    ];
+
+    // State Aplikasi
+    let currentCategory = 'all';
+    let searchQuery = '';
+    let cartItems = [];
+    let heroSelectedFruit = FRUIT_PRODUCTS[0];
+    let heroSelectedWeight = 500; // in grams
+    let heroCutService = false;
+    let modalSelectedFruit = null;
+
+    // Helper Format Rupiah
+    function formatRupiah(amount) {
+      return 'Rp ' + amount.toLocaleString('id-ID');
+    }
+
+    // 2. Render Hero Scale Chips
+    function initHeroScale() {
+      const chipsContainer = document.getElementById('heroFruitChips');
+      chipsContainer.innerHTML = '';
+      
+      FRUIT_PRODUCTS.slice(0, 6).forEach((f, idx) => {
+        const btn = document.createElement('button');
+        btn.className = `chip-fruit-btn ${idx === 0 ? 'active' : ''}`;
+        btn.innerText = f.name.split(' ')[0] + ' ' + (f.name.split(' ')[1] || '');
+        btn.onclick = () => selectHeroFruit(f, btn);
+        chipsContainer.appendChild(btn);
+      });
+      updateHeroScaleDisplay();
+    }
+
+    function selectHeroFruit(fruit, btnElem) {
+      heroSelectedFruit = fruit;
+      document.querySelectorAll('#heroFruitChips .chip-fruit-btn').forEach(b => b.classList.remove('active'));
+      if (btnElem) btnElem.classList.add('active');
+      updateHeroScaleDisplay();
+    }
+
+    function setHeroWeight(weightGrams) {
+      heroSelectedWeight = weightGrams;
+      document.querySelectorAll('.weight-preset-group .btn-preset').forEach(b => {
+        if (Number(b.dataset.weight) === weightGrams) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+      updateHeroScaleDisplay();
+    }
+
+    function toggleHeroCut() {
+      heroCutService = !heroCutService;
+      document.getElementById('heroCutToggle').classList.toggle('active', heroCutService);
+      updateHeroScaleDisplay();
+    }
+
+    function updateHeroScaleDisplay() {
+      const kg = heroSelectedWeight / 1000;
+      let calculatedPrice = Math.round((heroSelectedFruit.pricePerKg * kg));
+      if (heroCutService) calculatedPrice += 2000;
+
+      document.getElementById('heroScaleWeight').innerHTML = `${kg.toFixed(3)}<small>kg</small>`;
+      document.getElementById('heroScalePrice').innerText = formatRupiah(calculatedPrice);
+      document.getElementById('heroFruitUnitInfo').innerText = `${heroSelectedFruit.name} @ ${formatRupiah(heroSelectedFruit.pricePerKg)}/kg (${heroCutService ? '+ Potong Siap Santap' : 'Buah Utuh Segar'})`;
+    }
+
+    function addHeroItemToCart() {
+      const kg = heroSelectedWeight / 1000;
+      let itemPrice = Math.round((heroSelectedFruit.pricePerKg * kg));
+      if (heroCutService) itemPrice += 2000;
+
+      const cartItem = {
+        id: Date.now() + Math.random().toString().slice(2, 5),
+        fruitId: heroSelectedFruit.id,
+        name: heroSelectedFruit.name,
+        image: heroSelectedFruit.image,
+        weightGrams: heroSelectedWeight,
+        weightKg: kg,
+        isCut: heroCutService,
+        unitPriceKg: heroSelectedFruit.pricePerKg,
+        totalPrice: itemPrice
+      };
+
+      cartItems.push(cartItem);
+      updateCartUI();
+      showToast('⚖️ ' + heroSelectedFruit.name + ' (' + heroSelectedWeight + 'g) masuk keranjang!');
+    }
+
+    // 3. Render Product Cards Grid
+    function renderProductCards() {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = '';
+
+      const filtered = FRUIT_PRODUCTS.filter(p => {
+        const matchesCategory = (currentCategory === 'all') || (p.category === currentCategory);
+        const matchesSearch = !searchQuery || 
+          p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+          p.origin.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.desc.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      document.getElementById('productCountInfo').innerText = `Menampilkan ${filtered.length} buah segar`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: white; border-radius: 20px; border: 1px solid var(--border-hairline);">
+            <span style="font-size: 40px; display: block; margin-bottom: 12px;">🍎</span>
+            <h3 style="font-size: 18px; margin-bottom: 6px;">Buah yang Anda cari belum ditemukan</h3>
+            <p style="font-size: 13px; color: var(--ink-muted);">Coba gunakan kata kunci lain seperti mangga, jeruk, semangka, atau anggur.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'fruit-card';
+        card.dataset.fruitId = p.id;
+
+        // Default local card state: 500g
+        const defaultWeight = 500;
+        const defaultKg = defaultWeight / 1000;
+        const defaultCalcPrice = Math.round(p.pricePerKg * defaultKg);
+
+        card.innerHTML = `
+          <div class="card-photo-box" onclick="openProductModal('${p.id}')" style="cursor: pointer;">
+            <img src="${p.image}" alt="${p.name}" loading="lazy">
+            <div class="card-badges-float">
+              <span class="badge-origin">📍 ${p.origin}</span>
+              <span class="badge-sweetness">🍯 ${p.brix}</span>
+            </div>
+            <div class="card-stock-tag">● ${p.stock}</div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3 class="card-title" onclick="openProductModal('${p.id}')" style="cursor: pointer;">${p.name}</h3>
+            </div>
+            <p class="card-desc">${p.desc}</p>
+
+            <div class="card-price-row">
+              <span class="price-main">${formatRupiah(p.pricePerKg)}</span>
+              <span class="price-unit">/ 1 kg &bull; (${formatRupiah(Math.round(p.pricePerKg / 10))} / 100g)</span>
+            </div>
+
+            <!-- Weight selector box -->
+            <div class="card-weight-ctrl">
+              <div class="cwc-header">
+                <span>Pilih Timbangan:</span>
+                <span class="cwc-calc-result" id="calcPrice-${p.id}">${formatRupiah(defaultCalcPrice)}</span>
+              </div>
+              <div class="card-weight-presets">
+                <button class="cwp-btn" onclick="setCardWeight('${p.id}', 250, this)">250g</button>
+                <button class="cwp-btn active" onclick="setCardWeight('${p.id}', 500, this)">500g</button>
+                <button class="cwp-btn" onclick="setCardWeight('${p.id}', 1000, this)">1 kg</button>
+                <button class="cwp-btn" onclick="setCardWeight('${p.id}', 2000, this)">2 kg</button>
+              </div>
+              <label class="card-prep-check">
+                <input type="checkbox" id="prepCheck-${p.id}" onchange="updateCardPrice('${p.id}')">
+                <span>Kupas & potong higienis (+Rp 2.000)</span>
+              </label>
+            </div>
+
+            <div class="card-actions-row">
+              <button class="btn-card-add" onclick="addCardToCart('${p.id}')">
+                <span>➕ Timbang & Beli</span>
+              </button>
+              <button class="btn-card-info" onclick="openProductModal('${p.id}')" title="Lihat Profil Rasa Buah">
+                ℹ️
+              </button>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Card interactive weight helper
+    const cardWeightState = {};
+
+    function setCardWeight(productId, weightGrams, btnElem) {
+      cardWeightState[productId] = weightGrams;
+      const card = document.querySelector(`.fruit-card[data-fruit-id="${productId}"]`);
+      if (card) {
+        card.querySelectorAll('.cwp-btn').forEach(b => b.classList.remove('active'));
+        if (btnElem) btnElem.classList.add('active');
+        updateCardPrice(productId);
+      }
+    }
+
+    function updateCardPrice(productId) {
+      const fruit = FRUIT_PRODUCTS.find(f => f.id === productId);
+      if (!fruit) return;
+
+      const weight = cardWeightState[productId] || 500;
+      const isCut = document.getElementById(`prepCheck-${productId}`)?.checked || false;
+      const kg = weight / 1000;
+      let totalPrice = Math.round(fruit.pricePerKg * kg);
+      if (isCut) totalPrice += 2000;
+
+      const display = document.getElementById(`calcPrice-${productId}`);
+      if (display) display.innerText = formatRupiah(totalPrice);
+    }
+
+    function addCardToCart(productId) {
+      const fruit = FRUIT_PRODUCTS.find(f => f.id === productId);
+      if (!fruit) return;
+
+      const weight = cardWeightState[productId] || 500;
+      const isCut = document.getElementById(`prepCheck-${productId}`)?.checked || false;
+      const kg = weight / 1000;
+      let totalPrice = Math.round(fruit.pricePerKg * kg);
+      if (isCut) totalPrice += 2000;
+
+      const item = {
+        id: Date.now() + Math.random().toString().slice(2, 5),
+        fruitId: fruit.id,
+        name: fruit.name,
+        image: fruit.image,
+        weightGrams: weight,
+        weightKg: kg,
+        isCut: isCut,
+        unitPriceKg: fruit.pricePerKg,
+        totalPrice: totalPrice
+      };
+
+      cartItems.push(item);
+      updateCartUI();
+      showToast(`⚖️ ${fruit.name} (${weight}g) ditambahkan!`);
+    }
+
+    // Filter Category
+    function filterCategory(cat, btnElem) {
+      currentCategory = cat;
+      document.querySelectorAll('#categoryTabs .cat-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btnElem) btnElem.classList.add('active');
+      renderProductCards();
+    }
+
+    // Live Search
+    function handleSearch(val) {
+      searchQuery = val;
+      renderProductCards();
+    }
+
+    // 4. Cart Drawer Logic
+    function openCartDrawer() {
+      document.getElementById('cartOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cartOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target.id === 'cartOverlay') {
+        closeCartDrawer();
+      }
+    }
+
+    function removeCartItem(itemId) {
+      cartItems = cartItems.filter(i => i.id !== itemId);
+      updateCartUI();
+      showToast('Item berhasil dihapus dari timbangan.');
+    }
+
+    function updateCartUI() {
+      const countBadge = document.getElementById('navCartCount');
+      countBadge.innerText = cartItems.length;
+
+      const listContainer = document.getElementById('cartItemsList');
+      listContainer.innerHTML = '';
+
+      if (cartItems.length === 0) {
+        listContainer.innerHTML = `
+          <div class="cart-empty-state">
+            <span>🧺</span>
+            <h4 style="font-size: 16px; color: var(--ink-primary); margin-bottom: 4px;">Timbangan Masih Kosong</h4>
+            <p style="font-size: 13px;">Pilih buah segar dari etalase untuk ditimbang.</p>
+          </div>
+        `;
+        document.getElementById('cartTotalWeight').innerText = 'Total Bobot: 0 kg';
+        document.getElementById('cartItemCountText').innerText = '0 Jenis Buah';
+        document.getElementById('cartItemWeightText').innerText = '0.00 kg';
+        document.getElementById('cartGrandTotalVal').innerText = 'Rp 0';
+        return;
+      }
+
+      let totalWeightGrams = 0;
+      let grandTotal = 0;
+
+      cartItems.forEach(item => {
+        totalWeightGrams += item.weightGrams;
+        grandTotal += item.totalPrice;
+
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+        row.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" class="cir-img">
+          <div class="cir-info">
+            <h4>${item.name}</h4>
+            <div class="cir-weight">⚖️ ${item.weightGrams >= 1000 ? (item.weightGrams / 1000).toFixed(2) + ' kg' : item.weightGrams + ' gram'}</div>
+            <div class="cir-prep">${item.isCut ? '🔪 Minta dikupas & potong' : '🌱 Buah Utuh Segar'}</div>
+          </div>
+          <div class="cir-price">
+            <div class="cir-price-val">${formatRupiah(item.totalPrice)}</div>
+            <button class="btn-del-item" onclick="removeCartItem('${item.id}')">Hapus</button>
+          </div>
+        `;
+        listContainer.appendChild(row);
+      });
+
+      const totalKg = (totalWeightGrams / 1000).toFixed(2);
+      document.getElementById('cartTotalWeight').innerText = `Total Bobot: ${totalKg} kg`;
+      document.getElementById('cartItemCountText').innerText = `${cartItems.length} Buah Terpilih`;
+      document.getElementById('cartItemWeightText').innerText = `${totalKg} kg Muatan`;
+      document.getElementById('cartGrandTotalVal').innerText = formatRupiah(grandTotal);
+    }
+
+    // WhatsApp Checkout Hook
+    function checkoutWhatsApp() {
+      if (cartItems.length === 0) {
+        alert('Keranjang timbangan masih kosong. Pilih buah di etalase terlebih dahulu.');
+        return;
+      }
+
+      const custName = document.getElementById('orderCustomerName').value.trim() || 'Pelanggan Rukun Buah';
+      const custAddress = document.getElementById('orderCustomerAddress').value.trim() || 'Ambil di Toko / Kirim Instan';
+
+      let totalWeightGrams = 0;
+      let grandTotal = 0;
+
+      let msg = `*HALO RUKUN BUAH — PESANAN TIMBANGAN BUAH SEGAR*\n`;
+      msg += `--------------------------------------------------\n`;
+      msg += `*Nama Pemesan:* ${custName}\n`;
+      msg += `*Alamat Kirim:* ${custAddress}\n\n`;
+      msg += `*DAFTAR BUAH YANG DITIMBANG:*\n`;
+
+      cartItems.forEach((item, index) => {
+        totalWeightGrams += item.weightGrams;
+        grandTotal += item.totalPrice;
+        const weightLabel = item.weightGrams >= 1000 ? `${(item.weightGrams/1000).toFixed(2)} kg` : `${item.weightGrams} gr`;
+        msg += `${index + 1}. *${item.name}*\n`;
+        msg += `   • Timbangan: ${weightLabel}\n`;
+        msg += `   • Kondisi: ${item.isCut ? 'Kupas & Potong Higienis' : 'Utuh Segar'}\n`;
+        msg += `   • Subtotal: ${formatRupiah(item.totalPrice)}\n`;
+      });
+
+      const totalKg = (totalWeightGrams / 1000).toFixed(2);
+      msg += `--------------------------------------------------\n`;
+      msg += `*TOTAL MUATAN TIMBANGAN:* ${totalKg} kg\n`;
+      msg += `*ESTIMASI TOTAL BELANJA:* ${formatRupiah(grandTotal)}\n\n`;
+      msg += `Mohon konfirmasi ketersediaan stok subuh ini, foto hasil timbangan kasir, dan rincian ongkos kirim. Terima kasih! 🍊`;
+
+      const waPhone = '6285219583336'; // NECTOR.UI verified contact
+      const waUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // 5. Product Detail Modal
+    function openProductModal(productId) {
+      const fruit = FRUIT_PRODUCTS.find(f => f.id === productId);
+      if (!fruit) return;
+
+      modalSelectedFruit = fruit;
+      document.getElementById('modalImg').src = fruit.image;
+      document.getElementById('modalCategory').innerText = fruit.categoryName + ' • ' + fruit.origin;
+      document.getElementById('modalTitle').innerText = fruit.name;
+      document.getElementById('modalPrice').innerText = `${formatRupiah(fruit.pricePerKg)} / kg`;
+      document.getElementById('modalDesc').innerText = fruit.desc;
+
+      document.getElementById('modalBrixVal').innerText = fruit.brix;
+      document.getElementById('modalBrixBar').style.width = fruit.brixPercent + '%';
+
+      document.getElementById('modalAcidVal').innerText = fruit.acidity;
+      document.getElementById('modalAcidBar').style.width = fruit.acidPercent + '%';
+
+      document.getElementById('modalTextureVal').innerText = fruit.texture;
+      document.getElementById('modalStorageNote').innerHTML = `💡 <strong>Saran Simpan:</strong> ${fruit.storage}`;
+
+      document.getElementById('productModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handleModalBackdropClick(e) {
+      if (e.target.id === 'productModal') {
+        closeProductModal();
+      }
+    }
+
+    function addCurrentModalToCart() {
+      if (!modalSelectedFruit) return;
+      addCardToCart(modalSelectedFruit.id);
+      closeProductModal();
+    }
+
+    // 6. Interactive Studio Scale Demo
+    function sampleStudioScale(name, weightKg, price, emoji) {
+      document.getElementById('studioFruitEmoji').innerText = emoji;
+      document.getElementById('studioDisplayDigits').innerHTML = `${weightKg.toFixed(3)} <span style="font-size: 20px;">kg</span>`;
+      document.getElementById('studioFruitName').innerText = name;
+      document.getElementById('studioFruitPrice').innerText = `Total: ${formatRupiah(price)}`;
+      showToast(`⚖️ Simulasi timbangan diperbarui: ${name} (${weightKg} kg)`);
+    }
+
+    // Toast Helper
+    let toastTimeout;
+    function showToast(message, icon = '⚖️') {
+      const toast = document.getElementById('toastPill');
+      document.getElementById('toastMessage').innerText = message;
+      document.getElementById('toastIcon').innerText = icon;
+      toast.classList.add('active');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('active');
+      }, 2800);
+    }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      initHeroScale();
+      renderProductCards();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>

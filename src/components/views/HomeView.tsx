@@ -26,15 +26,16 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
-    templates.find(t => t.slug === 'raso-mandeh-padang') || templates[0],
-    templates.find(t => t.slug === 'savore-cafe') || templates[1],
-    templates.find(t => t.slug === 'senja-angkringan') || templates[2],
-    templates.find(t => t.slug === 'sipara-beverage') || templates[3],
+    templates.find(t => t.slug === 'rukun-buah-segar') || templates[0],
+    templates.find(t => t.slug === 'raso-mandeh-padang') || templates[1],
+    templates.find(t => t.slug === 'savore-cafe') || templates[2],
+    templates.find(t => t.slug === 'sakumart-pos') || templates[3],
   ];
 
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'buah', label: 'Pasar & Toko Buah', count: templates.filter(t => t.category === 'buah').length, desc: 'Penjualan buah segar lokal & impor dengan timbangan digital presisi dan garansi manis' },
     { id: 'perpustakaan', label: 'Perpustakaan & Arsip', count: templates.filter(t => t.category === 'perpustakaan').length, desc: 'Sistem sirkulasi peminjaman buku, katalog rak DDC & ruang baca fisik' },
     { id: 'kasir', label: 'Kasir & POS Retail', count: templates.filter(t => t.category === 'kasir').length, desc: 'Sistem POS kasir minimarket modern, etalase barcode & kalkulasi instan' },
     { id: 'padang', label: 'Rumah Makan Padang', count: templates.filter(t => t.category === 'padang').length, desc: 'Etalase masakan minang & POS kasir modern' },
