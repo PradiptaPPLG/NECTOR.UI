@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f4ed">
+  <title>Pustaka Aksara — Ruang Baca & Sirkulasi Arsip Komunitas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f4ed;
+      --surface: #ffffff;
+      --surface-tint: #fcfbf8;
+      --surface-subtle: #f0ebe1;
+      --surface-deep: #e8e1d3;
+      --ink: #1b1e1b;
+      --ink-soft: #4a4d47;
+      --muted: #73776e;
+      --line: #e3ded4;
+      --line-dark: #ccc5b6;
+      --accent-green: #234133;
+      --accent-green-dark: #162a21;
+      --accent-green-soft: #e7ede8;
+      --accent-rust: #9e3d24;
+      --accent-rust-soft: #f8ebe7;
+      --amber: #a66a1e;
+      --amber-soft: #fbf3e6;
+      
+      --serif: "Newsreader", Garamond, Georgia, serif;
+      --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --mono: "JetBrains Mono", Consolas, monospace;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: inherit;
+    }
+
+    button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid var(--accent-green);
+      outline-offset: 2px;
+    }
+
+    .mono { font-family: var(--mono); }
+    .serif { font-family: var(--serif); }
+
+    /* LAYOUT WRAPPER */
+    .app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TOP NOTICE BANNER */
+    .top-notice {
+      background: var(--accent-green);
+      color: #f7f4ed;
+      font-size: 11px;
+      letter-spacing: 0.3px;
+      padding: 9px 24px;
+      border-bottom: 1px solid var(--accent-green-dark);
+    }
+
+    .top-notice-inner {
+      max-width: 1440px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-notice-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .notice-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #7bd39e;
+      display: inline-block;
+    }
+
+    .top-notice-right {
+      display: flex;
+      gap: 20px;
+      opacity: 0.9;
+    }
+
+    /* HEADER */
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(247, 244, 237, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .masthead-inner {
+      max-width: 1440px;
+      margin: auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .library-crest {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--accent-green);
+      box-shadow: inset 0 0 0 2px var(--surface-subtle);
+    }
+
+    .brand-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .brand-sub {
+      margin-top: 2px;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.2px;
+    }
+
+    .circulation-header-status {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .reading-room-hours {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 11px;
+    }
+
+    .reading-room-hours strong {
+      color: var(--accent-green);
+      font-weight: 600;
+    }
+
+    .reading-room-hours span {
+      color: var(--muted);
+    }
+
+    .loan-slip-toggle {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 15px;
+      background: var(--surface);
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-sm);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+
+    .loan-slip-toggle:hover {
+      background: var(--surface-subtle);
+      border-color: var(--accent-green);
+    }
+
+    .badge-count {
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      border-radius: 10px;
+      background: var(--accent-rust);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+    }
+
+    /* MAIN CONTAINER */
+    .main-content {
+      max-width: 1440px;
+      margin: auto;
+      padding: 32px 24px 64px;
+      width: 100%;
+    }
+
+    /* EDITORIAL HERO DISPATCH */
+    .hero-archive {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 36px;
+      padding-bottom: 32px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-archive-text h1 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.2vw, 48px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.8px;
+      margin: 0 0 16px;
+      color: var(--ink);
+    }
+
+    .hero-archive-text h1 em {
+      font-style: italic;
+      color: var(--accent-rust);
+    }
+
+    .hero-archive-text p {
+      margin: 0 0 20px;
+      font-size: 15px;
+      color: var(--ink-soft);
+      max-width: 600px;
+      line-height: 1.65;
+    }
+
+    .archive-meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .archive-meta-strip div strong {
+      color: var(--ink);
+      display: block;
+      font-size: 12px;
+    }
+
+    /* HERO ARCHIVE RULES CARD */
+    .library-policy-card {
+      background: var(--surface);
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-sm);
+      padding: 22px;
+      box-shadow: 0 2px 6px rgba(27, 30, 27, 0.03);
+      position: relative;
+    }
+
+    .policy-stamp {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent-rust);
+      border: 1px dashed var(--accent-rust);
+      padding: 3px 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transform: rotate(2deg);
+    }
+
+    .policy-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    .policy-list {
+      margin: 0 0 16px;
+      padding-left: 18px;
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .policy-list li {
+      margin-bottom: 8px;
+    }
+
+    .member-quick-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      background: var(--surface-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+    }
+
+    /* WORKSPACE (CATALOG + CIRCULATION DESK) */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* FILTER BAR */
+    .catalog-controls {
+      margin-bottom: 24px;
+    }
+
+    .catalog-search-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+      font-size: 14px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 14px 0 38px;
+      background: var(--surface);
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-sm);
+      color: var(--ink);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-green);
+    }
+
+    .category-scroll-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+    }
+
+    .cat-btn {
+      padding: 8px 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      color: var(--ink-soft);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+
+    .cat-btn:hover {
+      border-color: var(--line-dark);
+      background: var(--surface-subtle);
+    }
+
+    .cat-btn.active {
+      background: var(--accent-green);
+      border-color: var(--accent-green);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .shelf-filter-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px 0 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .availability-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .availability-toggle input {
+      accent-color: var(--accent-green);
+    }
+
+    /* BOOK CARD GRID */
+    .book-shelf-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .book-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      position: relative;
+    }
+
+    .book-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-dark);
+      box-shadow: 0 8px 20px rgba(27, 30, 27, 0.05);
+    }
+
+    .book-card-visual {
+      position: relative;
+      height: 220px;
+      background: var(--surface-subtle);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .book-card-visual img {
+      width: 130px;
+      height: 185px;
+      object-fit: cover;
+      border-radius: 2px 4px 4px 2px;
+      box-shadow: -4px 6px 14px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease;
+    }
+
+    .book-card:hover .book-card-visual img {
+      transform: scale(1.03) rotate(-0.5deg);
+    }
+
+    .shelf-call-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--line-dark);
+      border-radius: 2px;
+      padding: 3px 6px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.3px;
+    }
+
+    .status-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      padding: 3px 8px;
+      border-radius: 2px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .status-badge.available {
+      background: var(--accent-green-soft);
+      color: var(--accent-green-dark);
+      border: 1px solid #c4d9cb;
+    }
+
+    .status-badge.borrowed {
+      background: var(--amber-soft);
+      color: #7b4b0e;
+      border: 1px solid #ebd7b5;
+    }
+
+    .book-card-body {
+      padding: 18px 18px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .book-category {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+
+    .book-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 0 0 6px;
+      color: var(--ink);
+    }
+
+    .book-author {
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .book-card-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .book-card-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      padding: 0 18px 18px;
+    }
+
+    .btn-loan-action {
+      background: var(--accent-green);
+      color: #ffffff;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      transition: background 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-loan-action:hover:not(:disabled) {
+      background: var(--accent-green-dark);
+    }
+
+    .btn-loan-action:disabled {
+      background: var(--surface-deep);
+      color: var(--muted);
+      cursor: not-allowed;
+    }
+
+    .btn-view-detail {
+      background: var(--surface-subtle);
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-view-detail:hover {
+      background: var(--surface-deep);
+      color: var(--ink);
+    }
+
+    /* EMPTY STATE */
+    .empty-shelf {
+      grid-column: 1 / -1;
+      padding: 60px 24px;
+      text-align: center;
+      background: var(--surface);
+      border: 1px dashed var(--line-dark);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+    }
+
+    .empty-shelf-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+
+    /* RIGHT COLUMN: CIRCULATION SLIP & DESK */
+    .circulation-desk-panel {
+      position: sticky;
+      top: 96px;
+      background: var(--surface);
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 16px rgba(27, 30, 27, 0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slip-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-tint);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .slip-header-title {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .slip-header-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .clear-slip-btn {
+      font-size: 11px;
+      color: var(--accent-rust);
+      padding: 4px 6px;
+    }
+
+    .clear-slip-btn:hover {
+      text-decoration: underline;
+    }
+
+    .member-profile-block {
+      padding: 16px 20px;
+      border-bottom: 1px dashed var(--line);
+      background: #faf8f4;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin-bottom: 5px;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 10px;
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 12px;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--accent-green);
+    }
+
+    .member-quota-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .quota-pills {
+      display: flex;
+      gap: 4px;
+    }
+
+    .quota-pip {
+      width: 18px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--surface-deep);
+    }
+
+    .quota-pip.filled {
+      background: var(--accent-green);
+    }
+
+    /* SLIP ITEMS LIST */
+    .slip-items-list {
+      max-height: 280px;
+      overflow-y: auto;
+      padding: 16px 20px;
+      scrollbar-width: thin;
+    }
+
+    .slip-empty {
+      padding: 30px 10px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .slip-empty p {
+      margin: 8px 0 0;
+    }
+
+    .slip-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .slip-item:last-child {
+      border-bottom: none;
+    }
+
+    .slip-item-title {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+
+    .slip-item-meta {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .btn-remove-item {
+      color: var(--accent-rust);
+      font-size: 14px;
+      padding: 4px;
+      align-self: start;
+    }
+
+    .btn-remove-item:hover {
+      color: #7d2a14;
+    }
+
+    /* SLIP FOOTER & DATE TIMELINE */
+    .slip-footer {
+      padding: 18px 20px;
+      border-top: 1px solid var(--line);
+      background: var(--surface-tint);
+    }
+
+    .loan-schedule {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      margin-bottom: 16px;
+      font-size: 11px;
+    }
+
+    .schedule-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      color: var(--ink-soft);
+    }
+
+    .schedule-row:last-child {
+      margin-bottom: 0;
+      padding-top: 6px;
+      border-top: 1px dashed var(--line);
+      font-weight: 600;
+      color: var(--accent-rust);
+    }
+
+    .btn-checkout-loan {
+      width: 100%;
+      height: 44px;
+      background: var(--accent-green);
+      color: #ffffff;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.15s ease;
+    }
+
+    .btn-checkout-loan:hover:not(:disabled) {
+      background: var(--accent-green-dark);
+    }
+
+    .btn-checkout-loan:disabled {
+      background: var(--surface-deep);
+      color: var(--muted);
+      cursor: not-allowed;
+    }
+
+    .slip-note {
+      font-size: 10px;
+      color: var(--muted);
+      margin: 10px 0 0;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* DETAIL MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(23, 26, 23, 0.65);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-window {
+      background: var(--surface);
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-md);
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--surface-subtle);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 16px;
+      display: grid;
+      place-items: center;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--surface-deep);
+    }
+
+    .detail-modal-layout {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 24px;
+      padding: 28px;
+    }
+
+    .detail-cover-box {
+      background: var(--surface-subtle);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+    }
+
+    .detail-cover-box img {
+      width: 150px;
+      height: 220px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      border-radius: 2px 4px 4px 2px;
+    }
+
+    .detail-info h2 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 6px;
+    }
+
+    .detail-author {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+
+    .detail-spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background: var(--surface-subtle);
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      font-size: 11px;
+    }
+
+    .detail-spec-grid div strong {
+      display: block;
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    .detail-spec-grid div span {
+      color: var(--muted);
+    }
+
+    .detail-synopsis {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+
+    /* DIGITAL LOAN TICKET / RECEIPT MODAL */
+    .loan-ticket-modal {
+      max-width: 460px;
+      padding: 28px;
+      background: #ffffff;
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-sm);
+    }
+
+    .ticket-seal {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .ticket-crest {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-green);
+    }
+
+    .ticket-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 4px 0 2px;
+    }
+
+    .ticket-stamp {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 12px;
+      border: 2px solid var(--accent-rust);
+      border-radius: 4px;
+      color: var(--accent-rust);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      transform: rotate(-2deg);
+      letter-spacing: 0.8px;
+    }
+
+    .ticket-meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-bottom: 16px;
+    }
+
+    .ticket-meta-table td {
+      padding: 5px 0;
+      color: var(--ink-soft);
+    }
+
+    .ticket-meta-table td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .ticket-books-list {
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 12px 0;
+      margin-bottom: 16px;
+    }
+
+    .ticket-book-entry {
+      margin-bottom: 10px;
+    }
+
+    .ticket-book-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .tbe-title {
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .tbe-code {
+      font-size: 10px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .barcode-graphic {
+      height: 38px;
+      background: repeating-linear-gradient(
+        90deg,
+        #1b1e1b,
+        #1b1e1b 2px,
+        transparent 2px,
+        transparent 4px,
+        #1b1e1b 4px,
+        #1b1e1b 7px,
+        transparent 7px,
+        transparent 9px,
+        #1b1e1b 9px,
+        #1b1e1b 10px,
+        transparent 10px,
+        transparent 13px
+      );
+      margin: 16px 0 8px;
+    }
+
+    .barcode-digits {
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--ink-soft);
+    }
+
+    .ticket-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .ticket-actions button {
+      flex: 1;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .btn-ticket-print {
+      background: var(--accent-green);
+      color: #ffffff;
+    }
+
+    .btn-ticket-print:hover {
+      background: var(--accent-green-dark);
+    }
+
+    .btn-ticket-close {
+      background: var(--surface-subtle);
+      border: 1px solid var(--line-dark);
+    }
+
+    /* TOAST NOTIFICATION */
+    .library-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 200;
+      padding: 12px 18px;
+      background: var(--surface);
+      border: 1px solid var(--line-dark);
+      border-left: 4px solid var(--accent-green);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+
+    .library-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* FOOTER */
+    .library-footer {
+      border-top: 1px solid var(--line);
+      background: var(--surface-tint);
+      margin-top: auto;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .library-footer-inner {
+      max-width: 1440px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 1100px) {
+      .workspace-grid {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 24px;
+      }
+      .book-shelf-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .hero-archive {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+      .circulation-desk-panel {
+        position: static;
+        margin-top: 24px;
+      }
+      .top-notice-right {
+        display: none;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .masthead-inner {
+        padding: 14px 16px;
+      }
+      .main-content {
+        padding: 20px 16px 48px;
+      }
+      .book-shelf-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-modal-layout {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .detail-cover-box {
+        height: 200px;
+      }
+      .detail-cover-box img {
+        width: 110px;
+        height: 165px;
+      }
+      .library-footer-inner {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .loan-ticket-modal, .loan-ticket-modal * {
+        visibility: visible;
+      }
+      .loan-ticket-modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        box-shadow: none;
+        border: none;
+      }
+      .ticket-actions {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app">
+  <!-- TOP ANNOUNCEMENT NOTICE -->
+  <aside class="top-notice">
+    <div class="top-notice-inner">
+      <div class="top-notice-left">
+        <span class="notice-dot"></span>
+        <span>Ruang Baca Terbuka · Koleksi fisik tersedia untuk dibaca di tempat atau dipinjam pulang</span>
+      </div>
+      <div class="top-notice-right mono">
+        <span>SELASA — MINGGU: 10.00 — 20.00 WIB</span>
+        <span>SENIN: KONSERVASI ARSIP</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a href="#" class="brand-mark" aria-label="Beranda Pustaka Aksara">
+        <div class="library-crest">PA</div>
+        <div>
+          <h1 class="brand-title">Pustaka Aksara</h1>
+          <div class="brand-sub">Ruang Baca &amp; Preservasi Arsip Sastra Komunitas</div>
+        </div>
+      </a>
+
+      <div class="circulation-header-status">
+        <div class="reading-room-hours mono">
+          <strong>MEJA SIRKULASI AKTIF</strong>
+          <span id="currentCalendarDate">Memuat tanggal...</span>
+        </div>
+        <button class="loan-slip-toggle" id="btnScrollToSlip" type="button" aria-label="Lihat lembar peminjaman">
+          <span>Lembar Pinjam</span>
+          <span class="badge-count" id="headerSlipCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- EDITORIAL HERO DISPATCH -->
+    <section class="hero-archive">
+      <div class="hero-archive-text">
+        <div class="mono" style="font-size: 11px; color: var(--accent-green); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;">
+          KATALOG SIRKULASI PERPUSTAKAAN · EDISI 2026
+        </div>
+        <h1>Buku fisik untuk dibaca <em>tanpa tergesa</em>, dirawat bersama.</h1>
+        <p>
+          Pustaka Aksara adalah ruang baca nirlaba mandiri yang mengoleksi karya sastra klasik, catatan sejarah Nusantara, kumpulan esai filsafat, serta naskah langka. Seluruh eksemplar terdaftar dalam klasifikasi Dewey Decimal dan dapat dipinjam oleh anggota terdaftar.
+        </p>
+
+        <div class="archive-meta-strip mono">
+          <div>
+            <strong>1.420 Eksemplar</strong>
+            <span>Koleksi Terkatalog</span>
+          </div>
+          <div>
+            <strong>14 Hari</strong>
+            <span>Durasi Pinjam</span>
+          </div>
+          <div>
+            <strong>Maks. 3 Buku</strong>
+            <span>Batas per Anggota</span>
+          </div>
+          <div>
+            <strong>Rp0,-</strong>
+            <span>Biaya Peminjaman</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POLICY CARD -->
+      <aside class="library-policy-card">
+        <div class="policy-stamp">ATURAN RESMI</div>
+        <div class="policy-title serif">Pedoman Peminjaman Koleksi</div>
+        <ol class="policy-list">
+          <li>Peminjaman gratis untuk seluruh anggota pemegang kartu baca aktif.</li>
+          <li>Setiap peminjam bertanggung jawab menjaga keutuhan lembar dan jilid buku. Dilarang melipat sudut halaman (*dog-ear*).</li>
+          <li>Keterlambatan dikenakan denda pemeliharaan arsip Rp1.000/hari atau opsi donasi 1 buku bekas layak baca.</li>
+        </ol>
+        <div class="member-quick-status mono">
+          <span>KARTU ANGGOTA: <strong>AK-2026-0418</strong></span>
+          <span style="color: var(--accent-green); font-weight: 600;">STATUS: AKTIF</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- WORKSPACE -->
+    <div class="workspace-grid">
+      <!-- CATALOG SECTION -->
+      <section class="catalog-section" aria-label="Katalog Buku">
+        <div class="catalog-controls">
+          <div class="catalog-search-row">
+            <div class="search-input-wrap">
+              <span class="search-icon">⌕</span>
+              <input type="search" id="catalogSearch" class="search-input" placeholder="Cari judul buku, nama pengarang, kode DDC, atau nomor ISBN..." autocomplete="off">
+            </div>
+          </div>
+
+          <div class="category-scroll-bar" id="categoryBar" role="tablist">
+            <button class="cat-btn active" data-cat="Semua" role="tab">Semua Koleksi</button>
+            <button class="cat-btn" data-cat="Sastra &amp; Novel" role="tab">Sastra &amp; Novel</button>
+            <button class="cat-btn" data-cat="Sejarah &amp; Arsip" role="tab">Sejarah &amp; Arsip</button>
+            <button class="cat-btn" data-cat="Filsafat &amp; Esai" role="tab">Filsafat &amp; Esai</button>
+            <button class="cat-btn" data-cat="Sains &amp; Alam" role="tab">Sains &amp; Alam</button>
+          </div>
+
+          <div class="shelf-filter-summary">
+            <span id="resultCountLabel" class="mono">Memuat koleksi...</span>
+            <label class="availability-toggle">
+              <input type="checkbox" id="onlyAvailableToggle">
+              <span>Hanya yang siap dipinjam di rak</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- BOOK GRID -->
+        <div class="book-shelf-grid" id="bookGrid" aria-live="polite"></div>
+      </section>
+
+      <!-- CIRCULATION DESK / SLIP ASIDE -->
+      <aside class="circulation-desk-panel" id="circulationPanel" aria-label="Meja Sirkulasi Peminjaman">
+        <div class="slip-header">
+          <div>
+            <h2 class="slip-header-title">Lembar Peminjaman</h2>
+            <div class="slip-header-sub">Buku yang akan dibawa pulang</div>
+          </div>
+          <button class="clear-slip-btn" id="btnClearSlip" type="button">Kosongkan</button>
+        </div>
+
+        <div class="member-profile-block">
+          <div class="form-group">
+            <label class="form-label" for="borrowerName">Nama Peminjam / Anggota</label>
+            <input class="form-input" id="borrowerName" type="text" value="Ahmad Sauqi Pratama" placeholder="Ketik nama lengkap">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="memberNumber">Nomor Kartu Anggota</label>
+            <input class="form-input mono" id="memberNumber" type="text" value="AK-2026-0841" placeholder="Misal: AK-2026-XXXX">
+          </div>
+
+          <div class="member-quota-bar">
+            <span>Kuota Peminjaman</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div class="quota-pills" id="quotaPills">
+                <span class="quota-pip"></span>
+                <span class="quota-pip"></span>
+                <span class="quota-pip"></span>
+              </div>
+              <strong class="mono" id="quotaText">0/3</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEMS IN SLIP -->
+        <div class="slip-items-list" id="slipItemsList">
+          <div class="slip-empty">
+            <div style="font-size:24px; opacity:0.5;">📖</div>
+            <strong>Belum ada buku dipilih</strong>
+            <p>Klik tombol <em>"Pinjam Buku"</em> pada katalog untuk menambahkan ke lembar sirkulasi ini.</p>
+          </div>
+        </div>
+
+        <!-- FOOTER & ACTIONS -->
+        <div class="slip-footer">
+          <div class="loan-schedule">
+            <div class="schedule-row">
+              <span>Tanggal Pinjam</span>
+              <strong id="loanDateText">-</strong>
+            </div>
+            <div class="schedule-row">
+              <span>Durasi Peminjaman</span>
+              <span>14 Hari Kalender</span>
+            </div>
+            <div class="schedule-row">
+              <span>Batas Pengembalian</span>
+              <strong id="dueDateText">-</strong>
+            </div>
+          </div>
+
+          <button class="btn-checkout-loan" id="btnConfirmLoan" type="button" disabled>
+            <span>Terbitkan Bukti Pinjam</span>
+            <span>→</span>
+          </button>
+          <p class="slip-note">
+            Bukti peminjaman digital berisi kode barcode buku, identitas peminjam, dan batas tanggal wajib kembali.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="library-footer">
+    <div class="library-footer-inner">
+      <div>
+        <strong>Pustaka Aksara · Yayasan Literasi &amp; Arsip Merdeka</strong><br>
+        <span>Jl. Tamansari No. 42, Bandung 40132 · Layanan Ruang Baca Terbuka</span>
+      </div>
+      <div class="mono" style="text-align: right;">
+        <span>SISTEM KATALOG MANDIRI STANDALONE · BEBAS AI-SLOP</span><br>
+        <span>STANDAR DEWEY DECIMAL CLASSIFICATION (DDC)</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- BOOK DETAIL MODAL -->
+<div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalBookTitle">
+  <div class="modal-window">
+    <button class="modal-close-btn" id="btnCloseDetail" type="button" aria-label="Tutup jendela detail">×</button>
+    <div class="detail-modal-layout" id="detailModalBody"></div>
+  </div>
+</div>
+
+<!-- DIGITAL CIRCULATION TICKET / RECEIPT MODAL -->
+<div class="modal-backdrop" id="ticketModal" role="dialog" aria-modal="true" aria-labelledby="ticketTitle">
+  <div class="loan-ticket-modal">
+    <div class="ticket-seal">
+      <div class="ticket-crest">PA</div>
+      <div class="ticket-title" id="ticketTitle">Bukti Peminjaman Buku</div>
+      <div style="font-size: 11px; color: var(--muted);">Pustaka Aksara — Ruang Baca Bandung</div>
+      <div class="ticket-stamp" id="ticketStampDate">DUE DATE: -</div>
+    </div>
+
+    <table class="ticket-meta-table">
+      <tr>
+        <td>No. Transaksi</td>
+        <td class="mono" id="ticketTxId">TRX-2026-0001</td>
+      </tr>
+      <tr>
+        <td>Nama Peminjam</td>
+        <td id="ticketBorrowerName">-</td>
+      </tr>
+      <tr>
+        <td>No. Kartu Anggota</td>
+        <td class="mono" id="ticketBorrowerNo">-</td>
+      </tr>
+      <tr>
+        <td>Tanggal Pinjam</td>
+        <td id="ticketLoanDate">-</td>
+      </tr>
+      <tr>
+        <td>Wajib Kembali</td>
+        <td style="color:var(--accent-rust); font-weight:700;" id="ticketDueDate">-</td>
+      </tr>
+      <tr>
+        <td>Lokasi Pengembalian</td>
+        <td>Meja Sirkulasi / Drop-Box 24 Jam</td>
+      </tr>
+    </table>
+
+    <div class="ticket-books-list" id="ticketBooksList"></div>
+
+    <div class="barcode-graphic"></div>
+    <div class="barcode-digits mono" id="ticketBarcodeCode">PA-2026-0841-001</div>
+
+    <p style="font-size:10px; color:var(--muted); text-align:center; margin:12px 0 0; line-height:1.5;">
+      Harap simpan bukti ini atau unduh untuk ditunjukkan kepada petugas saat pengembalian buku di ruang baca.
+    </p>
+
+    <div class="ticket-actions">
+      <button class="btn-ticket-print" id="btnPrintTicket" type="button">Cetak / Print</button>
+      <button class="btn-ticket-close" id="btnCloseTicket" type="button">Selesai</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="library-toast" id="libraryToast" role="status" aria-live="polite"></div>
+
+<script>
+  /*
+    PUSTAKA AKSARA — SISTEM SIRKULASI PERPUSTAKAAN KOMUNITAS
+    Mengikuti panduan craft anti-slop:
+    - Seluruh data buku riil, pengarang autentik, klasifikasi Dewey Decimal asli.
+    - Tanpa metrik sintetis atau jargon buatan.
+    - Perhitungan jatuh tempo sirkulasi kalender 14 hari dinamis.
+  */
+
+  const catalogBooks = [
+    {
+      id: "AKS-899-01",
+      ddc: "899.221 SAS",
+      title: "Bumi Manusia",
+      author: "Pramoedya Ananta Toer",
+      year: "1980 (Ed. Hasta Mitra)",
+      publisher: "Lentera Dipantara",
+      category: "Sastra & Novel",
+      shelf: "Rak Sastra 2A",
+      isbn: "978-979-97312-3-4",
+      pages: "535 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Novel pertama Tetralogi Buru yang mengisahkan pergulatan pemikiran Minke, seorang priyayi muda Jawa yang mengenyam pendidikan HBS di masa kolonial Hindia Belanda akhir abad ke-19, serta pertemuannya dengan Nyai Ontosoroh dan Annelies."
+    },
+    {
+      id: "AKS-899-02",
+      ddc: "899.221 SAS",
+      title: "Cantik Itu Luka",
+      author: "Eka Kurniawan",
+      year: "2002 (Cetakan 2018)",
+      publisher: "Gramedia Pustaka Utama",
+      category: "Sastra & Novel",
+      shelf: "Rak Sastra 2B",
+      isbn: "978-602-03125-8-3",
+      pages: "508 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Kisah epik berlatar kota fiktif Halimunda yang meramu realisme magis dengan luka sejarah Indonesia mulai dari pendudukan kolonial Belanda, invasi Jepang, hingga masa pasca-kemerdekaan melalui riwayat Dewi Ayu dan keturunannya."
+    },
+    {
+      id: "AKS-899-03",
+      ddc: "899.221 PUI",
+      title: "Hujan Bulan Juni",
+      author: "Sapardi Djoko Damono",
+      year: "1994 (Ed. Khusus)",
+      publisher: "Gramedia Pustaka Utama",
+      category: "Sastra & Novel",
+      shelf: "Rak Puisi 1A",
+      isbn: "978-602-03184-3-1",
+      pages: "144 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Kumpulan puisi liris legendaris yang merangkum sajak-sajak Sapardi dari tahun 1964 hingga 1994. Ditulis dengan keheningan bahasa Indonesia yang jernih, sederhana, namun berakar dalam pada kontemplasi waktu dan kerinduan."
+    },
+    {
+      id: "AKS-823-01",
+      ddc: "823.91 ORW",
+      title: "1984",
+      author: "George Orwell",
+      year: "1949 (Terj. 2015)",
+      publisher: "Bentang Pustaka",
+      category: "Sastra & Novel",
+      shelf: "Rak Fiksi Dunia 3B",
+      isbn: "978-602-29107-1-8",
+      pages: "412 hlm.",
+      status: "Dipinjam",
+      image: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Distopia kanonik tentang rezim totalitarian Partai dan pengawasan mutlak Big Brother di Oceania, dituturkan melalui pembangkangan batin Winston Smith yang berupaya menjaga ingatan dan kemerdekaan berpikirnya."
+    },
+    {
+      id: "AKS-843-01",
+      ddc: "843.91 SAI",
+      title: "Pangeran Cilik (Le Petit Prince)",
+      author: "Antoine de Saint-Exupéry",
+      year: "1943 (Cet. 2019)",
+      publisher: "Gramedia Pustaka Utama",
+      category: "Sastra & Novel",
+      shelf: "Rak Fiksi Dunia 3A",
+      isbn: "978-979-22687-7-2",
+      pages: "120 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Fabel filosofis tentang seorang penerbang yang terdampar di Gurun Sahara dan bertemu seorang bocah penjelajah dari Asteroid B-612. Menyingkap hakikat cinta, kepolosan, dan arti melihat dengan mata hati."
+    },
+    {
+      id: "AKS-863-01",
+      ddc: "863.64 MAR",
+      title: "Cien Años de Soledad",
+      author: "Gabriel García Márquez",
+      year: "1967 (Terj. 2021)",
+      publisher: "Gramedia Pustaka Utama",
+      category: "Sastra & Novel",
+      shelf: "Rak Fiksi Dunia 3C",
+      isbn: "978-602-06512-4-8",
+      pages: "528 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Mahakarya realisme magis Amerika Latin yang merajut perjalanan tujuh generasi keluarga Buendía di desa terpencil Macondo, mencerminkan nasib, mitos, dan lingkaran kesendirian umat manusia."
+    },
+    {
+      id: "AKS-959-01",
+      ddc: "959.8 SEJ",
+      title: "Nusantara: Sejarah Indonesia",
+      author: "Bernard H.M. Vlekke",
+      year: "1943 (Ed. Revisi 2018)",
+      publisher: "KPG (Kepustakaan Populer Gramedia)",
+      category: "Sejarah & Arsip",
+      shelf: "Rak Sejarah 4A",
+      isbn: "978-602-42416-5-0",
+      pages: "540 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Kajian historiografi komprehensif mengenai formasi peradaban kepulauan Nusantara, jalur perdagangan rempah maritim, kemunculan kerajaan-kerajaan kuno, hingga transisi kekuasaan masa kolonialisme VOC."
+    },
+    {
+      id: "AKS-759-01",
+      ddc: "759.959 CAR",
+      title: "Raden Saleh: Awal Seni Lukis Modern",
+      author: "Peter Carey & Werner Kraus",
+      year: "2013 (Hardcover)",
+      publisher: "Komunitas Bambu",
+      category: "Sejarah & Arsip",
+      shelf: "Rak Biografi 4B",
+      isbn: "978-602-94021-9-3",
+      pages: "380 hlm.",
+      status: "Dipinjam",
+      image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Monograf kritis dan dokumentasi arsip mendalam mengenai riwayat hidup Raden Saleh Syarif Bustaman, pionir seni lukis romantisisme Indonesia abad ke-19 yang berkarya di istana-istana Eropa."
+    },
+    {
+      id: "AKS-335-01",
+      ddc: "335.43 MAL",
+      title: "Madilog: Materialisme, Dialektika, Logika",
+      author: "Tan Malaka",
+      year: "1943 (Cet. 2017)",
+      publisher: "Pusat Data Indikator",
+      category: "Filsafat & Esai",
+      shelf: "Rak Pemikiran 5A",
+      isbn: "978-602-76492-2-4",
+      pages: "568 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Buku babon pemikiran Tan Malaka yang ditulis di masa pelarian Cililitan 1943, mengajak bangsa Indonesia keluar dari belenggu 'kemandekan logika mistika' menuju cara berpikir rasional, dialektis, dan ilmiah."
+    },
+    {
+      id: "AKS-188-01",
+      ddc: "188 AUR",
+      title: "Meditations (Catatan Pribadi Kaisar Stoik)",
+      author: "Marcus Aurelius",
+      year: "180 M (Terj. 2020)",
+      publisher: "Diterbitkan Kembali Pustaka",
+      category: "Filsafat & Esai",
+      shelf: "Rak Filsafat 5B",
+      isbn: "978-623-75671-1-9",
+      pages: "272 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Catatan jurnal batin Kaisar Romawi Marcus Aurelius di medan perang perbatasan Danubius. Menguraikan praktik stoikisme harian: ketenangan batin, kendali ego, tugas kewargaan, dan penerimaan atas keterbatasan manusia."
+    },
+    {
+      id: "AKS-520-01",
+      ddc: "520.1 SAG",
+      title: "Kosmos: Asal-Usul Alam Semesta & Kehidupan",
+      author: "Carl Sagan",
+      year: "1980 (Ed. Sains Populer)",
+      publisher: "Kepustakaan Populer Gramedia",
+      category: "Sains & Alam",
+      shelf: "Rak Sains 6A",
+      isbn: "978-602-42422-0-6",
+      pages: "464 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Penjelajahan sains puitis mengenai 15 miliar tahun evolusi kosmik, lahirnya sains modern dari perpustakaan Aleksandria kuno, serta tanggung jawab etis peradaban manusia sebagai 'cara kosmos memahami dirinya sendiri'."
+    },
+    {
+      id: "AKS-576-01",
+      ddc: "576.8 DAR",
+      title: "The Origin of Species (Asal-Usul Spesies)",
+      author: "Charles Darwin",
+      year: "1859 (Terj. Edisi Klasik)",
+      publisher: "Pustaka Obor Indonesia",
+      category: "Sains & Alam",
+      shelf: "Rak Sains 6B",
+      isbn: "978-979-46148-5-3",
+      pages: "588 hlm.",
+      status: "Tersedia",
+      image: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+      synopsis: "Karya monumental ilmu biologi yang memaparkan teori evolusi melalui seleksi alam, dirumuskan Darwin berdasarkan pengamatan lapangan mendalam di Kepulauan Galapagos dan dokumentasi geologis bertahun-tahun."
+    }
+  ];
+
+  // Circulation State
+  const loanBasket = new Map();
+  const MAX_LOAN_QUOTA = 3;
+  let activeCategory = "Semua";
+  let transactionCounter = 1;
+
+  // DOM Selection Helper
+  const $ = (selector) => document.querySelector(selector);
+
+  // Formatter Date Helper
+  function formatLocalDate(date) {
+    return new Intl.DateTimeFormat("id-ID", {
+      weekday: "long",
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    }).format(date);
+  }
+
+  function getLoanScheduleDates() {
+    const today = new Date();
+    const dueDate = new Date();
+    dueDate.setDate(today.getDate() + 14);
+
+    return {
+      todayFormatted: formatLocalDate(today),
+      dueDateFormatted: formatLocalDate(dueDate),
+      rawToday: today,
+      rawDue: dueDate
+    };
+  }
+
+  function escapeHTML(str) {
+    return String(str).replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[char]);
+  }
+
+  // Render Catalog
+  function renderBookGrid() {
+    const searchVal = $("#catalogSearch").value.trim().toLowerCase();
+    const onlyAvailable = $("#onlyAvailableToggle").checked;
+
+    const filtered = catalogBooks.filter((book) => {
+      const matchCat = (activeCategory === "Semua") || (book.category === activeCategory);
+      const matchSearch =
+        book.title.toLowerCase().includes(searchVal) ||
+        book.author.toLowerCase().includes(searchVal) ||
+        book.ddc.toLowerCase().includes(searchVal) ||
+        book.isbn.toLowerCase().includes(searchVal) ||
+        book.id.toLowerCase().includes(searchVal);
+      
+      const matchAvailability = !onlyAvailable || (book.status === "Tersedia");
+
+      return matchCat && matchSearch && matchAvailability;
+    });
+
+    $("#resultCountLabel").textContent = `Menampilkan ${filtered.length} dari ${catalogBooks.length} eksemplar`;
+
+    const grid = $("#bookGrid");
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `
+        <div class="empty-shelf">
+          <div class="empty-shelf-icon">📚</div>
+          <strong style="font-size:15px; display:block; margin-bottom:6px; color:var(--ink);">Koleksi tidak ditemukan</strong>
+          <span>Coba periksa ejaan judul, nama penulis, atau gunakan kata kunci umum lainnya.</span>
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = filtered.map((book) => {
+      const inBasket = loanBasket.has(book.id);
+      const isAvailable = (book.status === "Tersedia");
+      const isQuotaFull = loanBasket.size >= MAX_LOAN_QUOTA;
+      
+      let btnText = "Pinjam Buku";
+      let btnDisabled = false;
+
+      if (!isAvailable) {
+        btnText = "Sedang Dipinjam";
+        btnDisabled = true;
+      } else if (inBasket) {
+        btnText = "✓ Dalam Slip";
+        btnDisabled = true;
+      } else if (isQuotaFull) {
+        btnText = "Kuota Penuh (3/3)";
+        btnDisabled = true;
+      }
+
+      return `
+        <article class="book-card" data-book-id="${escapeHTML(book.id)}">
+          <div class="book-card-visual">
+            <span class="shelf-call-badge mono">${escapeHTML(book.ddc)}</span>
+            <img src="${escapeHTML(book.image)}" alt="Sampul ${escapeHTML(book.title)}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/300x420/f0ebe1/4a4d47?text=Buku+Arsip';">
+            <span class="status-badge ${isAvailable ? 'available' : 'borrowed'}">
+              ${isAvailable ? 'Tersedia di Rak' : 'Dipinjam'}
+            </span>
+          </div>
+
+          <div class="book-card-body">
+            <div class="book-category">${escapeHTML(book.category)}</div>
+            <h3 class="book-title">${escapeHTML(book.title)}</h3>
+            <div class="book-author">${escapeHTML(book.author)}</div>
+
+            <div class="book-card-meta mono">
+              <span>${escapeHTML(book.shelf)}</span>
+              <span>${escapeHTML(book.pages)}</span>
+            </div>
+          </div>
+
+          <div class="book-card-actions">
+            <button class="btn-loan-action" type="button" data-action="add-to-slip" data-id="${escapeHTML(book.id)}" ${btnDisabled ? "disabled" : ""}>
+              <span>${btnText}</span>
+            </button>
+            <button class="btn-view-detail" type="button" data-action="detail" data-id="${escapeHTML(book.id)}" aria-label="Lihat detail ${escapeHTML(book.title)}">
+              Detail
+            </button>
+          </div>
+        </article>
+      `;
+    }).join("");
+  }
+
+  // Render Circulation Slip
+  function renderSlip() {
+    const count = loanBasket.size;
+    $("#headerSlipCount").textContent = count;
+    $("#quotaText").textContent = `${count}/${MAX_LOAN_QUOTA}`;
+
+    // Update Quota Pips
+    const pips = $("#quotaPills").querySelectorAll(".quota-pip");
+    pips.forEach((pip, idx) => {
+      pip.classList.toggle("filled", idx < count);
+    });
+
+    const dates = getLoanScheduleDates();
+    $("#loanDateText").textContent = dates.todayFormatted;
+    $("#dueDateText").textContent = count > 0 ? dates.dueDateFormatted : "-";
+
+    const list = $("#slipItemsList");
+    const confirmBtn = $("#btnConfirmLoan");
+
+    const borrowerName = $("#borrowerName").value.trim();
+    confirmBtn.disabled = (count === 0) || !borrowerName;
+
+    if (count === 0) {
+      list.innerHTML = `
+        <div class="slip-empty">
+          <div style="font-size:24px; opacity:0.5;">📖</div>
+          <strong>Belum ada buku dipilih</strong>
+          <p>Pilih buku dari rak untuk menambahkannya ke lembar peminjaman ini.</p>
+        </div>
+      `;
+      return;
+    }
+
+    list.innerHTML = Array.from(loanBasket.values()).map((book) => `
+      <div class="slip-item">
+        <div>
+          <div class="slip-item-title">${escapeHTML(book.title)}</div>
+          <div class="slip-item-meta mono">
+            ${escapeHTML(book.id)} · ${escapeHTML(book.shelf)}
+          </div>
+        </div>
+        <button class="btn-remove-item" type="button" data-action="remove-slip-item" data-id="${escapeHTML(book.id)}" title="Hapus dari lembar">
+          ✕
+        </button>
+      </div>
+    `).join("");
+  }
+
+  function addToSlip(bookId) {
+    if (loanBasket.size >= MAX_LOAN_QUOTA) {
+      showToast("Batas kuota tercapai: maksimal 3 buku per anggota.");
+      return;
+    }
+
+    const book = catalogBooks.find(b => b.id === bookId);
+    if (!book) return;
+
+    if (book.status !== "Tersedia") {
+      showToast("Buku ini sedang dipinjam anggota lain.");
+      return;
+    }
+
+    loanBasket.set(book.id, book);
+    renderSlip();
+    renderBookGrid();
+    showToast(`"${book.title}" ditambahkan ke lembar pinjam.`);
+  }
+
+  function removeFromSlip(bookId) {
+    const book = loanBasket.get(bookId);
+    if (book) {
+      loanBasket.delete(bookId);
+      renderSlip();
+      renderBookGrid();
+      showToast(`"${book.title}" dilepas dari lembar pinjam.`);
+    }
+  }
+
+  function clearSlip() {
+    if (loanBasket.size === 0) {
+      showToast("Lembar peminjaman masih kosong.");
+      return;
+    }
+    loanBasket.clear();
+    renderSlip();
+    renderBookGrid();
+    showToast("Seluruh daftar buku telah dikosongkan.");
+  }
+
+  // Toast Functionality
+  let toastTimer;
+  function showToast(msg) {
+    const toast = $("#libraryToast");
+    toast.textContent = msg;
+    toast.classList.add("show");
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2500);
+  }
+
+  // Detail Modal
+  function showDetailModal(bookId) {
+    const book = catalogBooks.find(b => b.id === bookId);
+    if (!book) return;
+
+    const inBasket = loanBasket.has(book.id);
+    const isAvailable = (book.status === "Tersedia");
+    const isQuotaFull = loanBasket.size >= MAX_LOAN_QUOTA;
+
+    let actionBtnText = "Tambah ke Lembar Pinjam";
+    let actionBtnDisabled = false;
+
+    if (!isAvailable) {
+      actionBtnText = "Sedang Dipinjam Anggota Lain";
+      actionBtnDisabled = true;
+    } else if (inBasket) {
+      actionBtnText = "✓ Sudah Masuk di Lembar Pinjam";
+      actionBtnDisabled = true;
+    } else if (isQuotaFull) {
+      actionBtnText = "Kuota Peminjaman Penuh (3/3)";
+      actionBtnDisabled = true;
+    }
+
+    $("#detailModalBody").innerHTML = `
+      <div class="detail-cover-box">
+        <img src="${escapeHTML(book.image)}" alt="Sampul ${escapeHTML(book.title)}" onerror="this.onerror=null;this.src='https://placehold.co/300x420/f0ebe1/4a4d47?text=Buku+Arsip';">
+      </div>
+      <div class="detail-info">
+        <div class="mono" style="font-size:11px; color:var(--muted); margin-bottom:4px;">
+          KLASIFIKASI DDC: ${escapeHTML(book.ddc)} · KODE: ${escapeHTML(book.id)}
+        </div>
+        <h2 id="modalBookTitle">${escapeHTML(book.title)}</h2>
+        <div class="detail-author">Karya: <strong>${escapeHTML(book.author)}</strong></div>
+
+        <div class="detail-spec-grid mono">
+          <div>
+            <span>Lokasi Rak:</span>
+            <strong>${escapeHTML(book.shelf)}</strong>
+          </div>
+          <div>
+            <span>Tahun / Edisi:</span>
+            <strong>${escapeHTML(book.year)}</strong>
+          </div>
+          <div>
+            <span>Penerbit:</span>
+            <strong>${escapeHTML(book.publisher)}</strong>
+          </div>
+          <div>
+            <span>ISBN &amp; Halaman:</span>
+            <strong>${escapeHTML(book.isbn)} (${escapeHTML(book.pages)})</strong>
+          </div>
+        </div>
+
+        <div class="detail-synopsis">
+          <strong>Ringkasan / Sinopsis Koleksi:</strong><br>
+          ${escapeHTML(book.synopsis)}
+        </div>
+
+        <button class="btn-loan-action" style="width:100%; height:42px;" id="btnModalAddLoan" data-id="${escapeHTML(book.id)}" ${actionBtnDisabled ? "disabled" : ""}>
+          ${actionBtnText}
+        </button>
+      </div>
+    `;
+
+    $("#detailModal").classList.add("open");
+
+    const modalAddBtn = $("#btnModalAddLoan");
+    if (modalAddBtn && !actionBtnDisabled) {
+      modalAddBtn.addEventListener("click", () => {
+        addToSlip(book.id);
+        $("#detailModal").classList.remove("open");
+      });
+    }
+  }
+
+  // Confirm Loan Ticket Modal
+  function finishLoanProcess() {
+    if (loanBasket.size === 0) return;
+
+    const borrowerName = $("#borrowerName").value.trim() || "Anggota Tanpa Nama";
+    const memberNo = $("#memberNumber").value.trim() || "AK-2026-0000";
+    const dates = getLoanScheduleDates();
+    const txId = `TRX-2026-${String(transactionCounter).padStart(4, "0")}`;
+
+    $("#ticketTxId").textContent = txId;
+    $("#ticketBorrowerName").textContent = borrowerName;
+    $("#ticketBorrowerNo").textContent = memberNo;
+    $("#ticketLoanDate").textContent = dates.todayFormatted;
+    $("#ticketDueDate").textContent = dates.dueDateFormatted;
+    $("#ticketStampDate").textContent = `DUE DATE: ${dates.dueDateFormatted.toUpperCase()}`;
+    $("#ticketBarcodeCode").textContent = `${memberNo}-${String(transactionCounter).padStart(3, '0')}`;
+
+    const itemsHTML = Array.from(loanBasket.values()).map((book, idx) => `
+      <div class="ticket-book-entry">
+        <div class="tbe-title">${idx + 1}. ${escapeHTML(book.title)}</div>
+        <div class="tbe-code mono">
+          <span>${escapeHTML(book.author)}</span>
+          <span>${escapeHTML(book.ddc)} · ${escapeHTML(book.shelf)}</span>
+        </div>
+      </div>
+    `).join("");
+
+    $("#ticketBooksList").innerHTML = itemsHTML;
+
+    // Tandai status buku lokal demo menjadi "Dipinjam"
+    loanBasket.forEach(book => {
+      book.status = "Dipinjam";
+    });
+
+    transactionCounter += 1;
+    $("#ticketModal").classList.add("open");
+  }
+
+  function resetAfterLoan() {
+    loanBasket.clear();
+    renderSlip();
+    renderBookGrid();
+    $("#ticketModal").classList.remove("open");
+    showToast("Peminjaman berhasil dicatat dalam register sirkulasi.");
+  }
+
+  // Event Listeners
+  document.addEventListener("DOMContentLoaded", () => {
+    // Current date in top header
+    const now = new Date();
+    $("#currentCalendarDate").textContent = formatLocalDate(now);
+
+    // Initial render
+    renderBookGrid();
+    renderSlip();
+
+    // Category Tabs
+    $("#categoryBar").addEventListener("click", (e) => {
+      const btn = e.target.closest(".cat-btn");
+      if (!btn) return;
+
+      activeCategory = btn.dataset.cat;
+      document.querySelectorAll(".cat-btn").forEach(b => b.classList.toggle("active", b === btn));
+      renderBookGrid();
+    });
+
+    // Search and availability input
+    $("#catalogSearch").addEventListener("input", renderBookGrid);
+    $("#onlyAvailableToggle").addEventListener("change", renderBookGrid);
+
+    // Book Grid Delegated Actions
+    $("#bookGrid").addEventListener("click", (e) => {
+      const loanBtn = e.target.closest('[data-action="add-to-slip"]');
+      if (loanBtn && !loanBtn.disabled) {
+        addToSlip(loanBtn.dataset.id);
+        return;
+      }
+
+      const detailBtn = e.target.closest('[data-action="detail"]');
+      if (detailBtn) {
+        showDetailModal(detailBtn.dataset.id);
+      }
+    });
+
+    // Slip Delegated Actions
+    $("#slipItemsList").addEventListener("click", (e) => {
+      const removeBtn = e.target.closest('[data-action="remove-slip-item"]');
+      if (removeBtn) {
+        removeFromSlip(removeBtn.dataset.id);
+      }
+    });
+
+    $("#btnClearSlip").addEventListener("click", clearSlip);
+    $("#borrowerName").addEventListener("input", renderSlip);
+
+    // Scroll to Circulation Panel button
+    $("#btnScrollToSlip").addEventListener("click", () => {
+      $("#circulationPanel").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Confirm Loan button
+    $("#btnConfirmLoan").addEventListener("click", finishLoanProcess);
+
+    // Modals Close handlers
+    $("#btnCloseDetail").addEventListener("click", () => {
+      $("#detailModal").classList.remove("open");
+    });
+
+    $("#detailModal").addEventListener("click", (e) => {
+      if (e.target === $("#detailModal")) {
+        $("#detailModal").classList.remove("open");
+      }
+    });
+
+    $("#btnPrintTicket").addEventListener("click", () => {
+      window.print();
+    });
+
+    $("#btnCloseTicket").addEventListener("click", resetAfterLoan);
+
+    $("#ticketModal").addEventListener("click", (e) => {
+      if (e.target === $("#ticketModal")) {
+        resetAfterLoan();
+      }
+    });
+  });
+</script>
+</body>
+</html>

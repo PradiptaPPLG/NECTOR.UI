@@ -12,6 +12,7 @@ export type Category =
   | 'pottery'
   | 'organik'
   | 'kasir'
+  | 'perpustakaan'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

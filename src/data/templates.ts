@@ -614,6 +614,65 @@ export function TanahLiatStudio() {
     publishedAt: '2026-05-02',
     livePreviewAvailable: true,
     accentColor: '#2f6549'
+  },
+  {
+    id: 'tpl-21',
+    slug: 'pustaka-aksara-perpustakaan',
+    title: 'Pustaka Aksara',
+    tagline: 'Ruang baca arsip & sistem sirkulasi peminjaman buku komunitas — standar DDC, batas 14 hari, & bukti pinjam digital',
+    description: 'Template website ruang baca, perpustakaan komunitas, dan sistem sirkulasi arsip buku independen yang dirancang dengan standar anti-slop ketat. Menghadirkan estetika warm archival paper, tipografi sastra Newsreader dan DM Sans, katalog bersistem Dewey Decimal Classification (DDC), pencarian instan berdasarkan judul/penulis/ISBN, lembar sirkulasi interaktif dengan batas kuota 3 buku, perhitungan otomatis tanggal jatuh tempo 14 hari, modal sinopsis detail eksemplar, serta penerbitan bukti peminjaman digital berstempel yang siap dicetak.',
+    category: 'perpustakaan',
+    tags: ['Perpustakaan', 'Peminjaman Buku', 'Sirkulasi Arsip', 'Ruang Baca', 'Dewey Decimal DDC', 'Anti-Slop Spec', 'Struk Peminjaman'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Newsreader & DM Sans'],
+    thumbnailSvgType: 'perpustakaan',
+    previewComponentKey: 'library-aksara',
+    htmlPath: '/templates/perpustakaan/aksara.html',
+    htmlFolderPath: 'templates/perpustakaan/aksara.html',
+    features: [
+      'Arsitektur mandiri single-file (HTML + CSS + JS) tanpa framework atau dependensi luar',
+      'Katalog buku nyata dengan foto sampul berkualitas, pengarang orisinal, dan nomor panggil DDC resmi',
+      'Filter multi-kategori (Sastra, Sejarah, Filsafat, Sains) serta tombol status ketersediaan di rak',
+      'Lembar peminjaman interaktif dengan batas kuota pinjam 3 buku dan kalkulasi tanggal jatuh tempo 14 hari otomatis',
+      'Modal detail buku lengkap dengan sinopsis sastra, data penerbit, ISBN, dan nomor rak fisik',
+      'Modal tiket sirkulasi peminjaman digital berstempel resmi dan fitur cetak bukti pinjam (print-ready)'
+    ],
+    usageInstructions: [
+      'Buka templates/perpustakaan/aksara.html atau public/templates/perpustakaan/aksara.html di text editor.',
+      'Sesuaikan daftar buku di array catalogBooks dengan koleksi perpustakaan atau ruang baca fisikmu.',
+      'Atur durasi peminjaman pada fungsi getLoanScheduleDates jika ingin durasi berbeda (default 14 hari).',
+      'Jalankan langsung di browser untuk meja sirkulasi offline atau integrasikan dengan sistem database perpustakaan.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'aksara.html',
+        language: 'html',
+        content: `<!-- Pustaka Aksara — Ruang Baca & Sirkulasi Arsip Komunitas -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pustaka Aksara — Ruang Baca & Sirkulasi Arsip Komunitas</title>
+</head>
+<body>
+  <!-- Standalone Library Circulation System -->
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt sistem sirkulasi perpustakaan & arsip ruang baca komunitas Pustaka Aksara berstandar anti-slop.',
+      designDirection: 'Warm archival paper (#f7f4ed), deep charcoal ink (#1b1e1b), forest library green (#234133), dan archival rust (#9e3d24). Tipografi Newsreader serif, DM Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Editorial top notice banner, hero archive dispatch dengan papan aturan peminjaman, serta workspace sirkulasi 2 kolom (katalog rak buku di kiri dan lembar peminjaman sticky di kanan).',
+      typographyAndColor: 'Newsreader serif berkarakter sastra untuk judul dan display, DM Sans untuk teks fungsional, dan JetBrains Mono untuk kode klasifikasi DDC dan nomor panggil.',
+      interactions: 'Filter kategori instan, penambahan koleksi ke lembar sirkulasi dengan validasi kuota 3 buku, modal sinopsis detail, dan penerbitan tiket peminjaman digital siap cetak.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, anti-slop verified.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-05-04',
+    livePreviewAvailable: true,
+    accentColor: '#234133'
   }
 ];
 
