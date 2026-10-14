@@ -99,7 +99,7 @@ export const Footer: React.FC<Props> = ({ onNavigate }) => {
             <span>·</span>
             <span>TANPA METRIK SINTETIS</span>
             <span>·</span>
-            <span>KODE SUMBER NYATA &amp; BERFUNGSI</span>
+            <span>KODE SUMBER NYATA & BERFUNGSI</span>
           </div>
         </div>
       </div>

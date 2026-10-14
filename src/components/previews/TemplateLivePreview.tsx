@@ -17,19 +17,19 @@ export const TemplateLivePreview: React.FC<Props> = ({ template, viewportWidth, 
         <div className="iframe-meta-left mono">
           <span className="live-dot">●</span>
           <span className="file-badge"><FileCode size={13} /> {template.htmlFolderPath || template.htmlPath}</span>
-          <span className="reload-hint">(Edit file ini langsung & klik reload)</span>
+          <span className="reload-hint">(Ubah berkas ini langsung & klik muat ulang)</span>
         </div>
         <div className="iframe-actions-right">
           <button
             className="btn-iframe-reload mono"
             onClick={() => {
               setIframeKey(k => k + 1);
-              onToast('Template HTML dimuat ulang!');
+              onToast('Tampilan template HTML berhasil dimuat ulang!');
             }}
-            title="Reload HTML untuk melihat editan terbaru dari file"
+            title="Muat ulang HTML untuk melihat perubahan terbaru"
           >
             <RotateCw size={13} />
-            <span>Reload HTML</span>
+            <span>Muat Ulang</span>
           </button>
           <a
             href={template.htmlPath}
@@ -39,7 +39,7 @@ export const TemplateLivePreview: React.FC<Props> = ({ template, viewportWidth, 
             title="Buka template mandiri ini di tab baru"
           >
             <ExternalLink size={13} />
-            <span>Buka di Tab Baru</span>
+            <span>Buka di Tab Baru ↗</span>
           </a>
         </div>
       </div>

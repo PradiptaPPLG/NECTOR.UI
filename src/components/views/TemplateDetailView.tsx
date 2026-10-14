@@ -22,7 +22,7 @@ import {
   ExternalLink,
   RefreshCw
 } from 'lucide-react';
-import { getTemplateCommissionUrl } from '../../utils/whatsapp';
+import { DISPLAY_PHONE, getTemplateCommissionUrl } from '../../utils/whatsapp';
 
 interface Props {
   template: Template;
@@ -127,7 +127,7 @@ export const TemplateDetailView: React.FC<Props> = ({
     if (!activeContent) return;
     navigator.clipboard.writeText(activeContent);
     setCopiedCode(true);
-    onToast(`Source file ${activeFileName} (${lineCount} baris) tersalin ke clipboard!`);
+    onToast(`Berkas kode ${activeFileName} (${lineCount} baris) tersalin ke clipboard!`);
     setTimeout(() => setCopiedCode(false), 2000);
   };
 
@@ -142,30 +142,30 @@ export const TemplateDetailView: React.FC<Props> = ({
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    onToast(`File ${activeFileName} (${fileSizeKb} KB) berhasil diunduh!`);
+    onToast(`Berkas ${activeFileName} (${fileSizeKb} KB) berhasil diunduh!`);
   };
 
   const handleCopyFullPrompt = () => {
-    const fullPromptText = `PROMPT SPECIFICATION FOR ${template.title.toUpperCase()}
+    const fullPromptText = `SPESIFIKASI PROMPT UNTUK ${template.title.toUpperCase()}
 
-DESIGN DIRECTION:
+ARAH DESAIN & IDENTITAS MEREK:
 ${template.prompt.designDirection}
 
-LAYOUT & GRID:
+TATA LETAK, SISTEM GRID & RITME DESAIN:
 ${template.prompt.layoutAndGrid}
 
-TYPOGRAPHY & COLOR PALETTE:
+KOMBINASI TIPOGRAFI & PALET WARNA:
 ${template.prompt.typographyAndColor}
 
-INTERACTIVE STATES:
+INTERAKSI FISIK & MIKROANIMASI:
 ${template.prompt.interactions}
 
-TECHNICAL REQUIREMENTS:
+AKSESIBILITAS & PERSYARATAN TEKNIS:
 ${template.prompt.technicalRequirements}
 `;
     navigator.clipboard.writeText(fullPromptText);
     setCopiedPrompt(true);
-    onToast(`AI Prompt specification copied to clipboard!`);
+    onToast(`Spesifikasi Prompt AI berhasil disalin ke clipboard!`);
     setTimeout(() => setCopiedPrompt(false), 2000);
   };
 
@@ -176,7 +176,7 @@ ${template.prompt.technicalRequirements}
         <div className="container detail-topbar-inner">
           <button className="btn-back-catalog" onClick={onBack}>
             <ArrowLeft size={16} />
-            <span>Back to Catalog</span>
+            <span>Kembali ke Katalog</span>
           </button>
 
           <div className="detail-top-tabs">
@@ -185,21 +185,21 @@ ${template.prompt.technicalRequirements}
               onClick={() => setActiveTab('preview')}
             >
               <Eye size={15} />
-              <span>Live Preview</span>
+              <span>Pratinjau Interaktif</span>
             </button>
             <button
               className={`top-tab-btn ${activeTab === 'code' ? 'active' : ''}`}
               onClick={() => setActiveTab('code')}
             >
               <Code size={15} />
-              <span>Code Inspector ({template.sourceFiles.length})</span>
+              <span>Inspeksi Kode ({template.sourceFiles.length})</span>
             </button>
             <button
               className={`top-tab-btn ${activeTab === 'prompt' ? 'active' : ''}`}
               onClick={() => setActiveTab('prompt')}
             >
               <Sparkles size={15} />
-              <span>AI Prompt Engine</span>
+              <span>Spesifikasi Prompt AI</span>
             </button>
           </div>
 
@@ -207,20 +207,20 @@ ${template.prompt.technicalRequirements}
             <button
               className={`btn-top-save ${isSaved ? 'saved' : ''}`}
               onClick={onToggleSave}
-              title={isSaved ? 'Saved in collection' : 'Save to collection'}
+              title={isSaved ? 'Tersimpan di koleksi pribadi' : 'Simpan ke koleksi pribadi'}
             >
               <Bookmark size={15} />
-              <span>{isSaved ? 'Saved' : 'Save'}</span>
+              <span>{isSaved ? 'Tersimpan' : 'Simpan'}</span>
             </button>
             <a
               href={getTemplateCommissionUrl(template.title)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-top-commission"
-              title="Open WhatsApp consultation"
+              title="Buka konsultasi WhatsApp untuk template ini"
             >
               <MessageSquare size={15} />
-              <span>Commission Similar</span>
+              <span>Pesan Desain Kustom</span>
               <ArrowUpRight size={13} />
             </a>
           </div>
@@ -236,8 +236,8 @@ ${template.prompt.technicalRequirements}
               {template.weddingSubcategory && (
                 <span className="badge-wedding">{template.weddingSubcategory.toUpperCase()}</span>
               )}
-              <span>RELEASED: {template.publishedAt}</span>
-              <span className="status-live">● VERIFIED PRODUCTION CODE</span>
+              <span>DIRILIS: {template.publishedAt}</span>
+              <span className="status-live">● KODE PRODUKSI TERVERIFIKASI</span>
             </div>
             <h1 className="dhc-title">{template.title}</h1>
             <p className="dhc-tagline">{template.tagline}</p>
@@ -246,7 +246,7 @@ ${template.prompt.technicalRequirements}
 
           <div className="dhc-right">
             <div className="dhc-tech-box">
-              <span className="mono dhc-box-label">ENGINEERING STACK</span>
+              <span className="mono dhc-box-label">TEKNOLOGI & STACK</span>
               <div className="dhc-tech-pills mono">
                 {template.technologies.map((t, idx) => (
                   <span key={idx} className="tech-pill">{t}</span>
@@ -255,9 +255,9 @@ ${template.prompt.technicalRequirements}
             </div>
 
             <div className="dhc-commission-box">
-              <span className="mono dhc-box-label">COMMISSIONING DIRECTIVE</span>
+              <span className="mono dhc-box-label">LAYANAN PEMBUATAN WEBSITE</span>
               <p className="dhc-box-p">
-                Want this design customized for your business with bespoke copy, custom brand identity, and production hosting?
+                Ingin template ini disesuaikan khusus untuk bisnismu lengkap dengan konten orisinal, identitas merek, dan hosting siap pakai?
               </p>
               <a
                 href={getTemplateCommissionUrl(template.title)}
@@ -265,7 +265,7 @@ ${template.prompt.technicalRequirements}
                 rel="noopener noreferrer"
                 className="btn-inquire-whatsapp"
               >
-                <span>Inquire on WhatsApp (+62 852-1958-3336)</span>
+                <span>Konsultasi via WhatsApp ({DISPLAY_PHONE})</span>
                 <ArrowUpRight size={14} />
               </a>
             </div>
@@ -277,7 +277,7 @@ ${template.prompt.technicalRequirements}
           <section className="detail-preview-section">
             <div className="viewport-controls-bar">
               <div className="vc-left">
-                <span className="mono vc-label">VIEWPORT EMULATOR:</span>
+                <span className="mono vc-label">SIMULASI LAYAR:</span>
                 <div className="viewport-buttons-group">
                   <button
                     className={`vp-btn ${viewportWidth === '100%' ? 'active' : ''}`}
@@ -298,17 +298,17 @@ ${template.prompt.technicalRequirements}
                   <button
                     className={`vp-btn ${viewportWidth === '375px' ? 'active' : ''}`}
                     onClick={() => setViewportWidth('375px')}
-                    title="Mobile (375px)"
+                    title="Ponsel (375px)"
                   >
                     <Smartphone size={15} />
-                    <span>Mobile (375px)</span>
+                    <span>Ponsel (375px)</span>
                   </button>
                 </div>
               </div>
 
               <div className="vc-right mono">
                 <span className="vc-notice">
-                  {template.livePreviewAvailable ? '● LIVE INTERACTIVE IMPLEMENTATION' : '○ STATIC MOCKUP'}
+                  {template.livePreviewAvailable ? '● IMPLEMENTASI INTERAKTIF AKTIF' : '○ PRATINJAU STATIS'}
                 </span>
               </div>
             </div>
@@ -329,7 +329,7 @@ ${template.prompt.technicalRequirements}
               <div className="info-card">
                 <h3 className="info-title">
                   <CheckCircle size={17} color="#C44525" />
-                  <span>Implemented Architecture Features</span>
+                  <span>Fitur & Arsitektur Desain</span>
                 </h3>
                 <ul className="features-checklist">
                   {template.features.map((feat, idx) => (
@@ -344,7 +344,7 @@ ${template.prompt.technicalRequirements}
               <div className="info-card">
                 <h3 className="info-title">
                   <Terminal size={17} color="#141416" />
-                  <span>Deployment & Usage Guidelines</span>
+                  <span>Panduan Penggunaan & Penerapan</span>
                 </h3>
                 <ol className="usage-steps-list">
                   {template.usageInstructions.map((inst, idx) => (
@@ -366,7 +366,7 @@ ${template.prompt.technicalRequirements}
               <div className="file-tree-sidebar">
                 <div className="ft-header mono">
                   <Layers size={14} />
-                  <span>PROJECT SOURCE FILES</span>
+                  <span>BERKAS KODE SUMBER</span>
                 </div>
                 <div className="ft-list">
                   {template.sourceFiles.map((file, idx) => {
@@ -383,7 +383,7 @@ ${template.prompt.technicalRequirements}
                         <div className="ft-item-texts">
                           <span className="ft-name">{itemFileName}</span>
                           {idx === 0 && template.htmlPath && (
-                            <span className="ft-badge-standalone">STANDALONE (HTML+CSS+JS)</span>
+                            <span className="ft-badge-standalone">MANDIRI (HTML+CSS+JS)</span>
                           )}
                         </div>
                         <span className="ft-lang">{file.language.toUpperCase()}</span>
@@ -394,11 +394,11 @@ ${template.prompt.technicalRequirements}
 
                 <div className="ft-footer">
                   <div className="ft-source-path mono">
-                    <span className="ft-path-label">LOKASI FILE:</span>
+                    <span className="ft-path-label">LOKASI BERKAS:</span>
                     <span className="ft-path-val">{activeFilePath}</span>
                   </div>
                   <span className="mono ft-note">
-                    File mandiri produksi dengan kode lengkap dan siap jalan tanpa build tool.
+                    Berkas mandiri siap pakai dengan kode lengkap tanpa perlu build tool.
                   </span>
                 </div>
               </div>
@@ -411,7 +411,7 @@ ${template.prompt.technicalRequirements}
                     <span className="cc-badge-metric">{lineCount.toLocaleString()} baris</span>
                     <span className="cc-badge-metric">{fileSizeKb} KB</span>
                     {template.htmlPath && selectedFileIdx === 0 && (
-                      <span className="cc-badge-status">● VERIFIED STANDALONE</span>
+                      <span className="cc-badge-status">● MANDIRI TERVERIFIKASI</span>
                     )}
                   </div>
 
@@ -422,7 +422,7 @@ ${template.prompt.technicalRequirements}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-code-action"
-                        title="Buka file HTML langsung di tab browser baru"
+                        title="Buka berkas HTML langsung di tab browser baru"
                       >
                         <ExternalLink size={13} />
                         <span>Buka di Tab Baru ↗</span>
@@ -431,7 +431,7 @@ ${template.prompt.technicalRequirements}
                     <button
                       className="btn-code-action"
                       onClick={handleDownloadCode}
-                      title={`Unduh file ${activeFileName} lengkap ini`}
+                      title={`Unduh berkas ${activeFileName} lengkap ini`}
                     >
                       <Download size={13} />
                       <span>Unduh {activeFileName}</span>
@@ -446,7 +446,7 @@ ${template.prompt.technicalRequirements}
                 {isLoadingSource ? (
                   <div className="code-loading-container mono">
                     <RefreshCw size={18} className="spin-icon" />
-                    <span>Memuat source code lengkap dari {template.htmlPath}...</span>
+                    <span>Memuat kode sumber lengkap dari {template.htmlPath}...</span>
                   </div>
                 ) : (
                   <div className="cc-code-viewer mono">
@@ -480,15 +480,15 @@ ${template.prompt.technicalRequirements}
               <div className="prompt-topbar">
                 <div className="pt-title-group">
                   <span className="mono badge-subtle">
-                    {template.prompt.isReconstructed ? 'SUGGESTED / RECONSTRUCTED SPEC' : 'ORIGINAL CRAFT SPEC'}
+                    {template.prompt.isReconstructed ? 'SPESIFIKASI PROMPT REKONSTRUKSI' : 'SPESIFIKASI ASLI NECTOR'}
                   </span>
-                  <h2>AI Prompt & Art Direction Blueprint</h2>
+                  <h2>Prompt AI & Cetak Biru Arah Desain</h2>
                   <p className="prompt-summary-text">{template.prompt.summary}</p>
                 </div>
 
                 <button className="btn-copy-full-prompt" onClick={handleCopyFullPrompt}>
                   {copiedPrompt ? <Check size={14} color="#C44525" /> : <Copy size={14} />}
-                  <span>{copiedPrompt ? 'Copied Full Spec' : 'Copy Complete Prompt Spec'}</span>
+                  <span>{copiedPrompt ? 'Spesifikasi Tersalin' : 'Salin Seluruh Prompt Spesifikasi'}</span>
                 </button>
               </div>
 
@@ -496,7 +496,7 @@ ${template.prompt.technicalRequirements}
                 <div className="prompt-block">
                   <div className="pb-header mono">
                     <span className="pb-num">01</span>
-                    <span>DESIGN DIRECTION & BRAND IDENTITY</span>
+                    <span>ARAH DESAIN & IDENTITAS MEREK</span>
                   </div>
                   <div className="pb-body">
                     <p>{template.prompt.designDirection}</p>
@@ -506,7 +506,7 @@ ${template.prompt.technicalRequirements}
                 <div className="prompt-block">
                   <div className="pb-header mono">
                     <span className="pb-num">02</span>
-                    <span>LAYOUT, GRID & ASYMMETRIC RHYTHM</span>
+                    <span>TATA LETAK, SISTEM GRID & RITME DESAIN</span>
                   </div>
                   <div className="pb-body">
                     <p>{template.prompt.layoutAndGrid}</p>
@@ -516,7 +516,7 @@ ${template.prompt.technicalRequirements}
                 <div className="prompt-block">
                   <div className="pb-header mono">
                     <span className="pb-num">03</span>
-                    <span>TYPOGRAPHY PAIRING & RESTRAINED PALETTE</span>
+                    <span>KOMBINASI TIPOGRAFI & PALET WARNA</span>
                   </div>
                   <div className="pb-body">
                     <p>{template.prompt.typographyAndColor}</p>
@@ -526,7 +526,7 @@ ${template.prompt.technicalRequirements}
                 <div className="prompt-block">
                   <div className="pb-header mono">
                     <span className="pb-num">04</span>
-                    <span>PHYSICAL INTERACTIONS & MICROANIMATIONS</span>
+                    <span>INTERAKSI FISIK & MIKROANIMASI</span>
                   </div>
                   <div className="pb-body">
                     <p>{template.prompt.interactions}</p>
@@ -536,7 +536,7 @@ ${template.prompt.technicalRequirements}
                 <div className="prompt-block">
                   <div className="pb-header mono">
                     <span className="pb-num">05</span>
-                    <span>ACCESSIBILITY & TECHNICAL REQUIREMENTS</span>
+                    <span>AKSESIBILITAS & PERSYARATAN TEKNIS</span>
                   </div>
                   <div className="pb-body">
                     <p>{template.prompt.technicalRequirements}</p>

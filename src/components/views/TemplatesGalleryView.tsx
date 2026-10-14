@@ -131,7 +131,7 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                 onSelectCategory('all');
               }}
             >
-              Reset Pencarian &amp; Filter
+              Reset Pencarian & Filter
             </button>
           </div>
         ) : (
@@ -145,7 +145,7 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                 >
                   <TemplateThumbnail template={template} />
                   <div className="card-hover-overlay">
-                    <span className="overlay-btn">Buka Preview &amp; Inspeksi</span>
+                    <span className="overlay-btn">Buka Pratinjau & Inspeksi</span>
                   </div>
                 </div>
 
@@ -182,10 +182,10 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                     <button
                       className="btn-action-primary"
                       onClick={() => onSelectTemplate(template, 'preview')}
-                      title="Buka preview viewport interaktif"
+                      title="Buka pratinjau viewport interaktif"
                     >
                       <Eye size={13} />
-                      <span>Preview</span>
+                      <span>Pratinjau</span>
                     </button>
                     <button
                       className="btn-action-ghost"
@@ -198,7 +198,7 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                     <button
                       className="btn-action-ghost"
                       onClick={() => onSelectTemplate(template, 'prompt')}
-                      title="Inspeksi prompt rekonstruksi"
+                      title="Inspeksi spesifikasi prompt AI"
                     >
                       <Sparkles size={13} />
                       <span>Prompt</span>

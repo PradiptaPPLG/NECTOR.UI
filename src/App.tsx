@@ -167,7 +167,7 @@ export function App() {
             onNavigateToGallery={() => handleNavigate('templates')}
             onClearCollection={() => {
               setSavedIds([]);
-              addToast('Collection cleared', 'info');
+              addToast('Koleksi berhasil dikosongkan', 'info');
             }}
           />
         )}

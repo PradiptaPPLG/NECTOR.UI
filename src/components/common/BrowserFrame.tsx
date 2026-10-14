@@ -25,9 +25,9 @@ export const BrowserFrame: React.FC<Props> = ({
       <div className="browser-chrome-bar">
         {/* Traffic Light Window Controls */}
         <div className="traffic-lights-group">
-          <span className="traffic-dot close" title="Close"></span>
-          <span className="traffic-dot minimize" title="Minimize"></span>
-          <span className="traffic-dot maximize" title="Maximize"></span>
+          <span className="traffic-dot close" title="Tutup"></span>
+          <span className="traffic-dot minimize" title="Perkecil"></span>
+          <span className="traffic-dot maximize" title="Perbesar"></span>
         </div>
 
         {/* Browser Tabs (if title provided) */}
@@ -43,7 +43,7 @@ export const BrowserFrame: React.FC<Props> = ({
           <Lock size={11} className="padlock-icon" />
           <span className="browser-url-text mono">{url}</span>
           {onRefresh && (
-            <button className="browser-tool-btn" onClick={onRefresh} title="Reload preview">
+            <button className="browser-tool-btn" onClick={onRefresh} title="Muat ulang tampilan">
               <RefreshCw size={11} />
             </button>
           )}
@@ -52,7 +52,7 @@ export const BrowserFrame: React.FC<Props> = ({
         {/* Browser Action Tools */}
         <div className="browser-tools-right">
           {onExternal && (
-            <button className="browser-tool-btn" onClick={onExternal} title="Open in new window">
+            <button className="browser-tool-btn" onClick={onExternal} title="Buka di tab baru">
               <ExternalLink size={12} />
             </button>
           )}

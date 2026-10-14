@@ -67,7 +67,7 @@ export const CollectionView: React.FC<Props> = ({
                 <div className="card-thumb-container" onClick={() => onSelectTemplate(template)}>
                   <TemplateThumbnail template={template} />
                   <div className="card-hover-overlay">
-                    <span className="overlay-btn">Inspeksi &amp; Preview</span>
+                    <span className="overlay-btn">Inspeksi & Pratinjau</span>
                   </div>
                 </div>
 
@@ -98,7 +98,7 @@ export const CollectionView: React.FC<Props> = ({
                   <div className="card-actions-row">
                     <button className="btn-action-primary" onClick={() => onSelectTemplate(template, 'preview')}>
                       <Eye size={13} />
-                      <span>Preview</span>
+                      <span>Pratinjau</span>
                     </button>
                     <button className="btn-action-ghost" onClick={() => onSelectTemplate(template, 'code')}>
                       <Code size={13} />

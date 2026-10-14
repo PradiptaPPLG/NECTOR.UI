@@ -115,7 +115,7 @@ export const HomeView: React.FC<Props> = ({
                     onClick={() => onSelectTemplate(currentHeroTemplate)}
                   >
                     <Eye size={13} />
-                    <span>Inspeksi & Preview</span>
+                    <span>Inspeksi & Pratinjau</span>
                   </button>
                   <a
                     href={getTemplateCommissionUrl(currentHeroTemplate.title)}
@@ -154,7 +154,7 @@ export const HomeView: React.FC<Props> = ({
                 <div className="card-thumb-container" onClick={() => onSelectTemplate(template)}>
                   <TemplateThumbnail template={template} />
                   <div className="card-hover-overlay">
-                    <span className="overlay-btn">Inspeksi & Preview</span>
+                    <span className="overlay-btn">Inspeksi & Pratinjau</span>
                   </div>
                 </div>
 
@@ -188,7 +188,7 @@ export const HomeView: React.FC<Props> = ({
                   <div className="card-actions-row">
                     <button className="btn-action-primary" onClick={() => onSelectTemplate(template, 'preview')}>
                       <Eye size={13} />
-                      <span>Preview</span>
+                      <span>Pratinjau</span>
                     </button>
                     <button className="btn-action-ghost" onClick={() => onSelectTemplate(template, 'code')}>
                       <Code size={13} />

@@ -10,15 +10,15 @@ interface Props {
 }
 
 export const CommissionModal: React.FC<Props> = ({ isOpen, onClose, selectedTemplate }) => {
-  const [projectScope, setProjectScope] = useState('Full Bespoke Website');
-  const [timeline, setTimeline] = useState('Standard (2-3 Weeks)');
+  const [projectScope, setProjectScope] = useState('Website Lengkap Bisnis / UMKM (3-5 Halaman)');
+  const [timeline, setTimeline] = useState('Standar (1-2 Minggu)');
 
   if (!isOpen) return null;
 
   const targetUrl = selectedTemplate
     ? getTemplateCommissionUrl(selectedTemplate.title)
     : `https://wa.me/6285219583336?text=${encodeURIComponent(
-        `Hi NECTOR.UI! I would like to commission a custom website (${projectScope}, timeline: ${timeline}). Could you share your availability and estimated project fee?`
+        `Halo NECTOR.UI! Saya ingin berkonsultasi mengenai pembuatan website kustom (${projectScope}, target pengerjaan: ${timeline}). Boleh info ketersediaan jadwal dan estimasi biayanya?`
       )}`;
 
   return (
@@ -26,10 +26,10 @@ export const CommissionModal: React.FC<Props> = ({ isOpen, onClose, selectedTemp
       <div className="modal-window" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <div className="modal-title-group">
-            <span className="mono badge-subtle">STUDIO COMMISSION</span>
-            <h2>Commission a Website</h2>
+            <span className="mono badge-subtle">KONSULTASI & PEMESANAN</span>
+            <h2>Pesan Pembuatan Website Kustom</h2>
           </div>
-          <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
+          <button className="modal-close-btn" onClick={onClose} aria-label="Tutup jendela modal">
             <X size={18} />
           </button>
         </div>
@@ -37,7 +37,7 @@ export const CommissionModal: React.FC<Props> = ({ isOpen, onClose, selectedTemp
         <div className="modal-body">
           {selectedTemplate ? (
             <div className="modal-template-context">
-              <span className="context-label mono">COMMISSIONING DESIGN INSPIRED BY:</span>
+              <span className="context-label mono">DESAIN INSPIRASI REFERENSI:</span>
               <div className="context-card">
                 <strong>{selectedTemplate.title}</strong>
                 <p>{selectedTemplate.tagline}</p>
@@ -45,32 +45,32 @@ export const CommissionModal: React.FC<Props> = ({ isOpen, onClose, selectedTemp
             </div>
           ) : (
             <p className="modal-intro">
-              NECTOR.UI creates bespoke digital experiences for studios, founders, architecture firms, and distinctive wedding celebrations.
+              NECTOR.UI merancang dan membangun website profesional siap pakai untuk UMKM, studio kreatif, kafe & kuliner, ritel minimarket, hingga portofolio personal di Indonesia.
             </p>
           )}
 
           <div className="modal-workflow">
-            <span className="mono workflow-heading">OUR WORKING PROCESS</span>
+            <span className="mono workflow-heading">ALUR KERJA PENGERJAAN</span>
             <div className="workflow-steps">
               <div className="wf-step">
                 <span className="wf-num mono">01</span>
                 <div>
-                  <strong>Discovery & Brief</strong>
-                  <p>Discussion of your brand identity, requirements, and reference aesthetics.</p>
+                  <strong>Konsultasi & Kebutuhan</strong>
+                  <p>Diskusi identitas merek, kebutuhan fitur, susunan katalog/menu, dan referensi desain yang diinginkan.</p>
                 </div>
               </div>
               <div className="wf-step">
                 <span className="wf-num mono">02</span>
                 <div>
-                  <strong>Art Direction & Code</strong>
-                  <p>Design token architecture, bespoke layout, and production frontend engineering.</p>
+                  <strong>Desain Eksklusif & Frontend</strong>
+                  <p>Perancangan visual berstandar tinggi, tata letak responsif, dan kode mandiri tanpa ketergantungan rumit.</p>
                 </div>
               </div>
               <div className="wf-step">
                 <span className="wf-num mono">03</span>
                 <div>
-                  <strong>Responsive Hardening</strong>
-                  <p>Testing across screen widths, accessibility checks, and performance optimization.</p>
+                  <strong>Uji Responsif & Siap Luncur</strong>
+                  <p>Pengujian ketat di layar smartphone hingga desktop, integrasi tombol WhatsApp, dan optimasi kecepatan akses.</p>
                 </div>
               </div>
             </div>
@@ -78,21 +78,22 @@ export const CommissionModal: React.FC<Props> = ({ isOpen, onClose, selectedTemp
 
           <div className="modal-options">
             <div className="opt-field">
-              <label className="mono">DESIRED SCOPE</label>
+              <label className="mono">CAKUPAN PROYEK</label>
               <select value={projectScope} onChange={e => setProjectScope(e.target.value)}>
-                <option value="Full Bespoke Website">Full Bespoke Website (3-5 Pages)</option>
-                <option value="Single Page Monograph / Portfolio">Single Page Monograph / Portfolio</option>
-                <option value="Custom Wedding Celebration & RSVP">Custom Wedding Celebration & RSVP</option>
-                <option value="Frontend Component Library & System">Frontend Component Library & System</option>
+                <option value="Website Lengkap Bisnis / UMKM (3-5 Halaman)">Website Lengkap Bisnis / UMKM (3-5 Halaman)</option>
+                <option value="Landing Page & Etalase Interaktif (1 Halaman)">Landing Page & Etalase Interaktif (1 Halaman)</option>
+                <option value="Sistem Kasir POS / Katalog Digital & WhatsApp">Sistem Kasir POS / Katalog Digital & WhatsApp</option>
+                <option value="Portofolio Kreatif & Galeri Karya">Portofolio Kreatif & Galeri Karya</option>
+                <option value="Undangan Digital & Reservasi Acara">Undangan Digital & Reservasi Acara</option>
               </select>
             </div>
 
             <div className="opt-field">
-              <label className="mono">TARGET TIMELINE</label>
+              <label className="mono">TARGET WAKTU PENGERJAAN</label>
               <select value={timeline} onChange={e => setTimeline(e.target.value)}>
-                <option value="Expedited (7-10 Days)">Expedited (7-10 Days)</option>
-                <option value="Standard (2-3 Weeks)">Standard (2-3 Weeks)</option>
-                <option value="Flexible / Next Month">Flexible / Next Month</option>
+                <option value="Cepat (3-7 Hari Kerja)">Cepat (3-7 Hari Kerja)</option>
+                <option value="Standar (1-2 Minggu)">Standar (1-2 Minggu)</option>
+                <option value="Fleksibel / Sesuai Kesepakatan">Fleksibel / Sesuai Kesepakatan</option>
               </select>
             </div>
           </div>
@@ -100,14 +101,14 @@ export const CommissionModal: React.FC<Props> = ({ isOpen, onClose, selectedTemp
           <div className="modal-disclosure">
             <ShieldAlert size={15} />
             <span>
-              This will launch WhatsApp directly at <strong>{DISPLAY_PHONE}</strong> with your consultation details prefilled.
+              Tautan ini akan membuka obrolan langsung via WhatsApp ke <strong>{DISPLAY_PHONE}</strong> dengan draf rincian konsultasi otomatis.
             </span>
           </div>
         </div>
 
         <div className="modal-footer">
           <button className="btn-modal-cancel" onClick={onClose}>
-            Close
+            Tutup
           </button>
           <a
             href={targetUrl}
@@ -117,7 +118,7 @@ export const CommissionModal: React.FC<Props> = ({ isOpen, onClose, selectedTemp
             onClick={onClose}
           >
             <MessageSquare size={16} />
-            <span>Open WhatsApp Consultation</span>
+            <span>Lanjut ke Konsultasi WhatsApp</span>
             <ArrowUpRight size={14} />
           </a>
         </div>
