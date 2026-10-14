@@ -555,7 +555,67 @@ export function TanahLiatStudio() {
     publishedAt: '2026-04-28',
     livePreviewAvailable: true,
     accentColor: '#486b45'
+  },
+  {
+    id: 'tpl-20',
+    slug: 'sakumart-pos',
+    title: 'SakuMart POS',
+    tagline: 'Sistem kasir & POS minimarket modern — barcode search, multi-kategori, kalkulasi PPN & kembalian instan',
+    description: 'Template aplikasi kasir (Point of Sale / POS) minimarket & retail modern dengan nuansa natural clean mart. Dilengkapi pencarian produk realtime, filter multi-kategori (Makanan, Minuman, Sembako, Perawatan), keranjang belanja interaktif dengan batas stok dinamis, konfigurasi tarif PPN transaksi fleksibel, shortcut pecahan uang tunai (uang pas, 20k, 50k, 100k), kalkulasi kembalian otomatis, serta modal struk pembayaran digital yang siap cetak.',
+    category: 'kasir',
+    tags: ['Kasir POS', 'Minimarket', 'Point of Sale', 'Retail & Toko', 'E-commerce Kasir', 'Kalkulasi Otomatis', 'Struk Digital'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'DM Sans & Manrope'],
+    thumbnailSvgType: 'kasir',
+    previewComponentKey: 'pos-sakumart',
+    htmlPath: '/templates/kasir/sakumart.html',
+    htmlFolderPath: 'templates/kasir/sakumart.html',
+    features: [
+      '100% file tunggal mandiri (HTML + CSS + JS) langsung jalan di browser tanpa framework atau build step',
+      'Katalog produk retail dengan foto barang nyata, status sisa stok, dan filter kategori instan',
+      'Keranjang belanja realtime dengan kontrol kuantitas, validasi stok habis, dan kalkulasi subtotal',
+      'Pengaturan tarif PPN dinamis dan kalkulator kembalian otomatis dengan tombol shortcut pecahan uang tunai',
+      'Modal struk belanja digital dengan rincian transaksi lengkap dan tombol transaksi baru',
+      'Desain responsif ramah layar tablet kasir maupun monitor POS desktop'
+    ],
+    usageInstructions: [
+      'Buka templates/kasir/sakumart.html di editor kode kamu.',
+      'Sesuaikan daftar produk di array products dengan data barang, foto produk, harga, dan stok tokomu.',
+      'Atur tarif default PPN pada input taxRate jika ingin persentase berbeda (misal 0% untuk non-PKP).',
+      'Jalankan langsung di browser untuk kasir offline atau integrasikan ke backend toko kamu.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'sakumart.html',
+        language: 'html',
+        content: `<!-- SakuMart — Point of Sale System -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SakuMart — Point of Sale</title>
+</head>
+<body>
+  <!-- Standalone HTML POS System -->
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt sistem kasir POS minimarket & retail modern SakuMart.',
+      designDirection: 'Clean supermarket POS: Sage Green (#2f6549), Dark Forest (#204833), Warm Paper White (#f4f5f0), dan Fresh Accent (#e7f1e7). Tipografi DM Sans dan Manrope.',
+      layoutAndGrid: 'Split workspace layout dengan catalog etalase 4 kolom di kiri dan panel keranjang transaksi sticky di kanan.',
+      typographyAndColor: 'Manrope 800 untuk display brand dan nominal harga, DM Sans untuk keterbacaan data produk dan struk kasir.',
+      interactions: 'Pencarian produk instan, penambahan ke keranjang dengan validasi stok, shortcut nominal uang tunai, kalkulasi kembalian otomatis, dan modal struk digital.',
+      technicalRequirements: '100% standalone single-file HTML, responsif dari layar smartphone hingga monitor desktop kasir.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-05-02',
+    livePreviewAvailable: true,
+    accentColor: '#2f6549'
   }
 ];
+
 
 

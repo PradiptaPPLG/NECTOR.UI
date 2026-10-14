@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'kasir',
+      title: 'Kasir & POS Minimarket',
+      icon: ShoppingCart,
+      desc: 'Sistem point-of-sale kasir ritel minimarket modern dengan etalase produk, kalkulasi PPN & kembalian instan, serta struk digital.',
+      accent: '#2f6549'
+    },
     {
       id: 'padang',
       title: 'Rumah Makan Padang',

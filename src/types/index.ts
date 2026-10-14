@@ -11,6 +11,7 @@ export type Category =
   | 'barber'
   | 'pottery'
   | 'organik'
+  | 'kasir'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

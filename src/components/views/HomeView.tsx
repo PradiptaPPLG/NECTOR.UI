@@ -35,6 +35,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'kasir', label: 'Kasir & POS Retail', count: templates.filter(t => t.category === 'kasir').length, desc: 'Sistem POS kasir minimarket modern, etalase barcode & kalkulasi instan' },
     { id: 'padang', label: 'Rumah Makan Padang', count: templates.filter(t => t.category === 'padang').length, desc: 'Etalase masakan minang & POS kasir modern' },
     { id: 'cafe', label: 'Cafe & Angkringan', count: templates.filter(t => t.category === 'cafe').length, desc: 'Coffee shop artisan, pastry & angkringan malam' },
     { id: 'beverage', label: 'Minuman Segar', count: templates.filter(t => t.category === 'beverage').length, desc: 'Minuman racikan lokal, juice bar & herbal' },
