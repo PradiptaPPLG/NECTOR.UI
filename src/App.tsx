@@ -73,16 +73,16 @@ export function App() {
   const handleToggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    addToast(`Switched to ${newTheme === 'light' ? 'Warm Light' : 'Crisp Dark'} mode`, 'info');
+    addToast(`Beralih ke mode ${newTheme === 'light' ? 'Terang (Warm Light)' : 'Gelap (Crisp Dark)'}`, 'info');
   };
 
   const handleToggleSave = (templateId: string) => {
     if (savedIds.includes(templateId)) {
       setSavedIds(prev => prev.filter(id => id !== templateId));
-      addToast('Removed from your collection', 'info');
+      addToast('Dihapus dari koleksi tersimpan', 'info');
     } else {
       setSavedIds(prev => [...prev, templateId]);
-      addToast('Saved to your collection', 'success');
+      addToast('Berhasil disimpan ke koleksi pribadi', 'success');
     }
   };
 
