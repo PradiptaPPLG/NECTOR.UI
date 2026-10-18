@@ -31,6 +31,7 @@ export const TemplatesGalleryView: React.FC<Props> = ({
     { id: 'all', label: 'Semua Etalase' },
     { id: 'sekolah', label: 'Sekolah & Belajar' },
     { id: 'pet', label: 'Pet & Cattery' },
+    { id: 'donat', label: 'Toko Donat' },
     { id: 'buah', label: 'Toko Buah' },
     { id: 'perpustakaan', label: 'Perpustakaan' },
     { id: 'kasir', label: 'Kasir & POS' },

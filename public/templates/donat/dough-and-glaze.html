@@ -1,0 +1,2529 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOUGH & GLAZE — Artisan Brioche & Potato Donut Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------------------------------------------------
+       DOUGH & GLAZE DESIGN SYSTEM (Soft Warm Buttery Yellow Palette)
+       ------------------------------------------------------------- */
+    :root {
+      --bg-cream: #FFFDF7;
+      --bg-surface: #FFFFFF;
+      --bg-butter-soft: #FAF4E4;
+      --bg-butter-subtle: #F6EED8;
+      --bg-card-hover: #FFF9ED;
+
+      --yellow-butter: #F5C642;
+      --yellow-honey: #E5B226;
+      --yellow-glaze: #FCE794;
+      --yellow-warm: #FFF2BE;
+
+      --caramel-crust: #B46522;
+      --caramel-dark: #7A4011;
+      --caramel-burnt: #4F2708;
+
+      --text-espresso: #241913;
+      --text-secondary: #5A473D;
+      --text-muted: #8E7B70;
+      --text-inverse: #FFFFFF;
+
+      --border-warm: #EFE4CA;
+      --border-subtle: #F8F0DC;
+      --border-strong: #DEC99F;
+
+      --accent-pink: #E86A82;
+      --accent-pink-soft: #FDE8ED;
+      --accent-matcha: #4A7A44;
+      --accent-matcha-soft: #EBF4E8;
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --shadow-sm: 0 2px 8px rgba(79, 39, 8, 0.05);
+      --shadow-md: 0 8px 24px rgba(79, 39, 8, 0.08);
+      --shadow-lg: 0 16px 40px rgba(79, 39, 8, 0.12);
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-espresso);
+      font-family: var(--font-sans);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* -------------------------------------------------------------
+       1. LIVE BATCH TICKER
+       ------------------------------------------------------------- */
+    .top-batch-ticker {
+      background-color: var(--yellow-butter);
+      color: var(--caramel-burnt);
+      font-size: 11.5px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      padding: 7px 16px;
+      text-align: center;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    .top-batch-ticker span {
+      opacity: 0.6;
+      margin: 0 6px;
+    }
+
+    /* -------------------------------------------------------------
+       2. HEADER & NAVIGATION
+       ------------------------------------------------------------- */
+    .site-header {
+      background-color: rgba(255, 253, 247, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-warm);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      transition: all 180ms ease;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-icon-box {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--yellow-butter), #EAB62A);
+      color: var(--caramel-burnt);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(245, 198, 66, 0.35);
+      border: 1px solid var(--yellow-honey);
+    }
+
+    .brand-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-espresso);
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: var(--caramel-crust);
+    }
+
+    .brand-sub {
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: color 150ms ease;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--caramel-crust);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--yellow-butter);
+      border-radius: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-cart-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-butter-soft);
+      border: 1px solid var(--border-strong);
+      color: var(--text-espresso);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 150ms ease;
+    }
+
+    .btn-cart-trigger:hover {
+      background-color: var(--yellow-butter);
+      border-color: var(--yellow-honey);
+    }
+
+    .cart-badge {
+      background-color: var(--caramel-crust);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-mobile-menu {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-sm);
+      align-items: center;
+      justify-content: center;
+      color: var(--text-espresso);
+      background-color: var(--bg-surface);
+    }
+
+    /* -------------------------------------------------------------
+       3. HERO SECTION
+       ------------------------------------------------------------- */
+    .hero-section {
+      padding: 56px 0 48px;
+      background: radial-gradient(circle at 80% 20%, #FFF3C4 0%, var(--bg-cream) 65%);
+      border-bottom: 1px solid var(--border-warm);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-butter-soft);
+      color: var(--caramel-dark);
+      border: 1px solid var(--border-strong);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--yellow-honey);
+      display: inline-block;
+      box-shadow: 0 0 0 2px rgba(229, 178, 38, 0.4);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.4vw, 56px);
+      font-weight: 600;
+      line-height: 1.12;
+      color: var(--text-espresso);
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--caramel-crust);
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--yellow-butter);
+      color: var(--caramel-burnt);
+      border: 1px solid var(--yellow-honey);
+      padding: 13px 26px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(245, 198, 66, 0.35);
+      transition: all 150ms ease;
+    }
+
+    .btn-hero-primary:hover {
+      background-color: var(--yellow-honey);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245, 198, 66, 0.45);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-surface);
+      color: var(--text-espresso);
+      border: 1px solid var(--border-warm);
+      padding: 13px 22px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 150ms ease;
+    }
+
+    .btn-hero-secondary:hover {
+      border-color: var(--caramel-crust);
+      color: var(--caramel-crust);
+      background-color: var(--bg-butter-soft);
+    }
+
+    .hero-guarantees {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      border-top: 1px dashed var(--border-strong);
+      padding-top: 20px;
+    }
+
+    .guarantee-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gi-number {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--caramel-crust);
+    }
+
+    .gi-text {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+
+    /* Hero Spotlight Frame */
+    .hero-spotlight-frame {
+      position: relative;
+    }
+
+    .spotlight-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .spotlight-img-wrap {
+      width: 100%;
+      height: 380px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      background-color: #F8EED8;
+    }
+
+    .spotlight-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 300ms ease;
+    }
+
+    .spotlight-card:hover .spotlight-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .spotlight-badge-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background-color: rgba(36, 25, 19, 0.82);
+      backdrop-filter: blur(4px);
+      color: #FFFFFF;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .spotlight-info-box {
+      padding: 16px 8px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sib-name {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-espresso);
+    }
+
+    .sib-breed {
+      font-size: 12.5px;
+      color: var(--caramel-crust);
+      font-weight: 600;
+    }
+
+    .sib-inspect-btn {
+      background-color: var(--yellow-butter);
+      color: var(--caramel-burnt);
+      border: 1px solid var(--yellow-honey);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 12.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 150ms ease;
+    }
+
+    .sib-inspect-btn:hover {
+      background-color: var(--yellow-honey);
+    }
+
+    .spotlight-floating-pill {
+      position: absolute;
+      bottom: -14px;
+      right: 28px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 6px 18px rgba(79, 39, 8, 0.12);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-espresso);
+    }
+
+    /* -------------------------------------------------------------
+       4. BOX PACKAGE & SIZE SELECTOR (UKURAN & KEMASAN)
+       ------------------------------------------------------------- */
+    .packages-section {
+      padding: 56px 0 32px;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-warm);
+    }
+
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+      gap: 20px;
+    }
+
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--caramel-crust);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 3.2vw, 36px);
+      font-weight: 600;
+      color: var(--text-espresso);
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin-top: 6px;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .pkg-card {
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-md);
+      background-color: var(--bg-cream);
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      transition: all 180ms ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .pkg-card:hover {
+      border-color: var(--yellow-honey);
+      background-color: var(--bg-butter-soft);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pkg-card.highlight {
+      border-color: var(--yellow-honey);
+      background-color: #FFFBE8;
+      box-shadow: 0 4px 14px rgba(245, 198, 66, 0.2);
+    }
+
+    .pkg-badge {
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      background-color: var(--caramel-crust);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    .pkg-icon {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .pkg-name {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-espresso);
+      margin-bottom: 4px;
+    }
+
+    .pkg-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .pkg-price-row {
+      margin-top: auto;
+      border-top: 1px dashed var(--border-strong);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pkg-price {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--caramel-dark);
+    }
+
+    .btn-choose-pkg {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--caramel-burnt);
+      background-color: var(--yellow-butter);
+      border: 1px solid var(--yellow-honey);
+      padding: 5px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    /* -------------------------------------------------------------
+       5. ETALASE DONAT & RASA
+       ------------------------------------------------------------- */
+    .etalase-section {
+      padding: 60px 0 80px;
+    }
+
+    .filter-toolbar {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      background-color: var(--bg-butter-soft);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      color: var(--text-espresso);
+      outline: none;
+      transition: all 150ms ease;
+    }
+
+    .search-input:focus {
+      background-color: #FFFFFF;
+      border-color: var(--yellow-honey);
+      box-shadow: 0 0 0 3px rgba(245, 198, 66, 0.2);
+    }
+
+    .category-pills-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .category-pills-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-btn {
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      font-size: 12.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+      border: 1px solid var(--border-warm);
+      background-color: var(--bg-butter-soft);
+      color: var(--text-secondary);
+      transition: all 120ms ease;
+    }
+
+    .cat-btn:hover {
+      border-color: var(--yellow-honey);
+      color: var(--caramel-crust);
+      background-color: #FFFFFF;
+    }
+
+    .cat-btn.active {
+      background-color: var(--text-espresso);
+      color: #FFFFFF;
+      border-color: var(--text-espresso);
+    }
+
+    /* Donut Grid */
+    .donuts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .donut-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 150ms ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .donut-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--yellow-honey);
+    }
+
+    .donut-photo-wrap {
+      width: 100%;
+      height: 230px;
+      position: relative;
+      overflow: hidden;
+      background-color: #F8EED8;
+    }
+
+    .donut-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .donut-card:hover .donut-photo-wrap img {
+      transform: scale(1.05);
+    }
+
+    .donut-type-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 10.5px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      background-color: rgba(36, 25, 19, 0.85);
+      color: #FFFFFF;
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.03em;
+    }
+
+    .donut-content-box {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .donut-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-espresso);
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .donut-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .donut-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .donut-badge-chip {
+      font-size: 11px;
+      background-color: var(--bg-butter-soft);
+      color: var(--caramel-burnt);
+      border: 1px solid var(--border-warm);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+    }
+
+    .donut-card-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 14px;
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price-value {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--caramel-burnt);
+    }
+
+    .price-sub {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .btn-customize-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--yellow-butter);
+      color: var(--caramel-burnt);
+      border: 1px solid var(--yellow-honey);
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      transition: all 120ms ease;
+    }
+
+    .btn-customize-trigger:hover {
+      background-color: var(--yellow-honey);
+    }
+
+    /* -------------------------------------------------------------
+       6. DONUT CUSTOMIZER MODAL (UKURAN & TOPPING)
+       ------------------------------------------------------------- */
+    .customizer-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(36, 25, 19, 0.72);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: modalFadeIn 200ms ease;
+    }
+
+    .customizer-modal-overlay.active {
+      display: flex;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .customizer-modal-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 820px;
+      max-height: 92vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      animation: modalSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalSlideUp {
+      from { transform: translateY(16px) scale(0.98); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: var(--bg-butter-soft);
+      border: 1px solid var(--border-warm);
+      color: var(--text-espresso);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      z-index: 10;
+      transition: all 120ms ease;
+    }
+
+    .modal-close-btn:hover {
+      background-color: var(--yellow-butter);
+    }
+
+    .modal-grid-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+    }
+
+    .modal-left-photo-col {
+      background-color: var(--bg-butter-soft);
+      padding: 24px;
+      border-right: 1px solid var(--border-warm);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .modal-photo-wrap {
+      width: 100%;
+      height: 290px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-warm);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .modal-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-dough-badge {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mdb-icon {
+      font-size: 20px;
+    }
+
+    .mdb-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-espresso);
+    }
+
+    .mdb-sub {
+      font-size: 10.5px;
+      color: var(--text-muted);
+    }
+
+    .modal-right-col {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-donut-name {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-espresso);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .modal-donut-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .option-group-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--caramel-crust);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Packaging / Size Selection Options */
+    .size-pills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .size-option-btn {
+      border: 1px solid var(--border-warm);
+      background-color: var(--bg-cream);
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      text-align: left;
+      cursor: pointer;
+      transition: all 120ms ease;
+    }
+
+    .size-option-btn.active {
+      border-color: var(--yellow-honey);
+      background-color: #FFF6D8;
+      box-shadow: 0 0 0 2px var(--yellow-butter);
+    }
+
+    .sob-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-espresso);
+    }
+
+    .sob-price {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--caramel-dark);
+      font-weight: 600;
+    }
+
+    /* Toppings Multi-select List */
+    .toppings-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .topping-checkbox-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-cream);
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      cursor: pointer;
+      transition: all 120ms ease;
+    }
+
+    .topping-checkbox-row:hover {
+      background-color: var(--bg-butter-soft);
+      border-color: var(--border-strong);
+    }
+
+    .topping-checkbox-row.selected {
+      background-color: #FFF8E7;
+      border-color: var(--yellow-honey);
+    }
+
+    .tc-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: var(--text-espresso);
+    }
+
+    .tc-price {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--caramel-crust);
+      font-weight: 600;
+    }
+
+    /* Sweetness Level */
+    .sweetness-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .sweet-btn {
+      flex: 1;
+      padding: 7px 10px;
+      border: 1px solid var(--border-warm);
+      background-color: var(--bg-cream);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-align: center;
+      transition: all 120ms ease;
+    }
+
+    .sweet-btn.active {
+      background-color: var(--text-espresso);
+      color: #FFFFFF;
+      border-color: var(--text-espresso);
+    }
+
+    /* Modal Footer & Cart Trigger */
+    .modal-bottom-bar {
+      border-top: 1px solid var(--border-warm);
+      padding-top: 14px;
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .qty-counter {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-full);
+      background-color: var(--bg-cream);
+      overflow: hidden;
+    }
+
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-espresso);
+    }
+
+    .qty-btn:hover {
+      background-color: var(--yellow-butter);
+    }
+
+    .qty-val {
+      padding: 0 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .btn-add-to-box {
+      flex: 1;
+      background-color: var(--yellow-butter);
+      color: var(--caramel-burnt);
+      border: 1px solid var(--yellow-honey);
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 14px rgba(245, 198, 66, 0.3);
+      transition: all 150ms ease;
+    }
+
+    .btn-add-to-box:hover {
+      background-color: var(--yellow-honey);
+    }
+
+    /* -------------------------------------------------------------
+       7. SLIDE-OVER BOX DRAWER (CART / CHECKOUT WHATSAPP)
+       ------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(36, 25, 19, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 250;
+      display: none;
+      justify-content: flex-end;
+    }
+
+    .cart-drawer-overlay.active {
+      display: flex;
+    }
+
+    .cart-drawer-panel {
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+      background-color: var(--bg-surface);
+      border-left: 1px solid var(--border-warm);
+      display: flex;
+      flex-direction: column;
+      animation: drawerSlideLeft 240ms cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-lg);
+    }
+
+    @keyframes drawerSlideLeft {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
+    .drawer-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border-warm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--bg-cream);
+    }
+
+    .dh-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-espresso);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .drawer-close-btn {
+      font-size: 18px;
+      color: var(--text-espresso);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-warm);
+    }
+
+    .drawer-body {
+      padding: 18px 20px;
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cart-empty-notice {
+      text-align: center;
+      padding: 48px 16px;
+      color: var(--text-muted);
+    }
+
+    .cart-empty-notice span.icon {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .cart-item-row {
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      background-color: var(--bg-cream);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cir-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .cir-name {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-espresso);
+    }
+
+    .cir-sub {
+      font-size: 11px;
+      color: var(--caramel-crust);
+      font-weight: 600;
+    }
+
+    .cir-toppings-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .cir-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+      border-top: 1px dashed var(--border-subtle);
+      padding-top: 6px;
+    }
+
+    .cir-price {
+      font-family: var(--font-serif);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--caramel-burnt);
+    }
+
+    .cir-remove-btn {
+      color: var(--accent-pink);
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+
+    .drawer-notes-box {
+      border-top: 1px solid var(--border-warm);
+      padding: 14px 20px;
+      background-color: var(--bg-cream);
+    }
+
+    .drawer-notes-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--caramel-dark);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .drawer-notes-input {
+      width: 100%;
+      height: 52px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      color: var(--text-espresso);
+      resize: none;
+      background-color: #FFFFFF;
+      outline: none;
+    }
+
+    .drawer-footer {
+      border-top: 1px solid var(--border-warm);
+      padding: 18px 20px;
+      background-color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .total-calc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tcr-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .tcr-val {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--caramel-burnt);
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      background-color: var(--yellow-butter);
+      color: var(--caramel-burnt);
+      border: 1px solid var(--yellow-honey);
+      padding: 13px 18px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(245, 198, 66, 0.35);
+      transition: all 150ms ease;
+    }
+
+    .btn-checkout-wa:hover {
+      background-color: var(--yellow-honey);
+    }
+
+    /* -------------------------------------------------------------
+       8. SECRET OF BRIOCHE DOUGH & PHILOSOPHY
+       ------------------------------------------------------------- */
+    .philosophy-section {
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-warm);
+      border-bottom: 1px solid var(--border-warm);
+      padding: 64px 0;
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .philo-box {
+      border: 1px solid var(--border-warm);
+      background-color: var(--bg-cream);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      transition: all 150ms ease;
+    }
+
+    .philo-box:hover {
+      border-color: var(--yellow-honey);
+      background-color: #FFFDEE;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .philo-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .philo-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-espresso);
+      margin-bottom: 6px;
+    }
+
+    .philo-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* -------------------------------------------------------------
+       9. FOOTER
+       ------------------------------------------------------------- */
+    .site-footer {
+      background-color: #241913;
+      color: #FAF4EB;
+      padding: 56px 0 28px;
+      border-top: 1px solid #3D2B21;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand-title span {
+      color: var(--yellow-butter);
+    }
+
+    .footer-bio {
+      font-size: 13px;
+      color: #C8B9AF;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--yellow-butter);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 13px;
+      color: #C8B9AF;
+    }
+
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #3D2B21;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      color: #9E8D83;
+      font-family: var(--font-mono);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* -------------------------------------------------------------
+       10. RESPONSIVE MEDIA QUERIES (Mobile First Craft)
+       ------------------------------------------------------------- */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .package-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .donuts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .philosophy-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .modal-grid-inner {
+        grid-template-columns: 1fr;
+      }
+      .modal-left-photo-col {
+        border-right: none;
+        border-bottom: 1px solid var(--border-warm);
+      }
+      .modal-photo-wrap {
+        height: 230px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+      .btn-mobile-menu {
+        display: flex;
+      }
+      .hero-section {
+        padding: 36px 0 32px;
+      }
+      .hero-guarantees {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .package-grid {
+        grid-template-columns: 1fr;
+      }
+      .donuts-grid {
+        grid-template-columns: 1fr;
+      }
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .search-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Fresh Batch Ticker -->
+  <div class="top-batch-ticker">
+    🍩 FRESH DARI WAJAN PENGGORENGAN <span>·</span> BATCH 08.00 (SIAP) <span>·</span> BATCH 11.30 (BARU DINGIN & DI-GLAZE) <span>·</span> BATCH 15.00 (SIAP DIKIRIM) <span>·</span> 100% MINYAK NABATI & HALAL
+  </div>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-logo">
+        <div class="brand-icon-box">🍩</div>
+        <div class="brand-text-group">
+          <span class="brand-title">DOUGH<span>&</span>GLAZE</span>
+          <span class="brand-sub">ARTISAN BRIOCHE & POTATO DONUTS</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <a href="#menu" class="nav-link active">Menu Donat</a>
+        <a href="#ukuran" class="nav-link">Pilihan Ukuran & Box</a>
+        <a href="#filosofi" class="nav-link">Filosofi Adonan</a>
+        <a href="#kontak" class="nav-link">Lokasi Kitchen</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <button class="btn-cart-trigger" id="openCartBtn">
+          <span>📦 Kotak Donat</span>
+          <span class="cart-badge" id="cartCounterBadge">0</span>
+        </button>
+        <button class="btn-mobile-menu" id="mobileMenuBtn" aria-label="Menu navigasi">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge-pill">
+          <span class="hero-badge-dot"></span>
+          <span>100% KENTANG KAMPUNG & BRIOCHE 24H</span>
+        </div>
+        <h1 class="hero-headline hero-title">
+          Donat empuk berlapis <em>glaze mentega asli</em> yang lumer di setiap gigitan.
+        </h1>
+        <p class="hero-desc">
+          Resep warisan donat kentang berpadu dengan kelembutan sourdough brioche Prancis. Digoreng keemasan di minyak kelapa murni, disiram glaze artisan rendah gula, dan diantar selagi harum.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#menu" class="btn-hero-primary">
+            <span>Pilih Varian Rasa & Ukuran</span>
+            <span>↓</span>
+          </a>
+          <a href="#ukuran" class="btn-hero-secondary">
+            <span>📦 Lihat Paket Box Hemat</span>
+          </a>
+        </div>
+
+        <div class="hero-guarantees">
+          <div class="guarantee-item">
+            <span class="gi-number">3X FERMENTASI</span>
+            <span class="gi-text">Tekstur kenyal lembut tanpa bahan pelembut kimia atau bread improver.</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="gi-number">MENTEGA MURNI</span>
+            <span class="gi-text">100% French & New Zealand butter, gurih aromatik dan tidak bikin enek.</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="gi-number">BATCH FRESH</span>
+            <span class="gi-text">Digoreng & di-glaze 3 kali sehari untuk menjamin kesegaran maksimal.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spotlight Frame -->
+      <div class="hero-spotlight-frame">
+        <div class="spotlight-card">
+          <div class="spotlight-img-wrap">
+            <img src="https://images.unsplash.com/photo-1626379801357-537572de4ad6?auto=format&fit=crop&w=800&q=80" alt="Signature Artisan Donuts Box">
+            <span class="spotlight-badge-tag">FAVORIT MINGGU INI</span>
+          </div>
+          <div class="spotlight-info-box">
+            <div>
+              <div class="sib-name">Signature Half Dozen</div>
+              <div class="sib-breed">Box of 6 Donut Pilihan + Box Pita Eksklusif</div>
+            </div>
+            <button class="sib-inspect-btn" onclick="openCustomizerModal('biscoff')">
+              <span>🍩 Kustom Rasa</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="spotlight-floating-pill">
+          <span>✨</span>
+          <span>Terjual 1.200+ Box Bulan Ini</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Pilihan Ukuran & Kemasan Box -->
+  <section class="packages-section" id="ukuran">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <span class="section-kicker">Pilihan Kemasan & Porsi</span>
+          <h2 class="section-title">Pilih Ukuran Sesuai Momen Anda</h2>
+          <p class="section-sub">
+            Mulai dari satuan untuk santapan sendiri, hingga boks hampers lusinan lengkap dengan kartu ucapan kustom.
+          </p>
+        </div>
+      </div>
+
+      <div class="package-grid">
+        <!-- Satuan -->
+        <div class="pkg-card" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+          <div class="pkg-icon">🍩</div>
+          <h3 class="pkg-name">Satuan / Single</h3>
+          <p class="pkg-desc">Pilih 1 pcs donat favorit untuk camilan sore atau teman secangkir kopi hangat.</p>
+          <div class="pkg-price-row">
+            <span class="pkg-price">Mulai Rp 12.000</span>
+            <span class="btn-choose-pkg">Pilih Rasa →</span>
+          </div>
+        </div>
+
+        <!-- Box of 3 -->
+        <div class="pkg-card" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+          <div class="pkg-icon">☕</div>
+          <h3 class="pkg-name">Trio Box (Isi 3)</h3>
+          <p class="pkg-desc">3 varian rasa berbeda untuk sharing santai berdua teman kantor atau keluarga.</p>
+          <div class="pkg-price-row">
+            <span class="pkg-price">Rp 38.000</span>
+            <span class="btn-choose-pkg">Pilih Rasa →</span>
+          </div>
+        </div>
+
+        <!-- Box of 6 (Bestseller) -->
+        <div class="pkg-card highlight" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+          <span class="pkg-badge">Paling Laris</span>
+          <div class="pkg-icon">🎁</div>
+          <h3 class="pkg-name">Half Dozen (Isi 6)</h3>
+          <p class="pkg-desc">Setengah lusin donat aneka rasa dalam boks jendela kraft cantik bertali rami.</p>
+          <div class="pkg-price-row">
+            <span class="pkg-price">Rp 75.000</span>
+            <span class="btn-choose-pkg">Pilih Rasa →</span>
+          </div>
+        </div>
+
+        <!-- Box of 12 -->
+        <div class="pkg-card" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+          <span class="pkg-badge">Hampers Ready</span>
+          <div class="pkg-icon">🎉</div>
+          <h3 class="pkg-name">Full Dozen (Isi 12)</h3>
+          <p class="pkg-desc">1 lusin lengkap untuk pesta, reuni, atau bingkisan hadiah lengkap dengan pita satin.</p>
+          <div class="pkg-price-row">
+            <span class="pkg-price">Rp 140.000</span>
+            <span class="btn-choose-pkg">Pilih Rasa →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Etalase Donat -->
+  <section class="etalase-section" id="menu">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <span class="section-kicker">Koleksi Rasa Terkurasi</span>
+          <h2 class="section-title">Etalase Donat Hari Ini</h2>
+          <p class="section-sub">
+            Klik tombol "Kustomisasi & Topping" pada donat mana pun untuk memilih ukuran boks, ekstra topping almond/biscoff/sprinkles, serta tingkat kemanisan.
+          </p>
+        </div>
+      </div>
+
+      <!-- Filter & Search Toolbar -->
+      <div class="filter-toolbar">
+        <div class="search-row">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="donutSearchInput" class="search-input" placeholder="Cari varian rasa donat (misal: Biscoff, Nutella, Matcha, Kentang)...">
+          </div>
+        </div>
+
+        <!-- Category Pills -->
+        <div class="category-pills-row" id="categoryFilterRow">
+          <button class="cat-btn active" data-category="all">Semua Varian (10)</button>
+          <button class="cat-btn" data-category="ring">Donat Ring Klasik</button>
+          <button class="cat-btn" data-category="bomboloni">Bomboloni Isi Lumer</button>
+          <button class="cat-btn" data-category="kampung">Donat Kentang Jadul</button>
+          <button class="cat-btn" data-category="chocolate">Varian Cokelat & Nutty</button>
+        </div>
+      </div>
+
+      <!-- Grid Cards -->
+      <div class="donuts-grid" id="donutsGridContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Filosofi Adonan -->
+  <section class="philosophy-section" id="filosofi">
+    <div class="container">
+      <div class="section-header-row" style="margin-bottom: 24px;">
+        <div>
+          <span class="section-kicker">Rahasia Tekstur Sempurna</span>
+          <h2 class="section-title">Mengapa DOUGH & GLAZE Berbeda?</h2>
+        </div>
+      </div>
+
+      <div class="philosophy-grid">
+        <div class="philo-box">
+          <div class="philo-icon">🥔</div>
+          <h3 class="philo-title">Kentang Kukus Asli</h3>
+          <p class="philo-desc">Menggunakan kentang Dieng kukus segar tanpa tepung premix, menciptakan tekstur serat lembut dan mengenyangkan.</p>
+        </div>
+
+        <div class="philo-box">
+          <div class="philo-icon">🧈</div>
+          <h3 class="philo-title">Pure Grass-Fed Butter</h3>
+          <p class="philo-desc">Mentega impor dengan kadar lemak susu 82% memberikan aroma wangi khas bakery tanpa rasa lengket di langit-langit lidah.</p>
+        </div>
+
+        <div class="philo-box">
+          <div class="philo-icon">⏳</div>
+          <h3 class="philo-title">Cold Proofing 24 Jam</h3>
+          <p class="philo-desc">Fermentasi dingin lambat di lemari pendingin menghasilkan gelembung udara halus dan cita rasa brioche kompleks yang ringan.</p>
+        </div>
+
+        <div class="philo-box">
+          <div class="philo-icon">🍫</div>
+          <h3 class="philo-title">Glaze Artisan Rendah Gula</h3>
+          <p class="philo-desc">Glaze kami diracik dengan cokelat Callebaut asli, buah segar, dan susu evaporasi tanpa sirup jagung fruktosa tinggi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" id="kontak">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">DOUGH<span>&</span>GLAZE</div>
+          <p class="footer-bio">
+            Artisan Brioche & Potato Donut Bar. Dibuat dengan cinta, bahan berkualitas murni, dan komitmen mutu tanpa bahan pengawet sintetik.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Varian Favorit</h4>
+          <ul class="footer-links">
+            <li><a href="#menu">Salted Caramel Biscoff</a></li>
+            <li><a href="#menu">Bomboloni Nutella Lumer</a></li>
+            <li><a href="#menu">Kentang Salju Klasik</a></li>
+            <li><a href="#menu">Pistachio Kunafa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Lokasi Kitchen</h4>
+          <ul class="footer-links">
+            <li>Jl. Senopati No. 58, Jakarta Selatan</li>
+            <li>Jl. Riau No. 24, Bandung</li>
+            <li>Buka Setiap Hari: 07.30 - 21.00 WIB</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Pemesanan WhatsApp</h4>
+          <ul class="footer-links">
+            <li>Hotline: +62 852-1958-3336</li>
+            <li>Instagram: @doughglaze.id</li>
+            <li>Katering & Event: event@doughglaze.id</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DOUGH & GLAZE ARTISAN DONUT BAR. HAK CIPTA DILINDUNGI.</div>
+        <div>100% REAL BUTTER & POTATO DOUGH · BEBAS PENGAWET SINTETIK</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- -------------------------------------------------------------
+       CUSTOMIZER MODAL (PILIH UKURAN, TOPPING & RASA)
+       ------------------------------------------------------------- -->
+  <div class="customizer-modal-overlay" id="donutCustomizerModal">
+    <div class="customizer-modal-box">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup jendela">✕</button>
+
+      <div class="modal-grid-inner">
+        <!-- Left Photo -->
+        <div class="modal-left-photo-col">
+          <div class="modal-photo-wrap">
+            <img src="" id="modalDonutImg" alt="Donut Preview">
+          </div>
+          <div class="modal-dough-badge">
+            <span class="mdb-icon">🥔</span>
+            <div>
+              <div class="mdb-title" id="modalDoughTitle">Adonan Kentang & Brioche 24 Jam</div>
+              <div class="mdb-sub">Digoreng minyak kelapa murni, bebas lemak trans.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Configuration -->
+        <div class="modal-right-col">
+          <h2 class="modal-donut-name" id="modalDonutName">Salted Caramel Lotus Biscoff</h2>
+          <p class="modal-donut-desc" id="modalDonutDesc">
+            Saus karamel bakar gurih mentega Prancis, remahan biskuit Biscoff renyah dan 1 keping biskuit utuh di atasnya.
+          </p>
+
+          <!-- 1. Pilihan Ukuran / Kemasan -->
+          <div class="option-group-title">
+            <span>1. PILIH UKURAN & KEMASAN</span>
+            <span style="color: var(--text-muted); font-size: 10px;">PILIH 1</span>
+          </div>
+          <div class="size-pills-grid">
+            <div class="size-option-btn active" data-size="single" data-price="0" onclick="selectSize(this)">
+              <div class="sob-title">Satuan (1 Pcs)</div>
+              <div class="sob-price">Harga Standar</div>
+            </div>
+            <div class="size-option-btn" data-size="trio" data-price="22000" onclick="selectSize(this)">
+              <div class="sob-title">Trio Box (Isi 3)</div>
+              <div class="sob-price">+Rp 22.000</div>
+            </div>
+            <div class="size-option-btn" data-size="half" data-price="58000" onclick="selectSize(this)">
+              <div class="sob-title">Half Dozen (Isi 6)</div>
+              <div class="sob-price">+Rp 58.000</div>
+            </div>
+            <div class="size-option-btn" data-size="dozen" data-price="120000" onclick="selectSize(this)">
+              <div class="sob-title">Full Dozen (Isi 12)</div>
+              <div class="sob-price">+Rp 120.000</div>
+            </div>
+          </div>
+
+          <!-- 2. Pilihan Topping Tambahan -->
+          <div class="option-group-title">
+            <span>2. EKSTRA TOPPING TAMBAHAN</span>
+            <span style="color: var(--text-muted); font-size: 10px;">OPSIONAL</span>
+          </div>
+          <div class="toppings-list">
+            <div class="topping-checkbox-row" data-topping="Almond Slices" data-price="3000" onclick="toggleTopping(this)">
+              <div class="tc-left">
+                <input type="checkbox" style="pointer-events: none;">
+                <span>Toasted Almond Slices</span>
+              </div>
+              <span class="tc-price">+Rp 3.000</span>
+            </div>
+            <div class="topping-checkbox-row" data-topping="Lotus Biscoff Crumbles" data-price="3000" onclick="toggleTopping(this)">
+              <div class="tc-left">
+                <input type="checkbox" style="pointer-events: none;">
+                <span>Lotus Biscoff Crumbles</span>
+              </div>
+              <span class="tc-price">+Rp 3.000</span>
+            </div>
+            <div class="topping-checkbox-row" data-topping="Rainbow Confetti Sprinkles" data-price="2000" onclick="toggleTopping(this)">
+              <div class="tc-left">
+                <input type="checkbox" style="pointer-events: none;">
+                <span>Rainbow Confetti Sprinkles</span>
+              </div>
+              <span class="tc-price">+Rp 2.000</span>
+            </div>
+            <div class="topping-checkbox-row" data-topping="Belgian Chocolate Shavings" data-price="4000" onclick="toggleTopping(this)">
+              <div class="tc-left">
+                <input type="checkbox" style="pointer-events: none;">
+                <span>Belgian Chocolate Shavings</span>
+              </div>
+              <span class="tc-price">+Rp 4.000</span>
+            </div>
+            <div class="topping-checkbox-row" data-topping="Extra Filling Inject" data-price="5000" onclick="toggleTopping(this)">
+              <div class="tc-left">
+                <input type="checkbox" style="pointer-events: none;">
+                <span>Extra Filling Inject Lumer</span>
+              </div>
+              <span class="tc-price">+Rp 5.000</span>
+            </div>
+          </div>
+
+          <!-- 3. Pilihan Tingkat Kemanisan -->
+          <div class="option-group-title">
+            <span>3. TINGKAT KEMANISAN</span>
+          </div>
+          <div class="sweetness-row">
+            <button class="sweet-btn active" data-sweet="Normal (100%)" onclick="selectSweetness(this)">Normal Sweet (100%)</button>
+            <button class="sweet-btn" data-sweet="Less Sugar (70%)" onclick="selectSweetness(this)">Less Sugar (70%)</button>
+          </div>
+
+          <!-- Bottom bar -->
+          <div class="modal-bottom-bar">
+            <div class="qty-counter">
+              <button class="qty-btn" onclick="updateQty(-1)">−</button>
+              <span class="qty-val" id="modalQtyVal">1</span>
+              <button class="qty-btn" onclick="updateQty(1)">+</button>
+            </div>
+
+            <button class="btn-add-to-box" onclick="addCurrentDonutToCart()">
+              <span>+ Masukkan ke Kotak Donat</span>
+              <span id="modalSubtotalPrice">Rp 18.000</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       SLIDE-OVER CART PANEL (KOTAK DONAT / WHATSAPP CHECKOUT)
+       ------------------------------------------------------------- -->
+  <div class="cart-drawer-overlay" id="cartDrawer">
+    <div class="cart-drawer-panel">
+      <div class="drawer-header">
+        <div class="dh-title">
+          <span>📦 Kotak Donat Anda</span>
+        </div>
+        <button class="drawer-close-btn" id="closeCartBtn">✕</button>
+      </div>
+
+      <div class="drawer-body" id="cartItemsContainer">
+        <!-- Generated by JS -->
+      </div>
+
+      <div class="drawer-notes-box">
+        <label class="drawer-notes-label">CATATAN KHUSUS / KARTU HAMPERS:</label>
+        <textarea id="orderNotesInput" class="drawer-notes-input" placeholder="Tuliskan ucapan kartu hampers, pesan lilin ulang tahun, atau instruksi pengiriman..."></textarea>
+      </div>
+
+      <div class="drawer-footer">
+        <div class="total-calc-row">
+          <span class="tcr-label">Total Pesanan:</span>
+          <span class="tcr-val" id="cartTotalPrice">Rp 0</span>
+        </div>
+
+        <button class="btn-checkout-wa" onclick="checkoutViaWhatsApp()">
+          <span>💬 Kirim Pesanan via WhatsApp</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       JAVASCRIPT LOGIC
+       ------------------------------------------------------------- -->
+  <script>
+    const DONUTS_DATABASE = [
+      {
+        id: 'biscoff',
+        name: 'Salted Caramel Lotus Biscoff',
+        category: 'chocolate',
+        categoryTag: 'BESTSELLER NUTTY',
+        desc: 'Saus karamel bakar mentega Prancis, remahan biskuit Lotus Biscoff renyah dan 1 keping biskuit utuh di atasnya.',
+        basePrice: 18000,
+        badges: ['Lotus Biscoff Asli', 'Gurih Karamel', 'Renyah'],
+        image: 'https://images.unsplash.com/photo-1597419765826-5b03fa018c18?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'nutella-bomboloni',
+        name: 'Bomboloni Nutella Lumer',
+        category: 'bomboloni',
+        categoryTag: 'BOMBOLONI LUMER',
+        desc: 'Donat bulat tanpa lubang bertekstur kapas dengan isian pasta hazelnut Nutella melimpah yang meledak di mulut.',
+        basePrice: 18000,
+        badges: ['Nutella Melimpah', 'Bebas Rongga', 'Salju Dingin'],
+        image: 'https://images.unsplash.com/photo-1618411640018-972400a01458?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'belgian-choco',
+        name: 'Belgian Dark Chocolate 70%',
+        category: 'chocolate',
+        categoryTag: 'COKELAT PREMIUM',
+        desc: 'Glaze dark chocolate Callebaut Belgia 70% dengan serutan cokelat pahit-manis dan taburan roasted cocoa nibs.',
+        basePrice: 16000,
+        badges: ['Callebaut 70%', 'Pahit-Manis Seimbang', 'Serutan Cokelat'],
+        image: 'https://images.unsplash.com/photo-1551106652-a5bcf4b29ab6?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'kentang-salju',
+        name: 'Donat Kentang Gula Salju Klasik',
+        category: 'kampung',
+        categoryTag: 'KENTANG JADUL',
+        desc: 'Donat kampung tradisional dari kentang Dieng kukus asli. Tekstur kenyal lembut dengan taburan gula dingin Madagascar.',
+        basePrice: 12000,
+        badges: ['Kentang Dieng Asli', 'Gula Salju Dingin', 'Resep 1984'],
+        image: 'https://images.unsplash.com/photo-1694319838098-77a2586f667c?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'pistachio-silk',
+        name: 'Pistachio Silk & Kunafa Dust',
+        category: 'ring',
+        categoryTag: 'ARTISAN GOURMET',
+        desc: 'Glaze pasta pistachio Sisilia murni, taburan kacang pistachio panggang renyah dan remukan pastry kunafa garing.',
+        basePrice: 22000,
+        badges: ['Pistachio Sisilia', 'Toasted Kunafa', 'Aroma Butter'],
+        image: 'https://images.unsplash.com/photo-1783171375527-4aee7f7e64de?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'strawberry-bomboloni',
+        name: 'Bomboloni Strawberry Cheesecake',
+        category: 'bomboloni',
+        categoryTag: 'BOMBOLONI LUMER',
+        desc: 'Isian selai stroberi buah asli berpadu dengan cream cheese Hokkaido yang lembut, segar, dan tidak terlalu manis.',
+        basePrice: 19000,
+        badges: ['Buah Asli', 'Hokkaido Cheese', 'Asam Manis Segar'],
+        image: 'https://images.unsplash.com/photo-1533910534207-90f31029a78e?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'matcha-uji',
+        name: 'Matcha Uji Kyoto Butter Glaze',
+        category: 'ring',
+        categoryTag: 'RING KLASIK',
+        desc: 'Glaze teh hijau Uji asli Kyoto dengan rasa pahit-manis otentik beraroma earthy yang menenangkan.',
+        basePrice: 17000,
+        badges: ['Uji Matcha Kyoto', 'Green Tea Asli', 'Aroma Wangi'],
+        image: 'https://images.unsplash.com/photo-1685779923926-e9edebbb133d?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'vanilla-glaze',
+        name: 'Madagascar Vanilla Butter Ring',
+        category: 'ring',
+        categoryTag: 'RING KLASIK',
+        desc: 'Donat brioche klasik dengan celupan glaze gula mentega dan taburan butiran biji vanila asli yang harum wangi.',
+        basePrice: 14000,
+        badges: ['Biji Vanila Asli', 'Brioche Prancis', 'Ringan Lembut'],
+        image: 'https://images.unsplash.com/photo-1527515545081-5db817172677?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'pandan-kaya',
+        name: 'Pandan Kaya & Toasted Coconut',
+        category: 'kampung',
+        categoryTag: 'NUSANTARA SERIES',
+        desc: 'Selai srikaya daun pandan wangi alami racikan dapur sendiri dengan taburan kelapa sangrai gurih dan renyah.',
+        basePrice: 15000,
+        badges: ['Pandan Suji Alami', 'Kelapa Sangrai', 'Gurih Manis'],
+        image: 'https://images.unsplash.com/photo-1783171375570-7a66d3c6f153?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'tiramisu-dust',
+        name: 'Tiramisu Espresso Mascarpone',
+        category: 'chocolate',
+        categoryTag: 'COFFEE COMPANION',
+        desc: 'Celupan sari espresso kopi Arabika wangi, krim keju mascarpone lembut, dan taburan serbuk cokelat murni.',
+        basePrice: 19000,
+        badges: ['Espresso Arabika', 'Krim Mascarpone', 'Pure Cocoa'],
+        image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80'
+      }
+    ];
+
+    // State
+    let currentCategory = 'all';
+    let currentSearch = '';
+    let cart = [];
+
+    // Active Customizer State
+    let activeDonut = null;
+    let selectedSize = 'single';
+    let sizeExtraPrice = 0;
+    let sizeTitle = 'Satuan (1 Pcs)';
+    let selectedToppings = [];
+    let selectedSweetness = 'Normal (100%)';
+    let currentQty = 1;
+
+    // Elements
+    const gridContainer = document.getElementById('donutsGridContainer');
+    const searchInput = document.getElementById('donutSearchInput');
+    const catButtons = document.querySelectorAll('.cat-btn');
+    const modal = document.getElementById('donutCustomizerModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartTotalPrice = document.getElementById('cartTotalPrice');
+    const cartCounterBadge = document.getElementById('cartCounterBadge');
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    // Render Cards
+    function renderDonuts() {
+      const filtered = DONUTS_DATABASE.filter(d => {
+        const matchCategory = (currentCategory === 'all') || (d.category === currentCategory);
+        const matchSearch = !currentSearch || (
+          d.name.toLowerCase().includes(currentSearch) ||
+          d.desc.toLowerCase().includes(currentSearch) ||
+          d.badges.some(b => b.toLowerCase().includes(currentSearch))
+        );
+        return matchCategory && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        gridContainer.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; background: #FFFFFF; border: 1px dashed var(--border-warm); border-radius: var(--radius-md);">
+            <div style="font-size: 36px; margin-bottom: 8px;">🍩</div>
+            <h3 style="font-family: var(--font-serif); font-size: 18px; color: var(--text-espresso); margin-bottom: 4px;">Rasa donat tidak ditemukan</h3>
+            <p style="font-size: 13px; color: var(--text-muted);">Coba ubah kata kunci pencarian atau pilih kategori lain.</p>
+          </div>
+        `;
+        return;
+      }
+
+      gridContainer.innerHTML = filtered.map(donut => `
+        <div class="donut-card" onclick="openCustomizerModal('${donut.id}')">
+          <div class="donut-photo-wrap">
+            <img src="${donut.image}" alt="${donut.name}" loading="lazy">
+            <span class="donut-type-tag">${donut.categoryTag}</span>
+          </div>
+
+          <div class="donut-content-box">
+            <h3 class="donut-title">${donut.name}</h3>
+            <p class="donut-desc">${donut.desc}</p>
+
+            <div class="donut-badges-row">
+              ${donut.badges.map(b => `<span class="donut-badge-chip">${b}</span>`).join('')}
+            </div>
+
+            <div class="donut-card-footer">
+              <div>
+                <div class="price-value">${formatRupiah(donut.basePrice)}</div>
+                <div class="price-sub">per satuan</div>
+              </div>
+
+              <button class="btn-customize-trigger" onclick="event.stopPropagation(); openCustomizerModal('${donut.id}')">
+                <span>🍩 Kustomisasi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Modal Customizer
+    window.openCustomizerModal = function(donutId) {
+      const donut = DONUTS_DATABASE.find(d => d.id === donutId);
+      if (!donut) return;
+
+      activeDonut = donut;
+      selectedSize = 'single';
+      sizeExtraPrice = 0;
+      sizeTitle = 'Satuan (1 Pcs)';
+      selectedToppings = [];
+      selectedSweetness = 'Normal (100%)';
+      currentQty = 1;
+
+      // Populate Elements
+      document.getElementById('modalDonutImg').src = donut.image;
+      document.getElementById('modalDonutImg').alt = donut.name;
+      document.getElementById('modalDonutName').textContent = donut.name;
+      document.getElementById('modalDonutDesc').textContent = donut.desc;
+      document.getElementById('modalQtyVal').textContent = '1';
+
+      // Reset Size Buttons
+      document.querySelectorAll('.size-option-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.size === 'single');
+      });
+
+      // Reset Toppings Checkboxes
+      document.querySelectorAll('.topping-checkbox-row').forEach(row => {
+        row.classList.remove('selected');
+        row.querySelector('input').checked = false;
+      });
+
+      // Reset Sweetness Buttons
+      document.querySelectorAll('.sweet-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.sweet === 'Normal (100%)');
+      });
+
+      calculateModalPrice();
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    function closeCustomizerModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    modalCloseBtn.addEventListener('click', closeCustomizerModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeCustomizerModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCustomizerModal();
+        closeCart();
+      }
+    });
+
+    // Customizer Actions
+    window.selectSize = function(el) {
+      document.querySelectorAll('.size-option-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      selectedSize = el.dataset.size;
+      sizeExtraPrice = parseInt(el.dataset.price, 10);
+      sizeTitle = el.querySelector('.sob-title').textContent;
+      calculateModalPrice();
+    };
+
+    window.toggleTopping = function(el) {
+      const toppingName = el.dataset.topping;
+      const toppingPrice = parseInt(el.dataset.price, 10);
+      const isSelected = el.classList.toggle('selected');
+      el.querySelector('input').checked = isSelected;
+
+      if (isSelected) {
+        selectedToppings.push({ name: toppingName, price: toppingPrice });
+      } else {
+        selectedToppings = selectedToppings.filter(t => t.name !== toppingName);
+      }
+      calculateModalPrice();
+    };
+
+    window.selectSweetness = function(el) {
+      document.querySelectorAll('.sweet-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      selectedSweetness = el.dataset.sweet;
+    };
+
+    window.updateQty = function(delta) {
+      currentQty = Math.max(1, currentQty + delta);
+      document.getElementById('modalQtyVal').textContent = currentQty;
+      calculateModalPrice();
+    };
+
+    function calculateModalPrice() {
+      if (!activeDonut) return 0;
+      const toppingsTotal = selectedToppings.reduce((sum, t) => sum + t.price, 0);
+      const unitPrice = activeDonut.basePrice + sizeExtraPrice + toppingsTotal;
+      const subtotal = unitPrice * currentQty;
+      document.getElementById('modalSubtotalPrice').textContent = formatRupiah(subtotal);
+      return subtotal;
+    }
+
+    // Add to Cart / Box
+    window.addCurrentDonutToCart = function() {
+      if (!activeDonut) return;
+      const toppingsTotal = selectedToppings.reduce((sum, t) => sum + t.price, 0);
+      const unitPrice = activeDonut.basePrice + sizeExtraPrice + toppingsTotal;
+      const subtotal = unitPrice * currentQty;
+
+      cart.push({
+        id: Date.now(),
+        donutName: activeDonut.name,
+        sizeTitle: sizeTitle,
+        toppings: selectedToppings.map(t => t.name),
+        sweetness: selectedSweetness,
+        qty: currentQty,
+        subtotal: subtotal
+      });
+
+      updateCartBadge();
+      closeCustomizerModal();
+      openCart();
+    };
+
+    function updateCartBadge() {
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      cartCounterBadge.textContent = totalItems;
+    }
+
+    // Cart Drawer Controls
+    function openCart() {
+      renderCartItems();
+      cartDrawer.classList.add('active');
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove('active');
+    }
+
+    openCartBtn.addEventListener('click', openCart);
+    closeCartBtn.addEventListener('click', closeCart);
+    cartDrawer.addEventListener('click', (e) => {
+      if (e.target === cartDrawer) closeCart();
+    });
+
+    function renderCartItems() {
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `
+          <div class="cart-empty-notice">
+            <span class="icon">🍩</span>
+            <h4>Kotak Donat Masih Kosong</h4>
+            <p>Silakan pilih varian donat favorit Anda di menu.</p>
+          </div>
+        `;
+        cartTotalPrice.textContent = 'Rp 0';
+        return;
+      }
+
+      let grandTotal = 0;
+      cartItemsContainer.innerHTML = cart.map((item, idx) => {
+        grandTotal += item.subtotal;
+        const toppingsDisplay = item.toppings.length > 0
+          ? `+ Topping: ${item.toppings.join(', ')}`
+          : 'Tanpa Topping Tambahan';
+
+        return `
+          <div class="cart-item-row">
+            <div class="cir-top">
+              <div>
+                <div class="cir-name">${item.donutName}</div>
+                <div class="cir-sub">${item.sizeTitle} · ${item.sweetness}</div>
+              </div>
+              <button class="cir-remove-btn" onclick="removeCartItem(${idx})">Hapus</button>
+            </div>
+            <div class="cir-toppings-text">${toppingsDisplay}</div>
+            <div class="cir-bottom">
+              <span style="font-size: 12px; color: var(--text-muted);">Qty: ${item.qty}</span>
+              <span class="cir-price">${formatRupiah(item.subtotal)}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      cartTotalPrice.textContent = formatRupiah(grandTotal);
+    }
+
+    window.removeCartItem = function(index) {
+      cart.splice(index, 1);
+      updateCartBadge();
+      renderCartItems();
+    };
+
+    // Checkout via WhatsApp
+    window.checkoutViaWhatsApp = function() {
+      if (cart.length === 0) {
+        alert('Kotak donat masih kosong! Silakan pilih varian donat terlebih dahulu.');
+        return;
+      }
+
+      const notes = document.getElementById('orderNotesInput').value.trim();
+      let grandTotal = 0;
+
+      let msg = `*HALO DOUGH & GLAZE, SAYA INGIN PESAN DONAT SEGAR:*\n`;
+      msg += `==============================\n\n`;
+
+      cart.forEach((item, i) => {
+        grandTotal += item.subtotal;
+        msg += `*${i + 1}. ${item.donutName}*\n`;
+        msg += `   • Ukuran/Paket: ${item.sizeTitle}\n`;
+        if (item.toppings.length > 0) {
+          msg += `   • Ekstra Topping: ${item.toppings.join(', ')}\n`;
+        }
+        msg += `   • Kemanisan: ${item.sweetness}\n`;
+        msg += `   • Jumlah: ${item.qty} box/pcs\n`;
+        msg += `   • Subtotal: ${formatRupiah(item.subtotal)}\n\n`;
+      });
+
+      msg += `==============================\n`;
+      msg += `*TOTAL PEMBAYARAN: ${formatRupiah(grandTotal)}*\n`;
+      if (notes) {
+        msg += `\n*Catatan Khusus / Kartu Ucapan:*\n"${notes}"\n`;
+      }
+      msg += `\nMohon info ketersediaan stok batch hari ini & estimasi pengiriman kurir. Terima kasih!`;
+
+      const waUrl = `https://wa.me/6285219583336?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
+    };
+
+    // Category Filter Click
+    catButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.dataset.category;
+        renderDonuts();
+      });
+    });
+
+    // Search Input
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value.toLowerCase().trim();
+      renderDonuts();
+    });
+
+    // Mobile Menu Toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      const nav = document.querySelector('.desktop-nav');
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.top = '70px';
+        nav.style.left = '0';
+        nav.style.width = '100%';
+        nav.style.backgroundColor = '#FFFFFF';
+        nav.style.padding = '16px 20px';
+        nav.style.borderBottom = '1px solid var(--border-warm)';
+        nav.style.boxShadow = 'var(--shadow-md)';
+      }
+    });
+
+    // Initial Render
+    renderDonuts();
+  </script>
+</body>
+</html>

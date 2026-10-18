@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'donat',
+      title: 'Toko Donat & Brioche',
+      icon: Cookie,
+      desc: 'Aplikasi web penjualan donat kentang & sourdough brioche, pilihan ukuran boks hampers, ekstra topping, dan keranjang WhatsApp.',
+      accent: '#B46522'
+    },
     {
       id: 'pet',
       title: 'Pet Shop & Cattery',

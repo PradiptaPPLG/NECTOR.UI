@@ -1045,8 +1045,85 @@ export function TanahLiatStudio() {
     publishedAt: '2026-05-15',
     livePreviewAvailable: true,
     accentColor: '#B82E66'
+  },
+  {
+    id: 'tpl-18',
+    slug: 'dough-and-glaze-donat',
+    title: 'DOUGH & GLAZE',
+    tagline: 'Artisan brioche & potato donut bar dengan pilihan boks dan ekstra topping',
+    description: 'Template aplikasi web pemesanan dan etalase toko donat modern dengan palet warna soft warm buttery yellow dan amber caramel yang menggugah selera, hangat, dan anti-slop. Menampilkan etalase 10 varian donat artisan (donat kentang kampung jadul gula salju, brioche vanilla glaze, bomboloni Nutella lumer, bomboloni strawberry cheesecake, salted caramel lotus biscoff, pistachio kunafa, matcha Uji Kyoto, hingga tiramisu mascarpone) dengan foto resolusi tinggi asli dari web. Dilengkapi selector ukuran & kemasan (Satuan, Trio Box isi 3, Half Dozen isi 6, Full Dozen hampers isi 12), modal customizer donat untuk memilih ekstra topping (almond slice, biscoff crumbles, sprinkles, chocolate shavings, ekstra filling) dan level kemanisan, live batch frying ticker, serta slide-over keranjang donat dengan checkout instan ke WhatsApp.',
+    category: 'donat',
+    tags: ['Toko Donat', 'Donat Kentang', 'Bomboloni Lumer', 'Artisan Bakery', 'Soft Yellow Butter', 'Custom Topping', 'Box of 6 Hampers', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS3', 'Vanilla JS Modal', 'Slide-Over Cart', 'WhatsApp Order Builder'],
+    thumbnailSvgType: 'bakery',
+    previewComponentKey: 'donat-dough-and-glaze',
+    htmlPath: '/templates/donat/dough-and-glaze.html',
+    htmlFolderPath: 'templates/donat/dough-and-glaze.html',
+    features: [
+      'Palet warna soft buttery yellow (#F5C642), custard cream (#FFFDF7), dan amber caramel crust (#B46522) yang hangat, lezat, dan ramah mata',
+      'Etalase 10 Varian Donat Artisan dengan Foto Nyata: Glaze Biscoff, Bomboloni Nutella, Belgian Dark Choco 70%, Kentang Salju Jadul, Pistachio Kunafa, Strawberry Cheesecake, Matcha Uji, Tiramisu',
+      'Pilihan Ukuran & Kemasan Fleksibel: Satuan (1 Pcs), Trio Box (Isi 3), Half Dozen (Isi 6 - Bestseller), dan Full Dozen (Isi 12 - Hampers Hadiah Pita)',
+      'Modal Customizer Donat Lengkap: Pilihan ukuran, opsi ekstra topping (Almond, Biscoff, Sprinkles, Choco Shavings, Extra Filling), level kemanisan (Normal / Less Sugar), dan counter jumlah',
+      'Slide-Over Keranjang Kotak Donat: Rincian pesanan interaktif, input kartu ucapan hampers / catatan lilin ulang tahun, dan kalkulasi subtotal otomatis',
+      'Integrasi Checkout WhatsApp Instan: Men-generate format chat WhatsApp rapi berisi daftar rasa donat, ukuran box, topping, total bayar, dan ucapan kartu',
+      'Live Batch Frying Ticker: Display jadwal penggorengan donat baru matang dan di-glaze (08.00, 11.30, 15.00 WIB)',
+      '100% Standalone Single-File (HTML5 + CSS + JS) tanpa framework eksternal atau build step'
+    ],
+    usageInstructions: [
+      'Buka templates/donat/dough-and-glaze.html di code editor Anda.',
+      'Perbarui atau tambahkan varian rasa donat di array DONUTS_DATABASE pada tag script (foto, harga, kategori rasa, dan badge).',
+      'Ganti nomor WhatsApp tujuan pesanan dengan nomor resmi toko donat atau bakery Anda.',
+      'Dapat langsung diakses pelanggan dari smartphone, tablet di meja kasir/waiter, atau browser desktop.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'dough-and-glaze.html',
+        language: 'html',
+        content: `<!-- DOUGH & GLAZE — Artisan Brioche & Potato Donut Bar -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>DOUGH & GLAZE — Artisan Donut Bar</title>
+  <style>
+    :root {
+      --bg-cream: #FFFDF7;
+      --yellow-butter: #F5C642;
+      --caramel-crust: #B46522;
+      --text-espresso: #241913;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-batch-ticker">FRESH BATCH DARI PENGGORENGAN · 100% REAL BUTTER</div>
+  <header>
+    <h1>DOUGH<span>&</span>GLAZE</h1>
+    <nav>Menu Donat · Pilihan Box & Ukuran · Filosofi Adonan · Kontak</nav>
+  </header>
+  <!-- Full functional Donut Etalase, Size Selector, Topping Customizer, Slide-Over Cart, and WhatsApp Order Builder -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt aplikasi web penjualan donat artisan DOUGH & GLAZE dengan warna soft warm buttery yellow dan amber caramel, foto donat nyata dari web, selector ukuran box, modal customizer topping dan tingkat kemanisan, serta slide-over keranjang checkout WhatsApp.',
+      designDirection: 'Hangat, lezat, manis berstandar bakery modern anti-slop: Soft Buttery Yellow (#F5C642), Warm Custard Cream (#FFFDF7), Amber Caramel Crust (#B46522), dan Roasted Coffee Espresso (#241913). Menggunakan tipografi Playfair Display dan Plus Jakarta Sans.',
+      layoutAndGrid: 'Top batch ticker, hero split dengan spotlight signature box, visual package cards 4 kolom untuk ukuran kemasan (Single, Box 3, Box 6, Box 12), toolbar pencarian dan filter rasa, grid etalase donat 3 kolom responsif, modal customizer donat 2 kolom, dan slide-over keranjang panel kanan.',
+      typographyAndColor: 'Playfair Display untuk headline dan nama varian donat yang menggugah selera, Plus Jakarta Sans untuk opsi topping dan harga, serta JetBrains Mono untuk ticker batch jam penggorengan.',
+      interactions: 'Pencarian instan rasa donat, filter kategori donat, modal customizer topping interaktif dengan live price update, penambahan ke slide-over keranjang, counter kuantitas, input kartu hampers, dan kirim format pesanan rapi ke WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive dari 360px hingga 1440px.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-05-16',
+    livePreviewAvailable: true,
+    accentColor: '#F5C642'
   }
 ];
+
 
 
 
