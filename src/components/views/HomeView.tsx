@@ -10,6 +10,7 @@ interface Props {
   onNavigate: (view: string, categoryFilter?: string) => void;
   onToggleSave: (templateId: string) => void;
   isSaved: (templateId: string) => boolean;
+  onOpenCommission?: (template?: Template) => void;
 }
 
 export const HomeView: React.FC<Props> = ({
@@ -17,7 +18,8 @@ export const HomeView: React.FC<Props> = ({
   onSelectTemplate,
   onNavigate,
   onToggleSave,
-  isSaved
+  isSaved,
+  onOpenCommission
 }) => {
   const [heroIndex, setHeroIndex] = useState(0);
 
@@ -35,6 +37,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'sekolah', label: 'Sekolah & Akademik', count: templates.filter(t => t.category === 'sekolah').length, desc: 'Meja belajar digital siswa, jadwal pelajaran mingguan, agenda tugas & rekap nilai rapor' },
     { id: 'buah', label: 'Pasar & Toko Buah', count: templates.filter(t => t.category === 'buah').length, desc: 'Penjualan buah segar lokal & impor dengan timbangan digital presisi dan garansi manis' },
     { id: 'perpustakaan', label: 'Perpustakaan & Arsip', count: templates.filter(t => t.category === 'perpustakaan').length, desc: 'Sistem sirkulasi peminjaman buku, katalog rak DDC & ruang baca fisik' },
     { id: 'kasir', label: 'Kasir & POS Retail', count: templates.filter(t => t.category === 'kasir').length, desc: 'Sistem POS kasir minimarket modern, etalase barcode & kalkulasi instan' },
@@ -73,6 +76,39 @@ export const HomeView: React.FC<Props> = ({
               <button className="btn-hero-secondary" onClick={() => onNavigate('categories')}>
                 <Layers size={15} />
                 <span>Kategori Etalase</span>
+              </button>
+            </div>
+
+            {/* Custom Website Commission Trigger Callout */}
+            <div className="hero-custom-box">
+              <button
+                type="button"
+                className="btn-hero-custom"
+                onClick={() => onOpenCommission && onOpenCommission()}
+                aria-label="Buka formulir pembuatan website custom"
+              >
+                <div className="hero-custom-left">
+                  <div className="hero-custom-badge mono">
+                    <span className="hero-pulse-dot" />
+                    <span>STUDIO KOMISI KHUSUS</span>
+                    <span className="hero-badge-sep">·</span>
+                    <span>KUESIONER 1 MENIT</span>
+                  </div>
+                  <div className="hero-custom-title-row">
+                    <span className="hero-custom-title">
+                      Saya ingin membuat website custom
+                    </span>
+                    <span className="hero-custom-arrow">→</span>
+                  </div>
+                  <p className="hero-custom-desc">
+                    Pilih tema aplikasi, preferensi visual & requirement fitur — draf otomatis terkirim ke WhatsApp untuk diskusi langsung.
+                  </p>
+                </div>
+                <div className="hero-custom-sparkle-col">
+                  <div className="hero-custom-icon-chip">
+                    <Sparkles size={18} />
+                  </div>
+                </div>
               </button>
             </div>
           </div>

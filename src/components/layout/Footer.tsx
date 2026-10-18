@@ -68,6 +68,7 @@ export const Footer: React.FC<Props> = ({ onNavigate }) => {
           <div className="footer-col">
             <h4 className="footer-col-title mono">KATEGORI ETALASE</h4>
             <ul className="footer-links">
+              <li><button onClick={() => onNavigate('templates', 'sekolah')}>Sekolah & Akademik</button></li>
               <li><button onClick={() => onNavigate('templates', 'buah')}>Pasar & Toko Buah</button></li>
               <li><button onClick={() => onNavigate('templates', 'perpustakaan')}>Perpustakaan & Arsip</button></li>
               <li><button onClick={() => onNavigate('templates', 'kasir')}>Kasir & POS Minimarket</button></li>

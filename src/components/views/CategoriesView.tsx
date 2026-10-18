@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'sekolah',
+      title: 'Sekolah & Akademik',
+      icon: GraduationCap,
+      desc: 'Meja belajar digital siswa, jadwal pelajaran mingguan, buku agenda tugas & PR, kalkulator rekap nilai rapor, dan timer fokus Pomodoro.',
+      accent: '#1F364D'
+    },
     {
       id: 'buah',
       title: 'Pasar & Toko Buah',

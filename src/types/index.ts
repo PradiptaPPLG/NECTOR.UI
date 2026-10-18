@@ -14,6 +14,7 @@ export type Category =
   | 'buah'
   | 'kasir'
   | 'perpustakaan'
+  | 'sekolah'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>NECTOR.UI — Instagram Slide 00 (Thumbnail / Cover)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background-color: #08090c;
+      color: #faf9f5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .slide {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      background: radial-gradient(circle at 50% 15%, rgba(196, 69, 37, 0.28), transparent 50%),
+                  radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.16), transparent 45%),
+                  radial-gradient(circle at 15% 75%, rgba(45, 106, 79, 0.18), transparent 45%),
+                  radial-gradient(circle at 50% 50%, #101117, #07080a 92%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 56px 64px 48px 64px;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    /* Ambient Tech Grid */
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.09) 1.2px, transparent 1.2px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: -0.5px;
+      color: #faf9f5;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .brand-logo .dot {
+      color: #c44525;
+    }
+
+    .brand-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 5px 12px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      color: #e5e4dc;
+    }
+
+    .craft-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10b981;
+    }
+
+    /* Hero Text */
+    .hero-content {
+      margin-top: 14px;
+      z-index: 2;
+    }
+
+    .pill-announcement {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.14);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+    }
+
+    .headline {
+      font-family: 'Outfit', sans-serif;
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -1.6px;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .headline span.accent {
+      background: linear-gradient(135deg, #ff8c69 0%, #c44525 55%, #e25822 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .subheadline {
+      font-size: 16.5px;
+      line-height: 1.55;
+      color: #bfbeb7;
+      max-width: 890px;
+      font-weight: 400;
+    }
+
+    /* Thumbnail Stage with Real UI Awal */
+    .thumbnail-stage {
+      position: relative;
+      height: 500px;
+      margin-top: 14px;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Main Window Frame */
+    .browser-showcase {
+      width: 950px;
+      height: 480px;
+      background: #181920;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.95), 
+                  0 0 0 1px rgba(255, 255, 255, 0.12),
+                  0 0 60px rgba(196, 69, 37, 0.22);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Browser Top Bar */
+    .browser-header {
+      background: #15161c;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .browser-controls {
+      display: flex;
+      gap: 7px;
+    }
+
+    .b-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .b-red { background: #ff5f56; }
+    .b-yellow { background: #ffbd2e; }
+    .b-green { background: #27c93f; }
+
+    .browser-address {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 18px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: #d1d0c7;
+      letter-spacing: 0.3px;
+    }
+
+    .address-lock {
+      color: #34d399;
+      font-size: 11px;
+    }
+
+    .browser-action-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #ff9d80;
+      background: rgba(196, 69, 37, 0.25);
+      border: 1px solid rgba(196, 69, 37, 0.4);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Browser Body: UI Awal Screenshot */
+    .browser-body {
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+      background: #faf9f5;
+      position: relative;
+    }
+
+    .browser-body img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* Floating Feature Badges (Placed Outside to avoid clipping) */
+    .floating-pill {
+      position: absolute;
+      z-index: 10;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      border-radius: 999px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(14px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pill-left {
+      bottom: -12px;
+      left: 18px;
+      font-size: 12.5px;
+      padding: 10px 22px;
+      background: rgba(12, 13, 18, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #faf9f5;
+    }
+
+    .pill-left .bolt {
+      color: #fbbf24;
+    }
+
+    .pill-right {
+      top: -14px;
+      right: 24px;
+      font-size: 12px;
+      padding: 9px 20px;
+      background: linear-gradient(135deg, rgba(196, 69, 37, 0.98), rgba(226, 88, 34, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      box-shadow: 0 15px 35px rgba(196, 69, 37, 0.55);
+    }
+
+    .pill-bottom-right {
+      bottom: -12px;
+      right: 18px;
+      font-size: 12px;
+      padding: 10px 22px;
+      background: rgba(16, 185, 129, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #032b17;
+      font-weight: 800;
+      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Bottom Bar */
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+      z-index: 2;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      flex-shrink: 0;
+      background: #111;
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .author-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #faf9f5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .author-handle .req-badge {
+      font-size: 9.5px;
+      color: #ff9d80;
+      background: rgba(196, 69, 37, 0.25);
+      border: 1px solid rgba(196, 69, 37, 0.5);
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .author-sub {
+      font-size: 11.5px;
+      color: #9c9b94;
+    }
+
+    .slide-pagination {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #9c9b94;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .slide-pagination .active-num {
+      color: #c44525;
+      font-weight: 800;
+    }
+
+    .swipe-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #faf9f5;
+      font-size: 12.5px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="brand-group">
+        <div class="brand-logo">NECTOR<span class="dot">.</span>UI</div>
+        <div class="brand-badge">THUMBNAIL // COVER</div>
+      </div>
+      <div class="craft-tag">
+        <span class="pulse-dot"></span>
+        <span>OPEN FOR WEB COMMISSION</span>
+      </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="pill-announcement">
+        ⚡ MEMPERKENALKAN NECTOR.UI · 0% CODING, 100% COPY-PASTE
+      </div>
+      <h1 class="headline">
+        Gak Perlu Bayar Programmer.<br>
+        <span class="accent">Tinggal Search Template yang Kamu Inginkan, Salin atau Download Langsung.</span>
+      </h1>
+      <p class="subheadline">
+        Arsip template website mandiri (1-file HTML) siap pakai untuk kafe, pasar buah, toko ritel, hingga kasir POS. Tinggal salin kodenya atau download langsung filenya — 100% fungsional tanpa runtime ribet.
+      </p>
+    </div>
+
+    <!-- Thumbnail Stage: Real UI Awal Nector UI -->
+    <div class="thumbnail-stage">
+      <div class="browser-showcase">
+        <!-- Browser Header -->
+        <div class="browser-header">
+          <div class="browser-controls">
+            <div class="b-dot b-red"></div>
+            <div class="b-dot b-yellow"></div>
+            <div class="b-dot b-green"></div>
+          </div>
+          <div class="browser-address">
+            <span class="address-lock">🔒</span>
+            <span>nector.ui — Arsip Desain Digital // Est. 2026</span>
+          </div>
+          <div class="browser-action-badge">● LIVE DEMO</div>
+        </div>
+
+        <!-- Browser Body: Real UI Awal Screenshot -->
+        <div class="browser-body">
+          <img src="screenshots/app-hero-awal.png" alt="NECTOR.UI UI Awal Beranda">
+        </div>
+      </div>
+
+      <!-- Floating Pills (Floating over the showcase) -->
+      <div class="floating-pill pill-right">
+        <span>✦ 100% Standalone (1-File HTML)</span>
+      </div>
+      <div class="floating-pill pill-left">
+        <span class="bolt">⚡</span>
+        <span>0% Coding · 100% Copy-Paste</span>
+      </div>
+      <div class="floating-pill pill-bottom-right">
+        <span>✓ 12+ Template Bisnis Siap Pakai</span>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+      <div class="author-info">
+        <div class="author-avatar">
+          <img src="avatar.png" alt="@massdiipp">
+        </div>
+        <div>
+          <div class="author-handle">@massdiipp <span class="req-badge">OPEN REQUEST WEB</span></div>
+          <div class="author-sub">Creator & Frontend Dev · NECTOR.UI</div>
+        </div>
+      </div>
+      <div class="slide-pagination">
+        <div class="swipe-hint">Geser untuk koleksi →</div>
+        <div><span class="active-num">THUMBNAIL</span> · 01/06</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

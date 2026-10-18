@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf8f3">
+  <title>SINAU — Ruang Belajar & Academic Tracker Pelajar Mandiri</title>
+
+  <!-- Typography: Plus Jakarta Sans (UI), Newsreader (Serif), JetBrains Mono (Technical/Time) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #faf8f3;
+      --surface: #ffffff;
+      --surface-subtle: #f3eee3;
+      --surface-tint: #fcfbf8;
+      --surface-deep: #e9e2d3;
+      --ink: #191b1f;
+      --ink-soft: #383c45;
+      --muted: #6f7480;
+      --line: #e5ded0;
+      --line-dark: #cfc5b2;
+      
+      /* Primary Academic Identity */
+      --navy: #1f364d;
+      --navy-dark: #122130;
+      --navy-soft: #eaf1f7;
+      
+      /* Restrained Terracotta (NECTOR.UI Accent) */
+      --terracotta: #c44525;
+      --terracotta-dark: #a2351a;
+      --terracotta-soft: #faece8;
+      
+      /* Status Colors */
+      --sage: #2a7e68;
+      --sage-soft: #e9f5f1;
+      --amber: #b45309;
+      --amber-soft: #fef3c7;
+      --rose: #b91c1c;
+      --rose-soft: #fee2e2;
+
+      --serif: "Newsreader", Garamond, Georgia, serif;
+      --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: "JetBrains Mono", Consolas, monospace;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 14px -2px rgba(25, 27, 31, 0.06);
+      --shadow-lg: 0 12px 28px -4px rgba(25, 27, 31, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 14.5px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Subtle Paper Texture Grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(rgba(25, 27, 31, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Top Notice Bar */
+    .top-notice {
+      background: var(--navy);
+      color: #f7f4ed;
+      font-size: 12px;
+      padding: 8px 24px;
+      border-bottom: 1px solid var(--navy-dark);
+      letter-spacing: 0.2px;
+    }
+
+    .notice-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .notice-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 8px #34d399;
+      display: inline-block;
+    }
+
+    .notice-right {
+      display: flex;
+      gap: 20px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+    }
+
+    .notice-right a, .notice-right button {
+      color: #e2edf6;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .notice-right button:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Navigation Header */
+    header.main-header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--navy);
+      color: #faf8f3;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--ink);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .brand-title span.dot {
+      color: var(--terracotta);
+    }
+
+    .brand-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    /* Student Profile Chip */
+    .student-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface-tint);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .student-chip:hover {
+      border-color: var(--line-dark);
+      background: var(--surface);
+    }
+
+    .student-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--navy-soft);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .student-meta {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .student-meta span.sub {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* Tab Navigation Bar */
+    .nav-tabs {
+      display: flex;
+      gap: 6px;
+      background: var(--surface-subtle);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+    }
+
+    .tab-btn {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.18s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .tab-btn.active {
+      background: var(--surface);
+      color: var(--navy);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .tab-btn .badge-count {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: var(--terracotta-soft);
+      color: var(--terracotta);
+      font-weight: 700;
+    }
+
+    /* Main Workspace Layout */
+    main.workspace {
+      flex: 1;
+      max-width: 1360px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px 60px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Metric Summary Strip */
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: transparent;
+    }
+
+    .stat-card.c-navy::after { background: var(--navy); }
+    .stat-card.c-terracotta::after { background: var(--terracotta); }
+    .stat-card.c-sage::after { background: var(--sage); }
+    .stat-card.c-amber::after { background: var(--amber); }
+
+    .stat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .stat-value {
+      font-family: var(--mono);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 8px 0 4px 0;
+      line-height: 1.1;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .stat-value span.unit {
+      font-size: 14px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-weight: 500;
+    }
+
+    .stat-sub {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-sub span.highlight {
+      color: var(--sage);
+      font-weight: 600;
+    }
+
+    /* Common Card Styles */
+    .content-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: var(--surface-tint);
+    }
+
+    .card-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.2px;
+    }
+
+    .card-caption {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    /* Buttons */
+    .btn {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.18s ease;
+    }
+
+    .btn:hover {
+      background: var(--surface-subtle);
+      border-color: var(--line-dark);
+    }
+
+    .btn-primary {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--terracotta-dark);
+      border-color: var(--terracotta-dark);
+      color: #ffffff;
+    }
+
+    .btn-navy {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #ffffff;
+    }
+
+    .btn-navy:hover {
+      background: var(--navy-dark);
+      border-color: var(--navy-dark);
+      color: #ffffff;
+    }
+
+    .btn-sm {
+      padding: 5px 11px;
+      font-size: 11.5px;
+    }
+
+    /* SECTION 1: JADWAL PELAJARAN (TIMETABLE) */
+    .timetable-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .day-selector-bar {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      overflow-x: auto;
+    }
+
+    .day-pill {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-tint);
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .day-pill:hover {
+      background: var(--surface-subtle);
+      color: var(--ink);
+    }
+
+    .day-pill.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #ffffff;
+    }
+
+    .day-pill .count-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .day-pill:not(.active) .count-badge {
+      background: var(--surface-deep);
+      color: var(--ink-soft);
+    }
+
+    /* Schedule Period Cards */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 16px;
+    }
+
+    .period-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .period-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--line-dark);
+    }
+
+    .period-card.is-active {
+      border-color: var(--terracotta);
+      background: #fffdfb;
+      box-shadow: 0 0 0 1px var(--terracotta);
+    }
+
+    .period-time-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      color: var(--ink-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      width: fit-content;
+    }
+
+    .period-card.is-active .period-time-badge {
+      background: var(--terracotta-soft);
+      color: var(--terracotta);
+    }
+
+    .period-subject {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .period-meta {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .period-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+      font-size: 11.5px;
+    }
+
+    .room-tag {
+      font-family: var(--mono);
+      color: var(--navy);
+      font-weight: 600;
+      background: var(--navy-soft);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* SECTION 2: BUKU TUGAS & DEADLINE TRACKER */
+    .task-controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .task-filters {
+      display: flex;
+      gap: 6px;
+      background: var(--surface-subtle);
+      padding: 3px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+
+    .filter-btn {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .filter-btn.active {
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    /* Task List */
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      transition: all 0.2s ease;
+    }
+
+    .task-item:hover {
+      border-color: var(--line-dark);
+      background: var(--surface-tint);
+    }
+
+    .task-item.completed {
+      background: #fafafa;
+      opacity: 0.65;
+    }
+
+    .task-item.completed .task-title {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    .task-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .task-checkbox {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 2px solid var(--line-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+
+    .task-checkbox:hover {
+      border-color: var(--sage);
+    }
+
+    .task-item.completed .task-checkbox {
+      background: var(--sage);
+      border-color: var(--sage);
+      color: #ffffff;
+    }
+
+    .task-details {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .task-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .task-tags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+    }
+
+    .subject-pill {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 1px 7px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      color: var(--ink-soft);
+    }
+
+    .priority-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .p-high { background: var(--rose-soft); color: var(--rose); }
+    .p-med { background: var(--amber-soft); color: var(--amber); }
+    .p-low { background: var(--sage-soft); color: var(--sage); }
+
+    .task-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .deadline-countdown {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .deadline-urgent {
+      color: var(--rose);
+      font-weight: 700;
+    }
+
+    .btn-delete-task {
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .btn-delete-task:hover {
+      opacity: 1;
+      color: var(--rose);
+    }
+
+    /* SECTION 3: KARTU NILAI & RAPOR AKADEMIK */
+    .grades-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .grades-grid { grid-template-columns: 1fr; }
+    }
+
+    .grades-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13.5px;
+    }
+
+    .grades-table th {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--line);
+      background: var(--surface-tint);
+    }
+
+    .grades-table td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+
+    .grades-table tr:hover td {
+      background: var(--surface-tint);
+    }
+
+    .grade-input {
+      width: 52px;
+      padding: 4px 6px;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .grade-input:focus {
+      border-color: var(--navy);
+      outline: none;
+      box-shadow: 0 0 0 2px var(--navy-soft);
+    }
+
+    .final-score {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 14.5px;
+    }
+
+    .grade-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .grade-a { background: var(--sage-soft); color: var(--sage); }
+    .grade-b { background: var(--navy-soft); color: var(--navy); }
+    .grade-c { background: var(--amber-soft); color: var(--amber); }
+
+    /* Report Card Sidebar */
+    .report-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .report-card-summary {
+      background: var(--surface-subtle);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .overall-gpa {
+      text-align: center;
+      padding: 16px 0;
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+
+    .gpa-num {
+      font-family: var(--mono);
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .gpa-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .target-simulator {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .sim-slider {
+      width: 100%;
+      margin: 10px 0;
+      accent-color: var(--terracotta);
+    }
+
+    /* SECTION 4: FOCUS TIMER (POMODORO) */
+    .timer-workspace {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 36px 20px;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .timer-mode-pills {
+      display: flex;
+      gap: 8px;
+      background: var(--surface-subtle);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+    }
+
+    .mode-pill {
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .mode-pill.active {
+      background: var(--terracotta);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(196, 69, 37, 0.3);
+    }
+
+    .timer-display {
+      font-family: var(--mono);
+      font-size: 88px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin: 8px 0;
+    }
+
+    .timer-subject-select {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .timer-subject-select select {
+      font-family: var(--sans);
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .timer-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-timer-primary {
+      padding: 12px 32px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 999px;
+    }
+
+    /* Modal Form */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 20, 24, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 520px;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      transform: translateY(12px);
+      transition: transform 0.2s ease;
+    }
+
+    .modal-backdrop.open .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface-tint);
+    }
+
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .modal-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+
+    .form-control {
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      font-family: var(--sans);
+      font-size: 13.5px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 2px var(--navy-soft);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .modal-footer {
+      padding: 16px 22px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      background: var(--surface-tint);
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: #fff !important; }
+      body::before, .top-notice, header.main-header, .btn, .nav-tabs, .mode-pill, .btn-delete-task {
+        display: none !important;
+      }
+      .workspace { max-width: 100% !important; padding: 0 !important; }
+      .content-card { border: 1px solid #ddd !important; box-shadow: none !important; margin-bottom: 20px; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Notice Banner -->
+    <div class="top-notice">
+      <div class="notice-inner">
+        <div class="notice-left">
+          <span class="pulse-dot"></span>
+          <span><strong>SINAU // EDISI PELAJAR</strong> — Meja Belajar Digital & Catatan Akademik 100% Mandiri</span>
+        </div>
+        <div class="notice-right">
+          <span id="currentDateStr">Senin, 18 Oktober 2026</span>
+          <span>·</span>
+          <button onclick="window.print()">🖨 Cetak Rapor / Jadwal</button>
+          <span>·</span>
+          <button onclick="resetData()">↺ Reset Data</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+      <div class="header-inner">
+        <div class="brand-area">
+          <div class="brand-mark">S</div>
+          <div>
+            <div class="brand-title">SINAU<span class="dot">.</span> <span class="brand-badge">STUDY WORKSPACE</span></div>
+            <div style="font-size: 11.5px; color: var(--muted);">Academic Tracker, Timetable & Focus System</div>
+          </div>
+        </div>
+
+        <!-- Tab Nav -->
+        <nav class="nav-tabs">
+          <button class="tab-btn active" onclick="switchSection('dashboard')">
+            <span>📊</span> Dashboard
+          </button>
+          <button class="tab-btn" onclick="switchSection('jadwal')">
+            <span>📅</span> Jadwal Pelajaran
+          </button>
+          <button class="tab-btn" onclick="switchSection('tugas')">
+            <span>📝</span> Buku Tugas <span class="badge-count" id="pendingTaskBadge">3</span>
+          </button>
+          <button class="tab-btn" onclick="switchSection('nilai')">
+            <span>📈</span> Rekap Nilai & Rapor
+          </button>
+          <button class="tab-btn" onclick="switchSection('timer')">
+            <span>⏱️</span> Timer Fokus
+          </button>
+        </nav>
+
+        <!-- Student Profile -->
+        <div class="student-chip" onclick="editStudentProfile()" title="Klik untuk edit profil">
+          <div class="student-avatar" id="avatarInitial">N</div>
+          <div class="student-meta">
+            <span id="studentName">Nirmala Kusuma</span>
+            <span class="sub"> · <span id="studentClass">XII IPA 2</span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="workspace">
+      <!-- 1. Metric Summary Strip (Always Visible) -->
+      <section class="summary-strip">
+        <!-- Stat 1: Target Belajar -->
+        <div class="stat-card c-terracotta">
+          <div class="stat-header">
+            <span>Sesi Fokus Hari Ini</span>
+            <span>⏱️ POMODORO</span>
+          </div>
+          <div class="stat-value">
+            <span id="statFocusTime">75</span>
+            <span class="unit">/ 120 Menit</span>
+          </div>
+          <div class="stat-sub">
+            <span class="highlight">3 sesi selesai</span> · Target tercapai 62%
+          </div>
+        </div>
+
+        <!-- Stat 2: Tugas Pending -->
+        <div class="stat-card c-amber">
+          <div class="stat-header">
+            <span>Tugas & Deadline</span>
+            <span>📝 AGENDA</span>
+          </div>
+          <div class="stat-value">
+            <span id="statPendingTasks">3</span>
+            <span class="unit">tugas belum</span>
+          </div>
+          <div class="stat-sub">
+            <span style="color: var(--rose); font-weight: 600;">1 tugas mendesak</span> besok malam
+          </div>
+        </div>
+
+        <!-- Stat 3: Rata-Rata Nilai -->
+        <div class="stat-card c-sage">
+          <div class="stat-header">
+            <span>Rata-Rata Nilai</span>
+            <span>📈 AKADEMIK</span>
+          </div>
+          <div class="stat-value">
+            <span id="statGpa">88.6</span>
+            <span class="unit">Predikat A</span>
+          </div>
+          <div class="stat-sub">
+            Di atas standar KKM (75.0)
+          </div>
+        </div>
+
+        <!-- Stat 4: Jadwal Hari Ini -->
+        <div class="stat-card c-navy">
+          <div class="stat-header">
+            <span>Jadwal Hari Ini</span>
+            <span>📅 KELAS</span>
+          </div>
+          <div class="stat-value">
+            <span id="statClassesToday">4</span>
+            <span class="unit">Mata Pelajaran</span>
+          </div>
+          <div class="stat-sub">
+            Berikutnya: <strong style="color: var(--navy);" id="statNextClass">Fisika (09:45)</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: DASHBOARD VIEW (RINGKASAN CEPAT) -->
+      <div id="section-dashboard" class="view-panel">
+        <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 24px;">
+          <!-- Left: Today's Classes & Urgent Tasks -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <!-- Today's Schedule Card -->
+            <div class="content-card">
+              <div class="card-header">
+                <div class="card-header-left">
+                  <span style="font-size: 20px;">📅</span>
+                  <div>
+                    <div class="card-title">Jadwal Pelajaran Hari Ini</div>
+                    <div class="card-caption" id="dashDayCaption">Senin · 4 Jam Pertemuan</div>
+                  </div>
+                </div>
+                <button class="btn btn-sm" onclick="switchSection('jadwal')">Lihat Semua Hari →</button>
+              </div>
+              <div class="card-body">
+                <div class="schedule-grid" id="todayScheduleList">
+                  <!-- Rendered via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Urgent Tasks Card -->
+            <div class="content-card">
+              <div class="card-header">
+                <div class="card-header-left">
+                  <span style="font-size: 20px;">⚡</span>
+                  <div>
+                    <div class="card-title">Tugas & PR yang Perlu Diselesaikan</div>
+                    <div class="card-caption">Prioritas tinggi & tenggat waktu terdekat</div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="openAddTaskModal()">+ Tambah Tugas</button>
+              </div>
+              <div class="card-body">
+                <div class="task-list" id="dashboardTaskList">
+                  <!-- Rendered via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Mini Pomodoro & Quick Notes -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <!-- Quick Focus Card -->
+            <div class="content-card">
+              <div class="card-header">
+                <div class="card-header-left">
+                  <span style="font-size: 18px;">⏱️</span>
+                  <div>
+                    <div class="card-title">Timer Fokus Belajar</div>
+                    <div class="card-caption">Teknik 25 Menit Pomodoro</div>
+                  </div>
+                </div>
+                <span class="period-time-badge">25:00</span>
+              </div>
+              <div class="card-body" style="text-align: center;">
+                <div style="font-family: var(--mono); font-size: 48px; font-weight: 800; color: var(--navy); margin-bottom: 12px;" id="dashTimerDisplay">25:00</div>
+                <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">Mata Pelajaran: <strong id="dashTimerSubject">Matematika Wajib</strong></p>
+                <div style="display: flex; justify-content: center; gap: 10px;">
+                  <button class="btn btn-primary" id="btnDashTimerToggle" onclick="toggleTimer()">▶ Mulai Sesi</button>
+                  <button class="btn" onclick="switchSection('timer')">Buka Ruang Fokus →</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Academic Scratchpad -->
+            <div class="content-card">
+              <div class="card-header">
+                <div class="card-header-left">
+                  <span style="font-size: 18px;">📌</span>
+                  <div>
+                    <div class="card-title">Catatan Cepat & Rumus Penting</div>
+                    <div class="card-caption">Tersimpan otomatis di browser</div>
+                  </div>
+                </div>
+                <span class="brand-badge">AUTO-SAVE</span>
+              </div>
+              <div class="card-body" style="padding: 14px;">
+                <textarea id="scratchpadArea" style="width: 100%; height: 160px; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px; font-family: var(--mono); font-size: 12.5px; line-height: 1.6; resize: none; background: var(--surface-tint); color: var(--ink);" placeholder="Tulis catatan cepat, rumus ujian, atau pesan dari guru di sini..." oninput="saveScratchpad()"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: JADWAL PELAJARAN (TIMETABLE FULL) -->
+      <div id="section-jadwal" class="view-panel" style="display: none;">
+        <div class="content-card">
+          <div class="card-header">
+            <div class="card-header-left">
+              <span style="font-size: 22px;">📅</span>
+              <div>
+                <div class="card-title">Jadwal Pelajaran Mingguan</div>
+                <div class="card-caption">Semester Ganjil TA 2026/2027 · Ruang Kelas & Guru Pengampu</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-sm" onclick="window.print()">🖨 Cetak Jadwal</button>
+              <button class="btn btn-navy btn-sm" onclick="openAddClassModal()">+ Tambah Mapel</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="timetable-wrapper">
+              <!-- Day Tabs -->
+              <div class="day-selector-bar">
+                <button class="day-pill active" onclick="selectDay('Senin')">Senin <span class="count-badge" id="badge-Senin">4</span></button>
+                <button class="day-pill" onclick="selectDay('Selasa')">Selasa <span class="count-badge" id="badge-Selasa">4</span></button>
+                <button class="day-pill" onclick="selectDay('Rabu')">Rabu <span class="count-badge" id="badge-Rabu">4</span></button>
+                <button class="day-pill" onclick="selectDay('Kamis')">Kamis <span class="count-badge" id="badge-Kamis">3</span></button>
+                <button class="day-pill" onclick="selectDay('Jumat')">Jumat <span class="count-badge" id="badge-Jumat">3</span></button>
+              </div>
+
+              <!-- Day Schedule Grid -->
+              <div class="schedule-grid" id="fullDayScheduleGrid">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: BUKU TUGAS & DEADLINE FULL -->
+      <div id="section-tugas" class="view-panel" style="display: none;">
+        <div class="content-card">
+          <div class="card-header">
+            <div class="card-header-left">
+              <span style="font-size: 22px;">📝</span>
+              <div>
+                <div class="card-title">Buku Tugas, PR & Proyek Akademik</div>
+                <div class="card-caption">Lacak tenggat waktu, prioritas, dan status penyelesaian tugas mandiri</div>
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="openAddTaskModal()">+ Buat Tugas Baru</button>
+          </div>
+          <div class="card-body">
+            <!-- Filter Bar -->
+            <div class="task-controls-bar">
+              <div class="task-filters">
+                <button class="filter-btn active" onclick="filterTasks('all')">Semua (<span id="count-all">0</span>)</button>
+                <button class="filter-btn" onclick="filterTasks('pending')">Belum Selesai (<span id="count-pending">0</span>)</button>
+                <button class="filter-btn" onclick="filterTasks('urgent')">Mendesak (<span id="count-urgent">0</span>)</button>
+                <button class="filter-btn" onclick="filterTasks('completed')">Selesai (<span id="count-completed">0</span>)</button>
+              </div>
+              <div style="font-size: 12.5px; color: var(--muted);">
+                Centang kotak untuk menandai tugas telah dikumpulkan.
+              </div>
+            </div>
+
+            <!-- Task List -->
+            <div class="task-list" id="fullTaskList">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: REKAP NILAI & RAPOR -->
+      <div id="section-nilai" class="view-panel" style="display: none;">
+        <div class="grades-grid">
+          <!-- Left: Table of Grades -->
+          <div class="content-card">
+            <div class="card-header">
+              <div class="card-header-left">
+                <span style="font-size: 22px;">📈</span>
+                <div>
+                  <div class="card-title">Rekap Kartu Hasil Studi & Nilai Siswa</div>
+                  <div class="card-caption">Input langsung nilai Tugas (20%), UH (30%), PTS (25%), dan PAS (25%)</div>
+                </div>
+              </div>
+              <button class="btn btn-sm" onclick="saveGrades()">💾 Simpan Nilai</button>
+            </div>
+            <div class="card-body" style="padding: 0; overflow-x: auto;">
+              <table class="grades-table">
+                <thead>
+                  <tr>
+                    <th>Mata Pelajaran</th>
+                    <th style="text-align: center;">Tugas (20%)</th>
+                    <th style="text-align: center;">UH (30%)</th>
+                    <th style="text-align: center;">PTS (25%)</th>
+                    <th style="text-align: center;">PAS (25%)</th>
+                    <th style="text-align: center;">Nilai Akhir</th>
+                    <th style="text-align: center;">Predikat</th>
+                  </tr>
+                </thead>
+                <tbody id="gradesTableBody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Right: Summary & Simulation -->
+          <div class="report-sidebar">
+            <div class="report-card-summary">
+              <div style="font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink);">Ringkasan Prestasi Rapor</div>
+              <div class="overall-gpa">
+                <div class="gpa-num" id="sidebarGpaDisplay">88.6</div>
+                <div class="gpa-label">Rata-Rata Gabungan Seluruh Mapel</div>
+                <div style="margin-top: 6px;"><span class="grade-badge grade-a" id="sidebarPredicateBadge">PREDIKAT A (SANGAT BAIK)</span></div>
+              </div>
+              <div style="font-size: 12.5px; color: var(--muted); line-height: 1.5;">
+                ✓ Semua mata pelajaran di atas KKM nasional (75.0).<br>
+                ✓ Nilai tertinggi: <strong>Matematika Wajib (92.5)</strong>.<br>
+                ✓ Total 8 Mata Pelajaran terdaftar.
+              </div>
+            </div>
+
+            <!-- Target Simulator -->
+            <div class="target-simulator">
+              <div style="font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px;">🎯 Simulasi Target Ujian PAS</div>
+              <p style="font-size: 12px; color: var(--muted);">Geser estimasi nilai PAS untuk melihat pengaruhnya terhadap rata-rata akhir:</p>
+              <input type="range" min="60" max="100" value="88" class="sim-slider" id="simPasSlider" oninput="runSimScore(this.value)">
+              <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; font-weight: 600;">
+                <span>Estimasi PAS: <strong id="simPasVal">88</strong></span>
+                <span>Prediksi Rapor: <strong style="color: var(--sage);" id="simResultVal">88.6</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: POMODORO TIMER WORKSPACE -->
+      <div id="section-timer" class="view-panel" style="display: none;">
+        <div class="content-card">
+          <div class="card-header">
+            <div class="card-header-left">
+              <span style="font-size: 22px;">⏱️</span>
+              <div>
+                <div class="card-title">Ruang Fokus Belajar (Pomodoro Timer)</div>
+                <div class="card-caption">Belajar teratur tanpa lelah mental — 25 menit fokus, 5 menit rehat</div>
+              </div>
+            </div>
+            <span class="period-time-badge">SESI KE-4 HARI INI</span>
+          </div>
+          <div class="card-body">
+            <div class="timer-workspace">
+              <div class="timer-mode-pills">
+                <button class="mode-pill active" onclick="setTimerDuration(25, this)">Fokus (25m)</button>
+                <button class="mode-pill" onclick="setTimerDuration(5, this)">Istirahat Singkat (5m)</button>
+                <button class="mode-pill" onclick="setTimerDuration(15, this)">Istirahat Panjang (15m)</button>
+              </div>
+
+              <div class="timer-subject-select">
+                <span>Sedang Mempelajari:</span>
+                <select id="timerSubjectSelect" onchange="updateTimerSubject(this.value)">
+                  <option value="Matematika Wajib">Matematika Wajib</option>
+                  <option value="Fisika Terapan">Fisika Terapan</option>
+                  <option value="Kimia Organik">Kimia Organik</option>
+                  <option value="Biologi Molekuler">Biologi Molekuler</option>
+                  <option value="Bahasa Inggris">Bahasa Inggris</option>
+                  <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                  <option value="Sejarah Indonesia">Sejarah Indonesia</option>
+                  <option value="Informatika / Coding">Informatika / Coding</option>
+                </select>
+              </div>
+
+              <div class="timer-display" id="mainTimerDisplay">25:00</div>
+
+              <div class="timer-actions">
+                <button class="btn btn-primary btn-timer-primary" id="btnMainTimerToggle" onclick="toggleTimer()">▶ Mulai Sesi</button>
+                <button class="btn" onclick="resetTimer()">↺ Reset</button>
+              </div>
+
+              <p style="font-size: 13px; color: var(--muted); max-width: 480px; margin-top: 10px;">
+                💡 <em>Tips Belajar Efektif:</em> Matikan notifikasi ponsel, siapkan satu gelas air minum, dan fokus hanya pada satu materi tugas hingga waktu berbunyi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal: Tambah Tugas Baru -->
+    <div class="modal-backdrop" id="addTaskModal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <div class="modal-title">Tambah Tugas / PR Baru</div>
+          <button class="btn-delete-task" style="font-size: 18px;" onclick="closeModal('addTaskModal')">&times;</button>
+        </div>
+        <form onsubmit="handleAddTask(event)">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label">Mata Pelajaran</label>
+              <select class="form-control" id="taskInputSubject" required>
+                <option value="Matematika Wajib">Matematika Wajib</option>
+                <option value="Fisika Terapan">Fisika Terapan</option>
+                <option value="Kimia Organik">Kimia Organik</option>
+                <option value="Biologi">Biologi</option>
+                <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                <option value="Bahasa Inggris">Bahasa Inggris</option>
+                <option value="Sejarah Indonesia">Sejarah Indonesia</option>
+                <option value="Informatika">Informatika</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Judul Tugas / Deskripsi PR</label>
+              <input type="text" class="form-control" id="taskInputTitle" placeholder="Contoh: Latihan Soal Turunan Fungsi hal. 142 no. 1-10" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Tenggat Waktu (Deadline)</label>
+                <input type="date" class="form-control" id="taskInputDeadline" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Prioritas</label>
+                <select class="form-control" id="taskInputPriority">
+                  <option value="Tinggi">Tinggi (Mendesak)</option>
+                  <option value="Sedang" selected>Sedang</option>
+                  <option value="Santai">Santai</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" onclick="closeModal('addTaskModal')">Batal</button>
+            <button type="submit" class="btn btn-primary">Simpan Tugas</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal: Tambah Kelas Jadwal Baru -->
+    <div class="modal-backdrop" id="addClassModal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <div class="modal-title">Tambah Jam Pelajaran</div>
+          <button class="btn-delete-task" style="font-size: 18px;" onclick="closeModal('addClassModal')">&times;</button>
+        </div>
+        <form onsubmit="handleAddClass(event)">
+          <div class="modal-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Hari</label>
+                <select class="form-control" id="classInputDay">
+                  <option value="Senin">Senin</option>
+                  <option value="Selasa">Selasa</option>
+                  <option value="Rabu">Rabu</option>
+                  <option value="Kamis">Kamis</option>
+                  <option value="Jumat">Jumat</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Jam (Waktu)</label>
+                <input type="text" class="form-control" id="classInputTime" placeholder="Contoh: 07:15 - 08:45" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mata Pelajaran</label>
+              <input type="text" class="form-control" id="classInputSubject" placeholder="Contoh: Matematika Peminatan" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Guru Pengampu</label>
+                <input type="text" class="form-control" id="classInputTeacher" placeholder="Contoh: Dra. Sri Wahyuni" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Ruang Kelas / Lab</label>
+                <input type="text" class="form-control" id="classInputRoom" placeholder="Contoh: R. XII-2 / Lab Fisika" required>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" onclick="closeModal('addClassModal')">Batal</button>
+            <button type="submit" class="btn btn-navy">Tambahkan ke Jadwal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- 1. INITIAL DATA STORE & LOCAL STORAGE ---
+    const STORAGE_KEY = 'sinau_study_data_v1';
+
+    const defaultData = {
+      student: {
+        name: 'Nirmala Kusuma',
+        class: 'XII IPA 2',
+        school: 'SMAN 1 Kota Bandung'
+      },
+      schedule: {
+        'Senin': [
+          { id: 1, time: '07:15 - 08:45', subject: 'Matematika Wajib', teacher: 'Drs. Bambang H.', room: 'R. XII-2' },
+          { id: 2, time: '09:00 - 10:30', subject: 'Fisika Terapan', teacher: 'Ibu Ratna S.Si.', room: 'Lab Fisika' },
+          { id: 3, time: '10:45 - 12:15', subject: 'Bahasa Indonesia', teacher: 'Bpk. Ahmad M.Pd.', room: 'R. XII-2' },
+          { id: 4, time: '13:00 - 14:30', subject: 'Kimia Organik', teacher: 'Dra. Endang W.', room: 'Lab Kimia' }
+        ],
+        'Selasa': [
+          { id: 5, time: '07:15 - 08:45', subject: 'Biologi Molekuler', teacher: 'Ibu Siti Rahayu M.Si.', room: 'Lab Biologi' },
+          { id: 6, time: '09:00 - 10:30', subject: 'Bahasa Inggris', teacher: 'Mr. David Wilson', room: 'R. Bahasa' },
+          { id: 7, time: '10:45 - 12:15', subject: 'Sejarah Indonesia', teacher: 'Bpk. Dedi Supardi', room: 'R. XII-2' },
+          { id: 8, time: '13:00 - 14:30', subject: 'Informatika / Coding', teacher: 'Bpk. Aditya S.Kom.', room: 'Lab Komputer 1' }
+        ],
+        'Rabu': [
+          { id: 9, time: '07:15 - 08:45', subject: 'Matematika Tingkat Lanjut', teacher: 'Drs. Bambang H.', room: 'R. XII-2' },
+          { id: 10, time: '09:00 - 10:30', subject: 'Fisika Laboratorium', teacher: 'Ibu Ratna S.Si.', room: 'Lab Fisika' },
+          { id: 11, time: '10:45 - 12:15', subject: 'Pendidikan Agama & Budi Pekerti', teacher: 'Ust. Hasan Basri', room: 'Masjid Sekolah' },
+          { id: 12, time: '13:00 - 14:30', subject: 'Seni Rupa & Desain', teacher: 'Ibu Maya Pratiwi', room: 'Studio Seni' }
+        ],
+        'Kamis': [
+          { id: 13, time: '07:15 - 08:45', subject: 'Kimia Larutan & Stoikiometri', teacher: 'Dra. Endang W.', room: 'Lab Kimia' },
+          { id: 14, time: '09:00 - 10:30', subject: 'Pendidikan Jasmani (Olahraga)', teacher: 'Bpk. Hendra S.Pd.', room: 'Lapangan Barat' },
+          { id: 15, time: '10:45 - 12:15', subject: 'Pendidikan Pancasila (PPKn)', teacher: 'Dra. Sri Mulyani', room: 'R. XII-2' }
+        ],
+        'Jumat': [
+          { id: 16, time: '07:15 - 08:30', subject: 'Literasi & Bimbingan Konseling', teacher: 'Ibu Rina S.Psi.', room: 'R. XII-2' },
+          { id: 17, time: '08:45 - 10:15', subject: 'Kewirausahaan & Prakarya (PKWU)', teacher: 'Bpk. Arif Wibowo', room: 'Bengkel Kreatif' },
+          { id: 18, time: '10:30 - 11:30', subject: 'Mentoring Proyek Ilmiah Siswa', teacher: 'Tim Guru Riset', room: 'Perpustakaan' }
+        ]
+      },
+      tasks: [
+        { id: 101, subject: 'Fisika Terapan', title: 'Laporan Praktikum Induksi Elektromagnetik (Analisis Grafik Arus)', deadline: '2026-10-19', priority: 'Tinggi', completed: false },
+        { id: 102, subject: 'Matematika Wajib', title: 'Latihan 10 Soal Integral Substitusi & Luas Daerah hal. 165', deadline: '2026-10-21', priority: 'Sedang', completed: false },
+        { id: 103, subject: 'Bahasa Indonesia', title: 'Menulis Esai Kritik Sastra Cerpen Robohnya Surau Kami (800 kata)', deadline: '2026-10-23', priority: 'Sedang', completed: false },
+        { id: 104, subject: 'Kimia Organik', title: 'Membuat Bagan Reaksi Polimerisasi & Tata Nama Senyawa Karbon', deadline: '2026-10-16', priority: 'Santai', completed: true },
+        { id: 105, subject: 'Informatika', title: 'Mini Proyek Halaman Web Profil Sederhana dengan Flexbox', deadline: '2026-10-15', priority: 'Sedang', completed: true }
+      ],
+      grades: [
+        { subject: 'Matematika Wajib', tugas: 90, uh: 92, pts: 95, pas: 93 },
+        { subject: 'Fisika Terapan', tugas: 88, uh: 85, pts: 90, pas: 88 },
+        { subject: 'Kimia Organik', tugas: 86, uh: 84, pts: 85, pas: 89 },
+        { subject: 'Biologi Molekuler', tugas: 92, uh: 89, pts: 88, pas: 91 },
+        { subject: 'Bahasa Indonesia', tugas: 90, uh: 88, pts: 86, pas: 90 },
+        { subject: 'Bahasa Inggris', tugas: 94, uh: 90, pts: 92, pas: 95 },
+        { subject: 'Sejarah Indonesia', tugas: 85, uh: 86, pts: 84, pas: 88 },
+        { subject: 'Informatika', tugas: 96, uh: 94, pts: 92, pas: 95 }
+      ],
+      scratchpad: "Catatan Ujian Pekan Depan:\n1. Rumus fisika: EMF induksi E = -N (dPhi/dt)\n2. Pelajari kaidah tangan kanan Lorentz\n3. Bawa kalkulator scientific hari Rabu untuk matematika lanjut!\n4. Kirim draft proposal penelitian siswa ke Pak Bambang hari Jumat jam 10."
+    };
+
+    // Load data or initialize
+    let appData = loadData();
+
+    function loadData() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch (e) {
+        console.warn('LocalStorage unavailable, using default', e);
+      }
+      return JSON.parse(JSON.stringify(defaultData));
+    }
+
+    function saveData() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+      } catch (e) {
+        console.warn('Could not save to localStorage', e);
+      }
+      updateUI();
+    }
+
+    function resetData() {
+      if (confirm('Kembalikan semua data ke contoh awal? Perubahan catatan dan nilaimu akan di-reset.')) {
+        appData = JSON.parse(JSON.stringify(defaultData));
+        saveData();
+      }
+    }
+
+    // --- 2. NAVIGATION & TABS ---
+    let currentSection = 'dashboard';
+    let currentScheduleDay = 'Senin';
+    let currentTaskFilter = 'all';
+
+    function switchSection(secId) {
+      currentSection = secId;
+      document.querySelectorAll('.view-panel').forEach(el => el.style.display = 'none');
+      const target = document.getElementById(`section-${secId}`);
+      if (target) target.style.display = 'block';
+
+      // Update Header Tab State
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        const isMatch = btn.getAttribute('onclick')?.includes(secId);
+        btn.classList.toggle('active', !!isMatch);
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectDay(day) {
+      currentScheduleDay = day;
+      document.querySelectorAll('.day-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.includes(day));
+      });
+      renderDaySchedule();
+    }
+
+    // --- 3. RENDERING SCHEDULE ---
+    function renderDaySchedule() {
+      const grid = document.getElementById('fullDayScheduleGrid');
+      if (!grid) return;
+      const list = appData.schedule[currentScheduleDay] || [];
+      if (list.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 36px; color: var(--muted);">Tidak ada jadwal pelajaran di hari ${currentScheduleDay}.</div>`;
+        return;
+      }
+
+      grid.innerHTML = list.map((item, idx) => `
+        <div class="period-card ${idx === 1 ? 'is-active' : ''}">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="period-time-badge">🕒 ${item.time}</span>
+              ${idx === 1 ? '<span style="font-size: 10px; font-weight: 700; color: var(--terracotta); background: var(--terracotta-soft); padding: 2px 6px; border-radius: 4px;">AKTIF SEKARANG</span>' : ''}
+            </div>
+            <div class="period-subject">${item.subject}</div>
+            <div class="period-meta" style="margin-top: 8px;">
+              <div class="meta-row"><span>👤</span> <span>${item.teacher}</span></div>
+            </div>
+          </div>
+          <div class="period-footer">
+            <span class="room-tag">🏛 ${item.room}</span>
+            <button class="btn-delete-task" title="Hapus Mapel" onclick="deleteClass('${currentScheduleDay}', ${item.id})">✕ Hapus</button>
+          </div>
+        </div>
+      `).join('');
+
+      // Update badge counts for each day
+      Object.keys(appData.schedule).forEach(day => {
+        const badge = document.getElementById(`badge-${day}`);
+        if (badge) badge.textContent = appData.schedule[day].length;
+      });
+    }
+
+    function renderDashboardSchedule() {
+      const container = document.getElementById('todayScheduleList');
+      if (!container) return;
+      // Get today's name in Indonesian or default to Senin
+      const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+      const todayName = days[new Date().getDay()];
+      const activeDay = appData.schedule[todayName] ? todayName : 'Senin';
+      const list = appData.schedule[activeDay] || [];
+
+      document.getElementById('dashDayCaption').textContent = `${activeDay} · ${list.length} Jam Pertemuan Hari Ini`;
+
+      container.innerHTML = list.map((item, idx) => `
+        <div class="period-card ${idx === 1 ? 'is-active' : ''}">
+          <div>
+            <span class="period-time-badge">🕒 ${item.time}</span>
+            <div class="period-subject" style="margin-top: 6px;">${item.subject}</div>
+            <div class="period-meta" style="margin-top: 6px;">
+              <div class="meta-row"><span>👤</span> <span>${item.teacher}</span></div>
+            </div>
+          </div>
+          <div class="period-footer">
+            <span class="room-tag">🏛 ${item.room}</span>
+            ${idx === 1 ? '<span style="color: var(--terracotta); font-weight: 700; font-size: 11px;">● Sedang Berlangsung</span>' : '<span style="color: var(--muted); font-size: 11px;">Jam ke-' + (idx + 1) + '</span>'}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // --- 4. TASKS MANAGEMENT ---
+    function filterTasks(type) {
+      currentTaskFilter = type;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(type));
+      });
+      renderTasks();
+    }
+
+    function toggleTask(id) {
+      const task = appData.tasks.find(t => t.id === id);
+      if (task) {
+        task.completed = !task.completed;
+        saveData();
+      }
+    }
+
+    function deleteTask(id) {
+      appData.tasks = appData.tasks.filter(t => t.id !== id);
+      saveData();
+    }
+
+    function renderTasks() {
+      const fullListEl = document.getElementById('fullTaskList');
+      const dashListEl = document.getElementById('dashboardTaskList');
+
+      const all = appData.tasks;
+      const pending = all.filter(t => !t.completed);
+      const urgent = pending.filter(t => t.priority === 'Tinggi');
+      const completed = all.filter(t => t.completed);
+
+      // Counts
+      document.getElementById('count-all').textContent = all.length;
+      document.getElementById('count-pending').textContent = pending.length;
+      document.getElementById('count-urgent').textContent = urgent.length;
+      document.getElementById('count-completed').textContent = completed.length;
+      document.getElementById('pendingTaskBadge').textContent = pending.length;
+      document.getElementById('statPendingTasks').textContent = pending.length;
+
+      let filtered = all;
+      if (currentTaskFilter === 'pending') filtered = pending;
+      if (currentTaskFilter === 'urgent') filtered = urgent;
+      if (currentTaskFilter === 'completed') filtered = completed;
+
+      const renderItemHtml = (t) => {
+        const pClass = t.priority === 'Tinggi' ? 'p-high' : (t.priority === 'Sedang' ? 'p-med' : 'p-low');
+        return `
+          <div class="task-item ${t.completed ? 'completed' : ''}">
+            <div class="task-left">
+              <div class="task-checkbox" onclick="toggleTask(${t.id})">
+                ${t.completed ? '✓' : ''}
+              </div>
+              <div class="task-details">
+                <div class="task-title">${t.title}</div>
+                <div class="task-tags">
+                  <span class="subject-pill">${t.subject}</span>
+                  <span class="priority-badge ${pClass}">${t.priority}</span>
+                </div>
+              </div>
+            </div>
+            <div class="task-right">
+              <span class="deadline-countdown ${t.priority === 'Tinggi' && !t.completed ? 'deadline-urgent' : ''}">
+                📅 ${formatDateDeadline(t.deadline)}
+              </span>
+              <button class="btn-delete-task" title="Hapus Tugas" onclick="deleteTask(${t.id})">✕</button>
+            </div>
+          </div>
+        `;
+      };
+
+      if (fullListEl) {
+        if (filtered.length === 0) {
+          fullListEl.innerHTML = `<div style="text-align: center; padding: 32px; color: var(--muted);">Tidak ada tugas dalam kategori ini. 🎉</div>`;
+        } else {
+          fullListEl.innerHTML = filtered.map(renderItemHtml).join('');
+        }
+      }
+
+      if (dashListEl) {
+        const topPending = pending.slice(0, 4);
+        if (topPending.length === 0) {
+          dashListEl.innerHTML = `<div style="text-align: center; padding: 24px; color: var(--sage); font-weight: 600;">Semua tugas telah beres! Kamu siap istirahat. ✨</div>`;
+        } else {
+          dashListEl.innerHTML = topPending.map(renderItemHtml).join('');
+        }
+      }
+    }
+
+    function formatDateDeadline(dateStr) {
+      if (!dateStr) return 'Tanpa tenggat';
+      const parts = dateStr.split('-');
+      if (parts.length === 3) {
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+      }
+      return dateStr;
+    }
+
+    // --- 5. GRADES & REPORT CARD ---
+    function calcSubjectFinal(g) {
+      // 20% tugas + 30% UH + 25% PTS + 25% PAS
+      const total = (g.tugas * 0.20) + (g.uh * 0.30) + (g.pts * 0.25) + (g.pas * 0.25);
+      return Math.round(total * 10) / 10;
+    }
+
+    function getPredicate(score) {
+      if (score >= 88) return { label: 'A', class: 'grade-a', full: 'PREDIKAT A (SANGAT BAIK)' };
+      if (score >= 78) return { label: 'B', class: 'grade-b', full: 'PREDIKAT B (BAIK)' };
+      if (score >= 68) return { label: 'C', class: 'grade-c', full: 'PREDIKAT C (CUKUP)' };
+      return { label: 'D', class: 'grade-c', full: 'PREDIKAT D (PERLU REMEDIAL)' };
+    }
+
+    function renderGrades() {
+      const tbody = document.getElementById('gradesTableBody');
+      if (!tbody) return;
+
+      let grandTotal = 0;
+
+      tbody.innerHTML = appData.grades.map((item, idx) => {
+        const finalScore = calcSubjectFinal(item);
+        grandTotal += finalScore;
+        const pred = getPredicate(finalScore);
+
+        return `
+          <tr>
+            <td>
+              <strong style="color: var(--ink);">${item.subject}</strong>
+            </td>
+            <td style="text-align: center;">
+              <input type="number" min="0" max="100" class="grade-input" value="${item.tugas}" onchange="updateScore(${idx}, 'tugas', this.value)">
+            </td>
+            <td style="text-align: center;">
+              <input type="number" min="0" max="100" class="grade-input" value="${item.uh}" onchange="updateScore(${idx}, 'uh', this.value)">
+            </td>
+            <td style="text-align: center;">
+              <input type="number" min="0" max="100" class="grade-input" value="${item.pts}" onchange="updateScore(${idx}, 'pts', this.value)">
+            </td>
+            <td style="text-align: center;">
+              <input type="number" min="0" max="100" class="grade-input" value="${item.pas}" onchange="updateScore(${idx}, 'pas', this.value)">
+            </td>
+            <td style="text-align: center;">
+              <span class="final-score">${finalScore.toFixed(1)}</span>
+            </td>
+            <td style="text-align: center;">
+              <span class="grade-badge ${pred.class}">${pred.label}</span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      const gpa = (grandTotal / appData.grades.length).toFixed(1);
+      const overallPred = getPredicate(parseFloat(gpa));
+
+      document.getElementById('statGpa').textContent = gpa;
+      document.getElementById('sidebarGpaDisplay').textContent = gpa;
+      const badge = document.getElementById('sidebarPredicateBadge');
+      if (badge) {
+        badge.textContent = overallPred.full;
+        badge.className = `grade-badge ${overallPred.class}`;
+      }
+    }
+
+    function updateScore(index, field, value) {
+      const valNum = Math.max(0, Math.min(100, parseFloat(value) || 0));
+      appData.grades[index][field] = valNum;
+      saveData();
+    }
+
+    function saveGrades() {
+      saveData();
+      alert('✓ Seluruh catatan nilai berhasil disimpan!');
+    }
+
+    function runSimScore(val) {
+      document.getElementById('simPasVal').textContent = val;
+      // Calculate projected GPA if all PAS are simulated at val
+      let simTotal = 0;
+      appData.grades.forEach(g => {
+        const simFinal = (g.tugas * 0.20) + (g.uh * 0.30) + (g.pts * 0.25) + (parseFloat(val) * 0.25);
+        simTotal += simFinal;
+      });
+      const simGpa = (simTotal / appData.grades.length).toFixed(1);
+      document.getElementById('simResultVal').textContent = simGpa;
+    }
+
+    // --- 6. FOCUS TIMER (POMODORO) ---
+    let timerDuration = 25 * 60;
+    let timerTimeLeft = 25 * 60;
+    let timerRunning = false;
+    let timerInterval = null;
+
+    function setTimerDuration(mins, btnEl) {
+      document.querySelectorAll('.mode-pill').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      timerDuration = mins * 60;
+      timerTimeLeft = timerDuration;
+      pauseTimer();
+      updateTimerUI();
+    }
+
+    function toggleTimer() {
+      if (timerRunning) {
+        pauseTimer();
+      } else {
+        startTimer();
+      }
+    }
+
+    function startTimer() {
+      timerRunning = true;
+      document.getElementById('btnMainTimerToggle').textContent = '⏸ Jeda Sesi';
+      document.getElementById('btnDashTimerToggle').textContent = '⏸ Jeda';
+      timerInterval = setInterval(() => {
+        if (timerTimeLeft > 0) {
+          timerTimeLeft--;
+          updateTimerUI();
+        } else {
+          clearInterval(timerInterval);
+          timerRunning = false;
+          alert('🎉 Sesi waktu fokus selesai! Saatnya istirahat sebentar untuk menyegarkan pikiran.');
+          resetTimer();
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      timerRunning = false;
+      clearInterval(timerInterval);
+      document.getElementById('btnMainTimerToggle').textContent = '▶ Lanjutkan';
+      document.getElementById('btnDashTimerToggle').textContent = '▶ Lanjutkan';
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      timerTimeLeft = timerDuration;
+      document.getElementById('btnMainTimerToggle').textContent = '▶ Mulai Sesi';
+      document.getElementById('btnDashTimerToggle').textContent = '▶ Mulai Sesi';
+      updateTimerUI();
+    }
+
+    function updateTimerUI() {
+      const m = Math.floor(timerTimeLeft / 60);
+      const s = timerTimeLeft % 60;
+      const str = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      document.getElementById('mainTimerDisplay').textContent = str;
+      document.getElementById('dashTimerDisplay').textContent = str;
+    }
+
+    function updateTimerSubject(val) {
+      document.getElementById('dashTimerSubject').textContent = val;
+    }
+
+    // --- 7. SCRATCHPAD AUTO-SAVE ---
+    function saveScratchpad() {
+      const txt = document.getElementById('scratchpadArea').value;
+      appData.scratchpad = txt;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+      } catch (e) {}
+    }
+
+    // --- 8. MODAL HANDLERS ---
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('open');
+    }
+
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('open');
+    }
+
+    function openAddTaskModal() {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('taskInputDeadline').value = today;
+      openModal('addTaskModal');
+    }
+
+    function handleAddTask(e) {
+      e.preventDefault();
+      const subject = document.getElementById('taskInputSubject').value;
+      const title = document.getElementById('taskInputTitle').value;
+      const deadline = document.getElementById('taskInputDeadline').value;
+      const priority = document.getElementById('taskInputPriority').value;
+
+      appData.tasks.unshift({
+        id: Date.now(),
+        subject,
+        title,
+        deadline,
+        priority,
+        completed: false
+      });
+
+      saveData();
+      closeModal('addTaskModal');
+      document.getElementById('taskInputTitle').value = '';
+    }
+
+    function openAddClassModal() {
+      document.getElementById('classInputDay').value = currentScheduleDay;
+      openModal('addClassModal');
+    }
+
+    function handleAddClass(e) {
+      e.preventDefault();
+      const day = document.getElementById('classInputDay').value;
+      const time = document.getElementById('classInputTime').value;
+      const subject = document.getElementById('classInputSubject').value;
+      const teacher = document.getElementById('classInputTeacher').value;
+      const room = document.getElementById('classInputRoom').value;
+
+      if (!appData.schedule[day]) appData.schedule[day] = [];
+      appData.schedule[day].push({
+        id: Date.now(),
+        time,
+        subject,
+        teacher,
+        room
+      });
+
+      saveData();
+      closeModal('addClassModal');
+    }
+
+    function deleteClass(day, id) {
+      if (confirm('Hapus mata pelajaran ini dari jadwal?')) {
+        appData.schedule[day] = appData.schedule[day].filter(c => c.id !== id);
+        saveData();
+      }
+    }
+
+    function editStudentProfile() {
+      const newName = prompt('Ubah Nama Siswa:', appData.student.name);
+      if (newName) {
+        const newClass = prompt('Ubah Kelas / Jurusan:', appData.student.class);
+        appData.student.name = newName;
+        if (newClass) appData.student.class = newClass;
+        saveData();
+      }
+    }
+
+    // --- 9. GLOBAL UI REFRESH ---
+    function updateUI() {
+      // Profile
+      document.getElementById('studentName').textContent = appData.student.name;
+      document.getElementById('studentClass').textContent = appData.student.class;
+      document.getElementById('avatarInitial').textContent = appData.student.name.charAt(0);
+
+      // Scratchpad
+      const scratchpad = document.getElementById('scratchpadArea');
+      if (scratchpad && scratchpad.value !== appData.scratchpad) {
+        scratchpad.value = appData.scratchpad || '';
+      }
+
+      // Schedule & Tasks & Grades
+      renderDaySchedule();
+      renderDashboardSchedule();
+      renderTasks();
+      renderGrades();
+    }
+
+    // Set today date formatted
+    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('currentDateStr').textContent = new Date().toLocaleDateString('id-ID', dateOptions);
+
+    // Initialize UI on load
+    updateUI();
+  </script>
+</body>
+</html>

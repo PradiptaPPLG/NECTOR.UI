@@ -742,6 +742,82 @@ export function TanahLiatStudio() {
     publishedAt: '2026-05-08',
     livePreviewAvailable: true,
     accentColor: '#2D6A4F'
+  },
+  {
+    id: 'tpl-14',
+    slug: 'sinau-study-workspace',
+    title: 'SINAU',
+    tagline: 'Ruang belajar digital & academic tracker mandiri untuk siswa sekolah',
+    description: 'Template website ruang belajar mandiri, agenda tugas sekolah, dan sistem pelacak akademik yang dirancang khusus untuk pelajar SMP, SMA, SMK, maupun mahasiswa. Dilengkapi jadwal pelajaran mingguan interaktif (Senin-Jumat) dengan status kelas aktif, buku agenda tugas & PR dengan filter prioritas dan hitung mundur deadline, kalkulator rekap nilai rapor & kartu hasil studi berbasis weighted average otomatis, timer fokus belajar Pomodoro 25 menit, serta scratchpad catatan rumus cepat dengan penyimpanan offline-first di browser.',
+    category: 'sekolah',
+    tags: ['Sekolah', 'Akademik', 'Jadwal Pelajaran', 'Buku Tugas', 'Pomodoro Timer', 'Rekap Nilai Rapor', 'Anti-Slop Spec'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'LocalStorage', 'Offline First'],
+    thumbnailSvgType: 'sekolah',
+    previewComponentKey: 'sekolah-sinau',
+    htmlPath: '/templates/sekolah/sinau.html',
+    htmlFolderPath: 'templates/sekolah/sinau.html',
+    features: [
+      'Struktur mandiri 1-file tunggal (HTML + CSS + JS) siap pakai langsung di browser tanpa perlu server, node.js, atau database eksternal',
+      'Jadwal pelajaran mingguan interaktif (Senin s/d Jumat) dengan deteksi hari aktif, info jam, ruang kelas, guru pengampu, dan formulir tambah mapel',
+      'Buku agenda tugas & PR mandiri dengan filter status (Semua, Belum Selesai, Mendesak, Selesai), badge prioritas warna, dan checklist interaktif',
+      'Kartu hasil studi & rekap nilai rapor otomatis dengan perhitungan bobot (Tugas 20%, UH 30%, PTS 25%, PAS 25%) dan slider simulasi target ujian',
+      'Timer fokus belajar Pomodoro (25m fokus, 5m rehat) dengan pilihan mata pelajaran aktif dan counter sesi harian',
+      'Penyimpanan lokal (LocalStorage) otomatis — data tugas, nilai, dan jadwal tersimpan aman di browser siswa',
+      'Desain print-friendly (@media print) yang rapi untuk langsung mencetak jadwal dan kartu nilai ke kertas A4'
+    ],
+    usageInstructions: [
+      'Buka templates/sekolah/sinau.html di web browser kamu.',
+      'Klik profil di kanan atas untuk menyesuaikan nama siswa dan kelas/jurusan.',
+      'Buka tab Jadwal Pelajaran untuk menambah atau menghapus mata pelajaran sesuai jadwal sekolahmu.',
+      'Gunakan Buku Tugas untuk mencatat PR dan pantau nilai rapor secara berkala di tab Rekap Nilai.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'sinau.html',
+        language: 'html',
+        content: `<!-- SINAU — Ruang Belajar & Academic Tracker Pelajar Mandiri -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SINAU — Ruang Belajar & Academic Tracker</title>
+  <style>
+    :root {
+      --bg: #faf8f3;
+      --navy: #1f364d;
+      --terracotta: #c44525;
+      --sage: #2a7e68;
+      --serif: "Newsreader", serif;
+      --sans: "Plus Jakarta Sans", sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-notice">SINAU // EDISI PELAJAR — Meja Belajar Digital Mandiri</div>
+  <header>
+    <h1>SINAU<span>.</span> STUDY WORKSPACE</h1>
+    <nav>Dashboard · Jadwal Pelajaran · Buku Tugas · Rekap Nilai · Timer Fokus</nav>
+  </header>
+  <!-- Full functional schedule, tasks, grades & pomodoro -->
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website meja belajar digital, jadwal pelajaran, agenda PR, dan rekap nilai rapor SINAU berstandar anti-slop.',
+      designDirection: 'Warm paper study desk: Paper Warm Cream (#FAF8F3), Academic Navy (#1F364D), Restrained Terracotta (#C44525), dan Sage (#2A7E68). Tipografi Newsreader serif editorial berpadu dengan Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Summary metric strip 4 kolom (Target Jam Fokus, Tugas Pending, Rata-Rata Nilai, Jadwal Hari Ini), grid jadwal pelajaran mingguan per hari, list agenda tugas berfilter prioritas, tabel nilai rapor interaktif, dan studio timer Pomodoro.',
+      typographyAndColor: 'Kombinasi Newsreader untuk judul sastra akademis dan Plus Jakarta Sans untuk kejelasan antarmuka formulir.',
+      interactions: 'Checklist tugas interaktif dengan animasi selesai, input nilai kalkulasi otomatis, slider simulasi nilai PAS, timer Pomodoro dengan interval waktu, dan penyimpanan lokal (LocalStorage).',
+      technicalRequirements: 'Zero dependencies, 100% standalone single-file HTML, responsif smartphone hingga desktop, print stylesheet.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-05-10',
+    livePreviewAvailable: true,
+    accentColor: '#1F364D'
   }
 ];
 

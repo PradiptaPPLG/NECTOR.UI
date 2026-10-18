@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>NECTOR.UI — Instagram Slide 04 (Behind The Code)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background-color: #08090b;
+      color: #faf9f5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .slide {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      background: radial-gradient(circle at 75% 25%, rgba(196, 69, 37, 0.18), transparent 45%),
+                  radial-gradient(circle at 25% 75%, rgba(226, 88, 34, 0.14), transparent 45%),
+                  radial-gradient(circle at 50% 50%, #111218, #08090b 90%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 68px 52px 68px;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    /* Technical Blueprint Grid */
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(196, 69, 37, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196, 69, 37, 0.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: -0.5px;
+      color: #faf9f5;
+    }
+
+    .brand-logo .dot {
+      color: #c44525;
+    }
+
+    .brand-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 5px 12px;
+      background: rgba(196, 69, 37, 0.15);
+      border: 1px solid rgba(196, 69, 37, 0.35);
+      border-radius: 999px;
+      color: #ff9d80;
+    }
+
+    .system-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #ff7a59;
+      background: rgba(196, 69, 37, 0.1);
+      border: 1px solid rgba(196, 69, 37, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      letter-spacing: 1px;
+    }
+
+    /* Headline */
+    .section-header {
+      margin-top: 10px;
+      z-index: 2;
+    }
+
+    .blueprint-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #ff7a59;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .headline {
+      font-family: 'Outfit', sans-serif;
+      font-size: 46px;
+      font-weight: 900;
+      letter-spacing: -1.2px;
+      color: #ffffff;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .headline span.accent {
+      color: #c44525;
+    }
+
+    /* Blueprint Stage Content */
+    .blueprint-stage {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 18px;
+      z-index: 2;
+    }
+
+    /* Blueprint Top Row: Architecture + Specs */
+    .blueprint-row-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .blueprint-card {
+      background: rgba(15, 16, 22, 0.92);
+      border: 1px solid rgba(196, 69, 37, 0.35);
+      border-radius: 14px;
+      padding: 16px 20px;
+      position: relative;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #ff7a59;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    /* Architecture Flow */
+    .arch-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .arch-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .arch-step .left-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: #faf9f5;
+    }
+
+    .arch-step .right-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      padding: 3px 8px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      border-radius: 4px;
+    }
+
+    /* Specs Grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .spec-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 8px 12px;
+    }
+
+    .spec-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .spec-num.glow {
+      color: #ff7a59;
+    }
+
+    .spec-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #9c9b94;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Real Code Screenshot Window */
+    .code-window {
+      background: #08090c;
+      border: 1px solid rgba(196, 69, 37, 0.45);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+
+    .code-topbar {
+      background: #14151c;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .code-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .code-filename {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #ff9d80;
+    }
+
+    .code-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: #34d399;
+    }
+
+    .code-screenshot-container {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: #0d0e12;
+      position: relative;
+    }
+
+    .code-screenshot-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 88%;
+      display: block;
+    }
+
+    /* Development Metric Bar */
+    .blueprint-footer-banner {
+      background: rgba(196, 69, 37, 0.14);
+      border: 1px solid rgba(196, 69, 37, 0.4);
+      border-radius: 10px;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .metric-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #faf9f5;
+    }
+
+    .metric-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #ff7a59;
+    }
+
+    /* Bottom Bar */
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+      z-index: 2;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+      background: #111;
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .author-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: #faf9f5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .author-handle .req-badge {
+      font-size: 9.5px;
+      color: #ff9d80;
+      background: rgba(196, 69, 37, 0.25);
+      border: 1px solid rgba(196, 69, 37, 0.5);
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .author-sub {
+      font-size: 11px;
+      color: #8f8e87;
+    }
+
+    .slide-pagination {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8f8e87;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .slide-pagination .active-num {
+      color: #c44525;
+      font-weight: 800;
+    }
+
+    .swipe-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #d8d7cf;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="brand-group">
+        <div class="brand-logo">NECTOR<span class="dot">.</span>UI</div>
+        <div class="brand-badge">THE BLUEPRINT // ARCHITECTURE</div>
+      </div>
+      <div class="system-status">
+        // SYSTEM: STANDALONE
+      </div>
+    </div>
+
+    <!-- Headline -->
+    <div class="section-header">
+      <div class="blueprint-tag">
+        <span>⚡</span> SYSTEM SPECIFICATIONS & CRAFT STANDARDS
+      </div>
+      <h1 class="headline">
+        BEHIND THE CODE: <span class="accent">THE BLUEPRINT</span>
+      </h1>
+    </div>
+
+    <!-- Blueprint Stage -->
+    <div class="blueprint-stage">
+      <!-- Top Row -->
+      <div class="blueprint-row-top">
+        <!-- Box 1: Architecture -->
+        <div class="blueprint-card">
+          <div class="card-label">
+            <span>ARCHITECTURE</span>
+            <span>0 NPM PACKAGES</span>
+          </div>
+          <div class="arch-flow">
+            <div class="arch-step">
+              <span class="left-tag">1-File Standalone HTML</span>
+              <span class="right-badge">Native Web</span>
+            </div>
+            <div class="arch-step">
+              <span class="left-tag">Modern CSS3 Variables</span>
+              <span class="right-badge">No Preprocessor</span>
+            </div>
+            <div class="arch-step">
+              <span class="left-tag">Vanilla JS DOM Engine</span>
+              <span class="right-badge">0ms Hydration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 2: Specs -->
+        <div class="blueprint-card">
+          <div class="card-label">
+            <span>PERFORMANCE AUDIT</span>
+            <span>100 / 100</span>
+          </div>
+          <div class="specs-grid">
+            <div class="spec-box">
+              <div class="spec-num glow">&lt; 0.15s</div>
+              <div class="spec-name">First Content Paint</div>
+            </div>
+            <div class="spec-box">
+              <div class="spec-num">0 KB</div>
+              <div class="spec-name">Framework Bloat</div>
+            </div>
+            <div class="spec-box">
+              <div class="spec-num glow">360-1440</div>
+              <div class="spec-name">Screen Responsive</div>
+            </div>
+            <div class="spec-box">
+              <div class="spec-num">100%</div>
+              <div class="spec-name">Semantic Layout</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real Code Screenshot Window -->
+      <div class="code-window">
+        <div class="code-topbar">
+          <div class="code-dots">
+            <span style="width:8px;height:8px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
+            <span style="width:8px;height:8px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
+            <span style="width:8px;height:8px;border-radius:50%;background:#10b981;display:inline-block;"></span>
+          </div>
+          <div class="code-filename">real app inspector: templates/cafe/savore.html</div>
+          <div class="code-badge">MANDIRI TERVERIFIKASI</div>
+        </div>
+        <div class="code-screenshot-container">
+          <img src="screenshots/app-detail-code.png" alt="Real App Code Inspector Screenshot">
+        </div>
+      </div>
+
+      <!-- Development Metric Bar -->
+      <div class="blueprint-footer-banner">
+        <span class="metric-title">// STANDAR KUALITAS ANTISLOP: BEBAS KLAIM PALSU & SYNTHETIC METRICS</span>
+        <span class="metric-value">READY TO DEPLOY</span>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+      <div class="author-info">
+        <div class="author-avatar">
+          <img src="avatar.png" alt="@massdiipp">
+        </div>
+        <div>
+          <div class="author-handle">@massdiipp <span class="req-badge">OPEN REQUEST WEB</span></div>
+          <div class="author-sub">Creator & Frontend Dev · NECTOR.UI</div>
+        </div>
+      </div>
+      <div class="slide-pagination">
+        <span class="swipe-hint">Fitur Request Web di slide berikutnya →</span>
+        <span class="active-num">05</span> / 06
+      </div>
+    </div>
+  </div>
+</body>
+</html>

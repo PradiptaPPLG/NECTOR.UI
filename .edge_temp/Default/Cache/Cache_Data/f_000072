@@ -1,0 +1,937 @@
+export const TEMPLATES_DATA = [
+	{
+		id: "tpl-11",
+		slug: "savore-cafe",
+		title: "SAVORÉ",
+		tagline: "Kopi yang diracik perlahan, ruang untuk jeda di sudut kota Bandung",
+		description: "Template website kafe & kedai kopi modern dengan estetika warm paper dan editorial typography. Dilengkapi hero editorial, filosofi kedai, filter kategori menu interaktif (Kopi, Non-kopi, Pastry), quote jeda, info jam operasional & lokasi kedai, serta pemesanan.",
+		category: "cafe",
+		tags: [
+			"Cafe",
+			"Kedai Kopi",
+			"UMKM Kuliner",
+			"Menu Filter Interaktif",
+			"Slow Living"
+		],
+		technologies: [
+			"HTML5",
+			"Vanilla CSS",
+			"Vanilla JS",
+			"Zero Dependencies"
+		],
+		thumbnailSvgType: "cafe",
+		previewComponentKey: "cafe-savore",
+		htmlPath: "/templates/cafe/savore.html",
+		htmlFolderPath: "templates/cafe/savore.html",
+		features: [
+			"Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau framework",
+			"Filter kategori menu interaktif (Semua Menu, Kopi, Non-kopi, Pastry) tanpa reload halaman",
+			"Palet antislop: warm paper (#f5f2e9), espresso (#292b22), muted olive (#687153), soft clay (#c27e5b)",
+			"Bagian info kedai lengkap: Alamat, jam operasional, peta lokasi, dan kontak WhatsApp",
+			"Responsif penuh dari layar smartphone 360px hingga layar desktop 1440px"
+		],
+		usageInstructions: [
+			"Buka folder templates/cafe/savore.html di editor kode kamu.",
+			"Tulis komentar atau revisi langsung di file HTML tersebut.",
+			"Ganti nama menu, harga (28k, 24k, dst), dan alamat kedai sesuai kebutuhan.",
+			"Double-click file untuk preview di browser atau cek live di etalase NECTOR.UI."
+		],
+		sourceFiles: [{
+			filename: "savore.html",
+			language: "html",
+			content: `<!-- SAVORÉ — NECTOR.UI Cafe Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SAVORÉ — Kopi, Cerita, dan Jeda</title>
+  <style>
+    :root {
+      --paper: #f5f2e9;
+      --paper-deep: #ebe5d8;
+      --ink: #292b22;
+      --muted: #747469;
+      --olive: #687153;
+      --olive-dark: #4d573d;
+      --clay: #c27e5b;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    h1 { font-size: clamp(52px, 6.7vw, 94px); line-height: .99; }
+    h1 em { color: var(--olive); font-family: var(--serif); }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#">SAVORÉ<span>.</span></a>
+    <nav><a href="#cerita">Cerita</a><a href="#menu">Menu</a><a href="#ruang">Ruang</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <p>KEDAI KOPI · BANDUNG</p>
+      <h1>Sedikit jeda,<br><em>banyak cerita.</em></h1>
+      <p>Kopi yang diracik dengan niat, makanan kecil yang dibuat sepenuh hati, dan ruang untuk menikmati hari tanpa terburu-buru.</p>
+    </section>
+  </main>
+</body>
+</html>`,
+			description: "File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun."
+		}],
+		prompt: {
+			summary: "Prompt untuk website cafe SAVORE berkonsep slow coffee & warm paper.",
+			designDirection: "Warm paper (#f5f2e9), espresso (#292b22), muted olive (#687153), dan aksen clay (#c27e5b). Tipografi DM Sans dan Playfair Display.",
+			layoutAndGrid: "Asymmetric hero grid dengan foto ritual pagi dan floating stamp badge. Filter menu instan dengan tab kategori.",
+			typographyAndColor: "Headings dalam serif elegan Playfair Display, body teks dalam DM Sans yang bersih dan nyaman dibaca.",
+			interactions: "Filter kategori menu (Semua, Kopi, Non-kopi, Pastry) dengan vanilla JS murni tanpa reload halaman.",
+			technicalRequirements: "100% standalone single-file HTML, responsif smartphone hingga desktop.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-04-12",
+		livePreviewAvailable: true,
+		accentColor: "#687153"
+	},
+	{
+		id: "tpl-12",
+		slug: "croissant-atelier-bakery",
+		title: "Maison Levain Bakery",
+		tagline: "Artisan sourdough & morning pastry bakery lokal",
+		description: "Website etalase bakery artisan lokal yang memproduksi roti sourdough fermentasi alami dan pastry Prancis. Dilengkapi jadwal fresh-bake pagi, katalog viennoiserie, dan pre-order via WhatsApp.",
+		category: "bakery",
+		tags: [
+			"Bakery",
+			"Pastry",
+			"UMKM Kuliner",
+			"Sourdough",
+			"Pre-order"
+		],
+		technologies: [
+			"HTML5",
+			"Vanilla CSS",
+			"Bake Schedule",
+			"WhatsApp Cart"
+		],
+		thumbnailSvgType: "bakery",
+		previewComponentKey: "bakery-levain",
+		htmlPath: "/templates/bakery/maison-levain.html",
+		htmlFolderPath: "templates/bakery/maison-levain.html",
+		features: [
+			"Jadwal waktu roti matang (Drop times: 07:00 Country Sourdough, 09:00 Butter Croissant)",
+			"Etalase foto pastry resolusi tinggi dengan penjelasan bahan mentega Prancis",
+			"Formulir pre-order hampers dan perayaan hari istimewa",
+			"Integrasi pesan instan WhatsApp ke baker"
+		],
+		usageInstructions: ["Sesuaikan jam fresh-bake sesuai kapasitas oven Anda.", "Ubah daftar paket hampers di file data/bakery.json."],
+		sourceFiles: [{
+			filename: "maison-levain.html",
+			language: "html",
+			content: `<!DOCTYPE html>
+<html lang="id">
+<head>
+  <title>Maison Levain — Artisan Bakery</title>
+</head>
+<body>
+  <header>
+    <h1>MAISON LEVAIN</h1>
+    <p>Roti Sourdough Alami & Pastry Mentega Halal</p>
+  </header>
+</body>
+</html>`,
+			description: "Struktur semantik bakery."
+		}],
+		prompt: {
+			summary: "Prompt untuk website toko roti artisan dan sourdough lokal.",
+			designDirection: "Warm golden crust tone (#D97706) dan flour stone (#FFFBEB). Kesan hangat ala toko roti pagi hari di sudut kota.",
+			layoutAndGrid: "Grid etalase foto roti persegi dengan badge ketersediaan harian.",
+			typographyAndColor: "Tipografi humanis ramah, warna gandum hangat.",
+			interactions: "Notifikasi roti sisa berapa loaf secara live.",
+			technicalRequirements: "HTML5 semantik dan CSS Grid ringan.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-04-14",
+		livePreviewAvailable: true,
+		accentColor: "#D97706"
+	},
+	{
+		id: "tpl-13",
+		slug: "floreale-artisan-florist",
+		title: "Botanica Floral Studio",
+		tagline: "Bunga segar kurasi harian & rangkaian buket pernikahan",
+		description: "Website studio florist independen untuk pemesanan buket bunga segar harian, dekorasi intimate wedding, dan pendaftaran kelas merangkai bunga (flower workshop).",
+		category: "florist",
+		tags: [
+			"Florist",
+			"Bunga Segar",
+			"UMKM Kreatif",
+			"Buket",
+			"Workshop"
+		],
+		technologies: [
+			"React",
+			"TypeScript",
+			"Seasonal Gallery",
+			"WhatsApp Order"
+		],
+		thumbnailSvgType: "florist",
+		previewComponentKey: "florist-botanica",
+		htmlPath: "/templates/florist/botanica.html",
+		htmlFolderPath: "templates/florist/botanica.html",
+		features: [
+			"Galeri rangkaian bunga berdasarkan momen: Wisuda, Ulang Tahun, Lamaran, Belasungkawa",
+			"Fitur pesan buket kustom dengan kartu ucapan personal",
+			"Pilihan pengiriman kurir same-day instan kota",
+			"Jadwal pendaftaran kelas workshop merangkai bunga akhir pekan"
+		],
+		usageInstructions: ["Unggah foto rangkaian bunga musim ini di public/flowers.", "Hubungkan ke nomor admin WhatsApp toko bunga."],
+		sourceFiles: [{
+			filename: "botanica.html",
+			language: "html",
+			content: `import React from 'react';
+export function BotanicaFlorist() {
+  return (
+    <div className="florist-root">
+      <h1>BOTANICA // FLORAL STUDIO</h1>
+      <p>Kurasi bunga segar harian petik petani lokal.</p>
+    </div>
+  );
+}`,
+			description: "Komponen React florist studio."
+		}],
+		prompt: {
+			summary: "Prompt untuk website toko bunga florist studio artisan.",
+			designDirection: "Earthy botanical pastel: Eucalyptus sage (#556B2F), blush peony (#E8B4B8), dan kertas linen (#FAF9F6).",
+			layoutAndGrid: "Masonry visual foto buket yang rapi dan elegan.",
+			typographyAndColor: "Serif kontemporer dipadu sans lembut.",
+			interactions: "Pilih warna kertas pembungkus buket secara visual.",
+			technicalRequirements: "React 19 dan responsif mobile.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-04-15",
+		livePreviewAvailable: true,
+		accentColor: "#708238"
+	},
+	{
+		id: "tpl-14",
+		slug: "gentlemen-cut-barber",
+		title: "The Heritage Barber",
+		tagline: "Classic gentlemen grooming & hair care studio lokal",
+		description: "Website barbershop klasik berstandar profesional. Menampilkan daftar servis cukur rambut, cukur jenggot handuk hangat, profil para kapster, dan kemudahan booking jadwal via WhatsApp.",
+		category: "barber",
+		tags: [
+			"Barbershop",
+			"Grooming",
+			"UMKM Jasa",
+			"Pangkas Rambut",
+			"Booking"
+		],
+		technologies: [
+			"HTML5",
+			"Custom CSS",
+			"Service Menu",
+			"WhatsApp Hook"
+		],
+		thumbnailSvgType: "barber",
+		previewComponentKey: "barber-heritage",
+		htmlPath: "/templates/barber/heritage-barber.html",
+		htmlFolderPath: "templates/barber/heritage-barber.html",
+		features: [
+			"Daftar menu servis transparan: Classic Cut, Hot Towel Shave, Kids Cut, Hair Tattoo",
+			"Profil dan portofolio hasil potong rambut tiap kapster",
+			"Katalog pomade dan tonik perawatan rambut pria",
+			"Tombol booking jam potong langsung ke WhatsApp kasir"
+		],
+		usageInstructions: ["Edit tarif layanan di styles/services.css.", "Perbarui foto galeri potongan rambut pria."],
+		sourceFiles: [{
+			filename: "heritage-barber.html",
+			language: "html",
+			content: `<!DOCTYPE html>
+<html>
+<head><title>The Heritage Barber</title></head>
+<body>
+  <h1>THE HERITAGE BARBERSHOP</h1>
+  <p>Potong Rambut Presisi & Cukur Tradisional</p>
+</body>
+</html>`,
+			description: "Markup barbershop."
+		}],
+		prompt: {
+			summary: "Prompt untuk website barbershop klasik pria.",
+			designDirection: "Vintage industrial barber: Dark timber (#18181B), leather cognac (#B45309), dan aksen putih bersih.",
+			layoutAndGrid: "Tabel menu servis tegas dengan harga jelas dan durasi menit.",
+			typographyAndColor: "Font condensed bold tegas bergaya vintage barber pole.",
+			interactions: "Pilih kapster favorit lalu kirim format booking ke WhatsApp.",
+			technicalRequirements: "Ringan, loading kilat di HP.",
+			isReconstructed: false
+		},
+		featured: false,
+		publishedAt: "2026-04-16",
+		livePreviewAvailable: true,
+		accentColor: "#B45309"
+	},
+	{
+		id: "tpl-15",
+		slug: "studio-keramik-tanah",
+		title: "Tanah Liat Pottery",
+		tagline: "Kerajinan keramik tableware buatan tangan & workshop studio",
+		description: "Website studio kriya tembikar dan keramik buatan tangan lokal. Menyediakan penjualan tableware estetik untuk kafe/rumah dan pemesanan kelas workshop pottery akhir pekan.",
+		category: "pottery",
+		tags: [
+			"Keramik",
+			"Pottery",
+			"UMKM Kriya",
+			"Workshop Studio",
+			"Handmade"
+		],
+		technologies: [
+			"React",
+			"TypeScript",
+			"Product Showcase",
+			"Workshop RSVP"
+		],
+		thumbnailSvgType: "pottery",
+		previewComponentKey: "pottery-tanah",
+		htmlPath: "/templates/pottery/tanah-liat.html",
+		htmlFolderPath: "templates/pottery/tanah-liat.html",
+		features: [
+			"Katalog tableware keramik unik (Cangkir kopi, mangkok matcha, piring bertekstur tanah)",
+			"Jadwal kelas workshop pottery pemula (Wheel throwing & hand building)",
+			"Pemesanan custom order grosir untuk restoran dan kedai kopi",
+			"Integrasi pemesanan dan konfirmasi kelas WhatsApp"
+		],
+		usageInstructions: ["Perbarui kuota jadwal kelas pottery di data/workshops.ts.", "Ganti foto produk keramik di folder public/ceramics."],
+		sourceFiles: [{
+			filename: "tanah-liat.html",
+			language: "html",
+			content: `import React from 'react';
+export function TanahLiatStudio() {
+  return (
+    <div>
+      <h1>TANAH LIAT // POTTERY STUDIO</h1>
+      <p>Kerajinan tanah liat alami dibentuk dengan tangan dan hati.</p>
+    </div>
+  );
+}`,
+			description: "Komponen pottery studio."
+		}],
+		prompt: {
+			summary: "Prompt website studio keramik dan workshop tembikar UMKM.",
+			designDirection: "Wabi-sabi natural: Earthenware terracotta (#C2410C), raw unglazed clay (#FAF5EE), dan batu abu-abu.",
+			layoutAndGrid: "Grid produk yang tenang dengan deskripsi dimensi dan finishing glasir.",
+			typographyAndColor: "Tipografi netral yang menonjolkan keindahan tekstur fisik tanah liat.",
+			interactions: "Pilih jadwal tanggal workshop langsung diarahkan ke form WhatsApp.",
+			technicalRequirements: "React 19, aksesibilitas tinggi.",
+			isReconstructed: false
+		},
+		featured: false,
+		publishedAt: "2026-04-18",
+		livePreviewAvailable: true,
+		accentColor: "#C2410C"
+	},
+	{
+		id: "tpl-16",
+		slug: "kebun-sayur-organik",
+		title: "Lokal Organik Farm",
+		tagline: "Pasar sayur organik segar petik langsung dari petani lokal",
+		description: "Website layanan langganan sayur dan buah organik lokal tanpa pestisida. Menghubungkan petani desa langsung ke dapur keluarga perkotaan dengan paket langganan mingguan (Harvest Box).",
+		category: "organik",
+		tags: [
+			"Organik",
+			"Sayur Segar",
+			"UMKM Pertanian",
+			"Farm to Table",
+			"Langganan"
+		],
+		technologies: [
+			"HTML5",
+			"CSS Grid",
+			"Harvest Ticker",
+			"WhatsApp Order"
+		],
+		thumbnailSvgType: "organic",
+		previewComponentKey: "organic-farm",
+		htmlPath: "/templates/organik/lokal-organik.html",
+		htmlFolderPath: "templates/organik/lokal-organik.html",
+		features: [
+			"Daftar panen segar minggu ini: Selada romaine, tomat ceri hidroponik, alpukat mentega",
+			"Paket langganan hemat Harvest Box mingguan keluarga",
+			"Profil petani mitra dan transparansi lokasi kebun lokal",
+			"Pemesanan keranjang sayur cepat via WhatsApp"
+		],
+		usageInstructions: ["Perbarui daftar sayur panen tiap hari Senin di data/harvest.json.", "Tautkan nomor WhatsApp pengiriman kurir lokal."],
+		sourceFiles: [{
+			filename: "lokal-organik.html",
+			language: "html",
+			content: `<!DOCTYPE html>
+<html>
+<head><title>Lokal Organik Farm</title></head>
+<body>
+  <h1>LOKAL ORGANIK // DARI KEBUN KE MEJA</h1>
+  <p>Sayuran bebas pestisida dipanen pagi hari diantar siang hari.</p>
+</body>
+</html>`,
+			description: "Markup farm to table."
+		}],
+		prompt: {
+			summary: "Prompt website UMKM pertanian organik farm-to-table.",
+			designDirection: "Fresh natural harvest: Hijau daun subur (#15803D), tanah gembur (#3E2723), dan putih segar (#F9FBE7).",
+			layoutAndGrid: "Grid paket sayur dengan berat gram dan masa kesegaran.",
+			typographyAndColor: "Tipografi modern segar dan bersahabat.",
+			interactions: "Kalkulator paket kebutuhan sayur per minggu.",
+			technicalRequirements: "Ringan, loading cepat di jaringan seluler.",
+			isReconstructed: false
+		},
+		featured: false,
+		publishedAt: "2026-04-20",
+		livePreviewAvailable: true,
+		accentColor: "#15803D"
+	},
+	{
+		id: "tpl-17",
+		slug: "senja-angkringan",
+		title: "SENJA",
+		tagline: "Angkringan rasa masa kini — kopi, nasi kucing, sate, dan cerita sampai malam",
+		description: "Template website kafe & angkringan modern bernuansa hangat dan akrab. Dilengkapi announcement banner operasional 16.00 — 00.00 WIB, hero visual tempat nongkrong, strip 4 keunggulan, filter kategori menu interaktif (Kopi & Minuman, Angkringan, Camilan), cerita tentang tempat pulang kedua, dan pencari lokasi Google Maps.",
+		category: "cafe",
+		tags: [
+			"Angkringan",
+			"Cafe",
+			"Nasi Kucing",
+			"Sate-satean",
+			"Tempat Nongkrong",
+			"Menu Interaktif"
+		],
+		technologies: [
+			"HTML5",
+			"Vanilla CSS",
+			"Vanilla JS",
+			"DM Sans & Playfair"
+		],
+		thumbnailSvgType: "cafe",
+		previewComponentKey: "cafe-senja",
+		htmlPath: "/templates/cafe/senja.html",
+		htmlFolderPath: "templates/cafe/senja.html",
+		features: [
+			"File tunggal mandiri (HTML + CSS + JS) siap dibuka langsung di browser tanpa build tool",
+			"Filter kategori menu interaktif (Semua Menu, Kopi & Minuman, Angkringan, Camilan)",
+			"Palet warna senja: cream (#f7f3eb), ink (#30261f), rust (#b85f3d), olive (#68704e)",
+			"Navigasi drawer mobile responsif dengan tombol hamburger interaktif",
+			"Integrasi tautan Google Maps untuk pencarian lokasi angkringan"
+		],
+		usageInstructions: [
+			"Buka templates/cafe/senja.html atau templates/cafe/senja.html di code editor kamu.",
+			"Ubah daftar menu nasi kucing, tusukan sate, dan aneka kopi sesuai daftar menu tokomu.",
+			"Tautkan link Google Maps lokasi cabang aslimu pada tombol Cari Lokasi."
+		],
+		sourceFiles: [{
+			filename: "senja.html",
+			language: "html",
+			content: `<!-- SENJA — NECTOR.UI Cafe & Angkringan Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SENJA — Kopi, Nasi, dan Cerita</title>
+</head>
+<body>
+  <div class="announcement">Buka setiap hari · 16.00 — 00.00 WIB</div>
+  <header class="navbar">
+    <a class="brand" href="#beranda">SENJA</a>
+    <nav class="nav-links"><a href="#menu">Menu</a><a href="#cerita">Tentang</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h1>Yang dicari bukan cuma <em>kopi.</em></h1>
+      <p>Ada nasi kucing hangat, sate yang baru dibakar, kopi favorit, dan obrolan sampai malam.</p>
+    </section>
+  </main>
+</body>
+</html>`,
+			description: "File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun."
+		}],
+		prompt: {
+			summary: "Prompt website cafe & angkringan modern SENJA.",
+			designDirection: "Warm dusk atmosphere: Cream (#f7f3eb), Charcoal Ink (#30261f), Terracotta Rust (#b85f3d), Muted Olive (#68704e). Tipografi Playfair Display & DM Sans.",
+			layoutAndGrid: "Asymmetric hero grid dengan foto malam hari, kartu menu responsif 4 kolom, dan drawer navigasi mobile.",
+			typographyAndColor: "DM Sans untuk teks menu yang renyah dan Playfair Display untuk sentuhan cerita personal yang hangat.",
+			interactions: "Filter menu seketika via event listener JavaScript murni tanpa ketergantungan library luar.",
+			technicalRequirements: "100% standalone, responsif mulai 360px hingga layar desktop lebar.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-04-22",
+		livePreviewAvailable: true,
+		accentColor: "#b85f3d"
+	},
+	{
+		id: "tpl-18",
+		slug: "raso-mandeh-padang",
+		title: "Raso Mandeh",
+		tagline: "Dashboard etalase lauk autentik Minangkabau & kasir POS rumah makan Padang",
+		description: "Template dashboard etalase digital dan kasir POS modern untuk Rumah Makan Nasi Padang. Terinspirasi dari operasional autentik Minang sejak 1950, dilengkapi katalog etalase lauk (Rendang 8 jam, Ayam Pop, Gulai Kakap, Dendeng Batokok), filter kategori cepat, panel keranjang kasir (Walk-in & Scan Web QR), pemilih meja (Dine-in / Takeaway), dan cetak pesanan langsung kirim WhatsApp.",
+		category: "padang",
+		tags: [
+			"Rumah Makan Padang",
+			"Etalase Lauk",
+			"POS Kasir",
+			"Dashboard Menu",
+			"Kuliner Nusantara",
+			"WhatsApp Order"
+		],
+		technologies: [
+			"HTML5",
+			"Vanilla CSS Grid",
+			"Vanilla JS State",
+			"Inter & Playfair Display"
+		],
+		thumbnailSvgType: "restaurant",
+		previewComponentKey: "padang-raso-mandeh",
+		htmlPath: "/templates/padang/rasomandeh.html",
+		htmlFolderPath: "templates/padang/rasomandeh.html",
+		features: [
+			"Dashboard etalase POS lengkap 1 file mandiri tanpa ketergantungan framework atau database",
+			"Katalog lauk lengkap dengan foto asli WebP (Rendang, Ayam Pop, Gulai Tunjang, Dendeng, Telur Barendo)",
+			"Pencarian lauk live cepat dan filter kategori (Daging Sapi, Ayam, Ikan, Sayur, Pelengkap, Minuman)",
+			"Panel kasir interaktif dengan mode Walk-in / Scan QR, counter kuantitas +/- dinamis, dan kalkulator Rupiah otomatis",
+			"Modal pemilih meja (Status Kosong, Terisi, Reservasi) dan integrasi checkout bukti pesanan ke WhatsApp"
+		],
+		usageInstructions: [
+			"Buka templates/padang/rasomandeh.html di code editor kamu.",
+			"Sesuaikan daftar lauk, harga porsi, atau cabang di array menuItems dan branchSelect.",
+			"Gunakan sebagai tampilan etalase tablet kasir atau pajang di layar TV counter depan restoran."
+		],
+		sourceFiles: [{
+			filename: "rasomandeh.html",
+			language: "html",
+			content: `<!-- Raso Mandeh — Dashboard Etalase & POS Rumah Makan Padang -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Raso Mandeh — Dashboard Etalase & POS Rumah Makan Padang</title>
+</head>
+<body>
+  <div class="pos-wrapper">
+    <main class="pos-main">
+      <header class="pos-header">
+        <h1>RASO MANDEH</h1>
+        <input type="text" placeholder="Cari rendang, ayam pop...">
+      </header>
+      <div class="dish-grid">
+        <!-- Etalase Lauk Minangkabau -->
+      </div>
+    </main>
+    <aside class="pos-cart-panel">
+      <h2>Pesanan Pelanggan</h2>
+      <!-- Panel Kasir Walk-in & Meja -->
+    </aside>
+  </div>
+</body>
+</html>`,
+			description: "Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun."
+		}],
+		prompt: {
+			summary: "Prompt dashboard etalase masakan Padang & Point of Sale (POS).",
+			designDirection: "Minangkabau Heritage: Marun Minang (#7A1F2B), Emas Songket (#C9A227), Krem Hangat (#F5EFE2), dan Arang Kayu (#241B16). Tipografi Inter & Playfair Display.",
+			layoutAndGrid: "Fixed dual-column POS dashboard layout: Left 1fr menu etalase showcase & category pills, Right 380px persistent cart order drawer.",
+			typographyAndColor: "Playfair Display untuk nama restoran Minang dan header lauk, Inter untuk readability numerik kasir POS dan harga Rupiah.",
+			interactions: "State management JavaScript murni: tambah lauk, hitung subtotal & total rupiah, pilih meja interaktif, kirim pesan ke WhatsApp.",
+			technicalRequirements: "Zero dependencies, responsive tablet & desktop, full offline capability.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-04-25",
+		livePreviewAvailable: true,
+		accentColor: "#7A1F2B"
+	},
+	{
+		id: "tpl-19",
+		slug: "sipara-beverage",
+		title: "SIPARA",
+		tagline: "Minuman segar racikan lokal — fruit tea, matcha cloud, & kopi susu viral",
+		description: "Template website UMKM gerai minuman viral dan artisan fresh drinks. Dilengkapi topline promo, hero segar dengan stiker 100% fresh mood, running ticker kategori (Fruit Tea, Matcha Series, Kopi Susu, Creamy Drinks), filter katalog produk instan, keranjang belanja interaktif yang otomatis menyusun pesan WhatsApp terformat dengan rincian dan estimasi total belanja, serta panduan 3 langkah pemesanan.",
+		category: "beverage",
+		tags: [
+			"Minuman Viral",
+			"Fruit Tea",
+			"Matcha",
+			"Kopi Susu",
+			"Fresh Drinks",
+			"UMKM Kuliner",
+			"WhatsApp Order"
+		],
+		technologies: [
+			"HTML5",
+			"Vanilla CSS",
+			"Vanilla JS",
+			"DM Sans & Manrope"
+		],
+		thumbnailSvgType: "beverage",
+		previewComponentKey: "beverage-sipara",
+		htmlPath: "/templates/beverage/sipara.html",
+		htmlFolderPath: "templates/beverage/sipara.html",
+		features: [
+			"File tunggal mandiri (HTML + CSS + JS) langsung jalan di browser tanpa framework",
+			"Running ticker kategori: Fruit Tea, Matcha Series, Kopi Susu, Creamy Drinks",
+			"Filter kategori minuman instan tanpa reload halaman",
+			"Keranjang belanja WhatsApp interaktif: klik (+) otomatis menyusun teks pesanan & perkiraan total Rupiah",
+			"Palet warna segar: Matcha Green (#486b45), Lemon Lime (#d8e5a0), Sunny Yellow (#f1d66e), Paper Cream (#f8f6ed)"
+		],
+		usageInstructions: [
+			"Buka templates/beverage/sipara.html di code editor kamu.",
+			"Ubah nomor WhatsApp pada variabel WHATSAPP_NUMBER dengan nomor tokomu.",
+			"Sesuaikan daftar minuman (Fruit Tea, Kopi, Matcha) dan harga per cup sesuai menu aslimu."
+		],
+		sourceFiles: [{
+			filename: "sipara.html",
+			language: "html",
+			content: `<!-- SIPARA — NECTOR.UI Minuman Viral Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SIPARA — Segarnya Punya Cerita</title>
+</head>
+<body>
+  <div class="topline">RACIKAN FRESH SETIAP HARI — SEGAR, ENAK, NGGAK BIKIN BOROS.</div>
+  <header class="header">
+    <a class="logo" href="#beranda">sipara.</a>
+    <nav class="nav-links"><a href="#menu">Menu Minuman</a><a href="#tentang">Tentang</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h1>Hari panas? Biar kami yang bikin <span class="highlight">segar.</span></h1>
+      <p>Dari teh buah yang nyegerin sampai kopi susu yang creamy. Diracik fresh saat dipesan.</p>
+    </section>
+  </main>
+</body>
+</html>`,
+			description: "File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun."
+		}],
+		prompt: {
+			summary: "Prompt website UMKM gerai minuman viral & fresh drinks SIPARA.",
+			designDirection: "Fresh & energetic artisan beverage: Matcha Green (#486b45), Pale Lime (#d8e5a0), Warm Yellow (#f1d66e), dan Soft Cream (#f8f6ed). Tipografi Manrope & DM Sans.",
+			layoutAndGrid: "Hero visual dua kolom dengan stiker lingkaran miring, running category ticker, grid produk 4 kolom dengan tag best seller.",
+			typographyAndColor: "Manrope 800 untuk display headline berkarakter dinamis dan DM Sans untuk kenyamanan membaca.",
+			interactions: "Penambahan item ke keranjang belanja dengan feedback centang instan dan pembuatan pesan WhatsApp otomatis.",
+			technicalRequirements: "100% standalone, responsif mulai layar smartphone 360px hingga layar desktop.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-04-28",
+		livePreviewAvailable: true,
+		accentColor: "#486b45"
+	},
+	{
+		id: "tpl-20",
+		slug: "sakumart-pos",
+		title: "SakuMart POS",
+		tagline: "Sistem kasir & POS minimarket modern — barcode search, multi-kategori, kalkulasi PPN & kembalian instan",
+		description: "Template aplikasi kasir (Point of Sale / POS) minimarket & retail modern dengan nuansa natural clean mart. Dilengkapi pencarian produk realtime, filter multi-kategori (Makanan, Minuman, Sembako, Perawatan), keranjang belanja interaktif dengan batas stok dinamis, konfigurasi tarif PPN transaksi fleksibel, shortcut pecahan uang tunai (uang pas, 20k, 50k, 100k), kalkulasi kembalian otomatis, serta modal struk pembayaran digital yang siap cetak.",
+		category: "kasir",
+		tags: [
+			"Kasir POS",
+			"Minimarket",
+			"Point of Sale",
+			"Retail & Toko",
+			"E-commerce Kasir",
+			"Kalkulasi Otomatis",
+			"Struk Digital"
+		],
+		technologies: [
+			"HTML5",
+			"Vanilla CSS",
+			"Vanilla JS",
+			"DM Sans & Manrope"
+		],
+		thumbnailSvgType: "kasir",
+		previewComponentKey: "pos-sakumart",
+		htmlPath: "/templates/kasir/sakumart.html",
+		htmlFolderPath: "templates/kasir/sakumart.html",
+		features: [
+			"100% file tunggal mandiri (HTML + CSS + JS) langsung jalan di browser tanpa framework atau build step",
+			"Katalog produk retail dengan foto barang nyata, status sisa stok, dan filter kategori instan",
+			"Keranjang belanja realtime dengan kontrol kuantitas, validasi stok habis, dan kalkulasi subtotal",
+			"Pengaturan tarif PPN dinamis dan kalkulator kembalian otomatis dengan tombol shortcut pecahan uang tunai",
+			"Modal struk belanja digital dengan rincian transaksi lengkap dan tombol transaksi baru",
+			"Desain responsif ramah layar tablet kasir maupun monitor POS desktop"
+		],
+		usageInstructions: [
+			"Buka templates/kasir/sakumart.html di editor kode kamu.",
+			"Sesuaikan daftar produk di array products dengan data barang, foto produk, harga, dan stok tokomu.",
+			"Atur tarif default PPN pada input taxRate jika ingin persentase berbeda (misal 0% untuk non-PKP).",
+			"Jalankan langsung di browser untuk kasir offline atau integrasikan ke backend toko kamu."
+		],
+		sourceFiles: [{
+			filename: "sakumart.html",
+			language: "html",
+			content: `<!-- SakuMart — Point of Sale System -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SakuMart — Point of Sale</title>
+</head>
+<body>
+  <!-- Standalone HTML POS System -->
+</body>
+</html>`,
+			description: "File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun."
+		}],
+		prompt: {
+			summary: "Prompt sistem kasir POS minimarket & retail modern SakuMart.",
+			designDirection: "Clean supermarket POS: Sage Green (#2f6549), Dark Forest (#204833), Warm Paper White (#f4f5f0), dan Fresh Accent (#e7f1e7). Tipografi DM Sans dan Manrope.",
+			layoutAndGrid: "Split workspace layout dengan catalog etalase 4 kolom di kiri dan panel keranjang transaksi sticky di kanan.",
+			typographyAndColor: "Manrope 800 untuk display brand dan nominal harga, DM Sans untuk keterbacaan data produk dan struk kasir.",
+			interactions: "Pencarian produk instan, penambahan ke keranjang dengan validasi stok, shortcut nominal uang tunai, kalkulasi kembalian otomatis, dan modal struk digital.",
+			technicalRequirements: "100% standalone single-file HTML, responsif dari layar smartphone hingga monitor desktop kasir.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-05-02",
+		livePreviewAvailable: true,
+		accentColor: "#2f6549"
+	},
+	{
+		id: "tpl-21",
+		slug: "pustaka-aksara-perpustakaan",
+		title: "Pustaka Aksara",
+		tagline: "Ruang baca arsip & sistem sirkulasi peminjaman buku komunitas — standar DDC, batas 14 hari, & bukti pinjam digital",
+		description: "Template website ruang baca, perpustakaan komunitas, dan sistem sirkulasi arsip buku independen yang dirancang dengan standar anti-slop ketat. Menghadirkan estetika warm archival paper, tipografi sastra Newsreader dan DM Sans, katalog bersistem Dewey Decimal Classification (DDC), pencarian instan berdasarkan judul/penulis/ISBN, lembar sirkulasi interaktif dengan batas kuota 3 buku, perhitungan otomatis tanggal jatuh tempo 14 hari, modal sinopsis detail eksemplar, serta penerbitan bukti peminjaman digital berstempel yang siap dicetak.",
+		category: "perpustakaan",
+		tags: [
+			"Perpustakaan",
+			"Peminjaman Buku",
+			"Sirkulasi Arsip",
+			"Ruang Baca",
+			"Dewey Decimal DDC",
+			"Anti-Slop Spec",
+			"Struk Peminjaman"
+		],
+		technologies: [
+			"HTML5",
+			"Vanilla CSS",
+			"Vanilla JS",
+			"Newsreader & DM Sans"
+		],
+		thumbnailSvgType: "perpustakaan",
+		previewComponentKey: "library-aksara",
+		htmlPath: "/templates/perpustakaan/aksara.html",
+		htmlFolderPath: "templates/perpustakaan/aksara.html",
+		features: [
+			"Arsitektur mandiri single-file (HTML + CSS + JS) tanpa framework atau dependensi luar",
+			"Katalog buku nyata dengan foto sampul berkualitas, pengarang orisinal, dan nomor panggil DDC resmi",
+			"Filter multi-kategori (Sastra, Sejarah, Filsafat, Sains) serta tombol status ketersediaan di rak",
+			"Lembar peminjaman interaktif dengan batas kuota pinjam 3 buku dan kalkulasi tanggal jatuh tempo 14 hari otomatis",
+			"Modal detail buku lengkap dengan sinopsis sastra, data penerbit, ISBN, dan nomor rak fisik",
+			"Modal tiket sirkulasi peminjaman digital berstempel resmi dan fitur cetak bukti pinjam (print-ready)"
+		],
+		usageInstructions: [
+			"Buka templates/perpustakaan/aksara.html atau public/templates/perpustakaan/aksara.html di text editor.",
+			"Sesuaikan daftar buku di array catalogBooks dengan koleksi perpustakaan atau ruang baca fisikmu.",
+			"Atur durasi peminjaman pada fungsi getLoanScheduleDates jika ingin durasi berbeda (default 14 hari).",
+			"Jalankan langsung di browser untuk meja sirkulasi offline atau integrasikan dengan sistem database perpustakaan."
+		],
+		sourceFiles: [{
+			filename: "aksara.html",
+			language: "html",
+			content: `<!-- Pustaka Aksara — Ruang Baca & Sirkulasi Arsip Komunitas -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pustaka Aksara — Ruang Baca & Sirkulasi Arsip Komunitas</title>
+</head>
+<body>
+  <!-- Standalone Library Circulation System -->
+</body>
+</html>`,
+			description: "File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun."
+		}],
+		prompt: {
+			summary: "Prompt sistem sirkulasi perpustakaan & arsip ruang baca komunitas Pustaka Aksara berstandar anti-slop.",
+			designDirection: "Warm archival paper (#f7f4ed), deep charcoal ink (#1b1e1b), forest library green (#234133), dan archival rust (#9e3d24). Tipografi Newsreader serif, DM Sans, dan JetBrains Mono.",
+			layoutAndGrid: "Editorial top notice banner, hero archive dispatch dengan papan aturan peminjaman, serta workspace sirkulasi 2 kolom (katalog rak buku di kiri dan lembar peminjaman sticky di kanan).",
+			typographyAndColor: "Newsreader serif berkarakter sastra untuk judul dan display, DM Sans untuk teks fungsional, dan JetBrains Mono untuk kode klasifikasi DDC dan nomor panggil.",
+			interactions: "Filter kategori instan, penambahan koleksi ke lembar sirkulasi dengan validasi kuota 3 buku, modal sinopsis detail, dan penerbitan tiket peminjaman digital siap cetak.",
+			technicalRequirements: "100% standalone single-file HTML, responsif smartphone hingga desktop, anti-slop verified.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-05-04",
+		livePreviewAvailable: true,
+		accentColor: "#234133"
+	},
+	{
+		id: "tpl-22",
+		slug: "rukun-buah-segar",
+		title: "Rukun Buah",
+		tagline: "Pasar & kedai buah segar harian — sistem timbangan digital presisi, garansi manis brix, & layanan potong higienis",
+		description: "Template website penjualan buah segar dan retail pasar buah modern dengan desain organic-rounded anti-slop. Dilengkapi etalase 12 buah segar (Lokal Nusantara & Impor Premium) dengan foto jernih, sistem simulasi timbangan digital interaktif (preset 250g, 500g, 1kg, 2kg, kalkulasi harga gramatur otomatis), opsi kupas & potong siap santap, modal profil rasa (Brix sweetness meter, tingkat asam, tekstur daging buah), serta keranjang timbangan dinamis yang langsung menghasilkan rekap pesanan siap kirim ke WhatsApp.",
+		category: "buah",
+		tags: [
+			"Toko Buah",
+			"Pasar Buah Segar",
+			"Sistem Timbangan",
+			"Retail Buah",
+			"Garansi Manis Brix",
+			"Kupas & Potong",
+			"WhatsApp Order"
+		],
+		technologies: [
+			"HTML5",
+			"Vanilla CSS",
+			"Vanilla JS",
+			"Outfit & Plus Jakarta Sans"
+		],
+		thumbnailSvgType: "buah",
+		previewComponentKey: "fruit-rukun-buah",
+		htmlPath: "/templates/buah/rukun-buah.html",
+		htmlFolderPath: "templates/buah/rukun-buah.html",
+		features: [
+			"100% file mandiri tunggal (HTML + CSS + JS) siap buka di browser tanpa dependensi eksternal",
+			"Sistem timbangan digital interaktif dengan visual LED screen, kalkulator harga gramatur dinamis, dan estimasi berat muatan",
+			"Katalog 12 buah segar dengan foto nyata berkualitas, filter multi-kategori, dan live search instan",
+			"Indikator kualitas nyata: Brix Sweetness Meter (°Bx), tingkat keasaman, asal kebun, dan tips penyimpanan ideal",
+			"Pilihan servis potong higienis dan wadah food-grade siap santap",
+			"Keranjang timbangan slide-out dengan akumulasi total kilogram dan checkout WhatsApp terformat rapi"
+		],
+		usageInstructions: [
+			"Buka templates/buah/rukun-buah.html di code editor Anda.",
+			"Sesuaikan daftar buah, foto produk, dan harga per kilogram pada array FRUIT_PRODUCTS.",
+			"Ubah nomor WhatsApp pada fungsi checkoutWhatsApp dengan kontak kasir toko buah Anda.",
+			"Dapat digunakan sebagai website etalase katalog online maupun display tablet timbangan di counter toko."
+		],
+		sourceFiles: [{
+			filename: "rukun-buah.html",
+			language: "html",
+			content: `<!-- Rukun Buah — Pasar & Kedai Buah Segar dengan Sistem Timbangan Digital -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>RUKUN BUAH — Pasar & Kedai Buah Segar</title>
+</head>
+<body>
+  <div class="top-ticker">PANEN HARI INI: MANGGA HARUM MANIS 15° BRIX</div>
+  <header class="site-header">
+    <div class="brand-text"><h1>RUKUN BUAH</h1></div>
+  </header>
+  <main>
+    <section class="hero-scale-card">
+      <div class="scale-digital-display">
+        <div class="scale-weight-val">0.500<small>kg</small></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>`,
+			description: "File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun."
+		}],
+		prompt: {
+			summary: "Prompt website toko buah segar dan sistem timbangan digital interaktif Rukun Buah berstandar anti-slop.",
+			designDirection: "Fresh organic fruit market: Botanical Leaf Green (#2D6A4F), Warm Paper Cream (#FAF7F0), Citrus Papaya (#E8590C), dan Mango Honey (#D97706). Rounded containers 16-24px elegan anti-slop.",
+			layoutAndGrid: "Top panen ticker, masthead toko buah, hero split dengan simulasi meja timbang digital interaktif, katalog etalase responsif 4 kolom, studio timbangan tera, dan keranjang pesanan slide-out.",
+			typographyAndColor: "Outfit display bold untuk nama buah dan angka timbangan, Plus Jakarta Sans untuk kenyamanan membaca deskripsi.",
+			interactions: "Simulasi timbangan digital real-time, pilihan gramatur 250g-2kg per buah, modal profil rasa dan brix kemanisan, serta integrasi pemesanan WhatsApp otomatis.",
+			technicalRequirements: "Zero dependencies, 100% standalone single-file HTML, responsif smartphone hingga desktop.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-05-08",
+		livePreviewAvailable: true,
+		accentColor: "#2D6A4F"
+	},
+	{
+		id: "tpl-14",
+		slug: "sinau-study-workspace",
+		title: "SINAU",
+		tagline: "Ruang belajar digital & academic tracker mandiri untuk siswa sekolah",
+		description: "Template website ruang belajar mandiri, agenda tugas sekolah, dan sistem pelacak akademik yang dirancang khusus untuk pelajar SMP, SMA, SMK, maupun mahasiswa. Dilengkapi jadwal pelajaran mingguan interaktif (Senin-Jumat) dengan status kelas aktif, buku agenda tugas & PR dengan filter prioritas dan hitung mundur deadline, kalkulator rekap nilai rapor & kartu hasil studi berbasis weighted average otomatis, timer fokus belajar Pomodoro 25 menit, serta scratchpad catatan rumus cepat dengan penyimpanan offline-first di browser.",
+		category: "sekolah",
+		tags: [
+			"Sekolah",
+			"Akademik",
+			"Jadwal Pelajaran",
+			"Buku Tugas",
+			"Pomodoro Timer",
+			"Rekap Nilai Rapor",
+			"Anti-Slop Spec"
+		],
+		technologies: [
+			"HTML5",
+			"Vanilla CSS",
+			"Vanilla JS",
+			"LocalStorage",
+			"Offline First"
+		],
+		thumbnailSvgType: "sekolah",
+		previewComponentKey: "sekolah-sinau",
+		htmlPath: "/templates/sekolah/sinau.html",
+		htmlFolderPath: "templates/sekolah/sinau.html",
+		features: [
+			"Struktur mandiri 1-file tunggal (HTML + CSS + JS) siap pakai langsung di browser tanpa perlu server, node.js, atau database eksternal",
+			"Jadwal pelajaran mingguan interaktif (Senin s/d Jumat) dengan deteksi hari aktif, info jam, ruang kelas, guru pengampu, dan formulir tambah mapel",
+			"Buku agenda tugas & PR mandiri dengan filter status (Semua, Belum Selesai, Mendesak, Selesai), badge prioritas warna, dan checklist interaktif",
+			"Kartu hasil studi & rekap nilai rapor otomatis dengan perhitungan bobot (Tugas 20%, UH 30%, PTS 25%, PAS 25%) dan slider simulasi target ujian",
+			"Timer fokus belajar Pomodoro (25m fokus, 5m rehat) dengan pilihan mata pelajaran aktif dan counter sesi harian",
+			"Penyimpanan lokal (LocalStorage) otomatis — data tugas, nilai, dan jadwal tersimpan aman di browser siswa",
+			"Desain print-friendly (@media print) yang rapi untuk langsung mencetak jadwal dan kartu nilai ke kertas A4"
+		],
+		usageInstructions: [
+			"Buka templates/sekolah/sinau.html di web browser kamu.",
+			"Klik profil di kanan atas untuk menyesuaikan nama siswa dan kelas/jurusan.",
+			"Buka tab Jadwal Pelajaran untuk menambah atau menghapus mata pelajaran sesuai jadwal sekolahmu.",
+			"Gunakan Buku Tugas untuk mencatat PR dan pantau nilai rapor secara berkala di tab Rekap Nilai."
+		],
+		sourceFiles: [{
+			filename: "sinau.html",
+			language: "html",
+			content: `<!-- SINAU — Ruang Belajar & Academic Tracker Pelajar Mandiri -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SINAU — Ruang Belajar & Academic Tracker</title>
+  <style>
+    :root {
+      --bg: #faf8f3;
+      --navy: #1f364d;
+      --terracotta: #c44525;
+      --sage: #2a7e68;
+      --serif: "Newsreader", serif;
+      --sans: "Plus Jakarta Sans", sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-notice">SINAU // EDISI PELAJAR — Meja Belajar Digital Mandiri</div>
+  <header>
+    <h1>SINAU<span>.</span> STUDY WORKSPACE</h1>
+    <nav>Dashboard · Jadwal Pelajaran · Buku Tugas · Rekap Nilai · Timer Fokus</nav>
+  </header>
+  <!-- Full functional schedule, tasks, grades & pomodoro -->
+</body>
+</html>`,
+			description: "File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun."
+		}],
+		prompt: {
+			summary: "Prompt website meja belajar digital, jadwal pelajaran, agenda PR, dan rekap nilai rapor SINAU berstandar anti-slop.",
+			designDirection: "Warm paper study desk: Paper Warm Cream (#FAF8F3), Academic Navy (#1F364D), Restrained Terracotta (#C44525), dan Sage (#2A7E68). Tipografi Newsreader serif editorial berpadu dengan Plus Jakarta Sans dan JetBrains Mono.",
+			layoutAndGrid: "Summary metric strip 4 kolom (Target Jam Fokus, Tugas Pending, Rata-Rata Nilai, Jadwal Hari Ini), grid jadwal pelajaran mingguan per hari, list agenda tugas berfilter prioritas, tabel nilai rapor interaktif, dan studio timer Pomodoro.",
+			typographyAndColor: "Kombinasi Newsreader untuk judul sastra akademis dan Plus Jakarta Sans untuk kejelasan antarmuka formulir.",
+			interactions: "Checklist tugas interaktif dengan animasi selesai, input nilai kalkulasi otomatis, slider simulasi nilai PAS, timer Pomodoro dengan interval waktu, dan penyimpanan lokal (LocalStorage).",
+			technicalRequirements: "Zero dependencies, 100% standalone single-file HTML, responsif smartphone hingga desktop, print stylesheet.",
+			isReconstructed: false
+		},
+		featured: true,
+		publishedAt: "2026-05-10",
+		livePreviewAvailable: true,
+		accentColor: "#1F364D"
+	}
+];
+
+//# sourceMappingURL=data:application/json;base64,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QUNGO0VBQ0EsYUFBYSxDQUNYO0dBQ0UsVUFBVTtHQUNWLFVBQVU7R0FDVixTQUFTOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7R0EyQlQsYUFBYTtFQUNmLENBQ0Y7RUFDQSxRQUFRO0dBQ04sU0FBUztHQUNULGlCQUFpQjtHQUNqQixlQUFlO0dBQ2Ysb0JBQW9CO0dBQ3BCLGNBQWM7R0FDZCx1QkFBdUI7R0FDdkIsaUJBQWlCO0VBQ25CO0VBQ0EsVUFBVTtFQUNWLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsYUFBYTtDQUNmO0FBQ0YiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsidGVtcGxhdGVzLnRzIl0sInZlcnNpb24iOjMsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB0eXBlIHsgVGVtcGxhdGUgfSBmcm9tICcuLi90eXBlcyc7XG5cbmV4cG9ydCBjb25zdCBURU1QTEFURVNfREFUQTogVGVtcGxhdGVbXSA9IFtcbiAge1xuICAgIGlkOiAndHBsLTExJyxcbiAgICBzbHVnOiAnc2F2b3JlLWNhZmUnLFxuICAgIHRpdGxlOiAnU0FWT1LDiScsXG4gICAgdGFnbGluZTogJ0tvcGkgeWFuZyBkaXJhY2lrIHBlcmxhaGFuLCBydWFuZyB1bnR1ayBqZWRhIGRpIHN1ZHV0IGtvdGEgQmFuZHVuZycsXG4gICAgZGVzY3JpcHRpb246ICdUZW1wbGF0ZSB3ZWJzaXRlIGthZmUgJiBrZWRhaSBrb3BpIG1vZGVybiBkZW5nYW4gZXN0ZXRpa2Egd2FybSBwYXBlciBkYW4gZWRpdG9yaWFsIHR5cG9ncmFwaHkuIERpbGVuZ2thcGkgaGVybyBlZGl0b3JpYWwsIGZpbG9zb2ZpIGtlZGFpLCBmaWx0ZXIga2F0ZWdvcmkgbWVudSBpbnRlcmFrdGlmIChLb3BpLCBOb24ta29waSwgUGFzdHJ5KSwgcXVvdGUgamVkYSwgaW5mbyBqYW0gb3BlcmFzaW9uYWwgJiBsb2thc2kga2VkYWksIHNlcnRhIHBlbWVzYW5hbi4nLFxuICAgIGNhdGVnb3J5OiAnY2FmZScsXG4gICAgdGFnczogWydDYWZlJywgJ0tlZGFpIEtvcGknLCAnVU1LTSBLdWxpbmVyJywgJ01lbnUgRmlsdGVyIEludGVyYWt0aWYnLCAnU2xvdyBMaXZpbmcnXSxcbiAgICB0ZWNobm9sb2dpZXM6IFsnSFRNTDUnLCAnVmFuaWxsYSBDU1MnLCAnVmFuaWxsYSBKUycsICdaZXJvIERlcGVuZGVuY2llcyddLFxuICAgIHRodW1ibmFpbFN2Z1R5cGU6ICdjYWZlJyxcbiAgICBwcmV2aWV3Q29tcG9uZW50S2V5OiAnY2FmZS1zYXZvcmUnLFxuICAgIGh0bWxQYXRoOiAnL3RlbXBsYXRlcy9jYWZlL3Nhdm9yZS5odG1sJyxcbiAgICBodG1sRm9sZGVyUGF0aDogJ3RlbXBsYXRlcy9jYWZlL3Nhdm9yZS5odG1sJyxcbiAgICBmZWF0dXJlczogW1xuICAgICAgJ1N0cnVrdHVyIG1hbmRpcmkgMSBmaWxlIChIVE1MICsgQ1NTICsgSlMpIHRhbnBhIHBlcmx1IGJ1aWxkIHN0ZXAgYXRhdSBmcmFtZXdvcmsnLFxuICAgICAgJ0ZpbHRlciBrYXRlZ29yaSBtZW51IGludGVyYWt0aWYgKFNlbXVhIE1lbnUsIEtvcGksIE5vbi1rb3BpLCBQYXN0cnkpIHRhbnBhIHJlbG9hZCBoYWxhbWFuJyxcbiAgICAgICdQYWxldCBhbnRpc2xvcDogd2FybSBwYXBlciAoI2Y1ZjJlOSksIGVzcHJlc3NvICgjMjkyYjIyKSwgbXV0ZWQgb2xpdmUgKCM2ODcxNTMpLCBzb2Z0IGNsYXkgKCNjMjdlNWIpJyxcbiAgICAgICdCYWdpYW4gaW5mbyBrZWRhaSBsZW5na2FwOiBBbGFtYXQsIGphbSBvcGVyYXNpb25hbCwgcGV0YSBsb2thc2ksIGRhbiBrb250YWsgV2hhdHNBcHAnLFxuICAgICAgJ1Jlc3BvbnNpZiBwZW51aCBkYXJpIGxheWFyIHNtYXJ0cGhvbmUgMzYwcHggaGluZ2dhIGxheWFyIGRlc2t0b3AgMTQ0MHB4J1xuICAgIF0sXG4gICAgdXNhZ2VJbnN0cnVjdGlvbnM6IFtcbiAgICAgICdCdWthIGZvbGRlciB0ZW1wbGF0ZXMvY2FmZS9zYXZvcmUuaHRtbCBkaSBlZGl0b3Iga29kZSBrYW11LicsXG4gICAgICAnVHVsaXMga29tZW50YXIgYXRhdSByZXZpc2kgbGFuZ3N1bmcgZGkgZmlsZSBIVE1MIHRlcnNlYnV0LicsXG4gICAgICAnR2FudGkgbmFtYSBtZW51LCBoYXJnYSAoMjhrLCAyNGssIGRzdCksIGRhbiBhbGFtYXQga2VkYWkgc2VzdWFpIGtlYnV0dWhhbi4nLFxuICAgICAgJ0RvdWJsZS1jbGljayBmaWxlIHVudHVrIHByZXZpZXcgZGkgYnJvd3NlciBhdGF1IGNlayBsaXZlIGRpIGV0YWxhc2UgTkVDVE9SLlVJLidcbiAgICBdLFxuICAgIHNvdXJjZUZpbGVzOiBbXG4gICAgICB7XG4gICAgICAgIGZpbGVuYW1lOiAnc2F2b3JlLmh0bWwnLFxuICAgICAgICBsYW5ndWFnZTogJ2h0bWwnLFxuICAgICAgICBjb250ZW50OiBgPCEtLSBTQVZPUsOJIOKAlCBORUNUT1IuVUkgQ2FmZSBUZW1wbGF0ZSAtLT5cbjwhRE9DVFlQRSBodG1sPlxuPGh0bWwgbGFuZz1cImlkXCI+XG48aGVhZD5cbiAgPG1ldGEgY2hhcnNldD1cIlVURi04XCI+XG4gIDx0aXRsZT5TQVZPUsOJIOKAlCBLb3BpLCBDZXJpdGEsIGRhbiBKZWRhPC90aXRsZT5cbiAgPHN0eWxlPlxuICAgIDpyb290IHtcbiAgICAgIC0tcGFwZXI6ICNmNWYyZTk7XG4gICAgICAtLXBhcGVyLWRlZXA6ICNlYmU1ZDg7XG4gICAgICAtLWluazogIzI5MmIyMjtcbiAgICAgIC0tbXV0ZWQ6ICM3NDc0Njk7XG4gICAgICAtLW9saXZlOiAjNjg3MTUzO1xuICAgICAgLS1vbGl2ZS1kYXJrOiAjNGQ1NzNkO1xuICAgICAgLS1jbGF5OiAjYzI3ZTViO1xuICAgICAgLS1zZXJpZjogXCJQbGF5ZmFpciBEaXNwbGF5XCIsIEdlb3JnaWEsIHNlcmlmO1xuICAgICAgLS1zYW5zOiBcIkRNIFNhbnNcIiwgQXJpYWwsIHNhbnMtc2VyaWY7XG4gICAgfVxuICAgIGJvZHkgeyBiYWNrZ3JvdW5kOiB2YXIoLS1wYXBlcik7IGNvbG9yOiB2YXIoLS1pbmspOyBmb250LWZhbWlseTogdmFyKC0tc2Fucyk7IH1cbiAgICBoMSB7IGZvbnQtc2l6ZTogY2xhbXAoNTJweCwgNi43dncsIDk0cHgpOyBsaW5lLWhlaWdodDogLjk5OyB9XG4gICAgaDEgZW0geyBjb2xvcjogdmFyKC0tb2xpdmUpOyBmb250LWZhbWlseTogdmFyKC0tc2VyaWYpOyB9XG4gIDwvc3R5bGU+XG48L2hlYWQ+XG48Ym9keT5cbiAgPGhlYWRlcj5cbiAgICA8YSBocmVmPVwiI1wiPlNBVk9Sw4k8c3Bhbj4uPC9zcGFuPjwvYT5cbiAgICA8bmF2PjxhIGhyZWY9XCIjY2VyaXRhXCI+Q2VyaXRhPC9hPjxhIGhyZWY9XCIjbWVudVwiPk1lbnU8L2E+PGEgaHJlZj1cIiNydWFuZ1wiPlJ1YW5nPC9hPjwvbmF2PlxuICA8L2hlYWRlcj5cbiAgPG1haW4+XG4gICAgPHNlY3Rpb24gY2xhc3M9XCJoZXJvXCI+XG4gICAgICA8cD5LRURBSSBLT1BJIMK3IEJBTkRVTkc8L3A+XG4gICAgICA8aDE+U2VkaWtpdCBqZWRhLDxicj48ZW0+YmFueWFrIGNlcml0YS48L2VtPjwvaDE+XG4gICAgICA8cD5Lb3BpIHlhbmcgZGlyYWNpayBkZW5nYW4gbmlhdCwgbWFrYW5hbiBrZWNpbCB5YW5nIGRpYnVhdCBzZXBlbnVoIGhhdGksIGRhbiBydWFuZyB1bnR1ayBtZW5pa21hdGkgaGFyaSB0YW5wYSB0ZXJidXJ1LWJ1cnUuPC9wPlxuICAgIDwvc2VjdGlvbj5cbiAgPC9tYWluPlxuPC9ib2R5PlxuPC9odG1sPmAsXG4gICAgICAgIGRlc2NyaXB0aW9uOiAnRmlsZSBtYW5kaXJpIEhUTUwgKyBDU1MgKyBKUyB5YW5nIGRhcGF0IGxhbmdzdW5nIGRpYnVrYSBkaSBicm93c2VyIGFwYSBwdW4uJ1xuICAgICAgfVxuICAgIF0sXG4gICAgcHJvbXB0OiB7XG4gICAgICBzdW1tYXJ5OiAnUHJvbXB0IHVudHVrIHdlYnNpdGUgY2FmZSBTQVZPUkUgYmVya29uc2VwIHNsb3cgY29mZmVlICYgd2FybSBwYXBlci4nLFxuICAgICAgZGVzaWduRGlyZWN0aW9uOiAnV2FybSBwYXBlciAoI2Y1ZjJlOSksIGVzcHJlc3NvICgjMjkyYjIyKSwgbXV0ZWQgb2xpdmUgKCM2ODcxNTMpLCBkYW4gYWtzZW4gY2xheSAoI2MyN2U1YikuIFRpcG9ncmFmaSBETSBTYW5zIGRhbiBQbGF5ZmFpciBEaXNwbGF5LicsXG4gICAgICBsYXlvdXRBbmRHcmlkOiAnQXN5bW1ldHJpYyBoZXJvIGdyaWQgZGVuZ2FuIGZvdG8gcml0dWFsIHBhZ2kgZGFuIGZsb2F0aW5nIHN0YW1wIGJhZGdlLiBGaWx0ZXIgbWVudSBpbnN0YW4gZGVuZ2FuIHRhYiBrYXRlZ29yaS4nLFxuICAgICAgdHlwb2dyYXBoeUFuZENvbG9yOiAnSGVhZGluZ3MgZGFsYW0gc2VyaWYgZWxlZ2FuIFBsYXlmYWlyIERpc3BsYXksIGJvZHkgdGVrcyBkYWxhbSBETSBTYW5zIHlhbmcgYmVyc2loIGRhbiBueWFtYW4gZGliYWNhLicsXG4gICAgICBpbnRlcmFjdGlvbnM6ICdGaWx0ZXIga2F0ZWdvcmkgbWVudSAoU2VtdWEsIEtvcGksIE5vbi1rb3BpLCBQYXN0cnkpIGRlbmdhbiB2YW5pbGxhIEpTIG11cm5pIHRhbnBhIHJlbG9hZCBoYWxhbWFuLicsXG4gICAgICB0ZWNobmljYWxSZXF1aXJlbWVudHM6ICcxMDAlIHN0YW5kYWxvbmUgc2luZ2xlLWZpbGUgSFRNTCwgcmVzcG9uc2lmIHNtYXJ0cGhvbmUgaGluZ2dhIGRlc2t0b3AuJyxcbiAgICAgIGlzUmVjb25zdHJ1Y3RlZDogZmFsc2VcbiAgICB9LFxuICAgIGZlYXR1cmVkOiB0cnVlLFxuICAgIHB1Ymxpc2hlZEF0OiAnMjAyNi0wNC0xMicsXG4gICAgbGl2ZVByZXZpZXdBdmFpbGFibGU6IHRydWUsXG4gICAgYWNjZW50Q29sb3I6ICcjNjg3MTUzJ1xuICB9LFxuICB7XG4gICAgaWQ6ICd0cGwtMTInLFxuICAgIHNsdWc6ICdjcm9pc3NhbnQtYXRlbGllci1iYWtlcnknLFxuICAgIHRpdGxlOiAnTWFpc29uIExldmFpbiBCYWtlcnknLFxuICAgIHRhZ2xpbmU6ICdBcnRpc2FuIHNvdXJkb3VnaCAmIG1vcm5pbmcgcGFzdHJ5IGJha2VyeSBsb2thbCcsXG4gICAgZGVzY3JpcHRpb246ICdXZWJzaXRlIGV0YWxhc2UgYmFrZXJ5IGFydGlzYW4gbG9rYWwgeWFuZyBtZW1wcm9kdWtzaSByb3RpIHNvdXJkb3VnaCBmZXJtZW50YXNpIGFsYW1pIGRhbiBwYXN0cnkgUHJhbmNpcy4gRGlsZW5na2FwaSBqYWR3YWwgZnJlc2gtYmFrZSBwYWdpLCBrYXRhbG9nIHZpZW5ub2lzZXJpZSwgZGFuIHByZS1vcmRlciB2aWEgV2hhdHNBcHAuJyxcbiAgICBjYXRlZ29yeTogJ2Jha2VyeScsXG4gICAgdGFnczogWydCYWtlcnknLCAnUGFzdHJ5JywgJ1VNS00gS3VsaW5lcicsICdTb3VyZG91Z2gnLCAnUHJlLW9yZGVyJ10sXG4gICAgdGVjaG5vbG9naWVzOiBbJ0hUTUw1JywgJ1ZhbmlsbGEgQ1NTJywgJ0Jha2UgU2NoZWR1bGUnLCAnV2hhdHNBcHAgQ2FydCddLFxuICAgIHRodW1ibmFpbFN2Z1R5cGU6ICdiYWtlcnknLFxuICAgIHByZXZpZXdDb21wb25lbnRLZXk6ICdiYWtlcnktbGV2YWluJyxcbiAgICBodG1sUGF0aDogJy90ZW1wbGF0ZXMvYmFrZXJ5L21haXNvbi1sZXZhaW4uaHRtbCcsXG4gICAgaHRtbEZvbGRlclBhdGg6ICd0ZW1wbGF0ZXMvYmFrZXJ5L21haXNvbi1sZXZhaW4uaHRtbCcsXG4gICAgZmVhdHVyZXM6IFtcbiAgICAgICdKYWR3YWwgd2FrdHUgcm90aSBtYXRhbmcgKERyb3AgdGltZXM6IDA3OjAwIENvdW50cnkgU291cmRvdWdoLCAwOTowMCBCdXR0ZXIgQ3JvaXNzYW50KScsXG4gICAgICAnRXRhbGFzZSBmb3RvIHBhc3RyeSByZXNvbHVzaSB0aW5nZ2kgZGVuZ2FuIHBlbmplbGFzYW4gYmFoYW4gbWVudGVnYSBQcmFuY2lzJyxcbiAgICAgICdGb3JtdWxpciBwcmUtb3JkZXIgaGFtcGVycyBkYW4gcGVyYXlhYW4gaGFyaSBpc3RpbWV3YScsXG4gICAgICAnSW50ZWdyYXNpIHBlc2FuIGluc3RhbiBXaGF0c0FwcCBrZSBiYWtlcidcbiAgICBdLFxuICAgIHVzYWdlSW5zdHJ1Y3Rpb25zOiBbXG4gICAgICAnU2VzdWFpa2FuIGphbSBmcmVzaC1iYWtlIHNlc3VhaSBrYXBhc2l0YXMgb3ZlbiBBbmRhLicsXG4gICAgICAnVWJhaCBkYWZ0YXIgcGFrZXQgaGFtcGVycyBkaSBmaWxlIGRhdGEvYmFrZXJ5Lmpzb24uJ1xuICAgIF0sXG4gICAgc291cmNlRmlsZXM6IFtcbiAgICAgIHtcbiAgICAgICAgZmlsZW5hbWU6ICdtYWlzb24tbGV2YWluLmh0bWwnLFxuICAgICAgICBsYW5ndWFnZTogJ2h0bWwnLFxuICAgICAgICBjb250ZW50OiBgPCFET0NUWVBFIGh0bWw+XG48aHRtbCBsYW5nPVwiaWRcIj5cbjxoZWFkPlxuICA8dGl0bGU+TWFpc29uIExldmFpbiDigJQgQXJ0aXNhbiBCYWtlcnk8L3RpdGxlPlxuPC9oZWFkPlxuPGJvZHk+XG4gIDxoZWFkZXI+XG4gICAgPGgxPk1BSVNPTiBMRVZBSU48L2gxPlxuICAgIDxwPlJvdGkgU291cmRvdWdoIEFsYW1pICYgUGFzdHJ5IE1lbnRlZ2EgSGFsYWw8L3A+XG4gIDwvaGVhZGVyPlxuPC9ib2R5PlxuPC9odG1sPmAsXG4gICAgICAgIGRlc2NyaXB0aW9uOiAnU3RydWt0dXIgc2VtYW50aWsgYmFrZXJ5LidcbiAgICAgIH1cbiAgICBdLFxuICAgIHByb21wdDoge1xuICAgICAgc3VtbWFyeTogJ1Byb21wdCB1bnR1ayB3ZWJzaXRlIHRva28gcm90aSBhcnRpc2FuIGRhbiBzb3VyZG91Z2ggbG9rYWwuJyxcbiAgICAgIGRlc2lnbkRpcmVjdGlvbjogJ1dhcm0gZ29sZGVuIGNydXN0IHRvbmUgKCNEOTc3MDYpIGRhbiBmbG91ciBzdG9uZSAoI0ZGRkJFQikuIEtlc2FuIGhhbmdhdCBhbGEgdG9rbyByb3RpIHBhZ2kgaGFyaSBkaSBzdWR1dCBrb3RhLicsXG4gICAgICBsYXlvdXRBbmRHcmlkOiAnR3JpZCBldGFsYXNlIGZvdG8gcm90aSBwZXJzZWdpIGRlbmdhbiBiYWRnZSBrZXRlcnNlZGlhYW4gaGFyaWFuLicsXG4gICAgICB0eXBvZ3JhcGh5QW5kQ29sb3I6ICdUaXBvZ3JhZmkgaHVtYW5pcyByYW1haCwgd2FybmEgZ2FuZHVtIGhhbmdhdC4nLFxuICAgICAgaW50ZXJhY3Rpb25zOiAnTm90aWZpa2FzaSByb3RpIHNpc2EgYmVyYXBhIGxvYWYgc2VjYXJhIGxpdmUuJyxcbiAgICAgIHRlY2huaWNhbFJlcXVpcmVtZW50czogJ0hUTUw1IHNlbWFudGlrIGRhbiBDU1MgR3JpZCByaW5nYW4uJyxcbiAgICAgIGlzUmVjb25zdHJ1Y3RlZDogZmFsc2VcbiAgICB9LFxuICAgIGZlYXR1cmVkOiB0cnVlLFxuICAgIHB1Ymxpc2hlZEF0OiAnMjAyNi0wNC0xNCcsXG4gICAgbGl2ZVByZXZpZXdBdmFpbGFibGU6IHRydWUsXG4gICAgYWNjZW50Q29sb3I6ICcjRDk3NzA2J1xuICB9LFxuICB7XG4gICAgaWQ6ICd0cGwtMTMnLFxuICAgIHNsdWc6ICdmbG9yZWFsZS1hcnRpc2FuLWZsb3Jpc3QnLFxuICAgIHRpdGxlOiAnQm90YW5pY2EgRmxvcmFsIFN0dWRpbycsXG4gICAgdGFnbGluZTogJ0J1bmdhIHNlZ2FyIGt1cmFzaSBoYXJpYW4gJiByYW5na2FpYW4gYnVrZXQgcGVybmlrYWhhbicsXG4gICAgZGVzY3JpcHRpb246ICdXZWJzaXRlIHN0dWRpbyBmbG9yaXN0IGluZGVwZW5kZW4gdW50dWsgcGVtZXNhbmFuIGJ1a2V0IGJ1bmdhIHNlZ2FyIGhhcmlhbiwgZGVrb3Jhc2kgaW50aW1hdGUgd2VkZGluZywgZGFuIHBlbmRhZnRhcmFuIGtlbGFzIG1lcmFuZ2thaSBidW5nYSAoZmxvd2VyIHdvcmtzaG9wKS4nLFxuICAgIGNhdGVnb3J5OiAnZmxvcmlzdCcsXG4gICAgdGFnczogWydGbG9yaXN0JywgJ0J1bmdhIFNlZ2FyJywgJ1VNS00gS3JlYXRpZicsICdCdWtldCcsICdXb3Jrc2hvcCddLFxuICAgIHRlY2hub2xvZ2llczogWydSZWFjdCcsICdUeXBlU2NyaXB0JywgJ1NlYXNvbmFsIEdhbGxlcnknLCAnV2hhdHNBcHAgT3JkZXInXSxcbiAgICB0aHVtYm5haWxTdmdUeXBlOiAnZmxvcmlzdCcsXG4gICAgcHJldmlld0NvbXBvbmVudEtleTogJ2Zsb3Jpc3QtYm90YW5pY2EnLFxuICAgIGh0bWxQYXRoOiAnL3RlbXBsYXRlcy9mbG9yaXN0L2JvdGFuaWNhLmh0bWwnLFxuICAgIGh0bWxGb2xkZXJQYXRoOiAndGVtcGxhdGVzL2Zsb3Jpc3QvYm90YW5pY2EuaHRtbCcsXG4gICAgZmVhdHVyZXM6IFtcbiAgICAgICdHYWxlcmkgcmFuZ2thaWFuIGJ1bmdhIGJlcmRhc2Fya2FuIG1vbWVuOiBXaXN1ZGEsIFVsYW5nIFRhaHVuLCBMYW1hcmFuLCBCZWxhc3VuZ2thd2EnLFxuICAgICAgJ0ZpdHVyIHBlc2FuIGJ1a2V0IGt1c3RvbSBkZW5nYW4ga2FydHUgdWNhcGFuIHBlcnNvbmFsJyxcbiAgICAgICdQaWxpaGFuIHBlbmdpcmltYW4ga3VyaXIgc2FtZS1kYXkgaW5zdGFuIGtvdGEnLFxuICAgICAgJ0phZHdhbCBwZW5kYWZ0YXJhbiBrZWxhcyB3b3Jrc2hvcCBtZXJhbmdrYWkgYnVuZ2EgYWtoaXIgcGVrYW4nXG4gICAgXSxcbiAgICB1c2FnZUluc3RydWN0aW9uczogW1xuICAgICAgJ1VuZ2dhaCBmb3RvIHJhbmdrYWlhbiBidW5nYSBtdXNpbSBpbmkgZGkgcHVibGljL2Zsb3dlcnMuJyxcbiAgICAgICdIdWJ1bmdrYW4ga2Ugbm9tb3IgYWRtaW4gV2hhdHNBcHAgdG9rbyBidW5nYS4nXG4gICAgXSxcbiAgICBzb3VyY2VGaWxlczogW1xuICAgICAge1xuICAgICAgICBmaWxlbmFtZTogJ2JvdGFuaWNhLmh0bWwnLFxuICAgICAgICBsYW5ndWFnZTogJ2h0bWwnLFxuICAgICAgICBjb250ZW50OiBgaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmV4cG9ydCBmdW5jdGlvbiBCb3RhbmljYUZsb3Jpc3QoKSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJmbG9yaXN0LXJvb3RcIj5cbiAgICAgIDxoMT5CT1RBTklDQSAvLyBGTE9SQUwgU1RVRElPPC9oMT5cbiAgICAgIDxwPkt1cmFzaSBidW5nYSBzZWdhciBoYXJpYW4gcGV0aWsgcGV0YW5pIGxva2FsLjwvcD5cbiAgICA8L2Rpdj5cbiAgKTtcbn1gLFxuICAgICAgICBkZXNjcmlwdGlvbjogJ0tvbXBvbmVuIFJlYWN0IGZsb3Jpc3Qgc3R1ZGlvLidcbiAgICAgIH1cbiAgICBdLFxuICAgIHByb21wdDoge1xuICAgICAgc3VtbWFyeTogJ1Byb21wdCB1bnR1ayB3ZWJzaXRlIHRva28gYnVuZ2EgZmxvcmlzdCBzdHVkaW8gYXJ0aXNhbi4nLFxuICAgICAgZGVzaWduRGlyZWN0aW9uOiAnRWFydGh5IGJvdGFuaWNhbCBwYXN0ZWw6IEV1Y2FseXB0dXMgc2FnZSAoIzU1NkIyRiksIGJsdXNoIHBlb255ICgjRThCNEI4KSwgZGFuIGtlcnRhcyBsaW5lbiAoI0ZBRjlGNikuJyxcbiAgICAgIGxheW91dEFuZEdyaWQ6ICdNYXNvbnJ5IHZpc3VhbCBmb3RvIGJ1a2V0IHlhbmcgcmFwaSBkYW4gZWxlZ2FuLicsXG4gICAgICB0eXBvZ3JhcGh5QW5kQ29sb3I6ICdTZXJpZiBrb250ZW1wb3JlciBkaXBhZHUgc2FucyBsZW1idXQuJyxcbiAgICAgIGludGVyYWN0aW9uczogJ1BpbGloIHdhcm5hIGtlcnRhcyBwZW1idW5na3VzIGJ1a2V0IHNlY2FyYSB2aXN1YWwuJyxcbiAgICAgIHRlY2huaWNhbFJlcXVpcmVtZW50czogJ1JlYWN0IDE5IGRhbiByZXNwb25zaWYgbW9iaWxlLicsXG4gICAgICBpc1JlY29uc3RydWN0ZWQ6IGZhbHNlXG4gICAgfSxcbiAgICBmZWF0dXJlZDogdHJ1ZSxcbiAgICBwdWJsaXNoZWRBdDogJzIwMjYtMDQtMTUnLFxuICAgIGxpdmVQcmV2aWV3QXZhaWxhYmxlOiB0cnVlLFxuICAgIGFjY2VudENvbG9yOiAnIzcwODIzOCdcbiAgfSxcbiAge1xuICAgIGlkOiAndHBsLTE0JyxcbiAgICBzbHVnOiAnZ2VudGxlbWVuLWN1dC1iYXJiZXInLFxuICAgIHRpdGxlOiAnVGhlIEhlcml0YWdlIEJhcmJlcicsXG4gICAgdGFnbGluZTogJ0NsYXNzaWMgZ2VudGxlbWVuIGdyb29taW5nICYgaGFpciBjYXJlIHN0dWRpbyBsb2thbCcsXG4gICAgZGVzY3JpcHRpb246ICdXZWJzaXRlIGJhcmJlcnNob3Aga2xhc2lrIGJlcnN0YW5kYXIgcHJvZmVzaW9uYWwuIE1lbmFtcGlsa2FuIGRhZnRhciBzZXJ2aXMgY3VrdXIgcmFtYnV0LCBjdWt1ciBqZW5nZ290IGhhbmR1ayBoYW5nYXQsIHByb2ZpbCBwYXJhIGthcHN0ZXIsIGRhbiBrZW11ZGFoYW4gYm9va2luZyBqYWR3YWwgdmlhIFdoYXRzQXBwLicsXG4gICAgY2F0ZWdvcnk6ICdiYXJiZXInLFxuICAgIHRhZ3M6IFsnQmFyYmVyc2hvcCcsICdHcm9vbWluZycsICdVTUtNIEphc2EnLCAnUGFuZ2thcyBSYW1idXQnLCAnQm9va2luZyddLFxuICAgIHRlY2hub2xvZ2llczogWydIVE1MNScsICdDdXN0b20gQ1NTJywgJ1NlcnZpY2UgTWVudScsICdXaGF0c0FwcCBIb29rJ10sXG4gICAgdGh1bWJuYWlsU3ZnVHlwZTogJ2JhcmJlcicsXG4gICAgcHJldmlld0NvbXBvbmVudEtleTogJ2JhcmJlci1oZXJpdGFnZScsXG4gICAgaHRtbFBhdGg6ICcvdGVtcGxhdGVzL2JhcmJlci9oZXJpdGFnZS1iYXJiZXIuaHRtbCcsXG4gICAgaHRtbEZvbGRlclBhdGg6ICd0ZW1wbGF0ZXMvYmFyYmVyL2hlcml0YWdlLWJhcmJlci5odG1sJyxcbiAgICBmZWF0dXJlczogW1xuICAgICAgJ0RhZnRhciBtZW51IHNlcnZpcyB0cmFuc3BhcmFuOiBDbGFzc2ljIEN1dCwgSG90IFRvd2VsIFNoYXZlLCBLaWRzIEN1dCwgSGFpciBUYXR0b28nLFxuICAgICAgJ1Byb2ZpbCBkYW4gcG9ydG9mb2xpbyBoYXNpbCBwb3RvbmcgcmFtYnV0IHRpYXAga2Fwc3RlcicsXG4gICAgICAnS2F0YWxvZyBwb21hZGUgZGFuIHRvbmlrIHBlcmF3YXRhbiByYW1idXQgcHJpYScsXG4gICAgICAnVG9tYm9sIGJvb2tpbmcgamFtIHBvdG9uZyBsYW5nc3VuZyBrZSBXaGF0c0FwcCBrYXNpcidcbiAgICBdLFxuICAgIHVzYWdlSW5zdHJ1Y3Rpb25zOiBbXG4gICAgICAnRWRpdCB0YXJpZiBsYXlhbmFuIGRpIHN0eWxlcy9zZXJ2aWNlcy5jc3MuJyxcbiAgICAgICdQZXJiYXJ1aSBmb3RvIGdhbGVyaSBwb3RvbmdhbiByYW1idXQgcHJpYS4nXG4gICAgXSxcbiAgICBzb3VyY2VGaWxlczogW1xuICAgICAge1xuICAgICAgICBmaWxlbmFtZTogJ2hlcml0YWdlLWJhcmJlci5odG1sJyxcbiAgICAgICAgbGFuZ3VhZ2U6ICdodG1sJyxcbiAgICAgICAgY29udGVudDogYDwhRE9DVFlQRSBodG1sPlxuPGh0bWw+XG48aGVhZD48dGl0bGU+VGhlIEhlcml0YWdlIEJhcmJlcjwvdGl0bGU+PC9oZWFkPlxuPGJvZHk+XG4gIDxoMT5USEUgSEVSSVRBR0UgQkFSQkVSU0hPUDwvaDE+XG4gIDxwPlBvdG9uZyBSYW1idXQgUHJlc2lzaSAmIEN1a3VyIFRyYWRpc2lvbmFsPC9wPlxuPC9ib2R5PlxuPC9odG1sPmAsXG4gICAgICAgIGRlc2NyaXB0aW9uOiAnTWFya3VwIGJhcmJlcnNob3AuJ1xuICAgICAgfVxuICAgIF0sXG4gICAgcHJvbXB0OiB7XG4gICAgICBzdW1tYXJ5OiAnUHJvbXB0IHVudHVrIHdlYnNpdGUgYmFyYmVyc2hvcCBrbGFzaWsgcHJpYS4nLFxuICAgICAgZGVzaWduRGlyZWN0aW9uOiAnVmludGFnZSBpbmR1c3RyaWFsIGJhcmJlcjogRGFyayB0aW1iZXIgKCMxODE4MUIpLCBsZWF0aGVyIGNvZ25hYyAoI0I0NTMwOSksIGRhbiBha3NlbiBwdXRpaCBiZXJzaWguJyxcbiAgICAgIGxheW91dEFuZEdyaWQ6ICdUYWJlbCBtZW51IHNlcnZpcyB0ZWdhcyBkZW5nYW4gaGFyZ2EgamVsYXMgZGFuIGR1cmFzaSBtZW5pdC4nLFxuICAgICAgdHlwb2dyYXBoeUFuZENvbG9yOiAnRm9udCBjb25kZW5zZWQgYm9sZCB0ZWdhcyBiZXJnYXlhIHZpbnRhZ2UgYmFyYmVyIHBvbGUuJyxcbiAgICAgIGludGVyYWN0aW9uczogJ1BpbGloIGthcHN0ZXIgZmF2b3JpdCBsYWx1IGtpcmltIGZvcm1hdCBib29raW5nIGtlIFdoYXRzQXBwLicsXG4gICAgICB0ZWNobmljYWxSZXF1aXJlbWVudHM6ICdSaW5nYW4sIGxvYWRpbmcga2lsYXQgZGkgSFAuJyxcbiAgICAgIGlzUmVjb25zdHJ1Y3RlZDogZmFsc2VcbiAgICB9LFxuICAgIGZlYXR1cmVkOiBmYWxzZSxcbiAgICBwdWJsaXNoZWRBdDogJzIwMjYtMDQtMTYnLFxuICAgIGxpdmVQcmV2aWV3QXZhaWxhYmxlOiB0cnVlLFxuICAgIGFjY2VudENvbG9yOiAnI0I0NTMwOSdcbiAgfSxcbiAge1xuICAgIGlkOiAndHBsLTE1JyxcbiAgICBzbHVnOiAnc3R1ZGlvLWtlcmFtaWstdGFuYWgnLFxuICAgIHRpdGxlOiAnVGFuYWggTGlhdCBQb3R0ZXJ5JyxcbiAgICB0YWdsaW5lOiAnS2VyYWppbmFuIGtlcmFtaWsgdGFibGV3YXJlIGJ1YXRhbiB0YW5nYW4gJiB3b3Jrc2hvcCBzdHVkaW8nLFxuICAgIGRlc2NyaXB0aW9uOiAnV2Vic2l0ZSBzdHVkaW8ga3JpeWEgdGVtYmlrYXIgZGFuIGtlcmFtaWsgYnVhdGFuIHRhbmdhbiBsb2thbC4gTWVueWVkaWFrYW4gcGVuanVhbGFuIHRhYmxld2FyZSBlc3RldGlrIHVudHVrIGthZmUvcnVtYWggZGFuIHBlbWVzYW5hbiBrZWxhcyB3b3Jrc2hvcCBwb3R0ZXJ5IGFraGlyIHBla2FuLicsXG4gICAgY2F0ZWdvcnk6ICdwb3R0ZXJ5JyxcbiAgICB0YWdzOiBbJ0tlcmFtaWsnLCAnUG90dGVyeScsICdVTUtNIEtyaXlhJywgJ1dvcmtzaG9wIFN0dWRpbycsICdIYW5kbWFkZSddLFxuICAgIHRlY2hub2xvZ2llczogWydSZWFjdCcsICdUeXBlU2NyaXB0JywgJ1Byb2R1Y3QgU2hvd2Nhc2UnLCAnV29ya3Nob3AgUlNWUCddLFxuICAgIHRodW1ibmFpbFN2Z1R5cGU6ICdwb3R0ZXJ5JyxcbiAgICBwcmV2aWV3Q29tcG9uZW50S2V5OiAncG90dGVyeS10YW5haCcsXG4gICAgaHRtbFBhdGg6ICcvdGVtcGxhdGVzL3BvdHRlcnkvdGFuYWgtbGlhdC5odG1sJyxcbiAgICBodG1sRm9sZGVyUGF0aDogJ3RlbXBsYXRlcy9wb3R0ZXJ5L3RhbmFoLWxpYXQuaHRtbCcsXG4gICAgZmVhdHVyZXM6IFtcbiAgICAgICdLYXRhbG9nIHRhYmxld2FyZSBrZXJhbWlrIHVuaWsgKENhbmdraXIga29waSwgbWFuZ2tvayBtYXRjaGEsIHBpcmluZyBiZXJ0ZWtzdHVyIHRhbmFoKScsXG4gICAgICAnSmFkd2FsIGtlbGFzIHdvcmtzaG9wIHBvdHRlcnkgcGVtdWxhIChXaGVlbCB0aHJvd2luZyAmIGhhbmQgYnVpbGRpbmcpJyxcbiAgICAgICdQZW1lc2FuYW4gY3VzdG9tIG9yZGVyIGdyb3NpciB1bnR1ayByZXN0b3JhbiBkYW4ga2VkYWkga29waScsXG4gICAgICAnSW50ZWdyYXNpIHBlbWVzYW5hbiBkYW4ga29uZmlybWFzaSBrZWxhcyBXaGF0c0FwcCdcbiAgICBdLFxuICAgIHVzYWdlSW5zdHJ1Y3Rpb25zOiBbXG4gICAgICAnUGVyYmFydWkga3VvdGEgamFkd2FsIGtlbGFzIHBvdHRlcnkgZGkgZGF0YS93b3Jrc2hvcHMudHMuJyxcbiAgICAgICdHYW50aSBmb3RvIHByb2R1ayBrZXJhbWlrIGRpIGZvbGRlciBwdWJsaWMvY2VyYW1pY3MuJ1xuICAgIF0sXG4gICAgc291cmNlRmlsZXM6IFtcbiAgICAgIHtcbiAgICAgICAgZmlsZW5hbWU6ICd0YW5haC1saWF0Lmh0bWwnLFxuICAgICAgICBsYW5ndWFnZTogJ2h0bWwnLFxuICAgICAgICBjb250ZW50OiBgaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmV4cG9ydCBmdW5jdGlvbiBUYW5haExpYXRTdHVkaW8oKSB7XG4gIHJldHVybiAoXG4gICAgPGRpdj5cbiAgICAgIDxoMT5UQU5BSCBMSUFUIC8vIFBPVFRFUlkgU1RVRElPPC9oMT5cbiAgICAgIDxwPktlcmFqaW5hbiB0YW5haCBsaWF0IGFsYW1pIGRpYmVudHVrIGRlbmdhbiB0YW5nYW4gZGFuIGhhdGkuPC9wPlxuICAgIDwvZGl2PlxuICApO1xufWAsXG4gICAgICAgIGRlc2NyaXB0aW9uOiAnS29tcG9uZW4gcG90dGVyeSBzdHVkaW8uJ1xuICAgICAgfVxuICAgIF0sXG4gICAgcHJvbXB0OiB7XG4gICAgICBzdW1tYXJ5OiAnUHJvbXB0IHdlYnNpdGUgc3R1ZGlvIGtlcmFtaWsgZGFuIHdvcmtzaG9wIHRlbWJpa2FyIFVNS00uJyxcbiAgICAgIGRlc2lnbkRpcmVjdGlvbjogJ1dhYmktc2FiaSBuYXR1cmFsOiBFYXJ0aGVud2FyZSB0ZXJyYWNvdHRhICgjQzI0MTBDKSwgcmF3IHVuZ2xhemVkIGNsYXkgKCNGQUY1RUUpLCBkYW4gYmF0dSBhYnUtYWJ1LicsXG4gICAgICBsYXlvdXRBbmRHcmlkOiAnR3JpZCBwcm9kdWsgeWFuZyB0ZW5hbmcgZGVuZ2FuIGRlc2tyaXBzaSBkaW1lbnNpIGRhbiBmaW5pc2hpbmcgZ2xhc2lyLicsXG4gICAgICB0eXBvZ3JhcGh5QW5kQ29sb3I6ICdUaXBvZ3JhZmkgbmV0cmFsIHlhbmcgbWVub25qb2xrYW4ga2VpbmRhaGFuIHRla3N0dXIgZmlzaWsgdGFuYWggbGlhdC4nLFxuICAgICAgaW50ZXJhY3Rpb25zOiAnUGlsaWggamFkd2FsIHRhbmdnYWwgd29ya3Nob3AgbGFuZ3N1bmcgZGlhcmFoa2FuIGtlIGZvcm0gV2hhdHNBcHAuJyxcbiAgICAgIHRlY2huaWNhbFJlcXVpcmVtZW50czogJ1JlYWN0IDE5LCBha3Nlc2liaWxpdGFzIHRpbmdnaS4nLFxuICAgICAgaXNSZWNvbnN0cnVjdGVkOiBmYWxzZVxuICAgIH0sXG4gICAgZmVhdHVyZWQ6IGZhbHNlLFxuICAgIHB1Ymxpc2hlZEF0OiAnMjAyNi0wNC0xOCcsXG4gICAgbGl2ZVByZXZpZXdBdmFpbGFibGU6IHRydWUsXG4gICAgYWNjZW50Q29sb3I6ICcjQzI0MTBDJ1xuICB9LFxuICB7XG4gICAgaWQ6ICd0cGwtMTYnLFxuICAgIHNsdWc6ICdrZWJ1bi1zYXl1ci1vcmdhbmlrJyxcbiAgICB0aXRsZTogJ0xva2FsIE9yZ2FuaWsgRmFybScsXG4gICAgdGFnbGluZTogJ1Bhc2FyIHNheXVyIG9yZ2FuaWsgc2VnYXIgcGV0aWsgbGFuZ3N1bmcgZGFyaSBwZXRhbmkgbG9rYWwnLFxuICAgIGRlc2NyaXB0aW9uOiAnV2Vic2l0ZSBsYXlhbmFuIGxhbmdnYW5hbiBzYXl1ciBkYW4gYnVhaCBvcmdhbmlrIGxva2FsIHRhbnBhIHBlc3Rpc2lkYS4gTWVuZ2h1YnVuZ2thbiBwZXRhbmkgZGVzYSBsYW5nc3VuZyBrZSBkYXB1ciBrZWx1YXJnYSBwZXJrb3RhYW4gZGVuZ2FuIHBha2V0IGxhbmdnYW5hbiBtaW5nZ3VhbiAoSGFydmVzdCBCb3gpLicsXG4gICAgY2F0ZWdvcnk6ICdvcmdhbmlrJyxcbiAgICB0YWdzOiBbJ09yZ2FuaWsnLCAnU2F5dXIgU2VnYXInLCAnVU1LTSBQZXJ0YW5pYW4nLCAnRmFybSB0byBUYWJsZScsICdMYW5nZ2FuYW4nXSxcbiAgICB0ZWNobm9sb2dpZXM6IFsnSFRNTDUnLCAnQ1NTIEdyaWQnLCAnSGFydmVzdCBUaWNrZXInLCAnV2hhdHNBcHAgT3JkZXInXSxcbiAgICB0aHVtYm5haWxTdmdUeXBlOiAnb3JnYW5pYycsXG4gICAgcHJldmlld0NvbXBvbmVudEtleTogJ29yZ2FuaWMtZmFybScsXG4gICAgaHRtbFBhdGg6ICcvdGVtcGxhdGVzL29yZ2FuaWsvbG9rYWwtb3JnYW5pay5odG1sJyxcbiAgICBodG1sRm9sZGVyUGF0aDogJ3RlbXBsYXRlcy9vcmdhbmlrL2xva2FsLW9yZ2FuaWsuaHRtbCcsXG4gICAgZmVhdHVyZXM6IFtcbiAgICAgICdEYWZ0YXIgcGFuZW4gc2VnYXIgbWluZ2d1IGluaTogU2VsYWRhIHJvbWFpbmUsIHRvbWF0IGNlcmkgaGlkcm9wb25paywgYWxwdWthdCBtZW50ZWdhJyxcbiAgICAgICdQYWtldCBsYW5nZ2FuYW4gaGVtYXQgSGFydmVzdCBCb3ggbWluZ2d1YW4ga2VsdWFyZ2EnLFxuICAgICAgJ1Byb2ZpbCBwZXRhbmkgbWl0cmEgZGFuIHRyYW5zcGFyYW5zaSBsb2thc2kga2VidW4gbG9rYWwnLFxuICAgICAgJ1BlbWVzYW5hbiBrZXJhbmphbmcgc2F5dXIgY2VwYXQgdmlhIFdoYXRzQXBwJ1xuICAgIF0sXG4gICAgdXNhZ2VJbnN0cnVjdGlvbnM6IFtcbiAgICAgICdQZXJiYXJ1aSBkYWZ0YXIgc2F5dXIgcGFuZW4gdGlhcCBoYXJpIFNlbmluIGRpIGRhdGEvaGFydmVzdC5qc29uLicsXG4gICAgICAnVGF1dGthbiBub21vciBXaGF0c0FwcCBwZW5naXJpbWFuIGt1cmlyIGxva2FsLidcbiAgICBdLFxuICAgIHNvdXJjZUZpbGVzOiBbXG4gICAgICB7XG4gICAgICAgIGZpbGVuYW1lOiAnbG9rYWwtb3JnYW5pay5odG1sJyxcbiAgICAgICAgbGFuZ3VhZ2U6ICdodG1sJyxcbiAgICAgICAgY29udGVudDogYDwhRE9DVFlQRSBodG1sPlxuPGh0bWw+XG48aGVhZD48dGl0bGU+TG9rYWwgT3JnYW5payBGYXJtPC90aXRsZT48L2hlYWQ+XG48Ym9keT5cbiAgPGgxPkxPS0FMIE9SR0FOSUsgLy8gREFSSSBLRUJVTiBLRSBNRUpBPC9oMT5cbiAgPHA+U2F5dXJhbiBiZWJhcyBwZXN0aXNpZGEgZGlwYW5lbiBwYWdpIGhhcmkgZGlhbnRhciBzaWFuZyBoYXJpLjwvcD5cbjwvYm9keT5cbjwvaHRtbD5gLFxuICAgICAgICBkZXNjcmlwdGlvbjogJ01hcmt1cCBmYXJtIHRvIHRhYmxlLidcbiAgICAgIH1cbiAgICBdLFxuICAgIHByb21wdDoge1xuICAgICAgc3VtbWFyeTogJ1Byb21wdCB3ZWJzaXRlIFVNS00gcGVydGFuaWFuIG9yZ2FuaWsgZmFybS10by10YWJsZS4nLFxuICAgICAgZGVzaWduRGlyZWN0aW9uOiAnRnJlc2ggbmF0dXJhbCBoYXJ2ZXN0OiBIaWphdSBkYXVuIHN1YnVyICgjMTU4MDNEKSwgdGFuYWggZ2VtYnVyICgjM0UyNzIzKSwgZGFuIHB1dGloIHNlZ2FyICgjRjlGQkU3KS4nLFxuICAgICAgbGF5b3V0QW5kR3JpZDogJ0dyaWQgcGFrZXQgc2F5dXIgZGVuZ2FuIGJlcmF0IGdyYW0gZGFuIG1hc2Ega2VzZWdhcmFuLicsXG4gICAgICB0eXBvZ3JhcGh5QW5kQ29sb3I6ICdUaXBvZ3JhZmkgbW9kZXJuIHNlZ2FyIGRhbiBiZXJzYWhhYmF0LicsXG4gICAgICBpbnRlcmFjdGlvbnM6ICdLYWxrdWxhdG9yIHBha2V0IGtlYnV0dWhhbiBzYXl1ciBwZXIgbWluZ2d1LicsXG4gICAgICB0ZWNobmljYWxSZXF1aXJlbWVudHM6ICdSaW5nYW4sIGxvYWRpbmcgY2VwYXQgZGkgamFyaW5nYW4gc2VsdWxlci4nLFxuICAgICAgaXNSZWNvbnN0cnVjdGVkOiBmYWxzZVxuICAgIH0sXG4gICAgZmVhdHVyZWQ6IGZhbHNlLFxuICAgIHB1Ymxpc2hlZEF0OiAnMjAyNi0wNC0yMCcsXG4gICAgbGl2ZVByZXZpZXdBdmFpbGFibGU6IHRydWUsXG4gICAgYWNjZW50Q29sb3I6ICcjMTU4MDNEJ1xuICB9LFxuICB7XG4gICAgaWQ6ICd0cGwtMTcnLFxuICAgIHNsdWc6ICdzZW5qYS1hbmdrcmluZ2FuJyxcbiAgICB0aXRsZTogJ1NFTkpBJyxcbiAgICB0YWdsaW5lOiAnQW5na3JpbmdhbiByYXNhIG1hc2Ega2luaSDigJQga29waSwgbmFzaSBrdWNpbmcsIHNhdGUsIGRhbiBjZXJpdGEgc2FtcGFpIG1hbGFtJyxcbiAgICBkZXNjcmlwdGlvbjogJ1RlbXBsYXRlIHdlYnNpdGUga2FmZSAmIGFuZ2tyaW5nYW4gbW9kZXJuIGJlcm51YW5zYSBoYW5nYXQgZGFuIGFrcmFiLiBEaWxlbmdrYXBpIGFubm91bmNlbWVudCBiYW5uZXIgb3BlcmFzaW9uYWwgMTYuMDAg4oCUIDAwLjAwIFdJQiwgaGVybyB2aXN1YWwgdGVtcGF0IG5vbmdrcm9uZywgc3RyaXAgNCBrZXVuZ2d1bGFuLCBmaWx0ZXIga2F0ZWdvcmkgbWVudSBpbnRlcmFrdGlmIChLb3BpICYgTWludW1hbiwgQW5na3JpbmdhbiwgQ2FtaWxhbiksIGNlcml0YSB0ZW50YW5nIHRlbXBhdCBwdWxhbmcga2VkdWEsIGRhbiBwZW5jYXJpIGxva2FzaSBHb29nbGUgTWFwcy4nLFxuICAgIGNhdGVnb3J5OiAnY2FmZScsXG4gICAgdGFnczogWydBbmdrcmluZ2FuJywgJ0NhZmUnLCAnTmFzaSBLdWNpbmcnLCAnU2F0ZS1zYXRlYW4nLCAnVGVtcGF0IE5vbmdrcm9uZycsICdNZW51IEludGVyYWt0aWYnXSxcbiAgICB0ZWNobm9sb2dpZXM6IFsnSFRNTDUnLCAnVmFuaWxsYSBDU1MnLCAnVmFuaWxsYSBKUycsICdETSBTYW5zICYgUGxheWZhaXInXSxcbiAgICB0aHVtYm5haWxTdmdUeXBlOiAnY2FmZScsXG4gICAgcHJldmlld0NvbXBvbmVudEtleTogJ2NhZmUtc2VuamEnLFxuICAgIGh0bWxQYXRoOiAnL3RlbXBsYXRlcy9jYWZlL3NlbmphLmh0bWwnLFxuICAgIGh0bWxGb2xkZXJQYXRoOiAndGVtcGxhdGVzL2NhZmUvc2VuamEuaHRtbCcsXG4gICAgZmVhdHVyZXM6IFtcbiAgICAgICdGaWxlIHR1bmdnYWwgbWFuZGlyaSAoSFRNTCArIENTUyArIEpTKSBzaWFwIGRpYnVrYSBsYW5nc3VuZyBkaSBicm93c2VyIHRhbnBhIGJ1aWxkIHRvb2wnLFxuICAgICAgJ0ZpbHRlciBrYXRlZ29yaSBtZW51IGludGVyYWt0aWYgKFNlbXVhIE1lbnUsIEtvcGkgJiBNaW51bWFuLCBBbmdrcmluZ2FuLCBDYW1pbGFuKScsXG4gICAgICAnUGFsZXQgd2FybmEgc2VuamE6IGNyZWFtICgjZjdmM2ViKSwgaW5rICgjMzAyNjFmKSwgcnVzdCAoI2I4NWYzZCksIG9saXZlICgjNjg3MDRlKScsXG4gICAgICAnTmF2aWdhc2kgZHJhd2VyIG1vYmlsZSByZXNwb25zaWYgZGVuZ2FuIHRvbWJvbCBoYW1idXJnZXIgaW50ZXJha3RpZicsXG4gICAgICAnSW50ZWdyYXNpIHRhdXRhbiBHb29nbGUgTWFwcyB1bnR1ayBwZW5jYXJpYW4gbG9rYXNpIGFuZ2tyaW5nYW4nXG4gICAgXSxcbiAgICB1c2FnZUluc3RydWN0aW9uczogW1xuICAgICAgJ0J1a2EgdGVtcGxhdGVzL2NhZmUvc2VuamEuaHRtbCBhdGF1IHRlbXBsYXRlcy9jYWZlL3NlbmphLmh0bWwgZGkgY29kZSBlZGl0b3Iga2FtdS4nLFxuICAgICAgJ1ViYWggZGFmdGFyIG1lbnUgbmFzaSBrdWNpbmcsIHR1c3VrYW4gc2F0ZSwgZGFuIGFuZWthIGtvcGkgc2VzdWFpIGRhZnRhciBtZW51IHRva29tdS4nLFxuICAgICAgJ1RhdXRrYW4gbGluayBHb29nbGUgTWFwcyBsb2thc2kgY2FiYW5nIGFzbGltdSBwYWRhIHRvbWJvbCBDYXJpIExva2FzaS4nXG4gICAgXSxcbiAgICBzb3VyY2VGaWxlczogW1xuICAgICAge1xuICAgICAgICBmaWxlbmFtZTogJ3NlbmphLmh0bWwnLFxuICAgICAgICBsYW5ndWFnZTogJ2h0bWwnLFxuICAgICAgICBjb250ZW50OiBgPCEtLSBTRU5KQSDigJQgTkVDVE9SLlVJIENhZmUgJiBBbmdrcmluZ2FuIFRlbXBsYXRlIC0tPlxuPCFET0NUWVBFIGh0bWw+XG48aHRtbCBsYW5nPVwiaWRcIj5cbjxoZWFkPlxuICA8bWV0YSBjaGFyc2V0PVwiVVRGLThcIj5cbiAgPHRpdGxlPlNFTkpBIOKAlCBLb3BpLCBOYXNpLCBkYW4gQ2VyaXRhPC90aXRsZT5cbjwvaGVhZD5cbjxib2R5PlxuICA8ZGl2IGNsYXNzPVwiYW5ub3VuY2VtZW50XCI+QnVrYSBzZXRpYXAgaGFyaSDCtyAxNi4wMCDigJQgMDAuMDAgV0lCPC9kaXY+XG4gIDxoZWFkZXIgY2xhc3M9XCJuYXZiYXJcIj5cbiAgICA8YSBjbGFzcz1cImJyYW5kXCIgaHJlZj1cIiNiZXJhbmRhXCI+U0VOSkE8L2E+XG4gICAgPG5hdiBjbGFzcz1cIm5hdi1saW5rc1wiPjxhIGhyZWY9XCIjbWVudVwiPk1lbnU8L2E+PGEgaHJlZj1cIiNjZXJpdGFcIj5UZW50YW5nPC9hPjwvbmF2PlxuICA8L2hlYWRlcj5cbiAgPG1haW4+XG4gICAgPHNlY3Rpb24gY2xhc3M9XCJoZXJvXCI+XG4gICAgICA8aDE+WWFuZyBkaWNhcmkgYnVrYW4gY3VtYSA8ZW0+a29waS48L2VtPjwvaDE+XG4gICAgICA8cD5BZGEgbmFzaSBrdWNpbmcgaGFuZ2F0LCBzYXRlIHlhbmcgYmFydSBkaWJha2FyLCBrb3BpIGZhdm9yaXQsIGRhbiBvYnJvbGFuIHNhbXBhaSBtYWxhbS48L3A+XG4gICAgPC9zZWN0aW9uPlxuICA8L21haW4+XG48L2JvZHk+XG48L2h0bWw+YCxcbiAgICAgICAgZGVzY3JpcHRpb246ICdGaWxlIG1hbmRpcmkgSFRNTCArIENTUyArIEpTIHlhbmcgZGFwYXQgbGFuZ3N1bmcgZGlidWthIGRpIGJyb3dzZXIgYXBhIHB1bi4nXG4gICAgICB9XG4gICAgXSxcbiAgICBwcm9tcHQ6IHtcbiAgICAgIHN1bW1hcnk6ICdQcm9tcHQgd2Vic2l0ZSBjYWZlICYgYW5na3JpbmdhbiBtb2Rlcm4gU0VOSkEuJyxcbiAgICAgIGRlc2lnbkRpcmVjdGlvbjogJ1dhcm0gZHVzayBhdG1vc3BoZXJlOiBDcmVhbSAoI2Y3ZjNlYiksIENoYXJjb2FsIEluayAoIzMwMjYxZiksIFRlcnJhY290dGEgUnVzdCAoI2I4NWYzZCksIE11dGVkIE9saXZlICgjNjg3MDRlKS4gVGlwb2dyYWZpIFBsYXlmYWlyIERpc3BsYXkgJiBETSBTYW5zLicsXG4gICAgICBsYXlvdXRBbmRHcmlkOiAnQXN5bW1ldHJpYyBoZXJvIGdyaWQgZGVuZ2FuIGZvdG8gbWFsYW0gaGFyaSwga2FydHUgbWVudSByZXNwb25zaWYgNCBrb2xvbSwgZGFuIGRyYXdlciBuYXZpZ2FzaSBtb2JpbGUuJyxcbiAgICAgIHR5cG9ncmFwaHlBbmRDb2xvcjogJ0RNIFNhbnMgdW50dWsgdGVrcyBtZW51IHlhbmcgcmVueWFoIGRhbiBQbGF5ZmFpciBEaXNwbGF5IHVudHVrIHNlbnR1aGFuIGNlcml0YSBwZXJzb25hbCB5YW5nIGhhbmdhdC4nLFxuICAgICAgaW50ZXJhY3Rpb25zOiAnRmlsdGVyIG1lbnUgc2VrZXRpa2EgdmlhIGV2ZW50IGxpc3RlbmVyIEphdmFTY3JpcHQgbXVybmkgdGFucGEga2V0ZXJnYW50dW5nYW4gbGlicmFyeSBsdWFyLicsXG4gICAgICB0ZWNobmljYWxSZXF1aXJlbWVudHM6ICcxMDAlIHN0YW5kYWxvbmUsIHJlc3BvbnNpZiBtdWxhaSAzNjBweCBoaW5nZ2EgbGF5YXIgZGVza3RvcCBsZWJhci4nLFxuICAgICAgaXNSZWNvbnN0cnVjdGVkOiBmYWxzZVxuICAgIH0sXG4gICAgZmVhdHVyZWQ6IHRydWUsXG4gICAgcHVibGlzaGVkQXQ6ICcyMDI2LTA0LTIyJyxcbiAgICBsaXZlUHJldmlld0F2YWlsYWJsZTogdHJ1ZSxcbiAgICBhY2NlbnRDb2xvcjogJyNiODVmM2QnXG4gIH0sXG4gIHtcbiAgICBpZDogJ3RwbC0xOCcsXG4gICAgc2x1ZzogJ3Jhc28tbWFuZGVoLXBhZGFuZycsXG4gICAgdGl0bGU6ICdSYXNvIE1hbmRlaCcsXG4gICAgdGFnbGluZTogJ0Rhc2hib2FyZCBldGFsYXNlIGxhdWsgYXV0ZW50aWsgTWluYW5na2FiYXUgJiBrYXNpciBQT1MgcnVtYWggbWFrYW4gUGFkYW5nJyxcbiAgICBkZXNjcmlwdGlvbjogJ1RlbXBsYXRlIGRhc2hib2FyZCBldGFsYXNlIGRpZ2l0YWwgZGFuIGthc2lyIFBPUyBtb2Rlcm4gdW50dWsgUnVtYWggTWFrYW4gTmFzaSBQYWRhbmcuIFRlcmluc3BpcmFzaSBkYXJpIG9wZXJhc2lvbmFsIGF1dGVudGlrIE1pbmFuZyBzZWphayAxOTUwLCBkaWxlbmdrYXBpIGthdGFsb2cgZXRhbGFzZSBsYXVrIChSZW5kYW5nIDggamFtLCBBeWFtIFBvcCwgR3VsYWkgS2FrYXAsIERlbmRlbmcgQmF0b2tvayksIGZpbHRlciBrYXRlZ29yaSBjZXBhdCwgcGFuZWwga2VyYW5qYW5nIGthc2lyIChXYWxrLWluICYgU2NhbiBXZWIgUVIpLCBwZW1pbGloIG1lamEgKERpbmUtaW4gLyBUYWtlYXdheSksIGRhbiBjZXRhayBwZXNhbmFuIGxhbmdzdW5nIGtpcmltIFdoYXRzQXBwLicsXG4gICAgY2F0ZWdvcnk6ICdwYWRhbmcnLFxuICAgIHRhZ3M6IFsnUnVtYWggTWFrYW4gUGFkYW5nJywgJ0V0YWxhc2UgTGF1aycsICdQT1MgS2FzaXInLCAnRGFzaGJvYXJkIE1lbnUnLCAnS3VsaW5lciBOdXNhbnRhcmEnLCAnV2hhdHNBcHAgT3JkZXInXSxcbiAgICB0ZWNobm9sb2dpZXM6IFsnSFRNTDUnLCAnVmFuaWxsYSBDU1MgR3JpZCcsICdWYW5pbGxhIEpTIFN0YXRlJywgJ0ludGVyICYgUGxheWZhaXIgRGlzcGxheSddLFxuICAgIHRodW1ibmFpbFN2Z1R5cGU6ICdyZXN0YXVyYW50JyxcbiAgICBwcmV2aWV3Q29tcG9uZW50S2V5OiAncGFkYW5nLXJhc28tbWFuZGVoJyxcbiAgICBodG1sUGF0aDogJy90ZW1wbGF0ZXMvcGFkYW5nL3Jhc29tYW5kZWguaHRtbCcsXG4gICAgaHRtbEZvbGRlclBhdGg6ICd0ZW1wbGF0ZXMvcGFkYW5nL3Jhc29tYW5kZWguaHRtbCcsXG4gICAgZmVhdHVyZXM6IFtcbiAgICAgICdEYXNoYm9hcmQgZXRhbGFzZSBQT1MgbGVuZ2thcCAxIGZpbGUgbWFuZGlyaSB0YW5wYSBrZXRlcmdhbnR1bmdhbiBmcmFtZXdvcmsgYXRhdSBkYXRhYmFzZScsXG4gICAgICAnS2F0YWxvZyBsYXVrIGxlbmdrYXAgZGVuZ2FuIGZvdG8gYXNsaSBXZWJQIChSZW5kYW5nLCBBeWFtIFBvcCwgR3VsYWkgVHVuamFuZywgRGVuZGVuZywgVGVsdXIgQmFyZW5kbyknLFxuICAgICAgJ1BlbmNhcmlhbiBsYXVrIGxpdmUgY2VwYXQgZGFuIGZpbHRlciBrYXRlZ29yaSAoRGFnaW5nIFNhcGksIEF5YW0sIElrYW4sIFNheXVyLCBQZWxlbmdrYXAsIE1pbnVtYW4pJyxcbiAgICAgICdQYW5lbCBrYXNpciBpbnRlcmFrdGlmIGRlbmdhbiBtb2RlIFdhbGstaW4gLyBTY2FuIFFSLCBjb3VudGVyIGt1YW50aXRhcyArLy0gZGluYW1pcywgZGFuIGthbGt1bGF0b3IgUnVwaWFoIG90b21hdGlzJyxcbiAgICAgICdNb2RhbCBwZW1pbGloIG1lamEgKFN0YXR1cyBLb3NvbmcsIFRlcmlzaSwgUmVzZXJ2YXNpKSBkYW4gaW50ZWdyYXNpIGNoZWNrb3V0IGJ1a3RpIHBlc2FuYW4ga2UgV2hhdHNBcHAnXG4gICAgXSxcbiAgICB1c2FnZUluc3RydWN0aW9uczogW1xuICAgICAgJ0J1a2EgdGVtcGxhdGVzL3BhZGFuZy9yYXNvbWFuZGVoLmh0bWwgZGkgY29kZSBlZGl0b3Iga2FtdS4nLFxuICAgICAgJ1Nlc3VhaWthbiBkYWZ0YXIgbGF1aywgaGFyZ2EgcG9yc2ksIGF0YXUgY2FiYW5nIGRpIGFycmF5IG1lbnVJdGVtcyBkYW4gYnJhbmNoU2VsZWN0LicsXG4gICAgICAnR3VuYWthbiBzZWJhZ2FpIHRhbXBpbGFuIGV0YWxhc2UgdGFibGV0IGthc2lyIGF0YXUgcGFqYW5nIGRpIGxheWFyIFRWIGNvdW50ZXIgZGVwYW4gcmVzdG9yYW4uJ1xuICAgIF0sXG4gICAgc291cmNlRmlsZXM6IFtcbiAgICAgIHtcbiAgICAgICAgZmlsZW5hbWU6ICdyYXNvbWFuZGVoLmh0bWwnLFxuICAgICAgICBsYW5ndWFnZTogJ2h0bWwnLFxuICAgICAgICBjb250ZW50OiBgPCEtLSBSYXNvIE1hbmRlaCDigJQgRGFzaGJvYXJkIEV0YWxhc2UgJiBQT1MgUnVtYWggTWFrYW4gUGFkYW5nIC0tPlxuPCFET0NUWVBFIGh0bWw+XG48aHRtbCBsYW5nPVwiaWRcIj5cbjxoZWFkPlxuICA8bWV0YSBjaGFyc2V0PVwiVVRGLThcIj5cbiAgPHRpdGxlPlJhc28gTWFuZGVoIOKAlCBEYXNoYm9hcmQgRXRhbGFzZSAmIFBPUyBSdW1haCBNYWthbiBQYWRhbmc8L3RpdGxlPlxuPC9oZWFkPlxuPGJvZHk+XG4gIDxkaXYgY2xhc3M9XCJwb3Mtd3JhcHBlclwiPlxuICAgIDxtYWluIGNsYXNzPVwicG9zLW1haW5cIj5cbiAgICAgIDxoZWFkZXIgY2xhc3M9XCJwb3MtaGVhZGVyXCI+XG4gICAgICAgIDxoMT5SQVNPIE1BTkRFSDwvaDE+XG4gICAgICAgIDxpbnB1dCB0eXBlPVwidGV4dFwiIHBsYWNlaG9sZGVyPVwiQ2FyaSByZW5kYW5nLCBheWFtIHBvcC4uLlwiPlxuICAgICAgPC9oZWFkZXI+XG4gICAgICA8ZGl2IGNsYXNzPVwiZGlzaC1ncmlkXCI+XG4gICAgICAgIDwhLS0gRXRhbGFzZSBMYXVrIE1pbmFuZ2thYmF1IC0tPlxuICAgICAgPC9kaXY+XG4gICAgPC9tYWluPlxuICAgIDxhc2lkZSBjbGFzcz1cInBvcy1jYXJ0LXBhbmVsXCI+XG4gICAgICA8aDI+UGVzYW5hbiBQZWxhbmdnYW48L2gyPlxuICAgICAgPCEtLSBQYW5lbCBLYXNpciBXYWxrLWluICYgTWVqYSAtLT5cbiAgICA8L2FzaWRlPlxuICA8L2Rpdj5cbjwvYm9keT5cbjwvaHRtbD5gLFxuICAgICAgICBkZXNjcmlwdGlvbjogJ1NpbmdsZS1maWxlIHN0YW5kYWxvbmUgSFRNTCArIENTUyArIEpTIHlhbmcgZGFwYXQgbGFuZ3N1bmcgZGlidWthIGRpIGJyb3dzZXIgYXBhIHB1bi4nXG4gICAgICB9XG4gICAgXSxcbiAgICBwcm9tcHQ6IHtcbiAgICAgIHN1bW1hcnk6ICdQcm9tcHQgZGFzaGJvYXJkIGV0YWxhc2UgbWFzYWthbiBQYWRhbmcgJiBQb2ludCBvZiBTYWxlIChQT1MpLicsXG4gICAgICBkZXNpZ25EaXJlY3Rpb246ICdNaW5hbmdrYWJhdSBIZXJpdGFnZTogTWFydW4gTWluYW5nICgjN0ExRjJCKSwgRW1hcyBTb25na2V0ICgjQzlBMjI3KSwgS3JlbSBIYW5nYXQgKCNGNUVGRTIpLCBkYW4gQXJhbmcgS2F5dSAoIzI0MUIxNikuIFRpcG9ncmFmaSBJbnRlciAmIFBsYXlmYWlyIERpc3BsYXkuJyxcbiAgICAgIGxheW91dEFuZEdyaWQ6ICdGaXhlZCBkdWFsLWNvbHVtbiBQT1MgZGFzaGJvYXJkIGxheW91dDogTGVmdCAxZnIgbWVudSBldGFsYXNlIHNob3djYXNlICYgY2F0ZWdvcnkgcGlsbHMsIFJpZ2h0IDM4MHB4IHBlcnNpc3RlbnQgY2FydCBvcmRlciBkcmF3ZXIuJyxcbiAgICAgIHR5cG9ncmFwaHlBbmRDb2xvcjogJ1BsYXlmYWlyIERpc3BsYXkgdW50dWsgbmFtYSByZXN0b3JhbiBNaW5hbmcgZGFuIGhlYWRlciBsYXVrLCBJbnRlciB1bnR1ayByZWFkYWJpbGl0eSBudW1lcmlrIGthc2lyIFBPUyBkYW4gaGFyZ2EgUnVwaWFoLicsXG4gICAgICBpbnRlcmFjdGlvbnM6ICdTdGF0ZSBtYW5hZ2VtZW50IEphdmFTY3JpcHQgbXVybmk6IHRhbWJhaCBsYXVrLCBoaXR1bmcgc3VidG90YWwgJiB0b3RhbCBydXBpYWgsIHBpbGloIG1lamEgaW50ZXJha3RpZiwga2lyaW0gcGVzYW4ga2UgV2hhdHNBcHAuJyxcbiAgICAgIHRlY2huaWNhbFJlcXVpcmVtZW50czogJ1plcm8gZGVwZW5kZW5jaWVzLCByZXNwb25zaXZlIHRhYmxldCAmIGRlc2t0b3AsIGZ1bGwgb2ZmbGluZSBjYXBhYmlsaXR5LicsXG4gICAgICBpc1JlY29uc3RydWN0ZWQ6IGZhbHNlXG4gICAgfSxcbiAgICBmZWF0dXJlZDogdHJ1ZSxcbiAgICBwdWJsaXNoZWRBdDogJzIwMjYtMDQtMjUnLFxuICAgIGxpdmVQcmV2aWV3QXZhaWxhYmxlOiB0cnVlLFxuICAgIGFjY2VudENvbG9yOiAnIzdBMUYyQidcbiAgfSxcbiAge1xuICAgIGlkOiAndHBsLTE5JyxcbiAgICBzbHVnOiAnc2lwYXJhLWJldmVyYWdlJyxcbiAgICB0aXRsZTogJ1NJUEFSQScsXG4gICAgdGFnbGluZTogJ01pbnVtYW4gc2VnYXIgcmFjaWthbiBsb2thbCDigJQgZnJ1aXQgdGVhLCBtYXRjaGEgY2xvdWQsICYga29waSBzdXN1IHZpcmFsJyxcbiAgICBkZXNjcmlwdGlvbjogJ1RlbXBsYXRlIHdlYnNpdGUgVU1LTSBnZXJhaSBtaW51bWFuIHZpcmFsIGRhbiBhcnRpc2FuIGZyZXNoIGRyaW5rcy4gRGlsZW5na2FwaSB0b3BsaW5lIHByb21vLCBoZXJvIHNlZ2FyIGRlbmdhbiBzdGlrZXIgMTAwJSBmcmVzaCBtb29kLCBydW5uaW5nIHRpY2tlciBrYXRlZ29yaSAoRnJ1aXQgVGVhLCBNYXRjaGEgU2VyaWVzLCBLb3BpIFN1c3UsIENyZWFteSBEcmlua3MpLCBmaWx0ZXIga2F0YWxvZyBwcm9kdWsgaW5zdGFuLCBrZXJhbmphbmcgYmVsYW5qYSBpbnRlcmFrdGlmIHlhbmcgb3RvbWF0aXMgbWVueXVzdW4gcGVzYW4gV2hhdHNBcHAgdGVyZm9ybWF0IGRlbmdhbiByaW5jaWFuIGRhbiBlc3RpbWFzaSB0b3RhbCBiZWxhbmphLCBzZXJ0YSBwYW5kdWFuIDMgbGFuZ2thaCBwZW1lc2FuYW4uJyxcbiAgICBjYXRlZ29yeTogJ2JldmVyYWdlJyxcbiAgICB0YWdzOiBbJ01pbnVtYW4gVmlyYWwnLCAnRnJ1aXQgVGVhJywgJ01hdGNoYScsICdLb3BpIFN1c3UnLCAnRnJlc2ggRHJpbmtzJywgJ1VNS00gS3VsaW5lcicsICdXaGF0c0FwcCBPcmRlciddLFxuICAgIHRlY2hub2xvZ2llczogWydIVE1MNScsICdWYW5pbGxhIENTUycsICdWYW5pbGxhIEpTJywgJ0RNIFNhbnMgJiBNYW5yb3BlJ10sXG4gICAgdGh1bWJuYWlsU3ZnVHlwZTogJ2JldmVyYWdlJyxcbiAgICBwcmV2aWV3Q29tcG9uZW50S2V5OiAnYmV2ZXJhZ2Utc2lwYXJhJyxcbiAgICBodG1sUGF0aDogJy90ZW1wbGF0ZXMvYmV2ZXJhZ2Uvc2lwYXJhLmh0bWwnLFxuICAgIGh0bWxGb2xkZXJQYXRoOiAndGVtcGxhdGVzL2JldmVyYWdlL3NpcGFyYS5odG1sJyxcbiAgICBmZWF0dXJlczogW1xuICAgICAgJ0ZpbGUgdHVuZ2dhbCBtYW5kaXJpIChIVE1MICsgQ1NTICsgSlMpIGxhbmdzdW5nIGphbGFuIGRpIGJyb3dzZXIgdGFucGEgZnJhbWV3b3JrJyxcbiAgICAgICdSdW5uaW5nIHRpY2tlciBrYXRlZ29yaTogRnJ1aXQgVGVhLCBNYXRjaGEgU2VyaWVzLCBLb3BpIFN1c3UsIENyZWFteSBEcmlua3MnLFxuICAgICAgJ0ZpbHRlciBrYXRlZ29yaSBtaW51bWFuIGluc3RhbiB0YW5wYSByZWxvYWQgaGFsYW1hbicsXG4gICAgICAnS2VyYW5qYW5nIGJlbGFuamEgV2hhdHNBcHAgaW50ZXJha3RpZjoga2xpayAoKykgb3RvbWF0aXMgbWVueXVzdW4gdGVrcyBwZXNhbmFuICYgcGVya2lyYWFuIHRvdGFsIFJ1cGlhaCcsXG4gICAgICAnUGFsZXQgd2FybmEgc2VnYXI6IE1hdGNoYSBHcmVlbiAoIzQ4NmI0NSksIExlbW9uIExpbWUgKCNkOGU1YTApLCBTdW5ueSBZZWxsb3cgKCNmMWQ2NmUpLCBQYXBlciBDcmVhbSAoI2Y4ZjZlZCknXG4gICAgXSxcbiAgICB1c2FnZUluc3RydWN0aW9uczogW1xuICAgICAgJ0J1a2EgdGVtcGxhdGVzL2JldmVyYWdlL3NpcGFyYS5odG1sIGRpIGNvZGUgZWRpdG9yIGthbXUuJyxcbiAgICAgICdVYmFoIG5vbW9yIFdoYXRzQXBwIHBhZGEgdmFyaWFiZWwgV0hBVFNBUFBfTlVNQkVSIGRlbmdhbiBub21vciB0b2tvbXUuJyxcbiAgICAgICdTZXN1YWlrYW4gZGFmdGFyIG1pbnVtYW4gKEZydWl0IFRlYSwgS29waSwgTWF0Y2hhKSBkYW4gaGFyZ2EgcGVyIGN1cCBzZXN1YWkgbWVudSBhc2xpbXUuJ1xuICAgIF0sXG4gICAgc291cmNlRmlsZXM6IFtcbiAgICAgIHtcbiAgICAgICAgZmlsZW5hbWU6ICdzaXBhcmEuaHRtbCcsXG4gICAgICAgIGxhbmd1YWdlOiAnaHRtbCcsXG4gICAgICAgIGNvbnRlbnQ6IGA8IS0tIFNJUEFSQSDigJQgTkVDVE9SLlVJIE1pbnVtYW4gVmlyYWwgVGVtcGxhdGUgLS0+XG48IURPQ1RZUEUgaHRtbD5cbjxodG1sIGxhbmc9XCJpZFwiPlxuPGhlYWQ+XG4gIDxtZXRhIGNoYXJzZXQ9XCJVVEYtOFwiPlxuICA8dGl0bGU+U0lQQVJBIOKAlCBTZWdhcm55YSBQdW55YSBDZXJpdGE8L3RpdGxlPlxuPC9oZWFkPlxuPGJvZHk+XG4gIDxkaXYgY2xhc3M9XCJ0b3BsaW5lXCI+UkFDSUtBTiBGUkVTSCBTRVRJQVAgSEFSSSDigJQgU0VHQVIsIEVOQUssIE5HR0FLIEJJS0lOIEJPUk9TLjwvZGl2PlxuICA8aGVhZGVyIGNsYXNzPVwiaGVhZGVyXCI+XG4gICAgPGEgY2xhc3M9XCJsb2dvXCIgaHJlZj1cIiNiZXJhbmRhXCI+c2lwYXJhLjwvYT5cbiAgICA8bmF2IGNsYXNzPVwibmF2LWxpbmtzXCI+PGEgaHJlZj1cIiNtZW51XCI+TWVudSBNaW51bWFuPC9hPjxhIGhyZWY9XCIjdGVudGFuZ1wiPlRlbnRhbmc8L2E+PC9uYXY+XG4gIDwvaGVhZGVyPlxuICA8bWFpbj5cbiAgICA8c2VjdGlvbiBjbGFzcz1cImhlcm9cIj5cbiAgICAgIDxoMT5IYXJpIHBhbmFzPyBCaWFyIGthbWkgeWFuZyBiaWtpbiA8c3BhbiBjbGFzcz1cImhpZ2hsaWdodFwiPnNlZ2FyLjwvc3Bhbj48L2gxPlxuICAgICAgPHA+RGFyaSB0ZWggYnVhaCB5YW5nIG55ZWdlcmluIHNhbXBhaSBrb3BpIHN1c3UgeWFuZyBjcmVhbXkuIERpcmFjaWsgZnJlc2ggc2FhdCBkaXBlc2FuLjwvcD5cbiAgICA8L3NlY3Rpb24+XG4gIDwvbWFpbj5cbjwvYm9keT5cbjwvaHRtbD5gLFxuICAgICAgICBkZXNjcmlwdGlvbjogJ0ZpbGUgbWFuZGlyaSBIVE1MICsgQ1NTICsgSlMgeWFuZyBkYXBhdCBsYW5nc3VuZyBkaWJ1a2EgZGkgYnJvd3NlciBhcGEgcHVuLidcbiAgICAgIH1cbiAgICBdLFxuICAgIHByb21wdDoge1xuICAgICAgc3VtbWFyeTogJ1Byb21wdCB3ZWJzaXRlIFVNS00gZ2VyYWkgbWludW1hbiB2aXJhbCAmIGZyZXNoIGRyaW5rcyBTSVBBUkEuJyxcbiAgICAgIGRlc2lnbkRpcmVjdGlvbjogJ0ZyZXNoICYgZW5lcmdldGljIGFydGlzYW4gYmV2ZXJhZ2U6IE1hdGNoYSBHcmVlbiAoIzQ4NmI0NSksIFBhbGUgTGltZSAoI2Q4ZTVhMCksIFdhcm0gWWVsbG93ICgjZjFkNjZlKSwgZGFuIFNvZnQgQ3JlYW0gKCNmOGY2ZWQpLiBUaXBvZ3JhZmkgTWFucm9wZSAmIERNIFNhbnMuJyxcbiAgICAgIGxheW91dEFuZEdyaWQ6ICdIZXJvIHZpc3VhbCBkdWEga29sb20gZGVuZ2FuIHN0aWtlciBsaW5na2FyYW4gbWlyaW5nLCBydW5uaW5nIGNhdGVnb3J5IHRpY2tlciwgZ3JpZCBwcm9kdWsgNCBrb2xvbSBkZW5nYW4gdGFnIGJlc3Qgc2VsbGVyLicsXG4gICAgICB0eXBvZ3JhcGh5QW5kQ29sb3I6ICdNYW5yb3BlIDgwMCB1bnR1ayBkaXNwbGF5IGhlYWRsaW5lIGJlcmthcmFrdGVyIGRpbmFtaXMgZGFuIERNIFNhbnMgdW50dWsga2VueWFtYW5hbiBtZW1iYWNhLicsXG4gICAgICBpbnRlcmFjdGlvbnM6ICdQZW5hbWJhaGFuIGl0ZW0ga2Uga2VyYW5qYW5nIGJlbGFuamEgZGVuZ2FuIGZlZWRiYWNrIGNlbnRhbmcgaW5zdGFuIGRhbiBwZW1idWF0YW4gcGVzYW4gV2hhdHNBcHAgb3RvbWF0aXMuJyxcbiAgICAgIHRlY2huaWNhbFJlcXVpcmVtZW50czogJzEwMCUgc3RhbmRhbG9uZSwgcmVzcG9uc2lmIG11bGFpIGxheWFyIHNtYXJ0cGhvbmUgMzYwcHggaGluZ2dhIGxheWFyIGRlc2t0b3AuJyxcbiAgICAgIGlzUmVjb25zdHJ1Y3RlZDogZmFsc2VcbiAgICB9LFxuICAgIGZlYXR1cmVkOiB0cnVlLFxuICAgIHB1Ymxpc2hlZEF0OiAnMjAyNi0wNC0yOCcsXG4gICAgbGl2ZVByZXZpZXdBdmFpbGFibGU6IHRydWUsXG4gICAgYWNjZW50Q29sb3I6ICcjNDg2YjQ1J1xuICB9LFxuICB7XG4gICAgaWQ6ICd0cGwtMjAnLFxuICAgIHNsdWc6ICdzYWt1bWFydC1wb3MnLFxuICAgIHRpdGxlOiAnU2FrdU1hcnQgUE9TJyxcbiAgICB0YWdsaW5lOiAnU2lzdGVtIGthc2lyICYgUE9TIG1pbmltYXJrZXQgbW9kZXJuIOKAlCBiYXJjb2RlIHNlYXJjaCwgbXVsdGkta2F0ZWdvcmksIGthbGt1bGFzaSBQUE4gJiBrZW1iYWxpYW4gaW5zdGFuJyxcbiAgICBkZXNjcmlwdGlvbjogJ1RlbXBsYXRlIGFwbGlrYXNpIGthc2lyIChQb2ludCBvZiBTYWxlIC8gUE9TKSBtaW5pbWFya2V0ICYgcmV0YWlsIG1vZGVybiBkZW5nYW4gbnVhbnNhIG5hdHVyYWwgY2xlYW4gbWFydC4gRGlsZW5na2FwaSBwZW5jYXJpYW4gcHJvZHVrIHJlYWx0aW1lLCBmaWx0ZXIgbXVsdGkta2F0ZWdvcmkgKE1ha2FuYW4sIE1pbnVtYW4sIFNlbWJha28sIFBlcmF3YXRhbiksIGtlcmFuamFuZyBiZWxhbmphIGludGVyYWt0aWYgZGVuZ2FuIGJhdGFzIHN0b2sgZGluYW1pcywga29uZmlndXJhc2kgdGFyaWYgUFBOIHRyYW5zYWtzaSBmbGVrc2liZWwsIHNob3J0Y3V0IHBlY2FoYW4gdWFuZyB0dW5haSAodWFuZyBwYXMsIDIwaywgNTBrLCAxMDBrKSwga2Fsa3VsYXNpIGtlbWJhbGlhbiBvdG9tYXRpcywgc2VydGEgbW9kYWwgc3RydWsgcGVtYmF5YXJhbiBkaWdpdGFsIHlhbmcgc2lhcCBjZXRhay4nLFxuICAgIGNhdGVnb3J5OiAna2FzaXInLFxuICAgIHRhZ3M6IFsnS2FzaXIgUE9TJywgJ01pbmltYXJrZXQnLCAnUG9pbnQgb2YgU2FsZScsICdSZXRhaWwgJiBUb2tvJywgJ0UtY29tbWVyY2UgS2FzaXInLCAnS2Fsa3VsYXNpIE90b21hdGlzJywgJ1N0cnVrIERpZ2l0YWwnXSxcbiAgICB0ZWNobm9sb2dpZXM6IFsnSFRNTDUnLCAnVmFuaWxsYSBDU1MnLCAnVmFuaWxsYSBKUycsICdETSBTYW5zICYgTWFucm9wZSddLFxuICAgIHRodW1ibmFpbFN2Z1R5cGU6ICdrYXNpcicsXG4gICAgcHJldmlld0NvbXBvbmVudEtleTogJ3Bvcy1zYWt1bWFydCcsXG4gICAgaHRtbFBhdGg6ICcvdGVtcGxhdGVzL2thc2lyL3Nha3VtYXJ0Lmh0bWwnLFxuICAgIGh0bWxGb2xkZXJQYXRoOiAndGVtcGxhdGVzL2thc2lyL3Nha3VtYXJ0Lmh0bWwnLFxuICAgIGZlYXR1cmVzOiBbXG4gICAgICAnMTAwJSBmaWxlIHR1bmdnYWwgbWFuZGlyaSAoSFRNTCArIENTUyArIEpTKSBsYW5nc3VuZyBqYWxhbiBkaSBicm93c2VyIHRhbnBhIGZyYW1ld29yayBhdGF1IGJ1aWxkIHN0ZXAnLFxuICAgICAgJ0thdGFsb2cgcHJvZHVrIHJldGFpbCBkZW5nYW4gZm90byBiYXJhbmcgbnlhdGEsIHN0YXR1cyBzaXNhIHN0b2ssIGRhbiBmaWx0ZXIga2F0ZWdvcmkgaW5zdGFuJyxcbiAgICAgICdLZXJhbmphbmcgYmVsYW5qYSByZWFsdGltZSBkZW5nYW4ga29udHJvbCBrdWFudGl0YXMsIHZhbGlkYXNpIHN0b2sgaGFiaXMsIGRhbiBrYWxrdWxhc2kgc3VidG90YWwnLFxuICAgICAgJ1BlbmdhdHVyYW4gdGFyaWYgUFBOIGRpbmFtaXMgZGFuIGthbGt1bGF0b3Iga2VtYmFsaWFuIG90b21hdGlzIGRlbmdhbiB0b21ib2wgc2hvcnRjdXQgcGVjYWhhbiB1YW5nIHR1bmFpJyxcbiAgICAgICdNb2RhbCBzdHJ1ayBiZWxhbmphIGRpZ2l0YWwgZGVuZ2FuIHJpbmNpYW4gdHJhbnNha3NpIGxlbmdrYXAgZGFuIHRvbWJvbCB0cmFuc2Frc2kgYmFydScsXG4gICAgICAnRGVzYWluIHJlc3BvbnNpZiByYW1haCBsYXlhciB0YWJsZXQga2FzaXIgbWF1cHVuIG1vbml0b3IgUE9TIGRlc2t0b3AnXG4gICAgXSxcbiAgICB1c2FnZUluc3RydWN0aW9uczogW1xuICAgICAgJ0J1a2EgdGVtcGxhdGVzL2thc2lyL3Nha3VtYXJ0Lmh0bWwgZGkgZWRpdG9yIGtvZGUga2FtdS4nLFxuICAgICAgJ1Nlc3VhaWthbiBkYWZ0YXIgcHJvZHVrIGRpIGFycmF5IHByb2R1Y3RzIGRlbmdhbiBkYXRhIGJhcmFuZywgZm90byBwcm9kdWssIGhhcmdhLCBkYW4gc3RvayB0b2tvbXUuJyxcbiAgICAgICdBdHVyIHRhcmlmIGRlZmF1bHQgUFBOIHBhZGEgaW5wdXQgdGF4UmF0ZSBqaWthIGluZ2luIHBlcnNlbnRhc2UgYmVyYmVkYSAobWlzYWwgMCUgdW50dWsgbm9uLVBLUCkuJyxcbiAgICAgICdKYWxhbmthbiBsYW5nc3VuZyBkaSBicm93c2VyIHVudHVrIGthc2lyIG9mZmxpbmUgYXRhdSBpbnRlZ3Jhc2lrYW4ga2UgYmFja2VuZCB0b2tvIGthbXUuJ1xuICAgIF0sXG4gICAgc291cmNlRmlsZXM6IFtcbiAgICAgIHtcbiAgICAgICAgZmlsZW5hbWU6ICdzYWt1bWFydC5odG1sJyxcbiAgICAgICAgbGFuZ3VhZ2U6ICdodG1sJyxcbiAgICAgICAgY29udGVudDogYDwhLS0gU2FrdU1hcnQg4oCUIFBvaW50IG9mIFNhbGUgU3lzdGVtIC0tPlxuPCFET0NUWVBFIGh0bWw+XG48aHRtbCBsYW5nPVwiaWRcIj5cbjxoZWFkPlxuICA8bWV0YSBjaGFyc2V0PVwiVVRGLThcIj5cbiAgPHRpdGxlPlNha3VNYXJ0IOKAlCBQb2ludCBvZiBTYWxlPC90aXRsZT5cbjwvaGVhZD5cbjxib2R5PlxuICA8IS0tIFN0YW5kYWxvbmUgSFRNTCBQT1MgU3lzdGVtIC0tPlxuPC9ib2R5PlxuPC9odG1sPmAsXG4gICAgICAgIGRlc2NyaXB0aW9uOiAnRmlsZSBtYW5kaXJpIEhUTUwgKyBDU1MgKyBKUyB5YW5nIGRhcGF0IGxhbmdzdW5nIGRpYnVrYSBkaSBicm93c2VyIGFwYSBwdW4uJ1xuICAgICAgfVxuICAgIF0sXG4gICAgcHJvbXB0OiB7XG4gICAgICBzdW1tYXJ5OiAnUHJvbXB0IHNpc3RlbSBrYXNpciBQT1MgbWluaW1hcmtldCAmIHJldGFpbCBtb2Rlcm4gU2FrdU1hcnQuJyxcbiAgICAgIGRlc2lnbkRpcmVjdGlvbjogJ0NsZWFuIHN1cGVybWFya2V0IFBPUzogU2FnZSBHcmVlbiAoIzJmNjU0OSksIERhcmsgRm9yZXN0ICgjMjA0ODMzKSwgV2FybSBQYXBlciBXaGl0ZSAoI2Y0ZjVmMCksIGRhbiBGcmVzaCBBY2NlbnQgKCNlN2YxZTcpLiBUaXBvZ3JhZmkgRE0gU2FucyBkYW4gTWFucm9wZS4nLFxuICAgICAgbGF5b3V0QW5kR3JpZDogJ1NwbGl0IHdvcmtzcGFjZSBsYXlvdXQgZGVuZ2FuIGNhdGFsb2cgZXRhbGFzZSA0IGtvbG9tIGRpIGtpcmkgZGFuIHBhbmVsIGtlcmFuamFuZyB0cmFuc2Frc2kgc3RpY2t5IGRpIGthbmFuLicsXG4gICAgICB0eXBvZ3JhcGh5QW5kQ29sb3I6ICdNYW5yb3BlIDgwMCB1bnR1ayBkaXNwbGF5IGJyYW5kIGRhbiBub21pbmFsIGhhcmdhLCBETSBTYW5zIHVudHVrIGtldGVyYmFjYWFuIGRhdGEgcHJvZHVrIGRhbiBzdHJ1ayBrYXNpci4nLFxuICAgICAgaW50ZXJhY3Rpb25zOiAnUGVuY2FyaWFuIHByb2R1ayBpbnN0YW4sIHBlbmFtYmFoYW4ga2Uga2VyYW5qYW5nIGRlbmdhbiB2YWxpZGFzaSBzdG9rLCBzaG9ydGN1dCBub21pbmFsIHVhbmcgdHVuYWksIGthbGt1bGFzaSBrZW1iYWxpYW4gb3RvbWF0aXMsIGRhbiBtb2RhbCBzdHJ1ayBkaWdpdGFsLicsXG4gICAgICB0ZWNobmljYWxSZXF1aXJlbWVudHM6ICcxMDAlIHN0YW5kYWxvbmUgc2luZ2xlLWZpbGUgSFRNTCwgcmVzcG9uc2lmIGRhcmkgbGF5YXIgc21hcnRwaG9uZSBoaW5nZ2EgbW9uaXRvciBkZXNrdG9wIGthc2lyLicsXG4gICAgICBpc1JlY29uc3RydWN0ZWQ6IGZhbHNlXG4gICAgfSxcbiAgICBmZWF0dXJlZDogdHJ1ZSxcbiAgICBwdWJsaXNoZWRBdDogJzIwMjYtMDUtMDInLFxuICAgIGxpdmVQcmV2aWV3QXZhaWxhYmxlOiB0cnVlLFxuICAgIGFjY2VudENvbG9yOiAnIzJmNjU0OSdcbiAgfSxcbiAge1xuICAgIGlkOiAndHBsLTIxJyxcbiAgICBzbHVnOiAncHVzdGFrYS1ha3NhcmEtcGVycHVzdGFrYWFuJyxcbiAgICB0aXRsZTogJ1B1c3Rha2EgQWtzYXJhJyxcbiAgICB0YWdsaW5lOiAnUnVhbmcgYmFjYSBhcnNpcCAmIHNpc3RlbSBzaXJrdWxhc2kgcGVtaW5qYW1hbiBidWt1IGtvbXVuaXRhcyDigJQgc3RhbmRhciBEREMsIGJhdGFzIDE0IGhhcmksICYgYnVrdGkgcGluamFtIGRpZ2l0YWwnLFxuICAgIGRlc2NyaXB0aW9uOiAnVGVtcGxhdGUgd2Vic2l0ZSBydWFuZyBiYWNhLCBwZXJwdXN0YWthYW4ga29tdW5pdGFzLCBkYW4gc2lzdGVtIHNpcmt1bGFzaSBhcnNpcCBidWt1IGluZGVwZW5kZW4geWFuZyBkaXJhbmNhbmcgZGVuZ2FuIHN0YW5kYXIgYW50aS1zbG9wIGtldGF0LiBNZW5naGFkaXJrYW4gZXN0ZXRpa2Egd2FybSBhcmNoaXZhbCBwYXBlciwgdGlwb2dyYWZpIHNhc3RyYSBOZXdzcmVhZGVyIGRhbiBETSBTYW5zLCBrYXRhbG9nIGJlcnNpc3RlbSBEZXdleSBEZWNpbWFsIENsYXNzaWZpY2F0aW9uIChEREMpLCBwZW5jYXJpYW4gaW5zdGFuIGJlcmRhc2Fya2FuIGp1ZHVsL3BlbnVsaXMvSVNCTiwgbGVtYmFyIHNpcmt1bGFzaSBpbnRlcmFrdGlmIGRlbmdhbiBiYXRhcyBrdW90YSAzIGJ1a3UsIHBlcmhpdHVuZ2FuIG90b21hdGlzIHRhbmdnYWwgamF0dWggdGVtcG8gMTQgaGFyaSwgbW9kYWwgc2lub3BzaXMgZGV0YWlsIGVrc2VtcGxhciwgc2VydGEgcGVuZXJiaXRhbiBidWt0aSBwZW1pbmphbWFuIGRpZ2l0YWwgYmVyc3RlbXBlbCB5YW5nIHNpYXAgZGljZXRhay4nLFxuICAgIGNhdGVnb3J5OiAncGVycHVzdGFrYWFuJyxcbiAgICB0YWdzOiBbJ1BlcnB1c3Rha2FhbicsICdQZW1pbmphbWFuIEJ1a3UnLCAnU2lya3VsYXNpIEFyc2lwJywgJ1J1YW5nIEJhY2EnLCAnRGV3ZXkgRGVjaW1hbCBEREMnLCAnQW50aS1TbG9wIFNwZWMnLCAnU3RydWsgUGVtaW5qYW1hbiddLFxuICAgIHRlY2hub2xvZ2llczogWydIVE1MNScsICdWYW5pbGxhIENTUycsICdWYW5pbGxhIEpTJywgJ05ld3NyZWFkZXIgJiBETSBTYW5zJ10sXG4gICAgdGh1bWJuYWlsU3ZnVHlwZTogJ3BlcnB1c3Rha2FhbicsXG4gICAgcHJldmlld0NvbXBvbmVudEtleTogJ2xpYnJhcnktYWtzYXJhJyxcbiAgICBodG1sUGF0aDogJy90ZW1wbGF0ZXMvcGVycHVzdGFrYWFuL2Frc2FyYS5odG1sJyxcbiAgICBodG1sRm9sZGVyUGF0aDogJ3RlbXBsYXRlcy9wZXJwdXN0YWthYW4vYWtzYXJhLmh0bWwnLFxuICAgIGZlYXR1cmVzOiBbXG4gICAgICAnQXJzaXRla3R1ciBtYW5kaXJpIHNpbmdsZS1maWxlIChIVE1MICsgQ1NTICsgSlMpIHRhbnBhIGZyYW1ld29yayBhdGF1IGRlcGVuZGVuc2kgbHVhcicsXG4gICAgICAnS2F0YWxvZyBidWt1IG55YXRhIGRlbmdhbiBmb3RvIHNhbXB1bCBiZXJrdWFsaXRhcywgcGVuZ2FyYW5nIG9yaXNpbmFsLCBkYW4gbm9tb3IgcGFuZ2dpbCBEREMgcmVzbWknLFxuICAgICAgJ0ZpbHRlciBtdWx0aS1rYXRlZ29yaSAoU2FzdHJhLCBTZWphcmFoLCBGaWxzYWZhdCwgU2FpbnMpIHNlcnRhIHRvbWJvbCBzdGF0dXMga2V0ZXJzZWRpYWFuIGRpIHJhaycsXG4gICAgICAnTGVtYmFyIHBlbWluamFtYW4gaW50ZXJha3RpZiBkZW5nYW4gYmF0YXMga3VvdGEgcGluamFtIDMgYnVrdSBkYW4ga2Fsa3VsYXNpIHRhbmdnYWwgamF0dWggdGVtcG8gMTQgaGFyaSBvdG9tYXRpcycsXG4gICAgICAnTW9kYWwgZGV0YWlsIGJ1a3UgbGVuZ2thcCBkZW5nYW4gc2lub3BzaXMgc2FzdHJhLCBkYXRhIHBlbmVyYml0LCBJU0JOLCBkYW4gbm9tb3IgcmFrIGZpc2lrJyxcbiAgICAgICdNb2RhbCB0aWtldCBzaXJrdWxhc2kgcGVtaW5qYW1hbiBkaWdpdGFsIGJlcnN0ZW1wZWwgcmVzbWkgZGFuIGZpdHVyIGNldGFrIGJ1a3RpIHBpbmphbSAocHJpbnQtcmVhZHkpJ1xuICAgIF0sXG4gICAgdXNhZ2VJbnN0cnVjdGlvbnM6IFtcbiAgICAgICdCdWthIHRlbXBsYXRlcy9wZXJwdXN0YWthYW4vYWtzYXJhLmh0bWwgYXRhdSBwdWJsaWMvdGVtcGxhdGVzL3BlcnB1c3Rha2Fhbi9ha3NhcmEuaHRtbCBkaSB0ZXh0IGVkaXRvci4nLFxuICAgICAgJ1Nlc3VhaWthbiBkYWZ0YXIgYnVrdSBkaSBhcnJheSBjYXRhbG9nQm9va3MgZGVuZ2FuIGtvbGVrc2kgcGVycHVzdGFrYWFuIGF0YXUgcnVhbmcgYmFjYSBmaXNpa211LicsXG4gICAgICAnQXR1ciBkdXJhc2kgcGVtaW5qYW1hbiBwYWRhIGZ1bmdzaSBnZXRMb2FuU2NoZWR1bGVEYXRlcyBqaWthIGluZ2luIGR1cmFzaSBiZXJiZWRhIChkZWZhdWx0IDE0IGhhcmkpLicsXG4gICAgICAnSmFsYW5rYW4gbGFuZ3N1bmcgZGkgYnJvd3NlciB1bnR1ayBtZWphIHNpcmt1bGFzaSBvZmZsaW5lIGF0YXUgaW50ZWdyYXNpa2FuIGRlbmdhbiBzaXN0ZW0gZGF0YWJhc2UgcGVycHVzdGFrYWFuLidcbiAgICBdLFxuICAgIHNvdXJjZUZpbGVzOiBbXG4gICAgICB7XG4gICAgICAgIGZpbGVuYW1lOiAnYWtzYXJhLmh0bWwnLFxuICAgICAgICBsYW5ndWFnZTogJ2h0bWwnLFxuICAgICAgICBjb250ZW50OiBgPCEtLSBQdXN0YWthIEFrc2FyYSDigJQgUnVhbmcgQmFjYSAmIFNpcmt1bGFzaSBBcnNpcCBLb211bml0YXMgLS0+XG48IURPQ1RZUEUgaHRtbD5cbjxodG1sIGxhbmc9XCJpZFwiPlxuPGhlYWQ+XG4gIDxtZXRhIGNoYXJzZXQ9XCJVVEYtOFwiPlxuICA8dGl0bGU+UHVzdGFrYSBBa3NhcmEg4oCUIFJ1YW5nIEJhY2EgJiBTaXJrdWxhc2kgQXJzaXAgS29tdW5pdGFzPC90aXRsZT5cbjwvaGVhZD5cbjxib2R5PlxuICA8IS0tIFN0YW5kYWxvbmUgTGlicmFyeSBDaXJjdWxhdGlvbiBTeXN0ZW0gLS0+XG48L2JvZHk+XG48L2h0bWw+YCxcbiAgICAgICAgZGVzY3JpcHRpb246ICdGaWxlIG1hbmRpcmkgSFRNTCArIENTUyArIEpTIHlhbmcgZGFwYXQgbGFuZ3N1bmcgZGlidWthIGRpIGJyb3dzZXIgYXBhIHB1bi4nXG4gICAgICB9XG4gICAgXSxcbiAgICBwcm9tcHQ6IHtcbiAgICAgIHN1bW1hcnk6ICdQcm9tcHQgc2lzdGVtIHNpcmt1bGFzaSBwZXJwdXN0YWthYW4gJiBhcnNpcCBydWFuZyBiYWNhIGtvbXVuaXRhcyBQdXN0YWthIEFrc2FyYSBiZXJzdGFuZGFyIGFudGktc2xvcC4nLFxuICAgICAgZGVzaWduRGlyZWN0aW9uOiAnV2FybSBhcmNoaXZhbCBwYXBlciAoI2Y3ZjRlZCksIGRlZXAgY2hhcmNvYWwgaW5rICgjMWIxZTFiKSwgZm9yZXN0IGxpYnJhcnkgZ3JlZW4gKCMyMzQxMzMpLCBkYW4gYXJjaGl2YWwgcnVzdCAoIzllM2QyNCkuIFRpcG9ncmFmaSBOZXdzcmVhZGVyIHNlcmlmLCBETSBTYW5zLCBkYW4gSmV0QnJhaW5zIE1vbm8uJyxcbiAgICAgIGxheW91dEFuZEdyaWQ6ICdFZGl0b3JpYWwgdG9wIG5vdGljZSBiYW5uZXIsIGhlcm8gYXJjaGl2ZSBkaXNwYXRjaCBkZW5nYW4gcGFwYW4gYXR1cmFuIHBlbWluamFtYW4sIHNlcnRhIHdvcmtzcGFjZSBzaXJrdWxhc2kgMiBrb2xvbSAoa2F0YWxvZyByYWsgYnVrdSBkaSBraXJpIGRhbiBsZW1iYXIgcGVtaW5qYW1hbiBzdGlja3kgZGkga2FuYW4pLicsXG4gICAgICB0eXBvZ3JhcGh5QW5kQ29sb3I6ICdOZXdzcmVhZGVyIHNlcmlmIGJlcmthcmFrdGVyIHNhc3RyYSB1bnR1ayBqdWR1bCBkYW4gZGlzcGxheSwgRE0gU2FucyB1bnR1ayB0ZWtzIGZ1bmdzaW9uYWwsIGRhbiBKZXRCcmFpbnMgTW9ubyB1bnR1ayBrb2RlIGtsYXNpZmlrYXNpIEREQyBkYW4gbm9tb3IgcGFuZ2dpbC4nLFxuICAgICAgaW50ZXJhY3Rpb25zOiAnRmlsdGVyIGthdGVnb3JpIGluc3RhbiwgcGVuYW1iYWhhbiBrb2xla3NpIGtlIGxlbWJhciBzaXJrdWxhc2kgZGVuZ2FuIHZhbGlkYXNpIGt1b3RhIDMgYnVrdSwgbW9kYWwgc2lub3BzaXMgZGV0YWlsLCBkYW4gcGVuZXJiaXRhbiB0aWtldCBwZW1pbmphbWFuIGRpZ2l0YWwgc2lhcCBjZXRhay4nLFxuICAgICAgdGVjaG5pY2FsUmVxdWlyZW1lbnRzOiAnMTAwJSBzdGFuZGFsb25lIHNpbmdsZS1maWxlIEhUTUwsIHJlc3BvbnNpZiBzbWFydHBob25lIGhpbmdnYSBkZXNrdG9wLCBhbnRpLXNsb3AgdmVyaWZpZWQuJyxcbiAgICAgIGlzUmVjb25zdHJ1Y3RlZDogZmFsc2VcbiAgICB9LFxuICAgIGZlYXR1cmVkOiB0cnVlLFxuICAgIHB1Ymxpc2hlZEF0OiAnMjAyNi0wNS0wNCcsXG4gICAgbGl2ZVByZXZpZXdBdmFpbGFibGU6IHRydWUsXG4gICAgYWNjZW50Q29sb3I6ICcjMjM0MTMzJ1xuICB9LFxuICB7XG4gICAgaWQ6ICd0cGwtMjInLFxuICAgIHNsdWc6ICdydWt1bi1idWFoLXNlZ2FyJyxcbiAgICB0aXRsZTogJ1J1a3VuIEJ1YWgnLFxuICAgIHRhZ2xpbmU6ICdQYXNhciAmIGtlZGFpIGJ1YWggc2VnYXIgaGFyaWFuIOKAlCBzaXN0ZW0gdGltYmFuZ2FuIGRpZ2l0YWwgcHJlc2lzaSwgZ2FyYW5zaSBtYW5pcyBicml4LCAmIGxheWFuYW4gcG90b25nIGhpZ2llbmlzJyxcbiAgICBkZXNjcmlwdGlvbjogJ1RlbXBsYXRlIHdlYnNpdGUgcGVuanVhbGFuIGJ1YWggc2VnYXIgZGFuIHJldGFpbCBwYXNhciBidWFoIG1vZGVybiBkZW5nYW4gZGVzYWluIG9yZ2FuaWMtcm91bmRlZCBhbnRpLXNsb3AuIERpbGVuZ2thcGkgZXRhbGFzZSAxMiBidWFoIHNlZ2FyIChMb2thbCBOdXNhbnRhcmEgJiBJbXBvciBQcmVtaXVtKSBkZW5nYW4gZm90byBqZXJuaWgsIHNpc3RlbSBzaW11bGFzaSB0aW1iYW5nYW4gZGlnaXRhbCBpbnRlcmFrdGlmIChwcmVzZXQgMjUwZywgNTAwZywgMWtnLCAya2csIGthbGt1bGFzaSBoYXJnYSBncmFtYXR1ciBvdG9tYXRpcyksIG9wc2kga3VwYXMgJiBwb3Rvbmcgc2lhcCBzYW50YXAsIG1vZGFsIHByb2ZpbCByYXNhIChCcml4IHN3ZWV0bmVzcyBtZXRlciwgdGluZ2thdCBhc2FtLCB0ZWtzdHVyIGRhZ2luZyBidWFoKSwgc2VydGEga2VyYW5qYW5nIHRpbWJhbmdhbiBkaW5hbWlzIHlhbmcgbGFuZ3N1bmcgbWVuZ2hhc2lsa2FuIHJla2FwIHBlc2FuYW4gc2lhcCBraXJpbSBrZSBXaGF0c0FwcC4nLFxuICAgIGNhdGVnb3J5OiAnYnVhaCcsXG4gICAgdGFnczogWydUb2tvIEJ1YWgnLCAnUGFzYXIgQnVhaCBTZWdhcicsICdTaXN0ZW0gVGltYmFuZ2FuJywgJ1JldGFpbCBCdWFoJywgJ0dhcmFuc2kgTWFuaXMgQnJpeCcsICdLdXBhcyAmIFBvdG9uZycsICdXaGF0c0FwcCBPcmRlciddLFxuICAgIHRlY2hub2xvZ2llczogWydIVE1MNScsICdWYW5pbGxhIENTUycsICdWYW5pbGxhIEpTJywgJ091dGZpdCAmIFBsdXMgSmFrYXJ0YSBTYW5zJ10sXG4gICAgdGh1bWJuYWlsU3ZnVHlwZTogJ2J1YWgnLFxuICAgIHByZXZpZXdDb21wb25lbnRLZXk6ICdmcnVpdC1ydWt1bi1idWFoJyxcbiAgICBodG1sUGF0aDogJy90ZW1wbGF0ZXMvYnVhaC9ydWt1bi1idWFoLmh0bWwnLFxuICAgIGh0bWxGb2xkZXJQYXRoOiAndGVtcGxhdGVzL2J1YWgvcnVrdW4tYnVhaC5odG1sJyxcbiAgICBmZWF0dXJlczogW1xuICAgICAgJzEwMCUgZmlsZSBtYW5kaXJpIHR1bmdnYWwgKEhUTUwgKyBDU1MgKyBKUykgc2lhcCBidWthIGRpIGJyb3dzZXIgdGFucGEgZGVwZW5kZW5zaSBla3N0ZXJuYWwnLFxuICAgICAgJ1Npc3RlbSB0aW1iYW5nYW4gZGlnaXRhbCBpbnRlcmFrdGlmIGRlbmdhbiB2aXN1YWwgTEVEIHNjcmVlbiwga2Fsa3VsYXRvciBoYXJnYSBncmFtYXR1ciBkaW5hbWlzLCBkYW4gZXN0aW1hc2kgYmVyYXQgbXVhdGFuJyxcbiAgICAgICdLYXRhbG9nIDEyIGJ1YWggc2VnYXIgZGVuZ2FuIGZvdG8gbnlhdGEgYmVya3VhbGl0YXMsIGZpbHRlciBtdWx0aS1rYXRlZ29yaSwgZGFuIGxpdmUgc2VhcmNoIGluc3RhbicsXG4gICAgICAnSW5kaWthdG9yIGt1YWxpdGFzIG55YXRhOiBCcml4IFN3ZWV0bmVzcyBNZXRlciAowrBCeCksIHRpbmdrYXQga2Vhc2FtYW4sIGFzYWwga2VidW4sIGRhbiB0aXBzIHBlbnlpbXBhbmFuIGlkZWFsJyxcbiAgICAgICdQaWxpaGFuIHNlcnZpcyBwb3RvbmcgaGlnaWVuaXMgZGFuIHdhZGFoIGZvb2QtZ3JhZGUgc2lhcCBzYW50YXAnLFxuICAgICAgJ0tlcmFuamFuZyB0aW1iYW5nYW4gc2xpZGUtb3V0IGRlbmdhbiBha3VtdWxhc2kgdG90YWwga2lsb2dyYW0gZGFuIGNoZWNrb3V0IFdoYXRzQXBwIHRlcmZvcm1hdCByYXBpJ1xuICAgIF0sXG4gICAgdXNhZ2VJbnN0cnVjdGlvbnM6IFtcbiAgICAgICdCdWthIHRlbXBsYXRlcy9idWFoL3J1a3VuLWJ1YWguaHRtbCBkaSBjb2RlIGVkaXRvciBBbmRhLicsXG4gICAgICAnU2VzdWFpa2FuIGRhZnRhciBidWFoLCBmb3RvIHByb2R1aywgZGFuIGhhcmdhIHBlciBraWxvZ3JhbSBwYWRhIGFycmF5IEZSVUlUX1BST0RVQ1RTLicsXG4gICAgICAnVWJhaCBub21vciBXaGF0c0FwcCBwYWRhIGZ1bmdzaSBjaGVja291dFdoYXRzQXBwIGRlbmdhbiBrb250YWsga2FzaXIgdG9rbyBidWFoIEFuZGEuJyxcbiAgICAgICdEYXBhdCBkaWd1bmFrYW4gc2ViYWdhaSB3ZWJzaXRlIGV0YWxhc2Uga2F0YWxvZyBvbmxpbmUgbWF1cHVuIGRpc3BsYXkgdGFibGV0IHRpbWJhbmdhbiBkaSBjb3VudGVyIHRva28uJ1xuICAgIF0sXG4gICAgc291cmNlRmlsZXM6IFtcbiAgICAgIHtcbiAgICAgICAgZmlsZW5hbWU6ICdydWt1bi1idWFoLmh0bWwnLFxuICAgICAgICBsYW5ndWFnZTogJ2h0bWwnLFxuICAgICAgICBjb250ZW50OiBgPCEtLSBSdWt1biBCdWFoIOKAlCBQYXNhciAmIEtlZGFpIEJ1YWggU2VnYXIgZGVuZ2FuIFNpc3RlbSBUaW1iYW5nYW4gRGlnaXRhbCAtLT5cbjwhRE9DVFlQRSBodG1sPlxuPGh0bWwgbGFuZz1cImlkXCI+XG48aGVhZD5cbiAgPG1ldGEgY2hhcnNldD1cIlVURi04XCI+XG4gIDx0aXRsZT5SVUtVTiBCVUFIIOKAlCBQYXNhciAmIEtlZGFpIEJ1YWggU2VnYXI8L3RpdGxlPlxuPC9oZWFkPlxuPGJvZHk+XG4gIDxkaXYgY2xhc3M9XCJ0b3AtdGlja2VyXCI+UEFORU4gSEFSSSBJTkk6IE1BTkdHQSBIQVJVTSBNQU5JUyAxNcKwIEJSSVg8L2Rpdj5cbiAgPGhlYWRlciBjbGFzcz1cInNpdGUtaGVhZGVyXCI+XG4gICAgPGRpdiBjbGFzcz1cImJyYW5kLXRleHRcIj48aDE+UlVLVU4gQlVBSDwvaDE+PC9kaXY+XG4gIDwvaGVhZGVyPlxuICA8bWFpbj5cbiAgICA8c2VjdGlvbiBjbGFzcz1cImhlcm8tc2NhbGUtY2FyZFwiPlxuICAgICAgPGRpdiBjbGFzcz1cInNjYWxlLWRpZ2l0YWwtZGlzcGxheVwiPlxuICAgICAgICA8ZGl2IGNsYXNzPVwic2NhbGUtd2VpZ2h0LXZhbFwiPjAuNTAwPHNtYWxsPmtnPC9zbWFsbD48L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvc2VjdGlvbj5cbiAgPC9tYWluPlxuPC9ib2R5PlxuPC9odG1sPmAsXG4gICAgICAgIGRlc2NyaXB0aW9uOiAnRmlsZSBtYW5kaXJpIEhUTUwgKyBDU1MgKyBKUyB5YW5nIGRhcGF0IGxhbmdzdW5nIGRpYnVrYSBkaSBicm93c2VyIGFwYSBwdW4uJ1xuICAgICAgfVxuICAgIF0sXG4gICAgcHJvbXB0OiB7XG4gICAgICBzdW1tYXJ5OiAnUHJvbXB0IHdlYnNpdGUgdG9rbyBidWFoIHNlZ2FyIGRhbiBzaXN0ZW0gdGltYmFuZ2FuIGRpZ2l0YWwgaW50ZXJha3RpZiBSdWt1biBCdWFoIGJlcnN0YW5kYXIgYW50aS1zbG9wLicsXG4gICAgICBkZXNpZ25EaXJlY3Rpb246ICdGcmVzaCBvcmdhbmljIGZydWl0IG1hcmtldDogQm90YW5pY2FsIExlYWYgR3JlZW4gKCMyRDZBNEYpLCBXYXJtIFBhcGVyIENyZWFtICgjRkFGN0YwKSwgQ2l0cnVzIFBhcGF5YSAoI0U4NTkwQyksIGRhbiBNYW5nbyBIb25leSAoI0Q5NzcwNikuIFJvdW5kZWQgY29udGFpbmVycyAxNi0yNHB4IGVsZWdhbiBhbnRpLXNsb3AuJyxcbiAgICAgIGxheW91dEFuZEdyaWQ6ICdUb3AgcGFuZW4gdGlja2VyLCBtYXN0aGVhZCB0b2tvIGJ1YWgsIGhlcm8gc3BsaXQgZGVuZ2FuIHNpbXVsYXNpIG1lamEgdGltYmFuZyBkaWdpdGFsIGludGVyYWt0aWYsIGthdGFsb2cgZXRhbGFzZSByZXNwb25zaWYgNCBrb2xvbSwgc3R1ZGlvIHRpbWJhbmdhbiB0ZXJhLCBkYW4ga2VyYW5qYW5nIHBlc2FuYW4gc2xpZGUtb3V0LicsXG4gICAgICB0eXBvZ3JhcGh5QW5kQ29sb3I6ICdPdXRmaXQgZGlzcGxheSBib2xkIHVudHVrIG5hbWEgYnVhaCBkYW4gYW5na2EgdGltYmFuZ2FuLCBQbHVzIEpha2FydGEgU2FucyB1bnR1ayBrZW55YW1hbmFuIG1lbWJhY2EgZGVza3JpcHNpLicsXG4gICAgICBpbnRlcmFjdGlvbnM6ICdTaW11bGFzaSB0aW1iYW5nYW4gZGlnaXRhbCByZWFsLXRpbWUsIHBpbGloYW4gZ3JhbWF0dXIgMjUwZy0ya2cgcGVyIGJ1YWgsIG1vZGFsIHByb2ZpbCByYXNhIGRhbiBicml4IGtlbWFuaXNhbiwgc2VydGEgaW50ZWdyYXNpIHBlbWVzYW5hbiBXaGF0c0FwcCBvdG9tYXRpcy4nLFxuICAgICAgdGVjaG5pY2FsUmVxdWlyZW1lbnRzOiAnWmVybyBkZXBlbmRlbmNpZXMsIDEwMCUgc3RhbmRhbG9uZSBzaW5nbGUtZmlsZSBIVE1MLCByZXNwb25zaWYgc21hcnRwaG9uZSBoaW5nZ2EgZGVza3RvcC4nLFxuICAgICAgaXNSZWNvbnN0cnVjdGVkOiBmYWxzZVxuICAgIH0sXG4gICAgZmVhdHVyZWQ6IHRydWUsXG4gICAgcHVibGlzaGVkQXQ6ICcyMDI2LTA1LTA4JyxcbiAgICBsaXZlUHJldmlld0F2YWlsYWJsZTogdHJ1ZSxcbiAgICBhY2NlbnRDb2xvcjogJyMyRDZBNEYnXG4gIH0sXG4gIHtcbiAgICBpZDogJ3RwbC0xNCcsXG4gICAgc2x1ZzogJ3NpbmF1LXN0dWR5LXdvcmtzcGFjZScsXG4gICAgdGl0bGU6ICdTSU5BVScsXG4gICAgdGFnbGluZTogJ1J1YW5nIGJlbGFqYXIgZGlnaXRhbCAmIGFjYWRlbWljIHRyYWNrZXIgbWFuZGlyaSB1bnR1ayBzaXN3YSBzZWtvbGFoJyxcbiAgICBkZXNjcmlwdGlvbjogJ1RlbXBsYXRlIHdlYnNpdGUgcnVhbmcgYmVsYWphciBtYW5kaXJpLCBhZ2VuZGEgdHVnYXMgc2Vrb2xhaCwgZGFuIHNpc3RlbSBwZWxhY2FrIGFrYWRlbWlrIHlhbmcgZGlyYW5jYW5nIGtodXN1cyB1bnR1ayBwZWxhamFyIFNNUCwgU01BLCBTTUssIG1hdXB1biBtYWhhc2lzd2EuIERpbGVuZ2thcGkgamFkd2FsIHBlbGFqYXJhbiBtaW5nZ3VhbiBpbnRlcmFrdGlmIChTZW5pbi1KdW1hdCkgZGVuZ2FuIHN0YXR1cyBrZWxhcyBha3RpZiwgYnVrdSBhZ2VuZGEgdHVnYXMgJiBQUiBkZW5nYW4gZmlsdGVyIHByaW9yaXRhcyBkYW4gaGl0dW5nIG11bmR1ciBkZWFkbGluZSwga2Fsa3VsYXRvciByZWthcCBuaWxhaSByYXBvciAmIGthcnR1IGhhc2lsIHN0dWRpIGJlcmJhc2lzIHdlaWdodGVkIGF2ZXJhZ2Ugb3RvbWF0aXMsIHRpbWVyIGZva3VzIGJlbGFqYXIgUG9tb2Rvcm8gMjUgbWVuaXQsIHNlcnRhIHNjcmF0Y2hwYWQgY2F0YXRhbiBydW11cyBjZXBhdCBkZW5nYW4gcGVueWltcGFuYW4gb2ZmbGluZS1maXJzdCBkaSBicm93c2VyLicsXG4gICAgY2F0ZWdvcnk6ICdzZWtvbGFoJyxcbiAgICB0YWdzOiBbJ1Nla29sYWgnLCAnQWthZGVtaWsnLCAnSmFkd2FsIFBlbGFqYXJhbicsICdCdWt1IFR1Z2FzJywgJ1BvbW9kb3JvIFRpbWVyJywgJ1Jla2FwIE5pbGFpIFJhcG9yJywgJ0FudGktU2xvcCBTcGVjJ10sXG4gICAgdGVjaG5vbG9naWVzOiBbJ0hUTUw1JywgJ1ZhbmlsbGEgQ1NTJywgJ1ZhbmlsbGEgSlMnLCAnTG9jYWxTdG9yYWdlJywgJ09mZmxpbmUgRmlyc3QnXSxcbiAgICB0aHVtYm5haWxTdmdUeXBlOiAnc2Vrb2xhaCcsXG4gICAgcHJldmlld0NvbXBvbmVudEtleTogJ3Nla29sYWgtc2luYXUnLFxuICAgIGh0bWxQYXRoOiAnL3RlbXBsYXRlcy9zZWtvbGFoL3NpbmF1Lmh0bWwnLFxuICAgIGh0bWxGb2xkZXJQYXRoOiAndGVtcGxhdGVzL3Nla29sYWgvc2luYXUuaHRtbCcsXG4gICAgZmVhdHVyZXM6IFtcbiAgICAgICdTdHJ1a3R1ciBtYW5kaXJpIDEtZmlsZSB0dW5nZ2FsIChIVE1MICsgQ1NTICsgSlMpIHNpYXAgcGFrYWkgbGFuZ3N1bmcgZGkgYnJvd3NlciB0YW5wYSBwZXJsdSBzZXJ2ZXIsIG5vZGUuanMsIGF0YXUgZGF0YWJhc2UgZWtzdGVybmFsJyxcbiAgICAgICdKYWR3YWwgcGVsYWphcmFuIG1pbmdndWFuIGludGVyYWt0aWYgKFNlbmluIHMvZCBKdW1hdCkgZGVuZ2FuIGRldGVrc2kgaGFyaSBha3RpZiwgaW5mbyBqYW0sIHJ1YW5nIGtlbGFzLCBndXJ1IHBlbmdhbXB1LCBkYW4gZm9ybXVsaXIgdGFtYmFoIG1hcGVsJyxcbiAgICAgICdCdWt1IGFnZW5kYSB0dWdhcyAmIFBSIG1hbmRpcmkgZGVuZ2FuIGZpbHRlciBzdGF0dXMgKFNlbXVhLCBCZWx1bSBTZWxlc2FpLCBNZW5kZXNhaywgU2VsZXNhaSksIGJhZGdlIHByaW9yaXRhcyB3YXJuYSwgZGFuIGNoZWNrbGlzdCBpbnRlcmFrdGlmJyxcbiAgICAgICdLYXJ0dSBoYXNpbCBzdHVkaSAmIHJla2FwIG5pbGFpIHJhcG9yIG90b21hdGlzIGRlbmdhbiBwZXJoaXR1bmdhbiBib2JvdCAoVHVnYXMgMjAlLCBVSCAzMCUsIFBUUyAyNSUsIFBBUyAyNSUpIGRhbiBzbGlkZXIgc2ltdWxhc2kgdGFyZ2V0IHVqaWFuJyxcbiAgICAgICdUaW1lciBmb2t1cyBiZWxhamFyIFBvbW9kb3JvICgyNW0gZm9rdXMsIDVtIHJlaGF0KSBkZW5nYW4gcGlsaWhhbiBtYXRhIHBlbGFqYXJhbiBha3RpZiBkYW4gY291bnRlciBzZXNpIGhhcmlhbicsXG4gICAgICAnUGVueWltcGFuYW4gbG9rYWwgKExvY2FsU3RvcmFnZSkgb3RvbWF0aXMg4oCUIGRhdGEgdHVnYXMsIG5pbGFpLCBkYW4gamFkd2FsIHRlcnNpbXBhbiBhbWFuIGRpIGJyb3dzZXIgc2lzd2EnLFxuICAgICAgJ0Rlc2FpbiBwcmludC1mcmllbmRseSAoQG1lZGlhIHByaW50KSB5YW5nIHJhcGkgdW50dWsgbGFuZ3N1bmcgbWVuY2V0YWsgamFkd2FsIGRhbiBrYXJ0dSBuaWxhaSBrZSBrZXJ0YXMgQTQnXG4gICAgXSxcbiAgICB1c2FnZUluc3RydWN0aW9uczogW1xuICAgICAgJ0J1a2EgdGVtcGxhdGVzL3Nla29sYWgvc2luYXUuaHRtbCBkaSB3ZWIgYnJvd3NlciBrYW11LicsXG4gICAgICAnS2xpayBwcm9maWwgZGkga2FuYW4gYXRhcyB1bnR1ayBtZW55ZXN1YWlrYW4gbmFtYSBzaXN3YSBkYW4ga2VsYXMvanVydXNhbi4nLFxuICAgICAgJ0J1a2EgdGFiIEphZHdhbCBQZWxhamFyYW4gdW50dWsgbWVuYW1iYWggYXRhdSBtZW5naGFwdXMgbWF0YSBwZWxhamFyYW4gc2VzdWFpIGphZHdhbCBzZWtvbGFobXUuJyxcbiAgICAgICdHdW5ha2FuIEJ1a3UgVHVnYXMgdW50dWsgbWVuY2F0YXQgUFIgZGFuIHBhbnRhdSBuaWxhaSByYXBvciBzZWNhcmEgYmVya2FsYSBkaSB0YWIgUmVrYXAgTmlsYWkuJ1xuICAgIF0sXG4gICAgc291cmNlRmlsZXM6IFtcbiAgICAgIHtcbiAgICAgICAgZmlsZW5hbWU6ICdzaW5hdS5odG1sJyxcbiAgICAgICAgbGFuZ3VhZ2U6ICdodG1sJyxcbiAgICAgICAgY29udGVudDogYDwhLS0gU0lOQVUg4oCUIFJ1YW5nIEJlbGFqYXIgJiBBY2FkZW1pYyBUcmFja2VyIFBlbGFqYXIgTWFuZGlyaSAtLT5cbjwhRE9DVFlQRSBodG1sPlxuPGh0bWwgbGFuZz1cImlkXCI+XG48aGVhZD5cbiAgPG1ldGEgY2hhcnNldD1cIlVURi04XCI+XG4gIDx0aXRsZT5TSU5BVSDigJQgUnVhbmcgQmVsYWphciAmIEFjYWRlbWljIFRyYWNrZXI8L3RpdGxlPlxuICA8c3R5bGU+XG4gICAgOnJvb3Qge1xuICAgICAgLS1iZzogI2ZhZjhmMztcbiAgICAgIC0tbmF2eTogIzFmMzY0ZDtcbiAgICAgIC0tdGVycmFjb3R0YTogI2M0NDUyNTtcbiAgICAgIC0tc2FnZTogIzJhN2U2ODtcbiAgICAgIC0tc2VyaWY6IFwiTmV3c3JlYWRlclwiLCBzZXJpZjtcbiAgICAgIC0tc2FuczogXCJQbHVzIEpha2FydGEgU2Fuc1wiLCBzYW5zLXNlcmlmO1xuICAgICAgLS1tb25vOiBcIkpldEJyYWlucyBNb25vXCIsIG1vbm9zcGFjZTtcbiAgICB9XG4gIDwvc3R5bGU+XG48L2hlYWQ+XG48Ym9keT5cbiAgPGRpdiBjbGFzcz1cInRvcC1ub3RpY2VcIj5TSU5BVSAvLyBFRElTSSBQRUxBSkFSIOKAlCBNZWphIEJlbGFqYXIgRGlnaXRhbCBNYW5kaXJpPC9kaXY+XG4gIDxoZWFkZXI+XG4gICAgPGgxPlNJTkFVPHNwYW4+Ljwvc3Bhbj4gU1RVRFkgV09SS1NQQUNFPC9oMT5cbiAgICA8bmF2PkRhc2hib2FyZCDCtyBKYWR3YWwgUGVsYWphcmFuIMK3IEJ1a3UgVHVnYXMgwrcgUmVrYXAgTmlsYWkgwrcgVGltZXIgRm9rdXM8L25hdj5cbiAgPC9oZWFkZXI+XG4gIDwhLS0gRnVsbCBmdW5jdGlvbmFsIHNjaGVkdWxlLCB0YXNrcywgZ3JhZGVzICYgcG9tb2Rvcm8gLS0+XG48L2JvZHk+XG48L2h0bWw+YCxcbiAgICAgICAgZGVzY3JpcHRpb246ICdGaWxlIG1hbmRpcmkgSFRNTCArIENTUyArIEpTIHlhbmcgZGFwYXQgbGFuZ3N1bmcgZGlidWthIGRpIGJyb3dzZXIgYXBhIHB1bi4nXG4gICAgICB9XG4gICAgXSxcbiAgICBwcm9tcHQ6IHtcbiAgICAgIHN1bW1hcnk6ICdQcm9tcHQgd2Vic2l0ZSBtZWphIGJlbGFqYXIgZGlnaXRhbCwgamFkd2FsIHBlbGFqYXJhbiwgYWdlbmRhIFBSLCBkYW4gcmVrYXAgbmlsYWkgcmFwb3IgU0lOQVUgYmVyc3RhbmRhciBhbnRpLXNsb3AuJyxcbiAgICAgIGRlc2lnbkRpcmVjdGlvbjogJ1dhcm0gcGFwZXIgc3R1ZHkgZGVzazogUGFwZXIgV2FybSBDcmVhbSAoI0ZBRjhGMyksIEFjYWRlbWljIE5hdnkgKCMxRjM2NEQpLCBSZXN0cmFpbmVkIFRlcnJhY290dGEgKCNDNDQ1MjUpLCBkYW4gU2FnZSAoIzJBN0U2OCkuIFRpcG9ncmFmaSBOZXdzcmVhZGVyIHNlcmlmIGVkaXRvcmlhbCBiZXJwYWR1IGRlbmdhbiBQbHVzIEpha2FydGEgU2FucyBkYW4gSmV0QnJhaW5zIE1vbm8uJyxcbiAgICAgIGxheW91dEFuZEdyaWQ6ICdTdW1tYXJ5IG1ldHJpYyBzdHJpcCA0IGtvbG9tIChUYXJnZXQgSmFtIEZva3VzLCBUdWdhcyBQZW5kaW5nLCBSYXRhLVJhdGEgTmlsYWksIEphZHdhbCBIYXJpIEluaSksIGdyaWQgamFkd2FsIHBlbGFqYXJhbiBtaW5nZ3VhbiBwZXIgaGFyaSwgbGlzdCBhZ2VuZGEgdHVnYXMgYmVyZmlsdGVyIHByaW9yaXRhcywgdGFiZWwgbmlsYWkgcmFwb3IgaW50ZXJha3RpZiwgZGFuIHN0dWRpbyB0aW1lciBQb21vZG9yby4nLFxuICAgICAgdHlwb2dyYXBoeUFuZENvbG9yOiAnS29tYmluYXNpIE5ld3NyZWFkZXIgdW50dWsganVkdWwgc2FzdHJhIGFrYWRlbWlzIGRhbiBQbHVzIEpha2FydGEgU2FucyB1bnR1ayBrZWplbGFzYW4gYW50YXJtdWthIGZvcm11bGlyLicsXG4gICAgICBpbnRlcmFjdGlvbnM6ICdDaGVja2xpc3QgdHVnYXMgaW50ZXJha3RpZiBkZW5nYW4gYW5pbWFzaSBzZWxlc2FpLCBpbnB1dCBuaWxhaSBrYWxrdWxhc2kgb3RvbWF0aXMsIHNsaWRlciBzaW11bGFzaSBuaWxhaSBQQVMsIHRpbWVyIFBvbW9kb3JvIGRlbmdhbiBpbnRlcnZhbCB3YWt0dSwgZGFuIHBlbnlpbXBhbmFuIGxva2FsIChMb2NhbFN0b3JhZ2UpLicsXG4gICAgICB0ZWNobmljYWxSZXF1aXJlbWVudHM6ICdaZXJvIGRlcGVuZGVuY2llcywgMTAwJSBzdGFuZGFsb25lIHNpbmdsZS1maWxlIEhUTUwsIHJlc3BvbnNpZiBzbWFydHBob25lIGhpbmdnYSBkZXNrdG9wLCBwcmludCBzdHlsZXNoZWV0LicsXG4gICAgICBpc1JlY29uc3RydWN0ZWQ6IGZhbHNlXG4gICAgfSxcbiAgICBmZWF0dXJlZDogdHJ1ZSxcbiAgICBwdWJsaXNoZWRBdDogJzIwMjYtMDUtMTAnLFxuICAgIGxpdmVQcmV2aWV3QXZhaWxhYmxlOiB0cnVlLFxuICAgIGFjY2VudENvbG9yOiAnIzFGMzY0RCdcbiAgfVxuXTtcblxuXG5cblxuIl19

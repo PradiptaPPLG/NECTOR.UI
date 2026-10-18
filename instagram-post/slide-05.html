@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>NECTOR.UI — Instagram Slide 05 (Fitur Request Web di Aplikasi)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background-color: #090a0d;
+      color: #faf9f5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .slide {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      background: radial-gradient(circle at 75% 20%, rgba(196, 69, 37, 0.2), transparent 48%),
+                  radial-gradient(circle at 25% 80%, rgba(16, 185, 129, 0.15), transparent 45%),
+                  radial-gradient(circle at 50% 50%, #111217, #08090b 90%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 56px 68px 50px 68px;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    /* Technical Dot Grid */
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: -0.5px;
+      color: #faf9f5;
+    }
+
+    .brand-logo .dot {
+      color: #c44525;
+    }
+
+    .brand-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 5px 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      color: #d8d7cf;
+    }
+
+    .feature-status-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .feature-status-tag .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    /* Section Header */
+    .section-header {
+      margin-top: 10px;
+      z-index: 2;
+    }
+
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #ff7a59;
+      background: rgba(196, 69, 37, 0.15);
+      border: 1px solid rgba(196, 69, 37, 0.35);
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .headline {
+      font-family: 'Outfit', sans-serif;
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.4px;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .headline span.accent {
+      background: linear-gradient(135deg, #ff7a59 0%, #c44525 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .subheadline {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #b3b2ab;
+      max-width: 860px;
+    }
+
+    /* Request Showcase Stage */
+    .request-showcase-stage {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 18px;
+      z-index: 2;
+    }
+
+    /* 1. Real In-App Trigger Box */
+    .hero-trigger-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 4px solid #c44525;
+      border-radius: 14px;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .trigger-left {
+      max-width: 720px;
+    }
+
+    .trigger-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: #ff9d80;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .trigger-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #c44525;
+    }
+
+    .trigger-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trigger-title .arrow {
+      color: #c44525;
+    }
+
+    .trigger-desc {
+      font-size: 12.5px;
+      color: #9c9b94;
+      line-height: 1.4;
+    }
+
+    .trigger-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(196, 69, 37, 0.15);
+      border: 1px solid rgba(196, 69, 37, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff7a59;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* 2. Side-by-Side Modal Step Previews */
+    .steps-preview-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .step-window {
+      background: rgba(18, 19, 25, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-window-top {
+      background: #14151c;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 9px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .step-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #ff9d80;
+      letter-spacing: 0.5px;
+    }
+
+    .step-indicator {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      padding: 2px 7px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 4px;
+      color: #d1d0c7;
+    }
+
+    .step-img-box {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+    }
+
+    .step-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.7);
+      transform-origin: 50% 45%;
+      display: block;
+    }
+
+    /* 3. Flow Pills Banner */
+    .flow-pills-banner {
+      background: rgba(15, 16, 22, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .flow-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: #d8d7cf;
+    }
+
+    .flow-item .f-num {
+      color: #c44525;
+      font-weight: 800;
+    }
+
+    .flow-sep {
+      color: #555;
+      font-size: 12px;
+    }
+
+    /* Bottom Bar */
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 18px;
+      z-index: 2;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+      background: #111;
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .author-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: #faf9f5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .author-handle .req-badge {
+      font-size: 9.5px;
+      color: #ff9d80;
+      background: rgba(196, 69, 37, 0.25);
+      border: 1px solid rgba(196, 69, 37, 0.5);
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .author-sub {
+      font-size: 11px;
+      color: #8f8e87;
+    }
+
+    .slide-pagination {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8f8e87;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .slide-pagination .active-num {
+      color: #c44525;
+      font-weight: 800;
+    }
+
+    .swipe-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #d8d7cf;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="brand-group">
+        <div class="brand-logo">NECTOR<span class="dot">.</span>UI</div>
+        <div class="brand-badge">STUDIO KOMISI // IN-APP FEATURE</div>
+      </div>
+      <div class="feature-status-tag">
+        <span class="pulse-dot"></span>
+        <span>FITUR KUESIONER 1 MENIT</span>
+      </div>
+    </div>
+
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="pill-tag">
+        ✦ BISA REQUEST WEBSITE CUSTOM LANGSUNG DI WEB APP
+      </div>
+      <h1 class="headline">
+        Punya Konsep Sendiri? <span class="accent">Bisa Request di Aplikasi.</span>
+      </h1>
+      <p class="subheadline">
+        Di NECTOR.UI, kamu bisa mengajukan pembuatan website custom melalui wizard kuesioner terstruktur: pilih jenis bisnis, karakter visual, dan requirement fitur tanpa perlu pusing menyusun brief manual.
+      </p>
+    </div>
+
+    <!-- Request Showcase Stage -->
+    <div class="request-showcase-stage">
+      <!-- 1. Trigger Card from Web Homepage -->
+      <div class="hero-trigger-card">
+        <div class="trigger-left">
+          <div class="trigger-badge">
+            <span class="trigger-dot"></span>
+            <span>Studio Komisi Khusus · Kuesioner 1 Menit</span>
+          </div>
+          <div class="trigger-title">
+            <span>Saya ingin membuat website custom</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="trigger-desc">
+            Pilih tema aplikasi, preferensi visual & requirement fitur — draf spesifikasi otomatis tersusun & siap dikonsultasikan.
+          </div>
+        </div>
+        <div class="trigger-icon-btn">✦</div>
+      </div>
+
+      <!-- 2. Two Interactive Modal Steps Side-by-Side -->
+      <div class="steps-preview-row">
+        <!-- Step 1: Tema Aplikasi -->
+        <div class="step-window step-w1">
+          <div class="step-window-top">
+            <span class="step-label">LANGKAH 1 DARI 4: TEMA APLIKASI</span>
+            <span class="step-indicator">Pilih Kategori Bisnis</span>
+          </div>
+          <div class="step-img-box">
+            <img src="screenshots/app-modal-step1.png" alt="Modal Langkah 1: Tema Aplikasi">
+          </div>
+        </div>
+
+        <!-- Step 2: Gaya Visual -->
+        <div class="step-window step-w2">
+          <div class="step-window-top">
+            <span class="step-label">LANGKAH 2 DARI 4: GAYA VISUAL</span>
+            <span class="step-indicator">Pilih Karakter Desain</span>
+          </div>
+          <div class="step-img-box">
+            <img src="screenshots/app-modal-step2.png" alt="Modal Langkah 2: Gaya Visual">
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Flow Steps Banner -->
+      <div class="flow-pills-banner">
+        <div class="flow-item"><span class="f-num">01.</span> Pilih Tema Bisnis</div>
+        <div class="flow-sep">→</div>
+        <div class="flow-item"><span class="f-num">02.</span> Tentukan Gaya Visual</div>
+        <div class="flow-sep">→</div>
+        <div class="flow-item"><span class="f-num">03.</span> Requirement Fitur</div>
+        <div class="flow-sep">→</div>
+        <div class="flow-item"><span class="f-num">04.</span> Draf WhatsApp Otomatis</div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+      <div class="author-info">
+        <div class="author-avatar">
+          <img src="avatar.png" alt="@massdiipp">
+        </div>
+        <div>
+          <div class="author-handle">@massdiipp <span class="req-badge">OPEN REQUEST WEB</span></div>
+          <div class="author-sub">Creator & Frontend Dev · NECTOR.UI</div>
+        </div>
+      </div>
+      <div class="slide-pagination">
+        <span class="swipe-hint">Fitur live di etalase web!</span>
+        <span class="active-num">06</span> / 06
+      </div>
+    </div>
+  </div>
+</body>
+</html>

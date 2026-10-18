@@ -13,10 +13,24 @@ import { Check, Info } from 'lucide-react';
 import './App.css';
 
 export function App() {
+  const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+
   // Navigation State
-  const [currentView, setCurrentView] = useState<string>('home');
-  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
-  const [initialDetailTab, setInitialDetailTab] = useState<'preview' | 'code' | 'prompt'>('preview');
+  const [currentView, setCurrentView] = useState<string>(() => {
+    return urlParams?.get('view') || 'home';
+  });
+  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(() => {
+    const slug = urlParams?.get('template');
+    if (slug) {
+      return TEMPLATES_DATA.find(t => t.slug === slug) || TEMPLATES_DATA[0];
+    }
+    return currentView === 'detail' ? TEMPLATES_DATA[0] : null;
+  });
+  const [initialDetailTab, setInitialDetailTab] = useState<'preview' | 'code' | 'prompt'>(() => {
+    const tab = urlParams?.get('tab');
+    if (tab === 'code' || tab === 'prompt') return tab;
+    return 'preview';
+  });
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -32,6 +46,8 @@ export function App() {
 
   // LocalStorage Persistence for Theme
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (urlParams?.get('theme') === 'dark') return 'dark';
+    if (urlParams?.get('theme') === 'light') return 'light';
     try {
       const stored = localStorage.getItem('nector_theme');
       return stored === 'dark' ? 'dark' : 'light';
@@ -44,7 +60,9 @@ export function App() {
   const [toasts, setToasts] = useState<ToastNotification[]>([]);
 
   // Commission Modal State
-  const [isCommissionOpen, setIsCommissionOpen] = useState(false);
+  const [isCommissionOpen, setIsCommissionOpen] = useState(() => {
+    return urlParams?.get('modal') === 'commission';
+  });
   const [commissionTemplateContext, setCommissionTemplateContext] = useState<Template | null>(null);
 
   // Sync theme to root HTML attribute
@@ -134,6 +152,7 @@ export function App() {
             onNavigate={handleNavigate}
             onToggleSave={handleToggleSave}
             isSaved={isSaved}
+            onOpenCommission={handleOpenCommission}
           />
         )}
 
@@ -192,6 +211,7 @@ export function App() {
         isOpen={isCommissionOpen}
         onClose={() => setIsCommissionOpen(false)}
         selectedTemplate={commissionTemplateContext}
+        onToast={addToast}
       />
 
       {/* Toast Notification Container */}
