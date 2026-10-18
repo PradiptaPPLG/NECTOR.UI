@@ -1,0 +1,2568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1c332a">
+  <title>KANTIN SELASAR — Dapur Sehat & Jajanan Sekolah Nusantara</title>
+
+  <!-- Google Fonts: Fraunces (Nostalgic artisan serif), Plus Jakarta Sans (Clean modern body), JetBrains Mono (Receipts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Warm Traditional Canteen Palette */
+      --bg-cream: #faf7f0;
+      --bg-surface: #ffffff;
+      --bg-surface-soft: #f4eee3;
+      --bg-card: #ffffff;
+      
+      --border-soft: #e8dfd1;
+      --border-medium: #d6c7b2;
+      --border-dark: #3e2f24;
+
+      --ink-headline: #1c1814;
+      --ink-body: #4a3e35;
+      --ink-muted: #7d6e61;
+
+      /* Heritage Canteen Accents */
+      --chalkboard: #1b3529;        /* Papan tulis kapur sekolah */
+      --chalkboard-surface: #234335;
+      --chalkboard-border: #355f4c;
+      --chalk-white: #f0f7f3;
+      --chalk-yellow: #f6d87c;
+
+      --terracotta: #c85a32;        /* Gerabah / cabe sambal / genteng */
+      --terracotta-dark: #a24422;
+      --terracotta-soft: rgba(200, 90, 50, 0.1);
+
+      --turmeric: #d97706;          /* Kunyit / gorengan garing */
+      --turmeric-light: #fef3c7;
+      
+      --teak-wood: #4e3629;         /* Meja kayu jati kantin */
+      --teak-dark: #322219;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      
+      --font-display: 'Fraunces', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--ink-body);
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Traditional Batik Kawung / Subtle Woven Mat Texture Background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 100% 0%, rgba(200, 90, 50, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(27, 53, 41, 0.05) 0%, transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* TOP ANNOUNCEMENT TICKER */
+    .canteen-ticker {
+      background: var(--chalkboard);
+      color: var(--chalk-white);
+      padding: 9px 24px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      border-bottom: 2px solid var(--chalkboard-border);
+    }
+
+    .ticker-content {
+      max-width: 1260px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .ticker-badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--chalk-yellow);
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #4ade80;
+      animation: blink 1.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* HEADER & NAVIGATION */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(78, 54, 41, 0.04);
+    }
+
+    .header-inner {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-stamp {
+      width: 48px;
+      height: 48px;
+      background: var(--chalkboard);
+      color: var(--chalk-yellow);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      border: 2px solid var(--chalkboard-border);
+      box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--ink-headline);
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+    }
+
+    .brand-title span {
+      color: var(--terracotta);
+    }
+
+    .brand-sub {
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    nav.main-nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    nav.main-nav a {
+      text-decoration: none;
+      color: var(--ink-body);
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+    }
+
+    nav.main-nav a:hover, nav.main-nav a.active {
+      color: var(--terracotta);
+      background: var(--terracotta-soft);
+    }
+
+    .header-tray-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--chalkboard);
+      color: var(--chalk-white);
+      border: 1px solid var(--chalkboard-border);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 2px 3px 0 var(--border-dark);
+    }
+
+    .header-tray-btn:hover {
+      background: var(--chalkboard-surface);
+      transform: translateY(-1px);
+    }
+
+    .tray-badge {
+      background: var(--terracotta);
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      padding: 48px 0 36px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--turmeric-light);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      color: #92400e;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--ink-headline);
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .highlight-terracotta {
+      color: var(--terracotta);
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 15.5px;
+      color: var(--ink-muted);
+      margin-bottom: 28px;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-terracotta {
+      background: var(--terracotta);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--terracotta-dark);
+      box-shadow: 2px 3px 0 var(--border-dark);
+      transition: all 0.2s;
+    }
+
+    .btn-terracotta:hover {
+      background: var(--terracotta-dark);
+      transform: translateY(-2px);
+      box-shadow: 3px 5px 0 var(--border-dark);
+    }
+
+    .btn-chalkboard-outline {
+      background: transparent;
+      color: var(--chalkboard);
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid var(--chalkboard);
+      transition: all 0.2s;
+    }
+
+    .btn-chalkboard-outline:hover {
+      background: var(--chalkboard);
+      color: var(--chalk-white);
+      transform: translateY(-2px);
+    }
+
+    /* HERO FEATURE CARD: PAKET JAM ISTIRAHAT */
+    .hero-feature-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 6px 8px 0 var(--border-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-img-box {
+      width: 100%;
+      height: 220px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border-soft);
+      margin-bottom: 18px;
+    }
+
+    .hero-card-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-feature-card:hover .hero-card-img-box img {
+      transform: scale(1.04);
+    }
+
+    .floating-corner-stamp {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--terracotta);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .floating-prep-time {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(28, 24, 20, 0.88);
+      backdrop-filter: blur(6px);
+      color: var(--chalk-white);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .hero-card-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--ink-headline);
+      margin-bottom: 6px;
+    }
+
+    .hero-card-desc {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .hero-card-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .c-chip {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      background: var(--bg-surface-soft);
+      border: 1px solid var(--border-soft);
+      border-radius: 4px;
+      color: var(--ink-body);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-medium);
+    }
+
+    .hero-price {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--terracotta);
+    }
+
+    .hero-price span {
+      font-size: 12px;
+      font-weight: normal;
+      color: var(--ink-muted);
+    }
+
+    /* SECTION 2: 3 PILLAR TRADISI KANTIN */
+    .section-pillars {
+      padding: 24px 0 48px 0;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .pillar-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      transition: all 0.2s;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--border-medium);
+      transform: translateY(-2px);
+    }
+
+    .pillar-icon-box {
+      width: 44px;
+      height: 44px;
+      background: var(--bg-surface-soft);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink-headline);
+      margin-bottom: 4px;
+    }
+
+    .pillar-desc {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    /* SECTION HEADERS */
+    .section-head {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 36px auto;
+    }
+
+    .section-stamp-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--ink-headline);
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 14.5px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* SECTION 3: ETALASE MENU (FOTO NYATA) */
+    .section-menu {
+      padding: 40px 0 60px 0;
+    }
+
+    .menu-tabs-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .m-tab-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      color: var(--ink-body);
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .m-tab-btn:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+
+    .m-tab-btn.active {
+      background: var(--terracotta);
+      color: #ffffff;
+      border-color: var(--terracotta);
+      box-shadow: 2px 3px 0 var(--border-dark);
+    }
+
+    .menu-grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .canteen-item-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .canteen-item-card:hover {
+      border-color: var(--border-dark);
+      transform: translateY(-3px);
+      box-shadow: 4px 6px 0 var(--border-dark);
+    }
+
+    .item-thumb-box {
+      width: 100%;
+      height: 175px;
+      background: var(--bg-surface-soft);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .item-thumb-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .canteen-item-card:hover .item-thumb-box img {
+      transform: scale(1.06);
+    }
+
+    .item-category-stamp {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      color: var(--ink-headline);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .item-spicy-level {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      background: rgba(200, 90, 50, 0.9);
+      color: #ffffff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .item-info {
+      padding: 16px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .item-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .item-name {
+      font-family: var(--font-display);
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--ink-headline);
+      line-height: 1.25;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .item-cost {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--terracotta);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .item-snippet {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    .item-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-soft);
+      width: 100%;
+    }
+
+    .item-prep-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+    }
+
+    .btn-add-snack {
+      background: var(--bg-surface-soft);
+      border: 1px solid var(--border-medium);
+      color: var(--ink-headline);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-add-snack:hover {
+      background: var(--terracotta);
+      color: #ffffff;
+      border-color: var(--terracotta);
+    }
+
+    /* SECTION 4: PAPAN TULIS MENU SPESIAL (CHALKBOARD STYLE) */
+    .section-chalkboard {
+      padding: 48px 0;
+      margin: 20px 0;
+    }
+
+    .chalkboard-box {
+      background-color: var(--chalkboard);
+      border: 12px solid var(--teak-wood);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      color: var(--chalk-white);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.18), inset 0 0 50px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .chalkboard-box::after {
+      content: '📌 MENU SPESIAL HARI INI — DIMASAK OLEH IBU KANTIN';
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--teak-dark);
+      color: var(--chalk-yellow);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 18px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      border: 1px solid #5a4031;
+    }
+
+    .chalkboard-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chalkboard-title {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--chalk-yellow);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .chalkboard-sub {
+      font-size: 13px;
+      color: #cbd5e1;
+      font-family: var(--font-mono);
+    }
+
+    .chalkboard-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .chalk-day-col {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.2s;
+    }
+
+    .chalk-day-col.today {
+      background: rgba(246, 216, 124, 0.12);
+      border: 2px solid var(--chalk-yellow);
+    }
+
+    .day-name {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--chalk-yellow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .day-name .today-tag {
+      background: var(--terracotta);
+      color: #ffffff;
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .day-dish {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+
+    .day-detail {
+      font-size: 11.5px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    .day-price {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--chalk-yellow);
+      margin-top: auto;
+    }
+
+    /* SECTION 5: FORMULIR PRE-ORDER JAM ISTIRAHAT & POJOK KEJUJURAN */
+    .section-two-cols {
+      padding: 48px 0;
+    }
+
+    .two-cols-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+    }
+
+    /* PRE-ORDER FORM */
+    .preorder-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: 5px 7px 0 var(--border-dark);
+    }
+
+    .preorder-header {
+      margin-bottom: 22px;
+    }
+
+    .preorder-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--ink-headline);
+      margin-bottom: 6px;
+    }
+
+    .preorder-desc {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--ink-headline);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--bg-surface-soft);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--ink-headline);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--terracotta);
+      background: #ffffff;
+    }
+
+    .break-time-selector {
+      display: flex;
+      gap: 12px;
+    }
+
+    .break-option {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid var(--border-medium);
+      background: var(--bg-surface-soft);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .break-option.active {
+      border-color: var(--terracotta);
+      background: var(--terracotta-soft);
+      color: var(--terracotta);
+      font-weight: 700;
+    }
+
+    .break-time-title {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .break-time-hour {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    .btn-submit-preorder {
+      width: 100%;
+      background: var(--chalkboard);
+      color: var(--chalk-white);
+      border: 2px solid var(--border-dark);
+      padding: 13px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 2px 3px 0 var(--border-dark);
+      transition: all 0.2s;
+      margin-top: 10px;
+    }
+
+    .btn-submit-preorder:hover {
+      background: var(--chalkboard-surface);
+      transform: translateY(-2px);
+      box-shadow: 4px 5px 0 var(--border-dark);
+    }
+
+    /* POJOK KEJUJURAN & SALDO KARTU */
+    .kejujuran-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: 5px 7px 0 var(--border-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-badge-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--turmeric-light);
+      color: #b45309;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .card-title-lg {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--ink-headline);
+      margin-bottom: 8px;
+    }
+
+    .virtual-student-card {
+      background: linear-gradient(135deg, #1b3529, #284c3b);
+      border: 2px solid #3d6a54;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      color: var(--chalk-white);
+      box-shadow: 0 8px 24px rgba(27, 53, 41, 0.2);
+      margin: 18px 0;
+      position: relative;
+    }
+
+    .card-chip-ic {
+      width: 34px;
+      height: 26px;
+      background: #e2b755;
+      border-radius: 4px;
+      border: 1px solid #b38e35;
+      margin-bottom: 14px;
+    }
+
+    .card-balance-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #a7f3d0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-balance-num {
+      font-family: var(--font-mono);
+      font-size: 26px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 4px 0 14px 0;
+    }
+
+    .card-student-details {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 10px;
+    }
+
+    .history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      padding: 6px 10px;
+      background: var(--bg-surface-soft);
+      border-radius: var(--radius-sm);
+    }
+
+    /* SLIDE-OVER KERANJANG JAJAN (DRAWER NOTA KANTIN) */
+    .tray-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 24, 20, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .tray-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .receipt-drawer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+      background: #ffffff;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      background-image: radial-gradient(#e5dccb 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .tray-backdrop.open .receipt-drawer {
+      transform: translateX(0);
+    }
+
+    .receipt-header {
+      padding: 22px 24px;
+      background: var(--bg-surface-soft);
+      border-bottom: 2px dashed var(--border-medium);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .receipt-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--ink-headline);
+    }
+
+    .receipt-close-btn {
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: var(--ink-headline);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .receipt-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+    }
+
+    .receipt-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--border-soft);
+    }
+
+    .r-item-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink-headline);
+    }
+
+    .r-item-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--terracotta);
+    }
+
+    .r-qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .r-qty-btn {
+      width: 26px;
+      height: 26px;
+      background: var(--bg-surface-soft);
+      border: 1px solid var(--border-medium);
+      border-radius: 4px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .receipt-footer {
+      padding: 20px 24px;
+      background: var(--bg-surface-soft);
+      border-top: 2px dashed var(--border-medium);
+    }
+
+    .receipt-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink-headline);
+    }
+
+    .btn-checkout-canteen {
+      width: 100%;
+      background: #25d366;
+      color: #ffffff;
+      border: 2px solid #128c7e;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 2px 3px 0 var(--border-dark);
+      transition: all 0.2s;
+    }
+
+    .btn-checkout-canteen:hover {
+      background: #1eb759;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer.site-footer {
+      background: var(--chalkboard);
+      color: var(--chalk-white);
+      border-top: 4px solid var(--border-dark);
+      padding: 50px 0 30px 0;
+      margin-top: 50px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--chalk-yellow);
+      margin-bottom: 12px;
+    }
+
+    .footer-text {
+      font-size: 13.5px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--chalk-yellow);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #94a3b8;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ========================================================
+       RESPONSIVE & MOBILE RATIO (360px - 768px - 1024px)
+       ======================================================== */
+    
+    /* Sticky Mobile Bottom Floating Order Bar */
+    .mobile-floating-tray-bar {
+      display: none;
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: var(--chalkboard);
+      color: var(--chalk-white);
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      z-index: 95;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .mobile-floating-tray-bar.visible {
+      display: flex;
+    }
+
+    .floating-tray-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .floating-tray-icon {
+      font-size: 22px;
+    }
+
+    .floating-tray-count {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--chalk-yellow);
+    }
+
+    .floating-tray-sub {
+      font-size: 10.5px;
+      color: #94a3b8;
+      font-family: var(--font-mono);
+    }
+
+    .floating-tray-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .floating-tray-price {
+      font-family: var(--font-mono);
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #ffffff;
+      background: var(--terracotta);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .floating-tray-arrow {
+      font-size: 16px;
+      color: var(--chalk-yellow);
+      font-weight: 800;
+    }
+
+    /* TABLET & INTERMEDIATE (max-width: 992px) */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .chalkboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .two-cols-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* MOBILE BREAKPOINT (max-width: 768px) */
+    @media (max-width: 768px) {
+      body {
+        font-size: 13.5px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      /* Ticker */
+      .canteen-ticker {
+        padding: 8px 16px;
+        font-size: 11px;
+      }
+
+      .ticker-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      /* Header */
+      .header-inner {
+        padding: 12px 16px;
+        gap: 12px;
+      }
+
+      .brand-stamp {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+        border-radius: 8px;
+      }
+
+      .brand-title {
+        font-size: 18px;
+      }
+
+      .brand-sub {
+        font-size: 10px;
+        display: none;
+      }
+
+      nav.main-nav {
+        display: none;
+      }
+
+      .header-tray-btn {
+        padding: 7px 12px;
+        font-size: 12px;
+        gap: 6px;
+      }
+
+      .tray-label-text {
+        display: none;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        padding: 24px 0 20px 0;
+      }
+
+      .hero-badge-tag {
+        font-size: 10.5px;
+        padding: 4px 10px;
+        margin-bottom: 12px;
+      }
+
+      .hero-title {
+        font-size: 28px;
+        line-height: 1.2;
+        margin-bottom: 14px;
+        letter-spacing: -0.5px;
+      }
+
+      .hero-desc {
+        font-size: 13.5px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .btn-terracotta,
+      .btn-chalkboard-outline {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 12px 16px;
+        font-size: 13.5px;
+      }
+
+      /* Hero Feature Card */
+      .hero-feature-card {
+        padding: 16px;
+        border-radius: 14px;
+        box-shadow: 4px 5px 0 var(--border-dark);
+      }
+
+      .hero-card-img-box {
+        height: 185px;
+        margin-bottom: 14px;
+      }
+
+      .hero-card-title {
+        font-size: 18px;
+      }
+
+      .hero-card-desc {
+        font-size: 12.5px;
+        margin-bottom: 12px;
+      }
+
+      .hero-card-chips {
+        gap: 5px;
+        margin-bottom: 14px;
+      }
+
+      .c-chip {
+        font-size: 10px;
+        padding: 2px 7px;
+      }
+
+      .hero-card-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .hero-price {
+        font-size: 18px;
+      }
+
+      /* Pillars */
+      .section-pillars {
+        padding: 16px 0 32px 0;
+      }
+
+      .pillar-card {
+        padding: 14px 16px;
+        gap: 12px;
+      }
+
+      .pillar-icon-box {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+      }
+
+      .pillar-title {
+        font-size: 15px;
+      }
+
+      .pillar-desc {
+        font-size: 12px;
+      }
+
+      /* Section Header */
+      .section-head {
+        margin-bottom: 20px;
+      }
+
+      .section-stamp-tag {
+        font-size: 10px;
+        margin-bottom: 6px;
+      }
+
+      .section-title {
+        font-size: 24px;
+        margin-bottom: 6px;
+      }
+
+      .section-sub {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      /* Menu Category Horizontal Scroll Pills */
+      .section-menu {
+        padding: 24px 0 40px 0;
+      }
+
+      .menu-tabs-bar {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        gap: 8px !important;
+        padding: 4px 6px 12px 6px !important;
+        margin-bottom: 20px !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .menu-tabs-bar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .m-tab-btn {
+        flex-shrink: 0;
+        padding: 7px 14px;
+        font-size: 12px;
+      }
+
+      /* Menu Grid on Mobile */
+      .menu-grid-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .canteen-item-card {
+        border-radius: 12px;
+        box-shadow: 3px 4px 0 var(--border-dark);
+      }
+
+      .item-thumb-box {
+        height: 180px;
+      }
+
+      .item-info {
+        padding: 14px 16px;
+        gap: 10px;
+      }
+
+      .item-name {
+        font-size: 16px;
+      }
+
+      .item-cost {
+        font-size: 14.5px;
+      }
+
+      .item-snippet {
+        font-size: 12px;
+      }
+
+      .btn-add-snack {
+        padding: 7px 16px;
+        font-size: 12px;
+      }
+
+      /* Chalkboard Section */
+      .section-chalkboard {
+        padding: 20px 0;
+        margin: 12px 0;
+      }
+
+      .chalkboard-box {
+        border: 6px solid var(--teak-wood);
+        border-radius: 14px;
+        padding: 24px 14px 18px 14px;
+      }
+
+      .chalkboard-box::after {
+        font-size: 9px;
+        padding: 3px 10px;
+        top: -13px;
+        width: 85%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+      }
+
+      .chalkboard-title {
+        font-size: 20px;
+        margin-bottom: 4px;
+      }
+
+      .chalkboard-sub {
+        font-size: 11px;
+        margin-bottom: 16px;
+      }
+
+      /* Swipeable horizontal chalkboard list on mobile */
+      .chalkboard-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+        padding: 2px 4px 12px 4px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .chalkboard-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .chalk-day-col {
+        min-width: 210px;
+        flex-shrink: 0;
+        padding: 14px;
+      }
+
+      .day-dish {
+        font-size: 15px;
+      }
+
+      .day-detail {
+        font-size: 11px;
+      }
+
+      .day-price {
+        font-size: 13px;
+      }
+
+      /* Pre-order & RFID cards */
+      .section-two-cols {
+        padding: 24px 0 40px 0;
+      }
+
+      .two-cols-grid {
+        gap: 20px;
+      }
+
+      .preorder-card,
+      .kejujuran-card {
+        padding: 20px 16px;
+        border-radius: 14px;
+        box-shadow: 4px 5px 0 var(--border-dark);
+      }
+
+      .preorder-title,
+      .card-title-lg {
+        font-size: 19px;
+      }
+
+      .preorder-desc {
+        font-size: 12.5px;
+      }
+
+      .form-group-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .break-time-selector {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .break-option {
+        padding: 10px 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .break-time-hour {
+        margin-top: 0;
+      }
+
+      .btn-submit-preorder {
+        padding: 12px;
+        font-size: 13px;
+      }
+
+      .virtual-student-card {
+        padding: 14px;
+        margin: 14px 0;
+      }
+
+      .card-balance-num {
+        font-size: 22px;
+      }
+
+      .card-student-details {
+        font-size: 11px;
+      }
+
+      /* Slide-Over Receipt Drawer on Mobile */
+      .receipt-drawer {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .receipt-header {
+        padding: 18px 20px;
+      }
+
+      .receipt-body {
+        padding: 16px 20px;
+      }
+
+      .receipt-footer {
+        padding: 16px 20px env(safe-area-inset-bottom, 20px) 20px;
+      }
+
+      /* Footer */
+      footer.site-footer {
+        padding: 36px 0 24px 0;
+        margin-top: 36px;
+      }
+
+      .footer-brand {
+        font-size: 20px;
+      }
+
+      .footer-text {
+        font-size: 12.5px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 11px;
+      }
+    }
+
+    /* EXTRA SMALL MOBILE (max-width: 380px) */
+    @media (max-width: 380px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .brand-title {
+        font-size: 16px;
+      }
+      .item-thumb-box {
+        height: 155px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LIVE TICKER ANNOUNCEMENT -->
+  <div class="canteen-ticker">
+    <div class="ticker-content">
+      <div class="ticker-badge-live">
+        <span class="live-dot"></span>
+        <span>STATUS KANTIN: DIBUKA · PERSIAPAN ISTIRAHAT 1 (09.45 — 10.15 WIB)</span>
+      </div>
+      <div>
+        <span>📍 Selasar Belakang Gedung B · SMA Nusantara</span>
+        <span style="margin: 0 8px;">·</span>
+        <span>Pojok Kejujuran & QRIS Aktif</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#beranda" class="brand-block">
+        <div class="brand-stamp">🍲</div>
+        <div>
+          <div class="brand-title">KANTIN SELASAR<span>.</span></div>
+          <div class="brand-sub">Dapur Sehat & Jajanan Sekolah</div>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#menu" class="active">Daftar Jajan</a>
+        <a href="#papan-tulis">Menu Spesial</a>
+        <a href="#titip-pesan">Titip Pesan Kelas</a>
+        <a href="#kartu-jajan">Pojok Kejujuran</a>
+      </nav>
+
+      <div>
+        <button class="header-tray-btn" onclick="toggleReceiptDrawer()">
+          <span>🛒 <span class="tray-label-text">Nota Jajan</span></span>
+          <span class="tray-badge" id="trayBadgeCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="beranda">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="hero-badge-tag">
+            <span>✨</span>
+            <span>KANTIN SEHAT BINAAN BPOM & SEKOLAH ADIWIYATA</span>
+          </div>
+          <h1 class="hero-title">
+            Hangatnya Gorengan,<br>
+            Gurihnya Kuah Mie,<br>
+            <span class="highlight-terracotta">Favorit Tiap Jam Istirahat.</span>
+          </h1>
+          <p class="hero-desc">
+            Dari Indomie telur sawi ekstra pedas, bakwan renyah cabai rawit, hingga es teh manis jumbo gula batu. Pesan dari kelas sebelum bel berbunyi, ambil tanpa berdesak-desakan di depan etalase.
+          </p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn-terracotta">Pilih Menu Jajan Sekarang ↓</a>
+            <a href="#titip-pesan" class="btn-chalkboard-outline">⏱️ Titip Pesan Jam Istirahat</a>
+          </div>
+        </div>
+
+        <!-- HERO SPOTLIGHT CARD -->
+        <div class="hero-feature-card">
+          <div class="hero-card-img-box">
+            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80" alt="Indomie Kuah Telur Sawi" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80';">
+            <div class="floating-corner-stamp">PAKET KENYANG MURID</div>
+            <div class="floating-prep-time">⏱️ Siap 5 Menit</div>
+          </div>
+          <div class="hero-card-title">Paket Komplit Bel Istirahat</div>
+          <p class="hero-card-desc">
+            1 Porsi Indomie Kuah Telur Setengah Matang + Sawi Hijau Segar + 2 Bakwan Panas Garing + Es Teh Manis Jumbo Gula Asli.
+          </p>
+          <div class="hero-card-chips">
+            <span class="c-chip">🔥 Cabai Rawit Petik</span>
+            <span class="c-chip">🥚 Telur Ayam Omega</span>
+            <span class="c-chip">🧊 Teh Melati Solo</span>
+          </div>
+          <div class="hero-card-footer">
+            <div class="hero-price">Rp 15.000 <span>/ paket komplit</span></div>
+            <button class="btn-terracotta" style="padding: 9px 18px; font-size: 13px;" onclick="addSpecialPackage()">+ Jajan Paket</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 3 PILAR KANTIN SELASAR -->
+    <section class="section-pillars">
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🍳</div>
+          <div>
+            <div class="pillar-title">Minyak Selalu Baru & Higienis</div>
+            <p class="pillar-desc">Gorengan digoreng bertahap dalam wajan bersih. Tanpa pemanis buatan, tanpa pengawet sintetik berbahaya.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">⏱️</div>
+          <div>
+            <div class="pillar-title">Titip Pesan Sebelum Bel</div>
+            <p class="pillar-desc">Perwakilan ketua kelas bisa memesan 15 menit sebelum bel istirahat berbunyi via WhatsApp otomatis.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🤝</div>
+          <div>
+            <div class="pillar-title">Tradisi Pojok Kejujuran</div>
+            <p class="pillar-desc">Tersedia wadah uang mandiri dan QRIS statis. Ambil jajanmu, hitung sendiri, bayar dengan jujur dan berkah.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ETALASE MENU DENGAN FOTO NYATA DARI INTERNET -->
+    <section class="section-menu" id="menu">
+      <div class="section-head">
+        <div class="section-stamp-tag">ETALASE MAKANAN & MINUMAN</div>
+        <h2 class="section-title">Menu Jajanan Kantin Sekolah</h2>
+        <p class="section-sub">Semua menu disajikan hangat, renyah, dan terjangkau untuk kantong pelajar & bapak/ibu guru.</p>
+      </div>
+
+      <!-- FILTER TABS -->
+      <div class="menu-tabs-bar">
+        <button class="m-tab-btn active" onclick="filterMenuCategory('all')">Semua Menu (12)</button>
+        <button class="m-tab-btn" onclick="filterMenuCategory('gorengan')">Gorengan & Camilan</button>
+        <button class="m-tab-btn" onclick="filterMenuCategory('mie')">Aneka Mie & Kuah</button>
+        <button class="m-tab-btn" onclick="filterMenuCategory('nasi')">Nasi & Lauk</button>
+        <button class="m-tab-btn" onclick="filterMenuCategory('minuman')">Minuman Segar/Hangat</button>
+      </div>
+
+      <!-- MENU GRID CONTAINER -->
+      <div class="menu-grid-container" id="menuGrid">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+
+    <!-- SECTION 4: PAPAN TULIS MENU SPESIAL HARIAN -->
+    <section class="section-chalkboard" id="papan-tulis">
+      <div class="chalkboard-box">
+        <div class="chalkboard-header">
+          <div class="chalkboard-title">Jadwal Masakan Harian Ibu Kantin</div>
+          <div class="chalkboard-sub">Dimasak terbatas 40 porsi tiap hari · Siap saji pukul 10.00 WIB</div>
+        </div>
+
+        <div class="chalkboard-grid">
+          <div class="chalk-day-col today">
+            <div class="day-name">
+              <span>SENIN</span>
+              <span class="today-tag">HARI INI</span>
+            </div>
+            <div class="day-dish">Soto Ayam Ambengan</div>
+            <div class="day-detail">Kuah kuning kaldu gurih, koya kerupuk udang renyah, soun, kol iris & sambal rawit.</div>
+            <div class="day-price">Rp 14.000 / porsi</div>
+          </div>
+
+          <div class="chalk-day-col">
+            <div class="day-name"><span>SELASA</span></div>
+            <div class="day-dish">Rawon Daging Sapi</div>
+            <div class="day-detail">Kuah kluwek hitam pekat, potongan daging empuk, tauge pendek segar & sambal terasi.</div>
+            <div class="day-price">Rp 16.000 / porsi</div>
+          </div>
+
+          <div class="chalk-day-col">
+            <div class="day-name"><span>RABU</span></div>
+            <div class="day-dish">Lontong Sayur Labu</div>
+            <div class="day-detail">Lontong pulen daun pisang, kuah santan labu siam ebi, telur rebus bulat & kerupuk merah.</div>
+            <div class="day-price">Rp 13.000 / porsi</div>
+          </div>
+
+          <div class="chalk-day-col">
+            <div class="day-name"><span>KAMIS</span></div>
+            <div class="day-dish">Bakso Urat Malang</div>
+            <div class="day-detail">Bakso urat sapi asli kenyal, pangsit goreng renyah, tahu bakso & kuah kaldu sumsum.</div>
+            <div class="day-price">Rp 15.000 / porsi</div>
+          </div>
+
+          <div class="chalk-day-col">
+            <div class="day-name"><span>JUMAT</span></div>
+            <div class="day-dish">Nasi Kuning Berkah</div>
+            <div class="day-detail">Nasi kuning harum santan kunyit, telur balado utuh, orek tempe manis & serundeng kelapa.</div>
+            <div class="day-price">Rp 12.000 / porsi</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: DUA KOLOM (TITIP PESAN & POJOK KEJUJURAN) -->
+    <section class="section-two-cols" id="titip-pesan">
+      <div class="two-cols-grid">
+
+        <!-- PRE-ORDER FORM -->
+        <div class="preorder-card">
+          <div class="preorder-header">
+            <div class="section-stamp-tag">// LAYANAN KELAS</div>
+            <div class="preorder-title">Formulir Titip Pesan Istirahat</div>
+            <p class="preorder-desc">Biar tidak habis dan tidak antre desak-desakan, kirim pesanan rombongan kelasmu langsung ke WhatsApp Ibu Kantin.</p>
+          </div>
+
+          <form onsubmit="event.preventDefault(); submitPreorderWhatsApp();">
+            <div class="form-group-row">
+              <div class="form-group">
+                <label class="form-label">Nama Pemesan / Perwakilan</label>
+                <input type="text" class="form-control" id="preorderName" placeholder="Contoh: Dimas Aditya" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Kelas / Ruang</label>
+                <select class="form-control" id="preorderClass" required>
+                  <option value="">-- Pilih Kelas --</option>
+                  <option value="X MIPA 1">X MIPA 1</option>
+                  <option value="X MIPA 2">X MIPA 2</option>
+                  <option value="XI IPS 1">XI IPS 1</option>
+                  <option value="XI IPS 2">XI IPS 2</option>
+                  <option value="XII RPL 1">XII RPL 1</option>
+                  <option value="XII RPL 2">XII RPL 2</option>
+                  <option value="Ruang Guru / Staf">Ruang Guru / Staf</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Pilih Jam Pengambilan</label>
+              <div class="break-time-selector">
+                <div class="break-option active" id="break1" onclick="selectBreak(1)">
+                  <div class="break-time-title">Istirahat 1</div>
+                  <div class="break-time-hour">09.45 — 10.15 WIB</div>
+                </div>
+                <div class="break-option" id="break2" onclick="selectBreak(2)">
+                  <div class="break-time-title">Istirahat 2</div>
+                  <div class="break-time-hour">12.00 — 12.45 WIB</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Catatan Khusus Rasa (Opsional)</label>
+              <input type="text" class="form-control" id="preorderNotes" placeholder="Contoh: Mie kuah pedas rawit 5, es teh batu sedikit">
+            </div>
+
+            <div style="background: var(--bg-surface-soft); padding: 12px; border-radius: var(--radius-sm); border: 1px dashed var(--border-medium); font-size: 12.5px; color: var(--ink-muted); margin-bottom: 14px;">
+              *Item dari <strong>Nota Jajan</strong> kamu akan dimasukkan secara otomatis ke dalam format teks WhatsApp.
+            </div>
+
+            <button type="submit" class="btn-submit-preorder">
+              <span>💬 Kirim Titipan Pesan ke WhatsApp Ibu Kantin</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- POJOK KEJUJURAN & SIMULASI KARTU JAJAN -->
+        <div class="kejujuran-card" id="kartu-jajan">
+          <div>
+            <div class="card-badge-gold">💳 KARTU SANTRI / SISWA DIGITAL</div>
+            <div class="card-title-lg">Pojok Kejujuran & Cek Saldo</div>
+            <p style="font-size: 13px; color: var(--ink-muted); line-height: 1.5;">
+              Siswa dapat bertransaksi *cashless* menggunakan tap kartu pelajar RFID atau membayar tunai secara mandiri di kotak kejujuran.
+            </p>
+
+            <!-- SIMULATED RFID CARD -->
+            <div class="virtual-student-card">
+              <div class="card-chip-ic"></div>
+              <div class="card-balance-label">Sisa Saldo Jajan Aktif</div>
+              <div class="card-balance-num" id="studentCardBalance">Rp 42.500</div>
+              <div class="card-student-details">
+                <div>
+                  <span style="opacity: 0.7; font-size: 10px; display: block;">NAMA SISWA</span>
+                  <strong id="cardHolderName">FATHUR ROZIQIN</strong>
+                </div>
+                <div>
+                  <span style="opacity: 0.7; font-size: 10px; display: block;">NISN / KELAS</span>
+                  <strong>0082914 · XII RPL 2</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- SIMULASI CEK NOMOR KARTU -->
+            <div style="display: flex; gap: 8px;">
+              <input type="text" class="form-control" id="nisnInput" placeholder="Ketik NISN: misal 2026881" style="font-size: 12.5px;">
+              <button class="btn-add-snack" style="white-space: nowrap; padding: 0 16px;" onclick="checkStudentBalance()">Cek Saldo</button>
+            </div>
+
+            <!-- RIWAYAT TRANSAKSI TERAKHIR -->
+            <div style="margin-top: 18px;">
+              <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--ink-muted); text-transform: uppercase;">
+                Riwayat Jajan Terakhir:
+              </div>
+              <div class="history-list" id="historyList">
+                <div class="history-item">
+                  <span>Indomie Kuah Telur + Es Teh</span>
+                  <strong style="color: var(--terracotta);">-Rp 14.000</strong>
+                </div>
+                <div class="history-item">
+                  <span>3 Bakwan Sayur + Cabai</span>
+                  <strong style="color: var(--terracotta);">-Rp 5.000</strong>
+                </div>
+                <div class="history-item">
+                  <span>Top Up Saldo via Koperasi</span>
+                  <strong style="color: #16a34a;">+Rp 50.000</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; font-size: 11.5px; font-family: var(--font-mono); color: var(--ink-muted); text-align: center;">
+            Koperasi & Kantin Sekolah Nusantara · Bebas Riba & Bersih
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- STICKY FLOATING ORDER BAR (MOBILE ONLY) -->
+  <div class="mobile-floating-tray-bar" id="mobileFloatingTray" onclick="toggleReceiptDrawer()">
+    <div class="floating-tray-left">
+      <span class="floating-tray-icon">📋</span>
+      <div>
+        <div class="floating-tray-count" id="mobileTrayCount">0 Menu Terpilih</div>
+        <div class="floating-tray-sub">Ketuk untuk lihat nota & pesan</div>
+      </div>
+    </div>
+    <div class="floating-tray-right">
+      <span class="floating-tray-price" id="mobileTrayPrice">Rp 0</span>
+      <span class="floating-tray-arrow">→</span>
+    </div>
+  </div>
+
+  <!-- SLIDE-OVER RECEIPT DRAWER (NOTA KANTIN) -->
+  <div class="tray-backdrop" id="receiptBackdrop" onclick="toggleReceiptDrawer()">
+    <div class="receipt-drawer" onclick="event.stopPropagation()">
+      <div class="receipt-header">
+        <div>
+          <div class="receipt-title">📋 Nota Jajan Kantin</div>
+          <div style="font-size: 12px; font-family: var(--font-mono); color: var(--ink-muted);" id="receiptItemsCount">0 Menu Terpilih</div>
+        </div>
+        <button class="receipt-close-btn" onclick="toggleReceiptDrawer()">&times;</button>
+      </div>
+
+      <div class="receipt-body" id="receiptItemsContainer">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="receipt-footer">
+        <div class="receipt-total-row">
+          <span>Total Bayar:</span>
+          <span style="color: var(--terracotta);" id="receiptGrandTotal">Rp 0</span>
+        </div>
+        <button class="btn-checkout-canteen" onclick="checkoutViaWhatsApp()">
+          <span>💬 Konfirmasi Pesanan ke WhatsApp Ibu Kantin</span>
+        </button>
+        <div style="font-size: 11.5px; font-family: var(--font-mono); color: var(--ink-muted); text-align: center; margin-top: 10px;">
+          *Ambil pesanan di Meja Antrean Selasar Kantin
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">KANTIN SELASAR<span>.</span></div>
+          <p class="footer-text">
+            Pusat pujasera dan jajanan sehat siswa SMA Nusantara. Menyediakan sarapan bergizi, gorengan segar setiap jam istirahat, dan minuman penghilang dahaga dengan harga sahabat pelajar.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">JAM OPERASIONAL SEKOLAH</div>
+          <p class="footer-text">
+            Senin – Kamis: 06.30 – 15.30 WIB<br>
+            Jumat Sehat: 06.30 – 11.30 WIB<br>
+            Sabtu Ekstrakurikuler: 07.30 – 13.00 WIB<br>
+            Minggu & Hari Libur: Tutup
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">KONTAK DAPUR KANTIN</div>
+          <p class="footer-text">
+            Ibu Sri & Mbok Darmi (Dapur Utama)<br>
+            WhatsApp Pesanan: +62 821-4455-7788<br>
+            Lokasi: Belakang Lab Komputer 2 & Lapangan Futsal
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 KANTIN SELASAR. Template Resmi NECTOR.UI. Standar Bebas AI-Slop.</div>
+        <div>100% STANDALONE SINGLE-FILE HTML + CSS + JS</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT STATE & DATA -->
+  <script>
+    // --- 1. DATA ETALASE MENU LENGKAP DENGAN FOTO NYATA DARI INTERNET ---
+    const CANTEEN_MENU = [
+      {
+        id: 'k1',
+        category: 'gorengan',
+        name: 'Bakwan Sayur Hangat (Isi 3)',
+        cost: 5000,
+        img: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Bakwan sayur kol, wortel & tauge garing renyah baru diangkat dari wajan, disajikan dengan cabai rawit hijau petik segar.',
+        badge: 'Gorengan Garing',
+        spicy: '🌶️ Cabe Rawit',
+        prep: 'Hangat Baru Digoreng'
+      },
+      {
+        id: 'k2',
+        category: 'gorengan',
+        name: 'Tahu Isi Pedas Renyah (Isi 3)',
+        cost: 5000,
+        img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Tahu pong cokelat dengan isian tumis tauge dan wortel pedas gurih, balutan tepung terigu renyah tahan lama.',
+        badge: 'Best Seller',
+        spicy: '🌶️ Pedas Sedang',
+        prep: 'Fresh Panas'
+      },
+      {
+        id: 'k3',
+        category: 'gorengan',
+        name: 'Lumpia Goreng & Risoles Rogout',
+        cost: 6000,
+        img: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Kombinasi lumpia isi rebung manis gurih dan risoles isi daging ayam wortel krim lumer, favorit camilan istirahat pertama.',
+        badge: 'Camilan Gurih',
+        spicy: 'Rawit Terpisah',
+        prep: 'Siap Ambil'
+      },
+      {
+        id: 'k4',
+        category: 'mie',
+        name: 'Indomie Kuah Telur Sawi Rawit',
+        cost: 10000,
+        img: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Indomie rasa Ayam Bawang / Kari Ayam diseduh kuah panas kaldu, telur rebus setengah matang meleleh, sawi hijau segar dan rawit iris.',
+        badge: 'Legenda Kantin',
+        spicy: '🌶️🌶️ Pedas Mantap',
+        prep: 'Masak 4 Menit'
+      },
+      {
+        id: 'k5',
+        category: 'mie',
+        name: 'Indomie Goreng Dobel Telur Ceplok',
+        cost: 14000,
+        img: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Porsi dobel 2 bungkus Indomie Goreng dengan telur mata sapi ceplok setengah matang, bawang goreng renyah dan saus sambal.',
+        badge: 'Porsi Kenyang',
+        spicy: 'Pedas Manis',
+        prep: 'Masak 5 Menit'
+      },
+      {
+        id: 'k6',
+        category: 'mie',
+        name: 'Mie Nyemek Pedas Spesial',
+        cost: 12000,
+        img: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Mie kuah kental nyemek dengan bumbu tumis bawang putih, telur kocok serabut, suwir ayam dan kecap manis khas racikan Ibu Kantin.',
+        badge: 'Favorit Murid',
+        spicy: '🌶️🌶️ Bikin Melek',
+        prep: 'Masak 5 Menit'
+      },
+      {
+        id: 'k7',
+        category: 'nasi',
+        name: 'Nasi Uduk Komplit Sambal Terasi',
+        cost: 13000,
+        img: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Nasi uduk santan pulen bertabur bawang goreng, ayam suwir kecap gurih, orek tempe manis, bihun goreng & kerupuk renyah.',
+        badge: 'Sarapan Sehat',
+        spicy: 'Sambal Terasi',
+        prep: 'Tinggal Ambil'
+      },
+      {
+        id: 'k8',
+        category: 'nasi',
+        name: 'Nasi Goreng Kantin Telur Dadar',
+        cost: 12000,
+        img: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Nasi goreng harum wajan wok dengan racikan bumbu tradisional, telur dadar lebar iris, acar timun segar dan kerupuk udang.',
+        badge: 'Kenyang Murah',
+        spicy: 'Gurih Manis',
+        prep: 'Hangat di Magic Jar'
+      },
+      {
+        id: 'k9',
+        category: 'nasi',
+        name: 'Soto Ayam Lamongan Kuah Bening',
+        cost: 14000,
+        img: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Semangkuk soto ayam berkuah kaldu rempah bening gurih, taburan koya udang, suwiran daging ayam melimpah dan jeruk nipis peras.',
+        badge: 'Menu Hangat',
+        spicy: 'Sambal Terpisah',
+        prep: 'Saji 3 Menit'
+      },
+      {
+        id: 'k10',
+        category: 'minuman',
+        name: 'Es Teh Manis Jumbo Gula Asli',
+        cost: 4000,
+        img: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Gelas jumbo 500ml racikan seduhan teh melati wangi khas Solo dengan larutan gula tebu asli dan bongkahan es batu kristal higienis.',
+        badge: 'Paling Laris',
+        spicy: 'Segar Maksimal',
+        prep: 'Dingin Segar'
+      },
+      {
+        id: 'k11',
+        category: 'minuman',
+        name: 'Es Jeruk Peras Murni',
+        cost: 6000,
+        img: 'https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Diperas langsung dari 3 buah jeruk peras segar tanpa pemanis buatan, kaya vitamin C alami untuk memulihkan stamina sehabis olahraga.',
+        badge: 'Vitamin C Murni',
+        spicy: 'Manis Asam Alami',
+        prep: 'Peras Langsung'
+      },
+      {
+        id: 'k12',
+        category: 'minuman',
+        name: 'Kopi Tubruk / Kopi Susu Panas',
+        cost: 5000,
+        img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80',
+        snippet: 'Kopi hitam tubruk biji robusta giling halus atau kopi susu manis kental hangat, teman favorit bapak/ibu guru di ruang guru.',
+        badge: 'Khas Nusantara',
+        spicy: 'Aroma Pekat',
+        prep: 'Seduh Air Panas'
+      }
+    ];
+
+    let currentCategory = 'all';
+    let canteenTray = [];
+    let selectedBreak = 1;
+
+    // --- 2. RENDER MENU ---
+    function filterMenuCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.m-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes(cat));
+      });
+      renderMenuGrid();
+    }
+
+    function renderMenuGrid() {
+      const container = document.getElementById('menuGrid');
+      const filtered = currentCategory === 'all'
+        ? CANTEEN_MENU
+        : CANTEEN_MENU.filter(item => item.category === currentCategory);
+
+      container.innerHTML = filtered.map(item => `
+        <div class="canteen-item-card">
+          <div class="item-thumb-box">
+            <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80';">
+            <span class="item-category-stamp">${item.badge}</span>
+            <span class="item-spicy-level">${item.spicy}</span>
+          </div>
+          <div class="item-info">
+            <div>
+              <div class="item-title-row">
+                <div class="item-name">${item.name}</div>
+                <div class="item-cost">Rp ${item.cost.toLocaleString('id-ID')}</div>
+              </div>
+              <p class="item-snippet" style="margin-top: 6px;">${item.snippet}</p>
+            </div>
+            <div class="item-card-bottom">
+              <span class="item-prep-tag">⏱️ ${item.prep}</span>
+              <button class="btn-add-snack" onclick="addToCanteenTray('${item.id}')">+ Jajan</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // --- 3. KERANJANG TRAY JAJANAN ---
+    function addToCanteenTray(itemId) {
+      const item = CANTEEN_MENU.find(m => m.id === itemId);
+      if (!item) return;
+      const exist = canteenTray.find(t => t.id === itemId);
+      if (exist) {
+        exist.qty++;
+      } else {
+        canteenTray.push({ ...item, qty: 1 });
+      }
+      updateTrayUI();
+      openReceiptDrawer();
+    }
+
+    function addSpecialPackage() {
+      // Add Mie (k4) + Es Teh (k10) + Bakwan (k1)
+      addToCanteenTray('k4');
+      addToCanteenTray('k10');
+      addToCanteenTray('k1');
+    }
+
+    function changeTrayQty(itemId, delta) {
+      const exist = canteenTray.find(t => t.id === itemId);
+      if (exist) {
+        exist.qty += delta;
+        if (exist.qty <= 0) {
+          canteenTray = canteenTray.filter(t => t.id !== itemId);
+        }
+      }
+      updateTrayUI();
+    }
+
+    function updateTrayUI() {
+      const totalCount = canteenTray.reduce((acc, curr) => acc + curr.qty, 0);
+      const grandTotal = canteenTray.reduce((acc, curr) => acc + (curr.cost * curr.qty), 0);
+
+      document.getElementById('trayBadgeCount').textContent = totalCount;
+      document.getElementById('receiptItemsCount').textContent = `${totalCount} Menu Terpilih`;
+      document.getElementById('receiptGrandTotal').textContent = `Rp ${grandTotal.toLocaleString('id-ID')}`;
+
+      // Update mobile floating order bar
+      const mobileBar = document.getElementById('mobileFloatingTray');
+      if (mobileBar) {
+        if (totalCount > 0) {
+          mobileBar.classList.add('visible');
+          document.getElementById('mobileTrayCount').textContent = `${totalCount} Menu Terpilih`;
+          document.getElementById('mobileTrayPrice').textContent = `Rp ${grandTotal.toLocaleString('id-ID')}`;
+        } else {
+          mobileBar.classList.remove('visible');
+        }
+      }
+
+      const container = document.getElementById('receiptItemsContainer');
+      if (canteenTray.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; color: var(--ink-muted); margin-top: 48px;">
+            <div style="font-size: 32px; margin-bottom: 8px;">🥣</div>
+            <strong>Nota Jajan Masih Kosong</strong><br>
+            Pilih gorengan, mie, atau es teh manis di etalase!
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = canteenTray.map(item => `
+        <div class="receipt-item-row">
+          <div>
+            <div class="r-item-title">${item.name}</div>
+            <div class="r-item-price">Rp ${item.cost.toLocaleString('id-ID')} × ${item.qty} = Rp ${(item.cost * item.qty).toLocaleString('id-ID')}</div>
+          </div>
+          <div class="r-qty-controls">
+            <button class="r-qty-btn" onclick="changeTrayQty('${item.id}', -1)">-</button>
+            <span style="font-family: var(--font-mono); font-weight: 700;">${item.qty}</span>
+            <button class="r-qty-btn" onclick="changeTrayQty('${item.id}', 1)">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleReceiptDrawer() {
+      document.getElementById('receiptBackdrop').classList.toggle('open');
+    }
+
+    function openReceiptDrawer() {
+      document.getElementById('receiptBackdrop').classList.add('open');
+    }
+
+    // --- 4. PRE-ORDER BREAK TIME SELECTOR ---
+    function selectBreak(num) {
+      selectedBreak = num;
+      document.getElementById('break1').classList.toggle('active', num === 1);
+      document.getElementById('break2').classList.toggle('active', num === 2);
+    }
+
+    function submitPreorderWhatsApp() {
+      const name = document.getElementById('preorderName').value.trim();
+      const studentClass = document.getElementById('preorderClass').value;
+      const notes = document.getElementById('preorderNotes').value.trim();
+
+      if (!name || !studentClass) {
+        alert('Mohon isi Nama Pemesan dan Kelas terlebih dahulu.');
+        return;
+      }
+
+      if (canteenTray.length === 0) {
+        alert('Keranjang Nota Jajan masih kosong. Pilih menu jajan dulu ya!');
+        return;
+      }
+
+      const breakLabel = selectedBreak === 1 ? 'Istirahat 1 (09.45 - 10.15 WIB)' : 'Istirahat 2 (12.00 - 12.45 WIB)';
+      const grandTotal = canteenTray.reduce((acc, curr) => acc + (curr.cost * curr.qty), 0);
+
+      let msg = `Halo Ibu Kantin Selasar! Permisi titip pesanan jajan untuk jam istirahat:\n\n`;
+      msg += `👤 Nama: ${name}\n`;
+      msg += `🏫 Kelas: ${studentClass}\n`;
+      msg += `⏱️ Pengambilan: ${breakLabel}\n\n`;
+      msg += `📝 DAFTAR PESANAN JAJAN:\n`;
+
+      canteenTray.forEach((item, idx) => {
+        msg += `${idx + 1}. ${item.name} (${item.qty}x) — Rp ${(item.cost * item.qty).toLocaleString('id-ID')}\n`;
+      });
+
+      msg += `\n💰 Total Bayar: Rp ${grandTotal.toLocaleString('id-ID')}\n`;
+      if (notes) {
+        msg += `📌 Catatan Khusus: ${notes}\n`;
+      }
+      msg += `\nPembayaran via: Kartu Pelajar / Tunai saat ambil.\nTerima kasih Ibu Kantin!`;
+
+      const encoded = encodeURIComponent(msg);
+      window.open(`https://wa.me/6282144557788?text=${encoded}`, '_blank');
+    }
+
+    function checkoutViaWhatsApp() {
+      if (canteenTray.length === 0) {
+        alert('Keranjang jajanan masih kosong.');
+        return;
+      }
+      const grandTotal = canteenTray.reduce((acc, curr) => acc + (curr.cost * curr.qty), 0);
+      let msg = `Halo Ibu Kantin Selasar! Saya ingin memesan:\n\n`;
+      canteenTray.forEach((item, idx) => {
+        msg += `${idx + 1}. ${item.name} (${item.qty}x) — Rp ${(item.cost * item.qty).toLocaleString('id-ID')}\n`;
+      });
+      msg += `\nTotal: Rp ${grandTotal.toLocaleString('id-ID')}\n`;
+      msg += `Mohon konfirmasi ketersediaan di selasar. Terima kasih!`;
+      const encoded = encodeURIComponent(msg);
+      window.open(`https://wa.me/6282144557788?text=${encoded}`, '_blank');
+    }
+
+    // --- 5. CEK SALDO KARTU JAJAN ---
+    const MOCK_STUDENTS = {
+      '2026881': { name: 'FATHUR ROZIQIN', class: 'XII RPL 2', balance: 42500 },
+      '2026882': { name: 'ANISA RAHMAWATI', class: 'XI MIPA 1', balance: 65000 },
+      '2026883': { name: 'BAGAS PRATAMA', class: 'X IPS 2', balance: 18000 }
+    };
+
+    function checkStudentBalance() {
+      const nisn = document.getElementById('nisnInput').value.trim();
+      const student = MOCK_STUDENTS[nisn] || {
+        name: 'SISWA TAMU',
+        class: 'KELAS TIDAK TERDAFTAR',
+        balance: 15000
+      };
+
+      document.getElementById('cardHolderName').textContent = student.name;
+      document.getElementById('studentCardBalance').textContent = `Rp ${student.balance.toLocaleString('id-ID')}`;
+      alert(`Kartu terdeteksi: ${student.name} (${student.class}) — Saldo: Rp ${student.balance.toLocaleString('id-ID')}`);
+    }
+
+    // Initial render
+    renderMenuGrid();
+  </script>
+</body>
+</html>

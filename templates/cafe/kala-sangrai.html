@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120e0b">
+  <title>KALA SANGRAI — Specialty Coffee Roastery & Slow Bar</title>
+
+  <!-- Typography: Syne (Artisan Bold), Plus Jakarta Sans (Readable Clean), JetBrains Mono (Specs) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Deep Coffee & Roasted Palette */
+      --roast-dark: #100c09;       /* Dark roasted bean base */
+      --roast-surface: #181310;    /* Dark roasted card surface */
+      --roast-tint: #221a15;       /* Medium roast container */
+      --roast-border: #362921;     /* Roasted hairline border */
+      --roast-border-light: #4a382d;
+      
+      --espresso: #3d261d;         /* Rich espresso brown */
+      --mocha: #543729;            /* Warm mocha brown */
+      --caramel: #c97a3e;          /* Honey caramel / roasting flame */
+      --caramel-glow: rgba(201, 122, 62, 0.28);
+      --brass: #d4af37;            /* Vintage brass espresso machine */
+      --brass-soft: rgba(212, 175, 55, 0.15);
+      
+      --crema: #f5ebe1;            /* Warm milk crema text/bg */
+      --crema-muted: #b8a698;      /* Soft parchment tone */
+      --crema-dark: #8c7a6e;       /* Muted roast stamp */
+      
+      --white: #ffffff;
+      --green-fresh: #2d8a63;
+
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--roast-dark);
+      color: var(--crema);
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Coffee Aroma Glow Background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(201, 122, 62, 0.09) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(84, 55, 41, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(61, 38, 29, 0.18) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Notice Bar: Live Batch Tracker */
+    .top-ticker-bar {
+      background: var(--roast-surface);
+      border-bottom: 1px solid var(--roast-border);
+      padding: 9px 24px;
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      color: var(--crema-muted);
+    }
+
+    .ticker-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .ticker-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .roast-flame-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--caramel);
+      box-shadow: 0 0 10px var(--caramel);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    /* Header Nav */
+    header.roastery-header {
+      background: rgba(16, 12, 9, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--roast-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-icon-box {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--espresso), var(--roast-surface));
+      border: 1px solid var(--caramel);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 15px var(--caramel-glow);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 23px;
+      letter-spacing: -0.5px;
+      color: var(--crema);
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .brand-title span.dot {
+      color: var(--caramel);
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--crema-dark);
+      margin-top: 4px;
+    }
+
+    /* Navigation Links */
+    nav.nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav.nav-menu a {
+      color: var(--crema-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    nav.nav-menu a:hover, nav.nav-menu a.active {
+      color: var(--caramel);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Order Tray Trigger */
+    .tray-btn {
+      background: var(--roast-tint);
+      border: 1px solid var(--roast-border);
+      color: var(--crema);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tray-btn:hover {
+      background: var(--espresso);
+      border-color: var(--caramel);
+      color: #ffffff;
+    }
+
+    .tray-count-badge {
+      background: var(--caramel);
+      color: #ffffff;
+      padding: 1px 7px;
+      border-radius: 999px;
+      font-size: 11px;
+    }
+
+    /* HERO SECTION: Slow Bar & Roastery Story */
+    .hero-roastery {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 50px 24px 40px 24px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-roastery { grid-template-columns: 1fr; padding: 36px 20px; }
+    }
+
+    .hero-tagline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--caramel);
+      background: rgba(201, 122, 62, 0.12);
+      border: 1px solid rgba(201, 122, 62, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 4.4vw, 56px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -1px;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .hero-title span.highlight-roast {
+      color: var(--caramel);
+      display: inline-block;
+      position: relative;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--crema-muted);
+      max-width: 580px;
+      margin-bottom: 28px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-roast {
+      background: var(--caramel);
+      border: 1px solid var(--caramel);
+      color: #ffffff;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 18px var(--caramel-glow);
+    }
+
+    .btn-roast:hover {
+      background: #df8a48;
+      border-color: #df8a48;
+      transform: translateY(-2px);
+    }
+
+    .btn-roast-outline {
+      background: transparent;
+      border: 1px solid var(--roast-border);
+      color: var(--crema);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-roast-outline:hover {
+      border-color: var(--crema-muted);
+      background: var(--roast-surface);
+    }
+
+    /* Hero Right: Live Cupping Card with Real Coffee Image */
+    .coffee-specimen-card {
+      background: linear-gradient(145deg, var(--roast-surface), var(--roast-tint));
+      border: 1px solid var(--roast-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Image Header inside Cupping Card */
+    .specimen-img-hero {
+      width: 100%;
+      height: 200px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--roast-border);
+    }
+
+    .specimen-img-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .specimen-img-hero:hover img {
+      transform: scale(1.04);
+    }
+
+    .specimen-floating-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      background: rgba(18, 14, 11, 0.88);
+      backdrop-filter: blur(8px);
+      color: var(--caramel);
+      border: 1px solid var(--caramel);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .specimen-floating-altitude {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      background: rgba(18, 14, 11, 0.88);
+      backdrop-filter: blur(8px);
+      color: var(--crema);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .specimen-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .specimen-origin {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--crema-muted);
+    }
+
+    /* Tasting Notes Chips */
+    .flavor-notes-row {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .flavor-chip {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--crema);
+    }
+
+    /* Sensory Radar Bars */
+    .sensory-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .bar-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--crema-muted);
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 6px;
+      background: var(--roast-dark);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--espresso), var(--caramel));
+      border-radius: 999px;
+    }
+
+    /* SECTION 2: ROASTERY ATMOSPHERE & CRAFT GALLERY */
+    .section-gallery {
+      max-width: 1360px;
+      margin: 40px auto 30px auto;
+      padding: 0 24px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 860px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    .gallery-card {
+      background: var(--roast-surface);
+      border: 1px solid var(--roast-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .gallery-card:hover {
+      border-color: var(--caramel);
+      transform: translateY(-3px);
+    }
+
+    .gallery-img-box {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-card:hover .gallery-img-box img {
+      transform: scale(1.05);
+    }
+
+    .gallery-card-content {
+      padding: 18px 20px;
+    }
+
+    .gallery-card-tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--caramel);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .gallery-card-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .gallery-card-desc {
+      font-size: 13px;
+      color: var(--crema-muted);
+      line-height: 1.55;
+    }
+
+    /* SECTION 3: INTERACTIVE METHOD BREW LAB */
+    .section-brew-lab {
+      max-width: 1360px;
+      margin: 50px auto;
+      padding: 0 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 36px auto;
+    }
+
+    .section-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--caramel);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 14.5px;
+      color: var(--crema-muted);
+    }
+
+    /* Brew Method Selector Pills */
+    .brew-pills-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .brew-method-btn {
+      background: var(--roast-surface);
+      border: 1px solid var(--roast-border);
+      color: var(--crema-muted);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .brew-method-btn:hover {
+      border-color: var(--crema-muted);
+      color: var(--crema);
+    }
+
+    .brew-method-btn.active {
+      background: var(--espresso);
+      border-color: var(--caramel);
+      color: #ffffff;
+      box-shadow: 0 4px 16px var(--caramel-glow);
+    }
+
+    /* Active Brew Guide Card */
+    .brew-guide-card {
+      background: var(--roast-surface);
+      border: 1px solid var(--roast-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .brew-guide-card { grid-template-columns: 1fr; }
+    }
+
+    .brew-specs-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .spec-box {
+      background: var(--roast-tint);
+      border: 1px solid var(--roast-border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .spec-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--crema-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .spec-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--caramel);
+      margin-top: 4px;
+    }
+
+    .brew-notes-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .brew-method-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .brew-technique-desc {
+      font-size: 14.5px;
+      color: var(--crema-muted);
+      line-height: 1.6;
+    }
+
+    /* SECTION 4: MENU ETALASE DENGAN FOTO NYATA */
+    .section-menu {
+      max-width: 1360px;
+      margin: 60px auto;
+      padding: 0 24px;
+    }
+
+    .menu-category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--roast-border);
+      padding-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cat-tab {
+      background: transparent;
+      border: none;
+      color: var(--crema-muted);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 8px 18px;
+      cursor: pointer;
+      border-radius: 999px;
+      transition: all 0.2s;
+    }
+
+    .cat-tab:hover {
+      color: var(--crema);
+    }
+
+    .cat-tab.active {
+      background: var(--caramel);
+      color: #ffffff;
+      box-shadow: 0 2px 10px var(--caramel-glow);
+    }
+
+    /* Menu Grid with Real Item Photos */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .menu-item-card {
+      background: var(--roast-surface);
+      border: 1px solid var(--roast-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .menu-item-card:hover {
+      border-color: var(--caramel);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.6);
+    }
+
+    .item-img-container {
+      width: 100%;
+      height: 180px;
+      background: var(--roast-tint);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .item-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .menu-item-card:hover .item-img-container img {
+      transform: scale(1.06);
+    }
+
+    .item-category-pill {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(16, 12, 9, 0.85);
+      backdrop-filter: blur(6px);
+      color: var(--caramel);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(201, 122, 62, 0.4);
+    }
+
+    .item-content {
+      padding: 18px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .item-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+
+    .item-price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--caramel);
+      white-space: nowrap;
+    }
+
+    .item-notes {
+      font-size: 12.5px;
+      color: var(--crema-muted);
+      line-height: 1.5;
+    }
+
+    .item-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .item-tag-pill {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      background: var(--roast-tint);
+      color: var(--crema-dark);
+      border-radius: 4px;
+    }
+
+    .item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px dashed var(--roast-border);
+    }
+
+    .btn-add-tray {
+      background: var(--roast-tint);
+      border: 1px solid var(--roast-border);
+      color: var(--crema);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-tray:hover {
+      background: var(--caramel);
+      border-color: var(--caramel);
+      color: #ffffff;
+    }
+
+    /* SLIDE-OVER ORDER TRAY (DRAWER) */
+    .tray-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .tray-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .tray-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: var(--roast-surface);
+      border-left: 1px solid var(--roast-border);
+      z-index: 1000;
+      transform: translateX(100%);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -15px 0 45px rgba(0, 0, 0, 0.85);
+    }
+
+    .tray-backdrop.open .tray-drawer {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--roast-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--roast-dark);
+    }
+
+    .drawer-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .drawer-body {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .tray-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      background: var(--roast-tint);
+      border: 1px solid var(--roast-border);
+      border-radius: var(--radius-sm);
+    }
+
+    .tray-item-title {
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--crema);
+    }
+
+    .tray-item-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--caramel);
+    }
+
+    .tray-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      background: var(--roast-surface);
+      border: 1px solid var(--roast-border);
+      color: var(--crema);
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--roast-border);
+      background: var(--roast-dark);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drawer-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .btn-checkout-wa {
+      background: #25d366;
+      border: 1px solid #25d366;
+      color: #0c3819;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 800;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      transition: all 0.2s ease;
+    }
+
+    .btn-checkout-wa:hover {
+      background: #20ba59;
+    }
+
+    /* FOOTER */
+    footer.roastery-footer {
+      border-top: 1px solid var(--roast-border);
+      background: var(--roast-surface);
+      padding: 60px 24px 40px 24px;
+      margin-top: 80px;
+    }
+
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    /* ========================================================
+       KALA SANGRAI MOBILE RESPONSIVE (max-width: 992px / 768px)
+       ======================================================== */
+    @media (max-width: 992px) {
+      .hero-roastery {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .brew-guide-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .brew-specs-col {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        border-right: none;
+        border-bottom: 1px solid var(--roast-border);
+        padding-right: 0;
+        padding-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 13.5px;
+      }
+
+      .top-ticker-bar {
+        padding: 8px 16px;
+        font-size: 11px;
+      }
+
+      .ticker-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      header.roastery-header .header-inner {
+        padding: 12px 16px;
+      }
+
+      .brand-title {
+        font-size: 16px;
+      }
+
+      .brand-subtitle {
+        font-size: 9.5px;
+        display: none;
+      }
+
+      nav.nav-menu {
+        display: none;
+      }
+
+      .tray-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+        gap: 6px;
+      }
+
+      .hero-roastery {
+        padding: 24px 16px;
+        gap: 24px;
+      }
+
+      .hero-title {
+        font-size: 20px;
+        line-height: 1.25;
+        letter-spacing: -0.5px;
+        word-break: break-word;
+      }
+
+      .hero-desc {
+        font-size: 13.5px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .btn-roast,
+      .btn-roast-outline {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 12px;
+      }
+
+      .coffee-specimen-card {
+        padding: 16px;
+        gap: 12px;
+      }
+
+      .specimen-img-hero {
+        height: 170px;
+      }
+
+      .specimen-name {
+        font-size: 18px;
+        word-break: break-word;
+      }
+
+      .section-gallery {
+        padding: 30px 16px;
+      }
+
+      .section-brew-lab {
+        padding: 30px 16px;
+      }
+
+      .brew-pills-bar {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: flex-start;
+        gap: 8px;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .brew-pills-bar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .brew-method-btn {
+        flex-shrink: 0;
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .brew-guide-card {
+        padding: 20px 16px;
+      }
+
+      .section-menu {
+        padding: 30px 16px;
+      }
+
+      .menu-category-tabs {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: flex-start;
+        gap: 8px;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .menu-category-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .cat-tab {
+        flex-shrink: 0;
+        padding: 7px 14px;
+        font-size: 12.5px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .tray-drawer {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      footer.roastery-footer {
+        padding: 40px 16px 24px 16px;
+        margin-top: 40px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Live Roasting Batch Ticker -->
+    <div class="top-ticker-bar">
+      <div class="ticker-inner">
+        <div class="ticker-left">
+          <span class="roast-flame-dot"></span>
+          <span>ROASTERY STATUS: <strong>BATCH #184 — GAYO ANAEROB NATURAL</strong> (RESTING DAY 4 · READY TO BREW)</span>
+        </div>
+        <div>
+          <span>SLOW BAR JAM: 08:00 — 22:00 WIB</span>
+          <span style="margin: 0 8px;">·</span>
+          <span>📍 JL. PROGO NO. 14, BANDUNG</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="roastery-header">
+      <div class="header-inner">
+        <div class="brand-group">
+          <div class="brand-icon-box">☕</div>
+          <div>
+            <div class="brand-title">KALA SANGRAI<span class="dot">.</span></div>
+            <div class="brand-subtitle">COFFEE ROASTERY & SLOW BAR</div>
+          </div>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="#cerita" class="active">Karakter</a>
+          <a href="#lab">Brew Lab</a>
+          <a href="#menu">Menu Minuman</a>
+          <a href="#ruang">Ruang Seduh</a>
+          <a href="#lokasi">Kedai</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="tray-btn" onclick="toggleTray()">
+            <span>🛒 Coffee Tray</span>
+            <span class="tray-count-badge" id="trayCountBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-roastery" id="cerita">
+      <div class="hero-left">
+        <div class="hero-tagline-badge">
+          <span>🔥</span>
+          <span>ARTISAN MICRO-ROASTERY & SLOW BAR</span>
+        </div>
+        <h1 class="hero-title">
+          Dari Profil Sangrai,<br>
+          <span class="highlight-roast">Sampai Tetes Terakhir.</span>
+        </h1>
+        <p class="hero-desc">
+          Kami memilih biji single origin terbaik nusantara, menyangrainya perlahan dalam batch kecil untuk memunculkan kompleksitas rasa bunga, buah, karamel, dan cokelat murni tanpa kompromi.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#menu" class="btn-roast">Lihat Menu Seduh →</a>
+          <a href="#lab" class="btn-roast-outline">Eksplorasi Brew Lab ⚗️</a>
+        </div>
+      </div>
+
+      <!-- Right: Active Single Origin Cupping Card with Real Image -->
+      <div class="coffee-specimen-card" id="heroSpecimenCard">
+        <div class="specimen-img-hero">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=85" alt="Single Origin Pour Over" loading="lazy">
+          <div class="specimen-floating-tag">LIGHT-MEDIUM ROAST</div>
+          <div class="specimen-floating-altitude">1,600 MASL · ACEH</div>
+        </div>
+
+        <div>
+          <div class="specimen-name" id="specName">Gayo Anaerob Natural</div>
+          <div class="specimen-origin" id="specOrigin">Bener Meriah, Aceh · Varietas Typica & Ateng Super</div>
+        </div>
+
+        <div class="flavor-notes-row" id="specNotes">
+          <span class="flavor-chip">🫐 Blueberry</span>
+          <span class="flavor-chip">🍫 Dark Cocoa</span>
+          <span class="flavor-chip">🍯 Brown Sugar</span>
+          <span class="flavor-chip">🍷 Fermented Wine</span>
+        </div>
+
+        <div class="sensory-bars">
+          <div class="bar-item">
+            <span>Acidity (Keasaman)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 78%;"></div></div>
+            <span>3.9/5</span>
+          </div>
+          <div class="bar-item">
+            <span>Body (Ketebalan)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div>
+            <span>4.2/5</span>
+          </div>
+          <div class="bar-item">
+            <span>Sweetness (Kemanisan)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div>
+            <span>4.5/5</span>
+          </div>
+        </div>
+
+        <div style="padding-top: 14px; border-top: 1px dashed var(--roast-border); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: var(--font-mono); font-size: 15px; font-weight: 700; color: var(--caramel);">Rp 38.000 / cup</span>
+          <button class="btn-roast" style="padding: 7px 16px; font-size: 12px;" onclick="addSingleOriginToTray()">+ Pesan di Meja</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ROASTERY ATMOSPHERE & CRAFT GALLERY -->
+    <section class="section-gallery" id="ruang">
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <div class="gallery-img-box">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=700&q=85" alt="Roasting Beans Cooling Tray" loading="lazy">
+          </div>
+          <div class="gallery-card-content">
+            <div class="gallery-card-tag">// MICRO-ROASTING LAB</div>
+            <div class="gallery-card-title">Disangrai Bertahap</div>
+            <p class="gallery-card-desc">Batch sangrai maksimal 5 kg per putaran drum untuk memastikan konsistensi konduksi panas dan karamelisasi gula alami biji.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-img-box">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=85" alt="Barista Preparing V60 Manual Brew" loading="lazy">
+          </div>
+          <div class="gallery-card-content">
+            <div class="gallery-card-tag">// SLOW BAR EXPERIENCE</div>
+            <div class="gallery-card-title">Presisi Timbangan Seduh</div>
+            <p class="gallery-card-desc">Setiap cangkir manual brew diseduh langsung di depanmu dengan rasio air gramatur 0.1g presisi dan suhu air terukur stabil.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-img-box">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=700&q=85" alt="Cozy Warm Coffee Shop Interior" loading="lazy">
+          </div>
+          <div class="gallery-card-content">
+            <div class="gallery-card-tag">// RUANG JEDA & DISKUSI</div>
+            <div class="gallery-card-title">Suasana Kayu & Lampu Hangat</div>
+            <p class="gallery-card-desc">Meja kayu jati panjang, aroma biji kopi segar yang menggantung di udara, dan ruang tenang untuk membaca atau bertukar cerita.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE BREW LAB & EXTRACTION METHOD -->
+    <section class="section-brew-lab" id="lab">
+      <div class="section-header">
+        <div class="section-badge">INTERACTIVE BREW LAB</div>
+        <h2 class="section-title">Pilih Karakter Ekstraksi Anda</h2>
+        <p class="section-desc">Setiap alat seduh manual menghasilkan spektrum rasa yang berbeda dari biji kopi yang sama.</p>
+      </div>
+
+      <!-- Brew Method Selector -->
+      <div class="brew-pills-bar">
+        <button class="brew-method-btn active" onclick="selectBrewMethod('v60')">⚗️ V60 Pour Over</button>
+        <button class="brew-method-btn" onclick="selectBrewMethod('japanese')">🧊 Japanese Iced Drip</button>
+        <button class="brew-method-btn" onclick="selectBrewMethod('aeropress')">🧪 Aeropress Inverted</button>
+        <button class="brew-method-btn" onclick="selectBrewMethod('syphon')">🔥 Syphon Vacuum</button>
+        <button class="brew-method-btn" onclick="selectBrewMethod('espresso')">☕ E61 Double Espresso</button>
+      </div>
+
+      <!-- Active Brew Guide Card -->
+      <div class="brew-guide-card">
+        <div class="brew-specs-col">
+          <div class="spec-box">
+            <div class="spec-label">Brewing Ratio</div>
+            <div class="spec-val" id="brewRatio">1 : 15.0</div>
+          </div>
+          <div class="spec-box">
+            <div class="spec-label">Water Temp</div>
+            <div class="spec-val" id="brewTemp">92° C</div>
+          </div>
+          <div class="spec-box">
+            <div class="spec-label">Extraction Time</div>
+            <div class="spec-val" id="brewTime">2m 45s</div>
+          </div>
+          <div class="spec-box">
+            <div class="spec-label">Grind Size</div>
+            <div class="spec-val" id="brewGrind">Med-Fine</div>
+          </div>
+        </div>
+
+        <div class="brew-notes-col">
+          <div class="brew-method-title" id="brewMethodTitle">V60 Pour Over (Hario)</div>
+          <p class="brew-technique-desc" id="brewMethodDesc">
+            Metode kerucut spiral dengan filter kertas Jepang. Menonjolkan kejelasan rasa (*clarity*), aroma floral, dan keasaman buah alami yang sangat bersih di lidah (*clean cup finish*).
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--caramel);">
+            Rekomendasi Biji: <strong>Gayo Anaerob & Toraja Sapan</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: MENU ETALASE (DENGAN FOTO NYATA) -->
+    <section class="section-menu" id="menu">
+      <div class="section-header">
+        <div class="section-badge">ETALASE MENU KEDAI</div>
+        <h2 class="section-title">Koleksi Seduhan & Papan Kudapan</h2>
+        <p class="section-desc">Diracik fresh di slow bar kami menggunakan biji sangrai sendiri & bahan murni pilihan.</p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="menu-category-tabs">
+        <button class="cat-tab active" onclick="filterMenu('all')">Semua Racikan</button>
+        <button class="cat-tab" onclick="filterMenu('manual')">Single Origin Manual</button>
+        <button class="cat-tab" onclick="filterMenu('espresso')">Espresso & White</button>
+        <button class="cat-tab" onclick="filterMenu('signature')">Signature Mocktail</button>
+        <button class="cat-tab" onclick="filterMenu('pastry')">Pastry & Kudapan</button>
+      </div>
+
+      <!-- Menu Grid with Real Photography -->
+      <div class="menu-grid" id="menuGridContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- SLIDE-OVER ORDER TRAY (DRAWER) -->
+    <div class="tray-backdrop" id="trayBackdrop" onclick="toggleTray()">
+      <div class="tray-drawer" onclick="event.stopPropagation()">
+        <div class="drawer-header">
+          <div class="drawer-title">
+            <span>🛒 Coffee Tray</span>
+            <span style="font-size: 13px; font-weight: normal; color: var(--crema-muted);" id="trayHeaderTotalItems">(0 item)</span>
+          </div>
+          <button style="background: none; border: none; color: var(--crema); font-size: 22px; cursor: pointer;" onclick="toggleTray()">&times;</button>
+        </div>
+
+        <div class="drawer-body" id="trayItemList">
+          <div style="text-align: center; color: var(--crema-muted); margin-top: 40px;">
+            Tray kopi kamu masih kosong.<br>Klik tombol <strong>+ Pesan</strong> di daftar menu!
+          </div>
+        </div>
+
+        <div class="drawer-footer">
+          <div class="drawer-total-row">
+            <span>Subtotal:</span>
+            <span style="color: var(--caramel);" id="trayTotalDisplay">Rp 0</span>
+          </div>
+          <div style="font-size: 12px; color: var(--crema-dark); font-family: var(--font-mono);">
+            *Pesanan akan terformat otomatis & dikirim via WhatsApp ke Barista kami.
+          </div>
+          <button class="btn-checkout-wa" onclick="checkoutWhatsApp()">
+            <span>💬 Kirim Pesanan ke WhatsApp Barista</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="roastery-footer" id="lokasi">
+      <div class="footer-inner">
+        <div>
+          <div class="brand-title" style="margin-bottom: 8px;">KALA SANGRAI<span class="dot">.</span></div>
+          <p class="footer-text">
+            Specialty Coffee Roastery & Slow Bar independen di Bandung. Didedikasikan untuk kurasi kopi nusantara, transparansi proses pascapanen, dan pengalaman seduh yang tenang.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">SLOW BAR & KEDAI</div>
+          <p class="footer-text">
+            Jl. Progo No. 14, Riau<br>
+            Kota Bandung, Jawa Barat<br>
+            Buka Setiap Hari: 08:00 – 22:00 WIB
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">ROASTERY WORKSHOP</div>
+          <p class="footer-text">
+            Sesi Public Cupping: Setiap Sabtu 10:00 WIB<br>
+            Kelas Seduh Rumahan (Home-brewing Class)<br>
+            Wholesale Beans Supply untuk Cafe
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">HUBUNGI KAMI</div>
+          <p class="footer-text">
+            WhatsApp: +62 812-9842-1920<br>
+            Instagram: @kalasangrai.roastery<br>
+            Email: roaster@kalasangrai.id
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 KALA SANGRAI ROASTERY. Template resmi NECTOR.UI. Standar Bebas AI-Slop.</div>
+        <div>EST. 2026 // 100% STANDALONE HTML & CSS</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // --- 1. DATA: BREW METHODS ---
+    const BREW_METHODS = {
+      'v60': {
+        title: 'V60 Pour Over (Hario)',
+        ratio: '1 : 15.0',
+        temp: '92° C',
+        time: '2m 45s',
+        grind: 'Med-Fine',
+        desc: 'Metode kerucut spiral dengan filter kertas Jepang. Menonjolkan kejelasan rasa (clarity), aroma floral, dan keasaman buah alami yang sangat bersih di lidah.'
+      },
+      'japanese': {
+        title: 'Japanese Iced Drip',
+        ratio: '1 : 12.5',
+        temp: '93° C',
+        time: '2m 15s',
+        grind: 'Medium',
+        desc: 'Ekstraksi panas langsung di atas bongkahan es kristal murni. Mengunci komponen volatil aroma buah dan menghasilkan kopi dingin yang segar tanpa rasa getir.'
+      },
+      'aeropress': {
+        title: 'Aeropress Inverted Method',
+        ratio: '1 : 14.0',
+        temp: '88° C',
+        time: '1m 50s',
+        grind: 'Fine-Med',
+        desc: 'Metode seduh bertekanan udara manual. Menghasilkan body yang tebal, rasa manis cokelat karamel yang pekat, dengan tingkat keasaman yang sangat lembut.'
+      },
+      'syphon': {
+        title: 'Syphon Vacuum Glass Pot',
+        ratio: '1 : 14.5',
+        temp: '94° C',
+        time: '3m 10s',
+        grind: 'Medium',
+        desc: 'Teater seduh klasik menggunakan uap panas vacuum tabung kaca ganda. Menghasilkan secangkir kopi dengan karakter seimbang, wangi aroma tinggi, dan tekstur sutra.'
+      },
+      'espresso': {
+        title: 'E61 Double Shot Espresso',
+        ratio: '1 : 2.0',
+        temp: '93.5° C',
+        time: '28 detik',
+        grind: 'Ultra Fine',
+        desc: 'Ekstraksi pompa 9 bar rotary boiler. Menghasilkan lapisan crema keemasan tebal beraroma hazelnut, body pekat, dan rasa dasar yang kuat untuk racikan kopi susu.'
+      }
+    };
+
+    function selectBrewMethod(key) {
+      document.querySelectorAll('.brew-method-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes(key));
+      });
+      const data = BREW_METHODS[key];
+      if (!data) return;
+      document.getElementById('brewMethodTitle').textContent = data.title;
+      document.getElementById('brewRatio').textContent = data.ratio;
+      document.getElementById('brewTemp').textContent = data.temp;
+      document.getElementById('brewTime').textContent = data.time;
+      document.getElementById('brewGrind').textContent = data.grind;
+      document.getElementById('brewMethodDesc').textContent = data.desc;
+    }
+
+    // --- 2. DATA: MENU ITEMS WITH REAL PHOTOGRAPHY ---
+    const MENU_ITEMS = [
+      {
+        id: 'c1',
+        category: 'manual',
+        title: 'Gayo Anaerob Natural',
+        price: 38000,
+        img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80',
+        notes: 'Blueberry, dark cocoa, brown sugar & fermented wine notes. Light-medium roast.',
+        tags: ['Single Origin', 'V60 / Syphon', 'Score 87.5']
+      },
+      {
+        id: 'c2',
+        category: 'manual',
+        title: 'Toraja Sapan Washed',
+        price: 36000,
+        img: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80',
+        notes: 'Jeruk mandarin segar, jasmine floral, madu hutan & clean citrus aftertaste.',
+        tags: ['Single Origin', 'Japanese Iced', 'Score 86.5']
+      },
+      {
+        id: 'c3',
+        category: 'manual',
+        title: 'Kerinci Honey Process',
+        price: 35000,
+        img: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80',
+        notes: 'Manis buah persik (peach), aprikot kering, karamel mentega & teh hitam.',
+        tags: ['Single Origin', 'Aeropress', 'Score 86.0']
+      },
+      {
+        id: 'c4',
+        category: 'espresso',
+        title: 'Cortado Double Shot',
+        price: 32000,
+        img: 'https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80',
+        notes: 'Perbandingan 1:1 double shot espresso dengan steamed milk hangat bertekstur microfoam.',
+        tags: ['Espresso Bar', 'Spanish Classic', 'Strong']
+      },
+      {
+        id: 'c5',
+        category: 'espresso',
+        title: 'Flat White Roastery',
+        price: 35000,
+        img: 'https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=80',
+        notes: 'Double ristretto dipadukan susu segar pasteurisasi lokal, tekstur beludru kaya rasa.',
+        tags: ['Espresso Bar', 'Velvet Foam', 'Balanced']
+      },
+      {
+        id: 'c6',
+        category: 'espresso',
+        title: 'Dirty Coffee (Chilled Cream)',
+        price: 38000,
+        img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80',
+        notes: 'Double espresso panas yang diekstrak langsung di atas susu dingin kental beku.',
+        tags: ['Best Seller', 'Layers', 'No Ice']
+      },
+      {
+        id: 'c7',
+        category: 'signature',
+        title: 'Nitro Cascara Brew',
+        price: 36000,
+        img: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80',
+        notes: 'Infusi kulit ceri kopi cascara bertekanan nitrogen dingin, rasa asam apel & kismis.',
+        tags: ['Signature Cold', 'Low Caffeine', 'Fizzy']
+      },
+      {
+        id: 'c8',
+        category: 'signature',
+        title: 'Espresso Tonic Citron',
+        price: 38000,
+        img: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80',
+        notes: 'Double shot espresso dingin di atas sparkling tonic water premium & irisan jeruk sunkist.',
+        tags: ['Signature Cold', 'Refreshing', 'Crisp']
+      },
+      {
+        id: 'c9',
+        category: 'pastry',
+        title: 'Butter Pain au Chocolat',
+        price: 28000,
+        img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80',
+        notes: 'Pastry mentega Prancis renyah berlapis dengan isian dark chocolate batangan 70%.',
+        tags: ['Fresh Oven', 'Halal Mentega']
+      },
+      {
+        id: 'c10',
+        category: 'pastry',
+        title: 'Kouign-Amann Karamel',
+        price: 26000,
+        img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80',
+        notes: 'Kue khas Brittany dengan lapisan gula karamel renyah di luar dan lembut di dalam.',
+        tags: ['Fresh Oven', 'Caramelized Crust']
+      }
+    ];
+
+    let currentMenuFilter = 'all';
+
+    function filterMenu(cat) {
+      currentMenuFilter = cat;
+      document.querySelectorAll('.cat-tab').forEach(t => {
+        t.classList.toggle('active', t.getAttribute('onclick').includes(cat));
+      });
+      renderMenu();
+    }
+
+    function renderMenu() {
+      const container = document.getElementById('menuGridContainer');
+      const filtered = currentMenuFilter === 'all' 
+        ? MENU_ITEMS 
+        : MENU_ITEMS.filter(m => m.category === currentMenuFilter);
+
+      container.innerHTML = filtered.map(item => `
+        <div class="menu-item-card">
+          <div class="item-img-container">
+            <img src="${item.img}" alt="${item.title}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80';">
+            <span class="item-category-pill">${item.category.toUpperCase()}</span>
+          </div>
+          <div class="item-content">
+            <div>
+              <div class="item-top">
+                <div class="item-title">${item.title}</div>
+                <div class="item-price">Rp ${item.price.toLocaleString('id-ID')}</div>
+              </div>
+              <p class="item-notes" style="margin-top: 8px;">${item.notes}</p>
+              <div class="item-tags">
+                ${item.tags.map(t => `<span class="item-tag-pill">${t}</span>`).join('')}
+              </div>
+            </div>
+            <div class="item-footer">
+              <span style="font-size: 11px; color: var(--crema-dark); font-family: var(--font-mono);">Slow Bar Service</span>
+              <button class="btn-add-tray" onclick="addToTray('${item.id}')">+ Pesan</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // --- 3. COFFEE TRAY CART STATE ---
+    let orderTray = [];
+
+    function addToTray(itemId) {
+      const item = MENU_ITEMS.find(m => m.id === itemId);
+      if (!item) return;
+      const exist = orderTray.find(t => t.id === itemId);
+      if (exist) {
+        exist.qty++;
+      } else {
+        orderTray.push({ ...item, qty: 1 });
+      }
+      updateTrayUI();
+      openTray();
+    }
+
+    function addSingleOriginToTray() {
+      addToTray('c1');
+    }
+
+    function changeQty(itemId, delta) {
+      const exist = orderTray.find(t => t.id === itemId);
+      if (exist) {
+        exist.qty += delta;
+        if (exist.qty <= 0) {
+          orderTray = orderTray.filter(t => t.id !== itemId);
+        }
+      }
+      updateTrayUI();
+    }
+
+    function updateTrayUI() {
+      const totalItems = orderTray.reduce((acc, curr) => acc + curr.qty, 0);
+      const totalPrice = orderTray.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
+
+      document.getElementById('trayCountBadge').textContent = totalItems;
+      document.getElementById('trayHeaderTotalItems').textContent = `(${totalItems} item)`;
+      document.getElementById('trayTotalDisplay').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+
+      const listContainer = document.getElementById('trayItemList');
+      if (orderTray.length === 0) {
+        listContainer.innerHTML = `
+          <div style="text-align: center; color: var(--crema-muted); margin-top: 40px;">
+            Tray kopi kamu masih kosong.<br>Klik tombol <strong>+ Pesan</strong> di daftar menu!
+          </div>
+        `;
+        return;
+      }
+
+      listContainer.innerHTML = orderTray.map(item => `
+        <div class="tray-item">
+          <div>
+            <div class="tray-item-title">${item.title}</div>
+            <div class="tray-item-price">Rp ${item.price.toLocaleString('id-ID')} × ${item.qty}</div>
+          </div>
+          <div class="tray-qty-ctrl">
+            <button class="qty-btn" onclick="changeQty('${item.id}', -1)">-</button>
+            <span>${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleTray() {
+      const backdrop = document.getElementById('trayBackdrop');
+      backdrop.classList.toggle('open');
+    }
+
+    function openTray() {
+      document.getElementById('trayBackdrop').classList.add('open');
+    }
+
+    function checkoutWhatsApp() {
+      if (orderTray.length === 0) {
+        alert('Tray pesananmu masih kosong.');
+        return;
+      }
+      const total = orderTray.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
+      let text = `Halo Barista Kala Sangrai! Saya ingin memesan kopi:\n\n`;
+      orderTray.forEach((item, idx) => {
+        text += `${idx + 1}. ${item.title} (${item.qty}x) — Rp ${(item.price * item.qty).toLocaleString('id-ID')}\n`;
+      });
+      text += `\nTotal: Rp ${total.toLocaleString('id-ID')}\n`;
+      text += `Mohon konfirmasi ketersediaan di meja/bar. Terima kasih!`;
+
+      const encoded = encodeURIComponent(text);
+      window.open(`https://wa.me/6281298421920?text=${encoded}`, '_blank');
+    }
+
+    // Initial render
+    renderMenu();
+  </script>
+</body>
+</html>

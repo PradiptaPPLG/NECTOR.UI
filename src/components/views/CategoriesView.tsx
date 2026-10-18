@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'pet',
+      title: 'Pet Shop & Cattery',
+      icon: PawPrint,
+      desc: 'Etalase adopsi kucing ras bersertifikat pedigree, rekam medis vaksin & chip transparan, inspect profil anabul, dan pet care boutique.',
+      accent: '#B82E66'
+    },
     {
       id: 'sekolah',
       title: 'Sekolah & Akademik',

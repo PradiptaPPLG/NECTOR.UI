@@ -818,8 +818,236 @@ export function TanahLiatStudio() {
     publishedAt: '2026-05-10',
     livePreviewAvailable: true,
     accentColor: '#1F364D'
+  },
+  {
+    id: 'tpl-15',
+    slug: 'kala-sangrai-roastery',
+    title: 'Kala Sangrai',
+    tagline: 'Specialty coffee roastery, single origin cupping & slow bar',
+    description: 'Template website kedai kopi specialty, artisan micro-roastery, dan slow bar manual brew dengan palet warna cokelat sangrai espresso pekat, karamel madu, dan aksen kuningan vintage. Dilengkapi live roasting batch ticker, kartu spesimen cupping rasa (tasting notes blueberry, dark cocoa, wine) dengan sensory radar bar interaktif, interactive brew lab selector (V60, Japanese Iced, Aeropress, Syphon, E61 Espresso) yang menampilkan rasio & grind size secara dinamis, katalog minuman & pastry oven fresh, serta slide-over coffee tray dengan pemesanan langsung ke WhatsApp Barista.',
+    category: 'cafe',
+    tags: ['Cafe', 'Specialty Coffee', 'Micro Roastery', 'Slow Bar', 'Manual Brew V60', 'Tasting Notes', 'Anti-Slop Spec'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Interactive Brew Lab', 'WhatsApp Tray'],
+    thumbnailSvgType: 'cafe',
+    previewComponentKey: 'cafe-kalasangrai',
+    htmlPath: '/templates/cafe/kala-sangrai.html',
+    htmlFolderPath: 'templates/cafe/kala-sangrai.html',
+    features: [
+      'Palet warna aroma kopi autentik: Deep roasted espresso (#120E0B), mocha (#3D261D), warm caramel (#C97A3E), dan creamy crema milk (#F5EBE1)',
+      'Live Roasting Ticker: Status resting biji sangrai fresh batch mingguan & jam operasional kedai',
+      'Interactive Specimen Cupping Card: Tasting notes buah/cokelat & sensory rating bar (Acidity, Body, Sweetness)',
+      'Interactive Brew Lab Selector: Simulasi metode seduh V60, Japanese Drip, Aeropress, Syphon & E61 dengan parameter rasio, suhu, dan waktu dinamis',
+      'Etalase menu racikan lengkap: Single Origin Manual, Espresso & White, Signature Mocktails, dan Pastry Oven',
+      'Slide-Over Coffee Tray: Keranjang pesanan meja interaktif dengan kalkulasi subtotal dan checkout WhatsApp Barista terformat rapi',
+      '100% Standalone 1-file mandiri (HTML + CSS + JS) tanpa framework atau dependensi npm eksternal'
+    ],
+    usageInstructions: [
+      'Buka templates/cafe/kala-sangrai.html di editor kode kamu.',
+      'Sesuaikan daftar menu dan harga kopi pada array MENU_ITEMS di dalam tag script.',
+      'Ganti nomor WhatsApp pada fungsi checkoutWhatsApp dengan kontak kasir/barista kedai kopimu.',
+      'Bisa langsung dijalankan di browser untuk website kedai kopi atau menu digital tablet di meja tamu.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'kala-sangrai.html',
+        language: 'html',
+        content: `<!-- KALA SANGRAI — Specialty Coffee Roastery & Slow Bar -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KALA SANGRAI — Specialty Coffee Roastery</title>
+  <style>
+    :root {
+      --roast-dark: #120e0b;
+      --espresso: #3d261d;
+      --caramel: #c97a3e;
+      --crema: #f5ebe1;
+      --font-display: 'Syne', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">ROASTERY STATUS: BATCH #184 GAYO ANAEROB NATURAL</div>
+  <header>
+    <h1>KALA SANGRAI<span>.</span></h1>
+    <nav>Brew Lab · Single Origin · Menu Minuman · Workshop</nav>
+  </header>
+  <!-- Full functional slow bar, cupping tasting & WhatsApp tray -->
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website kedai kopi specialty coffee roastery dan slow bar Kala Sangrai dengan palet warna aroma kopi kaya.',
+      designDirection: 'Deep roasted espresso (#120E0B), warm mocha (#3D261D), burnt caramel (#C97A3E), dan milk crema (#F5EBE1). Tipografi Syne bold display berpadu dengan Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Top batch ticker, hero split dengan kartu spesimen cupping sensorik biji kopi, panel interaktif brew lab extraction method, etalase menu racikan 4 kolom, dan drawer coffee tray slide-out.',
+      typographyAndColor: 'Tipografi modern artisan Syne untuk headline dramatis dan JetBrains Mono untuk rasio seduh presisi.',
+      interactions: 'Interactive brew method selector (rasio, temperatur, waktu seduh), coffee tray cart pemesanan meja, dan tombol WhatsApp checkout.',
+      technicalRequirements: 'Zero dependencies, 100% standalone single-file HTML, responsif smartphone hingga desktop.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-05-12',
+    livePreviewAvailable: true,
+    accentColor: '#C97A3E'
+  },
+  {
+    id: 'tpl-16',
+    slug: 'kantin-sekolah-selasar',
+    title: 'Kantin Selasar',
+    tagline: 'Dapur sehat, gorengan hangat & pujasera jajanan sekolah',
+    description: 'Template website kantin dan pujasera sekolah bernuansa tradisional-hangat namun berpenampilan rapi, profesional, dan bebas gaya cyber. Dilengkapi status operasional jam istirahat sekolah (Istirahat 1 & 2), paket komplit hemat murid (Indomie kuah telur sawi + bakwan + es teh jumbo), etalase menu lengkap 12 jajanan dengan fotografi asli dari internet (gorengan bakwan sayur garing, tahu isi pedas, mie nyemek, nasi uduk, soto ayam, es teh jumbo), jadwal menu masakan harian papan tulis kapur (Senin-Jumat), formulir titip pesan jam istirahat untuk perwakilan kelas, simulasi saldo kartu pelajar RFID pojok kejujuran, serta nota jajan slide-over dengan tombol checkout WhatsApp langsung ke Ibu Kantin.',
+    category: 'sekolah',
+    tags: ['Kantin Sekolah', 'Pujasera', 'Gorengan & Mie', 'Indomie Telur', 'Pojok Kejujuran', 'Titip Pesan Istirahat', 'Kartu Pelajar RFID'],
+    technologies: ['HTML5', 'Vanilla CSS Grid', 'Vanilla JS State', 'Chalkboard Blackboard', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'education',
+    previewComponentKey: 'sekolah-kantin-selasar',
+    htmlPath: '/templates/sekolah/kantin.html',
+    htmlFolderPath: 'templates/sekolah/kantin.html',
+    features: [
+      'Palet warna tradisional hangat khas selasar sekolah: Cream kertas jadul (#FAF7F0), papan tulis kapur hijau tua (#1B3529), aksen terakota cabe (#C85A32), dan kayu jati (#4E3629)',
+      'Live Ticker Istirahat: Status operasional kantin berdasarkan bel istirahat 1 (09.45) & istirahat 2 (12.00) serta lokasi gerai',
+      'Fotografi Makanan Nyata dari Web: Foto jernih resolusi tinggi untuk 12 menu (Gorengan bakwan panas, tahu isi, Indomie telur sawi, nasi uduk, mie nyemek, soto ayam, es teh jumbo, kopi tubruk)',
+      'Papan Tulis Menu Spesial Harian: Display jadwal masakan Ibu Kantin dari Senin hingga Jumat bergaya chalkboard klasik',
+      'Formulir Titip Pesan Rombongan Kelas: Pesan sebelum bel berbunyi untuk menghindari antrean panjang, otomatis terformat rapi ke WhatsApp',
+      'Pojok Kejujuran & Cek Saldo RFID: Nilai integritas kejujuran berpadu simulasi kartu jajan santri/siswa dengan pengecekan saldo dan riwayat transaksi',
+      'Slide-Over Nota Jajan: Keranjang belanja berdesain struk kasir dengan penambahan kuantitas dan kalkulasi otomatis',
+      '100% Standalone 1-file mandiri (HTML + CSS + JS) tanpa framework eksternal atau dependensi npm'
+    ],
+    usageInstructions: [
+      'Buka templates/sekolah/kantin.html di code editor kamu.',
+      'Sesuaikan daftar menu jajanan, harga, dan foto di array CANTEEN_MENU pada script tag.',
+      'Ganti nomor WhatsApp tujuan pemesanan di fungsi submitPreorderWhatsApp dan checkoutViaWhatsApp dengan nomor pengelola kantin/koperasi sekolah.',
+      'Bisa langsung dibuka di browser tablet di meja etalase kantin atau diakses siswa dari HP.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'kantin.html',
+        language: 'html',
+        content: `<!-- KANTIN SELASAR — Dapur Sehat & Jajanan Sekolah Nusantara -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KANTIN SELASAR — Dapur Sehat & Jajanan Sekolah</title>
+  <style>
+    :root {
+      --bg-cream: #FAF7F0;
+      --chalkboard: #1B3529;
+      --terracotta: #C85A32;
+      --turmeric: #D97706;
+      --font-display: 'Fraunces', serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="canteen-ticker">STATUS KANTIN: DIBUKA · ISTIRAHAT 1 (09.45 — 10.15 WIB)</div>
+  <header>
+    <h1>KANTIN SELASAR<span>.</span></h1>
+    <nav>Daftar Jajan · Menu Spesial · Titip Pesan · Pojok Kejujuran</nav>
+  </header>
+  <!-- Full functional canteen menu, chalkboard schedule, break pre-order & RFID balance -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website kantin dan pujasera sekolah nusantara dengan palet warna tradisional hangat, foto jajanan nyata, papan tulis menu spesial, dan formulir titip pesan jam istirahat.',
+      designDirection: 'Hangat tradisional selasar sekolah: Paper Warm Cream (#FAF7F0), Chalkboard Green (#1B3529), Terracotta (#C85A32), Turmeric (#D97706), dan Teak Wood (#4E3629). Tipografi Fraunces serif klasik berpadu dengan Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Top break ticker, hero split dengan paket hemat murid berfoto nyata, grid menu jajanan 4 kolom, papan jadwal harian kayu chalkboard 5 hari, formulir titip pesan kelas 2 kolom, dan slide-over nota struk jajan.',
+      typographyAndColor: 'Tipografi Fraunces untuk papan nama kantin bernuansa hangat dan JetBrains Mono untuk nota kalkulasi harga.',
+      interactions: 'Tab kategori menu seketika, penambahan jajanan ke nota belanja dengan counter +/- dinamis, selector jam istirahat, tombol kirim format WhatsApp, dan simulasi cek saldo kartu RFID siswa.',
+      technicalRequirements: 'Zero dependencies, 100% standalone single-file HTML, responsif smartphone hingga desktop.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-05-14',
+    livePreviewAvailable: true,
+    accentColor: '#C85A32'
+  },
+  {
+    id: 'tpl-17',
+    slug: 'miau-cattery-boutique',
+    title: 'MIAU & CO.',
+    tagline: 'Cattery kurasi kucing ras berpedigree & pet boutique estetik',
+    description: 'Template website cattery resmi dan pet shop boutique dengan palet warna soft blush pink dan berry magenta yang manis, elegan, dan profesional. Menampilkan etalase anabul adopsi berbagai ras populer (British Shorthair, Ragdoll, Scottish Fold, Persian, Maine Coon, Bengal, Munchkin, hingga program rescue spesial) dengan fotografi nyata berkualitas tinggi dari web. Dilengkapi sistem filter ras dan jenis kelamin interaktif, pencarian realtime, fitur inspeksi profil kucing mendalam (dossier medis vaksin F3/F4, tes FeLV/FIV negatif, nomor microchip, sertifikat silsilah CFA/ICA, umur, warna bulu, temperamen/karakter), paket gratis starter kit transisi rumah baru, serta integrasi tombol chat WhatsApp yang otomatis memuat data lengkap kucing yang di-inspect.',
+    category: 'pet',
+    tags: ['Pet Shop', 'Cattery Kucing', 'Adopsi Hewan', 'Soft Pink Magenta', 'Inspect Profil Kucing', 'British Shorthair', 'Ragdoll', 'Dossier Medis Anabul'],
+    technologies: ['HTML5', 'Vanilla CSS3', 'Vanilla JS Modal', 'Dynamic Filter', 'WhatsApp Adoption Flow'],
+    thumbnailSvgType: 'pet',
+    previewComponentKey: 'pet-miau-cattery',
+    htmlPath: '/templates/pet/miau-cattery.html',
+    htmlFolderPath: 'templates/pet/miau-cattery.html',
+    features: [
+      'Palet visual soft blush pink (#FDF2F4), berry magenta (#B82E66), dan deep plum (#22151B) yang manis, hangat, dan anti-slop',
+      'Etalase 10 Kucing Ras dengan Foto Nyata: British Shorthair, Ragdoll Seal Point, Scottish Fold, Persian White, Maine Coon, Bengal Leopard, Munchkin Golden, Calico Rescue Peduli',
+      'Fitur Utama Cat Inspector Modal: Klik inspect pada setiap kucing untuk membuka rekam medis vaksinasi F3/F4, hasil tes FeLV/FIV, nomor chip, silsilah ras pedigree, umur, dan catatan karakter sifat',
+      'Filter Interaktif Cepat: Filter berdasarkan ras, jenis kelamin (Jantan ♂ / Betina ♀), serta pencarian kata kunci nama & sifat',
+      'Integrasi Chat Adopsi WhatsApp: Menghasilkan pesan terstruktur siap kirim dengan nama kucing, ras, umur, dan ID microchip',
+      'Gratis Starter Kit Transisi Rumah Baru: Rincian bonus makanan Royal Canin/Orijen, travel carrier box, buku medis, mangkuk keramik, dan mainan bulu',
+      'Standar Kesejahteraan Hewan: Garansi kesehatan 14 hari dokter hewan, cattery bebas kandang sempit (zero-cage living), dan pendampingan seumur hidup',
+      '100% Standalone Single-File (HTML5 + CSS + JS) tanpa framework eksternal atau build step'
+    ],
+    usageInstructions: [
+      'Buka templates/pet/miau-cattery.html di code editor Anda.',
+      'Perbarui atau tambahkan data anabul di array CATS_DATABASE pada tag script (foto, ras, umur, harga, dan riwayat vaksin).',
+      'Ganti nomor WhatsApp tujuan adopsi dengan nomor resmi cattery atau petshop Anda.',
+      'Dapat langsung dibuka di browser desktop, tablet meja etalase, atau smartphone adopter.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'miau-cattery.html',
+        language: 'html',
+        content: `<!-- MIAU & CO. — Cattery Kurasi, Adopsi Ras & Pet Care Boutique -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>MIAU & CO. — Cattery Kurasi & Pet Care Boutique</title>
+  <style>
+    :root {
+      --bg-body: #FFF9FA;
+      --bg-blush: #FDF2F4;
+      --magenta-primary: #B82E66;
+      --magenta-hover: #9E1B4E;
+      --text-ink: #22151B;
+      --border-pink: #F3D5DE;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-announcement">MIAU & CO. — Cattery Resmi Terdaftar CFA & ICA · 14 Hari Garansi Medis</div>
+  <header>
+    <h1>MIAU<span>&</span>CO.</h1>
+    <nav>Etalase Kucing · Standar Etis · Starter Kit · Panduan Adopsi</nav>
+  </header>
+  <!-- Full functional Cat Showcase, Breed Filter, Medical Dossier Inspector, and WhatsApp Adoption Flow -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website cattery kurasi dan pet boutique MIAU & CO. dengan warna soft blush pink dan berry magenta, foto kucing berbagai ras asli, modal inspect profil medis mendalam, dan integrasi adopsi WhatsApp.',
+      designDirection: 'Manis elegan berstandar editorial tinggi: Soft Blush Pink (#FDF2F4), Rose Paper Cream (#FFF9FA), Berry Magenta (#B82E66), Deep Plum Charcoal (#22151B), dan Soft Gold (#C97A3E). Menggunakan tipografi Playfair Display dan Plus Jakarta Sans.',
+      layoutAndGrid: 'Top announcement bar, hero split dengan spotlight anabul minggu ini, toolbar filter pencarian & ras tab horizontal, grid etalase kartu kucing 3 kolom responsif, section standar etis zero-cage 4 kolom, dan modal inspect 2 kolom (foto + dossier rekam medis lengkap).',
+      typographyAndColor: 'Playfair Display untuk nama kucing dan headline hangat, Plus Jakarta Sans untuk keterbacaan info medis, dan JetBrains Mono untuk kode microchip dan ID silsilah.',
+      interactions: 'Pencarian real-time, filter ras dan jenis kelamin, modal inspect profil kucing lengkap dengan trigger WhatsApp kustom, accordion tanya-jawab, dan mobile navigation drawer.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive dari 360px hingga 1440px.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-05-15',
+    livePreviewAvailable: true,
+    accentColor: '#B82E66'
   }
 ];
+
 
 
 
