@@ -1,0 +1,3435 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KURA APPAREL (蔵) — Essential Lifewear & Garment Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------------------------------------------------
+       KURA APPAREL DESIGN SYSTEM (Uniqlo-Inspired Minimalist Red & White)
+       ------------------------------------------------------------- */
+    :root {
+      --uniqlo-red: #E60012;
+      --uniqlo-red-dark: #C4000F;
+      --uniqlo-red-soft: #FFF0F1;
+      --uniqlo-red-border: #FFCCD1;
+
+      --bg-white: #FFFFFF;
+      --bg-canvas: #F8F8F9;
+      --bg-subtle: #F3F3F4;
+      --bg-card: #FFFFFF;
+
+      --text-main: #111111;
+      --text-secondary: #4A4A4A;
+      --text-muted: #7E7E7E;
+      --text-light: #A3A3A3;
+      --text-inverse: #FFFFFF;
+
+      --border-light: #EBEBEB;
+      --border-medium: #DCDCDC;
+      --border-strong: #111111;
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.04);
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.10);
+      --shadow-modal: 0 24px 60px rgba(0, 0, 0, 0.22);
+
+      --radius-xs: 2px;
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 10px;
+      --radius-pill: 9999px;
+
+      --container-max: 1320px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    input, select, textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* -------------------------------------------------------------
+       1. TOP ANNOUNCEMENT TICKER (Uniqlo Red)
+       ------------------------------------------------------------- */
+    .top-announcement {
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 9px 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+      z-index: 40;
+    }
+
+    .top-announcement-highlight {
+      background: rgba(255, 255, 255, 0.22);
+      padding: 2px 8px;
+      border-radius: var(--radius-xs);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* -------------------------------------------------------------
+       2. MAIN NAVBAR & BRAND HEADER
+       ------------------------------------------------------------- */
+    .navbar {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+      gap: 24px;
+    }
+
+    /* Brand Logo (Uniqlo Japanese Box Style) */
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .brand-box {
+      width: 44px;
+      height: 44px;
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      border-radius: var(--radius-xs);
+      font-weight: 900;
+      box-shadow: 0 2px 6px rgba(230, 0, 18, 0.28);
+    }
+
+    .brand-box-kanji {
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .brand-box-en {
+      font-size: 8px;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-link-btn {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 8px 4px;
+      position: relative;
+      transition: color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .nav-link-btn:hover,
+    .nav-link-btn.active {
+      color: var(--uniqlo-red);
+    }
+
+    .nav-link-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--uniqlo-red);
+    }
+
+    .badge-promo-nav {
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: var(--radius-xs);
+      margin-left: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Search & Action bar */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .search-wrapper {
+      position: relative;
+      width: 260px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 40px;
+      background-color: var(--bg-subtle);
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      padding: 0 14px 0 38px;
+      font-size: 13px;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      background-color: #FFFFFF;
+      border-color: var(--uniqlo-red);
+      box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .nav-btn-icon {
+      height: 40px;
+      padding: 0 14px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      background-color: var(--bg-subtle);
+      color: var(--text-main);
+      transition: all 0.15s ease;
+      position: relative;
+    }
+
+    .nav-btn-icon:hover {
+      background-color: #EAEAEA;
+    }
+
+    .nav-btn-cart {
+      background-color: var(--text-main);
+      color: #FFFFFF;
+    }
+
+    .nav-btn-cart:hover {
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+    }
+
+    .cart-count-badge {
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 800;
+      min-width: 19px;
+      height: 19px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+    }
+
+    /* -------------------------------------------------------------
+       3. EDITORIAL HERO & PROMO BANNER (Uniqlo Style Banner)
+       ------------------------------------------------------------- */
+    .hero-banner {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+      padding: 40px 0 32px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--uniqlo-red-soft);
+      border: 1px solid var(--uniqlo-red-border);
+      color: var(--uniqlo-red);
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: var(--radius-xs);
+      margin-bottom: 16px;
+    }
+
+    .hero-tag span {
+      width: 6px;
+      height: 6px;
+      background-color: var(--uniqlo-red);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 3.8vw, 48px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .hero-title mark {
+      background: none;
+      color: var(--uniqlo-red);
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin-bottom: 24px;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .hero-highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .hero-highlight-item svg {
+      color: var(--uniqlo-red);
+      flex-shrink: 0;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-red {
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: var(--radius-xs);
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 4px 14px rgba(230, 0, 18, 0.25);
+    }
+
+    .btn-primary-red:hover {
+      background-color: var(--uniqlo-red-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary-outline {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border: 1px solid var(--border-medium);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: var(--radius-xs);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary-outline:hover {
+      border-color: var(--text-main);
+      background-color: var(--bg-subtle);
+    }
+
+    /* Hero Banner Spotlight Card */
+    .hero-spotlight {
+      background: linear-gradient(145deg, #FAF4F4, #FFFFFF);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+    }
+
+    .spotlight-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-xs);
+      letter-spacing: 0.05em;
+      z-index: 2;
+    }
+
+    .spotlight-img-wrap {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      background-color: #F0F0F0;
+      position: relative;
+    }
+
+    .spotlight-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-spotlight:hover .spotlight-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .spotlight-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .spotlight-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .spotlight-prices {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .price-discount {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--uniqlo-red);
+      font-family: var(--font-mono);
+    }
+
+    .price-original {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      font-family: var(--font-mono);
+    }
+
+    .price-save {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #1A7F37;
+      background: #E8F5E9;
+      padding: 2px 6px;
+      border-radius: var(--radius-xs);
+    }
+
+    /* -------------------------------------------------------------
+       4. FILTER TOOLBAR & CATEGORY CHIPS
+       ------------------------------------------------------------- */
+    .catalog-controls {
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 16px 0;
+      margin-bottom: 32px;
+      position: sticky;
+      top: 74px;
+      z-index: 35;
+      backdrop-filter: blur(8px);
+    }
+
+    .controls-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .category-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .category-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-pill {
+      height: 38px;
+      padding: 0 16px;
+      border-radius: var(--radius-xs);
+      font-size: 13px;
+      font-weight: 700;
+      background-color: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cat-pill:hover {
+      background-color: #E8E8E8;
+      color: var(--text-main);
+    }
+
+    .cat-pill.active {
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      border-color: var(--uniqlo-red);
+      box-shadow: 0 2px 8px rgba(230, 0, 18, 0.25);
+    }
+
+    .cat-pill-count {
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0.8;
+      font-family: var(--font-mono);
+    }
+
+    .controls-secondary {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .filter-sale-toggle {
+      height: 38px;
+      padding: 0 14px;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--border-medium);
+      background-color: #FFFFFF;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-sale-toggle.active {
+      border-color: var(--uniqlo-red);
+      background-color: var(--uniqlo-red-soft);
+      color: var(--uniqlo-red);
+    }
+
+    .sort-select {
+      height: 38px;
+      padding: 0 12px;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--border-medium);
+      background-color: #FFFFFF;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-main);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .sort-select:focus {
+      border-color: var(--uniqlo-red);
+    }
+
+    /* -------------------------------------------------------------
+       5. PRODUCT GRID ETALASE
+       ------------------------------------------------------------- */
+    .catalog-section {
+      padding-bottom: 70px;
+    }
+
+    .section-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+    }
+
+    .section-counter {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xs);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-medium);
+    }
+
+    .card-badge-sale {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: var(--radius-xs);
+      z-index: 3;
+      box-shadow: 0 2px 6px rgba(230, 0, 18, 0.3);
+    }
+
+    .card-badge-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: rgba(17, 17, 17, 0.82);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: var(--radius-xs);
+      z-index: 3;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 290px;
+      background-color: #F4F4F4;
+      overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .product-card:hover .card-img {
+      transform: scale(1.05);
+    }
+
+    .card-quick-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+      padding: 16px 12px 12px;
+      display: flex;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.2s ease;
+      z-index: 4;
+    }
+
+    .product-card:hover .card-quick-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-quick-preview {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 16px;
+      border-radius: var(--radius-xs);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-quick-preview:hover {
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+    }
+
+    .card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-colors {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .color-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .color-dot:hover {
+      transform: scale(1.2);
+    }
+
+    .color-count-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: 4px;
+    }
+
+    .card-category-sub {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-sizes-row {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .size-pill-mini {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 5px;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xs);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+
+    .card-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    .card-price-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-price-final {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--uniqlo-red);
+      font-family: var(--font-mono);
+      line-height: 1.1;
+    }
+
+    .card-price-strike {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      font-family: var(--font-mono);
+      margin-top: 2px;
+    }
+
+    .card-discount-pill {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--uniqlo-red);
+      background-color: var(--uniqlo-red-soft);
+      padding: 2px 6px;
+      border-radius: var(--radius-xs);
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      background: #FFFFFF;
+      border: 1px dashed var(--border-medium);
+      border-radius: var(--radius-sm);
+    }
+
+    .empty-state h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    /* -------------------------------------------------------------
+       6. INTERACTIVE PRODUCT PREVIEW MODAL (The Heart of Request)
+       ------------------------------------------------------------- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(17, 17, 17, 0.72);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-container {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 980px;
+      max-height: 90vh;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-modal);
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(20px) scale(0.98);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-backdrop.open .modal-container {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      background-color: var(--bg-subtle);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--text-main);
+      z-index: 10;
+      transition: all 0.15s ease;
+    }
+
+    .modal-close-btn:hover {
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 36px;
+      padding: 36px;
+    }
+
+    /* Left Gallery */
+    .modal-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .gallery-main-wrap {
+      width: 100%;
+      height: 420px;
+      background-color: #F5F5F5;
+      border-radius: var(--radius-xs);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border-light);
+    }
+
+    .gallery-main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.2s ease;
+    }
+
+    .gallery-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-xs);
+      letter-spacing: 0.05em;
+    }
+
+    .gallery-thumbs {
+      display: flex;
+      gap: 10px;
+    }
+
+    .thumb-item {
+      width: 68px;
+      height: 68px;
+      border-radius: var(--radius-xs);
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      background-color: #F0F0F0;
+      opacity: 0.7;
+      transition: all 0.15s ease;
+    }
+
+    .thumb-item:hover,
+    .thumb-item.active {
+      opacity: 1;
+      border-color: var(--uniqlo-red);
+    }
+
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Right Product Detail & Customizer */
+    .modal-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-category-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .modal-cat-tag {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--uniqlo-red);
+    }
+
+    .modal-sku {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .modal-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .modal-subtitle-jp {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    /* Price Card in Modal */
+    .modal-price-box {
+      background-color: var(--uniqlo-red-soft);
+      border: 1px solid var(--uniqlo-red-border);
+      border-radius: var(--radius-xs);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .modal-prices-left {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .modal-price-curr {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--uniqlo-red);
+      font-family: var(--font-mono);
+    }
+
+    .modal-price-strike {
+      font-size: 16px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      font-family: var(--font-mono);
+    }
+
+    .modal-price-badge {
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: var(--radius-xs);
+    }
+
+    .modal-savings-note {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1A7F37;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Description */
+    .modal-desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 22px;
+    }
+
+    /* Color Swatch Picker */
+    .option-section {
+      margin-bottom: 20px;
+    }
+
+    .option-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .option-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+    }
+
+    .option-selected-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .color-swatches-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .swatch-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      padding: 2px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+    }
+
+    .swatch-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+
+    .swatch-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .swatch-btn.active {
+      border-color: var(--uniqlo-red);
+    }
+
+    /* Size Selector (Crucial Requirement) */
+    .size-btn-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .size-btn {
+      min-width: 46px;
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid var(--border-medium);
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      font-size: 13.5px;
+      font-weight: 700;
+      border-radius: var(--radius-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      transition: all 0.15s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .size-btn:hover {
+      border-color: var(--text-main);
+      background-color: var(--bg-subtle);
+    }
+
+    .size-btn.active {
+      background-color: var(--text-main);
+      color: #FFFFFF;
+      border-color: var(--text-main);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-size-guide {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--uniqlo-red);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .stock-indicator {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1A7F37;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Quantity and Live Calculation */
+    .qty-subtotal-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 22px;
+    }
+
+    .qty-counter {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-xs);
+      overflow: hidden;
+      background-color: #FFFFFF;
+    }
+
+    .qty-btn {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      background-color: var(--bg-subtle);
+      transition: background-color 0.15s ease;
+    }
+
+    .qty-btn:hover {
+      background-color: #E2E2E2;
+    }
+
+    .qty-number {
+      width: 44px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+    }
+
+    .modal-calc-total {
+      text-align: right;
+    }
+
+    .calc-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .calc-sum {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--uniqlo-red);
+      font-family: var(--font-mono);
+    }
+
+    /* Modal Action Buttons */
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-add-cart-modal {
+      flex: 1;
+      height: 48px;
+      background-color: var(--uniqlo-red);
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 800;
+      border-radius: var(--radius-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 14px rgba(230, 0, 18, 0.28);
+    }
+
+    .btn-add-cart-modal:hover {
+      background-color: var(--uniqlo-red-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-wa-direct {
+      flex: 1;
+      height: 48px;
+      background-color: #25D366;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 800;
+      border-radius: var(--radius-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-wa-direct:hover {
+      background-color: #1EBE5D;
+      transform: translateY(-1px);
+    }
+
+    /* Features specs checklist */
+    .modal-specs-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      border-top: 1px dashed var(--border-light);
+      padding-top: 16px;
+    }
+
+    .modal-specs-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-specs-list svg {
+      color: var(--uniqlo-red);
+      flex-shrink: 0;
+    }
+
+    /* -------------------------------------------------------------
+       7. SLIDE-OVER SHOPPING CART DRAWER
+       ------------------------------------------------------------- */
+    .cart-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(17, 17, 17, 0.65);
+      z-index: 120;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .cart-drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      z-index: 130;
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .cart-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .cart-item-count-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--uniqlo-red);
+      font-family: var(--font-mono);
+    }
+
+    .cart-close-btn {
+      font-size: 20px;
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.15s ease;
+    }
+
+    .cart-close-btn:hover {
+      background-color: var(--bg-subtle);
+      color: var(--text-main);
+    }
+
+    /* Free Shipping Bar */
+    .shipping-bar-wrap {
+      background-color: var(--uniqlo-red-soft);
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--uniqlo-red-border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .shipping-text {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--uniqlo-red);
+    }
+
+    .shipping-progress {
+      width: 100%;
+      height: 6px;
+      background-color: rgba(230, 0, 18, 0.15);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+    }
+
+    .shipping-bar-fill {
+      height: 100%;
+      background-color: var(--uniqlo-red);
+      width: 60%;
+      transition: width 0.3s ease;
+    }
+
+    /* Cart Items list */
+    .cart-items-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-item-card {
+      display: grid;
+      grid-template-columns: 74px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .cart-item-thumb {
+      width: 74px;
+      height: 84px;
+      border-radius: var(--radius-xs);
+      overflow: hidden;
+      background-color: #F4F4F4;
+    }
+
+    .cart-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-details {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .cart-item-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.25;
+    }
+
+    .cart-item-meta {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      display: flex;
+      gap: 8px;
+    }
+
+    .cart-item-prices {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .cart-item-price-now {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--uniqlo-red);
+      font-family: var(--font-mono);
+    }
+
+    .cart-item-price-old {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      font-family: var(--font-mono);
+    }
+
+    .cart-item-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .cart-qty-mini {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-xs);
+      overflow: hidden;
+    }
+
+    .cart-qty-btn {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      background-color: var(--bg-subtle);
+    }
+
+    .cart-qty-val {
+      width: 26px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .cart-remove-btn {
+      font-size: 11px;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .cart-remove-btn:hover {
+      color: var(--uniqlo-red);
+    }
+
+    /* Cart Empty */
+    .cart-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .cart-empty-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+      color: var(--border-medium);
+    }
+
+    /* Cart Checkout Summary */
+    .cart-footer {
+      border-top: 1px solid var(--border-light);
+      padding: 20px 24px;
+      background: var(--bg-canvas);
+    }
+
+    .cart-summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .cart-discount-value {
+      color: var(--uniqlo-red);
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .cart-total-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-main);
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-medium);
+      margin-top: 10px;
+      margin-bottom: 18px;
+    }
+
+    .cart-total-amount {
+      color: var(--uniqlo-red);
+      font-size: 22px;
+      font-family: var(--font-mono);
+    }
+
+    .checkout-form {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkout-input {
+      width: 100%;
+      height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-xs);
+      font-size: 12.5px;
+      background-color: #FFFFFF;
+      outline: none;
+    }
+
+    .checkout-input:focus {
+      border-color: var(--uniqlo-red);
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      height: 48px;
+      background-color: #25D366;
+      color: #FFFFFF;
+      font-size: 14.5px;
+      font-weight: 800;
+      border-radius: var(--radius-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.15s ease;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
+    }
+
+    .btn-checkout-wa:hover {
+      background-color: #1EBE5D;
+    }
+
+    /* -------------------------------------------------------------
+       8. SIZE GUIDE MODAL (Panduan Ukuran Detail)
+       ------------------------------------------------------------- */
+    .size-guide-modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(17, 17, 17, 0.72);
+      z-index: 150;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .size-guide-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .size-guide-box {
+      background: #FFFFFF;
+      max-width: 640px;
+      width: 100%;
+      padding: 30px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-modal);
+      position: relative;
+    }
+
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+
+    .size-table th {
+      background-color: var(--bg-subtle);
+      color: var(--text-main);
+      font-weight: 800;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid var(--border-light);
+    }
+
+    .size-table td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid var(--border-light);
+      font-family: var(--font-mono);
+    }
+
+    .size-table tr:hover td {
+      background-color: var(--uniqlo-red-soft);
+    }
+
+    /* -------------------------------------------------------------
+       9. TOAST NOTIFICATION
+       ------------------------------------------------------------- */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    .toast-card {
+      background-color: var(--text-main);
+      color: #FFFFFF;
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-modal);
+      pointer-events: auto;
+      animation: slideInRight 0.25s ease forwards;
+    }
+
+    .toast-icon-check {
+      background-color: var(--uniqlo-red);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .toast-action-btn {
+      color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.2);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: var(--radius-xs);
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* -------------------------------------------------------------
+       10. FOOTER (Uniqlo Style Clean Minimalist)
+       ------------------------------------------------------------- */
+    .footer {
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--border-light);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 340px;
+    }
+
+    .footer-heading {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .footer-links a:hover {
+      color: var(--uniqlo-red);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-light);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       ------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .card-img-wrap {
+        height: 220px;
+      }
+      .modal-grid {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+      .gallery-main-wrap {
+        height: 320px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .search-wrapper {
+        display: none;
+      }
+      .modal-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. TOP ANNOUNCEMENT TICKER (Uniqlo Red) -->
+  <aside class="top-announcement" aria-label="Pengumuman Toko">
+    <span class="top-announcement-highlight">PROMO MUSIM INI</span>
+    <span>GRATIS ONGKIR SELURUH INDONESIA DENGAN MIN. BELANJA RP 299.000 • GARANSI TUKAR UKURAN 7 HARI</span>
+  </aside>
+
+  <!-- 2. MAIN NAVBAR -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <!-- Brand Logo Uniqlo Square Style -->
+      <a href="#" class="brand-group" id="brand-home-btn" aria-label="Kura Apparel Home">
+        <div class="brand-box">
+          <span class="brand-box-kanji">蔵</span>
+          <span class="brand-box-en">KURA</span>
+        </div>
+        <div class="brand-meta">
+          <span class="brand-title">KURA APPAREL</span>
+          <span class="brand-sub">JAPANESE ESSENTIAL LIFEWEAR</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Navigasi Utama">
+        <ul class="nav-links">
+          <li><button class="nav-link-btn active" onclick="setCategoryFilter('all')">Semua Koleksi</button></li>
+          <li><button class="nav-link-btn" onclick="setCategoryFilter('kaos')">Kaos & Atasan</button></li>
+          <li><button class="nav-link-btn" onclick="setCategoryFilter('kemeja')">Kemeja</button></li>
+          <li><button class="nav-link-btn" onclick="setCategoryFilter('outer')">Jaket & Outer</button></li>
+          <li><button class="nav-link-btn" onclick="setCategoryFilter('celana')">Celana</button></li>
+          <li>
+            <button class="nav-link-btn" onclick="toggleSaleOnlyFilter()">
+              Promo Diskon <span class="badge-promo-nav">SALE 40%</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Action Search & Cart Button -->
+      <div class="nav-actions">
+        <div class="search-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="catalog-search" class="search-input" placeholder="Cari kaos, kemeja, celana..." oninput="handleSearch(this.value)">
+        </div>
+
+        <button class="nav-btn-icon" onclick="openSizeGuideModal()" title="Panduan Ukuran Baju">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"></path>
+            <path d="m14.5 12.5 2-2"></path><path d="m11.5 9.5 2-2"></path><path d="m8.5 6.5 2-2"></path><path d="m17.5 15.5 2-2"></path>
+          </svg>
+          <span style="display:none; @media(min-width:900px){display:inline;}">Size Guide</span>
+        </button>
+
+        <button class="nav-btn-icon nav-btn-cart" id="open-cart-btn" onclick="toggleCartDrawer(true)" aria-label="Buka Keranjang Belanja">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span>Keranjang</span>
+          <span class="cart-count-badge" id="cart-counter-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. EDITORIAL HERO & SPOTLIGHT BANNER -->
+  <section class="hero-banner">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span></span>
+          EDISI LIFEWEAR 2026 • LIMITED SPECIAL OFFER
+        </div>
+        <h1 class="hero-title">
+          Esensi Pakaian Harian.<br>
+          Kenyamanan <mark>Tanpa Kompromi.</mark>
+        </h1>
+        <p class="hero-desc">
+          Dibuat dari 100% serat katun Supima Jepang berkualitas tinggi dan linen murni. Dirancang dengan siluet boxy kontemporer yang tahan dicuci ratusan kali tanpa kehilangan bentuk.
+        </p>
+
+        <div class="hero-highlights">
+          <div class="hero-highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            100% Katun Pilihan 240 GSM
+          </div>
+          <div class="hero-highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Tukar Ukuran Gratis 7 Hari
+          </div>
+          <div class="hero-highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Order Langsung via WhatsApp
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="btn-primary-red" onclick="scrollToCatalog()">
+            Jelajahi Etalase Baju
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <button class="btn-secondary-outline" onclick="openSizeGuideModal()">
+            Cek Panduan Ukuran
+          </button>
+        </div>
+      </div>
+
+      <!-- Spotlight Signature Card -->
+      <div class="hero-spotlight" onclick="openProductModal('p1')">
+        <span class="spotlight-badge">LIMITED OFFER · DISKON 40%</span>
+        <div class="spotlight-img-wrap">
+          <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80" alt="KURA Heavyweight Boxy T-Shirt">
+        </div>
+        <div class="spotlight-info">
+          <span style="font-size:11px; font-weight:700; color:var(--uniqlo-red); text-transform:uppercase;">Signature Best-Seller</span>
+          <h3 class="spotlight-title">KURA Air-Touch Heavyweight Boxy T-Shirt</h3>
+          <div class="spotlight-prices">
+            <span class="price-discount">Rp 149.000</span>
+            <span class="price-original">Rp 249.000</span>
+            <span class="price-save">Hemat Rp 100.000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CATALOG FILTER TOOLBAR -->
+  <div class="catalog-controls" id="catalog-anchor">
+    <div class="container controls-inner">
+      <!-- Category Pills -->
+      <div class="category-pills">
+        <button class="cat-pill active" data-cat="all" onclick="setCategoryFilter('all')">
+          Semua Koleksi <span class="cat-pill-count" id="count-all">(10)</span>
+        </button>
+        <button class="cat-pill" data-cat="kaos" onclick="setCategoryFilter('kaos')">
+          Kaos & Atasan <span class="cat-pill-count" id="count-kaos">(3)</span>
+        </button>
+        <button class="cat-pill" data-cat="kemeja" onclick="setCategoryFilter('kemeja')">
+          Kemeja <span class="cat-pill-count" id="count-kemeja">(2)</span>
+        </button>
+        <button class="cat-pill" data-cat="outer" onclick="setCategoryFilter('outer')">
+          Jaket & Outer <span class="cat-pill-count" id="count-outer">(2)</span>
+        </button>
+        <button class="cat-pill" data-cat="celana" onclick="setCategoryFilter('celana')">
+          Celana <span class="cat-pill-count" id="count-celana">(2)</span>
+        </button>
+        <button class="cat-pill" data-cat="aksesoris" onclick="setCategoryFilter('aksesoris')">
+          Aksesoris <span class="cat-pill-count" id="count-aksesoris">(1)</span>
+        </button>
+      </div>
+
+      <!-- Secondary Filter & Sort -->
+      <div class="controls-secondary">
+        <button class="filter-sale-toggle" id="sale-toggle-btn" onclick="toggleSaleOnlyFilter()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>Khusus Promo Diskon</span>
+        </button>
+
+        <select class="sort-select" id="sort-select" onchange="handleSortChange(this.value)">
+          <option value="recommended">Urutkan: Rekomendasi</option>
+          <option value="discount-desc">Diskon Terbesar (% Off)</option>
+          <option value="price-asc">Harga: Terendah ke Tertinggi</option>
+          <option value="price-desc">Harga: Tertinggi ke Terendah</option>
+          <option value="name-asc">Nama Produk (A-Z)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. PRODUCT CATALOG ETALASE -->
+  <main class="catalog-section">
+    <div class="container">
+      <div class="section-header-row">
+        <div class="section-title-wrap">
+          <h2 class="section-title" id="current-catalog-title">Etalase Baju Terkurasi</h2>
+          <span class="section-counter" id="active-item-counter">Menampilkan 10 Produk</span>
+        </div>
+        <span style="font-size:12px; color:var(--text-muted); font-weight:600;">Klik gambar atau kartu untuk melihat preview detail, pilih ukuran & warna</span>
+      </div>
+
+      <!-- The Product Grid -->
+      <div class="product-grid" id="product-grid-container">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+    </div>
+  </main>
+
+  <!-- 6. INTERACTIVE PRODUCT PREVIEW MODAL (The Main Feature Requested) -->
+  <div class="modal-backdrop" id="product-modal-backdrop" onclick="handleBackdropClick(event)">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
+      <button class="modal-close-btn" onclick="closeProductModal()" aria-label="Tutup Preview">✕</button>
+
+      <div class="modal-grid">
+        <!-- Left: Image Gallery with Selectable Thumbnails -->
+        <div class="modal-gallery">
+          <div class="gallery-main-wrap">
+            <span class="gallery-badge" id="modal-discount-badge">SALE 40%</span>
+            <img id="modal-main-image" class="gallery-main-img" src="" alt="Detail Baju">
+          </div>
+          <div class="gallery-thumbs" id="modal-thumbnails-container">
+            <!-- Thumbs populated by JS -->
+          </div>
+        </div>
+
+        <!-- Right: Info, Price, Sizes, Colors & Action -->
+        <div class="modal-info">
+          <div class="modal-category-row">
+            <span class="modal-cat-tag" id="modal-category-label">KAOS & ATASAN</span>
+            <span class="modal-sku" id="modal-sku-label">SKU: KR-001</span>
+          </div>
+
+          <h2 class="modal-title" id="modal-product-title">Nama Baju</h2>
+          <div class="modal-subtitle-jp" id="modal-product-subtitle-jp">エアリズム・ヘビーウェイト</div>
+
+          <!-- Price & Discount Box -->
+          <div class="modal-price-box">
+            <div class="modal-prices-left">
+              <span class="modal-price-curr" id="modal-price-discounted">Rp 149.000</span>
+              <span class="modal-price-strike" id="modal-price-original">Rp 249.000</span>
+            </div>
+            <span class="modal-price-badge" id="modal-discount-pill">-40%</span>
+            <div class="modal-savings-note" id="modal-savings-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Hemat Rp 100.000</span>
+            </div>
+          </div>
+
+          <!-- Product Description -->
+          <p class="modal-desc" id="modal-product-desc">
+            Deskripsi bahan dan karakteristik pakaian.
+          </p>
+
+          <!-- Color Swatches -->
+          <div class="option-section">
+            <div class="option-header">
+              <span class="option-title">Pilihan Warna:</span>
+              <span class="option-selected-label" id="modal-selected-color-name">Crimson Red</span>
+            </div>
+            <div class="color-swatches-row" id="modal-colors-container">
+              <!-- Swatches injected by JS -->
+            </div>
+          </div>
+
+          <!-- Size Selector (XS, S, M, L, XL, XXL) -->
+          <div class="option-section">
+            <div class="option-header">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span class="option-title">Pilih Ukuran:</span>
+                <span class="option-selected-label" id="modal-selected-size-name" style="font-weight:800; color:var(--uniqlo-red);">L</span>
+              </div>
+              <button class="btn-size-guide" onclick="openSizeGuideModal()">Panduan Ukuran (Size Guide)</button>
+            </div>
+            <div class="size-btn-group" id="modal-sizes-container">
+              <!-- Size buttons injected by JS -->
+            </div>
+            <div class="stock-indicator" id="modal-stock-indicator">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline>
+              </svg>
+              <span id="stock-text">Stok tersedia: 6 pcs untuk ukuran L</span>
+            </div>
+          </div>
+
+          <!-- Quantity and Live Calculation -->
+          <div class="qty-subtotal-row">
+            <div class="qty-counter">
+              <button class="qty-btn" onclick="updateModalQuantity(-1)" aria-label="Kurangi Jumlah">−</button>
+              <span class="qty-number" id="modal-qty-display">1</span>
+              <button class="qty-btn" onclick="updateModalQuantity(1)" aria-label="Tambah Jumlah">+</button>
+            </div>
+            <div class="modal-calc-total">
+              <div class="calc-label">Subtotal Pesanan:</div>
+              <div class="calc-sum" id="modal-subtotal-sum">Rp 149.000</div>
+            </div>
+          </div>
+
+          <!-- Modal Action Buttons -->
+          <div class="modal-actions">
+            <button class="btn-add-cart-modal" onclick="addCurrentProductToCart()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                <path d="M3 6h18"></path>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              Tambah ke Keranjang
+            </button>
+            <button class="btn-wa-direct" onclick="orderCurrentProductViaWA()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3Z"/>
+              </svg>
+              Beli Langsung via WA
+            </button>
+          </div>
+
+          <!-- Specs bullet list -->
+          <ul class="modal-specs-list">
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Bahan: 100% Ring-spun Supima Cotton Grade A (Lembut, Tebal, Bebas Bulu)
+            </li>
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Jahitan rantai standar garmen ekspor, kerah rib tahan kendur
+            </li>
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Pengiriman kilat 1x24 jam dari Jakarta & Bandung Warehouse
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. SLIDE-OVER SHOPPING CART DRAWER -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Keranjang Belanja">
+    <div class="cart-header">
+      <div class="cart-title-row">
+        <h3 class="cart-title">Keranjang Belanja</h3>
+        <span class="cart-item-count-text" id="cart-drawer-count">(0 item)</span>
+      </div>
+      <button class="cart-close-btn" onclick="toggleCartDrawer(false)" aria-label="Tutup Keranjang">✕</button>
+    </div>
+
+    <!-- Free Shipping Indicator -->
+    <div class="shipping-bar-wrap">
+      <span class="shipping-text" id="shipping-progress-text">Belanja Rp 299.000 lagi untuk GRATIS ONGKIR!</span>
+      <div class="shipping-progress">
+        <div class="shipping-bar-fill" id="shipping-progress-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Scrollable Items List -->
+    <div class="cart-items-scroll" id="cart-items-container">
+      <!-- Items populated by JS -->
+    </div>
+
+    <!-- Cart Summary & Checkout Form -->
+    <div class="cart-footer">
+      <div class="cart-summary-line">
+        <span>Total Harga Normal:</span>
+        <span id="cart-summary-original" style="text-decoration:line-through; font-family:var(--font-mono);">Rp 0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Potongan Diskon:</span>
+        <span class="cart-discount-value" id="cart-summary-discount">- Rp 0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Ongkos Kirim:</span>
+        <span id="cart-summary-shipping" style="font-weight:700; color:#1A7F37;">GRATIS</span>
+      </div>
+      <div class="cart-total-line">
+        <span>Total Tagihan:</span>
+        <span class="cart-total-amount" id="cart-summary-total">Rp 0</span>
+      </div>
+
+      <!-- Quick Delivery Input Form -->
+      <div class="checkout-form">
+        <input type="text" id="cust-name" class="checkout-input" placeholder="Nama Lengkap Penerima">
+        <input type="tel" id="cust-wa" class="checkout-input" placeholder="Nomor WhatsApp (contoh: 08123456789)">
+        <input type="text" id="cust-address" class="checkout-input" placeholder="Kota / Alamat Pengiriman Singkat">
+      </div>
+
+      <button class="btn-checkout-wa" onclick="checkoutWhatsAppOrder()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3Z"/>
+        </svg>
+        Pesan Sekarang via WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- 8. SIZE GUIDE MODAL (Panduan Ukuran Baju) -->
+  <div class="size-guide-modal" id="size-guide-modal" onclick="handleSizeGuideBackdrop(event)">
+    <div class="size-guide-box">
+      <button class="modal-close-btn" onclick="closeSizeGuideModal()" aria-label="Tutup Panduan">✕</button>
+      <h3 style="font-size:20px; font-weight:800; margin-bottom:6px;">Panduan Ukuran Baju (Size Chart)</h3>
+      <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+        Gunakan ukuran di bawah ini sebagai acuan fitting pakaian KURA APPAREL. Satuan dalam centimeter (cm). Toleransi jahit ± 1-2 cm.
+      </p>
+
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Ukuran</th>
+            <th>Lebar Dada</th>
+            <th>Panjang Baju</th>
+            <th>Lebar Bahu</th>
+            <th>Tinggi Badan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XS</strong></td>
+            <td>48 cm</td>
+            <td>66 cm</td>
+            <td>44 cm</td>
+            <td>155 - 163 cm</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong></td>
+            <td>51 cm</td>
+            <td>68 cm</td>
+            <td>46 cm</td>
+            <td>160 - 168 cm</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong></td>
+            <td>54 cm</td>
+            <td>71 cm</td>
+            <td>48 cm</td>
+            <td>165 - 175 cm</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong></td>
+            <td>57 cm</td>
+            <td>73 cm</td>
+            <td>50 cm</td>
+            <td>170 - 180 cm</td>
+          </tr>
+          <tr>
+            <td><strong>XL</strong></td>
+            <td>60 cm</td>
+            <td>76 cm</td>
+            <td>52 cm</td>
+            <td>175 - 185 cm</td>
+          </tr>
+          <tr>
+            <td><strong>XXL</strong></td>
+            <td>64 cm</td>
+            <td>78 cm</td>
+            <td>55 cm</td>
+            <td>180 - 192 cm</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background:var(--uniqlo-red-soft); padding:12px 16px; border-radius:var(--radius-xs); border:1px solid var(--uniqlo-red-border); font-size:12px; color:var(--text-secondary);">
+        <strong style="color:var(--uniqlo-red);">Tips Mengukur:</strong> Letakkan baju kaos ternyaman Anda di atas permukaan datar, lalu ukur dari ketiak kiri ke ketiak kanan untuk mendapatkan Lebar Dada yang pas. Jika ragu antara 2 ukuran, pilih ukuran lebih besar untuk tampilan rileks boxy fit.
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. TOAST NOTIFICATIONS CONTAINER -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- 10. CLEAN MINIMALIST FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="brand-group">
+            <div class="brand-box">
+              <span class="brand-box-kanji">蔵</span>
+              <span class="brand-box-en">KURA</span>
+            </div>
+            <div class="brand-meta">
+              <span class="brand-title">KURA APPAREL</span>
+              <span class="brand-sub">TOKYO · JAKARTA ARCHIVE</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Penyedia pakaian harian minimalis bergaya estetika Jepang. Mengutamakan bahan alami katun Supima tahan lama, jahitan presisi, dan kemudahan pemesanan langsung ke pengrajin garmen.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Koleksi Baju</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('kaos')">Kaos Supima Heavyweight</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('kemeja')">Kemeja Oxford Relaxed</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('outer')">Jaket Field Utility</a></li>
+            <li><a href="javascript:void(0)" onclick="setCategoryFilter('celana')">Celana Chino & Denim</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleSaleOnlyFilter()">Promo Diskon Musim Ini</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Bantuan Pelanggan</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="openSizeGuideModal()">Panduan Ukuran (Size Guide)</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Garansi tukar ukuran 7 hari tanpa syarat!')">Garansi Tukar Ukuran</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Pesanan dikirim setiap hari pukul 16:00 WIB')">Info Estimasi Pengiriman</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Metode bayar: Transfer Bank, QRIS, & COD')">Metode Pembayaran</a></li>
+            <li><a href="https://wa.me/6281234567890" target="_blank">Hubungi Admin WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Flagship Studio</h4>
+          <p class="footer-desc" style="margin-bottom:10px;">
+            Jl. Senopati No. 88, Kebayoran Baru, Jakarta Selatan 12190
+          </p>
+          <p class="footer-desc">
+            <strong>Jam Operasional:</strong><br>
+            Senin – Minggu: 09.00 – 21.00 WIB
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 KURA APPAREL. Dibuat dengan standar craft NECTOR.UI. Hak cipta dilindungi.</div>
+        <div>Japanese Minimalist Lifewear · Clean Antislop Design Standard</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- -------------------------------------------------------------
+       JAVASCRIPT LOGIC (Interactive Catalog, Modal, Size, Cart, WA)
+       ------------------------------------------------------------- -->
+  <script>
+    /* -------------------------------------------------------------
+       1. DATABASE PRODUK BAJU (Real Fashion Images & Specifications)
+       ------------------------------------------------------------- */
+    const PRODUCTS_DATA = [
+      {
+        id: 'p1',
+        title: 'KURA Air-Touch Heavyweight Boxy T-Shirt',
+        subtitleJp: 'エアタッチ・ヘビーウェイトTシャツ',
+        sku: 'KR-TSH-081',
+        category: 'kaos',
+        categoryLabel: 'Kaos & Atasan',
+        badge: 'LIMITED OFFER',
+        originalPrice: 249000,
+        discountPrice: 149000,
+        discountPercent: 40,
+        description: 'Kaos harian berbahan 100% Ring-spun Supima Cotton 240 GSM dengan potongan boxy fit modern. Tekstur tebal tidak menerawang, terasa sejuk saat terkena kulit, serta tahan kusut setelah dicuci.',
+        images: [
+          'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80',
+          'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=900&q=80',
+          'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Crimson Red', hex: '#C4000F' },
+          { name: 'Off-White', hex: '#F7F6F2' },
+          { name: 'Charcoal Black', hex: '#1C1C1E' },
+          { name: 'Olive Green', hex: '#4B5320' }
+        ],
+        sizes: [
+          { size: 'XS', stock: 3 },
+          { size: 'S', stock: 8 },
+          { size: 'M', stock: 12 },
+          { size: 'L', stock: 6 },
+          { size: 'XL', stock: 4 },
+          { size: 'XXL', stock: 2 }
+        ],
+        featured: true
+      },
+      {
+        id: 'p2',
+        title: 'Relaxed Fit Premium Oxford Shirt',
+        subtitleJp: 'プレミアム・オックスフォードシャツ',
+        sku: 'KR-SHT-102',
+        category: 'kemeja',
+        categoryLabel: 'Kemeja',
+        badge: 'SALE 40%',
+        originalPrice: 399000,
+        discountPrice: 239000,
+        discountPercent: 40,
+        description: 'Kemeja oxford tenun klasik bertekstur kerikil lembut. Didesain dengan kerah button-down rapi dan potongan relaxed yang cocok dipakai bekerja santai maupun hangout akhir pekan.',
+        images: [
+          'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=900&q=80',
+          'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Sky Blue', hex: '#99BADD' },
+          { name: 'Crisp White', hex: '#FFFFFF' },
+          { name: 'Sand Beige', hex: '#D8CBB5' }
+        ],
+        sizes: [
+          { size: 'S', stock: 5 },
+          { size: 'M', stock: 9 },
+          { size: 'L', stock: 7 },
+          { size: 'XL', stock: 3 }
+        ],
+        featured: true
+      },
+      {
+        id: 'p3',
+        title: 'Minimalist Utility Workwear Field Jacket',
+        subtitleJp: 'ユーティリティ・フィールドジャケット',
+        sku: 'KR-JKT-304',
+        category: 'outer',
+        categoryLabel: 'Jaket & Outer',
+        badge: 'SPECIAL PRICE',
+        originalPrice: 599000,
+        discountPrice: 349000,
+        discountPercent: 42,
+        description: 'Jaket kanvas katun serbaguna dengan 4 saku fungsional berdesain tersembunyi. Dilengkapi ritsleting YKK dua arah dan lapisan dalam katun poplin yang bernapas.',
+        images: [
+          'https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=900&q=80',
+          'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Army Olive', hex: '#47523F' },
+          { name: 'Midnight Black', hex: '#19191B' },
+          { name: 'Desert Tan', hex: '#C9B097' }
+        ],
+        sizes: [
+          { size: 'S', stock: 3 },
+          { size: 'M', stock: 6 },
+          { size: 'L', stock: 5 },
+          { size: 'XL', stock: 2 }
+        ],
+        featured: true
+      },
+      {
+        id: 'p4',
+        title: 'Japanese Relaxed Double Pleated Chino',
+        subtitleJp: 'リラックス・ダブルプリーツチノ',
+        sku: 'KR-PNT-202',
+        category: 'celana',
+        categoryLabel: 'Celana',
+        badge: 'SALE 40%',
+        originalPrice: 449000,
+        discountPrice: 269000,
+        discountPercent: 40,
+        description: 'Celana chino lipit ganda khas siluet perkotaan Tokyo. Potongan longgar di paha yang meruncing rapi di pergelangan kaki, dibuat dari katun twill elastis yang bebas gerak.',
+        images: [
+          'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Dark Khaki', hex: '#7A6E5D' },
+          { name: 'Charcoal Grey', hex: '#27272A' },
+          { name: 'Deep Navy', hex: '#1E2638' }
+        ],
+        sizes: [
+          { size: '28', stock: 4 },
+          { size: '30', stock: 8 },
+          { size: '32', stock: 11 },
+          { size: '34', stock: 5 },
+          { size: '36', stock: 3 }
+        ],
+        featured: false
+      },
+      {
+        id: 'p5',
+        title: 'Ultra-Light Windproof Hooded Parka',
+        subtitleJp: 'ウルトラライト・防風パーカー',
+        sku: 'KR-PRK-501',
+        category: 'outer',
+        categoryLabel: 'Jaket & Outer',
+        badge: 'LIMITED OFFER',
+        originalPrice: 499000,
+        discountPrice: 299000,
+        discountPercent: 40,
+        description: 'Parka ultra-ringan anti angin dengan lapisan water-repellent ramah lingkungan. Dapat dilipat kompak ke dalam saku penyimpanan kecil untuk mobilitas tinggi.',
+        images: [
+          'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Crimson Red', hex: '#E60012' },
+          { name: 'Jet Black', hex: '#141416' },
+          { name: 'Cool Grey', hex: '#7F8489' }
+        ],
+        sizes: [
+          { size: 'S', stock: 4 },
+          { size: 'M', stock: 7 },
+          { size: 'L', stock: 9 },
+          { size: 'XL', stock: 4 }
+        ],
+        featured: true
+      },
+      {
+        id: 'p6',
+        title: 'French Terry Heavyweight Crewneck Sweatshirt',
+        subtitleJp: 'フレンチテリー・スウェットシャツ',
+        sku: 'KR-SWT-601',
+        category: 'kaos',
+        categoryLabel: 'Kaos & Atasan',
+        badge: 'SALE 42%',
+        originalPrice: 379000,
+        discountPrice: 219000,
+        discountPercent: 42,
+        description: 'Sweater leher bundar katun rajut French Terry yang lembut dan menyerap keringat. Kerah dan keliman elastis rajut jarum ganda untuk durabilitas seumur hidup.',
+        images: [
+          'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Heather Grey', hex: '#B8B8B8' },
+          { name: 'Burgundy Wine', hex: '#5B1B29' },
+          { name: 'Forest Green', hex: '#1E352F' }
+        ],
+        sizes: [
+          { size: 'XS', stock: 2 },
+          { size: 'S', stock: 5 },
+          { size: 'M', stock: 8 },
+          { size: 'L', stock: 6 },
+          { size: 'XL', stock: 3 }
+        ],
+        featured: false
+      },
+      {
+        id: 'p7',
+        title: 'Waffle Knit Thermal Long-Sleeve Shirt',
+        subtitleJp: 'ワッフル・サーマル長袖Tシャツ',
+        sku: 'KR-TSH-702',
+        category: 'kaos',
+        categoryLabel: 'Kaos & Atasan',
+        badge: 'NEW ARRIVAL',
+        originalPrice: 299000,
+        discountPrice: 179000,
+        discountPercent: 40,
+        description: 'Atasan rajut bertekstur kotak waffle unik yang fleksibel dan adem. Sangat cocok dipakai sendiri maupun sebagai lapisan dalam kemeja di ruangan ber-AC.',
+        images: [
+          'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Oatmeal Ecru', hex: '#E6DFD5' },
+          { name: 'Dusty Olive', hex: '#565D47' },
+          { name: 'Vintage Black', hex: '#232323' }
+        ],
+        sizes: [
+          { size: 'S', stock: 6 },
+          { size: 'M', stock: 10 },
+          { size: 'L', stock: 7 },
+          { size: 'XL', stock: 4 }
+        ],
+        featured: false
+      },
+      {
+        id: 'p8',
+        title: 'Vintage Yarn-Dyed Flannel Check Shirt',
+        subtitleJp: 'フランネル・チェックシャツ',
+        sku: 'KR-SHT-808',
+        category: 'kemeja',
+        categoryLabel: 'Kemeja',
+        badge: 'SALE 41%',
+        originalPrice: 389000,
+        discountPrice: 229000,
+        discountPercent: 41,
+        description: 'Kemeja flannel benang celup katun 100% yang disikat ganda pada kedua sisinya. Menghasilkan tekstur ultra-lembut tanpa rasa gatal atau kaku.',
+        images: [
+          'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Red-Navy Plaid', hex: '#8B2635' },
+          { name: 'Monochrome Check', hex: '#3A3A3C' },
+          { name: 'Brown Ochre', hex: '#7A4A28' }
+        ],
+        sizes: [
+          { size: 'S', stock: 4 },
+          { size: 'M', stock: 7 },
+          { size: 'L', stock: 8 },
+          { size: 'XL', stock: 5 },
+          { size: 'XXL', stock: 2 }
+        ],
+        featured: false
+      },
+      {
+        id: 'p9',
+        title: '13.5oz Raw Selvedge Relaxed Tapered Jeans',
+        subtitleJp: '13.5oz セルビッジ・デニム',
+        sku: 'KR-DNM-901',
+        category: 'celana',
+        categoryLabel: 'Celana',
+        badge: 'LIMITED OFFER',
+        originalPrice: 649000,
+        discountPrice: 389000,
+        discountPercent: 40,
+        description: 'Celana denim tenun alat tradisional (shuttle loom) dengan jahitan tepi merah (red line selvedge). Pewarnaan indigo murni yang akan menghasilkan pola pudar (fading) personal.',
+        images: [
+          'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Raw Indigo', hex: '#18223B' },
+          { name: 'Vapor Light Blue', hex: '#3E5478' }
+        ],
+        sizes: [
+          { size: '28', stock: 3 },
+          { size: '30', stock: 6 },
+          { size: '32', stock: 8 },
+          { size: '34', stock: 4 },
+          { size: '36', stock: 2 }
+        ],
+        featured: true
+      },
+      {
+        id: 'p10',
+        title: 'Structured 16oz Cotton Canvas Daily Tote',
+        subtitleJp: '16oz キャンバス・デイリートート',
+        sku: 'KR-ACC-010',
+        category: 'aksesoris',
+        categoryLabel: 'Aksesoris',
+        badge: 'BEST SELLER',
+        originalPrice: 189000,
+        discountPrice: 119000,
+        discountPercent: 37,
+        description: 'Tas jinjing kanvas katun tebal 16oz berkekuatan tinggi dengan kompartemen laptop 14 inci empuk dan saku botol air minum internal.',
+        images: [
+          'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=80'
+        ],
+        colors: [
+          { name: 'Natural Off-White', hex: '#F2EDE4' },
+          { name: 'Solid Jet Black', hex: '#18181A' }
+        ],
+        sizes: [
+          { size: 'One Size', stock: 15 }
+        ],
+        featured: false
+      }
+    ];
+
+    /* -------------------------------------------------------------
+       2. APP STATE
+       ------------------------------------------------------------- */
+    let activeCategory = 'all';
+    let searchQuery = '';
+    let saleOnly = false;
+    let sortBy = 'recommended';
+
+    // Currently viewed in Modal
+    let currentModalProduct = null;
+    let selectedColorIndex = 0;
+    let selectedSizeIndex = 0;
+    let modalQuantity = 1;
+
+    // Shopping Cart State
+    let cart = [];
+
+    /* Format Currency Helper */
+    function formatRupiah(num) {
+      return 'Rp ' + Number(num).toLocaleString('id-ID');
+    }
+
+    /* -------------------------------------------------------------
+       3. RENDER PRODUCT CATALOG ETALASE
+       ------------------------------------------------------------- */
+    function renderProductGrid() {
+      const container = document.getElementById('product-grid-container');
+      const counterEl = document.getElementById('active-item-counter');
+      if (!container) return;
+
+      // Filtering
+      let filtered = PRODUCTS_DATA.filter(item => {
+        const matchesCategory = (activeCategory === 'all') || (item.category === activeCategory);
+        const matchesSale = !saleOnly || (item.discountPercent > 0);
+        const q = searchQuery.toLowerCase().trim();
+        const matchesSearch = !q ||
+          item.title.toLowerCase().includes(q) ||
+          item.description.toLowerCase().includes(q) ||
+          item.sku.toLowerCase().includes(q) ||
+          item.categoryLabel.toLowerCase().includes(q);
+
+        return matchesCategory && matchesSale && matchesSearch;
+      });
+
+      // Sorting
+      if (sortBy === 'discount-desc') {
+        filtered.sort((a, b) => b.discountPercent - a.discountPercent);
+      } else if (sortBy === 'price-asc') {
+        filtered.sort((a, b) => a.discountPrice - b.discountPrice);
+      } else if (sortBy === 'price-desc') {
+        filtered.sort((a, b) => b.discountPrice - a.discountPrice);
+      } else if (sortBy === 'name-asc') {
+        filtered.sort((a, b) => a.title.localeCompare(b.title));
+      } else {
+        // Recommended: Featured first
+        filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      }
+
+      // Update counters
+      counterEl.textContent = `Menampilkan ${filtered.length} dari ${PRODUCTS_DATA.length} Produk`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <h3 style="font-size:18px; margin-bottom:8px; font-weight:800;">Tidak Menemukan Pakaian yang Cocok</h3>
+            <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:16px;">
+              Coba kurangi kata kunci pencarian atau matikan filter diskon khusus.
+            </p>
+            <button class="btn-primary-red" onclick="resetFilters()">Reset Semua Filter</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        // Color dots
+        const colorDotsHtml = item.colors.slice(0, 4).map(c => 
+          `<span class="color-dot" style="background-color: ${c.hex};" title="${c.name}"></span>`
+        ).join('');
+
+        // Size pills
+        const sizePillsHtml = item.sizes.slice(0, 5).map(s => 
+          `<span class="size-pill-mini">${s.size}</span>`
+        ).join('');
+
+        return `
+          <article class="product-card" onclick="openProductModal('${item.id}')">
+            ${item.discountPercent > 0 ? `<span class="card-badge-sale">HEMAT ${item.discountPercent}%</span>` : ''}
+            <span class="card-badge-tag">${item.categoryLabel}</span>
+
+            <div class="card-img-wrap">
+              <img src="${item.images[0]}" alt="${item.title}" class="card-img" loading="lazy">
+              <div class="card-quick-overlay">
+                <button class="btn-quick-preview" onclick="event.stopPropagation(); openProductModal('${item.id}')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  Preview Cepat & Size
+                </button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div>
+                <div class="card-colors">
+                  ${colorDotsHtml}
+                  ${item.colors.length > 4 ? `<span class="color-count-text">+${item.colors.length - 4}</span>` : ''}
+                </div>
+                <div class="card-category-sub">${item.sku}</div>
+                <h3 class="card-title">${item.title}</h3>
+                <div class="card-sizes-row">
+                  ${sizePillsHtml}
+                </div>
+              </div>
+
+              <div class="card-price-row">
+                <div class="card-price-group">
+                  <span class="card-price-final">${formatRupiah(item.discountPrice)}</span>
+                  ${item.originalPrice > item.discountPrice ? `<span class="card-price-strike">${formatRupiah(item.originalPrice)}</span>` : ''}
+                </div>
+                <span class="card-discount-pill">-${item.discountPercent}%</span>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    /* -------------------------------------------------------------
+       4. CATEGORY & FILTER INTERACTIONS
+       ------------------------------------------------------------- */
+    function setCategoryFilter(category) {
+      activeCategory = category;
+
+      // Update active nav & pills
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.getAttribute('data-cat') === category) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const titleMap = {
+        all: 'Semua Koleksi Baju Terkurasi',
+        kaos: 'Koleksi Kaos Supima & Atasan',
+        kemeja: 'Koleksi Kemeja Oxford & Flannel',
+        outer: 'Koleksi Jaket & Outerwear',
+        celana: 'Koleksi Celana Chino & Denim',
+        aksesoris: 'Aksesoris & Tas Kanvas'
+      };
+      const titleEl = document.getElementById('current-catalog-title');
+      if (titleEl) titleEl.textContent = titleMap[category] || 'Etalase Baju Terkurasi';
+
+      renderProductGrid();
+    }
+
+    function toggleSaleOnlyFilter() {
+      saleOnly = !saleOnly;
+      const btn = document.getElementById('sale-toggle-btn');
+      if (btn) {
+        if (saleOnly) {
+          btn.classList.add('active');
+          showToast('Menampilkan khusus pakaian diskon / potongan harga');
+        } else {
+          btn.classList.remove('active');
+          showToast('Menampilkan semua koleksi pakaian');
+        }
+      }
+      renderProductGrid();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val;
+      renderProductGrid();
+    }
+
+    function handleSortChange(val) {
+      sortBy = val;
+      renderProductGrid();
+    }
+
+    function resetFilters() {
+      activeCategory = 'all';
+      searchQuery = '';
+      saleOnly = false;
+      sortBy = 'recommended';
+      const searchInput = document.getElementById('catalog-search');
+      if (searchInput) searchInput.value = '';
+      const saleBtn = document.getElementById('sale-toggle-btn');
+      if (saleBtn) saleBtn.classList.remove('active');
+      const sortEl = document.getElementById('sort-select');
+      if (sortEl) sortEl.value = 'recommended';
+      setCategoryFilter('all');
+    }
+
+    function scrollToCatalog() {
+      const el = document.getElementById('catalog-anchor');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* -------------------------------------------------------------
+       5. INTERACTIVE PRODUCT PREVIEW MODAL LOGIC
+       ------------------------------------------------------------- */
+    function openProductModal(productId) {
+      const product = PRODUCTS_DATA.find(p => p.id === productId);
+      if (!product) return;
+
+      currentModalProduct = product;
+      selectedColorIndex = 0;
+      selectedSizeIndex = 0;
+      modalQuantity = 1;
+
+      // Populate text & labels
+      document.getElementById('modal-product-title').textContent = product.title;
+      document.getElementById('modal-product-subtitle-jp').textContent = product.subtitleJp;
+      document.getElementById('modal-sku-label').textContent = `SKU: ${product.sku}`;
+      document.getElementById('modal-category-label').textContent = product.categoryLabel;
+      document.getElementById('modal-product-desc').textContent = product.description;
+
+      // Prices & discount
+      document.getElementById('modal-price-discounted').textContent = formatRupiah(product.discountPrice);
+      document.getElementById('modal-price-original').textContent = formatRupiah(product.originalPrice);
+      document.getElementById('modal-discount-pill').textContent = `-${product.discountPercent}%`;
+      document.getElementById('modal-discount-badge').textContent = product.badge || `HEMAT ${product.discountPercent}%`;
+      
+      const savings = product.originalPrice - product.discountPrice;
+      document.getElementById('modal-savings-note').innerHTML = `
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span>Hemat ${formatRupiah(savings)} (${product.discountPercent}% Off)</span>
+      `;
+
+      // Main image & thumbs
+      const mainImg = document.getElementById('modal-main-image');
+      mainImg.src = product.images[0];
+      mainImg.alt = product.title;
+
+      const thumbsContainer = document.getElementById('modal-thumbnails-container');
+      thumbsContainer.innerHTML = product.images.map((img, i) => `
+        <div class="thumb-item ${i === 0 ? 'active' : ''}" onclick="selectModalImage('${img}', this)">
+          <img src="${img}" alt="Thumbnail ${i + 1}">
+        </div>
+      `).join('');
+
+      // Colors
+      renderModalColors();
+
+      // Sizes
+      renderModalSizes();
+
+      // Quantity & Subtotal
+      updateModalSubtotal();
+
+      // Show modal
+      const backdrop = document.getElementById('product-modal-backdrop');
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function selectModalImage(imgUrl, thumbEl) {
+      const mainImg = document.getElementById('modal-main-image');
+      mainImg.src = imgUrl;
+
+      document.querySelectorAll('#modal-thumbnails-container .thumb-item').forEach(el => el.classList.remove('active'));
+      if (thumbEl) thumbEl.classList.add('active');
+    }
+
+    function renderModalColors() {
+      if (!currentModalProduct) return;
+      const container = document.getElementById('modal-colors-container');
+      const label = document.getElementById('modal-selected-color-name');
+
+      label.textContent = currentModalProduct.colors[selectedColorIndex].name;
+
+      container.innerHTML = currentModalProduct.colors.map((color, i) => `
+        <button class="swatch-btn ${i === selectedColorIndex ? 'active' : ''}" 
+                onclick="selectModalColor(${i})" 
+                title="${color.name}"
+                aria-label="Pilih warna ${color.name}">
+          <span class="swatch-inner" style="background-color: ${color.hex};"></span>
+        </button>
+      `).join('');
+    }
+
+    function selectModalColor(index) {
+      selectedColorIndex = index;
+      renderModalColors();
+    }
+
+    function renderModalSizes() {
+      if (!currentModalProduct) return;
+      const container = document.getElementById('modal-sizes-container');
+      const label = document.getElementById('modal-selected-size-name');
+      const stockText = document.getElementById('stock-text');
+
+      const currentSize = currentModalProduct.sizes[selectedSizeIndex];
+      label.textContent = currentSize.size;
+      stockText.textContent = `Stok tersedia: ${currentSize.stock} pcs untuk ukuran ${currentSize.size}`;
+
+      container.innerHTML = currentModalProduct.sizes.map((s, i) => `
+        <button class="size-btn ${i === selectedSizeIndex ? 'active' : ''}" 
+                onclick="selectModalSize(${i})"
+                aria-label="Pilih ukuran ${s.size}">
+          ${s.size}
+        </button>
+      `).join('');
+    }
+
+    function selectModalSize(index) {
+      selectedSizeIndex = index;
+      renderModalSizes();
+    }
+
+    function updateModalQuantity(delta) {
+      const maxStock = currentModalProduct.sizes[selectedSizeIndex].stock;
+      modalQuantity = Math.max(1, Math.min(maxStock, modalQuantity + delta));
+      document.getElementById('modal-qty-display').textContent = modalQuantity;
+      updateModalSubtotal();
+    }
+
+    function updateModalSubtotal() {
+      if (!currentModalProduct) return;
+      const total = currentModalProduct.discountPrice * modalQuantity;
+      document.getElementById('modal-subtotal-sum').textContent = formatRupiah(total);
+    }
+
+    function closeProductModal() {
+      const backdrop = document.getElementById('product-modal-backdrop');
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+      currentModalProduct = null;
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'product-modal-backdrop') {
+        closeProductModal();
+      }
+    }
+
+    /* -------------------------------------------------------------
+       6. SHOPPING CART & SLIDE-OVER DRAWER
+       ------------------------------------------------------------- */
+    function addCurrentProductToCart() {
+      if (!currentModalProduct) return;
+
+      const sizeObj = currentModalProduct.sizes[selectedSizeIndex];
+      const colorObj = currentModalProduct.colors[selectedColorIndex];
+
+      // Check if already in cart with same size & color
+      const existing = cart.find(item => 
+        item.productId === currentModalProduct.id && 
+        item.size === sizeObj.size && 
+        item.color === colorObj.name
+      );
+
+      if (existing) {
+        existing.qty += modalQuantity;
+      } else {
+        cart.push({
+          cartId: Date.now().toString() + Math.random().toString().slice(2, 6),
+          productId: currentModalProduct.id,
+          title: currentModalProduct.title,
+          image: currentModalProduct.images[0],
+          size: sizeObj.size,
+          color: colorObj.name,
+          colorHex: colorObj.hex,
+          discountPrice: currentModalProduct.discountPrice,
+          originalPrice: currentModalProduct.originalPrice,
+          qty: modalQuantity
+        });
+      }
+
+      showToast(`+${modalQuantity} ${currentModalProduct.title} (${sizeObj.size} / ${colorObj.name}) masuk keranjang!`, true);
+      updateCartUI();
+      closeProductModal();
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const backdrop = document.getElementById('cart-drawer-backdrop');
+      if (open) {
+        drawer.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      } else {
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function updateCartUI() {
+      const counterBadge = document.getElementById('cart-counter-badge');
+      const drawerCount = document.getElementById('cart-drawer-count');
+      const itemsContainer = document.getElementById('cart-items-container');
+
+      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      counterBadge.textContent = totalItems;
+      drawerCount.textContent = `(${totalItems} item)`;
+
+      let totalNormal = 0;
+      let totalDiscounted = 0;
+
+      cart.forEach(item => {
+        totalNormal += (item.originalPrice * item.qty);
+        totalDiscounted += (item.discountPrice * item.qty);
+      });
+
+      const totalSavings = totalNormal - totalDiscounted;
+      const isFreeShipping = totalDiscounted >= 299000 || totalDiscounted === 0;
+
+      // Free shipping progress bar
+      const fillBar = document.getElementById('shipping-progress-fill');
+      const textBar = document.getElementById('shipping-progress-text');
+
+      if (totalDiscounted >= 299000) {
+        fillBar.style.width = '100%';
+        textBar.textContent = 'Selamat! Anda berhak atas GRATIS ONGKIR ke seluruh Indonesia!';
+      } else {
+        const remaining = 299000 - totalDiscounted;
+        const pct = Math.min(100, Math.round((totalDiscounted / 299000) * 100));
+        fillBar.style.width = `${pct}%`;
+        textBar.textContent = `Tambah ${formatRupiah(remaining)} lagi untuk GRATIS ONGKIR!`;
+      }
+
+      // Summary
+      document.getElementById('cart-summary-original').textContent = formatRupiah(totalNormal);
+      document.getElementById('cart-summary-discount').textContent = `- ${formatRupiah(totalSavings)}`;
+      document.getElementById('cart-summary-shipping').textContent = isFreeShipping ? 'GRATIS (Rp 0)' : 'Rp 15.000';
+      
+      const finalPay = isFreeShipping ? totalDiscounted : (totalDiscounted + 15000);
+      document.getElementById('cart-summary-total').textContent = formatRupiah(finalPay);
+
+      // Render items
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = `
+          <div class="cart-empty">
+            <div class="cart-empty-icon">🛍️</div>
+            <h4 style="font-size:16px; font-weight:800; margin-bottom:6px; color:var(--text-main);">Keranjang Masih Kosong</h4>
+            <p style="font-size:13px; color:var(--text-muted); margin-bottom:18px;">
+              Pilih baju impian Anda dari etalase untuk memesan.
+            </p>
+            <button class="btn-primary-red" onclick="toggleCartDrawer(false); scrollToCatalog();" style="width:100%; justify-content:center;">
+              Mulai Belanja Baju
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      itemsContainer.innerHTML = cart.map(item => `
+        <div class="cart-item-card">
+          <div class="cart-item-thumb">
+            <img src="${item.image}" alt="${item.title}">
+          </div>
+          <div class="cart-item-details">
+            <h4 class="cart-item-name">${item.title}</h4>
+            <div class="cart-item-meta">
+              <span>Ukuran: <strong>${item.size}</strong></span>
+              <span>•</span>
+              <span>Warna: <strong>${item.color}</strong></span>
+            </div>
+            <div class="cart-item-prices">
+              <span class="cart-item-price-now">${formatRupiah(item.discountPrice * item.qty)}</span>
+              <span class="cart-item-price-old">${formatRupiah(item.originalPrice * item.qty)}</span>
+            </div>
+          </div>
+          <div class="cart-item-actions">
+            <div class="cart-qty-mini">
+              <button class="cart-qty-btn" onclick="updateCartItemQty('${item.cartId}', -1)">−</button>
+              <span class="cart-qty-val">${item.qty}</span>
+              <button class="cart-qty-btn" onclick="updateCartItemQty('${item.cartId}', 1)">+</button>
+            </div>
+            <button class="cart-remove-btn" onclick="removeCartItem('${item.cartId}')">Hapus</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateCartItemQty(cartId, delta) {
+      const item = cart.find(i => i.cartId === cartId);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.cartId !== cartId);
+      }
+      updateCartUI();
+    }
+
+    function removeCartItem(cartId) {
+      cart = cart.filter(i => i.cartId !== cartId);
+      updateCartUI();
+      showToast('Item berhasil dihapus dari keranjang.');
+    }
+
+    /* -------------------------------------------------------------
+       7. DIRECT WHATSAPP ORDER BUILDERS
+       ------------------------------------------------------------- */
+    function orderCurrentProductViaWA() {
+      if (!currentModalProduct) return;
+      const sizeObj = currentModalProduct.sizes[selectedSizeIndex];
+      const colorObj = currentModalProduct.colors[selectedColorIndex];
+      const subtotal = currentModalProduct.discountPrice * modalQuantity;
+
+      const waPhone = '6281234567890'; // Admin WhatsApp
+      const message = 
+`Halo Kura Apparel (蔵), saya ingin memesan baju:
+----------------------------------------
+*${currentModalProduct.title}*
+- SKU: ${currentModalProduct.sku}
+- Warna: ${colorObj.name}
+- Ukuran: ${sizeObj.size}
+- Jumlah: ${modalQuantity} pcs
+- Harga Normal: ${formatRupiah(currentModalProduct.originalPrice)}
+- Harga Diskon: ${formatRupiah(currentModalProduct.discountPrice)} (-${currentModalProduct.discountPercent}%)
+- *Total Pembayaran: ${formatRupiah(subtotal)}*
+----------------------------------------
+Mohon info ketersediaan stok & nomor rekening pembayaran. Terima kasih!`;
+
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/${waPhone}?text=${encoded}`, '_blank');
+      closeProductModal();
+    }
+
+    function checkoutWhatsAppOrder() {
+      if (cart.length === 0) {
+        showToast('Keranjang Anda masih kosong. Silakan pilih pakaian terlebih dahulu!');
+        return;
+      }
+
+      const custName = document.getElementById('cust-name').value.trim() || 'Pelanggan KURA';
+      const custWa = document.getElementById('cust-wa').value.trim() || '-';
+      const custAddress = document.getElementById('cust-address').value.trim() || 'Jakarta';
+
+      let totalNormal = 0;
+      let totalDiscounted = 0;
+      let itemsText = '';
+
+      cart.forEach((item, index) => {
+        totalNormal += (item.originalPrice * item.qty);
+        totalDiscounted += (item.discountPrice * item.qty);
+        itemsText += `${index + 1}. *${item.title}*\n   - Ukuran: ${item.size} | Warna: ${item.color}\n   - Qty: ${item.qty} pcs x ${formatRupiah(item.discountPrice)} = ${formatRupiah(item.discountPrice * item.qty)}\n`;
+      });
+
+      const totalSavings = totalNormal - totalDiscounted;
+      const isFreeShipping = totalDiscounted >= 299000;
+      const ongkir = isFreeShipping ? 0 : 15000;
+      const grandTotal = totalDiscounted + ongkir;
+
+      const waPhone = '6281234567890';
+      const message = 
+`Halo Kura Apparel (蔵), saya ingin melakukan pemesanan pakaian:
+========================================
+*RINCIAN PESANAN:*
+${itemsText}
+========================================
+- Total Harga Normal: ${formatRupiah(totalNormal)}
+- Potongan Diskon: -${formatRupiah(totalSavings)}
+- Ongkos Kirim: ${isFreeShipping ? 'GRATIS (Promo Min. Rp 299rb)' : formatRupiah(ongkir)}
+- *TOTAL TAGIHAN: ${formatRupiah(grandTotal)}*
+========================================
+*DATA PENERIMA:*
+- Nama: ${custName}
+- WhatsApp: ${custWa}
+- Alamat Kirim: ${custAddress}
+========================================
+Mohon dikonfirmasi rincian ongkir dan instruksi pembayaran. Terima kasih!`;
+
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/${waPhone}?text=${encoded}`, '_blank');
+
+      // Clear cart after checkout
+      cart = [];
+      updateCartUI();
+      toggleCartDrawer(false);
+      showToast('Pesanan telah dibuat dan diarahkan ke WhatsApp Admin!');
+    }
+
+    /* -------------------------------------------------------------
+       8. SIZE GUIDE MODAL
+       ------------------------------------------------------------- */
+    function openSizeGuideModal() {
+      const m = document.getElementById('size-guide-modal');
+      if (m) m.classList.add('open');
+    }
+
+    function closeSizeGuideModal() {
+      const m = document.getElementById('size-guide-modal');
+      if (m) m.classList.remove('open');
+    }
+
+    function handleSizeGuideBackdrop(e) {
+      if (e.target.id === 'size-guide-modal') {
+        closeSizeGuideModal();
+      }
+    }
+
+    /* -------------------------------------------------------------
+       9. TOAST NOTIFICATIONS
+       ------------------------------------------------------------- */
+    function showToast(text, withCartAction = false) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className = 'toast-card';
+      toast.innerHTML = `
+        <div class="toast-icon-check">✓</div>
+        <span>${text}</span>
+        ${withCartAction ? `<button class="toast-action-btn" onclick="toggleCartDrawer(true)">Lihat Keranjang</button>` : ''}
+      `;
+
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    /* -------------------------------------------------------------
+       10. INITIALIZATION ON LOAD
+       ------------------------------------------------------------- */
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProductGrid();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>

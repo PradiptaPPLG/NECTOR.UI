@@ -17,8 +17,10 @@ import {
   SIPARA_MASTER_PROMPT,
   RUKUN_BUAH_MASTER_PROMPT,
 } from './otherPrompts';
+import { KURA_APPAREL_MASTER_PROMPT } from './fashionPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'kura-apparel': KURA_APPAREL_MASTER_PROMPT,
   'kantin-sekolah-selasar': KANTIN_MASTER_PROMPT,
   'savore-cafe': SAVORE_MASTER_PROMPT,
   'croissant-atelier-bakery': BAKERY_MASTER_PROMPT,
@@ -60,4 +62,5 @@ export {
   LOKAL_ORGANIK_MASTER_PROMPT,
   SIPARA_MASTER_PROMPT,
   RUKUN_BUAH_MASTER_PROMPT,
+  KURA_APPAREL_MASTER_PROMPT,
 };

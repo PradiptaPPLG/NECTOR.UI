@@ -85,6 +85,7 @@ export const TemplateThumbnail: React.FC<Props> = ({ template, showBrowserChrome
     'kantin-sekolah-selasar': 'https://kantin-selasar.sch.id',
     'miau-cattery-boutique': 'https://miau.cattery.id',
     'dough-and-glaze-donat': 'https://doughglaze.id',
+    'kura-apparel': 'https://kura-apparel.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

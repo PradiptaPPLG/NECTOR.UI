@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'fashion',
+      title: 'Fashion & Toko Baju',
+      icon: Shirt,
+      desc: 'Etalase pemesanan baju & lifewear modern gaya Uniqlo: preview modal produk interaktif, kalkulasi diskon & harga coret, pemilih ukuran (XS-XXL), dan keranjang WhatsApp.',
+      accent: '#E60012'
+    },
     {
       id: 'donat',
       title: 'Toko Donat & Brioche',

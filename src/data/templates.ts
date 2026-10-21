@@ -1122,6 +1122,82 @@ export function TanahLiatStudio() {
     publishedAt: '2026-05-16',
     livePreviewAvailable: true,
     accentColor: '#F5C642'
+  },
+  {
+    id: 'tpl-23',
+    slug: 'kura-apparel',
+    title: 'KURA APPAREL (蔵)',
+    tagline: 'Katalog esensial harian gaya Jepang dengan etalase baju, kalkulasi diskon, size selector & order WhatsApp',
+    description: 'Template website pemesanan baju & fashion e-commerce dengan estetika minimalis Jepang terinspirasi UNIQLO. Dilengkapi etalase produk foto nyata, label diskon krisp, preview modal detail, pemilih warna & ukuran (XS-XXL), panduan ukuran (size chart), serta slide-over keranjang belanja terintegrasi checkout WhatsApp.',
+    category: 'fashion',
+    tags: ['Fashion', 'Toko Baju', 'Uniqlo Style', 'Size Selector', 'E-Commerce UMKM', 'WhatsApp Checkout', 'Lifewear'],
+    technologies: ['HTML5', 'Vanilla CSS3', 'Vanilla JS Modal', 'Size Selector System', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'fashion',
+    previewComponentKey: 'fashion-kura-apparel',
+    htmlPath: '/templates/fashion/kura-apparel.html',
+    htmlFolderPath: 'templates/fashion/kura-apparel.html',
+    features: [
+      'Estetika minimalis ritel Jepang ala Uniqlo: Dominasi merah krisp (#E60012) di atas kanvas putih salju (#FFFFFF) & abu-abu bersih (#F8F8F9)',
+      'Etalase 10 Produk Pakaian Foto Nyata: Kaos Supima Heavyweight Boxy, Kemeja Oxford, Field Jacket Utility, Chino Pleated, Parka Windproof, Sweatshirt, Flannel, Raw Selvedge Denim, dan Daily Tote Bag',
+      'Preview Modal Produk Interaktif: Galeri multi-foto dengan switcher thumbnail, badge promo mencolok, kalkulasi diskon & harga coret, serta catatan nominal penghematan',
+      'Pilihan Ukuran & Stok Real-Time: Selector size lengkap (XS, S, M, L, XL, XXL) dengan indikator stok otomatis per ukuran',
+      'Pemilih Warna Dinamis (Color Swatches): Swatch warna interaktif yang memperbarui label nama warna aktif seketika',
+      'Panduan Ukuran (Size Guide) Terpadu: Modal tabel dimensi Lebar Dada, Panjang Baju, Lebar Bahu, dan rekomendasi postur badan',
+      'Slide-Over Keranjang Belanja: Panel geser kanan dengan progres bar gratis ongkir (min. Rp 299rb), kalkulasi potongan diskon otomatis, dan formulir data penerima',
+      'Direct WhatsApp Order Builder: Menghasilkan format pesan pemesanan baju terstruktur (nama barang, warna, size, jumlah, harga diskon, alamat kirim) siap kirim ke penjual',
+      '100% Standalone Single-File (HTML5 + CSS + JS) tanpa framework eksternal atau build step'
+    ],
+    usageInstructions: [
+      'Buka templates/fashion/kura-apparel.html di editor kode Anda.',
+      'Perbarui atau tambahkan koleksi pakaian pada array PRODUCTS_DATA di dalam tag script (foto, harga asli, harga diskon, ukuran, dan warna).',
+      'Ganti nomor WhatsApp penjual (variabel waPhone) dengan nomor bisnis atau admin toko baju Anda.',
+      'Buka langsung file HTML di browser desktop atau smartphone untuk mulai menerima pesanan pakaian.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'kura-apparel.html',
+        language: 'html',
+        content: `<!-- KURA APPAREL (蔵) — Essential Lifewear & Garment Archive -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KURA APPAREL (蔵) — Essential Lifewear</title>
+  <style>
+    :root {
+      --uniqlo-red: #E60012;
+      --bg-white: #FFFFFF;
+      --bg-canvas: #F8F8F9;
+      --text-main: #111111;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-announcement">PROMO MUSIM INI · GRATIS ONGKIR MIN. RP 299.000</div>
+  <header>
+    <div class="brand-box">蔵 KURA</div>
+    <nav>Kaos · Kemeja · Jaket · Celana · Promo Diskon</nav>
+  </header>
+  <!-- Full functional Clothing Catalog, Size & Color Selector, Modal Preview, Slide-over Cart & WhatsApp Order Builder -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website toko dan pemesanan baju KURA APPAREL dengan estetika minimalis dominan merah ala Uniqlo, etalase pakaian foto nyata, modal preview interaktif, kalkulasi diskon & harga coret, size selector, dan keranjang belanja WhatsApp.',
+      designDirection: 'Minimalis modern ritel Jepang berstandar antislop: Uniqlo Red (#E60012), Crimson Red (#C4000F), Pure Snow White (#FFFFFF), Clean Canvas (#F8F8F9), Deep Obsidian Black (#111111), dan Hairline Red Border (#FFCCD1). Menggunakan tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Top announcement bar merah, sticky header dengan logo kotak kanji dan navigasi kategori, hero editorial dengan spotlight produk best-seller, toolbar filter chip horizontal, grid etalase baju 4 kolom responsif, modal preview 2 kolom (galeri foto + kontrol ukuran & warna), dan slide-over cart panel kanan.',
+      typographyAndColor: 'Plus Jakarta Sans berbobot tebal untuk headline dan nama koleksi baju, JetBrains Mono untuk SKU produk, size tag, dan harga rupiah.',
+      interactions: 'Pencarian real-time kata kunci, filter kategori & promo diskon, modal preview cepat dengan pergantian foto thumbnail, selector warna & size interaktif dengan live stock counter, counter kuantitas dengan kalkulasi subtotal dinamis, modal size guide, dan integrasi checkout WhatsApp otomatis.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive dari 360px smartphone hingga 1440px desktop.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-05-18',
+    livePreviewAvailable: true,
+    accentColor: '#E60012'
   }
 ];
 

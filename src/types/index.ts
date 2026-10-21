@@ -17,6 +17,7 @@ export type Category =
   | 'sekolah'
   | 'pet'
   | 'donat'
+  | 'fashion'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';
