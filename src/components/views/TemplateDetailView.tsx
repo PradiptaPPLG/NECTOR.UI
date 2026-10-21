@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import type { Template } from '../../types';
 import { TemplateLivePreview } from '../previews/TemplateLivePreview';
+import { PromptInspectorView } from './PromptInspectorView';
 import {
   ArrowLeft,
   Monitor,
@@ -45,7 +46,6 @@ export const TemplateDetailView: React.FC<Props> = ({
   const [viewportWidth, setViewportWidth] = useState<'100%' | '768px' | '375px'>('100%');
   const [selectedFileIdx, setSelectedFileIdx] = useState<number>(0);
   const [copiedCode, setCopiedCode] = useState(false);
-  const [copiedPrompt, setCopiedPrompt] = useState(false);
   const [loadedSourceCode, setLoadedSourceCode] = useState<string | null>(null);
   const [isLoadingSource, setIsLoadingSource] = useState(false);
   const codeSectionRef = useRef<HTMLElement>(null);
@@ -143,30 +143,6 @@ export const TemplateDetailView: React.FC<Props> = ({
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
     onToast(`Berkas ${activeFileName} (${fileSizeKb} KB) berhasil diunduh!`);
-  };
-
-  const handleCopyFullPrompt = () => {
-    const fullPromptText = `SPESIFIKASI PROMPT UNTUK ${template.title.toUpperCase()}
-
-ARAH DESAIN & IDENTITAS MEREK:
-${template.prompt.designDirection}
-
-TATA LETAK, SISTEM GRID & RITME DESAIN:
-${template.prompt.layoutAndGrid}
-
-KOMBINASI TIPOGRAFI & PALET WARNA:
-${template.prompt.typographyAndColor}
-
-INTERAKSI FISIK & MIKROANIMASI:
-${template.prompt.interactions}
-
-AKSESIBILITAS & PERSYARATAN TEKNIS:
-${template.prompt.technicalRequirements}
-`;
-    navigator.clipboard.writeText(fullPromptText);
-    setCopiedPrompt(true);
-    onToast(`Spesifikasi Prompt AI berhasil disalin ke clipboard!`);
-    setTimeout(() => setCopiedPrompt(false), 2000);
   };
 
   return (
@@ -476,74 +452,7 @@ ${template.prompt.technicalRequirements}
         {/* TAB 3: PROMPT INSPECTOR */}
         {activeTab === 'prompt' && (
           <section className="detail-prompt-section">
-            <div className="prompt-inspector-card">
-              <div className="prompt-topbar">
-                <div className="pt-title-group">
-                  <span className="mono badge-subtle">
-                    {template.prompt.isReconstructed ? 'SPESIFIKASI PROMPT REKONSTRUKSI' : 'SPESIFIKASI ASLI NECTOR'}
-                  </span>
-                  <h2>Prompt AI & Cetak Biru Arah Desain</h2>
-                  <p className="prompt-summary-text">{template.prompt.summary}</p>
-                </div>
-
-                <button className="btn-copy-full-prompt" onClick={handleCopyFullPrompt}>
-                  {copiedPrompt ? <Check size={14} color="#C44525" /> : <Copy size={14} />}
-                  <span>{copiedPrompt ? 'Spesifikasi Tersalin' : 'Salin Seluruh Prompt Spesifikasi'}</span>
-                </button>
-              </div>
-
-              <div className="prompt-sections-stack">
-                <div className="prompt-block">
-                  <div className="pb-header mono">
-                    <span className="pb-num">01</span>
-                    <span>ARAH DESAIN & IDENTITAS MEREK</span>
-                  </div>
-                  <div className="pb-body">
-                    <p>{template.prompt.designDirection}</p>
-                  </div>
-                </div>
-
-                <div className="prompt-block">
-                  <div className="pb-header mono">
-                    <span className="pb-num">02</span>
-                    <span>TATA LETAK, SISTEM GRID & RITME DESAIN</span>
-                  </div>
-                  <div className="pb-body">
-                    <p>{template.prompt.layoutAndGrid}</p>
-                  </div>
-                </div>
-
-                <div className="prompt-block">
-                  <div className="pb-header mono">
-                    <span className="pb-num">03</span>
-                    <span>KOMBINASI TIPOGRAFI & PALET WARNA</span>
-                  </div>
-                  <div className="pb-body">
-                    <p>{template.prompt.typographyAndColor}</p>
-                  </div>
-                </div>
-
-                <div className="prompt-block">
-                  <div className="pb-header mono">
-                    <span className="pb-num">04</span>
-                    <span>INTERAKSI FISIK & MIKROANIMASI</span>
-                  </div>
-                  <div className="pb-body">
-                    <p>{template.prompt.interactions}</p>
-                  </div>
-                </div>
-
-                <div className="prompt-block">
-                  <div className="pb-header mono">
-                    <span className="pb-num">05</span>
-                    <span>AKSESIBILITAS & PERSYARATAN TEKNIS</span>
-                  </div>
-                  <div className="pb-body">
-                    <p>{template.prompt.technicalRequirements}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <PromptInspectorView template={template} onToast={onToast} />
           </section>
         )}
       </div>

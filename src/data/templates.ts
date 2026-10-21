@@ -1,4 +1,5 @@
 import type { Template } from '../types';
+import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
@@ -1123,6 +1124,16 @@ export function TanahLiatStudio() {
     accentColor: '#F5C642'
   }
 ];
+
+// Enrich all templates with their comprehensive AI Master Prompts
+TEMPLATES_DATA.forEach((template) => {
+  const masterPrompt = getMasterPrompt(template.slug);
+  if (masterPrompt) {
+    template.prompt.masterPrompt = masterPrompt;
+    template.prompt.isReconstructed = true;
+  }
+});
+
 
 
 

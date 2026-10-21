@@ -36,6 +36,13 @@ export interface TemplateFile {
   description?: string;
 }
 
+export interface MasterPromptSection {
+  id: string;
+  number: string;
+  title: string;
+  content: string;
+}
+
 export interface TemplatePrompt {
   summary: string;
   designDirection: string;
@@ -44,6 +51,8 @@ export interface TemplatePrompt {
   interactions: string;
   technicalRequirements: string;
   isReconstructed?: boolean;
+  masterPrompt?: string;
+  parsedSections?: MasterPromptSection[];
 }
 
 export interface Template {
