@@ -28,16 +28,17 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
-    templates.find(t => t.slug === 'kemas-lab-packaging') || templates[0],
-    templates.find(t => t.slug === 'arung-technical-footwear') || templates[1],
-    templates.find(t => t.slug === 'maison-nocturne-parfumerie') || templates[2],
-    templates.find(t => t.slug === 'kura-apparel') || templates[3],
-    templates.find(t => t.slug === 'rukun-buah-segar') || templates[4],
+    templates.find(t => t.slug === 'wana-wild-honey') || templates[0],
+    templates.find(t => t.slug === 'kemas-lab-packaging') || templates[1],
+    templates.find(t => t.slug === 'arung-technical-footwear') || templates[2],
+    templates.find(t => t.slug === 'maison-nocturne-parfumerie') || templates[3],
+    templates.find(t => t.slug === 'kura-apparel') || templates[4],
   ];
 
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'apiculture', label: 'Madu Hutan & Apikultur', count: templates.filter(t => t.category === 'apiculture').length, desc: 'Arsip madu hutan liar Nusantara, pemilih 4 terroir kanopi hutan, flight builder & uji kadar air lab' },
     { id: 'packaging', label: 'Kemasan & Sablon Kustom', count: templates.filter(t => t.category === 'packaging').length, desc: 'Studio kemasan ramah lingkungan, visualizer sablon cup/box live & kalkulator grosir MOQ' },
     { id: 'footwear', label: 'Sneakers & Sepatu', count: templates.filter(t => t.category === 'footwear').length, desc: 'Rekayasa sepatu teknikal iklim tropis, inspeksi anatomi sol, colorway studio & size calculator' },
     { id: 'perfumery', label: 'Parfum & Aromatik', count: templates.filter(t => t.category === 'perfumery').length, desc: 'Atelier haute parfumerie botani, piramida olfaktori, discovery set & monogram studio' },
