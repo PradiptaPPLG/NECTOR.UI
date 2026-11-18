@@ -209,7 +209,7 @@ export const TemplateDetailView: React.FC<Props> = ({
               onClick={() => setActiveTab('color')}
             >
               <Palette size={15} />
-              <span>Palet Warna</span>
+              <span>Color / Palet Warna</span>
             </button>
           </div>
 

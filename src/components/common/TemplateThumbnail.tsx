@@ -92,6 +92,7 @@ export const TemplateThumbnail: React.FC<Props> = ({ template, showBrowserChrome
     'wana-wild-honey': 'https://wana-honey.nector.ui',
     'kayan-solid-furniture': 'https://kayan-furniture.nector.ui',
     'sola-artisan-gelato': 'https://solagelato.nector.ui',
+    'svala-nordic-bathhouse': 'https://svalabathhouse.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

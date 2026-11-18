@@ -28,16 +28,17 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
-    templates.find(t => t.slug === 'sola-artisan-gelato') || templates[0],
-    templates.find(t => t.slug === 'kayan-solid-furniture') || templates[1],
-    templates.find(t => t.slug === 'wana-wild-honey') || templates[2],
-    templates.find(t => t.slug === 'kemas-lab-packaging') || templates[3],
-    templates.find(t => t.slug === 'arung-technical-footwear') || templates[4],
+    templates.find(t => t.slug === 'svala-nordic-bathhouse') || templates[0],
+    templates.find(t => t.slug === 'sola-artisan-gelato') || templates[1],
+    templates.find(t => t.slug === 'kayan-solid-furniture') || templates[2],
+    templates.find(t => t.slug === 'wana-wild-honey') || templates[3],
+    templates.find(t => t.slug === 'kemas-lab-packaging') || templates[4],
   ];
 
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'wellness', label: 'Hidroterapi & Bathhouse', count: templates.filter(t => t.category === 'wellness').length, desc: 'Santuari pemandian termal Nordik, telemetri suhu 4 kolam live, ritual kontras 90-menit & lab air murni' },
     { id: 'gelato', label: 'Gelato & Sorbet', count: templates.filter(t => t.category === 'gelato').length, desc: 'Gelato artigianale Italia lambat, boks 3-pint pendingin dry ice & sains overrun' },
     { id: 'furniture', label: 'Perabot Kayu & Rotan', count: templates.filter(t => t.category === 'furniture').length, desc: 'Studio perabot kayu solid SVLK, studio kustomisasi material live & simulasi luas ruang' },
     { id: 'apiculture', label: 'Madu Hutan & Apikultur', count: templates.filter(t => t.category === 'apiculture').length, desc: 'Arsip madu hutan liar Nusantara, pemilih 4 terroir kanopi hutan, flight builder & uji kadar air lab' },

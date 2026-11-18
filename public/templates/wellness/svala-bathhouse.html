@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVALA (スヴァラ) — Nordic Thermal Bathhouse & Mineral Hydrotherapy Sanctuary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       SVALA THERMAL BATHHOUSE — DESIGN SYSTEM (CRISP MINERAL AQUA PALETTE)
+       Colors extracted directly from user palette:
+       #E3FDFD · #CBF1F5 · #A6E3E9 · #71C9CE
+       ========================================================================== */
+    :root {
+      --svala-mist: #E3FDFD;       /* Pale glacial mist / canvas tint */
+      --svala-foam: #CBF1F5;       /* Soft aerated spring tint */
+      --svala-cyan: #A6E3E9;       /* Vibrant thermal cyan */
+      --svala-teal: #71C9CE;       /* Deep mineral sea glass / accent */
+      --svala-teal-dark: #4FA8AD;  /* Hover / border deep teal */
+
+      --ink-abyssal: #091C22;      /* Ultra deep mineral ink (WCAG AAA) */
+      --ink-primary: #0F2B33;      /* Primary text */
+      --ink-secondary: #3B5A64;    /* Supporting editorial text */
+      --ink-muted: #668894;        /* Monospace / metadata text */
+
+      --bg-canvas: #F6FCFD;        /* Soft paper mineral canvas */
+      --bg-surface: #FFFFFF;       /* Pure white card */
+      --bg-surface-tint: rgba(227, 253, 253, 0.55);
+
+      --border-light: rgba(113, 201, 206, 0.22);
+      --border-medium: rgba(113, 201, 206, 0.42);
+      --border-solid: #A6E3E9;
+
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --radius-pill: 999px;
+
+      --shadow-sm: 0 2px 8px rgba(9, 28, 34, 0.04);
+      --shadow-md: 0 8px 24px rgba(9, 28, 34, 0.08);
+      --shadow-lg: 0 16px 40px rgba(113, 201, 206, 0.16);
+
+      --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    .serif-display {
+      font-family: var(--font-display);
+      letter-spacing: 0.04em;
+    }
+
+    /* -------------------------------------------------------------
+       1. TOP WATER STATUS TICKER & TELEMETRY
+       ------------------------------------------------------------- */
+    .top-telemetry-bar {
+      background-color: var(--ink-abyssal);
+      color: var(--svala-mist);
+      padding: 8px 24px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      border-bottom: 1px solid rgba(166, 227, 233, 0.2);
+    }
+
+    .telemetry-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .telemetry-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      white-space: nowrap;
+    }
+
+    .pulse-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--svala-cyan);
+      font-weight: 600;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--svala-teal);
+      box-shadow: 0 0 8px var(--svala-teal);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .telemetry-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 10.5px;
+      color: var(--svala-foam);
+      white-space: nowrap;
+    }
+
+    /* -------------------------------------------------------------
+       2. PRIMARY NAVBAR (100% SINGLE-LINE & ANTI-SLOP PROTECTED)
+       ------------------------------------------------------------- */
+    header.site-header {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: var(--transition-smooth);
+    }
+
+    .navbar-inner {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .brand-symbol-box {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--svala-cyan), var(--svala-teal));
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-abyssal);
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      box-shadow: 0 3px 10px rgba(113, 201, 206, 0.35);
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--ink-abyssal);
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: var(--ink-muted);
+      margin-top: 3px;
+      text-transform: uppercase;
+    }
+
+    /* Strictly single-line nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      letter-spacing: 0.02em;
+      position: relative;
+      padding: 6px 0;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--ink-abyssal);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--svala-teal);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-booking-shortcut {
+      background: var(--svala-foam);
+      border: 1px solid var(--svala-teal);
+      color: var(--ink-abyssal);
+      padding: 8px 15px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-booking-shortcut:hover {
+      background: var(--svala-teal);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(113, 201, 206, 0.35);
+    }
+
+    .cart-btn-trigger {
+      background: var(--ink-abyssal);
+      color: var(--svala-mist);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cart-btn-trigger:hover {
+      background: var(--ink-primary);
+      color: #FFFFFF;
+    }
+
+    .cart-badge-count {
+      background: var(--svala-teal);
+      color: var(--ink-abyssal);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 999px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 6px;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink-primary);
+    }
+
+    /* -------------------------------------------------------------
+       3. HERO SECTION (EDITORIAL ARCHITECTURAL WATER SANCTUARY)
+       ------------------------------------------------------------- */
+    .hero-sanctuary {
+      position: relative;
+      padding: 70px 0 60px 0;
+      background: linear-gradient(180deg, var(--svala-mist) 0%, rgba(246, 252, 253, 0.4) 60%, var(--bg-canvas) 100%);
+      border-bottom: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: -40px;
+      right: -20px;
+      font-family: var(--font-display);
+      font-size: 160px;
+      font-weight: 800;
+      color: rgba(113, 201, 206, 0.08);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11.5px;
+      color: var(--ink-secondary);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-badge {
+      background: #FFFFFF;
+      border: 1px solid var(--svala-teal);
+      color: var(--ink-abyssal);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: 42px;
+      line-height: 1.15;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--svala-teal-dark);
+      text-decoration: underline;
+      text-decoration-color: var(--svala-cyan);
+      text-underline-offset: 4px;
+    }
+
+    .hero-lead {
+      font-size: 16px;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      background: var(--ink-abyssal);
+      color: var(--svala-mist);
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 13.5px;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      border: 1px solid var(--ink-abyssal);
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--svala-teal);
+      border-color: var(--svala-teal);
+      color: var(--ink-abyssal);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-hero-secondary {
+      background: #FFFFFF;
+      color: var(--ink-abyssal);
+      border: 1px solid var(--border-medium);
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 13.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-hero-secondary:hover {
+      border-color: var(--svala-teal);
+      background: var(--svala-mist);
+    }
+
+    .hero-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+      line-height: 1.2;
+    }
+
+    .metric-sub {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    /* Hero Right Visual Card */
+    .hero-showcase-card {
+      position: relative;
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      height: 380px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--ink-abyssal);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-img-wrap:hover img {
+      transform: scale(1.03);
+    }
+
+    .hero-floating-telemetry-card {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(9, 28, 34, 0.88);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(166, 227, 233, 0.35);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      color: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hfc-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--svala-cyan);
+    }
+
+    .hfc-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .hfc-temp {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--svala-mist);
+    }
+
+    /* -------------------------------------------------------------
+       4. LIVE POOL TELEMETRY SELECTOR (4 THERMAL BASINS)
+       ------------------------------------------------------------- */
+    .section-pools {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .section-header-centered {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px auto;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--svala-teal-dark);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 14.5px;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+    }
+
+    .pools-tabs-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .pool-tab-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .pool-tab-btn:hover {
+      border-color: var(--svala-teal);
+      color: var(--ink-abyssal);
+    }
+
+    .pool-tab-btn.active {
+      background: var(--ink-abyssal);
+      border-color: var(--ink-abyssal);
+      color: var(--svala-mist);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pool-tab-temp-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: var(--radius-pill);
+      background: var(--svala-foam);
+      color: var(--ink-abyssal);
+    }
+    .pool-tab-btn.active .pool-tab-temp-badge {
+      background: var(--svala-teal);
+      color: var(--ink-abyssal);
+    }
+
+    /* Selected Pool Display Panel */
+    .pool-display-panel {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      box-shadow: var(--shadow-md);
+    }
+
+    .pdp-visual {
+      position: relative;
+      height: 440px;
+      background: var(--ink-abyssal);
+    }
+
+    .pdp-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pdp-badge-status {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(9, 28, 34, 0.85);
+      border: 1px solid rgba(166, 227, 233, 0.4);
+      color: var(--svala-mist);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pdp-details {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pdp-top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .pdp-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+    }
+
+    .pdp-temp-big {
+      font-family: var(--font-mono);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--svala-teal-dark);
+      text-align: right;
+    }
+    .pdp-temp-unit {
+      font-size: 14px;
+      color: var(--ink-muted);
+      display: block;
+      font-weight: 500;
+    }
+
+    .pdp-narrative {
+      font-size: 14.5px;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .pdp-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      padding: 18px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      margin-bottom: 28px;
+    }
+
+    .pdp-spec-label {
+      font-size: 11px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+
+    .pdp-spec-val {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+    }
+
+    .pdp-action-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* -------------------------------------------------------------
+       5. INTERACTIVE 90-MIN THERMAL CIRCUIT BUILDER
+       ------------------------------------------------------------- */
+    .section-circuit {
+      padding: 80px 0;
+      background: linear-gradient(180deg, var(--bg-canvas) 0%, rgba(203, 241, 245, 0.25) 50%, var(--bg-canvas) 100%);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .circuit-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .circuit-intentions-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .intent-card {
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      background: #FFFFFF;
+      text-align: left;
+    }
+
+    .intent-card:hover {
+      border-color: var(--svala-teal);
+      background: var(--bg-canvas);
+    }
+
+    .intent-card.active {
+      border-color: var(--svala-teal-dark);
+      background: var(--svala-mist);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .intent-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+      margin-bottom: 4px;
+    }
+
+    .intent-desc {
+      font-size: 12px;
+      color: var(--ink-secondary);
+      line-height: 1.4;
+    }
+
+    /* Visual Circuit Flow Steps */
+    .circuit-timeline-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      position: relative;
+      margin-bottom: 36px;
+    }
+
+    .timeline-step-card {
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 20px 18px;
+      position: relative;
+    }
+
+    .step-badge-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--svala-teal-dark);
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .step-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+      margin-bottom: 4px;
+    }
+
+    .step-temp {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--svala-teal-dark);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    /* Circuit Summary & Booking Callout */
+    .circuit-summary-bar {
+      background: var(--ink-abyssal);
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      padding: 22px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .csb-metrics {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .csb-metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .csb-label {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--svala-cyan);
+    }
+
+    .csb-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--svala-mist);
+      margin-top: 2px;
+    }
+
+    /* -------------------------------------------------------------
+       6. WATER PURITY & MINERAL LAB CERTIFICATION (ANTI-SLOP METRICS)
+       ------------------------------------------------------------- */
+    .section-mineral-lab {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .lab-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .lab-cert-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .cert-stamp {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      border: 1.5px dashed var(--svala-teal);
+      color: var(--svala-teal-dark);
+      padding: 4px 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+
+    .cert-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+      margin-bottom: 6px;
+    }
+
+    .cert-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+    }
+
+    .mineral-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .mineral-data-table th {
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 2px solid var(--border-medium);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mineral-data-table td {
+      padding: 12px 8px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--ink-primary);
+    }
+
+    .mineral-data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .td-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--ink-abyssal);
+    }
+
+    .td-status {
+      color: #16a34a;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    /* -------------------------------------------------------------
+       7. APOTHECARY & BATH SALTS STORE (FUNCTIONAL CART)
+       ------------------------------------------------------------- */
+    .section-apothecary {
+      padding: 80px 0;
+      background: var(--bg-canvas);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--svala-teal);
+    }
+
+    .prod-img-box {
+      height: 220px;
+      position: relative;
+      background: var(--svala-mist);
+      overflow: hidden;
+    }
+
+    .prod-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .prod-img-box img {
+      transform: scale(1.05);
+    }
+
+    .prod-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--ink-abyssal);
+      color: var(--svala-mist);
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.05em;
+    }
+
+    .prod-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .prod-origin {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .prod-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .prod-desc {
+      font-size: 12px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .prod-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .prod-price {
+      font-family: var(--font-mono);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+    }
+
+    .btn-add-cart {
+      background: var(--svala-foam);
+      border: 1px solid var(--svala-teal);
+      color: var(--ink-abyssal);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-add-cart:hover {
+      background: var(--svala-teal);
+      color: #FFFFFF;
+    }
+
+    /* -------------------------------------------------------------
+       8. RESERVATION & BATH SUITE BOOKING MODAL
+       ------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 28, 34, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      max-width: 580px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 32px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      color: var(--ink-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+      margin-bottom: 6px;
+    }
+
+    .modal-sub {
+      font-size: 13px;
+      color: var(--ink-secondary);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--ink-primary);
+      background: var(--bg-canvas);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--svala-teal);
+      background: #FFFFFF;
+    }
+
+    .btn-submit-booking {
+      width: 100%;
+      background: var(--ink-abyssal);
+      color: var(--svala-mist);
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-submit-booking:hover {
+      background: var(--svala-teal);
+      color: var(--ink-abyssal);
+    }
+
+    /* -------------------------------------------------------------
+       9. CART DRAWER COMPONENT
+       ------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 28, 34, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1200;
+      display: none;
+    }
+
+    .cart-drawer-overlay.active {
+      display: block;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 380px;
+      height: 100%;
+      background: #FFFFFF;
+      box-shadow: -8px 0 32px rgba(9, 28, 34, 0.2);
+      z-index: 1300;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer.active {
+      right: 0;
+    }
+
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-canvas);
+    }
+
+    .cdh-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+    }
+
+    .cart-drawer-items {
+      padding: 20px 24px;
+      flex-grow: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .cart-item-info {
+      flex-grow: 1;
+    }
+
+    .cart-item-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink-abyssal);
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--svala-teal-dark);
+      margin-top: 2px;
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .btn-qty {
+      width: 22px;
+      height: 22px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .cart-drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-light);
+      background: var(--bg-canvas);
+    }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .cart-total-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink-abyssal);
+    }
+
+    .btn-checkout {
+      width: 100%;
+      background: var(--ink-abyssal);
+      color: var(--svala-mist);
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-align: center;
+      display: block;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-checkout:hover {
+      background: var(--svala-teal);
+      color: var(--ink-abyssal);
+    }
+
+    /* -------------------------------------------------------------
+       10. FOOTER SECTION
+       ------------------------------------------------------------- */
+    footer.site-footer {
+      background: var(--ink-abyssal);
+      color: var(--svala-foam);
+      padding: 60px 0 30px 0;
+      border-top: 1px solid rgba(166, 227, 233, 0.2);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--svala-mist);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand-sub {
+      font-size: 13px;
+      color: var(--svala-cyan);
+      line-height: 1.6;
+      max-width: 320px;
+      margin-bottom: 16px;
+    }
+
+    .footer-heading {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--svala-mist);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: var(--svala-mist);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(166, 227, 233, 0.15);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* -------------------------------------------------------------
+       11. TOAST NOTIFICATION
+       ------------------------------------------------------------- */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--ink-abyssal);
+      color: var(--svala-mist);
+      border: 1px solid var(--svala-teal);
+      border-radius: var(--radius-sm);
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 2000;
+      display: none;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .toast-box.active {
+      display: block;
+      animation: fadeInSlide 0.3s ease;
+    }
+
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid, .pool-display-panel, .lab-grid, .circuit-timeline-flow {
+        grid-template-columns: 1fr;
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .circuit-intentions-tabs {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .btn-booking-shortcut {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .telemetry-right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. TOP TELEMETRY STATUS BAR -->
+  <aside class="top-telemetry-bar">
+    <div class="telemetry-inner">
+      <div class="telemetry-left">
+        <span class="pulse-indicator">
+          <span class="pulse-dot"></span>
+          <span>LIVE BASIN TELEMETRY</span>
+        </span>
+        <span>·</span>
+        <span>GLACIAL PLUNGE: 4.2°C</span>
+        <span>·</span>
+        <span>MAGNESIUM BASIN: 36.8°C</span>
+        <span>·</span>
+        <span>STEAM CHAMBER: 45.0°C</span>
+      </div>
+      <div class="telemetry-right">
+        <span>KAPASITAS SUITE SAAT INI: 62%</span>
+        <span>·</span>
+        <span>AIR MINUM PEGUNUNGAN BEBAS: ALKALI pH 7.8</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. SITE HEADER & NAVIGATION (SINGLE LINE NON-WRAPPING) -->
+  <header class="site-header">
+    <div class="container navbar-inner">
+      <a href="#" class="brand-mark" aria-label="SVALA Bathhouse Beranda">
+        <div class="brand-symbol-box">SV</div>
+        <div class="brand-titles">
+          <span class="brand-name">SVALA</span>
+          <span class="brand-sub">THERMAL BATHHOUSE & HYDROTHERAPY</span>
+        </div>
+      </a>
+
+      <nav aria-label="Navigasi Utama">
+        <ul class="nav-links">
+          <li><a href="#pools" class="nav-link active">Sirkuit Air</a></li>
+          <li><a href="#circuit" class="nav-link">Ritual 90-Min</a></li>
+          <li><a href="#mineral-lab" class="nav-link">Uji Mineral</a></li>
+          <li><a href="#apothecary" class="nav-link">Apothecary</a></li>
+          <li><a href="#philosophy" class="nav-link">Etika Mandi</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-booking-shortcut" onclick="openBookingModal()">
+          <span>🌊 Reservasi Sesi</span>
+        </button>
+
+        <button class="cart-btn-trigger" onclick="toggleCartDrawer()">
+          <span>Keranjang</span>
+          <span class="cart-badge-count" id="cartCountBadge">0</span>
+        </button>
+
+        <button class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Menu Mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO SANCTUARY SHOWCASE -->
+  <main>
+    <section class="hero-sanctuary">
+      <div class="hero-watermark">AQUA</div>
+      <div class="container hero-grid">
+        <div class="hero-content-col">
+          <div class="hero-eyebrow-row mono">
+            <span class="eyebrow-badge">NORDIC HYDROTHERAPY 2026</span>
+            <span>RESTING NERVOUS SYSTEM SANCTUARY</span>
+          </div>
+          <h1 class="hero-headline">
+            Mandikan raga dalam kemurnian <em>air mineral vulkanik</em> dan terapi kontras es glasial.
+          </h1>
+          <p class="hero-lead">
+            SVALA memadukan sains hidroterapi Nordik dengan sumber air mata air pegunungan tinggi berkandungan magnesium dan silika murni. Dirancang untuk pemulihan ritme sirkadian, stimulasi saraf vagus, dan ketenangan batin tanpa kebisingan kota.
+          </p>
+          <div class="hero-ctas">
+            <button class="btn-hero-primary" onclick="openBookingModal()">
+              <span>Reservasi Sesi Berendam</span>
+              <span>→</span>
+            </button>
+            <a href="#circuit" class="btn-hero-secondary">
+              <span>Eksplorasi Ritual Kontras</span>
+            </a>
+          </div>
+
+          <div class="hero-metrics-strip">
+            <div class="metric-item">
+              <span class="metric-val">4.2°C – 39°C</span>
+              <span class="metric-sub">Rentang Kontras Suhu Basins</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">32%</span>
+              <span class="metric-sub">Saturasi Garam Epsom Flotasi</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">0.00%</span>
+              <span class="metric-sub">Klorin Sintetis · Ion Tembaga & UV</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-showcase-card">
+          <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=900&q=80" alt="SVALA Minimalist Thermal Basin with Steam">
+            <div class="hero-floating-telemetry-card">
+              <div>
+                <div class="hfc-title mono">BASIN UTAMA TERVERIFIKASI</div>
+                <div class="hfc-name">Silica Mineral Thermal Pool</div>
+              </div>
+              <div class="hfc-temp">38.5°C</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LIVE POOL TELEMETRY SELECTOR (4 BASINS) -->
+    <section class="section-pools" id="pools">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow mono">EMPAT ELEMEN HIDROTERAPI</span>
+          <h2 class="section-title">Arsitektur Kolam & Telemetri Suhu Real-Time</h2>
+          <p class="section-desc">
+            Setiap kolam memiliki komposisi mineral spesifik dan kalibrasi termal presisi untuk memicu respons fisiologis tubuh yang mendalam.
+          </p>
+        </div>
+
+        <!-- Pool Tabs -->
+        <div class="pools-tabs-row" id="poolTabsContainer">
+          <button class="pool-tab-btn active" onclick="switchPoolTab(0)">
+            <span>Glacial Cold Plunge</span>
+            <span class="pool-tab-temp-badge">4.2°C</span>
+          </button>
+          <button class="pool-tab-btn" onclick="switchPoolTab(1)">
+            <span>Magnesium Floatation Basin</span>
+            <span class="pool-tab-temp-badge">36.8°C</span>
+          </button>
+          <button class="pool-tab-btn" onclick="switchPoolTab(2)">
+            <span>Volcanic Silica Thermal Pool</span>
+            <span class="pool-tab-temp-badge">39.2°C</span>
+          </button>
+          <button class="pool-tab-btn" onclick="switchPoolTab(3)">
+            <span>Eucalyptus Cedar Steam</span>
+            <span class="pool-tab-temp-badge">45.0°C</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Pool Display Panel -->
+        <div class="pool-display-panel" id="poolDisplayPanel">
+          <div class="pdp-visual">
+            <img id="pdpImage" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80" alt="Glacial Cold Plunge Basin">
+            <div class="pdp-badge-status" id="pdpStatus">
+              <span class="pulse-dot"></span>
+              <span>KONTROL SENSOR DINGIN AKTIF</span>
+            </div>
+          </div>
+
+          <div class="pdp-details">
+            <div>
+              <div class="pdp-top-meta">
+                <div>
+                  <span class="mono" style="font-size:11px; color:var(--svala-teal-dark); font-weight:700;">BASIN 01 · VASOKONSTRIKSI</span>
+                  <h3 class="pdp-title" id="pdpTitle">Glacial Cold Plunge</h3>
+                </div>
+                <div>
+                  <div class="pdp-temp-big" id="pdpTemp">4.2°C</div>
+                  <span class="pdp-temp-unit mono">TARGET KALIBRASI</span>
+                </div>
+              </div>
+
+              <p class="pdp-narrative" id="pdpNarrative">
+                Kolam celup bersuhu es glasial yang dirancang untuk menginduksi vasokonstriksi cepat, memacu aliran endorfin, dan melatih elastisitas sistem kardiovaskular. Direkomendasikan selama 2-3 menit setelah sesi sauna hangat.
+              </p>
+
+              <div class="pdp-specs-grid">
+                <div>
+                  <div class="pdp-spec-label mono">KEDALAMAN AIR</div>
+                  <div class="pdp-spec-val" id="pdpDepth">1.35 Meter (Standing Soak)</div>
+                </div>
+                <div>
+                  <div class="pdp-spec-label mono">KANDUNGAN UTAMA</div>
+                  <div class="pdp-spec-val" id="pdpMineral">Air Murni Oksigenasi Aktif</div>
+                </div>
+                <div>
+                  <div class="pdp-spec-label mono">DURASI DISARANKAN</div>
+                  <div class="pdp-spec-val" id="pdpDuration">120 – 180 Detik</div>
+                </div>
+                <div>
+                  <div class="pdp-spec-label mono">FILTRASI SISTEM</div>
+                  <div class="pdp-spec-val">Micro-Chiller Dual Loop</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pdp-action-row">
+              <button class="btn-hero-primary" onclick="openBookingModal()">
+                <span>Pesan Sesi Ini</span>
+              </button>
+              <button class="btn-hero-secondary" onclick="scrollToSection('circuit')">
+                <span>Pelajari Urutan Ritual</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. INTERACTIVE 90-MIN THERMAL CIRCUIT BUILDER -->
+    <section class="section-circuit" id="circuit">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow mono">METODE TERAPI KONTRAS 90 MENIT</span>
+          <h2 class="section-title">Rancang Sirkuit Pemulihan Sesuai Kebutuhan Anda</h2>
+          <p class="section-desc">
+            Pilih intensitas ritual tubuh Anda hari ini. Sistem akan mengalokasikan ritme pergantian suhu dingin-panas yang optimal untuk metabolisme Anda.
+          </p>
+        </div>
+
+        <div class="circuit-wrapper">
+          <!-- Intention Switcher -->
+          <div class="circuit-intentions-tabs">
+            <div class="intent-card active" onclick="switchCircuitIntent('recovery')">
+              <div class="intent-name">Contrast Athletic Recovery</div>
+              <p class="intent-desc">Pereda inflamasi otot, pembongkaran asam laktat, dan aktivasi mitokondria pasca aktivitas berat.</p>
+            </div>
+            <div class="intent-card" onclick="switchCircuitIntent('sleep')">
+              <div class="intent-name">Circadian Sleep Restoration</div>
+              <p class="intent-desc">Penurunan denyut jantung dan penenangan sistem saraf simpatik untuk mengatasi insomnia kronis.</p>
+            </div>
+            <div class="intent-card" onclick="switchCircuitIntent('detox')">
+              <div class="intent-name">Deep Volcanic Reset</div>
+              <p class="intent-desc">Pengurasan toksin pori-pori melalui uap eukaliptus pekat dan absorpsi garam magnesium tinggi.</p>
+            </div>
+          </div>
+
+          <!-- Dynamic Timeline Steps -->
+          <div class="circuit-timeline-flow" id="circuitTimeline">
+            <!-- Injected via JS -->
+          </div>
+
+          <!-- Circuit Summary Bar -->
+          <div class="circuit-summary-bar">
+            <div class="csb-metrics">
+              <div class="csb-metric-item">
+                <span class="csb-label mono">TOTAL DURASI</span>
+                <span class="csb-val" id="csbDuration">90 Menit</span>
+              </div>
+              <div class="csb-metric-item">
+                <span class="csb-label mono">DELTA SUHU</span>
+                <span class="csb-val" id="csbDelta">Δ 40.8°C</span>
+              </div>
+              <div class="csb-metric-item">
+                <span class="csb-label mono">TERMASUK FASILITAS</span>
+                <span class="csb-val" style="font-size:14px; font-weight:600;">Kimono Wafel · Teh Herbal · Locker Pin</span>
+              </div>
+            </div>
+
+            <div>
+              <button class="btn-booking-shortcut" style="padding:12px 24px; font-size:13.5px;" onclick="openBookingModal()">
+                <span>Ambil Slot Ritual Ini →</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MINERAL TRANSPARENCY & WATER LAB REPORT -->
+    <section class="section-mineral-lab" id="mineral-lab">
+      <div class="container lab-grid">
+        <div class="lab-narrative-col">
+          <span class="section-eyebrow mono">KEMURNIAN TERUJI LABORATORIUM</span>
+          <h2 class="section-title">Tanpa Kimia Klorin. 100% Sirkulasi Mata Air Hidro-Vulkanik.</h2>
+          <p class="section-desc" style="margin-bottom:18px;">
+            Bau menyengat klorin kolam konvensional tidak pernah ada di SVALA. Kami mengadopsi teknologi filtrasi medis dengan purifikasi kuantum ion tembaga-perak, hidrodinamika pasir kaca kristal, dan radiasi UV-C tiga lapis setiap 12 menit.
+          </p>
+          <p class="section-desc">
+            Setiap liter air kolam kami mengandung ion magnesium yang mampu diserap transdermal oleh jaringan otot, menstimulasi sintesis kolagen alami dan menenangkan ketegangan sendi.
+          </p>
+        </div>
+
+        <div class="lab-cert-card">
+          <div class="cert-stamp">CERTIFIED 2026</div>
+          <h3 class="cert-title">Laporan Analisis Kandungan Air</h3>
+          <p class="cert-sub">Sampel Uji Batch #SV-890 · Laboratorium Hidrokimia Bandung</p>
+
+          <table class="mineral-data-table">
+            <thead>
+              <tr>
+                <th>Unsur / Parameter</th>
+                <th>Konsentrasi</th>
+                <th>Rentang Ideal</th>
+                <th>Hasil Uji</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Potensial Hidrogen (pH)</strong></td>
+                <td class="td-val">7.42</td>
+                <td>7.2 – 7.6</td>
+                <td class="td-status">● OPTIMAL</td>
+              </tr>
+              <tr>
+                <td><strong>Magnesium Transdermal (Mg²⁺)</strong></td>
+                <td class="td-val">148 mg/L</td>
+                <td>120 – 160 mg/L</td>
+                <td class="td-status">● TINGGI</td>
+              </tr>
+              <tr>
+                <td><strong>Silika Bioaktif (SiO₂)</strong></td>
+                <td class="td-val">72.4 mg/L</td>
+                <td>40 – 80 mg/L</td>
+                <td class="td-status">● ALAMI</td>
+              </tr>
+              <tr>
+                <td><strong>Residu Klorin Bebas</strong></td>
+                <td class="td-val">0.00 ppm</td>
+                <td>0.00 ppm</td>
+                <td class="td-status">● ZERO CHLORINE</td>
+              </tr>
+              <tr>
+                <td><strong>Total Padatan Terlarut (TDS)</strong></td>
+                <td class="td-val">820 ppm</td>
+                <td>600 – 1.000 ppm</td>
+                <td class="td-status">● TERKONTROL</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. APOTHECARY & BATH SALTS STORE -->
+    <section class="section-apothecary" id="apothecary">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow mono">APOTHECARY & SOAK ESSENTIALS</span>
+          <h2 class="section-title">Bawa Pulang Ketenangan Ritual SVALA</h2>
+          <p class="section-desc">
+            Racikan garam mandi vulkanik, minyak esensial cemara liar, dan perlengkapan tekstil wafel organik yang diracik khusus di studio bathhouse kami.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <!-- Product 1 -->
+          <div class="product-card">
+            <div class="prod-img-box">
+              <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Volcanic Bath Soak">
+              <span class="prod-badge">BESTSELLER</span>
+            </div>
+            <div class="prod-content">
+              <div>
+                <div class="prod-origin">BATCH #09 · BANDUNG DAGO</div>
+                <h4 class="prod-title">Glacial Mineral Bath Soak 500g</h4>
+                <p class="prod-desc">Kristal garam Epsom murni dengan infus daun mint liar dan minyak cemara Arktik.</p>
+              </div>
+              <div class="prod-bottom-row">
+                <span class="prod-price">Rp 215.000</span>
+                <button class="btn-add-cart" onclick="addToCart('Glacial Mineral Bath Soak 500g', 215000)">+ Keranjang</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card">
+            <div class="prod-img-box">
+              <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80" alt="Botanical Body Oil">
+              <span class="prod-badge">ORGANIK</span>
+            </div>
+            <div class="prod-content">
+              <div>
+                <div class="prod-origin">COLD-PRESSED OIL</div>
+                <h4 class="prod-title">Eucalyptus Body Oil 100ml</h4>
+                <p class="prod-desc">Minyak jojoba murni dengan ekstrak eukaliptus biru untuk melegakan pernapasan pasca rendaman.</p>
+              </div>
+              <div class="prod-bottom-row">
+                <span class="prod-price">Rp 185.000</span>
+                <button class="btn-add-cart" onclick="addToCart('Eucalyptus Body Oil 100ml', 185000)">+ Keranjang</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card">
+            <div class="prod-img-box">
+              <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80" alt="Linen Waffle Robe">
+              <span class="prod-badge">CRAFT TEXTILE</span>
+            </div>
+            <div class="prod-content">
+              <div>
+                <div class="prod-origin">100% FRENCH LINEN</div>
+                <h4 class="prod-title">Nordic Waffle Kimono Robe</h4>
+                <p class="prod-desc">Jubah mandi linen berpori wafel yang cepat kering, lembut di kulit, dan berdaya serap tinggi.</p>
+              </div>
+              <div class="prod-bottom-row">
+                <span class="prod-price">Rp 580.000</span>
+                <button class="btn-add-cart" onclick="addToCart('Nordic Waffle Kimono Robe', 580000)">+ Keranjang</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="product-card">
+            <div class="prod-img-box">
+              <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=600&q=80" alt="Hinoki Headrest">
+              <span class="prod-badge">HAND-CARVED</span>
+            </div>
+            <div class="prod-content">
+              <div>
+                <div class="prod-origin">JAPANESE CYPRESS</div>
+                <h4 class="prod-title">Hinoki Wood Bath Headrest</h4>
+                <p class="prod-desc">Bantalan leher kayu hinoki anti-jamur yang mengeluarkan aroma aromatik alami saat terkena uap air.</p>
+              </div>
+              <div class="prod-bottom-row">
+                <span class="prod-price">Rp 340.000</span>
+                <button class="btn-add-cart" onclick="addToCart('Hinoki Wood Bath Headrest', 340000)">+ Keranjang</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. SANCTUARY ETIQUETTE & PHILOSOPHY -->
+    <section class="section-pools" id="philosophy" style="background:#FFFFFF;">
+      <div class="container">
+        <div class="section-header-centered" style="margin-bottom:36px;">
+          <span class="section-eyebrow mono">ATURAN KETENANGAN SVALA</span>
+          <h2 class="section-title">Etika Berendam Tanpa Gangguan</h2>
+          <p class="section-desc">
+            Demi menjaga kedamaian sensorik seluruh tamu, kami memberlakukan etika hening yang ditaati bersama.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:24px;">
+          <div style="padding:24px; border:1px solid var(--border-light); border-radius:var(--radius-sm); background:var(--bg-canvas);">
+            <div style="font-size:24px; margin-bottom:10px;">📵</div>
+            <h4 style="font-family:var(--font-display); font-size:16px; margin-bottom:6px; color:var(--ink-abyssal);">Bebas Gadget & Kamera</h4>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">Ponsel wajib disimpan di loker pribadi. Area kolam adalah ruang detoksifikasi visual murni tanpa layar digital.</p>
+          </div>
+          <div style="padding:24px; border:1px solid var(--border-light); border-radius:var(--radius-sm); background:var(--bg-canvas);">
+            <div style="font-size:24px; margin-bottom:10px;">🤫</div>
+            <h4 style="font-family:var(--font-display); font-size:16px; margin-bottom:6px; color:var(--ink-abyssal);">Zona Suara Bisik (Whisper Only)</h4>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">Percakapan dijaga dalam intensitas bisikan pelan. Biarkan suara gemericik air dan hembusan uap menjadi melodi dominan.</p>
+          </div>
+          <div style="padding:24px; border:1px solid var(--border-light); border-radius:var(--radius-sm); background:var(--bg-canvas);">
+            <div style="font-size:24px; margin-bottom:10px;">🚿</div>
+            <h4 style="font-family:var(--font-display); font-size:16px; margin-bottom:6px; color:var(--ink-abyssal);">Bilas Total Sebelum Masuk</h4>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">Setiap tamu wajib mandi bersih dengan sabun botanical tanpa minyak sebelum mencelupkan diri ke dalam kolam mineral.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. FOOTER SECTION -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">SVALA · スヴァラ</div>
+          <p class="footer-brand-sub">
+            Sanctuary hidroterapi termal berakar pada tradisi berendam Nordik dan kemurnian mineral pegunungan vulkanik Jawa Barat.
+          </p>
+          <div class="mono" style="font-size:11.5px; color:var(--svala-foam);">
+            Jl. Bukit Pakar Timur No. 88, Dago Atas, Bandung<br>
+            Buka Setiap Hari: 07:00 – 22:00 WIB (Reservasi Slot Wajib)
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Sirkuit Air</h5>
+          <ul class="footer-links">
+            <li><a href="#pools">Glacial Cold Plunge (4.2°C)</a></li>
+            <li><a href="#pools">Magnesium Floatation (36.8°C)</a></li>
+            <li><a href="#pools">Volcanic Silica Basin (39.2°C)</a></li>
+            <li><a href="#pools">Eucalyptus Steam (45.0°C)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Pengalaman & Suite</h5>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="openBookingModal()">Public Bathhouse Circuit</a></li>
+            <li><a href="javascript:void(0)" onclick="openBookingModal()">Private Hinoki Cedar Suite</a></li>
+            <li><a href="javascript:void(0)" onclick="openBookingModal()">Midnight Silent Bath</a></li>
+            <li><a href="#apothecary">Garam Mandi Mineral</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Sains & Standar</h5>
+          <ul class="footer-links">
+            <li><a href="#mineral-lab">Laporan Laboratorium Air</a></li>
+            <li><a href="#circuit">Protokol Kontras Suhu</a></li>
+            <li><a href="#philosophy">Etika Hening Sanctuary</a></li>
+            <li><a href="#">NECTOR.UI Craft Standard</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 SVALA HYDROTHERAPY SANCTUARY. Seluruh hak cipta dilindungi.</div>
+        <div>PALET WARNA RESMI: #E3FDFD · #CBF1F5 · #A6E3E9 · #71C9CE</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 10. MODAL: BOOKING RESERVASI SESI -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeBookingModal()">✕</button>
+      <h3 class="modal-title">Reservasi Sesi Berendam</h3>
+      <p class="modal-sub">Pilih jenis pengalaman dan slot waktu hening Anda di SVALA.</p>
+
+      <form onsubmit="handleBookingSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Jenis Pengalaman Mandi</label>
+          <select class="form-control" id="bookExperience" required>
+            <option value="public">Sirkuit Publik 90-Menit (Maks 12 Tamu) — Rp 280.000 / orang</option>
+            <option value="private-suite">Private Hinoki Suite (Maks 2 Tamu) — Rp 750.000 / 90 menit</option>
+            <option value="midnight">Starlight Twilight Soak (20:00 - 22:00) — Rp 350.000 / orang</option>
+          </select>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <div class="form-group">
+            <label class="form-label">Tanggal Sesi</label>
+            <input type="date" class="form-control" id="bookDate" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Slot Waktu</label>
+            <select class="form-control" id="bookSlot" required>
+              <option value="08:00">08:00 – 09:30 (Morning Mist)</option>
+              <option value="10:30">10:30 – 12:00 (Midday Soak)</option>
+              <option value="15:30">15:30 – 17:00 (Afternoon Calm)</option>
+              <option value="17:30">17:30 – 19:00 (Sunset Twilight)</option>
+              <option value="20:00">20:00 – 21:30 (Midnight Silence)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Jumlah Tamu</label>
+          <input type="number" class="form-control" id="bookGuests" min="1" max="6" value="1" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nama Lengkap</label>
+          <input type="text" class="form-control" placeholder="Contoh: Raden Daniswara" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nomor WhatsApp (Konfirmasi Tiket Masuk)</label>
+          <input type="tel" class="form-control" placeholder="0812-xxxx-xxxx" required>
+        </div>
+
+        <button type="submit" class="btn-submit-booking">Konfirmasi & Amankan Slot</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 11. CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <div class="cdh-title">Arsip Belanja Bathhouse</div>
+      <button onclick="toggleCartDrawer()" style="font-size:18px;">✕</button>
+    </div>
+
+    <div class="cart-drawer-items" id="cartItemsList">
+      <p style="text-align:center; color:var(--ink-muted); margin-top:40px; font-size:13px;">
+        Keranjang belanja masih kosong.<br>Pilih produk garam mandi atau jubah dari apothecary.
+      </p>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-total-row">
+        <span>Total Pembelian:</span>
+        <span class="cart-total-val" id="cartTotalVal">Rp 0</span>
+      </div>
+      <button class="btn-checkout" onclick="handleCheckout()">Lanjut ke Pembayaran</button>
+    </div>
+  </aside>
+
+  <!-- 12. FLOATING TOAST -->
+  <div class="toast-box" id="toastBox">Produk berhasil ditambahkan ke keranjang</div>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    // Set default date to tomorrow
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dateInput = document.getElementById('bookDate');
+    if (dateInput) {
+      dateInput.value = tomorrow.toISOString().split('T')[0];
+    }
+
+    // Pools Data for Tab Switching
+    const poolsData = [
+      {
+        title: "Glacial Cold Plunge",
+        temp: "4.2°C",
+        status: "KONTROL SENSOR DINGIN AKTIF",
+        depth: "1.35 Meter (Standing Soak)",
+        mineral: "Air Murni Oksigenasi Aktif",
+        duration: "120 – 180 Detik",
+        narrative: "Kolam celup bersuhu es glasial yang dirancang untuk menginduksi vasokonstriksi cepat, memacu aliran endorfin, dan melatih elastisitas sistem kardiovaskular. Direkomendasikan selama 2-3 menit setelah sesi sauna hangat.",
+        image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "Magnesium Floatation Basin",
+        temp: "36.8°C",
+        status: "SATURASI GARAM EPSOM 32%",
+        depth: "1.10 Meter (Zero-Gravity)",
+        mineral: "Garam Magnesium Sulfat USP",
+        duration: "25 – 40 Menit",
+        narrative: "Basin berdensitas tinggi dengan 32% saturasi garam Epsom yang memungkinkan tubuh mengapung tanpa usaha gravitasi. Melepaskan beban kompresi tulang belakang dan menenangkan otak ke gelombang theta.",
+        image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "Volcanic Silica Thermal Pool",
+        temp: "39.2°C",
+        status: "MATA AIR VULKANIK ALAMI",
+        depth: "1.20 Meter (Hydro Benches)",
+        mineral: "Silika Bioaktif & Kalium Alami",
+        duration: "15 – 25 Menit",
+        narrative: "Kolam termal bersuhu relaksasi 39.2°C dengan jet hidrolik bawah air untuk merelaksasi punggung bawah dan leher. Silika vulkanik melembutkan tekstur kulit secara nyata.",
+        image: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "Eucalyptus Cedar Steam",
+        temp: "45.0°C",
+        status: "100% KELEMBAPAN BOTANIKAL",
+        depth: "Chamber Bertingkat",
+        mineral: "Infus Cemara & Eukaliptus Biru",
+        duration: "10 – 15 Menit",
+        narrative: "Kamar uap berbahan kayu cedar merah dengan injeksi uap hangat bercampur minyak atsiri eukaliptus murni. Membuka saluran respirasi dan melancarkan sirkulasi getah bening.",
+        image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+      }
+    ];
+
+    function switchPoolTab(index) {
+      const tabs = document.querySelectorAll('.pool-tab-btn');
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+      });
+
+      const p = poolsData[index];
+      document.getElementById('pdpTitle').innerText = p.title;
+      document.getElementById('pdpTemp').innerText = p.temp;
+      document.getElementById('pdpDepth').innerText = p.depth;
+      document.getElementById('pdpMineral').innerText = p.mineral;
+      document.getElementById('pdpDuration').innerText = p.duration;
+      document.getElementById('pdpNarrative').innerText = p.narrative;
+      document.getElementById('pdpImage').src = p.image;
+      document.getElementById('pdpStatus').innerHTML = `<span class="pulse-dot"></span><span>${p.status}</span>`;
+    }
+
+    // Circuit Intentions Data
+    const circuitData = {
+      recovery: {
+        duration: "90 Menit",
+        delta: "Δ 40.8°C",
+        steps: [
+          { num: "01", name: "Cedar Dry Heat", temp: "80°C · 15m", desc: "Aktivasi sirkulasi darah dan pemanasan serat otot dalam." },
+          { num: "02", name: "Glacial Shock", temp: "4.2°C · 2m", desc: "Vasokonstriksi cepat untuk stimulasi pelepasan endorfin." },
+          { num: "03", name: "Thermal Hydro Basin", temp: "39.2°C · 20m", desc: "Pelemasan kompresi sendi dengan jet air kaya kalium." },
+          { num: "04", name: "Cold Plunge Repeat", temp: "4.2°C · 3m", desc: "Pemberhentian inflamasi otot dan penguncian pori-pori kulit." }
+        ]
+      },
+      sleep: {
+        duration: "90 Menit",
+        delta: "Δ 18.2°C",
+        steps: [
+          { num: "01", name: "Eucalyptus Warm Mist", temp: "45°C · 15m", desc: "Pelepasan ketegangan pernapasan dan pembersihan pori halus." },
+          { num: "02", name: "Magnesium Floatation", temp: "36.8°C · 35m", desc: "Pengapungan tanpa bobot untuk memicu gelombang tidur theta." },
+          { num: "03", name: "Gentle Rain Cascade", temp: "32°C · 10m", desc: "Bilas lembut bertahap tanpa memicu kejutan termal mendadak." },
+          { num: "04", name: "Cedar Quiet Lounge", temp: "24°C · 30m", desc: "Relaksasi tidur hening ditemani teh chamomile pegunungan." }
+        ]
+      },
+      detox: {
+        duration: "90 Menit",
+        delta: "Δ 35.0°C",
+        steps: [
+          { num: "01", name: "Infrared Cedar Sauna", temp: "75°C · 20m", desc: "Pengeluaran keringat metabolik dari lapisan dermis dalam." },
+          { num: "02", name: "Ice Bucket Wash", temp: "10°C · 2m", desc: "Bilas es langsung untuk menyegarkan sistem limfatik." },
+          { num: "03", name: "Volcanic Mineral Basin", temp: "39.2°C · 25m", desc: "Penyerapan mineral silika dan kalium untuk regenerasi sel kulit." },
+          { num: "04", name: "Herbal Hydration Rest", temp: "22°C · 20m", desc: "Penggantian elektrolit dengan air kelapa dingin dan garam laut." }
+        ]
+      }
+    };
+
+    function switchCircuitIntent(type) {
+      const cards = document.querySelectorAll('.intent-card');
+      cards.forEach(c => c.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      const data = circuitData[type];
+      document.getElementById('csbDuration').innerText = data.duration;
+      document.getElementById('csbDelta').innerText = data.delta;
+
+      renderCircuitTimeline(data.steps);
+    }
+
+    function renderCircuitTimeline(steps) {
+      const container = document.getElementById('circuitTimeline');
+      container.innerHTML = steps.map(s => `
+        <div class="timeline-step-card">
+          <span class="step-badge-num">FASE ${s.num}</span>
+          <div class="step-name">${s.name}</div>
+          <div class="step-temp">${s.temp}</div>
+          <p class="step-desc">${s.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    // Initial render
+    renderCircuitTimeline(circuitData.recovery.steps);
+
+    // Cart Management
+    let cart = [];
+
+    function addToCart(title, price) {
+      const existing = cart.find(i => i.title === title);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ title, price, qty: 1 });
+      }
+      updateCartUI();
+      showToast(`"${title}" berhasil dimasukkan ke keranjang`);
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cartCountBadge');
+      const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+      badge.innerText = totalCount;
+
+      const itemsContainer = document.getElementById('cartItemsList');
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = `
+          <p style="text-align:center; color:var(--ink-muted); margin-top:40px; font-size:13px;">
+            Keranjang belanja masih kosong.<br>Pilih produk garam mandi atau jubah dari apothecary.
+          </p>
+        `;
+        document.getElementById('cartTotalVal').innerText = "Rp 0";
+        return;
+      }
+
+      let total = 0;
+      itemsContainer.innerHTML = cart.map((item, idx) => {
+        total += item.price * item.qty;
+        return `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <div class="cart-item-title">${item.title}</div>
+              <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')} / unit</div>
+              <div class="cart-qty-ctrl">
+                <button class="btn-qty" onclick="changeQty(${idx}, -1)">−</button>
+                <span>${item.qty}</span>
+                <button class="btn-qty" onclick="changeQty(${idx}, 1)">+</button>
+              </div>
+            </div>
+            <div style="font-family:var(--font-mono); font-weight:700; font-size:13px; color:var(--ink-abyssal);">
+              Rp ${(item.price * item.qty).toLocaleString('id-ID')}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('cartTotalVal').innerText = `Rp ${total.toLocaleString('id-ID')}`;
+    }
+
+    function changeQty(idx, delta) {
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUI();
+    }
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      drawer.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function handleCheckout() {
+      if (cart.length === 0) {
+        alert("Keranjang masih kosong.");
+        return;
+      }
+      alert("Pesanan Apothecary SVALA Anda telah diterima untuk penyiapan pengemasan ramah lingkungan. Tim resepsionis akan menghubungi via WhatsApp.");
+      cart = [];
+      updateCartUI();
+      toggleCartDrawer();
+    }
+
+    // Modal Booking
+    function openBookingModal() {
+      document.getElementById('bookingModal').classList.add('active');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const exp = document.getElementById('bookExperience').value;
+      const date = document.getElementById('bookDate').value;
+      const slot = document.getElementById('bookSlot').value;
+      const guests = document.getElementById('bookGuests').value;
+
+      closeBookingModal();
+      showToast(`Reservasi ${exp} (${guests} tamu) pada ${date} pukul ${slot} berhasil diamankan!`);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastBox');
+      toast.innerText = msg;
+      toast.classList.add('active');
+      setTimeout(() => toast.classList.remove('active'), 3200);
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function toggleMobileNav() {
+      const nav = document.querySelector('.nav-links');
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.position = 'absolute';
+        nav.style.top = '72px';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.background = '#FFFFFF';
+        nav.style.flexDirection = 'column';
+        nav.style.padding = '20px';
+        nav.style.borderBottom = '1px solid var(--border-medium)';
+      }
+    }
+  </script>
+</body>
+</html>

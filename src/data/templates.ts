@@ -1702,6 +1702,89 @@ export function TanahLiatStudio() {
       { hex: '#FFE9A9', rgb: 'rgb(255, 233, 169)', name: 'Soft Butter Custard', role: 'Fior di Latte Cream Tint, Badge Base & Box Card' },
       { hex: '#73A5CA', rgb: 'rgb(115, 165, 202)', name: 'Coastal Breeze Blue', role: 'Mediterranean Sea Contrast, Cold-Chain & Cart Trigger' }
     ]
+  },
+  {
+    id: 'tpl-25',
+    slug: 'svala-nordic-bathhouse',
+    title: 'SVALA (Thermal Bathhouse & Hydrotherapy Sanctuary)',
+    tagline: 'Santuari hidroterapi kontras termal, air mineral vulkanik tanpa klorin, dan perancang ritual hening 90-menit',
+    description: 'Template website bathhouse termal dan santuari hidroterapi kontras Nordik dengan palet warna air glasial murni Pale Glacial Mist (#E3FDFD), Aerated Spring Foam (#CBF1F5), Vibrant Thermal Cyan (#A6E3E9), dan Deep Sea Glass Teal (#71C9CE). Dilengkapi monitor telemetri suhu 4 kolam real-time (Glacial Plunge 4.2°C, Magnesium Floatation 36.8°C, Volcanic Silica 39.2°C, Eucalyptus Steam 45°C), perancang urutan ritual 90-menit dengan kalkulasi delta suhu termal (Δ 40.8°C), transparansi laporan uji kimia air bersertifikat (pH 7.42, 0.00 ppm klorin), toko apothecary garam mandi mineral dengan keranjang dinamis, serta formulir reservasi slot hening terintegrasi.',
+    category: 'wellness',
+    tags: ['Wellness', 'Bathhouse', 'Hydrotherapy', 'Thermal Spa', 'Contrast Therapy', 'Cold Plunge', 'Mineral Water', 'Nordic Architecture', 'Apothecary'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Real-Time Basin Telemetry', 'Thermal Circuit Customizer', 'Mineral Lab Transparency', 'Apothecary Cart Drawer'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'wellness-svala-bathhouse',
+    htmlPath: '/templates/wellness/svala-bathhouse.html',
+    htmlFolderPath: 'templates/wellness/svala-bathhouse.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Monitor telemetri suhu 4 kolam real-time dengan data kedalaman air, sistem sirkulasi, dan target fisiologis',
+      'Perancang interaktif urutan ritual kontras 90-menit (Athletic Recovery, Sleep Restoration, Volcanic Reset) dengan delta termal otomatis',
+      'Transparansi laporan laboratorium kimia air bersertifikat (pH 7.42, ion magnesium 148 mg/L, silika 72.4 mg/L, zero synthetic chlorine)',
+      'Toko apothecary garam mandi kristal glasial dan kimono wafel Prancis dengan keranjang dinamis dan kalkulasi instan',
+      'Modal reservasi slot hening interaktif untuk sirkuit publik atau private Hinoki cedar suite dengan konfirmasi langsung',
+      'Standar craft antislop dengan palet air sejuk (#E3FDFD, #CBF1F5, #A6E3E9, #71C9CE) dan tipografi Cinzel yang berwibawa'
+    ],
+    usageInstructions: [
+      'Buka templates/wellness/svala-bathhouse.html di editor kode Anda.',
+      'Sesuaikan data kolam, suhu air (°C), dan deskripsi khasiat pada objek poolsData di dalam tag <script>.',
+      'Kustomisasi harga sesi berendam dan daftar produk garam mandi pada katalog apothecary.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase bathhouse langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'svala-bathhouse.html',
+        language: 'html',
+        content: `<!-- SVALA (スヴァラ) — Nordic Thermal Bathhouse & Mineral Hydrotherapy Sanctuary -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SVALA — Thermal Bathhouse & Hydrotherapy Sanctuary</title>
+  <style>
+    :root {
+      --svala-mist: #E3FDFD;
+      --svala-foam: #CBF1F5;
+      --svala-cyan: #A6E3E9;
+      --svala-teal: #71C9CE;
+      --ink-abyssal: #091C22;
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-telemetry">LIVE BASIN TELEMETRY: GLACIAL PLUNGE 4.2°C • MAGNESIUM 36.8°C • STEAM 45.0°C</div>
+  <header>
+    <div class="brand">SVALA · THERMAL BATHHOUSE</div>
+    <nav>Sirkuit Air · Ritual 90-Min · Uji Mineral · Apothecary · Etika Mandi</nav>
+  </header>
+  <!-- Full Interactive Sanctuary Experience: 4-Basin Telemetry, 90-Min Circuit & Apothecary Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website santuari hidroterapi termal kontras SVALA BATHHOUSE dengan palet air mineral glasial Pale Glacial Mist (#E3FDFD), Aerated Spring Foam (#CBF1F5), Vibrant Thermal Cyan (#A6E3E9), dan Deep Sea Glass Teal (#71C9CE). Dilengkapi monitor telemetri suhu 4 kolam real-time, perancang ritual kontras 90-menit, sertifikasi laboratorium kimia air, butik apothecary garam mandi, dan modal reservasi slot hening.',
+      designDirection: 'Nordic-Swiss architectural wellness sanctuary berstandar antislop: Pale Glacial Mist (#E3FDFD), Aerated Spring Foam (#CBF1F5), Vibrant Thermal Cyan (#A6E3E9), Deep Sea Glass Teal (#71C9CE), dan Abyssal Mineral Ink (#091C22). Tipografi monumental Cinzel, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry status bar gelap, sticky glass navbar dengan link non-wrapping kokoh, hero showcase 2 kolom dengan telemetri melayang, panel telemetri 4 kolam dengan tab interaktif, perancang ritual kontras 90-menit linier 4-tahap, tabel transparansi lab air 2 kolom, grid produk apothecary 4 kolom, dan modal reservasi slot.',
+      typographyAndColor: 'Cinzel untuk tajuk wibawa monumental arsitektural, Plus Jakarta Sans untuk teks bodi dan kontrol UI, JetBrains Mono untuk metrik telemetri suhu, durasi, konsentrasi magnesium, dan rupiah.',
+      interactions: 'Tab ganti kolam seketika dengan pembaruan foto dan narasi fisiologis, pemilih intensitas ritual dengan kalkulasi delta suhu otomatis, drawer keranjang apothecary dengan counter dinamis, dan form reservasi slot.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#71C9CE',
+    colorPalette: [
+      { hex: '#E3FDFD', rgb: 'rgb(227, 253, 253)', name: 'Pale Glacial Mist', role: 'Glacier Water Surface, Canvas Tint & Top Ticker Mist' },
+      { hex: '#CBF1F5', rgb: 'rgb(203, 241, 245)', name: 'Aerated Spring Foam', role: 'Thermal Spring Cascade Foam, Soft Background & Pill Base' },
+      { hex: '#A6E3E9', rgb: 'rgb(166, 227, 233)', name: 'Vibrant Thermal Cyan', role: 'Pure Thermal Mineral Basin, Hairline Accents & Borders' },
+      { hex: '#71C9CE', rgb: 'rgb(113, 201, 206)', name: 'Deep Sea Glass Teal', role: 'Primary Mineral Brand Accent, Action Buttons & Active Status' }
+    ]
   }
 ];
 

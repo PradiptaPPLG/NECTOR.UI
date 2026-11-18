@@ -24,8 +24,10 @@ import { KEMAS_LAB_MASTER_PROMPT } from './packagingPrompt';
 import { WANA_APICULTURE_MASTER_PROMPT } from './apiculturePrompt';
 import { KAYAN_FURNITURE_MASTER_PROMPT } from './furniturePrompt';
 import { SOLA_GELATO_MASTER_PROMPT } from './gelatoPrompt';
+import { SVALA_BATHHOUSE_MASTER_PROMPT } from './wellnessPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'svala-nordic-bathhouse': SVALA_BATHHOUSE_MASTER_PROMPT,
   'sola-artisan-gelato': SOLA_GELATO_MASTER_PROMPT,
   'kayan-solid-furniture': KAYAN_FURNITURE_MASTER_PROMPT,
   'wana-wild-honey': WANA_APICULTURE_MASTER_PROMPT,
@@ -77,4 +79,5 @@ export {
   KURA_APPAREL_MASTER_PROMPT,
   MAISON_NOCTURNE_MASTER_PROMPT,
   ARUNG_FOOTWEAR_MASTER_PROMPT,
+  SVALA_BATHHOUSE_MASTER_PROMPT,
 };

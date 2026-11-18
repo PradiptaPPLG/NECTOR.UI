@@ -24,6 +24,7 @@ export type Category =
   | 'apiculture'
   | 'furniture'
   | 'gelato'
+  | 'wellness'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

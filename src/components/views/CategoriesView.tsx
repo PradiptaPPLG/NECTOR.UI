@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2 } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'wellness',
+      title: 'Hidroterapi & Thermal Bathhouse',
+      icon: Waves,
+      desc: 'Santuari pemandian termal & terapi kontras glasial: monitor telemetri suhu 4 kolam real-time, perancang ritual kontras 90-menit, transparansi uji laboratorium air tanpa klorin, dan butik garam mandi apothecary.',
+      accent: '#71C9CE'
+    },
     {
       id: 'gelato',
       title: 'Gelateria & Sorbet Buah',
