@@ -32,6 +32,7 @@ export type Category =
   | 'horology'
   | 'architecture'
   | 'audio'
+  | 'keyboards'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

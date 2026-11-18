@@ -2448,6 +2448,89 @@ export function TanahLiatStudio() {
       { hex: '#9DB2BF', rgb: 'rgb(157, 178, 191)', name: 'Pale Mineral Slate', role: 'Garis Skala Desibel, Sumbu Respon Frekuensi & Border Sasis' },
       { hex: '#DDE6ED', rgb: 'rgb(221, 230, 237)', name: 'Clean Frost Mist', role: 'Kanvas Latar Utama, Permukaan Brushed Metal & Latar Lembut' }
     ]
+  },
+  {
+    id: 'tpl-34',
+    slug: 'axis-mechanical-keyboards',
+    title: 'AXIS KEYBOARDS (Atelier Keyboard Mekanikal Kustom & Lab Switch)',
+    tagline: 'Studio perakitan keyboard mekanikal kustom independen, sasis aluminium pejal CNC 6063, dan tester kurva switch',
+    description: 'Template website atelier keyboard mekanikal kustom dan laboratorium switch AXIS KEYBOARDS dengan palet warna Electric Cyan (#08D9D6), Matte Carbon Noir (#252A34), Neon Crimson (#FF2E63), dan Platinum Silver (#EAEAEA). Dilengkapi tester gaya aktuasi switch mekanikal (Force Curve gram vs milimeter) dengan live typing test sandbox, inspektor 6 lapisan konstruksi gasket mount Poron terisolasi, katalog 6 seri keyboard kustom (65%, 75% Wireless, TKL Brass, Alice Ergo, Numpad Macro), tabel spesifikasi bahan CNC 6063 & pelumas Krytox GPL 205g0, laci brankas rakitan, dan konsultasi perakitan kustom via WhatsApp.',
+    category: 'keyboards',
+    tags: ['Mechanical Keyboard', 'Custom Keebs', 'Gasket Mount', 'CNC 6063 Aluminum', 'Krytox 205g0', 'Force Curve', 'Switch Tester', 'Durock V2', 'QMK VIA'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'SVG Force Curve Engine', 'Gasket Exploded Layer Inspector', 'Keyboard Build Vault Flow', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'keyboards-axis',
+    htmlPath: '/templates/keyboards/axis-keyboards.html',
+    htmlFolderPath: 'templates/keyboards/axis-keyboards.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Tester kurva gaya aktuasi switch vektor SVG interaktif (Force Curve gram vs milimeter) dengan 4 tipe switch (Linear, Tactile, Silent, Clicky)',
+      'Kotak uji ketik (Live Typing Sandbox) dengan counter karakter dan respons animasi keycap interaktif',
+      'Inspektor 6 lapisan konstruksi gasket mount Poron (Keycaps PBT, Pelat FR4 flex-cuts, Poron gasket, PCB hot-swap, IXPE foam, Sasis CNC 6063 + Brass weight)',
+      'Katalog 6 seri keyboard mekanikal kustom (AXIS-65 Billet, AERO-75 Wireless Tri-Mode, KAIROS-TKL Studio, ALICE-ERGO Split, NUMPAD-16 Macro, SWITCH-MASTER 90x)',
+      'Tabel spesifikasi material maker (Aluminium 6063-T6 CNC, pelumas Krytox 205g0 Miller-Stephenson, busa Rogers Poron LE-20, stabilizer Durock V2)',
+      'Laci geser brankas rakitan (slide-over vault) dengan ringkasan komponen dan kalkulasi estimasi konsultasi ke Master Builder via WhatsApp',
+      'Standar kriya antislop dengan palet cyber-mechanic (#08D9D6, #252A34, #FF2E63, #EAEAEA) dan tipografi Space Grotesk & IBM Plex Mono'
+    ],
+    usageInstructions: [
+      'Buka templates/keyboards/axis-keyboards.html di editor kode Anda.',
+      'Sesuaikan katalog seri keyboard, harga, dan spesifikasi bobot pada objek boardsData di dalam tag <script>.',
+      'Kustomisasi kurva gaya tekan dan karakteristik switch pada objek switchesData.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase studio keyboard mekanikal langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'axis-keyboards.html',
+        language: 'html',
+        content: `<!-- AXIS KEYBOARDS — Custom Mechanical Atelier & Switch Lab -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>AXIS KEYBOARDS — Custom Mechanical Atelier</title>
+  <style>
+    :root {
+      --axis-cyan: #08D9D6;
+      --axis-carbon: #252A34;
+      --axis-crimson: #FF2E63;
+      --axis-platinum: #EAEAEA;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">POLLING RATE 1.000 HZ • QMK/VIA PROGRAMMABLE • PORON GASKET V4</div>
+  <header>
+    <div class="brand">AXIS KEYBOARDS</div>
+    <nav>Tester Switch · Lapisan Gasket · Koleksi Keyboard · Spesifikasi Komponen</nav>
+  </header>
+  <!-- Full Interactive Mechanical Keyboard Atelier: Switch Tester, Gasket Inspector & Build Vault -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier keyboard mekanikal kustom dan laboratorium switch AXIS KEYBOARDS dengan palet warna Electric Cyan (#08D9D6), Matte Carbon Noir (#252A34), Neon Crimson (#FF2E63), dan Platinum Silver (#EAEAEA). Dilengkapi tester gaya aktuasi switch mekanikal (Force Curve gram vs milimeter) dengan live typing test sandbox, inspektor 6 lapisan konstruksi gasket mount Poron terisolasi, katalog 6 seri keyboard kustom (65%, 75% Wireless, TKL Brass, Alice Ergo, Numpad Macro), tabel spesifikasi bahan CNC 6063 & pelumas Krytox GPL 205g0, laci brankas rakitan, dan konsultasi perakitan kustom via WhatsApp.',
+      designDirection: 'Custom mechanical keyboard maker atelier berstandar antislop: Electric Cyan (#08D9D6), Matte Carbon Noir (#252A34), Neon Crimson (#FF2E63), Platinum Silver (#EAEAEA), dan Deep Obsidian Carbon Ink (#12161F). Tipografi Space Grotesk, Plus Jakarta Sans, dan IBM Plex Mono.',
+      layoutAndGrid: 'Top telemetry bar laboratorium switch 1.000 Hz, sticky header dengan brand monogram AX-LAB dan navigasi non-wrapping kokoh, hero keeb plate 2 kolom dengan matriks keyboard interaktif berpendar cyan & pink, panggung pengujian switch kurva gaya tekan vektor SVG gram vs mm, inspektor 6 lapisan anatomi konstruksi gasket mount, grid katalog 6 seri keyboard 3 kolom, dan drawer buku brankas rakitan.',
+      typographyAndColor: 'Space Grotesk untuk tajuk utama berkarakter geometris modern presisi tinggi, Plus Jakarta Sans untuk teks bodi penjelasan filosofi taktil dan kontrol tombol interaktif, IBM Plex Mono untuk spesifikasi teknis gram aktuasi, pre-travel mm, toleransi CNC, dan harga resmi rupiah.',
+      interactions: 'Tester switch interaktif dengan animasi kurva gaya dinamis dan titik aktuasi tactile bump, kotak uji ketik interaktif dengan penghitung karakter live, inspektor 6 lapisan konstruksi gasket, filter katalog instan, modal inspeksi detail sasis pejal, formulir konsultasi perakitan kustom, serta drawer brankas rakitan terintegrasi WhatsApp Master Builder.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#08D9D6',
+    colorPalette: [
+      { hex: '#08D9D6', rgb: 'rgb(8, 217, 214)', name: 'Electric Cyan', role: 'Pendar Latar Belakang, Tombol Aksi Utama, Kurva Gaya & Legenda Keycap' },
+      { hex: '#252A34', rgb: 'rgb(37, 42, 52)', name: 'Matte Carbon Noir', role: 'Sasis Anodized Gelap, Kanvas Pengujian Switch & Header Titel Blok' },
+      { hex: '#FF2E63', rgb: 'rgb(255, 46, 99)', name: 'Neon Crimson', role: 'Titik Puncak Aktuasi Taktil, Badge Gasket Mount & Tombol Aksen' },
+      { hex: '#EAEAEA', rgb: 'rgb(234, 234, 234)', name: 'Platinum Silver', role: 'Kanvas Latar Utama, Permukaan Bodi Sandblast & Divider Presisi' }
+    ]
   }
 ];
 

@@ -101,6 +101,7 @@ export const TemplateThumbnail: React.FC<Props> = ({ template, showBrowserChrome
     'celeste-astronomical-horology': 'https://celeste.horlogerie.nector.ui',
     'cyano-blueprint-architecture': 'https://cyano.architecture.nector.ui',
     'resonance-analog-audio': 'https://resonance.audio.nector.ui',
+    'axis-mechanical-keyboards': 'https://axis.keyboards.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

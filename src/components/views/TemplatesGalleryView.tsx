@@ -29,6 +29,7 @@ export const TemplatesGalleryView: React.FC<Props> = ({
 
   const categories = [
     { id: 'all', label: 'Semua Etalase' },
+    { id: 'keyboards', label: 'Keyboard Mekanikal' },
     { id: 'audio', label: 'Audio & Akustik Hi-Fi' },
     { id: 'architecture', label: 'Arsitektur & Cetak Biru' },
     { id: 'horology', label: 'Horologi & Jam Tangan' },

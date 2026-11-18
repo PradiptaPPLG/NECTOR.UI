@@ -33,8 +33,10 @@ import { AURA_DERMA_MASTER_PROMPT } from './dermaPrompt';
 import { CELESTE_HORLOGERIE_MASTER_PROMPT } from './horologyPrompt';
 import { CYANO_ARCHITECTURE_MASTER_PROMPT } from './architecturePrompt';
 import { RESONANCE_AUDIO_MASTER_PROMPT } from './audioPrompt';
+import { AXIS_KEYBOARDS_MASTER_PROMPT } from './keyboardPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'axis-mechanical-keyboards': AXIS_KEYBOARDS_MASTER_PROMPT,
   'resonance-analog-audio': RESONANCE_AUDIO_MASTER_PROMPT,
   'cyano-blueprint-architecture': CYANO_ARCHITECTURE_MASTER_PROMPT,
   'celeste-astronomical-horology': CELESTE_HORLOGERIE_MASTER_PROMPT,
@@ -104,4 +106,5 @@ export {
   CELESTE_HORLOGERIE_MASTER_PROMPT,
   CYANO_ARCHITECTURE_MASTER_PROMPT,
   RESONANCE_AUDIO_MASTER_PROMPT,
+  AXIS_KEYBOARDS_MASTER_PROMPT,
 };

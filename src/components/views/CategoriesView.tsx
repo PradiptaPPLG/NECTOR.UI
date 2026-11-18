@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'keyboards',
+      title: 'Keyboard Mekanikal & Lab Switch',
+      icon: Keyboard,
+      desc: 'Atelier keyboard mekanikal kustom: tester gaya aktuasi switch (Force Curve) & simulator suara typing, inspektor 6 lapisan gasket mount Poron, dan sasis billet aluminium 6063 CNC.',
+      accent: '#08D9D6'
+    },
     {
       id: 'audio',
       title: 'Audio Analog & Akustik Hi-Fi',
