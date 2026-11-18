@@ -6,7 +6,7 @@ import { getTemplateCommissionUrl } from '../../utils/whatsapp';
 
 interface Props {
   templates: Template[];
-  onSelectTemplate: (template: Template, initialTab?: 'preview' | 'code' | 'prompt') => void;
+  onSelectTemplate: (template: Template, initialTab?: 'preview' | 'code' | 'prompt' | 'color') => void;
   onNavigate: (view: string, categoryFilter?: string) => void;
   onToggleSave: (templateId: string) => void;
   isSaved: (templateId: string) => boolean;
@@ -28,16 +28,18 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
-    templates.find(t => t.slug === 'maison-nocturne-parfumerie') || templates[0],
-    templates.find(t => t.slug === 'kura-apparel') || templates[1],
-    templates.find(t => t.slug === 'rukun-buah-segar') || templates[2],
-    templates.find(t => t.slug === 'raso-mandeh-padang') || templates[3],
-    templates.find(t => t.slug === 'savore-cafe') || templates[4],
+    templates.find(t => t.slug === 'kemas-lab-packaging') || templates[0],
+    templates.find(t => t.slug === 'arung-technical-footwear') || templates[1],
+    templates.find(t => t.slug === 'maison-nocturne-parfumerie') || templates[2],
+    templates.find(t => t.slug === 'kura-apparel') || templates[3],
+    templates.find(t => t.slug === 'rukun-buah-segar') || templates[4],
   ];
 
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'packaging', label: 'Kemasan & Sablon Kustom', count: templates.filter(t => t.category === 'packaging').length, desc: 'Studio kemasan ramah lingkungan, visualizer sablon cup/box live & kalkulator grosir MOQ' },
+    { id: 'footwear', label: 'Sneakers & Sepatu', count: templates.filter(t => t.category === 'footwear').length, desc: 'Rekayasa sepatu teknikal iklim tropis, inspeksi anatomi sol, colorway studio & size calculator' },
     { id: 'perfumery', label: 'Parfum & Aromatik', count: templates.filter(t => t.category === 'perfumery').length, desc: 'Atelier haute parfumerie botani, piramida olfaktori, discovery set & monogram studio' },
     { id: 'fashion', label: 'Fashion & Toko Baju', count: templates.filter(t => t.category === 'fashion').length, desc: 'Etalase baju & lifewear modern gaya Uniqlo, preview modal interaktif & diskon' },
     { id: 'sekolah', label: 'Sekolah & Akademik', count: templates.filter(t => t.category === 'sekolah').length, desc: 'Meja belajar digital siswa, jadwal pelajaran mingguan, agenda tugas & rekap nilai rapor' },

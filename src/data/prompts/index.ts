@@ -19,8 +19,12 @@ import {
 } from './otherPrompts';
 import { KURA_APPAREL_MASTER_PROMPT } from './fashionPrompt';
 import { MAISON_NOCTURNE_MASTER_PROMPT } from './perfumeryPrompt';
+import { ARUNG_FOOTWEAR_MASTER_PROMPT } from './footwearPrompt';
+import { KEMAS_LAB_MASTER_PROMPT } from './packagingPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'kemas-lab-packaging': KEMAS_LAB_MASTER_PROMPT,
+  'arung-technical-footwear': ARUNG_FOOTWEAR_MASTER_PROMPT,
   'maison-nocturne-parfumerie': MAISON_NOCTURNE_MASTER_PROMPT,
   'kura-apparel': KURA_APPAREL_MASTER_PROMPT,
   'kantin-sekolah-selasar': KANTIN_MASTER_PROMPT,
@@ -66,4 +70,5 @@ export {
   RUKUN_BUAH_MASTER_PROMPT,
   KURA_APPAREL_MASTER_PROMPT,
   MAISON_NOCTURNE_MASTER_PROMPT,
+  ARUNG_FOOTWEAR_MASTER_PROMPT,
 };

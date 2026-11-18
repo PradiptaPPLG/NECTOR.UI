@@ -1,0 +1,16 @@
+# Vercel Ignore File
+# Exclude heavy assets, private notes, and raw references from deployment
+
+# Private notes
+note\[justprivatenote\].md
+note*justprivatenote*
+note[justprivatenote].md
+
+# Heavy image reference dataset
+dataset-refrensi/
+dataset-refrensi
+
+# Git and logs
+.git
+.github
+*.log

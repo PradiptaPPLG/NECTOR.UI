@@ -7488,3 +7488,331 @@
   display: block;
 }
 
+
+/* ==========================================================================
+   NECTOR.UI DETAIL VIEW — COLOR PALETTE TAB STYLES
+   ========================================================================== */
+.detail-color-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: fadeIn 200ms ease;
+}
+
+.color-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.csh-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.csh-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.csh-desc {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 780px;
+}
+
+/* 1. Stacked Palette Showcase Card (Replica of uploaded image) */
+.palette-stacked-showcase-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.palette-bars-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.palette-horizontal-bar {
+  width: 100%;
+  transition: opacity 150ms ease;
+}
+.palette-horizontal-bar:hover {
+  opacity: 0.95;
+}
+
+.palette-card-bottom-row {
+  padding: 24px 28px;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-hairline);
+}
+
+.palette-swatches-inline-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.palette-swatch-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.palette-color-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-surface);
+  box-shadow: 0 0 0 1px var(--border-medium), 0 3px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 150ms ease;
+}
+.palette-color-circle:hover {
+  transform: scale(1.12);
+}
+
+.palette-color-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.palette-hex-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.palette-hex-code {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.btn-swatch-copy-sm {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+.btn-swatch-copy-sm:hover {
+  border-color: var(--accent-terracotta);
+  color: var(--accent-terracotta);
+  background: var(--bg-surface);
+}
+
+.palette-rgb-code {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.palette-color-role {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* 2. Detailed Color Dossier Cards */
+.palette-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.color-dossier-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+.color-dossier-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.cdc-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cdc-circle-large {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-surface);
+  box-shadow: 0 0 0 1px var(--border-medium), 0 4px 10px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.cdc-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cdc-index {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.cdc-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.cdc-role {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.cdc-codes-box {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xs);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.cdc-code-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cdc-code-label {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.cdc-code-val {
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.btn-copy-code-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+.btn-copy-code-sm:hover {
+  border-color: var(--accent-terracotta);
+  color: var(--accent-terracotta);
+}
+
+/* 3. Export CSS Box */
+.palette-export-box {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.peb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.peb-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.peb-badge {
+  font-size: 10.5px;
+  color: var(--accent-terracotta);
+}
+
+.peb-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.btn-export-all-css {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--charcoal-deep);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: var(--radius-xs);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+.btn-export-all-css:hover {
+  background-color: var(--accent-terracotta);
+}
+
+.peb-code-block {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xs);
+  padding: 16px;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+@media (max-width: 1024px) {
+  .palette-swatches-inline-list,
+  .palette-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .palette-swatches-inline-list,
+  .palette-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

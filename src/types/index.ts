@@ -18,7 +18,9 @@ export type Category =
   | 'pet'
   | 'donat'
   | 'fashion'
+  | 'footwear'
   | 'perfumery'
+  | 'packaging'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';
@@ -57,6 +59,13 @@ export interface TemplatePrompt {
   parsedSections?: MasterPromptSection[];
 }
 
+export interface ColorSwatch {
+  hex: string;
+  rgb: string;
+  name: string;
+  role: string;
+}
+
 export interface Template {
   id: string;
   slug: string;
@@ -79,6 +88,7 @@ export interface Template {
   publishedAt: string;
   livePreviewAvailable: boolean;
   accentColor: string;
+  colorPalette?: ColorSwatch[];
 }
 
 export interface ToastNotification {

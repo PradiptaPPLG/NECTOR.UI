@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import type { Template } from '../../types';
+import type { Template, ColorSwatch } from '../../types';
 import { TemplateLivePreview } from '../previews/TemplateLivePreview';
 import { PromptInspectorView } from './PromptInspectorView';
 import {
@@ -21,7 +21,8 @@ import {
   CheckCircle,
   Download,
   ExternalLink,
-  RefreshCw
+  RefreshCw,
+  Palette
 } from 'lucide-react';
 import { DISPLAY_PHONE, getTemplateCommissionUrl } from '../../utils/whatsapp';
 
@@ -31,7 +32,7 @@ interface Props {
   isSaved: boolean;
   onToggleSave: () => void;
   onToast: (msg: string) => void;
-  initialTab?: 'preview' | 'code' | 'prompt';
+  initialTab?: 'preview' | 'code' | 'prompt' | 'color';
 }
 
 export const TemplateDetailView: React.FC<Props> = ({
@@ -42,10 +43,11 @@ export const TemplateDetailView: React.FC<Props> = ({
   onToast,
   initialTab = 'preview'
 }) => {
-  const [activeTab, setActiveTab] = useState<'preview' | 'code' | 'prompt'>(initialTab);
+  const [activeTab, setActiveTab] = useState<'preview' | 'code' | 'prompt' | 'color'>(initialTab);
   const [viewportWidth, setViewportWidth] = useState<'100%' | '768px' | '375px'>('100%');
   const [selectedFileIdx, setSelectedFileIdx] = useState<number>(0);
   const [copiedCode, setCopiedCode] = useState(false);
+  const [copiedHex, setCopiedHex] = useState<string | null>(null);
   const [loadedSourceCode, setLoadedSourceCode] = useState<string | null>(null);
   const [isLoadingSource, setIsLoadingSource] = useState(false);
   const codeSectionRef = useRef<HTMLElement>(null);
@@ -145,6 +147,31 @@ export const TemplateDetailView: React.FC<Props> = ({
     onToast(`Berkas ${activeFileName} (${fileSizeKb} KB) berhasil diunduh!`);
   };
 
+  const handleCopyHex = (hex: string) => {
+    navigator.clipboard.writeText(hex);
+    setCopiedHex(hex);
+    onToast(`Kode warna ${hex} berhasil disalin!`);
+    setTimeout(() => setCopiedHex(null), 2000);
+  };
+
+  const handleCopyAllCss = (palette: ColorSwatch[]) => {
+    const cssVars = `:root {\n` + palette.map((c, i) => `  --color-${i + 1}: ${c.hex}; /* ${c.name} · ${c.role} */`).join('\n') + `\n}`;
+    navigator.clipboard.writeText(cssVars);
+    onToast('Semua variabel CSS berhasil disalin!');
+  };
+
+  const colors: ColorSwatch[] = useMemo(() => {
+    if (template.colorPalette && template.colorPalette.length > 0) {
+      return template.colorPalette;
+    }
+    return [
+      { hex: template.accentColor || '#141416', rgb: 'rgb(20, 20, 22)', name: 'Primary Accent', role: 'Warna Aksen Utama' },
+      { hex: '#141416', rgb: 'rgb(20, 20, 22)', name: 'Deep Charcoal Ink', role: 'Warna Teks & Kontras' },
+      { hex: '#8C8B82', rgb: 'rgb(140, 139, 130)', name: 'Muted Slate', role: 'Warna Garis & Sekunder' },
+      { hex: '#FAF9F5', rgb: 'rgb(250, 249, 245)', name: 'Paper Warm White', role: 'Warna Kanvas & Latar' },
+    ];
+  }, [template]);
+
   return (
     <div className="template-detail-view">
       {/* Detail Top Subheader */}
@@ -176,6 +203,13 @@ export const TemplateDetailView: React.FC<Props> = ({
             >
               <Sparkles size={15} />
               <span>Spesifikasi Prompt AI</span>
+            </button>
+            <button
+              className={`top-tab-btn ${activeTab === 'color' ? 'active' : ''}`}
+              onClick={() => setActiveTab('color')}
+            >
+              <Palette size={15} />
+              <span>Palet Warna</span>
             </button>
           </div>
 
@@ -453,6 +487,129 @@ export const TemplateDetailView: React.FC<Props> = ({
         {activeTab === 'prompt' && (
           <section className="detail-prompt-section">
             <PromptInspectorView template={template} onToast={onToast} />
+          </section>
+        )}
+
+        {/* TAB 4: COLOR PALETTE */}
+        {activeTab === 'color' && (
+          <section className="detail-color-section">
+            <div className="color-section-header">
+              <div className="csh-meta mono">
+                <span className="badge-subtle">PALET WARNA RESMI</span>
+                <span>STANDAR ANTI-SLOP</span>
+                <span>HARMONI VISUAL TERTATA</span>
+              </div>
+              <h2 className="csh-title">Palet Harmoni & Karakter Visual</h2>
+              <p className="csh-desc">
+                Kombinasi warna yang dirancang khusus untuk menciptakan atmosfer emosional yang kuat tanpa mengorbankan keterbacaan teks dan hirarki informasi. Klik buletan atau kode warna untuk menyalin HEX ke clipboard.
+              </p>
+            </div>
+
+            {/* The Stacked Visual Card resembling the uploaded image */}
+            <div className="palette-stacked-showcase-card">
+              <div className="palette-bars-container">
+                {colors.map((c, idx) => (
+                  <div
+                    key={idx}
+                    className="palette-horizontal-bar"
+                    style={{
+                      backgroundColor: c.hex,
+                      flex: idx === 0 ? '1.8' : '1',
+                      minHeight: idx === 0 ? '110px' : '65px',
+                    }}
+                    title={`${c.name} (${c.hex})`}
+                  />
+                ))}
+              </div>
+
+              <div className="palette-card-bottom-row">
+                <div className="palette-swatches-inline-list">
+                  {colors.map((c, idx) => (
+                    <div key={idx} className="palette-swatch-item">
+                      <div
+                        className="palette-color-circle"
+                        style={{ backgroundColor: c.hex }}
+                        onClick={() => handleCopyHex(c.hex)}
+                        title={`Klik untuk salin ${c.hex}`}
+                      />
+                      <div className="palette-color-info">
+                        <div className="palette-hex-row">
+                          <span className="palette-hex-code mono">{c.hex}</span>
+                          <button
+                            className="btn-swatch-copy-sm"
+                            onClick={() => handleCopyHex(c.hex)}
+                            title={`Salin ${c.hex}`}
+                          >
+                            {copiedHex === c.hex ? <Check size={12} color="#16a34a" /> : <Copy size={12} />}
+                          </button>
+                        </div>
+                        <span className="palette-rgb-code mono">{c.rgb}</span>
+                        <span className="palette-color-role">{c.name}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Detailed Color Dossier Grid */}
+            <div className="palette-cards-grid">
+              {colors.map((c, idx) => (
+                <div key={idx} className="color-dossier-card">
+                  <div className="cdc-header">
+                    <div
+                      className="cdc-circle-large"
+                      style={{ backgroundColor: c.hex }}
+                    />
+                    <div className="cdc-meta">
+                      <span className="mono cdc-index">WARNA 0{idx + 1}</span>
+                      <h4 className="cdc-name">{c.name}</h4>
+                      <span className="cdc-role">{c.role}</span>
+                    </div>
+                  </div>
+
+                  <div className="cdc-codes-box mono">
+                    <div className="cdc-code-row">
+                      <span className="cdc-code-label">HEX:</span>
+                      <span className="cdc-code-val font-bold">{c.hex}</span>
+                      <button
+                        className="btn-copy-code-sm"
+                        onClick={() => handleCopyHex(c.hex)}
+                        title="Salin HEX"
+                      >
+                        {copiedHex === c.hex ? <Check size={13} color="#16a34a" /> : <Copy size={13} />}
+                        <span>{copiedHex === c.hex ? 'Tersalin' : 'Salin'}</span>
+                      </button>
+                    </div>
+                    <div className="cdc-code-row">
+                      <span className="cdc-code-label">RGB:</span>
+                      <span className="cdc-code-val">{c.rgb}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Export CSS Code Box */}
+            <div className="palette-export-box">
+              <div className="peb-header">
+                <div className="peb-title-group">
+                  <span className="mono peb-badge">INTEGRASI CSS PROYEK</span>
+                  <h4 className="peb-title">Variabel Desain Siap Tempel (CSS Variables)</h4>
+                </div>
+                <button className="btn-export-all-css" onClick={() => handleCopyAllCss(colors)}>
+                  <Copy size={14} />
+                  <span>Salin Semua Variabel CSS</span>
+                </button>
+              </div>
+              <pre className="peb-code-block mono">
+                <code>
+{`:root {
+` + colors.map((c, i) => `  --color-${i + 1}: ${c.hex}; /* ${c.name} · ${c.role} */`).join('\n') + `
+}`}
+                </code>
+              </pre>
+            </div>
           </section>
         )}
       </div>

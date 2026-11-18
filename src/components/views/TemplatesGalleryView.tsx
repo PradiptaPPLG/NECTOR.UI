@@ -6,7 +6,7 @@ import { getTemplateCommissionUrl } from '../../utils/whatsapp';
 
 interface Props {
   templates: Template[];
-  onSelectTemplate: (template: Template, initialTab?: 'preview' | 'code' | 'prompt') => void;
+  onSelectTemplate: (template: Template, initialTab?: 'preview' | 'code' | 'prompt' | 'color') => void;
   selectedCategory: string;
   onSelectCategory: (cat: string) => void;
   searchQuery: string;
@@ -29,6 +29,8 @@ export const TemplatesGalleryView: React.FC<Props> = ({
 
   const categories = [
     { id: 'all', label: 'Semua Etalase' },
+    { id: 'packaging', label: 'Kemasan & Sablon' },
+    { id: 'footwear', label: 'Sneakers & Sepatu' },
     { id: 'perfumery', label: 'Parfum & Aromatik' },
     { id: 'fashion', label: 'Fashion & Baju' },
     { id: 'sekolah', label: 'Sekolah & Belajar' },

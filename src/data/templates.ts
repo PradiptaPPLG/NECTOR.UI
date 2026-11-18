@@ -1273,7 +1273,181 @@ export function TanahLiatStudio() {
     featured: true,
     publishedAt: '2026-11-18',
     livePreviewAvailable: true,
-    accentColor: '#7C0E44'
+    accentColor: '#7C0E44',
+    colorPalette: [
+      { hex: '#7C0E44', rgb: 'rgb(124, 14, 68)', name: 'Deep Velvet Plum', role: 'Primary Brand / Header & Crest' },
+      { hex: '#AA5E7A', rgb: 'rgb(170, 94, 122)', name: 'Muted Berry Mauve', role: 'Secondary Accent & Button Hover' },
+      { hex: '#D49A9A', rgb: 'rgb(212, 154, 154)', name: 'Dusty Rose Blossom', role: 'Soft Border & Tag Highlight' },
+      { hex: '#F2DACE', rgb: 'rgb(242, 218, 206)', name: 'Warm Porcelain Linen', role: 'Background Tint & Badge Fill' }
+    ]
+  },
+  {
+    id: 'tpl-20',
+    slug: 'arung-technical-footwear',
+    title: 'ARUNG FOOTWEAR (Technical Sneaker Lab)',
+    tagline: 'Rekayasa alas kaki teknikal samudra, sol anti-selip, dan kenyamanan mobilitas iklim tropis',
+    description: 'Template website e-commerce teknikal sepatu & sneakers dengan palet samudra Deep Oceanic Navy (#1B365D), Pacific Cobalt (#005A9C), Sky Cerulean (#60C1E5), dan Glacial Ice Aqua (#A0E0EF). Dilengkapi inspektur anatomi sol & midsole 4-lapis dengan gauge meter real-time, colorway studio 4-warna interaktif, smart foot size calculator & fit recommender (panjang cm & karakter lebar toe-box), katalog 6 siluet sepatu teknikal dengan modal quick view, protokol uji lab 1.000 km, kebijakan garansi tukar ukuran 14 hari bebas ongkir, serta slide-over keranjang belanja terintegrasi pemesanan WhatsApp.',
+    category: 'footwear',
+    tags: ['Footwear', 'Sneakers', 'Sepatu Teknikal', 'Sportswear', 'Ocean Recycled', 'Size Calculator', 'Anatomy Inspector', 'WhatsApp Checkout', 'UMKM Alas Kaki'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Interactive Anatomy Inspector', 'Colorway Studio', 'Foot Size Calculator', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'footwear',
+    previewComponentKey: 'footwear-arung-sneakers',
+    htmlPath: '/templates/footwear/arung-sneakers.html',
+    htmlFolderPath: 'templates/footwear/arung-sneakers.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Inspektur anatomi sol 4-lapis interaktif (3D Ocean-Knit, Hydro-Shield, Cloud-EVA, Vulca-Grip) dengan gauge meter real-time',
+      'Colorway Studio 4-warna samudra (Abyssal Navy, Pacific Cobalt, Cerulean Tide, Glacial Ice) dengan live preview rendering',
+      'Smart Foot Size Calculator presisi: konversi centimeter ke EU/US/UK dan rekomendasi lebar toe-box',
+      'Katalog 6 model sepatu teknikal dengan pencarian instan dan filter kategori tanpa reload halaman',
+      'Modal Quick-View detail produk dengan size selector interaktif (EU 39 — 45) dan indikator ketersediaan stok',
+      'Slide-over keranjang belanja terintegrasi WhatsApp dengan pengecekan batas bonus kaos kaki teknikal (Rp 499.000)'
+    ],
+    usageInstructions: [
+      'Buka templates/footwear/arung-sneakers.html di editor kode Anda.',
+      'Sesuaikan daftar koleksi sepatu, harga, dan spesifikasi pada objek SHOES_DB di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan resmi pada fungsi checkoutWA.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase sepatu teknikal langsung aktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'arung-sneakers.html',
+        language: 'html',
+        content: `<!-- ARUNG FOOTWEAR (阿龍) — Technical Marine Sneaker Lab -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>ARUNG FOOTWEAR — Technical Sneaker Lab</title>
+  <style>
+    :root {
+      --navy-deep: #1B365D;
+      --blue-cobalt: #005A9C;
+      --blue-cerulean: #60C1E5;
+      --blue-ice: #A0E0EF;
+      --blue-canvas: #F4F9FD;
+      --ink-primary: #0B1C33;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">GARANSI TUKAR UKURAN 14 HARI • UJI 1.000 KM • GRATIS ONGKIR MIN. RP 499.000</div>
+  <header>
+    <div class="brand-logo-box">AR LAB</div>
+    <h1>ARUNG FOOTWEAR</h1>
+    <nav>Katalog · Anatomi Sol · Colorway Studio · Ukuran Kaki · Uji Lab</nav>
+  </header>
+  <!-- Full Interactive Footwear Experience: Anatomy Soling Inspector, Colorway Studio, Size Calculator & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website etalase dan pemesanan sepatu teknikal ARUNG FOOTWEAR dengan palet warna samudra Deep Oceanic Navy (#1B365D), Pacific Cobalt (#005A9C), Sky Cerulean (#60C1E5), dan Glacial Ice Aqua (#A0E0EF). Dilengkapi inspektur anatomi sol 4-lapis, colorway studio, smart foot size calculator, etalase 6 model sepatu, uji lab 1.000 km, dan keranjang belanja WhatsApp.',
+      designDirection: 'Technical sportswear & engineered footwear berstandar antislop: Deep Oceanic Navy (#1B365D), Pacific Cobalt (#005A9C), Sky Cerulean (#60C1E5), Glacial Ice Aqua (#A0E0EF), dan Performance Canvas Ground (#F4F9FD). Tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Top performance ticker navy, sticky technical navbar dengan logo kotak AR LAB, hero asymmetric showcase 2 kolom dengan spotlight card sepatu signature, panel anatomi sol 4-lapis dengan indikator gauge meter, colorway studio 2 kolom, kalkulator ukuran kaki presisi dengan slider centimeter, grid etalase 6 model sepatu 3 kolom responsif, dan slide-over cart drawer kanan.',
+      typographyAndColor: 'Plus Jakarta Sans untuk tajuk performa modern dan kontrol UI tegas, JetBrains Mono untuk spesifikasi teknis, bobot 240g, ukuran EU/US/UK, dan kode SKU.',
+      interactions: 'Inspektur anatomi sol dengan transisi gauge meter instan, pergantian colorway live rendering, kalkulasi ukuran kaki real-time dengan rekomendasi fit toe-box, filter katalog tanpa reload, quick view modal dengan pemilih ukuran sepatu, dan slide-over cart WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive dari smartphone 360px hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#1B365D',
+    colorPalette: [
+      { hex: '#1B365D', rgb: 'rgb(27, 54, 93)', name: 'Deep Oceanic Navy', role: 'Primary Anchor / Soling Chassis & Dark Header' },
+      { hex: '#005A9C', rgb: 'rgb(0, 90, 156)', name: 'Pacific Cobalt Blue', role: 'Hydro Dynamics & Primary Action Button' },
+      { hex: '#60C1E5', rgb: 'rgb(96, 193, 229)', name: 'Sky Cerulean Wave', role: 'Technical Accent & Performance Gauge Bar' },
+      { hex: '#A0E0EF', rgb: 'rgb(160, 224, 239)', name: 'Glacial Ice Aqua', role: 'Reflective Highlight, Badge Base & Pill Fill' }
+    ]
+  },
+  {
+    id: 'tpl-21',
+    slug: 'kemas-lab-packaging',
+    title: 'KEMAS LAB (EcoPack & Sablon Studio)',
+    tagline: 'Solusi kemasan ramah lingkungan, sablon kustom MOQ bersahabat, dan cetak presisi untuk UMKM kuliner & ritel',
+    description: 'Template website studio percetakan kemasan ramah lingkungan dan sablon kustom dengan palet Midnight Slate (#202734), Steel Indigo (#36415A), Matcha Pistachio Sage (#B7D894), dan Pale Celadon Dew (#E0F8C7). Dilengkapi Visualizer Sablon Cup & Box Interaktif real-time, Kalkulator Grosir MOQ & Diskon Berjenjang (500-10.000 pcs), katalog 6 kemasan bersertifikat food-grade & FSC, panduan spesifikasi die-cut cetak siap unduh, formulir pemesanan sample box kit gratis, serta slide-over keranjang belanja WhatsApp.',
+    category: 'packaging',
+    tags: ['Packaging', 'Sablon Kemasan', 'Eco-Friendly', 'Paper Cup', 'Kraft Box', 'Sablon Kustom', 'MOQ Calculator', 'WhatsApp Checkout', 'UMKM Kuliner'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Interactive Sablon Visualizer', 'Wholesale MOQ Calculator', 'Free Sample Kit Form', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'packaging',
+    previewComponentKey: 'packaging-kemas-lab',
+    htmlPath: '/templates/packaging/kemas-lab.html',
+    htmlFolderPath: 'templates/packaging/kemas-lab.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Visualizer Sablon Cup & Box Interaktif: live mockup nama brand, pilihan warna tinta sablon, dan orientasi cetak',
+      'Kalkulator Grosir MOQ & Diskon Berjenjang (500 - 10.000 pcs) dengan simulasi harga per pcs otomatis',
+      'Katalog 6 kemasan berkelanjutan bersertifikat bio-degradable & FSC dengan filter kategori tanpa reload',
+      'Modal Quick-View detail produk dengan tabel spesifikasi teknis GSM, kapasitas, dan batas minimum order',
+      'Panduan format file cetak die-cut siap unduh (AI/PDF) dan form pemesanan sample box kit gratis',
+      'Slide-over keranjang belanja terintegrasi pemesanan resmi via WhatsApp dengan perhitungan gratis plat film cetak'
+    ],
+    usageInstructions: [
+      'Buka templates/packaging/kemas-lab.html di editor kode Anda.',
+      'Sesuaikan daftar produk kemasan, harga tier grosir, dan spesifikasi pada objek PRODUCTS_DB di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan resmi pada fungsi checkoutViaWA dan requestSampleKit.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk studio kemasan langsung aktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'kemas-lab.html',
+        language: 'html',
+        content: `<!-- KEMAS LAB (包装工房) — Eco-Packaging & Custom Screen Printing Studio -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KEMAS LAB — Studio Kemasan & Sablon Kustom Ramah Lingkungan</title>
+  <style>
+    :root {
+      --slate-dark: #202734;
+      --slate-steel: #36415A;
+      --green-pistachio: #B7D894;
+      --green-celadon: #E0F8C7;
+      --eco-canvas: #FAFBF8;
+      --ink-primary: #151B24;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">PRODUKSI 5-7 HARI KERJA • GARANSI ANTI-BOCOR 100% • GRATIS BIAYA PLAT CETAK MIN. 2.500 PCS</div>
+  <header>
+    <div class="brand-monogram">KL</div>
+    <h1>KEMAS LAB</h1>
+    <nav>Katalog Kemasan · Studio Sablon · Kalkulator MOQ · Standar Eco · Sample Box</nav>
+  </header>
+  <!-- Full Interactive Packaging Experience: Sablon Visualizer, Wholesale Calculator & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website studio kemasan ramah lingkungan dan sablon kustom KEMAS LAB dengan palet warna Midnight Slate (#202734), Steel Indigo (#36415A), Matcha Pistachio Sage (#B7D894), dan Pale Celadon Dew (#E0F8C7). Dilengkapi visualizer sablon interaktif, kalkulator grosir MOQ berjenjang, katalog 6 kemasan bersertifikat FSC, formulir sample box gratis, dan slide-over cart WhatsApp.',
+      designDirection: 'Industrial botanical packaging studio berstandar antislop: Deep Midnight Slate (#202734), Steel Indigo (#36415A), Matcha Pistachio Sage (#B7D894), Pale Celadon Dew (#E0F8C7), dan Eco Canvas Ground (#FAFBF8). Tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Top production ticker slate, sticky industrial navbar dengan monogram KL, hero asymmetric showcase 2 kolom dengan spotlight kemasan lunch box kraft, panel visualizer sablon cup/box interaktif 2 kolom, kalkulator grosir MOQ dengan slider kuantiti dinamis, grid katalog 6 produk kemasan 3 kolom responsif, section download template die-cut & formulir sample box gratis, dan slide-over cart drawer kanan.',
+      typographyAndColor: 'Plus Jakarta Sans untuk tajuk studio cetak dan navigasi tegas, JetBrains Mono untuk spesifikasi gramatur 290-350 GSM, dimensi milimeter, volume oz/ml, rincian harga per pcs, dan kode standar sertifikasi FSC.',
+      interactions: 'Visualizer sablon live mockup dengan update nama brand instan dan pemilih warna tinta, kalkulator tier grosir dengan slider jumlah pcs dan diskon berjenjang otomatis, filter kategori tanpa reload, quick view modal dengan pilihan kuantiti pesanan, formulir sample kit gratis, dan slide-over cart WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive dari smartphone 360px hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#202734',
+    colorPalette: [
+      { hex: '#202734', rgb: 'rgb(32, 39, 52)', name: 'Deep Midnight Slate', role: 'Primary Base / Industrial Chassis & Dark Contrast' },
+      { hex: '#36415A', rgb: 'rgb(54, 65, 90)', name: 'Steel Slate Indigo', role: 'Secondary Technical Accent & Border Structure' },
+      { hex: '#B7D894', rgb: 'rgb(183, 216, 148)', name: 'Matcha Pistachio Sage', role: 'Botanical Fiber Action & Key CTA Button' },
+      { hex: '#E0F8C7', rgb: 'rgb(224, 248, 199)', name: 'Pale Celadon Dew', role: 'Fresh Eco Highlight, Tag Fill & Card Tint' }
+    ]
   }
 ];
 

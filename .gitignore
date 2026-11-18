@@ -22,4 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-note[justprivatenote].md
+# Private notes and local reference assets
+note\[justprivatenote\].md
+note*justprivatenote*
+dataset-refrensi/
+dataset-refrensi

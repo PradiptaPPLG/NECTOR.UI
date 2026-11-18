@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,20 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'packaging',
+      title: 'Kemasan & Sablon Kustom',
+      icon: Package,
+      desc: 'Studio kemasan ramah lingkungan & cetak sablon kustom UMKM: visualizer sablon cup/box interaktif, kalkulator grosir MOQ berjenjang (500-10.000 pcs), unduh template die-cut, dan formulir sample kit gratis.',
+      accent: '#202734'
+    },
+    {
+      id: 'footwear',
+      title: 'Sneakers & Alas Kaki Teknikal',
+      icon: Footprints,
+      desc: 'Laboratorium rekayasa sepatu teknikal iklim tropis: inspeksi anatomi sol 4-lapis, colorway studio 4-warna samudra, smart size calculator, uji ketahanan lab 1.000 km, dan keranjang WhatsApp.',
+      accent: '#1B365D'
+    },
     {
       id: 'perfumery',
       title: 'Haute Parfumerie & Wewangian',

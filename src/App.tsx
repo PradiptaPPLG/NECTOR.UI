@@ -26,9 +26,9 @@ export function App() {
     }
     return currentView === 'detail' ? TEMPLATES_DATA[0] : null;
   });
-  const [initialDetailTab, setInitialDetailTab] = useState<'preview' | 'code' | 'prompt'>(() => {
+  const [initialDetailTab, setInitialDetailTab] = useState<'preview' | 'code' | 'prompt' | 'color'>(() => {
     const tab = urlParams?.get('tab');
-    if (tab === 'code' || tab === 'prompt') return tab;
+    if (tab === 'code' || tab === 'prompt' || tab === 'color') return tab;
     return 'preview';
   });
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -114,7 +114,7 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSelectTemplate = (template: Template, initialTab: 'preview' | 'code' | 'prompt' = 'preview') => {
+  const handleSelectTemplate = (template: Template, initialTab: 'preview' | 'code' | 'prompt' | 'color' = 'preview') => {
     setSelectedTemplate(template);
     setInitialDetailTab(initialTab);
     setCurrentView('detail');

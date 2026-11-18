@@ -7,7 +7,7 @@ import { getTemplateCommissionUrl } from '../../utils/whatsapp';
 interface Props {
   templates: Template[];
   savedIds: string[];
-  onSelectTemplate: (template: Template, initialTab?: 'preview' | 'code' | 'prompt') => void;
+  onSelectTemplate: (template: Template, initialTab?: 'preview' | 'code' | 'prompt' | 'color') => void;
   onToggleSave: (id: string) => void;
   onNavigateToGallery: () => void;
   onClearCollection: () => void;
