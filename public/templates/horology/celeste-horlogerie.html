@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CÉLESTE HORLOGERIE — Atelier Jam Tangan Mekanis & Komplikasi Fase Bulan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       CÉLESTE HORLOGERIE — PALET WARNA RESMI USER SPEC
+       #F4EEFF : Luminous Opaline Lilac (Main Dial Ground & Pure Canvas)
+       #DCD6F7 : Soft Periwinkle Frost (Secondary Dial Tint & Bridge Glow)
+       #A6B1E1 : Celestial Cornflower Slate (Subdial Accent & Sky Chart)
+       #424874 : Deep Twilight Iris Navy (Primary Complication Disc & Action)
+       #1A1C30 : Midnight Amethyst Ink (Contrast Typography WCAG AAA 14:1+)
+       ========================================================================== */
+    :root {
+      --celeste-opaline: #F4EEFF;
+      --celeste-frost: #DCD6F7;
+      --celeste-slate: #A6B1E1;
+      --celeste-navy: #424874;
+      --celeste-navy-dark: #2F3456;
+      --celeste-ink: #1A1C30;
+      --celeste-muted: #5B5F82;
+      --celeste-card-bg: #FFFFFF;
+      --celeste-border: rgba(66, 72, 116, 0.22);
+      --celeste-border-subtle: rgba(26, 28, 48, 0.08);
+      --celeste-shadow: 0 16px 40px -10px rgba(26, 28, 48, 0.09), 0 2px 6px -1px rgba(26, 28, 48, 0.04);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --container-max: 1260px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--celeste-opaline);
+      color: var(--celeste-ink);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --------------------------------------------------------------------------
+       TOP HOROLOGICAL TELEMETRY & ESCAPEMENT TICKER
+       -------------------------------------------------------------------------- */
+    .top-ticker {
+      background-color: var(--celeste-frost);
+      border-bottom: 1px solid var(--celeste-border);
+      padding: 8px 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--celeste-navy);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 36px;
+      animation: tickerRoll 45s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ticker-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: var(--celeste-navy);
+      border-radius: 50%;
+    }
+
+    @keyframes tickerRoll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* --------------------------------------------------------------------------
+       EDITORIAL STICKY NAVBAR (ANTI-SLOP NO-WRAP)
+       Strict single-line layout: all items flex-shrink: 0, white-space: nowrap
+       -------------------------------------------------------------------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(244, 238, 255, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--celeste-border);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .brand-symbol-box {
+      width: 40px;
+      height: 40px;
+      background-color: var(--celeste-navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 20px;
+      box-shadow: 0 2px 8px rgba(66, 72, 116, 0.35);
+      border: 1px solid var(--celeste-slate);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--celeste-ink);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--celeste-muted);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-shrink: 0;
+    }
+
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--celeste-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.18s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--celeste-ink);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--celeste-navy);
+      border-radius: 1px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-nav-custom {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--celeste-frost);
+      color: var(--celeste-navy);
+      border: 1px solid var(--celeste-slate);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-custom:hover {
+      background: #CEC4F2;
+      transform: translateY(-1px);
+    }
+
+    .btn-nav-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--celeste-navy);
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-cart:hover {
+      background: var(--celeste-navy-dark);
+      transform: translateY(-1px);
+    }
+
+    .cart-count-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--celeste-slate);
+      color: #FFFFFF;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* --------------------------------------------------------------------------
+       HERO ASTRONOMICAL DIAL & ESCAPEMENT SECTION
+       -------------------------------------------------------------------------- */
+    .hero-section {
+      padding: 64px 0 76px;
+      position: relative;
+    }
+
+    .hero-astronomy-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-narrative-col {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .chronometer-seal {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      background: #FFFFFF;
+      border: 1px solid var(--celeste-border);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--celeste-muted);
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 52px;
+      line-height: 1.12;
+      font-weight: 600;
+      color: var(--celeste-ink);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--celeste-navy);
+      font-weight: 500;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--celeste-muted);
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    .hero-telemetry-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 18px 0;
+      border-top: 1px solid var(--celeste-border);
+      border-bottom: 1px solid var(--celeste-border);
+    }
+
+    .telemetry-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .telemetry-num {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .telemetry-caption {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--celeste-muted);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--celeste-navy);
+      color: #FFFFFF;
+      border: 1px solid var(--celeste-navy-dark);
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(66, 72, 116, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--celeste-navy-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(66, 72, 116, 0.5);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      color: var(--celeste-ink);
+      border: 1px solid var(--celeste-border);
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: var(--celeste-frost);
+      border-color: var(--celeste-slate);
+    }
+
+    /* Watch Face Stage Card */
+    .hero-dial-card {
+      background: #FFFFFF;
+      border: 1px solid var(--celeste-border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--celeste-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+    }
+
+    .dial-photo-frame {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.8;
+      background: #EDEAE5;
+      position: relative;
+    }
+
+    .dial-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .dial-badge-footer {
+      background: var(--celeste-opaline);
+      border: 1px solid var(--celeste-border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dial-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .dial-sub {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--celeste-muted);
+    }
+
+    /* --------------------------------------------------------------------------
+       SECTION HEADER COMMON
+       -------------------------------------------------------------------------- */
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 46px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--celeste-navy);
+      margin-bottom: 10px;
+    }
+
+    .section-eyebrow::before, .section-eyebrow::after {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background-color: var(--celeste-slate);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--celeste-ink);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--celeste-muted);
+      line-height: 1.6;
+    }
+
+    /* --------------------------------------------------------------------------
+       INTERACTIVE FEATURE 1: SYNODIC MOONPHASE & ASTRONOMICAL DIAL SIMULATOR
+       -------------------------------------------------------------------------- */
+    .moonphase-section {
+      padding: 76px 0 84px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--celeste-border);
+      border-bottom: 1px solid var(--celeste-border);
+    }
+
+    .moonphase-card-stage {
+      background: var(--celeste-opaline);
+      border: 1px solid var(--celeste-border);
+      border-radius: 20px;
+      padding: 38px;
+      box-shadow: var(--celeste-shadow);
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .moon-dial-canvas {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: radial-gradient(circle, #2F3456 0%, #1A1C30 100%);
+      border: 2px solid var(--celeste-slate);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.4), 0 10px 30px rgba(66, 72, 116, 0.2);
+    }
+
+    .moon-aperture-ring {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 2px dashed rgba(220, 214, 247, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .lunar-orb-visual {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: #F4EEFF;
+      box-shadow: 0 0 35px rgba(244, 238, 255, 0.8), inset -8px -8px 16px rgba(66, 72, 116, 0.4);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lunar-shadow-mask {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      background: #1A1C30;
+      transition: all 0.5s ease;
+      opacity: 0;
+    }
+
+    .moon-floating-badge {
+      position: absolute;
+      bottom: 18px;
+      background: rgba(26, 28, 48, 0.85);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    .moon-controls-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .moon-phase-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .btn-moon-phase {
+      background: #FFFFFF;
+      border: 1px solid var(--celeste-border);
+      border-radius: 10px;
+      padding: 12px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-moon-phase:hover {
+      background: var(--celeste-frost);
+      border-color: var(--celeste-slate);
+    }
+
+    .btn-moon-phase.active {
+      background: var(--celeste-navy);
+      color: #FFFFFF;
+      border-color: var(--celeste-navy-dark);
+      box-shadow: 0 4px 12px rgba(66, 72, 116, 0.35);
+    }
+
+    .btn-moon-phase.active .phase-sub {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .phase-label {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .phase-sub {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--celeste-muted);
+    }
+
+    .moon-dossier-box {
+      background: #FFFFFF;
+      border: 1px solid var(--celeste-border);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .moon-dossier-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .moon-dossier-desc {
+      font-size: 14px;
+      color: var(--celeste-muted);
+      line-height: 1.6;
+    }
+
+    .moon-astronomy-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--celeste-border);
+    }
+
+    .astronomy-metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .a-metric-key {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--celeste-muted);
+      text-transform: uppercase;
+    }
+
+    .a-metric-val {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    /* --------------------------------------------------------------------------
+       INTERACTIVE FEATURE 2: ESCAPEMENT FREQUENCY & BEAT RATE TUNER
+       -------------------------------------------------------------------------- */
+    .escapement-section {
+      padding: 80px 0;
+      background: var(--celeste-opaline);
+    }
+
+    .escapement-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .escapement-visual-card {
+      background: #FFFFFF;
+      border: 1px solid var(--celeste-border);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--celeste-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .oscillogram-screen {
+      background: #1A1C30;
+      border: 1px solid var(--celeste-slate);
+      border-radius: 12px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+
+    .oscillo-wave-line {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #DCD6F7 20%, #A6B1E1 50%, #DCD6F7 80%, transparent 100%);
+      box-shadow: 0 0 10px #A6B1E1;
+      position: relative;
+    }
+
+    .balance-wheel-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--celeste-border);
+      padding-top: 14px;
+    }
+
+    .tuner-controls-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .freq-selector-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-freq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--celeste-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .btn-freq-item:hover {
+      background: var(--celeste-frost);
+      border-color: var(--celeste-slate);
+    }
+
+    .btn-freq-item.active {
+      background: var(--celeste-frost);
+      border-color: var(--celeste-navy);
+      box-shadow: 0 0 0 1px var(--celeste-navy);
+    }
+
+    .freq-hz-tag {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--celeste-navy);
+    }
+
+    .freq-title-text {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .freq-sub-text {
+      font-size: 11.5px;
+      color: var(--celeste-muted);
+    }
+
+    /* --------------------------------------------------------------------------
+       CURATED CATALOG OF 6 IN-HOUSE MECHANICAL TIMEPIECES
+       -------------------------------------------------------------------------- */
+    .catalog-section {
+      padding: 80px 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--celeste-border);
+      border-bottom: 1px solid var(--celeste-border);
+    }
+
+    .catalog-filters-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 38px;
+      flex-wrap: wrap;
+    }
+
+    .btn-filter-pill {
+      background: var(--celeste-opaline);
+      border: 1px solid var(--celeste-border-subtle);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--celeste-muted);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-filter-pill:hover {
+      border-color: var(--celeste-navy);
+      color: var(--celeste-ink);
+    }
+
+    .btn-filter-pill.active {
+      background: var(--celeste-navy);
+      color: #FFFFFF;
+      border-color: var(--celeste-navy-dark);
+      font-weight: 600;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .watch-card {
+      background: var(--celeste-opaline);
+      border: 1px solid var(--celeste-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--celeste-shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .watch-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(26, 28, 48, 0.12);
+    }
+
+    .card-photo-box {
+      aspect-ratio: 4 / 3.4;
+      background: var(--celeste-frost);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .watch-card:hover .card-photo-box img {
+      transform: scale(1.04);
+    }
+
+    .card-ref-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--celeste-border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--celeste-ink);
+    }
+
+    .card-content-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .watch-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .watch-price {
+      font-family: var(--font-mono);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+      white-space: nowrap;
+    }
+
+    .watch-desc {
+      font-size: 13.5px;
+      color: var(--celeste-muted);
+      line-height: 1.55;
+    }
+
+    .watch-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chip-pill {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background: #FFFFFF;
+      border: 1px solid var(--celeste-border-subtle);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--celeste-muted);
+    }
+
+    .card-actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--celeste-border);
+    }
+
+    .btn-add-vault {
+      flex: 1;
+      background: var(--celeste-navy);
+      color: #FFFFFF;
+      border: 1px solid var(--celeste-navy-dark);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.18s ease;
+    }
+
+    .btn-add-vault:hover {
+      background: var(--celeste-navy-dark);
+    }
+
+    .btn-inspect-quick {
+      background: transparent;
+      color: var(--celeste-ink);
+      border: 1px solid var(--celeste-border);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-inspect-quick:hover {
+      background: var(--celeste-frost);
+      border-color: var(--celeste-slate);
+    }
+
+    /* --------------------------------------------------------------------------
+       SLIDE-OVER HOROLOGICAL VAULT DRAWER
+       -------------------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 28, 48, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background: #FFFFFF;
+      box-shadow: -10px 0 40px rgba(26, 28, 48, 0.18);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer-overlay.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 22px 26px;
+      border-bottom: 1px solid var(--celeste-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--celeste-opaline);
+    }
+
+    .drawer-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .btn-close-drawer {
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      color: var(--celeste-muted);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .drawer-items-list {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 22px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-item-card {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--celeste-border-subtle);
+    }
+
+    .cart-item-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: var(--celeste-frost);
+      flex-shrink: 0;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .cart-item-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .cart-item-meta {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--celeste-muted);
+    }
+
+    .cart-item-row-bot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .btn-del-item {
+      background: transparent;
+      border: none;
+      color: #9C5238;
+      font-size: 11.5px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .drawer-footer {
+      padding: 22px 26px;
+      border-top: 1px solid var(--celeste-border);
+      background: var(--celeste-opaline);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .subtotal-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .subtotal-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .btn-checkout-wa {
+      background: var(--celeste-navy);
+      color: #FFFFFF;
+      border: none;
+      padding: 13px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s ease;
+    }
+
+    .btn-checkout-wa:hover {
+      background: var(--celeste-navy-dark);
+    }
+
+    /* --------------------------------------------------------------------------
+       SALON PRIVATE VIEWING MODAL
+       -------------------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 28, 48, 0.55);
+      backdrop-filter: blur(5px);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: #FFFFFF;
+      border: 1px solid var(--celeste-border);
+      border-radius: 20px;
+      width: 520px;
+      max-width: 95vw;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(26, 28, 48, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    /* --------------------------------------------------------------------------
+       FOOTER
+       -------------------------------------------------------------------------- */
+    .site-footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--celeste-border);
+      padding: 60px 0 32px;
+      color: var(--celeste-ink);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--celeste-ink);
+    }
+
+    .footer-col-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13.5px;
+      color: var(--celeste-muted);
+    }
+
+    .footer-col-links a:hover {
+      color: var(--celeste-ink);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--celeste-border);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--celeste-muted);
+    }
+
+    /* --------------------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       -------------------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-astronomy-grid, .moonphase-card-stage, .escapement-grid {
+        grid-template-columns: 1fr;
+      }
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-nav {
+        display: none;
+      }
+      .hero-title {
+        font-size: 34px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Horological Escapement Telemetry Bar -->
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ticker-dot"></span> IN-HOUSE CALIBRE CL-8802 • CHRONOMETER SERTIFIKASI COSC / GENEVA SEAL</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> FREKUENSI 28.800 VPH (4 HZ) • 72-HOUR POWER RESERVE CADANGAN DAYA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> JARUM BAJA TERMAL BIRU (BLUED STEEL 290°C) • DISKUS FASE BULAN SINODIK 29.53 HARI</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> SALON PRIVAT HOROLOGI: VILLA DAGO BANDUNG & PRIVATE SUITE MENTENG JAKARTA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> IN-HOUSE CALIBRE CL-8802 • CHRONOMETER SERTIFIKASI COSC / GENEVA SEAL</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> FREKUENSI 28.800 VPH (4 HZ) • 72-HOUR POWER RESERVE CADANGAN DAYA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> JARUM BAJA TERMAL BIRU (BLUED STEEL 290°C) • DISKUS FASE BULAN SINODIK 29.53 HARI</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> SALON PRIVAT HOROLOGI: VILLA DAGO BANDUNG & PRIVATE SUITE MENTENG JAKARTA</div>
+    </div>
+  </div>
+
+  <!-- Editorial Sticky Navbar (Non-wrapping single-line) -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-mark">
+        <div class="brand-symbol-box">C</div>
+        <div class="brand-text">
+          <span class="brand-name">CÉLESTE</span>
+          <span class="brand-sub">HAUTE HORLOGERIE ASTRONOMIQUE</span>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <a href="#fase-bulan" class="nav-link active">Fase Bulan</a>
+        <a href="#escapement" class="nav-link">Tuner Frekuensi</a>
+        <a href="#katalog" class="nav-link">Koleksi Jam</a>
+        <a href="#salon" class="nav-link" onclick="openViewingModal(); return false;">Salon Privat</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-nav-custom" onclick="document.getElementById('fase-bulan').scrollIntoView({behavior: 'smooth'})">
+          <span>🌙 Uji Komplikasi</span>
+        </button>
+        <button class="btn-nav-cart" onclick="toggleCartDrawer()">
+          <span>Brankas Jam</span>
+          <span class="cart-count-badge" id="navCartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Astronomical Dial & Escapement Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-astronomy-grid">
+      <!-- Narrative Column -->
+      <div class="hero-narrative-col">
+        <div class="chronometer-seal">
+          <span>ASTRONOMICAL HOROLOGY</span>
+          <span>•</span>
+          <span>CALIBRE IN-HOUSE</span>
+          <span>•</span>
+          <span>EST. 2026</span>
+        </div>
+
+        <h1 class="hero-title">
+          Waktu mekanis yang merajut <em>irama kosmik</em> di pergelangan tangan.
+        </h1>
+
+        <p class="hero-desc">
+          Setiap jam tangan CÉLESTE dirakit tangan oleh master horologist: memadukan diskus fase bulan presisi 29.53 hari, jarum baja biru termal 290°C, dekorasi Côtes de Genève, dan keseimbangan frekuensi 28.800 getaran per jam berakurasi kronometer sejati.
+        </p>
+
+        <div class="hero-telemetry-row">
+          <div class="telemetry-item">
+            <span class="telemetry-num">-1/+2 d</span>
+            <span class="telemetry-caption">Toleransi Deviasi Harian</span>
+          </div>
+          <div class="telemetry-item">
+            <span class="telemetry-num">29.53 h</span>
+            <span class="telemetry-caption">Akurasi Siklus Sinodik</span>
+          </div>
+          <div class="telemetry-item">
+            <span class="telemetry-num">72 Jam</span>
+            <span class="telemetry-caption">Cadangan Daya Barel Ganda</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-row">
+          <button class="btn-hero-primary" onclick="openViewingModal()">
+            <span>Reservasi Private Viewing Salon</span>
+          </button>
+          <button class="btn-hero-secondary" onclick="document.getElementById('fase-bulan').scrollIntoView({behavior: 'smooth'})">
+            <span>Simulator Fase Bulan →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dial Showcase Card -->
+      <div class="hero-dial-card">
+        <div class="dial-photo-frame">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80" alt="Céleste Moonphase Chronometer Watch Face" id="heroDialPhoto">
+        </div>
+        <div class="dial-badge-footer">
+          <div>
+            <div class="dial-title">The Céleste Moonphase Ref. 8801</div>
+            <div class="dial-sub">Opaline Lilac Dial • Titanium Grade 5 Case (39mm)</div>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 11px; background: var(--celeste-navy); color: #fff; padding: 4px 10px; border-radius: 4px;">COSC Certified</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 1: Synodic Moonphase & Astronomical Dial Simulator -->
+  <section class="moonphase-section" id="fase-bulan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">KOMPLIKASI ASTRONOMI PRESISI</span>
+        <h2 class="section-title">Simulator Diskus Fase Bulan Sinodik 29.53 Hari</h2>
+        <p class="section-subtitle">Pilih fase peredaran bulan untuk melihat bagaimana roda gigi 59-gigi CÉLESTE menggerakkan piringan langit malam bertabur konstelasi bintang periwinkle.</p>
+      </div>
+
+      <div class="moonphase-card-stage">
+        <!-- Visual Moon Aperture Dial -->
+        <div class="moon-dial-canvas">
+          <div class="moon-aperture-ring">
+            <div class="lunar-orb-visual" id="lunarOrb">
+              <div class="lunar-shadow-mask" id="lunarShadow"></div>
+            </div>
+          </div>
+          <div class="moon-floating-badge" id="moonPhaseBadge">FASE BULAN PURNAMA (FULL MOON 100%)</div>
+        </div>
+
+        <!-- Controls Column -->
+        <div class="moon-controls-col">
+          <div class="moon-phase-tabs">
+            <button class="btn-moon-phase" onclick="setMoonPhase(0)">
+              <span class="phase-label">Bulan Baru</span>
+              <span class="phase-sub">Hari 0</span>
+            </button>
+            <button class="btn-moon-phase" onclick="setMoonPhase(1)">
+              <span class="phase-label">Kuartal 1</span>
+              <span class="phase-sub">Hari 7.4</span>
+            </button>
+            <button class="btn-moon-phase active" onclick="setMoonPhase(2)">
+              <span class="phase-label">Purnama</span>
+              <span class="phase-sub">Hari 14.8</span>
+            </button>
+            <button class="btn-moon-phase" onclick="setMoonPhase(3)">
+              <span class="phase-label">Kuartal Akhir</span>
+              <span class="phase-sub">Hari 22.1</span>
+            </button>
+          </div>
+
+          <div class="moon-dossier-box">
+            <h3 class="moon-dossier-title" id="moonTitle">Fase 3: Bulan Purnama (Full Moon Illumination)</h3>
+            <p class="moon-dossier-desc" id="moonDesc">
+              Diskus emas murni 24K berada tepat di tengah jendela apertur dial opaline lilac. Cahaya bulan dipantulkan sempurna tanpa bayangan cakram, menandai titik pasang tertinggi siklus pasang surut laut.
+            </p>
+
+            <div class="moon-astronomy-metrics">
+              <div class="astronomy-metric-item">
+                <span class="a-metric-key">Rasio Gigi Mekanis</span>
+                <span class="a-metric-val" id="moonGear">59 Gigi Bintang</span>
+              </div>
+              <div class="astronomy-metric-item">
+                <span class="a-metric-key">Deviasi Akumulatif</span>
+                <span class="a-metric-val" id="moonDev">1 Hari per 122.6 Tahun</span>
+              </div>
+              <div class="astronomy-metric-item">
+                <span class="a-metric-key">Finishing Diskus</span>
+                <span class="a-metric-val" id="moonFin">Foil Emas & Cat Periwinkle</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-hero-primary" onclick="openViewingModal()" style="justify-content: center;">
+            Jadwalkan Pemeriksaan Fisik Jam Ini
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 2: Escapement Frequency & Beat Rate Tuner -->
+  <section class="escapement-section" id="escapement">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">DETAK JANTUNG MEKANIS</span>
+        <h2 class="section-title">Tuner Frekuensi Osilator Escapement</h2>
+        <p class="section-subtitle">Pelajari perbedaan irama detak roda keseimbangan (balance wheel) Glucydur dan stabilitas kronometrik antar frekuensi getaran per jam.</p>
+      </div>
+
+      <div class="escapement-grid">
+        <!-- Visual Screen Card -->
+        <div class="escapement-visual-card">
+          <div class="oscillogram-screen">
+            <div class="oscillo-wave-line" id="oscilloWave"></div>
+          </div>
+          <div class="balance-wheel-indicator">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--celeste-muted);">Status Osilasi Kaliber</div>
+              <div style="font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--celeste-ink);" id="freqStatusText">Osilasi 4.0 Hz (28.800 VPH) Aktif</div>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 12px; background: var(--celeste-frost); color: var(--celeste-navy); padding: 4px 10px; border-radius: 4px; font-weight: 600;" id="freqBphTag">8 Detak / Detik</span>
+          </div>
+        </div>
+
+        <!-- Controls Column -->
+        <div class="tuner-controls-col">
+          <div class="freq-selector-cards">
+            <div class="btn-freq-item" onclick="selectFrequency(0, this)">
+              <div>
+                <div class="freq-title-text">2.5 Hz (18.000 VPH) — Vintage Pocket Rhythm</div>
+                <div class="freq-sub-text">Irama lambat berwibawa saku abad ke-19, daya tahan gesekan sangat awet.</div>
+              </div>
+              <span class="freq-hz-tag">2.5 Hz</span>
+            </div>
+
+            <div class="btn-freq-item active" onclick="selectFrequency(1, this)">
+              <div>
+                <div class="freq-title-text">4.0 Hz (28.800 VPH) — Modern Chronometer Standard</div>
+                <div class="freq-sub-text">Keseimbangan sempurna antara akurasi harian dan ketahanan cadangan daya 72 jam.</div>
+              </div>
+              <span class="freq-hz-tag">4.0 Hz</span>
+            </div>
+
+            <div class="btn-freq-item" onclick="selectFrequency(2, this)">
+              <div>
+                <div class="freq-title-text">5.0 Hz (36.000 VPH) — High-Beat Precision Chrono</div>
+                <div class="freq-sub-text">Jarum detik meluncur mulus tanpa getar, presisi pengukuran 1/10 detik.</div>
+              </div>
+              <span class="freq-hz-tag">5.0 Hz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Catalog of 6 In-House Mechanical Timepieces -->
+  <section class="catalog-section" id="katalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">ARSIP KREASI HOROLOGI</span>
+        <h2 class="section-title">Koleksi Jam Tangan Mekanis In-House</h2>
+        <p class="section-subtitle">Dibuat terbatas hanya 18 unit per seri setiap tahun untuk memastikan setiap komponen didekorasi dan disetel tangan oleh master watchmaker.</p>
+      </div>
+
+      <div class="catalog-filters-row">
+        <button class="btn-filter-pill active" onclick="filterCatalog('all', this)">Semua Koleksi (6)</button>
+        <button class="btn-filter-pill" onclick="filterCatalog('moon', this)">Fase Bulan Astronomi</button>
+        <button class="btn-filter-pill" onclick="filterCatalog('chrono', this)">Kronograf & Komplikasi</button>
+        <button class="btn-filter-pill" onclick="filterCatalog('dress', this)">Dress Watch Klasik</button>
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Vault Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="if(event.target === this) toggleCartDrawer()">
+    <div class="cart-drawer">
+      <div class="drawer-header">
+        <h3 class="drawer-title">Brankas Jam Pilihan</h3>
+        <button class="btn-close-drawer" onclick="toggleCartDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-items-list" id="drawerItemsList">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="subtotal-line">
+          <span>Nilai Investasi Mahakarya</span>
+          <span class="subtotal-val" id="drawerSubtotal">Rp 0</span>
+        </div>
+        <p style="font-size: 11px; color: var(--celeste-muted); line-height: 1.5;">
+          * Termasuk boks kayu walnut bersegel lilin, sertifikasi kronometer COSC resmi, dan garansi mekanis 5 tahun atelier.
+        </p>
+        <button class="btn-checkout-wa" onclick="checkoutWhatsApp()">
+          🛡️ Hubungi Master Watchmaker via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Salon Private Viewing Modal -->
+  <div class="modal-overlay" id="viewingModal" onclick="if(event.target === this) closeViewingModal()">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 class="modal-title">Reservasi Private Viewing Salon</h3>
+        <button class="btn-close-drawer" onclick="closeViewingModal()">✕</button>
+      </div>
+      <p style="font-size: 13.5px; color: var(--celeste-muted);">
+        Nikmati sesi inspeksi privat 90 menit ditemani langsung oleh Master Watchmaker CÉLESTE di ruang brankas berpendingin khusus.
+      </p>
+
+      <form onsubmit="handleViewingSubmit(event)" style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <label style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--celeste-muted);">Nama Kolektor</label>
+          <input type="text" placeholder="Nama Lengkap" required style="width: 100%; background: var(--celeste-opaline); border: 1px solid var(--celeste-border); border-radius: 8px; padding: 10px 14px; margin-top: 4px; outline: none;">
+        </div>
+        <div>
+          <label style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--celeste-muted);">Nomor WhatsApp Aktif</label>
+          <input type="tel" placeholder="0812-xxxx-xxxx" required style="width: 100%; background: var(--celeste-opaline); border: 1px solid var(--celeste-border); border-radius: 8px; padding: 10px 14px; margin-top: 4px; outline: none;">
+        </div>
+        <div>
+          <label style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--celeste-muted);">Lokasi Salon Privat</label>
+          <select style="width: 100%; background: var(--celeste-opaline); border: 1px solid var(--celeste-border); border-radius: 8px; padding: 10px 14px; margin-top: 4px; outline: none; font-size: 14px;">
+            <option>Villa Dago Heritage Atelier (Bandung)</option>
+            <option>Menteng Private Vault Suite (Jakarta Pusat)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-hero-primary" style="justify-content: center; margin-top: 6px;">
+          Konfirmasi Jadwal Private Viewing
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-mark">
+            <div class="brand-symbol-box">C</div>
+            <div class="brand-text">
+              <span class="brand-name">CÉLESTE</span>
+              <span class="brand-sub">HAUTE HORLOGERIE ASTRONOMIQUE</span>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--celeste-muted); max-width: 300px; margin-top: 6px;">
+            Atelier jam tangan mekanis in-house, komplikasi fase bulan astronomi, dan jarum baja biru termal di Bandung dan Jakarta.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Komplikasi Kaliber</span>
+          <div class="footer-col-links">
+            <a href="#fase-bulan">Diskus Fase Bulan 29.53 Hari</a>
+            <a href="#escapement">Frekuensi Escapement 4Hz</a>
+            <a href="#katalog">Monopusher Chronograph</a>
+            <a href="#katalog">Flying Tourbillon Titanium</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Layanan Kolektor</span>
+          <div class="footer-col-links">
+            <a href="#salon" onclick="openViewingModal(); return false;">Reservasi Private Viewing</a>
+            <a href="#katalog">Sertifikasi Kronometer COSC</a>
+            <a href="https://wa.me/6281234567890" target="_blank">Konsultasi Horolog</a>
+            <a href="#katalog">Garansi Mekanis 5 Tahun</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Alamat Salon Privat</span>
+          <p style="font-size: 13px; color: var(--celeste-muted); line-height: 1.6;">
+            <strong>Atelier Utama Bandung:</strong><br>
+            Jl. Bukit Pakar Timur No. 12, Dago, Bandung<br>
+            Selasa – Minggu: 10:00 – 19:00 WIB<br>
+            <em>(Kunjungan salon hanya dengan reservasi privat)</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 CÉLESTE HAUTE HORLOGERIE. SELURUH HAK KRIYA MEKANIS DILINDUNGI.</div>
+        <div>PALET WARNA RESMI: #F4EEFF • #DCD6F7 • #A6B1E1 • #424874</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    /* ==========================================================================
+       DATA SOURCE — 4 MOON PHASES
+       ========================================================================== */
+    const moonPhases = [
+      {
+        badge: 'FASE 1 : BULAN BARU (NEW MOON 0%)',
+        title: 'Fase 1: Bulan Baru (New Moon Conjunction)',
+        desc: 'Bulan berada sejajar di antara bumi dan matahari. Permukaan diskus yang menghadap bumi sepenuhnya gelap, aperture subdial menampilkan langit malam bertabur bintang periwinkle tanpa pantulan cahaya.',
+        gear: '59 Gigi Bintang',
+        dev: '1 Hari per 122.6 Tahun',
+        fin: 'Diskus Gelap Twilight Iris',
+        maskOpacity: 0.95,
+        orbGlow: '0 0 10px rgba(66, 72, 116, 0.4)'
+      },
+      {
+        badge: 'FASE 2 : KUARTAL PERTAMA (WAXING CRESCENT 50%)',
+        title: 'Fase 2: Kuartal Pertama (First Quarter Waxing)',
+        desc: 'Separuh belahan kanan piringan bulan mulai diterangi cahaya matahari. Kurva bayangan sabit melengkung elegan di atas dial guilloché opaline lilac dengan jarum penunjuk periwinkle.',
+        gear: '59 Gigi Bintang',
+        dev: '1 Hari per 122.6 Tahun',
+        fin: 'Foil Emas Separuh Terang',
+        maskOpacity: 0.5,
+        orbGlow: '0 0 20px rgba(220, 214, 247, 0.6)'
+      },
+      {
+        badge: 'FASE 3 : BULAN PURNAMA (FULL MOON 100%)',
+        title: 'Fase 3: Bulan Purnama (Full Moon Illumination)',
+        desc: 'Diskus emas murni 24K berada tepat di tengah jendela apertur dial opaline lilac. Cahaya bulan dipantulkan sempurna tanpa bayangan cakram, menandai titik pasang tertinggi siklus pasang surut laut.',
+        gear: '59 Gigi Bintang',
+        dev: '1 Hari per 122.6 Tahun',
+        fin: 'Foil Emas Murni Penuh',
+        maskOpacity: 0.0,
+        orbGlow: '0 0 35px rgba(244, 238, 255, 0.9)'
+      },
+      {
+        badge: 'FASE 4 : KUARTAL AKHIR (WANING CRESCENT 50%)',
+        title: 'Fase 4: Kuartal Akhir (Third Quarter Waning)',
+        desc: 'Bayangan mulai merambat dari sisi kanan, menyisakan separuh belahan kiri yang memudar menuju konjungsi baru berikutnya dalam siklus 29 hari 12 jam 44 menit.',
+        gear: '59 Gigi Bintang',
+        dev: '1 Hari per 122.6 Tahun',
+        fin: 'Foil Emas Separuh Kiri',
+        maskOpacity: 0.5,
+        orbGlow: '0 0 20px rgba(166, 177, 225, 0.6)'
+      }
+    ];
+
+    function setMoonPhase(index) {
+      const phase = moonPhases[index];
+      const buttons = document.querySelectorAll('.btn-moon-phase');
+      buttons.forEach((b, i) => b.classList.toggle('active', i === index));
+
+      document.getElementById('moonPhaseBadge').textContent = phase.badge;
+      document.getElementById('moonTitle').textContent = phase.title;
+      document.getElementById('moonDesc').textContent = phase.desc;
+      document.getElementById('moonGear').textContent = phase.gear;
+      document.getElementById('moonDev').textContent = phase.dev;
+      document.getElementById('moonFin').textContent = phase.fin;
+
+      const shadow = document.getElementById('lunarShadow');
+      shadow.style.opacity = phase.maskOpacity;
+
+      const orb = document.getElementById('lunarOrb');
+      orb.style.boxShadow = phase.orbGlow;
+    }
+
+    /* ==========================================================================
+       FREQUENCY OSCILLATOR LOGIC
+       ========================================================================== */
+    function selectFrequency(index, btnEl) {
+      document.querySelectorAll('.btn-freq-item').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const wave = document.getElementById('oscilloWave');
+      const statusText = document.getElementById('freqStatusText');
+      const bphTag = document.getElementById('freqBphTag');
+
+      if (index === 0) {
+        statusText.textContent = 'Osilasi 2.5 Hz (18.000 VPH) Aktif';
+        bphTag.textContent = '5 Detak / Detik';
+        wave.style.boxShadow = '0 0 8px #DCD6F7';
+      } else if (index === 1) {
+        statusText.textContent = 'Osilasi 4.0 Hz (28.800 VPH) Aktif';
+        bphTag.textContent = '8 Detak / Detik';
+        wave.style.boxShadow = '0 0 14px #A6B1E1';
+      } else {
+        statusText.textContent = 'Osilasi 5.0 Hz (36.000 VPH) Aktif';
+        bphTag.textContent = '10 Detak / Detik';
+        wave.style.boxShadow = '0 0 20px #F4EEFF';
+      }
+    }
+
+    /* ==========================================================================
+       DATA SOURCE — 6 TIMEPIECES CATALOG
+       ========================================================================== */
+    const catalogData = [
+      {
+        id: 'wt-1',
+        name: 'The Céleste Moonphase Ref. 8801',
+        type: 'moon',
+        typeName: 'Fase Bulan Astronomi',
+        price: 'Rp 68.000.000',
+        priceNum: 68000000,
+        desc: 'Diskus fase bulan astronomi sinodik 29.53 hari dengan dial opaline lilac guilloché dan jarum baja biru termal.',
+        chips: ['Calibre CL-8801', '72 Jam Power Reserve', 'Titanium 39mm'],
+        img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'wt-2',
+        name: 'The Chrono-Graphique Ref. 8802',
+        type: 'chrono',
+        typeName: 'Kronograf Kolom',
+        price: 'Rp 82.000.000',
+        priceNum: 82000000,
+        desc: 'Monopusher chronograph dengan roda kolom bertingkat dan subdial detik periwinkle pada posisi jam 3 dan 9.',
+        chips: ['Column Wheel', 'Monopusher 4Hz', 'Sertifikasi COSC'],
+        img: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'wt-3',
+        name: 'The Flying Tourbillon Ref. 8803',
+        type: 'chrono',
+        typeName: 'Grand Complication',
+        price: 'Rp 145.000.000',
+        priceNum: 145000000,
+        desc: 'Kerangka tourbillon terbang satu menit berbahan titanium ultraringan 0.28 gram dengan jembatan safir transparan.',
+        chips: ['Tourbillon 60-Detik', 'Titanium 0.28g Cage', 'Geneva Seal'],
+        img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'wt-4',
+        name: 'The Dual-Time Meridian Ref. 8804',
+        type: 'moon',
+        typeName: 'Dual Time GMT',
+        price: 'Rp 74.000.000',
+        priceNum: 74000000,
+        desc: 'Penunjuk dua zona waktu simultan dengan indikator siang/malam piringan langit twilight navy dan jarum independen.',
+        chips: ['GMT 24-Jam', 'Indikator Siang/Malam', 'Sapphire Caseback'],
+        img: 'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'wt-5',
+        name: 'The Grand Feu Enamel Slim Ref. 8805',
+        type: 'dress',
+        typeName: 'Dress Watch Klasik',
+        price: 'Rp 58.000.000',
+        priceNum: 58000000,
+        desc: 'Dial enamel bakar suhu 800°C dengan rona lilac pucat, angka romawi hitam legam, dan ketebalan ultra-tipis hanya 7.8mm.',
+        chips: ['Tebal 7.8mm Slim', 'Grand Feu 800°C', 'Strap Alligator Navy'],
+        img: 'https://images.unsplash.com/photo-1546804784-896d0dca3805?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'wt-6',
+        name: 'The Regulateur Astronomique Ref. 8806',
+        type: 'dress',
+        typeName: 'Regulateur Klasik',
+        price: 'Rp 76.000.000',
+        priceNum: 76000000,
+        desc: 'Dial regulator tradisional memisahkan jarum jam, menit, dan detik pada sumbu berbeda untuk presisi observatorium tertinggi.',
+        chips: ['Regulator Dial', 'Jarum Blued Steel', 'Akurasi Observatorium'],
+        img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80'
+      }
+    ];
+
+    /* ==========================================================================
+       CART / VAULT LOGIC
+       ========================================================================== */
+    let cart = [];
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    function renderCatalog(filter = 'all') {
+      const grid = document.getElementById('catalogGrid');
+      const filtered = filter === 'all' ? catalogData : catalogData.filter(c => c.type === filter);
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="watch-card">
+          <div class="card-photo-box">
+            <img src="${item.img}" alt="${item.name}" loading="lazy">
+            <span class="card-ref-badge">${item.typeName}</span>
+          </div>
+          <div class="card-content-body">
+            <div class="card-title-row">
+              <h4 class="watch-title">${item.name}</h4>
+              <span class="watch-price">${item.price}</span>
+            </div>
+            <p class="watch-desc">${item.desc}</p>
+            <div class="watch-chips">
+              ${item.chips.map(c => `<span class="chip-pill">${c}</span>`).join('')}
+            </div>
+            <div class="card-actions-bar">
+              <button class="btn-add-vault" onclick="addToCart('${item.id}')">
+                + Tambah ke Brankas
+              </button>
+              <button class="btn-inspect-quick" onclick="openViewingModal()">
+                Inspeksi
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCatalog(category, btnElement) {
+      document.querySelectorAll('.btn-filter-pill').forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+      renderCatalog(category);
+    }
+
+    function addToCart(itemId) {
+      const item = catalogData.find(c => c.id === itemId);
+      if (!item) return;
+
+      cart.push({
+        id: item.id + '-' + Date.now(),
+        name: item.name,
+        price: item.priceNum,
+        priceStr: item.price,
+        meta: item.typeName,
+        img: item.img
+      });
+
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    function toggleCartDrawer(forceOpen = null) {
+      const overlay = document.getElementById('cartOverlay');
+      if (forceOpen === true) {
+        overlay.classList.add('open');
+      } else if (forceOpen === false) {
+        overlay.classList.remove('open');
+      } else {
+        overlay.classList.toggle('open');
+      }
+    }
+
+    function removeCartItem(idx) {
+      cart.splice(idx, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('navCartBadge');
+      badge.textContent = cart.length;
+
+      const list = document.getElementById('drawerItemsList');
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div style="text-align: center; padding: 48px 16px; color: var(--celeste-muted);">
+            <div style="font-size: 32px; margin-bottom: 12px;">🛡️</div>
+            <p style="font-family: var(--font-display); font-size: 18px; color: var(--celeste-ink); margin-bottom: 6px;">Brankas Pilihan Masih Kosong</p>
+            <p style="font-size: 13px;">Pilih jam tangan mekanis atau komplikasi fase bulan untuk reservasi sesi inspeksi privat.</p>
+          </div>
+        `;
+        document.getElementById('drawerSubtotal').textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      list.innerHTML = cart.map((item, idx) => {
+        subtotal += item.price;
+        return `
+          <div class="cart-item-card">
+            <img src="${item.img}" alt="${item.name}" class="cart-item-thumb">
+            <div class="cart-item-details">
+              <span class="cart-item-title">${item.name}</span>
+              <span class="cart-item-meta">${item.meta}</span>
+              <div class="cart-item-row-bot">
+                <span class="cart-item-price">${item.priceStr}</span>
+                <button class="btn-del-item" onclick="removeCartItem(${idx})">Hapus</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('drawerSubtotal').textContent = formatRupiah(subtotal);
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Brankas jam Anda masih kosong.');
+        return;
+      }
+
+      let text = 'Halo CÉLESTE HAUTE HORLOGERIE, saya berminat untuk reservasi private viewing atas jam tangan berikut:\n\n';
+      let total = 0;
+      cart.forEach((item, i) => {
+        text += `${i + 1}. ${item.name} (${item.priceStr})\n   Kategori: ${item.meta}\n`;
+        total += item.price;
+      });
+      text += `\nNilai Investasi Total: ${formatRupiah(total)}\n\nMohon konfirmasi ketersediaan jadwal di salon privat. Terima kasih!`;
+
+      const url = 'https://wa.me/6281234567890?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+    }
+
+    /* ==========================================================================
+       VIEWING MODAL
+       ========================================================================== */
+    function openViewingModal() {
+      document.getElementById('viewingModal').classList.add('open');
+    }
+
+    function closeViewingModal() {
+      document.getElementById('viewingModal').classList.remove('open');
+    }
+
+    function handleViewingSubmit(e) {
+      e.preventDefault();
+      alert('Terima kasih! Concierge Horologi CÉLESTE akan menghubungi Anda melalui WhatsApp untuk mengonfirmasi jadwal inspeksi privat.');
+      closeViewingModal();
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCatalog();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>

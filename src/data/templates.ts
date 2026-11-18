@@ -2199,6 +2199,89 @@ export function TanahLiatStudio() {
       { hex: '#F6F6F6', rgb: 'rgb(246, 246, 246)', name: 'Clean Alabaster Canvas', role: 'Main Clinical Ground, Sterile Atmosphere & Pure Base' },
       { hex: '#8785A2', rgb: 'rgb(135, 133, 162)', name: 'Clinical Slate Lavender', role: 'Physician Authority, Primary Buttons & Wavelength Filter' }
     ]
+  },
+  {
+    id: 'tpl-31',
+    slug: 'celeste-astronomical-horology',
+    title: 'CÉLESTE (Haute Horlogerie & Astronomical Complications)',
+    tagline: 'Atelier jam tangan mekanis in-house, simulator fase bulan sinodik 29.53 hari, dan tuner frekuensi 4Hz',
+    description: 'Template website atelier jam tangan mekanis mewah CÉLESTE HORLOGERIE dengan palet warna Luminous Opaline Lilac (#F4EEFF), Soft Periwinkle Frost (#DCD6F7), Celestial Cornflower Slate (#A6B1E1), dan Deep Twilight Iris Navy (#424874). Dilengkapi simulator komplikasi fase bulan astronomi sinodik 29.53 hari, tuner frekuensi getaran roda keseimbangan (2.5Hz, 4.0Hz, 5.0Hz) dengan osilogram live, katalog 6 jam tangan kaliber in-house bersertifikasi kronometer COSC, laci brankas pemesanan, serta reservasi inspeksi fisik di private viewing salon.',
+    category: 'horology',
+    tags: ['Horology', 'Mechanical Watches', 'Moonphase', 'Astronomical Complication', 'Chronometer COSC', 'In-House Calibre', 'Blued Steel Hands', 'Luxury Timepiece', 'Swiss Grade'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Synodic Moonphase Engine', 'Escapement Frequency Tuner', 'Horological Vault Flow', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'horology-celeste',
+    htmlPath: '/templates/horology/celeste-horlogerie.html',
+    htmlFolderPath: 'templates/horology/celeste-horlogerie.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Simulator komplikasi diskus fase bulan astronomis sinodik 29.53 hari (Bulan Baru, Kuartal 1, Purnama, Kuartal Akhir) dengan bayangan cakram interaktif',
+      'Tuner osilator frekuensi roda keseimbangan mekanis (2.5 Hz / 18.000 VPH, 4.0 Hz / 28.800 VPH, 5.0 Hz / 36.000 VPH) dengan layar oscillogram',
+      'Panel telemetri horologis presisi (-1/+2 detik deviasi harian, 72 jam power reserve, 59-gigi roda bintang astronomis)',
+      'Katalog 6 jam tangan mekanis in-house (Moonphase, Monopusher Chrono, Flying Tourbillon, Dual-Time GMT, Grand Feu Enamel, Regulateur)',
+      'Laci brankas jam tangan geser (slide-over vault) terintegrasi sertifikasi COSC dan komunikasi langsung ke Master Watchmaker via WhatsApp',
+      'Standar kriya antislop dengan palet twilight kosmik (#F4EEFF, #DCD6F7, #A6B1E1, #424874) dan tipografi Playfair Display & Plus Jakarta Sans'
+    ],
+    usageInstructions: [
+      'Buka templates/horology/celeste-horlogerie.html di editor kode Anda.',
+      'Sesuaikan daftar koleksi jam tangan, harga, dan spesifikasi kaliber pada objek catalogData di dalam tag <script>.',
+      'Kustomisasi parameter komplikasi fase bulan astronomis pada array moonPhases.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase haute horlogerie langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'celeste-horlogerie.html',
+        language: 'html',
+        content: `<!-- CÉLESTE HORLOGERIE — Haute Horlogerie & Astronomical Complications -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>CÉLESTE HORLOGERIE — Haute Horlogerie</title>
+  <style>
+    :root {
+      --celeste-opaline: #F4EEFF;
+      --celeste-frost: #DCD6F7;
+      --celeste-slate: #A6B1E1;
+      --celeste-navy: #424874;
+      --celeste-ink: #1A1C30;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">IN-HOUSE CALIBRE CL-8802 • CHRONOMETER SERTIFIKASI COSC • FREKUENSI 28.800 VPH (4 HZ)</div>
+  <header>
+    <div class="brand">CÉLESTE</div>
+    <nav>Simulator Fase Bulan · Tuner Frekuensi 4Hz · Koleksi Mahakarya · Private Viewing Salon</nav>
+  </header>
+  <!-- Full Interactive Horology Atelier: Moonphase Simulator, Escapement Tuner & WhatsApp Vault -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier jam tangan mekanis mewah CÉLESTE HORLOGERIE dengan palet warna Luminous Opaline Lilac (#F4EEFF), Soft Periwinkle Frost (#DCD6F7), Celestial Cornflower Slate (#A6B1E1), dan Deep Twilight Iris Navy (#424874). Dilengkapi simulator komplikasi fase bulan astronomi sinodik 29.53 hari, tuner frekuensi getaran roda keseimbangan (2.5Hz, 4.0Hz, 5.0Hz) dengan osilogram live, katalog 6 jam tangan kaliber in-house bersertifikasi kronometer COSC, laci brankas pemesanan, serta reservasi inspeksi fisik di private viewing salon.',
+      designDirection: 'Astronomical haute horlogerie atelier berstandar antislop: Luminous Opaline Lilac (#F4EEFF), Soft Periwinkle Frost (#DCD6F7), Celestial Cornflower Slate (#A6B1E1), Deep Twilight Iris Navy (#424874), dan Deep Midnight Amethyst Ink (#1A1C30). Tipografi Playfair Display, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top horological telemetry bar periwinkle, sticky opaline navbar dengan navigasi non-wrapping kokoh, hero astronomical dial showcase 2 kolom dengan telemetri deviasi -1/+2 detik dan cadangan daya 72 jam, panel simulator diskus fase bulan astronomis 59-gigi, tuner osilator escapement frekuensi mekanis, grid katalog 6 mahakarya jam 3 kolom, dan drawer brankas belanja.',
+      typographyAndColor: 'Playfair Display untuk tajuk utama wibawa seni horologi tinggi, Plus Jakarta Sans untuk teks bodi dan kontrol tombol interaktif, JetBrains Mono untuk frekuensi VPH, hertz osilasi, toleransi harian detik, dan rincian harga rupiah.',
+      interactions: 'Simulator 4 fase orbit bulan astronomi dengan rotasi diskus dan bayangan cakram realistis, tuner frekuensi 3 kecepatan osilasi dengan layar oscillogram, filter katalog instan, dan drawer brankas terintegrasi WhatsApp Master Watchmaker.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#424874',
+    colorPalette: [
+      { hex: '#F4EEFF', rgb: 'rgb(244, 238, 255)', name: 'Luminous Opaline Lilac', role: 'Main Dial Canvas, Pure Opaline Ground & Frost Card Base' },
+      { hex: '#DCD6F7', rgb: 'rgb(220, 214, 247)', name: 'Soft Periwinkle Frost', role: 'Frosted Bridges, Subdial Shading & Telemetry Ticker Tint' },
+      { hex: '#A6B1E1', rgb: 'rgb(166, 177, 225)', name: 'Celestial Cornflower Slate', role: 'Subdial Sky Chart, Balance Wheel Wire & Border Accents' },
+      { hex: '#424874', rgb: 'rgb(66, 72, 116)', name: 'Deep Twilight Iris Navy', role: 'Night Sky Complication Disc, Primary Buttons & Alligator Strap' }
+    ]
   }
 ];
 

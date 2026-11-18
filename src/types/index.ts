@@ -29,6 +29,7 @@ export type Category =
   | 'wagashi'
   | 'leather'
   | 'dermatology'
+  | 'horology'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

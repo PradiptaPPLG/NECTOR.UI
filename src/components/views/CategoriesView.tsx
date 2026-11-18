@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'horology',
+      title: 'Horologi & Jam Tangan Astronomi',
+      icon: Watch,
+      desc: 'Atelier pembuatan jam mekanis rumit (Haute Horlogerie): simulator fase bulan sinodik 29.53 hari, tuner frekuensi getaran roda keseimbangan (escapement) Glucydur 2.5Hz - 5.0Hz, dan reservasi salon privat.',
+      accent: '#424874'
+    },
     {
       id: 'dermatology',
       title: 'Dermatologi & Skin Barrier Lab',

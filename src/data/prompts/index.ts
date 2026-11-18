@@ -30,8 +30,10 @@ import { CHIDORI_WAGASHI_MASTER_PROMPT } from './wagashiPrompt';
 import { ETOILE_BRIDAL_MASTER_PROMPT } from './bridalPrompt';
 import { TATAH_LEATHER_MASTER_PROMPT } from './leatherPrompt';
 import { AURA_DERMA_MASTER_PROMPT } from './dermaPrompt';
+import { CELESTE_HORLOGERIE_MASTER_PROMPT } from './horologyPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'celeste-astronomical-horology': CELESTE_HORLOGERIE_MASTER_PROMPT,
   'aura-derma-clinic': AURA_DERMA_MASTER_PROMPT,
   'tatah-artisanal-leather': TATAH_LEATHER_MASTER_PROMPT,
   'etoile-bridal-couture': ETOILE_BRIDAL_MASTER_PROMPT,
@@ -95,4 +97,5 @@ export {
   ETOILE_BRIDAL_MASTER_PROMPT,
   TATAH_LEATHER_MASTER_PROMPT,
   AURA_DERMA_MASTER_PROMPT,
+  CELESTE_HORLOGERIE_MASTER_PROMPT,
 };
