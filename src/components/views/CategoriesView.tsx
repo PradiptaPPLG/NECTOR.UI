@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'furniture',
+      title: 'Perabot Kayu Solid & Rotan',
+      icon: Armchair,
+      desc: 'Studio kriya perabot kayu solid & anyaman rotan lestari: studio kustomisasi material kayu real-time, simulator luas ruang & koridor lintasan gerak, dan layanan White-Glove Delivery.',
+      accent: '#1E3B2F'
+    },
     {
       id: 'apiculture',
       title: 'Madu Hutan & Apikultur',

@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAYAN (木庵) — Studio Perabot Kayu Solid & Anyaman Rotan Lestari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* User Palette Specification */
+      --forest-spruce: #1E3B2F;
+      --forest-dark: #12241c;
+      --moss-sage: #7F8C6A;
+      --moss-light: #98a782;
+      --moss-tint: #edf1e8;
+      --cane-teak: #C8B48A;
+      --cane-deep: #ab9569;
+      --cane-light: #f1ebdE;
+      --parchment-cream: #F5F0E6;
+      --canvas-white: #FFFFFF;
+      --ink-primary: #15221B;
+      --ink-secondary: #45544b;
+      --ink-muted: #79877e;
+      --border-hairline: #e2dbce;
+      --border-dark: #2c4a3b;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 2px 10px rgba(30, 59, 47, 0.05);
+      --shadow-md: 0 8px 26px rgba(30, 59, 47, 0.08);
+      --shadow-lg: 0 18px 42px rgba(30, 59, 47, 0.12);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--parchment-cream);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .serif-font {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    /* TOP ANNOUNCEMENT TICKER */
+    .top-ticker {
+      background-color: var(--forest-spruce);
+      color: var(--parchment-cream);
+      padding: 9px 16px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--font-mono);
+      border-bottom: 1px solid var(--border-dark);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .top-ticker span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-ticker span::after {
+      content: '•';
+      color: var(--cane-teak);
+      margin-left: 14px;
+    }
+
+    .top-ticker span:last-child::after {
+      display: none;
+    }
+
+    /* SITE HEADER */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(245, 240, 230, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-monogram {
+      width: 44px;
+      height: 44px;
+      background: var(--forest-spruce);
+      color: var(--cane-teak);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--cane-teak);
+      letter-spacing: 1px;
+    }
+
+    .brand-meta h1 {
+      font-size: 24px;
+      letter-spacing: 0.04em;
+      color: var(--forest-spruce);
+      margin-bottom: 1px;
+    }
+
+    .brand-meta p {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--moss-sage);
+      font-family: var(--font-mono);
+    }
+
+    nav.main-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav.main-nav a {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      transition: color 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    nav.main-nav a:hover {
+      color: var(--forest-spruce);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-swatch-shortcut {
+      background: #FFFFFF;
+      color: var(--forest-spruce);
+      border: 1px solid var(--cane-teak);
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-swatch-shortcut:hover {
+      background: var(--cane-light);
+      border-color: var(--forest-spruce);
+    }
+
+    .cart-btn-trigger {
+      background: var(--forest-spruce);
+      color: var(--parchment-cream);
+      border: 1px solid var(--forest-spruce);
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .cart-btn-trigger:hover {
+      background: var(--forest-dark);
+    }
+
+    .cart-badge-count {
+      background: var(--cane-teak);
+      color: var(--forest-spruce);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 99px;
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HERO SHOWCASE */
+    .hero-section {
+      padding: 56px 0 68px;
+      border-bottom: 1px solid var(--border-hairline);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .hero-pretitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      background: var(--moss-tint);
+      border: 1px solid var(--moss-sage);
+      color: var(--forest-spruce);
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border-radius: 99px;
+      margin-bottom: 18px;
+      font-family: var(--font-mono);
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 4.4vw, 56px);
+      line-height: 1.08;
+      color: var(--forest-spruce);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--moss-sage);
+      font-weight: 400;
+    }
+
+    .hero-lead {
+      font-size: 17px;
+      color: var(--ink-secondary);
+      line-height: 1.68;
+      margin-bottom: 30px;
+      max-width: 580px;
+    }
+
+    .hero-key-badges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .metric-badge {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .metric-badge .val {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--forest-spruce);
+      font-family: var(--font-mono);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .metric-badge .val span {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--moss-sage);
+    }
+
+    .metric-badge .label {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--forest-spruce);
+      color: var(--parchment-cream);
+      border: 1px solid var(--forest-spruce);
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary:hover {
+      background: var(--forest-dark);
+      color: #FFFFFF;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--forest-spruce);
+      border: 1px solid var(--forest-spruce);
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--cane-light);
+    }
+
+    /* HERO SPOTLIGHT FURNITURE CARD */
+    .hero-spotlight-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .spotlight-media {
+      position: relative;
+      height: 340px;
+      background: var(--forest-spruce);
+      overflow: hidden;
+    }
+
+    .spotlight-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-spotlight-card:hover .spotlight-media img {
+      transform: scale(1.03);
+    }
+
+    .spotlight-tag-joinery {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(30, 59, 47, 0.9);
+      backdrop-filter: blur(8px);
+      color: var(--cane-teak);
+      border: 1px solid var(--cane-teak);
+      font-size: 10.5px;
+      font-family: var(--font-mono);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .spotlight-badge-svlk {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: var(--parchment-cream);
+      color: var(--forest-spruce);
+      border: 1px solid var(--cane-deep);
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .spotlight-body {
+      padding: 24px;
+    }
+
+    .spotlight-sub {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--moss-sage);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .spotlight-title {
+      font-size: 26px;
+      color: var(--forest-spruce);
+      margin-bottom: 8px;
+    }
+
+    .spotlight-notes {
+      font-size: 13.5px;
+      color: var(--ink-secondary);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .spotlight-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .spotlight-price {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--forest-spruce);
+    }
+
+    .spotlight-price span {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 400;
+    }
+
+    /* SECTION BASICS */
+    section.content-section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .section-head {
+      margin-bottom: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+    }
+
+    .section-meta-tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--moss-sage);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 3.2vw, 42px);
+      color: var(--forest-spruce);
+      letter-spacing: -0.01em;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--moss-sage);
+    }
+
+    .section-lead {
+      max-width: 500px;
+      font-size: 14.5px;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+    }
+
+    /* INTERACTIVE MATERIAL & FINISH LAB */
+    .customizer-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 0;
+    }
+
+    .customizer-preview-col {
+      background: #FAF7F0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--border-hairline);
+      position: relative;
+    }
+
+    .render-stage-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      height: 360px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .render-stage-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease;
+    }
+
+    .stage-live-badges {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .badge-pill-tech {
+      background: rgba(30, 59, 47, 0.88);
+      backdrop-filter: blur(6px);
+      color: var(--parchment-cream);
+      font-size: 10px;
+      font-family: var(--font-mono);
+      padding: 4px 10px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--cane-teak);
+    }
+
+    .render-summary-bar {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .summary-spec-item {
+      font-size: 12px;
+      color: var(--ink-secondary);
+    }
+
+    .summary-spec-item strong {
+      display: block;
+      color: var(--forest-spruce);
+      font-size: 14px;
+      font-family: var(--font-serif);
+    }
+
+    /* Controls Column */
+    .customizer-controls-col {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .control-group-block {
+      margin-bottom: 24px;
+    }
+
+    .control-label-head {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--moss-sage);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .control-label-head span.active-val {
+      color: var(--forest-spruce);
+      font-weight: 600;
+    }
+
+    .swatches-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .swatch-pick-btn {
+      padding: 10px 8px;
+      background: var(--parchment-cream);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch-pick-btn:hover {
+      border-color: var(--forest-spruce);
+      background: #FFFFFF;
+    }
+
+    .swatch-pick-btn.active {
+      border-color: var(--forest-spruce);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 1px var(--forest-spruce);
+    }
+
+    .swatch-chip {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .swatch-title-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-primary);
+      line-height: 1.2;
+    }
+
+    .swatch-price-diff {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--ink-muted);
+    }
+
+    .customizer-checkout-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .custom-price-display {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--forest-spruce);
+    }
+
+    .custom-price-display span {
+      font-size: 11px;
+      color: var(--ink-muted);
+      font-weight: 400;
+      display: block;
+    }
+
+    /* ROOM SCALE & CLEARANCE SIMULATOR */
+    .room-scale-wrapper {
+      background: var(--forest-spruce);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .room-scale-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .room-info-col h3 {
+      font-size: 34px;
+      color: var(--parchment-cream);
+      margin-bottom: 16px;
+    }
+
+    .room-info-col p {
+      color: var(--cane-light);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .clearance-spec-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--cane-teak);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+    }
+
+    .room-slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+
+    .slider-room-val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cane-teak);
+    }
+
+    .room-range-slider {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      outline: none;
+      -webkit-appearance: none;
+      margin-bottom: 24px;
+    }
+
+    .room-range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 99px;
+      background: var(--cane-teak);
+      cursor: pointer;
+      border: 2px solid var(--forest-spruce);
+      box-shadow: 0 0 10px rgba(200, 180, 138, 0.6);
+    }
+
+    .clearance-result-box {
+      background: rgba(18, 36, 28, 0.6);
+      border: 1px solid rgba(200, 180, 138, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .result-badge-head {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--moss-sage);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .result-title-recommend {
+      font-size: 19px;
+      color: var(--parchment-cream);
+      font-family: var(--font-serif);
+      margin-bottom: 6px;
+    }
+
+    .result-desc-text {
+      font-size: 12.5px;
+      color: var(--cane-light);
+      line-height: 1.5;
+    }
+
+    /* CATALOG SECTION */
+    .catalog-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .catalog-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .catalog-tab-btn {
+      padding: 8px 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .catalog-tab-btn:hover {
+      border-color: var(--forest-spruce);
+      color: var(--forest-spruce);
+    }
+
+    .catalog-tab-btn.active {
+      background: var(--forest-spruce);
+      color: var(--parchment-cream);
+      border-color: var(--forest-spruce);
+    }
+
+    .catalog-search-input {
+      padding: 9px 16px;
+      border: 1px solid var(--border-hairline);
+      border-radius: 99px;
+      font-size: 13px;
+      background: #FFFFFF;
+      width: 260px;
+      color: var(--ink-primary);
+    }
+
+    .catalog-search-input:focus {
+      outline: none;
+      border-color: var(--forest-spruce);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .furniture-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+
+    .furniture-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+      border-color: var(--moss-sage);
+    }
+
+    .furniture-media {
+      position: relative;
+      height: 240px;
+      background: var(--forest-spruce);
+      overflow: hidden;
+    }
+
+    .furniture-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .furniture-card:hover .furniture-media img {
+      transform: scale(1.04);
+    }
+
+    .furniture-material-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(30, 59, 47, 0.88);
+      backdrop-filter: blur(6px);
+      color: var(--cane-teak);
+      border: 1px solid var(--cane-teak);
+      font-size: 9.5px;
+      font-family: var(--font-mono);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .furniture-body {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .furniture-wood-type {
+      font-size: 11px;
+      font-style: italic;
+      color: var(--moss-sage);
+      margin-bottom: 2px;
+    }
+
+    .furniture-title {
+      font-size: 21px;
+      color: var(--forest-spruce);
+      margin-bottom: 6px;
+    }
+
+    .furniture-desc-text {
+      font-size: 13px;
+      color: var(--ink-secondary);
+      line-height: 1.45;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .furniture-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-hairline);
+      margin-bottom: 16px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--ink-muted);
+    }
+
+    .furniture-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .furniture-price {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--forest-spruce);
+    }
+
+    .btn-quick-order {
+      background: var(--parchment-cream);
+      color: var(--forest-spruce);
+      border: 1px solid var(--cane-teak);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-quick-order:hover {
+      background: var(--forest-spruce);
+      color: var(--parchment-cream);
+    }
+
+    .btn-info-detail {
+      background: transparent;
+      color: var(--ink-secondary);
+      border: 1px solid var(--border-hairline);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .btn-info-detail:hover {
+      background: var(--parchment-cream);
+      color: var(--forest-spruce);
+    }
+
+    /* SAMPLE SWATCH REQUEST SECTION */
+    .sample-swatch-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .sample-list-features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+      font-size: 13.5px;
+      color: var(--ink-secondary);
+    }
+
+    .sample-form-box {
+      background: var(--parchment-cream);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+    }
+
+    .sample-input {
+      width: 100%;
+      padding: 10px 14px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    /* FOOTER */
+    footer.site-footer {
+      background: var(--forest-spruce);
+      color: var(--cane-light);
+      padding: 64px 0 32px;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-brand h3 {
+      font-size: 28px;
+      color: var(--parchment-cream);
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      max-width: 340px;
+      color: var(--moss-light);
+    }
+
+    .footer-col h5 {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cane-teak);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+    }
+
+    .footer-col a:hover {
+      color: var(--parchment-cream);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--moss-light);
+    }
+
+    /* SLIDE-OVER CART DRAWER */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 36, 28, 0.55);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 440px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--parchment-cream);
+      z-index: 101;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      background: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-drawer-header h3 {
+      font-size: 22px;
+      color: var(--forest-spruce);
+    }
+
+    .btn-close-cart {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--ink-muted);
+    }
+
+    .cart-delivery-tier {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 12px 24px;
+      font-size: 12px;
+      color: var(--forest-spruce);
+      font-family: var(--font-mono);
+    }
+
+    .cart-items-body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cart-empty-message {
+      text-align: center;
+      color: var(--ink-muted);
+      margin: auto 0;
+      font-size: 14px;
+    }
+
+    .cart-item-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-drawer-footer {
+      padding: 24px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--font-mono);
+    }
+
+    .subtotal-row .s-sum {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--forest-spruce);
+    }
+
+    .btn-whatsapp-order {
+      background: #25D366;
+      color: #FFFFFF;
+      border: none;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 36, 28, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      max-width: 680px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      background: rgba(30, 59, 47, 0.1);
+      border: none;
+      border-radius: 99px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+    }
+
+    .modal-image-col {
+      height: 100%;
+      min-height: 320px;
+      background: var(--forest-spruce);
+    }
+
+    .modal-image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-content-col {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-grid, .customizer-wrapper, .room-scale-grid, .sample-swatch-card, .modal-grid {
+        grid-template-columns: 1fr;
+      }
+      .customizer-preview-col {
+        border-right: none;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      .catalog-grid, .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header.site-header {
+        padding: 14px 20px;
+      }
+      nav.main-nav {
+        display: none;
+      }
+      .catalog-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP TICKER -->
+  <div class="top-ticker">
+    <span>PENGIRIMAN GRATIS WILAYAH JABODETABEK & BANDUNG</span>
+    <span>GARANSI KONSTRUKSI KAYU SOLID 5 TAHUN</span>
+    <span>LEGALITAS KAYU SVLK PERHUTANI GRADE A</span>
+    <span>SAMPLE SWATCH KAYU & ROTAN DIKIRIM KE RUMAH</span>
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="brand-group">
+      <div class="brand-monogram">KY</div>
+      <div class="brand-meta">
+        <h1>KAYAN</h1>
+        <p>Studio Perabot Kayu & Rotan Lestari</p>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="#customizer">Studio Material</a>
+      <a href="#room-scale">Simulasi Skala Ruang</a>
+      <a href="#catalog">Koleksi Perabot</a>
+      <a href="#sample-box">Swatch Box Gratis</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn-swatch-shortcut" onclick="scrollToSection('sample-box')">
+        <span>🪵</span> Pesan Box Sampel
+      </button>
+      <button class="cart-btn-trigger" onclick="toggleCartDrawer()">
+        <span>Pesanan</span>
+        <span class="cart-badge-count" id="cartCountBadge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-info-col">
+        <div class="hero-pretitle">
+          <span>🌿</span> Solid Timber Joinery · Handwoven Natural Cane
+        </div>
+        <h2 class="hero-title">
+          Perabot kayu solid dan anyaman rotan alami, dirancang untuk <em>bertahan lintas generasi</em>.
+        </h2>
+        <p class="hero-lead">
+          Menghindari serpihan partikel board dan plastik sintetis rapuh. Kayan merakit setiap kursi, meja, dan credenza dari kayu jati TPK Perhutani dan kayu sungkai kering oven dengan teknik sambungan purus-lubang (*mortise and tenon*) tradisional Jepara.
+        </p>
+
+        <div class="hero-key-badges">
+          <div class="metric-badge">
+            <span class="val">100<span>%</span></span>
+            <div class="label">Kayu Solid Legal (SVLK Bersertifikat)</div>
+          </div>
+          <div class="metric-badge">
+            <span class="val">5<span> TAHUN</span></span>
+            <div class="label">Garansi Struktur Rangka Sambungan</div>
+          </div>
+          <div class="metric-badge">
+            <span class="val">0<span>%</span></span>
+            <div class="label">Bebas Racun Formaldehida & Veneer Lem</div>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="btn-primary" onclick="scrollToSection('catalog')">
+            Jelajahi Koleksi Perabot →
+          </button>
+          <button class="btn-secondary" onclick="scrollToSection('customizer')">
+            Kustomisasi Material Kayu
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Featured Furniture Card -->
+      <div class="hero-spotlight-card">
+        <div class="spotlight-media">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80" alt="Kayan Rattan Lounge Chair">
+          <span class="spotlight-tag-joinery">Mortise & Tenon Joinery</span>
+          <span class="spotlight-badge-svlk">SVLK PERHUTANI A</span>
+        </div>
+        <div class="spotlight-body">
+          <div class="spotlight-sub">Arsip Desain 01 · Signature Piece</div>
+          <h3 class="spotlight-title">Kayan Lounge Chair (Sungkai & Anyaman Rotan)</h3>
+          <p class="spotlight-notes">
+            Rangka kayu sungkai padat dengan sandaran lengkung anyaman rotan mata bintang 1/2 inch. Dilengkapi bantalan busa densitas 32 berlapis kain linen alabaster alami yang sejuk di kulit.
+          </p>
+          <div class="spotlight-footer">
+            <div class="spotlight-price">
+              Rp 3.450.000 <span>/ Unit</span>
+            </div>
+            <button class="btn-primary" onclick="addDirectToCart('kayan-lounge-01', 'Kayan Lounge Chair (Sungkai & Rotan)', 3450000)">
+              + Pesan Unit Ini
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE MATERIAL & FINISH LAB -->
+  <section class="content-section" id="customizer">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-meta-tag">STUDIO KUSTOMISASI MATERIAL</span>
+          <h3 class="section-title">Padukan <em>Karakter Kayu</em> dan Anyaman</h3>
+        </div>
+        <p class="section-lead">
+          Pilih kombinasi jenis kayu solid, gaya anyaman rotan, dan warna pelapis kain untuk menyesuaikan dengan palet interior hunian Anda.
+        </p>
+      </div>
+
+      <div class="customizer-wrapper">
+        <!-- Left: Render Stage Preview -->
+        <div class="customizer-preview-col">
+          <div class="render-stage-box">
+            <img id="customizerRenderImg" src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=900&q=80" alt="Furniture Customizer Live Preview">
+            <div class="stage-live-badges">
+              <span class="badge-pill-tech" id="liveBadgeWood">Kayu: Sungkai Alami</span>
+              <span class="badge-pill-tech" id="liveBadgeCane">Anyaman: Mata Bintang</span>
+              <span class="badge-pill-tech" id="liveBadgeFabric">Kain: Alabaster Linen</span>
+            </div>
+          </div>
+
+          <div class="render-summary-bar">
+            <div class="summary-spec-item">
+              Dimensi Rangka
+              <strong>P 74 × L 78 × T 82 cm</strong>
+            </div>
+            <div class="summary-spec-item">
+              Finishing Akhir
+              <strong id="summaryFinishText">Natural Beeswax Clear</strong>
+            </div>
+            <div class="summary-spec-item">
+              Waktu Pengerjaan
+              <strong>14 - 21 Hari Kerja</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Controls Column -->
+        <div class="customizer-controls-col">
+          <div>
+            <!-- Wood Choice -->
+            <div class="control-group-block">
+              <div class="control-label-head">
+                <span>1. Jenis Kayu Solid</span>
+                <span class="active-val" id="labelActiveWood">Sungkai Alami</span>
+              </div>
+              <div class="swatches-selector-grid">
+                <button class="swatch-pick-btn active" onclick="selectWood('Sungkai Alami', 0, 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=900&q=80', this)">
+                  <span class="swatch-chip" style="background: #C8B48A;"></span>
+                  <span class="swatch-title-text">Sungkai</span>
+                  <span class="swatch-price-diff">Termasuk</span>
+                </button>
+                <button class="swatch-pick-btn" onclick="selectWood('Jati Tua Perhutani', 650000, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80', this)">
+                  <span class="swatch-chip" style="background: #8b5a2b;"></span>
+                  <span class="swatch-title-text">Jati Tua</span>
+                  <span class="swatch-price-diff">+Rp 650k</span>
+                </button>
+                <button class="swatch-pick-btn" onclick="selectWood('Kayu Ulin Daur Ulang', 950000, 'https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=80', this)">
+                  <span class="swatch-chip" style="background: #1E3B2F;"></span>
+                  <span class="swatch-title-text">Ulin Reklaim</span>
+                  <span class="swatch-price-diff">+Rp 950k</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Cane Weave Choice -->
+            <div class="control-group-block">
+              <div class="control-label-head">
+                <span>2. Pola Anyaman Rotan</span>
+                <span class="active-val" id="labelActiveCane">Mata Bintang</span>
+              </div>
+              <div class="swatches-selector-grid">
+                <button class="swatch-pick-btn active" onclick="selectCane('Mata Bintang', 0, this)">
+                  <span class="swatch-chip" style="background: #C8B48A; border: 1px dashed #7F8C6A;"></span>
+                  <span class="swatch-title-text">Mata Bintang</span>
+                  <span class="swatch-price-diff">Termasuk</span>
+                </button>
+                <button class="swatch-pick-btn" onclick="selectCane('Anyaman Rapat', 200000, this)">
+                  <span class="swatch-chip" style="background: #beaa82;"></span>
+                  <span class="swatch-title-text">Anyam Rapat</span>
+                  <span class="swatch-price-diff">+Rp 200k</span>
+                </button>
+                <button class="swatch-pick-btn" onclick="selectCane('Kisi-Kisi Kayu', 350000, this)">
+                  <span class="swatch-chip" style="background: repeating-linear-gradient(90deg, #1E3B2F, #1E3B2F 2px, #C8B48A 2px, #C8B48A 6px);"></span>
+                  <span class="swatch-title-text">Kisi Slatted</span>
+                  <span class="swatch-price-diff">+Rp 350k</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Fabric Upholstery Choice -->
+            <div class="control-group-block">
+              <div class="control-label-head">
+                <span>3. Pelapis Jok (Upholstery)</span>
+                <span class="active-val" id="labelActiveFabric">Alabaster Linen</span>
+              </div>
+              <div class="swatches-selector-grid">
+                <button class="swatch-pick-btn active" onclick="selectFabric('Alabaster Linen', 0, this)">
+                  <span class="swatch-chip" style="background: #F5F0E6;"></span>
+                  <span class="swatch-title-text">Alabaster</span>
+                  <span class="swatch-price-diff">Termasuk</span>
+                </button>
+                <button class="swatch-pick-btn" onclick="selectFabric('Beludru Spruce Green', 300000, this)">
+                  <span class="swatch-chip" style="background: #1E3B2F;"></span>
+                  <span class="swatch-title-text">Spruce Beludru</span>
+                  <span class="swatch-price-diff">+Rp 300k</span>
+                </button>
+                <button class="swatch-pick-btn" onclick="selectFabric('Kulit Nabati Terakota', 750000, this)">
+                  <span class="swatch-chip" style="background: #a85138;"></span>
+                  <span class="swatch-title-text">Kulit Nabati</span>
+                  <span class="swatch-price-diff">+Rp 750k</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="customizer-checkout-bar">
+            <div>
+              <span class="custom-price-display" id="customTotalPrice">Rp 3.450.000</span>
+              <span style="font-size: 11px; color: var(--ink-muted); font-family: var(--font-mono);">Estimasi Harga Kustomisasi</span>
+            </div>
+            <button class="btn-primary" onclick="addCustomizedPieceToCart()">
+              + Masukkan Rakitan ke Keranjang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOM SCALE & CLEARANCE SIMULATOR -->
+  <section class="content-section" id="room-scale">
+    <div class="container">
+      <div class="room-scale-wrapper">
+        <div class="room-scale-grid">
+          <div class="room-info-col">
+            <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cane-teak); margin-bottom: 8px; display: block;">
+              ARSITEKTUR & TATA RUANG
+            </span>
+            <h3>Hindari Ruang Sempit, Hitung Skala Sebelum Pesan</h3>
+            <p>
+              Perabot kayu solid memiliki bobot visual dan fisik yang kokoh. Panduan arsitektur kami memastikan lintasan jalan (*minimum walkway clearance*) minimal 80 cm agar sirkulasi udara dan gerak di ruang tamu tetap lapang.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; font-family: var(--font-mono); color: var(--parchment-cream);">
+              <div>✓ Standar jarak sofa ke meja kopi: 40 - 45 cm</div>
+              <div>✓ Koridor lintasan antar perabot: 80 - 90 cm</div>
+              <div>✓ Jarak bukaan pintu lemari buffet: minimal 75 cm</div>
+            </div>
+          </div>
+
+          <!-- Interactive Room Area Calculator -->
+          <div class="clearance-spec-card">
+            <div class="room-slider-header">
+              <span style="font-size: 14px; font-weight: 600; color: var(--parchment-cream);">Pilih Luas Ruang Tamu / Keluarga:</span>
+              <span class="slider-room-val" id="roomAreaVal">16 m² (4×4 meter)</span>
+            </div>
+            <input type="range" min="9" max="48" step="1" value="16" class="room-range-slider" id="roomSlider" oninput="updateRoomScaleSimulator(this.value)">
+
+            <div class="clearance-result-box">
+              <div class="result-badge-head">Rekomendasi Set Perabot:</div>
+              <div class="result-title-recommend" id="recSetTitle">Paket Ruang Menengah (Balanced Living Set)</div>
+              <div class="result-desc-text" id="recSetDesc">
+                Cocok untuk 1x Kayan Lounge Chair + 1x Meja Kopi Organik 90cm + 1x Buffet Sungkai 160cm. Masih menyisakan sirkulasi jalan 95cm di sekeliling area duduk.
+              </div>
+            </div>
+
+            <div style="font-size: 11.5px; color: var(--cane-light); line-height: 1.45; font-family: var(--font-mono);">
+              💡 <em>Tips: Untuk ruang di bawah 12 m², pilihlah sandaran anyaman rotan terbuka (*open cane*) agar cahaya alami tetap menembus dan ruang terasa lebih lega.</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG SECTION -->
+  <section class="content-section" id="catalog">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-meta-tag">ARSIP KOLEKSI TAHUN 2026</span>
+          <h3 class="section-title">Koleksi Perabot <em>Kayu & Rotan</em> Pilihan</h3>
+        </div>
+        <p class="section-lead">
+          Setiap perabot diproduksi dalam batch terbatas oleh pengrajin kayu Jepara dengan sertifikat nomor registrasi rangka dan stempel kayu legal.
+        </p>
+      </div>
+
+      <div class="catalog-filter-bar">
+        <div class="catalog-tabs">
+          <button class="catalog-tab-btn active" onclick="filterCatalog('all', this)">Semua Koleksi</button>
+          <button class="catalog-tab-btn" onclick="filterCatalog('kursi', this)">Kursi & Dudukan</button>
+          <button class="catalog-tab-btn" onclick="filterCatalog('meja', this)">Meja & Buffet</button>
+          <button class="catalog-tab-btn" onclick="filterCatalog('lampu', this)">Pencahayaan & Dekor</button>
+        </div>
+
+        <input type="text" class="catalog-search-input" id="catalogSearch" placeholder="Cari kursi, jati, buffet, rotan..." oninput="handleCatalogSearch(this.value)">
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE SWATCH REQUEST SECTION -->
+  <section class="content-section" id="sample-box" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="sample-swatch-card">
+        <div>
+          <span class="section-meta-tag">SENTUH & RASAKAN SEBELUM MEMBELI</span>
+          <h3 style="font-size: 34px; color: var(--forest-spruce); margin-bottom: 12px;">
+            Pesan Kotak Sampel <em>Kayu & Rotan</em> Gratis
+          </h3>
+          <p style="font-size: 14.5px; color: var(--ink-secondary); line-height: 1.6;">
+            Kami mengerti bahwa memilih warna perabot kayu membutuhkan kepastian warna terhadap lantai, dinding, dan pencahayaan rumah Anda. Kami mengirimkan kotak sampel berisi kepingan kayu asli ke pintu Anda.
+          </p>
+
+          <div class="sample-list-features">
+            <div>🪵 <strong>4 Keping Kayu Asli:</strong> Sungkai Alami, Jati Perhutani, Ulin Reklaim, & Teak Smoked</div>
+            <div>🌾 <strong>2 Sampel Anyaman Rotan:</strong> Anyam Mata Bintang & Anyam Rapat Natural</div>
+            <div>🧵 <strong>3 Lembar Swatch Kain:</strong> Alabaster Linen, Spruce Beludru, & Kulit Nabati</div>
+          </div>
+        </div>
+
+        <div class="sample-form-box">
+          <h4 style="font-size: 18px; color: var(--forest-spruce); margin-bottom: 14px;">Formulir Pengiriman Sampel</h4>
+          <input type="text" class="sample-input" id="sampleName" placeholder="Nama Lengkap Anda">
+          <input type="text" class="sample-input" id="samplePhone" placeholder="Nomor WhatsApp">
+          <input type="text" class="sample-input" id="sampleAddress" placeholder="Alamat Lengkap & Kota Tujuan">
+          <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="submitSampleRequest()">
+            Kirim Kotak Sampel Gratis (Cukup Bayar Ongkir) →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <div class="brand-monogram" style="width: 36px; height: 36px; font-size: 18px;">KY</div>
+            <h3 style="margin-bottom: 0;">KAYAN</h3>
+          </div>
+          <p>
+            Studio perabot kayu solid dan anyaman rotan lestari. Mempertahankan kriya sambungan purus-lubang kayu Indonesia dengan kesederhanaan arsitektural modern.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Koleksi Perabot</h5>
+          <ul>
+            <li><a href="#catalog">Kayan Lounge Chair</a></li>
+            <li><a href="#catalog">Meja Kopi Organik</a></li>
+            <li><a href="#catalog">Buffet Slatted Sungkai</a></li>
+            <li><a href="#catalog">Lampu Gantung Rotan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Layanan Kustom</h5>
+          <ul>
+            <li><a href="#customizer">Kustomisasi Material Kayu</a></li>
+            <li><a href="#room-scale">Simulasi Luas Ruang</a></li>
+            <li><a href="#sample-box">Pesan Swatch Kayu Gratis</a></li>
+            <li><a href="javascript:void(0)" onclick="openWhatsAppConsultation()">Konsultasi Desainer WA</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Workshop & Studio</h5>
+          <ul>
+            <li>Showroom: Jl. Gandaria Tengah III, Jakarta Selatan</li>
+            <li>Bengkel Kayu: Tahunan, Jepara, Jawa Tengah</li>
+            <li>WhatsApp: +62 813-8820-2026</li>
+            <li>Buka: Selasa - Minggu (10.00 - 18.00 WIB)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 KAYAN TIMBER & RATTAN STUDIO. ALL RIGHTS RESERVED.</div>
+        <div>STANDAR BEBAS AI-SLOP • NECTOR.UI ARCHIVE</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SLIDE-OVER CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>Daftar Pesanan Perabot</h3>
+      <button class="btn-close-cart" onclick="toggleCartDrawer()">&times;</button>
+    </div>
+
+    <div class="cart-delivery-tier" id="cartDeliveryTier">
+      🚚 <strong>White-Glove Delivery:</strong> Gratis antar & rakit wilayah Jabodetabek & Bandung!
+    </div>
+
+    <div class="cart-items-body" id="cartItemsContainer">
+      <div class="cart-empty-message">Daftar pesanan Anda masih kosong.</div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="subtotal-row">
+        <span style="font-size: 13px; color: var(--ink-muted);">Total Investasi:</span>
+        <span class="s-sum" id="cartSubtotalText">Rp 0</span>
+      </div>
+
+      <div>
+        <label style="font-size: 11px; font-family: var(--font-mono); color: var(--ink-muted); text-transform: uppercase; margin-bottom: 4px; display: block;">Nama Lengkap</label>
+        <input type="text" class="sample-input" style="margin-bottom: 6px;" id="cartCustomerName" placeholder="Nama Anda">
+      </div>
+
+      <div>
+        <label style="font-size: 11px; font-family: var(--font-mono); color: var(--ink-muted); text-transform: uppercase; margin-bottom: 4px; display: block;">Kota & Alamat Pengiriman</label>
+        <input type="text" class="sample-input" style="margin-bottom: 6px;" id="cartCustomerCity" placeholder="Contoh: Kebayoran Baru, Jakarta Selatan">
+      </div>
+
+      <button class="btn-whatsapp-order" onclick="checkoutWhatsApp()">
+        <span>Kirim Pesanan via WhatsApp Resmi →</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW DETAIL MODAL -->
+  <div class="modal-overlay" id="quickModal" onclick="closeQuickModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="btn-close-modal" onclick="closeQuickModal()">&times;</button>
+      <div class="modal-grid">
+        <div class="modal-image-col">
+          <img id="modalImg" src="" alt="">
+        </div>
+        <div class="modal-content-col">
+          <div>
+            <div style="font-size: 11px; font-family: var(--font-mono); color: var(--moss-sage); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px;" id="modalWoodSpec"></div>
+            <h3 style="font-size: 26px; color: var(--forest-spruce); margin-bottom: 8px;" id="modalTitle"></h3>
+            <p style="font-size: 13.5px; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 18px;" id="modalDesc"></p>
+
+            <div style="background: var(--parchment-cream); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); padding: 12px; margin-bottom: 20px; font-size: 12px; font-family: var(--font-mono); color: var(--ink-secondary);" id="modalSpecs">
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border-hairline);">
+            <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--forest-spruce);" id="modalPrice"></div>
+            <button class="btn-primary" id="modalAddBtn">
+              + Masukkan Pesanan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    /* ========================================================
+       DATA REPOSITORY
+       ======================================================== */
+    const CATALOG_DATA = [
+      {
+        id: 'furn-1',
+        title: 'Kayan Armchair Anyaman Rotan',
+        category: 'kursi',
+        wood: 'Kayu Sungkai Solid & Rotan Grade A',
+        dimensions: 'P 74 × L 78 × T 82 cm (Tinggi Dudukan 42 cm)',
+        joinery: 'Mortise & Tenon dengan Pasak Kayu',
+        price: 3450000,
+        desc: 'Kursi santai ergonomis dengan sandaran anyaman rotan mata bintang alami yang lentur menopang punggung. Dilengkapi jok busa kenyal lapis linen sejuk.',
+        img: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'furn-2',
+        title: 'Meja Kopi Jati Solid Organik 90cm',
+        category: 'meja',
+        wood: 'Kayu Jati Tua Perhutani Kering Oven',
+        dimensions: 'Diameter 90 cm × T 38 cm (Tebal Top Table 3.5 cm)',
+        joinery: 'Butterfly Inlay & Kaki Silang Kokoh',
+        price: 4200000,
+        desc: 'Meja kopi bundar dengan pinggiran organik yang mempertahankan lekuk alami serat jati. Finishing natural beeswax mempertahankan pori kayu asli.',
+        img: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'furn-3',
+        title: 'Buffet Sideboard Kisi-Kisi Sungkai 160cm',
+        category: 'meja',
+        wood: 'Kayu Sungkai Pilihan & Rel Kayu Halus',
+        dimensions: 'P 160 × L 45 × T 75 cm',
+        joinery: 'Dovetail Drawers & Slatted Sliding Doors',
+        price: 7850000,
+        desc: 'Lemari kredensa berpenampilan arsitektural dengan pintu geser kisi-kisi kayu ramping. Menjaga sirkulasi udara perangkat elektronik di dalam kabinet.',
+        img: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'furn-4',
+        title: 'Kursi Makan Ergonomis Anyam (Set of 2)',
+        category: 'kursi',
+        wood: 'Kayu Jati Solid & Anyaman Rapat',
+        dimensions: 'P 50 × L 52 × T 78 cm (Tinggi Dudukan 45 cm)',
+        joinery: 'Reinforced Corner Blocks & Tenon Joints',
+        price: 4900000,
+        desc: 'Sepasang kursi makan ringan namun sangat kokoh, didesain untuk kenyamanan santap berjam-jam tanpa membuat punggung lelah.',
+        img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'furn-5',
+        title: 'Lampu Gantung Kubah Anyaman Rotan 50cm',
+        category: 'lampu',
+        wood: 'Serat Rotan Alam Pilihan Cirebon',
+        dimensions: 'Diameter 50 cm × T 35 cm (Kabel Fitting Tekstil 1.5m)',
+        joinery: 'Handwoven Bamboo Core Structure',
+        price: 1250000,
+        desc: 'Kap lampu kubah gantung yang memancarkan pendar bayangan hangat bertekstur pada meja makan dan ruang santai keluarga.',
+        img: 'https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'furn-6',
+        title: 'Daybed Santai Teras Kayu Ulin Reklaim',
+        category: 'kursi',
+        wood: 'Kayu Ulin Bekas Bantalan Rel Tua',
+        dimensions: 'P 190 × L 80 × T 40 cm',
+        joinery: 'Mortise Bebas Karat & Tahan Cuaca Hujan',
+        price: 6400000,
+        desc: 'Bangku santai panjang berkarakter rustic kokoh yang tahan dipajang di teras semi-outdoor tanpa khawatir lapuk atau dimakan rayap.',
+        img: 'https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=80'
+      }
+    ];
+
+    /* ========================================================
+       STATE
+       ======================================================== */
+    let cart = [];
+    let customWood = { name: 'Sungkai Alami', extra: 0, img: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=900&q=80' };
+    let customCane = { name: 'Mata Bintang', extra: 0 };
+    let customFabric = { name: 'Alabaster Linen', extra: 0 };
+    const BASE_CHAIR_PRICE = 3450000;
+
+    /* ========================================================
+       INIT
+       ======================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCatalogGrid(CATALOG_DATA);
+      updateCustomizerPrice();
+    });
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ========================================================
+       CUSTOMIZER LOGIC
+       ======================================================== */
+    function selectWood(name, extra, img, btn) {
+      customWood = { name, extra, img };
+      document.getElementById('labelActiveWood').textContent = name;
+      document.getElementById('liveBadgeWood').textContent = 'Kayu: ' + name;
+      document.getElementById('customizerRenderImg').src = img;
+
+      const pBtns = btn.parentElement.querySelectorAll('.swatch-pick-btn');
+      pBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      updateCustomizerPrice();
+    }
+
+    function selectCane(name, extra, btn) {
+      customCane = { name, extra };
+      document.getElementById('labelActiveCane').textContent = name;
+      document.getElementById('liveBadgeCane').textContent = 'Anyaman: ' + name;
+
+      const pBtns = btn.parentElement.querySelectorAll('.swatch-pick-btn');
+      pBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      updateCustomizerPrice();
+    }
+
+    function selectFabric(name, extra, btn) {
+      customFabric = { name, extra };
+      document.getElementById('labelActiveFabric').textContent = name;
+      document.getElementById('liveBadgeFabric').textContent = 'Kain: ' + name;
+
+      const pBtns = btn.parentElement.querySelectorAll('.swatch-pick-btn');
+      pBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      updateCustomizerPrice();
+    }
+
+    function updateCustomizerPrice() {
+      const total = BASE_CHAIR_PRICE + customWood.extra + customCane.extra + customFabric.extra;
+      document.getElementById('customTotalPrice').textContent = 'Rp ' + total.toLocaleString('id-ID');
+    }
+
+    function addCustomizedPieceToCart() {
+      const total = BASE_CHAIR_PRICE + customWood.extra + customCane.extra + customFabric.extra;
+      const title = `Kayan Lounge Chair Kustom (${customWood.name} • ${customCane.name} • ${customFabric.name})`;
+      addDirectToCart('custom-chair-' + Date.now(), title, total);
+      toggleCartDrawer(true);
+    }
+
+    /* ========================================================
+       ROOM SCALE SIMULATOR
+       ======================================================== */
+    function updateRoomScaleSimulator(val) {
+      const area = parseInt(val, 10);
+      const side = Math.sqrt(area).toFixed(1);
+      document.getElementById('roomAreaVal').textContent = `${area} m² (~${side}×${side} m)`;
+
+      const title = document.getElementById('recSetTitle');
+      const desc = document.getElementById('recSetDesc');
+
+      if (area <= 12) {
+        title.textContent = 'Paket Ruang Ringkas (Compact Living Set)';
+        desc.textContent = 'Disarankan 1x Kayan Lounge Chair dengan anyaman rotan mata bintang terbuka + 1x Meja Kopi Samping 50cm. Jarak sirkulasi lintasan tetap longgar minimal 85 cm.';
+      } else if (area <= 24) {
+        title.textContent = 'Paket Ruang Menengah (Balanced Living Set)';
+        desc.textContent = 'Cocok untuk 1x Kayan Lounge Chair + 1x Meja Kopi Jati 90cm + 1x Sideboard Kisi Sungkai 160cm. Masih menyisakan koridor jalan 95cm di sekeliling area duduk.';
+      } else {
+        title.textContent = 'Paket Ruang Luas (Grand Architectural Living)';
+        desc.textContent = 'Dapat menampung 2x Kayan Lounge Chair + 1x Meja Kopi Jati Organik + 1x Daybed Ulin 190cm + Lampu Gantung Rotan 50cm dengan koridor sirkulasi mewah di atas 120 cm.';
+      }
+    }
+
+    /* ========================================================
+       CATALOG LOGIC
+       ======================================================== */
+    function renderCatalogGrid(items) {
+      const grid = document.getElementById('catalogGrid');
+      if (items.length === 0) {
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 48px; color: var(--ink-muted);">Tidak ada perabot yang cocok dengan pencarian Anda.</div>';
+        return;
+      }
+      grid.innerHTML = items.map(p => `
+        <div class="furniture-card">
+          <div>
+            <div class="furniture-media">
+              <img src="${p.img}" alt="${p.title}" loading="lazy">
+              <span class="furniture-material-tag">${p.wood.split('&')[0]}</span>
+            </div>
+            <div class="furniture-body">
+              <div class="furniture-wood-type">${p.wood}</div>
+              <h4 class="furniture-title">${p.title}</h4>
+              <p class="furniture-desc-text">${p.desc}</p>
+              <div class="furniture-meta-row">
+                <span>Dimensi: ${p.dimensions.split('(')[0]}</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 0 20px 20px;">
+            <div class="furniture-footer">
+              <div class="furniture-price">Rp ${p.price.toLocaleString('id-ID')}</div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn-info-detail" onclick="openQuickModal('${p.id}')">Detail</button>
+                <button class="btn-quick-order" onclick="addDirectToCart('${p.id}', '${p.title}', ${p.price})">+ Pesan</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCatalog(cat, btn) {
+      document.querySelectorAll('.catalog-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      if (cat === 'all') {
+        renderCatalogGrid(CATALOG_DATA);
+      } else {
+        renderCatalogGrid(CATALOG_DATA.filter(p => p.category === cat));
+      }
+    }
+
+    function handleCatalogSearch(query) {
+      const q = query.toLowerCase().trim();
+      const filtered = CATALOG_DATA.filter(p => 
+        p.title.toLowerCase().includes(q) ||
+        p.desc.toLowerCase().includes(q) ||
+        p.wood.toLowerCase().includes(q)
+      );
+      renderCatalogGrid(filtered);
+    }
+
+    /* ========================================================
+       MODAL LOGIC
+       ======================================================== */
+    function openQuickModal(id) {
+      const p = CATALOG_DATA.find(item => item.id === id);
+      if (!p) return;
+
+      document.getElementById('modalImg').src = p.img;
+      document.getElementById('modalWoodSpec').textContent = p.wood + ' • SVLK CERTIFIED';
+      document.getElementById('modalTitle').textContent = p.title;
+      document.getElementById('modalDesc').textContent = p.desc;
+      document.getElementById('modalSpecs').innerHTML = `
+        <strong>Spesifikasi Teknis:</strong><br>
+        • Dimensi Fisik: ${p.dimensions}<br>
+        • Tipe Sambungan: ${p.joinery}<br>
+        • Garansi Rangka: 5 Tahun Konstruksi Kayu Solid<br>
+        • Perawatan: Cukup dilap kain mikrofiber kering dan poles lilin lebah per 6 bulan.
+      `;
+      document.getElementById('modalPrice').textContent = 'Rp ' + p.price.toLocaleString('id-ID');
+      
+      const addBtn = document.getElementById('modalAddBtn');
+      addBtn.onclick = () => {
+        addDirectToCart(p.id, p.title, p.price);
+        closeQuickModal();
+        toggleCartDrawer(true);
+      };
+
+      document.getElementById('quickModal').classList.add('open');
+    }
+
+    function closeQuickModal(e) {
+      if (!e || e.target.id === 'quickModal' || e.target.classList.contains('btn-close-modal')) {
+        document.getElementById('quickModal').classList.remove('open');
+      }
+    }
+
+    /* ========================================================
+       SAMPLE SWATCH REQUEST
+       ======================================================== */
+    function submitSampleRequest() {
+      const name = document.getElementById('sampleName').value.trim();
+      const phone = document.getElementById('samplePhone').value.trim();
+      const address = document.getElementById('sampleAddress').value.trim();
+
+      if (!name || !address) {
+        alert('Mohon isi nama lengkap dan alamat pengiriman sampel.');
+        return;
+      }
+
+      let msg = `Halo Studio Kayan, saya ingin mengajukan permohonan Kotak Sampel Kayu & Rotan Gratis:\n\n`;
+      msg += `👤 Nama: ${name}\n`;
+      msg += `📞 No HP/WA: ${phone || '-'}\n`;
+      msg += `📍 Alamat Kirim: ${address}\n\n`;
+      msg += `Mohon info estimasi ongkir kurir lokal ke alamat saya. Terima kasih!`;
+
+      window.open(`https://wa.me/6281388202026?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    /* ========================================================
+       CART & WHATSAPP ORDER
+       ======================================================== */
+    function toggleCartDrawer(forceOpen = null) {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      const isOpen = forceOpen !== null ? forceOpen : !drawer.classList.contains('open');
+
+      drawer.classList.toggle('open', isOpen);
+      overlay.classList.toggle('open', isOpen);
+    }
+
+    function addDirectToCart(id, title, price) {
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, title, price, qty: 1 });
+      }
+      updateCartUI();
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== id);
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+      const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+      document.getElementById('cartCountBadge').textContent = totalCount;
+      document.getElementById('cartSubtotalText').textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+
+      const container = document.getElementById('cartItemsContainer');
+      if (cart.length === 0) {
+        container.innerHTML = '<div class="cart-empty-message">Daftar pesanan Anda masih kosong.</div>';
+        return;
+      }
+
+      container.innerHTML = cart.map(item => `
+        <div class="cart-item-card">
+          <div style="flex-grow: 1;">
+            <div style="font-weight: 600; font-size: 13.5px; color: var(--forest-spruce);">${item.title}</div>
+            <div style="font-size: 11px; font-family: var(--font-mono); color: var(--moss-sage);">Rp ${item.price.toLocaleString('id-ID')} per unit</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; font-family: var(--font-mono);">
+            <button style="width: 24px; height: 24px; background: var(--parchment-cream); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); cursor: pointer;" onclick="changeQty('${item.id}', -1)">-</button>
+            <span>${item.qty}</span>
+            <button style="width: 24px; height: 24px; background: var(--parchment-cream); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); cursor: pointer;" onclick="changeQty('${item.id}', 1)">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Daftar pesanan Anda masih kosong.');
+        return;
+      }
+      const name = document.getElementById('cartCustomerName').value.trim() || 'Klien Kayan';
+      const city = document.getElementById('cartCustomerCity').value.trim() || 'Indonesia';
+      const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+      let msg = `Halo Studio Perabot Kayan (木庵),\n\nSaya ingin memesan perabot kayu solid & rotan berikut:\n`;
+      msg += `----------------------------------------\n`;
+      msg += `👤 Nama Pemesan: ${name}\n`;
+      msg += `📍 Kota/Tujuan: ${city}\n`;
+      msg += `----------------------------------------\n`;
+      msg += `📋 DAFTAR PERABOT:\n`;
+
+      cart.forEach((item, idx) => {
+        msg += `${idx + 1}. ${item.title} (x${item.qty}) = Rp ${(item.price * item.qty).toLocaleString('id-ID')}\n`;
+      });
+
+      msg += `----------------------------------------\n`;
+      msg += `💰 Total Investasi: Rp ${subtotal.toLocaleString('id-ID')}\n`;
+      msg += `🚚 Layanan: White-Glove Delivery (Antar & Rakit)\n\n`;
+      msg += `Mohon konfirmasi jadwal produksi bengkel Jepara dan total pembayaran down payment (DP). Terima kasih!`;
+
+      window.open(`https://wa.me/6281388202026?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function openWhatsAppConsultation() {
+      const msg = encodeURIComponent("Halo Studio Kayan, saya ingin berkonsultasi mengenai perabot kustom untuk tata ruang rumah saya.");
+      window.open(`https://wa.me/6281388202026?text=${msg}`, '_blank');
+    }
+  </script>
+</body>
+</html>

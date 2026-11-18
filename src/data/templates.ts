@@ -1533,6 +1533,90 @@ export function TanahLiatStudio() {
       { hex: '#E5CD82', rgb: 'rgb(229, 205, 130)', name: 'Warm Harvest Honeycomb', role: 'Amber Honey Action & Key Border Accent' },
       { hex: '#FFF2B4', rgb: 'rgb(255, 242, 180)', name: 'Cream Butter Sunlight', role: 'Royal Jelly Highlight, Badge Fill & Warm Tint' }
     ]
+  },
+  {
+    id: 'tpl-23',
+    slug: 'kayan-solid-furniture',
+    title: 'KAYAN (Solid Timber & Woven Rattan Studio)',
+    tagline: 'Perabot kayu solid, anyaman rotan lestari, dan ketahanan konstruksi purus-lubang tradisional Jepara',
+    description: 'Template website studio perabot kayu solid dan kriya anyaman rotan dengan palet warna arsitektur alami Deep Forest Spruce (#1E3B2F), Muted Moss Sage (#7F8C6A), Natural Cane Teak (#C8B48A), dan Parchment Wool Cream (#F5F0E6). Dilengkapi Studio Kustomisasi Material Kayu, Anyaman & Kain secara real-time, Simulator Luas Ruang & Lintasan Sirkulasi Jalan (Walkway Clearance 80cm), katalog 6 perabot bersertifikat SVLK Perhutani Grade A, formulir pengiriman kotak sampel kayu gratis, serta layanan White-Glove Delivery terintegrasi WhatsApp resmi.',
+    category: 'furniture',
+    tags: ['Furniture', 'Kayu Solid', 'Anyaman Rotan', 'Jati Jepara', 'Sungkai', 'Mortise Tenon', 'Material Customizer', 'Room Scale Simulator', 'WhatsApp Checkout', 'UMKM Kriya'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Interactive Material Customizer', 'Room Scale Simulator', 'Free Swatch Kit Form', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'furniture',
+    previewComponentKey: 'furniture-kayan-studio',
+    htmlPath: '/templates/furniture/kayan-studio.html',
+    htmlFolderPath: 'templates/furniture/kayan-studio.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Studio Kustomisasi Material Kayu (Sungkai, Jati, Ulin), Anyaman Rotan (Mata Bintang, Rapat, Slatted), dan Kain Jok secara real-time',
+      'Simulator Luas Ruang (9 m² - 48 m²) dengan panduan lintasan bebas sirkulasi jalan (walkway clearance) minimal 80–95 cm',
+      'Katalog 6 perabot arsitektural mandiri (lounge chair, meja kopi jati, buffet kisi sungkai, kursi makan, lampu gantung, daybed)',
+      'Modal Quick-View detail perabot dengan rincian dimensi milimeter, tipe sambungan joinery, dan garansi rangka 5 tahun',
+      'Formulir permohonan kotak sampel kayu asli, anyaman rotan, dan swatch kain gratis ke rumah pelanggan',
+      'Slide-over keranjang belanja terintegrasi pemesanan WhatsApp resmi dengan opsi layanan White-Glove Delivery'
+    ],
+    usageInstructions: [
+      'Buka templates/furniture/kayan-studio.html di editor kode Anda.',
+      'Sesuaikan daftar koleksi perabot, harga, dan dimensi pada objek CATALOG_DATA di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan resmi pada fungsi checkoutWhatsApp dan submitSampleRequest.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase studio perabot langsung aktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'kayan-studio.html',
+        language: 'html',
+        content: `<!-- KAYAN (木庵) — Solid Timber & Woven Rattan Studio -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KAYAN — Studio Perabot Kayu & Rotan Lestari</title>
+  <style>
+    :root {
+      --forest-spruce: #1E3B2F;
+      --moss-sage: #7F8C6A;
+      --cane-teak: #C8B48A;
+      --parchment-cream: #F5F0E6;
+      --ink-primary: #15221B;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">PENGIRIMAN GRATIS JABODETABEK & BANDUNG • GARANSI RANGKA 5 TAHUN • SVLK PERHUTANI GRADE A</div>
+  <header>
+    <div class="brand-monogram">KY</div>
+    <h1>KAYAN</h1>
+    <nav>Studio Material · Simulasi Ruang · Koleksi Perabot · Swatch Box</nav>
+  </header>
+  <!-- Full Interactive Furniture Experience: Material Customizer, Room Scale Simulator & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website studio perabot kayu solid dan anyaman rotan lestari KAYAN dengan palet warna Deep Forest Spruce (#1E3B2F), Muted Moss Sage (#7F8C6A), Natural Cane Teak (#C8B48A), dan Parchment Wool Cream (#F5F0E6). Dilengkapi studio kustomisasi material kayu/anyaman live, simulator luas ruang dan koridor jalan, katalog 6 perabot solid joinery, formulir swatch box gratis, dan slide-over cart WhatsApp.',
+      designDirection: 'Architectural solid timber joinery & sustainable rattan atelier berstandar antislop: Deep Forest Spruce (#1E3B2F), Muted Moss Sage (#7F8C6A), Natural Cane Teak (#C8B48A), Parchment Wool Cream (#F5F0E6), dan Clean Alabaster Canvas (#FFFFFF). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top workshop ticker spruce, sticky architectural navbar dengan monogram KY, hero asymmetric showcase 2 kolom dengan spotlight kursi rotan signature, studio kustomisasi material 2 kolom dengan panggung render live, panel simulator tata ruang dengan slider luas m², grid katalog 6 perabot 3 kolom responsif, formulir pengiriman kotak sampel gratis, dan slide-over cart drawer kanan.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk editorial arsitektural dan nama perabot, Plus Jakarta Sans untuk teks bodi dan kontrol kustomisasi, JetBrains Mono untuk dimensi milimeter fisik, luas meter persegi, nomor registrasi kayu legal SVLK, dan harga rupiah.',
+      interactions: 'Kustomisasi material kayu, anyaman rotan, dan kain jok dengan kalkulasi harga dinamis instan, slider simulasi luas ruangan dengan rekomendasi set perabot dan clearance koridor gerak, filter katalog perabot tanpa reload, modal detail sambungan purus-lubang, formulir kirim sampel kayu, dan slide-over cart WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive dari smartphone 360px hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#1E3B2F',
+    colorPalette: [
+      { hex: '#1E3B2F', rgb: 'rgb(30, 59, 47)', name: 'Deep Forest Spruce', role: 'Primary Anchor / Forest Joinery & Dark Architectural Accent' },
+      { hex: '#7F8C6A', rgb: 'rgb(127, 140, 106)', name: 'Muted Moss Sage', role: 'Secondary Tone / Olive Foliage & Subtle Border' },
+      { hex: '#C8B48A', rgb: 'rgb(200, 180, 138)', name: 'Natural Cane Teak', role: 'Warm Rattan Webbing, Sungkai Wood & Action Accent' },
+      { hex: '#F5F0E6', rgb: 'rgb(245, 240, 230)', name: 'Parchment Wool Cream', role: 'Warm Paper Parchment, Alabaster Linen & Body Ground' }
+    ]
   }
 ];
 

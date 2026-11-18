@@ -22,6 +22,7 @@ export type Category =
   | 'perfumery'
   | 'packaging'
   | 'apiculture'
+  | 'furniture'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';
