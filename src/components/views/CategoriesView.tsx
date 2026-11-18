@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'architecture',
+      title: 'Arsitektur & Cetak Biru Cyanotype',
+      icon: Compass,
+      desc: 'Atelier gambar kerja & cetak biru arsitektur tropis: inspektor multi-layer CAD interaktif (Arsitektur, Struktur, MEP), simulasi ventilasi silang 1.8 m/s, dan tabel spesifikasi material RKS standar IAI.',
+      accent: '#0F4C75'
+    },
     {
       id: 'horology',
       title: 'Horologi & Jam Tangan Astronomi',

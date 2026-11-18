@@ -1,0 +1,2664 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYANO ARCHITECTURE — Atelier Cetak Biru & Gambar Kerja Arsitektur Tropis</title>
+  <meta name="description" content="Atelier arsitektur independen spesialis hunian tropis berkontur, gambar kerja presisi (DED), simulasi ventilasi silang, dan cetak biru cyanotype analog.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       CYANO ARCHITECTURAL DESIGN SYSTEM & DESIGN TOKENS
+       Palette: #1B262C (Obsidian Teal), #0F4C75 (Prussian Blue), #3282B8 (Steel Blue), #BBE1FA (Ice Mist)
+       ========================================================================== */
+    :root {
+      --cyano-obsidian: #1B262C;
+      --cyano-prussian: #0F4C75;
+      --cyano-steel: #3282B8;
+      --cyano-ice: #BBE1FA;
+      
+      --cyano-paper: #F6F9FC;
+      --cyano-surface: #FFFFFF;
+      --cyano-surface-subtle: #EDF3F8;
+      --cyano-border: #D1E1EC;
+      --cyano-border-strong: #96BDD6;
+      
+      --cyano-ink: #101B22;
+      --cyano-ink-soft: #384A56;
+      --cyano-muted: #627989;
+      --cyano-chalk: #FFFFFF;
+      
+      --grid-line: rgba(50, 130, 184, 0.12);
+      --grid-line-bold: rgba(15, 76, 117, 0.22);
+      
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      
+      --radius-sm: 3px;
+      --radius-md: 6px;
+      --radius-lg: 10px;
+      
+      --shadow-blueprint: 0 4px 20px rgba(15, 76, 117, 0.08);
+      --shadow-hover: 0 12px 32px rgba(15, 76, 117, 0.15);
+      --shadow-modal: 0 24px 60px rgba(27, 38, 44, 0.35);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: light;
+    }
+
+    body {
+      background-color: var(--cyano-paper);
+      color: var(--cyano-ink);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      overflow-x: hidden;
+      background-image: 
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 24px 24px;
+      background-position: -1px -1px;
+    }
+
+    /* Container & Base Grid */
+    .container {
+      width: 100%;
+      max-width: 1320px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
+    /* ==========================================================================
+       ARCHITECTURAL TITLE BLOCK & TOP TICKER
+       ========================================================================== */
+    .telemetry-ticker-bar {
+      background: var(--cyano-obsidian);
+      color: var(--cyano-ice);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid rgba(187, 225, 250, 0.18);
+      padding: 6px 0;
+    }
+
+    .telemetry-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .telemetry-group {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .telemetry-pulse {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      margin-right: 6px;
+      box-shadow: 0 0 8px #4ade80;
+    }
+
+    .telemetry-badge {
+      background: rgba(50, 130, 184, 0.25);
+      border: 1px solid rgba(187, 225, 250, 0.3);
+      padding: 1px 7px;
+      border-radius: 2px;
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+
+    /* Architectural Header */
+    .site-header {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cyano-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.25s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 20px;
+    }
+
+    /* Brand Title Block */
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--cyano-obsidian);
+      flex-shrink: 0;
+    }
+
+    .brand-symbol-box {
+      width: 44px;
+      height: 44px;
+      background: var(--cyano-obsidian);
+      color: var(--cyano-ice);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      position: relative;
+      border: 1px solid var(--cyano-prussian);
+      overflow: hidden;
+    }
+
+    .brand-symbol-box::before {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border: 1px dashed rgba(187, 225, 250, 0.4);
+      pointer-events: none;
+    }
+
+    .brand-symbol-inner {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .brand-symbol-sub {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      color: var(--cyano-steel);
+      margin-top: 2px;
+    }
+
+    .brand-text-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--cyano-obsidian);
+      line-height: 1.15;
+    }
+
+    .brand-caption {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--cyano-steel);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* Navigation Bar: STRICT SINGLE LINE NON-WRAPPING */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-shrink: 0;
+      list-style: none;
+    }
+
+    .nav-item {
+      flex-shrink: 0;
+    }
+
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--cyano-ink-soft);
+      text-decoration: none;
+      padding: 8px 4px;
+      position: relative;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--cyano-prussian);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--cyano-prussian);
+      border-radius: 1px;
+    }
+
+    /* Header Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn-blueprint-consult {
+      background: var(--cyano-prussian);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--cyano-obsidian);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-blueprint-consult:hover {
+      background: var(--cyano-obsidian);
+      box-shadow: 0 4px 14px rgba(15, 76, 117, 0.25);
+    }
+
+    .btn-drawing-register {
+      background: var(--cyano-surface);
+      color: var(--cyano-obsidian);
+      border: 1px solid var(--cyano-border-strong);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .btn-drawing-register:hover {
+      border-color: var(--cyano-steel);
+      background: var(--cyano-surface-subtle);
+    }
+
+    .register-badge {
+      background: var(--cyano-steel);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 10px;
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       HERO: ARCHITECTURAL BLUEPRINT BENCH
+       ========================================================================== */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--cyano-border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .title-block-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(15, 76, 117, 0.08);
+      border: 1px solid var(--cyano-border-strong);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--cyano-prussian);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-heading {
+      font-family: var(--font-display);
+      font-size: 42px;
+      line-height: 1.14;
+      font-weight: 700;
+      color: var(--cyano-obsidian);
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
+    }
+
+    .hero-heading span.accent-cad {
+      color: var(--cyano-steel);
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 6px;
+      text-decoration-color: rgba(50, 130, 184, 0.4);
+    }
+
+    .hero-lead {
+      font-size: 16.5px;
+      line-height: 1.65;
+      color: var(--cyano-ink-soft);
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+
+    .hero-specs-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 20px;
+      background: var(--cyano-surface);
+      border: 1px solid var(--cyano-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-blueprint);
+      margin-bottom: 32px;
+    }
+
+    .hero-spec-item {
+      border-right: 1px solid var(--cyano-border);
+      padding-right: 14px;
+    }
+
+    .hero-spec-item:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .hsi-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cyano-obsidian);
+      line-height: 1.2;
+    }
+
+    .hsi-label {
+      font-size: 12px;
+      color: var(--cyano-muted);
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      background: var(--cyano-prussian);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 18px rgba(15, 76, 117, 0.28);
+      transition: all 0.2s ease;
+      border: 1px solid var(--cyano-obsidian);
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--cyano-obsidian);
+      transform: translateY(-1px);
+    }
+
+    .btn-hero-secondary {
+      background: transparent;
+      color: var(--cyano-prussian);
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: 1px solid var(--cyano-border-strong);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: var(--cyano-surface);
+      border-color: var(--cyano-steel);
+    }
+
+    /* Hero Blueprint Plate (Card Side) */
+    .hero-blueprint-card {
+      background: var(--cyano-obsidian);
+      border: 1px solid var(--cyano-prussian);
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 40px rgba(27, 38, 44, 0.22);
+      overflow: hidden;
+      color: var(--cyano-ice);
+      position: relative;
+    }
+
+    .hbc-top-frame {
+      background: rgba(15, 76, 117, 0.5);
+      border-bottom: 1px solid rgba(187, 225, 250, 0.2);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+
+    .hbc-live-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: #38bdf8;
+      border-radius: 50%;
+      margin-right: 6px;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+
+    .hbc-canvas-wrap {
+      padding: 24px;
+      position: relative;
+      background-image: 
+        linear-gradient(rgba(187, 225, 250, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(187, 225, 250, 0.08) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .hbc-drawing-preview {
+      width: 100%;
+      height: 280px;
+      background: rgba(15, 76, 117, 0.28);
+      border: 1px dashed rgba(187, 225, 250, 0.35);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 16px;
+    }
+
+    .hbc-legend-box {
+      margin-top: 18px;
+      background: rgba(27, 38, 44, 0.85);
+      border: 1px solid rgba(187, 225, 250, 0.18);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE CAD LAYER INSPECTOR & LIVE FLOOR PLAN
+       ========================================================================== */
+    .cad-inspector-section {
+      padding: 80px 0;
+      background: var(--cyano-surface);
+      border-bottom: 1px solid var(--cyano-border);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cyano-steel);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--cyano-obsidian);
+      letter-spacing: -0.015em;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--cyano-ink-soft);
+      max-width: 680px;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    /* Cad Layout Stage */
+    .cad-stage-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .cad-drawing-viewport {
+      background: var(--cyano-obsidian);
+      border: 1px solid var(--cyano-prussian);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(15, 76, 117, 0.12);
+      padding: 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .cad-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(187, 225, 250, 0.18);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cad-layer-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-layer-tab {
+      background: rgba(15, 76, 117, 0.4);
+      border: 1px solid rgba(187, 225, 250, 0.25);
+      color: var(--cyano-ice);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+    }
+
+    .btn-layer-tab:hover {
+      background: rgba(50, 130, 184, 0.5);
+      border-color: var(--cyano-ice);
+    }
+
+    .btn-layer-tab.active {
+      background: var(--cyano-steel);
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(50, 130, 184, 0.4);
+    }
+
+    .cad-scale-selector {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--cyano-ice);
+    }
+
+    .btn-scale-opt {
+      background: transparent;
+      border: 1px solid rgba(187, 225, 250, 0.25);
+      color: var(--cyano-ice);
+      padding: 4px 8px;
+      border-radius: 2px;
+      cursor: pointer;
+      font-size: 11px;
+      font-family: var(--font-mono);
+    }
+
+    .btn-scale-opt.active {
+      background: var(--cyano-prussian);
+      border-color: var(--cyano-ice);
+      font-weight: 600;
+    }
+
+    /* SVG Blueprint Canvas */
+    .cad-blueprint-canvas {
+      width: 100%;
+      height: 480px;
+      background: #141f25;
+      border: 1px solid rgba(187, 225, 250, 0.2);
+      border-radius: var(--radius-sm);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: crosshair;
+    }
+
+    .blueprint-svg {
+      width: 100%;
+      height: 100%;
+      max-height: 480px;
+    }
+
+    /* Room Hover Area in SVG */
+    .svg-room-poly {
+      fill: rgba(15, 76, 117, 0.15);
+      stroke: var(--cyano-steel);
+      stroke-width: 1.5;
+      transition: fill 0.2s ease, stroke-width 0.2s ease;
+      cursor: pointer;
+    }
+
+    .svg-room-poly:hover, .svg-room-poly.active {
+      fill: rgba(50, 130, 184, 0.45);
+      stroke: var(--cyano-ice);
+      stroke-width: 2.2;
+    }
+
+    .svg-grid-line {
+      stroke: rgba(187, 225, 250, 0.15);
+      stroke-dasharray: 4,4;
+    }
+
+    .svg-dim-line {
+      stroke: var(--cyano-ice);
+      stroke-width: 1;
+    }
+
+    .svg-text-dim {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      fill: var(--cyano-ice);
+    }
+
+    /* Cad Info Panel */
+    .cad-info-sidebar {
+      background: var(--cyano-paper);
+      border: 1px solid var(--cyano-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cis-header {
+      border-bottom: 1px solid var(--cyano-border);
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+
+    .cis-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cyano-obsidian);
+      margin-bottom: 4px;
+    }
+
+    .cis-sheet-code {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--cyano-steel);
+      font-weight: 600;
+    }
+
+    .cis-metrics-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .cis-metric-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: var(--cyano-surface);
+      border: 1px solid var(--cyano-border);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+    }
+
+    .cis-metric-label {
+      color: var(--cyano-ink-soft);
+      font-weight: 500;
+    }
+
+    .cis-metric-value {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--cyano-prussian);
+    }
+
+    .cis-layer-explanation {
+      background: var(--cyano-surface-subtle);
+      border-left: 3px solid var(--cyano-steel);
+      padding: 12px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--cyano-ink-soft);
+      margin-bottom: 20px;
+    }
+
+    /* ==========================================================================
+       CURATED ARCHITECTURAL COMMISSIONS & DRAWING REGISTER
+       ========================================================================== */
+    .commissions-section {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--cyano-border);
+    }
+
+    .filter-pills-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 6px;
+    }
+
+    .cat-filter-btn {
+      background: var(--cyano-surface);
+      border: 1px solid var(--cyano-border);
+      color: var(--cyano-ink-soft);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+      flex-shrink: 0;
+    }
+
+    .cat-filter-btn:hover {
+      border-color: var(--cyano-steel);
+      color: var(--cyano-prussian);
+    }
+
+    .cat-filter-btn.active {
+      background: var(--cyano-prussian);
+      border-color: var(--cyano-obsidian);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(15, 76, 117, 0.25);
+    }
+
+    .cat-filter-count {
+      opacity: 0.75;
+      font-size: 11px;
+    }
+
+    /* Architectural Cards Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .project-card {
+      background: var(--cyano-surface);
+      border: 1px solid var(--cyano-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-blueprint);
+      transition: all 0.22s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--cyano-border-strong);
+    }
+
+    .pc-image-wrap {
+      position: relative;
+      height: 230px;
+      width: 100%;
+      background: var(--cyano-surface-subtle);
+      overflow: hidden;
+    }
+
+    .pc-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .pc-image-wrap img {
+      transform: scale(1.04);
+    }
+
+    .pc-sheet-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(27, 38, 44, 0.9);
+      backdrop-filter: blur(6px);
+      color: var(--cyano-ice);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(187, 225, 250, 0.3);
+    }
+
+    .pc-status-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 76, 117, 0.9);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .pc-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .pc-category-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--cyano-steel);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .pc-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cyano-obsidian);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .pc-location {
+      font-size: 12.5px;
+      color: var(--cyano-muted);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pc-description {
+      font-size: 13.5px;
+      color: var(--cyano-ink-soft);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .pc-specs-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 12px;
+      background: var(--cyano-surface-subtle);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--cyano-border);
+      margin-bottom: 20px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+    }
+
+    .pcs-label {
+      color: var(--cyano-muted);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .pcs-val {
+      color: var(--cyano-obsidian);
+      font-weight: 700;
+    }
+
+    .pc-footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-inspect-dwg {
+      flex: 1;
+      background: var(--cyano-prussian);
+      color: #FFFFFF;
+      border: 1px solid var(--cyano-obsidian);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-inspect-dwg:hover {
+      background: var(--cyano-obsidian);
+    }
+
+    .btn-add-register {
+      background: var(--cyano-surface);
+      color: var(--cyano-obsidian);
+      border: 1px solid var(--cyano-border-strong);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-register:hover {
+      border-color: var(--cyano-steel);
+      background: var(--cyano-surface-subtle);
+      color: var(--cyano-steel);
+    }
+
+    /* ==========================================================================
+       MATERIAL & SPECIFICATION SCHEDULE
+       ========================================================================== */
+    .specs-schedule-section {
+      padding: 80px 0;
+      background: var(--cyano-surface);
+      border-bottom: 1px solid var(--cyano-border);
+    }
+
+    .schedule-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--cyano-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-blueprint);
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13.5px;
+      background: #FFFFFF;
+    }
+
+    .schedule-table th {
+      background: var(--cyano-obsidian);
+      color: var(--cyano-ice);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--cyano-prussian);
+    }
+
+    .schedule-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--cyano-border);
+      color: var(--cyano-ink-soft);
+      vertical-align: middle;
+    }
+
+    .schedule-table tr:hover td {
+      background: var(--cyano-surface-subtle);
+    }
+
+    .spec-code-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(15, 76, 117, 0.1);
+      color: var(--cyano-prussian);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+    }
+
+    /* ==========================================================================
+       MODAL: DRAWING SHEET INSPECTOR
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(27, 38, 44, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-dialog-large {
+      background: var(--cyano-surface);
+      border: 1px solid var(--cyano-border-strong);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-modal);
+      width: 100%;
+      max-width: 920px;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header-blueprint {
+      background: var(--cyano-obsidian);
+      color: var(--cyano-ice);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--cyano-prussian);
+    }
+
+    .modal-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--cyano-ice);
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(187, 225, 250, 0.2);
+    }
+
+    .modal-body-content {
+      padding: 28px;
+    }
+
+    /* ==========================================================================
+       SLIDE-OVER DRAWER: DRAWING REGISTER / BUKU GAMBAR
+       ========================================================================== */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(27, 38, 44, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: none;
+    }
+
+    .drawer-overlay.open {
+      display: block;
+    }
+
+    .drawer-container {
+      position: fixed;
+      top: 0;
+      right: -480px;
+      width: 100%;
+      max-width: 460px;
+      height: 100vh;
+      background: var(--cyano-surface);
+      border-left: 1px solid var(--cyano-border-strong);
+      box-shadow: -10px 0 40px rgba(27, 38, 44, 0.2);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .drawer-container.open {
+      right: 0;
+    }
+
+    .drawer-header {
+      background: var(--cyano-obsidian);
+      color: var(--cyano-ice);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--cyano-prussian);
+    }
+
+    .drawer-items-list {
+      padding: 24px;
+      overflow-y: auto;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-item-card {
+      background: var(--cyano-paper);
+      border: 1px solid var(--cyano-border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      display: flex;
+      gap: 12px;
+      position: relative;
+    }
+
+    .dic-img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--cyano-border);
+    }
+
+    .dic-info {
+      flex: 1;
+    }
+
+    .dic-sheet {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--cyano-steel);
+      font-weight: 700;
+    }
+
+    .dic-name {
+      font-family: var(--font-display);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--cyano-obsidian);
+      margin: 2px 0 4px;
+    }
+
+    .dic-loc {
+      font-size: 12px;
+      color: var(--cyano-muted);
+    }
+
+    .dic-remove-btn {
+      background: transparent;
+      border: none;
+      color: #ef4444;
+      font-size: 12px;
+      cursor: pointer;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .drawer-footer {
+      padding: 20px 24px;
+      background: var(--cyano-paper);
+      border-top: 1px solid var(--cyano-border);
+    }
+
+    .btn-submit-whatsapp-dossier {
+      width: 100%;
+      background: var(--cyano-prussian);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 13px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--cyano-obsidian);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(15, 76, 117, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit-whatsapp-dossier:hover {
+      background: var(--cyano-obsidian);
+    }
+
+    /* Toast Notification */
+    .toast-pill {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--cyano-obsidian);
+      color: var(--cyano-ice);
+      border: 1px solid var(--cyano-steel);
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 2000;
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-pill.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--cyano-obsidian);
+      color: var(--cyano-ice);
+      padding: 64px 0 32px;
+      border-top: 2px solid var(--cyano-prussian);
+      font-size: 13.5px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links-list a {
+      color: var(--cyano-ice);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-links-list a:hover {
+      opacity: 1;
+      color: #FFFFFF;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(187, 225, 250, 0.15);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: rgba(187, 225, 250, 0.6);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .cad-stage-grid {
+        grid-template-columns: 1fr;
+      }
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-nav {
+        display: none;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-heading {
+        font-size: 30px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Telemetry & Architectural Coordinate Bar -->
+  <div class="telemetry-ticker-bar">
+    <div class="container">
+      <div class="telemetry-inner">
+        <div class="telemetry-group">
+          <span><span class="telemetry-pulse"></span>STATUS ATELIER: MEJA GAMBAR AKTIF (DED & IMB TAHAP III)</span>
+          <span>KOORDINAT: LAT -6.9175° S, LONG 107.6191° E · ELEVASI +768 MDPL</span>
+        </div>
+        <div class="telemetry-group">
+          <span class="telemetry-badge">STANDAR GAMBAR: IAI-K350</span>
+          <span>CAD VERSION: CYA-2026.4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Architectural Header with STRICT SINGLE-LINE NAVIGATION -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Brand Title Block -->
+        <a href="#" class="brand-block">
+          <div class="brand-symbol-box">
+            <span class="brand-symbol-inner">CY</span>
+            <span class="brand-symbol-sub">ARC</span>
+          </div>
+          <div class="brand-text-col">
+            <span class="brand-title">CYANO ARCHITECTURE</span>
+            <span class="brand-caption">ATELIER CETAK BIRU & GAMBAR KERJA TROPIS</span>
+          </div>
+        </a>
+
+        <!-- STRICT SINGLE-LINE NAVBAR: NO WRAPPING -->
+        <nav aria-label="Navigasi Utama">
+          <ul class="header-nav">
+            <li class="nav-item"><a href="#denah-cad" class="nav-link active">Denah Interaktif</a></li>
+            <li class="nav-item"><a href="#layer-cad" class="nav-link">Lapisan CAD</a></li>
+            <li class="nav-item"><a href="#koleksi-proyek" class="nav-link">Koleksi Gambar</a></li>
+            <li class="nav-item"><a href="#spesifikasi" class="nav-link">Spesifikasi Material</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button class="btn-blueprint-consult" onclick="openConsultationModal()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span>Konsultasi Denah</span>
+          </button>
+
+          <button class="btn-drawing-register" onclick="toggleDrawer(true)" aria-label="Buka Buku Lembar Gambar">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            <span>Arsip Gambar</span>
+            <span class="register-badge" id="drawingCountBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="title-block-meta">
+            <span>DOKUMEN DED: LEMBAR DWG-A100</span>
+            <span>·</span>
+            <span>SKALA METRIK 1:50</span>
+          </div>
+          
+          <h1 class="hero-heading">
+            Arsitektur Tropis Bertumpu pada <span class="accent-cad">Presisi Garis</span>, Sirkulasi Angin & Tekstur Material Jujur
+          </h1>
+
+          <p class="hero-lead">
+            Kami merancang hunian privat berkontur, paviliun kaca, dan ruang komunal beriklim mikro sejuk dengan metodologi gambar kerja menyeluruh—mengintegrasikan warisan cetak biru cyanotype analog dengan simulasi daylighting dan ventilasi silang teruji.
+          </p>
+
+          <div class="hero-specs-strip">
+            <div class="hero-spec-item">
+              <div class="hsi-val">48+</div>
+              <div class="hsi-label">Lembar Gambar Teknis Per Proyek (DED Lengkap)</div>
+            </div>
+            <div class="hero-spec-item">
+              <div class="hsi-val">1.8 m/s</div>
+              <div class="hsi-label">Laju Sirkulasi Udara Alami Lolos Uji SimuWind</div>
+            </div>
+            <div class="hero-spec-item">
+              <div class="hsi-val">100%</div>
+              <div class="hsi-label">Kepatuhan Perhitungan Struktur SNI 2847-2019</div>
+            </div>
+          </div>
+
+          <div class="hero-cta-row">
+            <a href="#denah-cad" class="btn-hero-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 12 8"/></svg>
+              <span>Eksplorasi Denah Interaktif</span>
+            </a>
+            <a href="#koleksi-proyek" class="btn-hero-secondary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+              <span>Lihat 6 Lembar Karya</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Blueprint Plate Visual -->
+        <div class="hero-blueprint-card">
+          <div class="hbc-top-frame">
+            <div><span class="hbc-live-dot"></span>VILLA SELASAR DAGO — ELEVASI SELATAN</div>
+            <div>REV: 03-C</div>
+          </div>
+          <div class="hbc-canvas-wrap">
+            <div class="hbc-drawing-preview">
+              <!-- Architectural Wireframe Illustration -->
+              <svg viewBox="0 0 380 220" width="100%" height="100%" fill="none" stroke="#BBE1FA" stroke-width="1.2">
+                <!-- Ground Datum Line -->
+                <line x1="10" y1="180" x2="370" y2="180" stroke="#3282B8" stroke-width="2" />
+                <text x="15" y="196" fill="#3282B8" font-family="monospace" font-size="9">DATUM ±0.00 MDPL</text>
+                
+                <!-- Main Building Mass & Roof Cantilever -->
+                <polygon points="50,180 50,100 240,70 330,85 330,180" fill="rgba(15, 76, 117, 0.3)" stroke="#BBE1FA" stroke-width="1.5"/>
+                
+                <!-- Cantilever Roof Overhang -->
+                <line x1="30" y1="96" x2="350" y2="80" stroke="#38bdf8" stroke-width="2.5" />
+                
+                <!-- Double Volume Glass Façade -->
+                <rect x="70" y="110" width="100" height="70" stroke="#38bdf8" stroke-dasharray="3,3" fill="rgba(50, 130, 184, 0.15)"/>
+                <line x1="120" y1="110" x2="120" y2="180" stroke="#BBE1FA" stroke-width="1"/>
+                
+                <!-- Inner Courtyard Void & Tree Graphic -->
+                <rect x="190" y="105" width="45" height="75" stroke="#BBE1FA" stroke-width="1"/>
+                <circle cx="212" cy="140" r="16" stroke="#4ade80" stroke-dasharray="2,2" fill="rgba(74, 222, 128, 0.1)"/>
+                <line x1="212" y1="140" x2="212" y2="180" stroke="#4ade80" stroke-width="1.5"/>
+                
+                <!-- Timber Slats Screen -->
+                <line x1="255" y1="95" x2="255" y2="180" stroke="#BBE1FA" stroke-width="1"/>
+                <line x1="265" y1="95" x2="265" y2="180" stroke="#BBE1FA" stroke-width="1"/>
+                <line x1="275" y1="95" x2="275" y2="180" stroke="#BBE1FA" stroke-width="1"/>
+                <line x1="285" y1="95" x2="285" y2="180" stroke="#BBE1FA" stroke-width="1"/>
+                <line x1="295" y1="95" x2="295" y2="180" stroke="#BBE1FA" stroke-width="1"/>
+                <line x1="305" y1="95" x2="305" y2="180" stroke="#BBE1FA" stroke-width="1"/>
+
+                <!-- Dimension Arrow Annotation -->
+                <line x1="50" y1="48" x2="330" y2="48" stroke="#3282B8" stroke-width="1"/>
+                <polyline points="56,44 50,48 56,52" stroke="#3282B8" stroke-width="1"/>
+                <polyline points="324,44 330,48 324,52" stroke="#3282B8" stroke-width="1"/>
+                <text x="160" y="42" fill="#BBE1FA" font-family="monospace" font-size="10">BENTANG 18.50 M</text>
+              </svg>
+            </div>
+
+            <div class="hbc-legend-box">
+              <div>
+                <span style="color:#38bdf8;">KDB: 42.5%</span> (Maks 60%)
+              </div>
+              <div>
+                <span style="color:#4ade80;">RTH: 57.5%</span> (Resapan Hijau)
+              </div>
+              <div>
+                <span>ORIENTASI: UTARA-SELATAN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 1: The Blueprint CAD Layer Inspector -->
+  <section class="cad-inspector-section" id="denah-cad">
+    <div class="container">
+      <span class="section-eyebrow">STUDIO INSPEKTOR GAMBAR KERJA</span>
+      <h2 class="section-heading">Inspeksi Lapisan CAD & Sirkulasi Ruang</h2>
+      <p class="section-desc">
+        Arahkan kursor atau sentuh area ruangan di bawah untuk membaca telemetri luas, orientasi pencahayaan alami (*daylighting*), serta laju ventilasi silang terhitung. Beralih antar lapisan untuk menginspeksi struktur kolom dan jaringan mekanikal.
+      </p>
+
+      <div class="cad-stage-grid">
+        <!-- Main Blueprint Drawing Screen -->
+        <div class="cad-drawing-viewport">
+          <div class="cad-toolbar">
+            <div class="cad-layer-tabs" id="layer-cad">
+              <button class="btn-layer-tab active" onclick="switchLayer('arch', this)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                <span>[1] Arsitektur & Zonasi</span>
+              </button>
+              <button class="btn-layer-tab" onclick="switchLayer('struct', this)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M2 12h20"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>[2] Kolom & Balok Baja</span>
+              </button>
+              <button class="btn-layer-tab" onclick="switchLayer('mep', this)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span>[3] Elektrikal & Sanitasi</span>
+              </button>
+            </div>
+
+            <div class="cad-scale-selector">
+              <span>SKALA:</span>
+              <button class="btn-scale-opt active" onclick="setScale(50, this)">1:50</button>
+              <button class="btn-scale-opt" onclick="setScale(100, this)">1:100</button>
+            </div>
+          </div>
+
+          <!-- Interactive SVG Floor Plan -->
+          <div class="cad-blueprint-canvas">
+            <svg class="blueprint-svg" viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background Grid in SVG -->
+              <defs>
+                <pattern id="svgGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(187,225,250,0.06)" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#svgGrid)" />
+
+              <!-- Outer Boundary Wall -->
+              <rect x="40" y="30" width="680" height="400" fill="none" stroke="#3282B8" stroke-width="3" />
+
+              <!-- Architectural Grid Axes (A, B, C / 1, 2, 3) -->
+              <line x1="40" y1="180" x2="720" y2="180" class="svg-grid-line" />
+              <line x1="280" y1="30" x2="280" y2="430" class="svg-grid-line" />
+              <line x1="500" y1="30" x2="500" y2="430" class="svg-grid-line" />
+
+              <!-- Dimension Guidelines -->
+              <line x1="40" y1="18" x2="280" y2="18" class="svg-dim-line" />
+              <text x="145" y="14" class="svg-text-dim">8.00 M</text>
+              <line x1="280" y1="18" x2="500" y2="18" class="svg-dim-line" />
+              <text x="375" y="14" class="svg-text-dim">7.50 M</text>
+              <line x1="500" y1="18" x2="720" y2="18" class="svg-dim-line" />
+              <text x="595" y="14" class="svg-text-dim">7.50 M</text>
+
+              <!-- Room 1: Living & Dining Selasar Terbuka -->
+              <polygon points="50,40 270,40 270,170 50,170" 
+                class="svg-room-poly active" 
+                onmouseover="selectRoom('living')"
+                onclick="selectRoom('living')" />
+              <text x="70" y="100" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14">RUANG KELUARGA & SELASAR</text>
+              <text x="70" y="122" fill="#BBE1FA" font-family="'IBM Plex Mono', monospace" font-size="11">Luas: 52 m² · Double Height 4.8m</text>
+
+              <!-- Room 2: Inner Courtyard & Kolam Pantul -->
+              <polygon points="290,40 490,40 490,170 290,170" 
+                class="svg-room-poly" 
+                onmouseover="selectRoom('courtyard')"
+                onclick="selectRoom('courtyard')" />
+              <text x="310" y="100" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14">INNER COURTYARD VOID</text>
+              <text x="310" y="122" fill="#BBE1FA" font-family="'IBM Plex Mono', monospace" font-size="11">Luas: 28 m² · Kolam Pantul & Frangipani</text>
+
+              <!-- Room 3: Paviliun Kerja Arsitek / Studio Akustik -->
+              <polygon points="510,40 710,40 710,170 510,170" 
+                class="svg-room-poly" 
+                onmouseover="selectRoom('studio')"
+                onclick="selectRoom('studio')" />
+              <text x="530" y="100" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14">STUDIO KERJA & PERPUSTAKAAN</text>
+              <text x="530" y="122" fill="#BBE1FA" font-family="'IBM Plex Mono', monospace" font-size="11">Luas: 32 m² · Dinding Akustik Kayu</text>
+
+              <!-- Room 4: Master Suite & Kamar Mandi Semi-Terbuka -->
+              <polygon points="50,190 270,190 270,420 50,420" 
+                class="svg-room-poly" 
+                onmouseover="selectRoom('master')"
+                onclick="selectRoom('master')" />
+              <text x="70" y="300" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14">SUITE UTAMA & TAMAN PRIVAT</text>
+              <text x="70" y="322" fill="#BBE1FA" font-family="'IBM Plex Mono', monospace" font-size="11">Luas: 48 m² · Orientasi Timur Pagi</text>
+
+              <!-- Room 5: Dapur Botani & Dry Garden -->
+              <polygon points="290,190 490,190 490,420 290,420" 
+                class="svg-room-poly" 
+                onmouseover="selectRoom('kitchen')"
+                onclick="selectRoom('kitchen')" />
+              <text x="310" y="300" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14">DAPUR BASAH & DRY BAR</text>
+              <text x="310" y="322" fill="#BBE1FA" font-family="'IBM Plex Mono', monospace" font-size="11">Luas: 34 m² · Meja Cor Beton Terrazzo</text>
+
+              <!-- Room 6: Deck Kayu Ulin & Kolam Renang Infinity -->
+              <polygon points="510,190 710,190 710,420 510,420" 
+                class="svg-room-poly" 
+                onmouseover="selectRoom('deck')"
+                onclick="selectRoom('deck')" />
+              <text x="530" y="300" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14">DECK KAYU ULIN & LAP POOL</text>
+              <text x="530" y="322" fill="#BBE1FA" font-family="'IBM Plex Mono', monospace" font-size="11">Luas: 58 m² · Kayu Ulin Kalimantan</text>
+
+              <!-- Dynamic Structural Overlay Elements (Visible on Layer 2) -->
+              <g id="layer-structure-group" style="display:none;">
+                <!-- Concrete Columns 400x400 -->
+                <rect x="42" y="32" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                <rect x="272" y="32" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                <rect x="492" y="32" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                <rect x="702" y="32" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                
+                <rect x="42" y="172" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                <rect x="272" y="172" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                <rect x="492" y="172" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                <rect x="702" y="172" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+
+                <rect x="42" y="412" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                <rect x="272" y="412" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                <rect x="492" y="412" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                <rect x="702" y="412" width="16" height="16" fill="#ef4444" stroke="#FFFFFF"/>
+                
+                <!-- Main Steel Beams WF 300x150 -->
+                <line x1="50" y1="40" x2="710" y2="40" stroke="#f87171" stroke-width="3" stroke-dasharray="6,4"/>
+                <line x1="50" y1="180" x2="710" y2="180" stroke="#f87171" stroke-width="3" stroke-dasharray="6,4"/>
+                <line x1="50" y1="420" x2="710" y2="420" stroke="#f87171" stroke-width="3" stroke-dasharray="6,4"/>
+              </g>
+
+              <!-- Dynamic MEP Overlay Elements (Visible on Layer 3) -->
+              <g id="layer-mep-group" style="display:none;">
+                <!-- Water Supply Pipeline (Blue) -->
+                <path d="M 50 100 Q 200 100 290 250 T 600 250" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="5,3"/>
+                <!-- Electrical Conduit Line (Yellow) -->
+                <path d="M 100 50 L 650 50 L 650 380" fill="none" stroke="#facc15" stroke-width="2"/>
+                <circle cx="160" cy="100" r="5" fill="#facc15"/>
+                <circle cx="390" cy="100" r="5" fill="#facc15"/>
+                <circle cx="610" cy="100" r="5" fill="#facc15"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Telemetry Details Sidebar -->
+        <div class="cad-info-sidebar">
+          <div>
+            <div class="cis-header">
+              <span class="cis-sheet-code" id="inspectZoneTag">ZONASI A-101</span>
+              <h3 class="cis-title" id="inspectZoneTitle">Ruang Keluarga & Selasar Terbuka</h3>
+            </div>
+
+            <ul class="cis-metrics-list">
+              <li class="cis-metric-row">
+                <span class="cis-metric-label">Dimensi Ruang</span>
+                <span class="cis-metric-value" id="inspectZoneDim">6.50 × 8.00 meter</span>
+              </li>
+              <li class="cis-metric-row">
+                <span class="cis-metric-label">Luas Efektif</span>
+                <span class="cis-metric-value" id="inspectZoneArea">52.0 m²</span>
+              </li>
+              <li class="cis-metric-row">
+                <span class="cis-metric-label">Tinggi Plafon Bersih</span>
+                <span class="cis-metric-value" id="inspectZoneCeiling">4.80 m (Double Volume)</span>
+              </li>
+              <li class="cis-metric-row">
+                <span class="cis-metric-label">Kecepatan Angin Rata-rata</span>
+                <span class="cis-metric-value" id="inspectZoneWind">1.82 m/s (Ventilasi Silang)</span>
+              </li>
+              <li class="cis-metric-row">
+                <span class="cis-metric-label">Faktor Pencahayaan (DF)</span>
+                <span class="cis-metric-value" id="inspectZoneLight">3.8% (Tanpa Lampu Siang)</span>
+              </li>
+            </ul>
+
+            <div class="cis-layer-explanation" id="inspectLayerDesc">
+              Lapisan arsitektural menampilkan zonasi ruang komunal dengan pembatas pintu geser kaca lipat frameless 3 arah, membuka penuh ke arah kolam pantul tengah.
+            </div>
+          </div>
+
+          <button class="btn-blueprint-consult" style="width:100%; justify-content:center;" onclick="addCurrentZoneToDrawer()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            <span>Simpan Denah ke Arsip Anda</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated 6 Architectural Commissions (Portfolio) -->
+  <section class="commissions-section" id="koleksi-proyek">
+    <div class="container">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <span class="section-eyebrow">ARSIP KARYA & LEMBAR GAMBAR</span>
+          <h2 class="section-heading" style="margin-bottom:0;">6 Lembar Gambar Kerja Terpilih</h2>
+        </div>
+        <p style="color:var(--cyano-muted); font-size:13.5px; max-width:440px;">
+          Setiap proyek dilengkapi paket gambar kerja DED (Detail Engineering Design), spesifikasi bahan, dan kalkulasi struktur bertaraf IAI.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-pills-bar">
+        <button class="cat-filter-btn active" onclick="filterProjects('all', this)">
+          Semua Lembar Proyek <span class="cat-filter-count">(6)</span>
+        </button>
+        <button class="cat-filter-btn" onclick="filterProjects('residence', this)">
+          Residensi Privat Kontur <span class="cat-filter-count">(3)</span>
+        </button>
+        <button class="cat-filter-btn" onclick="filterProjects('pavilion', this)">
+          Paviliun & Studio Kerja <span class="cat-filter-count">(2)</span>
+        </button>
+        <button class="cat-filter-btn" onclick="filterProjects('public', this)">
+          Ruang Komunal & Galeri <span class="cat-filter-count">(1)</span>
+        </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project 1 -->
+        <article class="project-card" data-category="residence">
+          <div class="pc-image-wrap">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Villa Selasar Dago">
+            <span class="pc-sheet-badge">DWG-A101</span>
+            <span class="pc-status-badge">SELESAI DIBANGUN</span>
+          </div>
+          <div class="pc-body">
+            <span class="pc-category-tag">RESIDENSI PRIVAT</span>
+            <h3 class="pc-title">Villa Selasar Dago</h3>
+            <div class="pc-location">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Bukit Dago Pakar, Bandung · 780 mdpl</span>
+            </div>
+            <p class="pc-description">
+              Hunian bertingkat kontur lereng 30 derajat dengan dinding penahan batu padas hitam, selasar beratap kantilever 3.5 meter, dan void penghubung 3 lantai.
+            </p>
+            <div class="pc-specs-row">
+              <div>
+                <span class="pcs-label">LUAS LAHAN / BANGUNAN</span>
+                <span class="pcs-val">650 m² / 420 m²</span>
+              </div>
+              <div>
+                <span class="pcs-label">MATERIAL DOMINAN</span>
+                <span class="pcs-val">Beton Ekspos & Ulin</span>
+              </div>
+            </div>
+            <div class="pc-footer-actions">
+              <button class="btn-inspect-dwg" onclick="openDetailModal('dago')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Inspeksi Lembar</span>
+              </button>
+              <button class="btn-add-register" onclick="addToDrawingRegister('dago')" title="Simpan ke Arsip Gambar">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                <span>Arsipkan</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" data-category="pavilion">
+          <div class="pc-image-wrap">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="Paviliun Kaca Parahyangan">
+            <span class="pc-sheet-badge">DWG-A102</span>
+            <span class="pc-status-badge">TAHAP KONSTRUKSI</span>
+          </div>
+          <div class="pc-body">
+            <span class="pc-category-tag">PAVILIUN & STUDIO</span>
+            <h3 class="pc-title">Paviliun Kaca Parahyangan</h3>
+            <div class="pc-location">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Lembang Asri, Bandung Barat · 1.250 mdpl</span>
+            </div>
+            <p class="pc-description">
+              Studio kerja arsitek dan ruang baca mengapung di atas kolam pantul air hujan, menggunakan struktur baja ramping IWF berlapis cat anti-karat zink kromit.
+            </p>
+            <div class="pc-specs-row">
+              <div>
+                <span class="pcs-label">LUAS LAHAN / BANGUNAN</span>
+                <span class="pcs-val">400 m² / 185 m²</span>
+              </div>
+              <div>
+                <span class="pcs-label">MATERIAL DOMINAN</span>
+                <span class="pcs-val">Kaca Low-E & Baja WF</span>
+              </div>
+            </div>
+            <div class="pc-footer-actions">
+              <button class="btn-inspect-dwg" onclick="openDetailModal('lembang')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Inspeksi Lembar</span>
+              </button>
+              <button class="btn-add-register" onclick="addToDrawingRegister('lembang')" title="Simpan ke Arsip Gambar">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                <span>Arsipkan</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card" data-category="residence">
+          <div class="pc-image-wrap">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Rumah Bernapas Kotagede">
+            <span class="pc-sheet-badge">DWG-A103</span>
+            <span class="pc-status-badge">SELESAI DIBANGUN</span>
+          </div>
+          <div class="pc-body">
+            <span class="pc-category-tag">RESIDENSI PRIVAT</span>
+            <h3 class="pc-title">Rumah Bernapas Kotagede</h3>
+            <div class="pc-location">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Kotagede, DI Yogyakarta</span>
+            </div>
+            <p class="pc-description">
+              Eksplorasi susunan bata merah terakota berpori (roster bata ekspos) dengan 3 inner-courtyard mikro untuk menyalurkan angin tropis lembab tanpa AC siang hari.
+            </p>
+            <div class="pc-specs-row">
+              <div>
+                <span class="pcs-label">LUAS LAHAN / BANGUNAN</span>
+                <span class="pcs-val">320 m² / 260 m²</span>
+              </div>
+              <div>
+                <span class="pcs-label">MATERIAL DOMINAN</span>
+                <span class="pcs-val">Bata Terakota & Jati</span>
+              </div>
+            </div>
+            <div class="pc-footer-actions">
+              <button class="btn-inspect-dwg" onclick="openDetailModal('kotagede')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Inspeksi Lembar</span>
+              </button>
+              <button class="btn-add-register" onclick="addToDrawingRegister('kotagede')" title="Simpan ke Arsip Gambar">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                <span>Arsipkan</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card" data-category="pavilion">
+          <div class="pc-image-wrap">
+            <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=80" alt="Atelier Keramik Seminyak">
+            <span class="pc-sheet-badge">DWG-A104</span>
+            <span class="pc-status-badge">SELESAI DIBANGUN</span>
+          </div>
+          <div class="pc-body">
+            <span class="pc-category-tag">PAVILIUN & STUDIO</span>
+            <h3 class="pc-title">Atelier Keramik Seminyak</h3>
+            <div class="pc-location">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Seminyak, Badung, Bali</span>
+            </div>
+            <p class="pc-description">
+              Studio keramik terbuka dengan skylight utara-selatan terarah, lantai semen poles abu alami, dan dinding penahan panas dari batu bata kapur putih lokal.
+            </p>
+            <div class="pc-specs-row">
+              <div>
+                <span class="pcs-label">LUAS LAHAN / BANGUNAN</span>
+                <span class="pcs-val">500 m² / 290 m²</span>
+              </div>
+              <div>
+                <span class="pcs-label">MATERIAL DOMINAN</span>
+                <span class="pcs-val">Semen Poles & Batu Kapur</span>
+              </div>
+            </div>
+            <div class="pc-footer-actions">
+              <button class="btn-inspect-dwg" onclick="openDetailModal('seminyak')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Inspeksi Lembar</span>
+              </button>
+              <button class="btn-add-register" onclick="addToDrawingRegister('seminyak')" title="Simpan ke Arsip Gambar">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                <span>Arsipkan</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card" data-category="public">
+          <div class="pc-image-wrap">
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80" alt="Menara Baca Ciumbuleuit">
+            <span class="pc-sheet-badge">DWG-A105</span>
+            <span class="pc-status-badge">SELESAI DIBANGUN</span>
+          </div>
+          <div class="pc-body">
+            <span class="pc-category-tag">RUANG KOMUNAL</span>
+            <h3 class="pc-title">Menara Baca Ciumbuleuit</h3>
+            <div class="pc-location">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Ciumbuleuit, Bandung Utara</span>
+            </div>
+            <p class="pc-description">
+              Perpustakaan arsitektur publik 4 lantai menggunakan struktur kayu glulam lokal bersertifikasi lestari, fasad kisi-kisi bambu petung awet tahan cuaca.
+            </p>
+            <div class="pc-specs-row">
+              <div>
+                <span class="pcs-label">LUAS LAHAN / BANGUNAN</span>
+                <span class="pcs-val">450 m² / 380 m²</span>
+              </div>
+              <div>
+                <span class="pcs-label">MATERIAL DOMINAN</span>
+                <span class="pcs-val">Glulam Kayu & Kisi Bambu</span>
+              </div>
+            </div>
+            <div class="pc-footer-actions">
+              <button class="btn-inspect-dwg" onclick="openDetailModal('ciumbuleuit')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Inspeksi Lembar</span>
+              </button>
+              <button class="btn-add-register" onclick="addToDrawingRegister('ciumbuleuit')" title="Simpan ke Arsip Gambar">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                <span>Arsipkan</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card" data-category="residence">
+          <div class="pc-image-wrap">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80" alt="Sanctuari Lereng Merapi">
+            <span class="pc-sheet-badge">DWG-A106</span>
+            <span class="pc-status-badge">TAHAP PERIZINAN</span>
+          </div>
+          <div class="pc-body">
+            <span class="pc-category-tag">RESIDENSI PRIVAT</span>
+            <h3 class="pc-title">Sanctuari Lereng Merapi</h3>
+            <div class="pc-location">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Pakem, Sleman · 620 mdpl</span>
+            </div>
+            <p class="pc-description">
+              Rumah singgah tahan gempa dengan pondasi sarang laba-laba bertulang, dinding batu candi vulkanik andesit tebal peredam suara angin dan suhu dingin lereng.
+            </p>
+            <div class="pc-specs-row">
+              <div>
+                <span class="pcs-label">LUAS LAHAN / BANGUNAN</span>
+                <span class="pcs-val">800 m² / 350 m²</span>
+              </div>
+              <div>
+                <span class="pcs-label">MATERIAL DOMINAN</span>
+                <span class="pcs-val">Batu Candi & Atap Sirap</span>
+              </div>
+            </div>
+            <div class="pc-footer-actions">
+              <button class="btn-inspect-dwg" onclick="openDetailModal('merapi')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Inspeksi Lembar</span>
+              </button>
+              <button class="btn-add-register" onclick="addToDrawingRegister('merapi')" title="Simpan ke Arsip Gambar">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                <span>Arsipkan</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architectural Material & Finish Specification Schedule -->
+  <section class="specs-schedule-section" id="spesifikasi">
+    <div class="container">
+      <span class="section-eyebrow">DOKUMEN KONTRAKTUAL & RKS</span>
+      <h2 class="section-heading">Tabel Spesifikasi Bahan Material</h2>
+      <p class="section-desc">
+        Transparansi mutu material konstruksi yang menjadi rujukan dalam Rencana Kerja dan Syarat-syarat (RKS) serta proses tender pemborong.
+      </p>
+
+      <div class="schedule-table-wrap">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>KODE BAHAN</th>
+              <th>ELEMEN STRUKTURAL</th>
+              <th>SPESIFIKASI TEKNIS & STANDAR UJI</th>
+              <th>PROVENANCE / ASAL BAHAN</th>
+              <th>STATUS KONTRAK</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="spec-code-tag">MAT-CON-01</span></td>
+              <td><strong>Beton Cor Ekspos Arsitektural</strong></td>
+              <td>Mutu K-350, slump 12±2 cm, bekisting plywood film-faced 18mm, pelapis sealant matte anti-debu</td>
+              <td>Ready-mix Plant Cimahi (Semen Portland Tipe I)</td>
+              <td><span style="color:#16a34a; font-weight:600;">Disetujui IAI</span></td>
+            </tr>
+            <tr>
+              <td><span class="spec-code-tag">MAT-TIM-02</span></td>
+              <td><strong>Kayu Ulin Bekas Bantalan Rel</strong></td>
+              <td>Kayu besi kelas kuat I / awet I, oven dried MC < 14%, finishing natural oil tanpa varnish kimia</td>
+              <td>Reklamasi Bantalan Rel Kalimantan Barat</td>
+              <td><span style="color:#16a34a; font-weight:600;">Lestari SVLK</span></td>
+            </tr>
+            <tr>
+              <td><span class="spec-code-tag">MAT-GLA-03</span></td>
+              <td><strong>Kaca Low-E Double Insulated</strong></td>
+              <td>Tebal 8mm Clear + 12mm Argon Cavity + 8mm Low-E Glass, Sound Transmission Class (STC) 42 dB</td>
+              <td>Asahi Glass Factory Cikampek</td>
+              <td><span style="color:#16a34a; font-weight:600;">Standar SNI</span></td>
+            </tr>
+            <tr>
+              <td><span class="spec-code-tag">MAT-STO-04</span></td>
+              <td><strong>Batu Andesit Bakar Alur Cacing</strong></td>
+              <td>Batu alam vulkanik tebal 30mm, finishing api bakar anti-selip, pemasangan nat semen hidrolik 3mm</td>
+              <td>Tambang Gunung Merapi, Sleman</td>
+              <td><span style="color:#16a34a; font-weight:600;">Katalog Resmi</span></td>
+            </tr>
+            <tr>
+              <td><span class="spec-code-tag">MAT-STL-05</span></td>
+              <td><strong>Baja WF & Hollow Struktural</strong></td>
+              <td>Profil baja canai panas ASTM A36 / SS400, sambungan baut High Strength Grade 8.8 & las FCAW</td>
+              <td>Krakatau Steel Cilegon</td>
+              <td><span style="color:#16a34a; font-weight:600;">Uji Tarik Lab</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal: Project Drawing Sheet Details -->
+  <div class="modal-backdrop" id="detailModal">
+    <div class="modal-dialog-large">
+      <div class="modal-header-blueprint">
+        <div class="modal-title-wrap">
+          <span style="background:var(--cyano-steel); color:#FFF; font-family:var(--font-mono); font-size:11px; padding:3px 8px; border-radius:2px;" id="modalSheetCode">DWG-A101</span>
+          <h3 style="font-family:var(--font-display); font-size:18px; margin:0;" id="modalProjectTitle">Villa Selasar Dago</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeDetailModal()">&times;</button>
+      </div>
+
+      <div class="modal-body-content">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
+          <div>
+            <img id="modalProjectImg" src="" alt="Project Photo" style="width:100%; height:260px; object-fit:cover; border-radius:4px; border:1px solid var(--cyano-border);">
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono); font-size:12px; color:var(--cyano-steel); margin-bottom:6px;" id="modalProjectLoc">Bandung · 780 mdpl</div>
+            <p id="modalProjectDesc" style="font-size:14px; line-height:1.6; color:var(--cyano-ink-soft); margin-bottom:16px;">
+              Deskripsi proyek teknis...
+            </p>
+            <div style="background:var(--cyano-surface-subtle); padding:14px; border-radius:4px; border:1px solid var(--cyano-border); font-family:var(--font-mono); font-size:12px;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                <span>Orientasi Tapak:</span>
+                <strong id="modalOrientasi">Utara 15° Barat</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                <span>Volume RTH Terbuka:</span>
+                <strong id="modalRTH">58% Resapan</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span>Total Halaman Gambar:</span>
+                <strong id="modalHalaman">48 Lembar CAD + 3D</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:12px; border-top:1px solid var(--cyano-border); padding-top:16px;">
+          <button class="btn-hero-secondary" onclick="closeDetailModal()">Tutup Lembar</button>
+          <button class="btn-hero-primary" id="modalAddBtn" onclick="">Tambahkan ke Buku Gambar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Book Spatial Consultation -->
+  <div class="modal-backdrop" id="consultationModal">
+    <div class="modal-dialog-large" style="max-width:560px;">
+      <div class="modal-header-blueprint">
+        <h3 style="font-family:var(--font-display); font-size:17px; margin:0;">Konsultasi Rancang Denah & Tapak</h3>
+        <button class="modal-close-btn" onclick="closeConsultationModal()">&times;</button>
+      </div>
+      <div class="modal-body-content">
+        <p style="font-size:13.5px; color:var(--cyano-ink-soft); margin-bottom:18px;">
+          Jadwalkan sesi ulas denah awal, evaluasi garis kontur lahan, dan perhitungan koefisien KDB bersama Principal Architect CYANO.
+        </p>
+
+        <form onsubmit="handleConsultationSubmit(event)" style="display:flex; flex-direction:column; gap:14px;">
+          <div>
+            <label style="display:block; font-family:var(--font-mono); font-size:11.5px; font-weight:600; margin-bottom:4px;">NAMA LENGKAP ATAU INSTANSI</label>
+            <input type="text" id="consultName" required placeholder="Contoh: Bpk. Hendra Gunawan" style="width:100%; padding:10px 12px; border:1px solid var(--cyano-border); border-radius:4px; font-family:var(--font-body); font-size:13.5px;">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+            <div>
+              <label style="display:block; font-family:var(--font-mono); font-size:11.5px; font-weight:600; margin-bottom:4px;">TIPE PROYEK</label>
+              <select id="consultType" style="width:100%; padding:10px 12px; border:1px solid var(--cyano-border); border-radius:4px; font-family:var(--font-body); font-size:13.5px;">
+                <option value="Residensi Privat">Residensi Privat Kontur</option>
+                <option value="Paviliun Kerja">Paviliun & Studio Kerja</option>
+                <option value="Villa Komersial">Villa Butik Komersial</option>
+                <option value="Fasilitas Publik">Ruang Komunal / Galeri</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block; font-family:var(--font-mono); font-size:11.5px; font-weight:600; margin-bottom:4px;">PERKIRAAN LUAS LAHAN</label>
+              <input type="text" id="consultArea" required placeholder="Misal: 450 m²" style="width:100%; padding:10px 12px; border:1px solid var(--cyano-border); border-radius:4px; font-family:var(--font-body); font-size:13.5px;">
+            </div>
+          </div>
+
+          <div>
+            <label style="display:block; font-family:var(--font-mono); font-size:11.5px; font-weight:600; margin-bottom:4px;">LOKASI TAPAK / KOTA</label>
+            <input type="text" id="consultLoc" required placeholder="Contoh: Dago Atas, Bandung atau Sleman, DIY" style="width:100%; padding:10px 12px; border:1px solid var(--cyano-border); border-radius:4px; font-family:var(--font-body); font-size:13.5px;">
+          </div>
+
+          <div>
+            <label style="display:block; font-family:var(--font-mono); font-size:11.5px; font-weight:600; margin-bottom:4px;">CATATAN KONTUR ATAU KEBUTUHAN KHUSUS</label>
+            <textarea id="consultNotes" rows="3" placeholder="Misal: Lahan miring menghadap lembah timur, butuh 4 kamar tidur dan kolam pantul..." style="width:100%; padding:10px 12px; border:1px solid var(--cyano-border); border-radius:4px; font-family:var(--font-body); font-size:13.5px; resize:vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="btn-blueprint-consult" style="padding:12px; justify-content:center; margin-top:8px;">
+            <span>Lanjutkan Diskusi ke WhatsApp Arsitek</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-Over Drawing Register Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer(false)"></div>
+  <aside class="drawer-container" id="drawerContainer">
+    <div class="drawer-header">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        <span style="font-family:var(--font-display); font-size:16px; font-weight:700;">Buku Arsip Lembar Gambar</span>
+      </div>
+      <button class="modal-close-btn" onclick="toggleDrawer(false)">&times;</button>
+    </div>
+
+    <div class="drawer-items-list" id="drawerItemsList">
+      <div style="text-align:center; padding:40px 20px; color:var(--cyano-muted);">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:12px; opacity:0.6;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+        <p style="font-size:13.5px;">Belum ada lembar gambar yang diarsipkan. Klik tombol <strong>+ Arsipkan</strong> pada etalase karya di atas.</p>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div style="display:flex; justify-content:space-between; margin-bottom:12px; font-family:var(--font-mono); font-size:12px;">
+        <span>Total Lembar Terpilih:</span>
+        <strong id="drawerSummaryCount">0 Lembar Dokumen</strong>
+      </div>
+      <button class="btn-submit-whatsapp-dossier" onclick="submitDrawerToWhatsApp()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Ajukan Diskusi DED via WhatsApp</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div class="toast-pill" id="toastPill">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+    <span id="toastMsg">Denah tersimpan ke arsip.</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+            <div style="background:var(--cyano-prussian); padding:6px 10px; border-radius:2px; font-family:var(--font-mono); font-weight:700; color:var(--cyano-ice); border:1px solid rgba(187,225,250,0.3);">CY-ARC</div>
+            <span style="font-family:var(--font-display); font-size:18px; font-weight:700; color:#FFFFFF;">CYANO ARCHITECTURE</span>
+          </div>
+          <p style="color:var(--cyano-ice); opacity:0.8; max-width:340px; line-height:1.6; margin-bottom:16px;">
+            Atelier arsitektur tropis kontemporer, spesialisasi rancang bangun lereng berkontur, pengujian iklim mikro, dan penyusunan gambar kerja presisi.
+          </p>
+          <div style="font-family:var(--font-mono); font-size:12px; color:var(--cyano-steel);">
+            STUDIO: JL. DAGO PAKAR UTARA NO. 42, BANDUNG
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">LAYANAN TEKNIS</div>
+          <ul class="footer-links-list">
+            <li><a href="#denah-cad">Detail Engineering Design (DED)</a></li>
+            <li><a href="#denah-cad">Simulasi Angin & Daylighting</a></li>
+            <li><a href="#spesifikasi">Penyusunan RKS & BOQ Proyek</a></li>
+            <li><a href="#denah-cad">Pengawasan Berkala Konstruksi</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">PROGRAM ATELIER</div>
+          <ul class="footer-links-list">
+            <li><a href="#koleksi-proyek">Residensi Kontur Tropis</a></li>
+            <li><a href="#koleksi-proyek">Paviliun & Studio Kayu</a></li>
+            <li><a href="#koleksi-proyek">Arsip Cetak Biru Cyanotype</a></li>
+            <li><a href="javascript:void(0)" onclick="openConsultationModal()">Konsultasi Kelayakan Lahan</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">KREDENSIAL ATELIER</div>
+          <p style="color:var(--cyano-ice); opacity:0.8; font-size:12.5px; line-height:1.6; margin-bottom:10px;">
+            Anggota Ikatan Arsitek Indonesia (IAI) & Sertifikat Keahlian (SKA) Madya Gedung Bertingkat.
+          </p>
+          <div style="font-family:var(--font-mono); font-size:11px; background:rgba(15,76,117,0.4); padding:6px 10px; border-radius:2px; border:1px solid rgba(187,225,250,0.2);">
+            REG-IAI: 14088-JBR-2026
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 CYANO ARCHITECTURE. Hak Cipta Dilindungi Standar Craft NECTOR.UI.</div>
+        <div>PALET WARNA RESMI: #1B262C · #0F4C75 · #3282B8 · #BBE1FA</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Native JavaScript: Zero Dependencies -->
+  <script>
+    // Project Database
+    const projectsData = {
+      dago: {
+        code: 'DWG-A101',
+        title: 'Villa Selasar Dago',
+        category: 'residence',
+        location: 'Bukit Dago Pakar, Bandung · 780 mdpl',
+        desc: 'Hunian bertingkat kontur lereng 30 derajat dengan dinding penahan batu padas hitam, selasar beratap kantilever 3.5 meter, dan void penghubung 3 lantai dengan aliran angin lembah.',
+        img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',
+        orientasi: 'Utara 15° Barat',
+        rth: '58% Resapan',
+        halaman: '48 Lembar CAD + 3D'
+      },
+      lembang: {
+        code: 'DWG-A102',
+        title: 'Paviliun Kaca Parahyangan',
+        category: 'pavilion',
+        location: 'Lembang Asri, Bandung Barat · 1.250 mdpl',
+        desc: 'Studio kerja arsitek dan ruang baca mengapung di atas kolam pantul air hujan, menggunakan struktur baja ramping IWF berlapis cat anti-karat zink kromit.',
+        img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80',
+        orientasi: 'Selatan Murni',
+        rth: '65% Resapan Hijau',
+        halaman: '36 Lembar CAD'
+      },
+      kotagede: {
+        code: 'DWG-A103',
+        title: 'Rumah Bernapas Kotagede',
+        category: 'residence',
+        location: 'Kotagede, DI Yogyakarta',
+        desc: 'Eksplorasi susunan bata merah terakota berpori (roster bata ekspos) dengan 3 inner-courtyard mikro untuk menyalurkan angin tropis lembab tanpa AC siang hari.',
+        img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80',
+        orientasi: 'Timur - Barat Terarsir',
+        rth: '45% Resapan',
+        halaman: '42 Lembar CAD'
+      },
+      seminyak: {
+        code: 'DWG-A104',
+        title: 'Atelier Keramik Seminyak',
+        category: 'pavilion',
+        location: 'Seminyak, Badung, Bali',
+        desc: 'Studio keramik terbuka dengan skylight utara-selatan terarah, lantai semen poles abu alami, dan dinding penahan panas dari batu bata kapur putih lokal.',
+        img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=80',
+        orientasi: 'Utara - Selatan',
+        rth: '52% Resapan',
+        halaman: '32 Lembar CAD'
+      },
+      ciumbuleuit: {
+        code: 'DWG-A105',
+        title: 'Menara Baca Ciumbuleuit',
+        category: 'public',
+        location: 'Ciumbuleuit, Bandung Utara',
+        desc: 'Perpustakaan arsitektur publik 4 lantai menggunakan struktur kayu glulam lokal bersertifikasi lestari, fasad kisi-kisi bambu petung awet tahan cuaca.',
+        img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80',
+        orientasi: 'Barat Laut',
+        rth: '62% Ruang Hijau',
+        halaman: '54 Lembar CAD'
+      },
+      merapi: {
+        code: 'DWG-A106',
+        title: 'Sanctuari Lereng Merapi',
+        category: 'residence',
+        location: 'Pakem, Sleman · 620 mdpl',
+        desc: 'Rumah singgah tahan gempa dengan pondasi sarang laba-laba bertulang, dinding batu candi vulkanik andesit tebal peredam suara angin dan suhu dingin lereng.',
+        img: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80',
+        orientasi: 'Lereng Selatan Menghadap Kota',
+        rth: '70% Hutan Kebun',
+        halaman: '40 Lembar CAD'
+      }
+    };
+
+    // Room Telemetry Database for CAD Inspector
+    const roomsData = {
+      living: {
+        tag: 'ZONASI A-101',
+        title: 'Ruang Keluarga & Selasar Terbuka',
+        dim: '6.50 × 8.00 meter',
+        area: '52.0 m²',
+        ceiling: '4.80 m (Double Volume)',
+        wind: '1.82 m/s (Ventilasi Silang)',
+        light: '3.8% (Tanpa Lampu Siang)',
+        desc: 'Lapisan arsitektural menampilkan zonasi ruang komunal dengan pembatas pintu geser kaca lipat frameless 3 arah, membuka penuh ke arah kolam pantul tengah.'
+      },
+      courtyard: {
+        tag: 'ZONASI A-102',
+        title: 'Inner Courtyard & Kolam Pantul',
+        dim: '4.00 × 7.00 meter',
+        area: '28.0 m²',
+        ceiling: 'Terbuka Langit (Open Air)',
+        wind: '2.10 m/s (Efek Cerobong)',
+        light: '100% (Sinar Zenith Siang)',
+        desc: 'Void tengah berfungsi sebagai paru-paru hunian, mendinginkan udara panas tropis sebelum memasuki kamar-kamar tidur di sekelilingnya.'
+      },
+      studio: {
+        tag: 'ZONASI A-103',
+        title: 'Studio Kerja & Perpustakaan',
+        dim: '4.50 × 7.10 meter',
+        area: '32.0 m²',
+        ceiling: '3.60 m (Kayu Ulin Akustik)',
+        wind: '0.95 m/s (Stabil Tenang)',
+        light: '4.2% (Diffused North Light)',
+        desc: 'Ruang kedap suara berkisi kayu jati daur ulang dengan jendela clerestory menghadap utara untuk menghasilkan pencahayaan rata tanpa silau.'
+      },
+      master: {
+        tag: 'ZONASI A-104',
+        title: 'Suite Utama & Taman Privat',
+        dim: '6.00 × 8.00 meter',
+        area: '48.0 m²',
+        ceiling: '3.40 m',
+        wind: '1.20 m/s',
+        light: '3.2% (Pagi Hari Terang)',
+        desc: 'Kamar tidur utama dengan orientasi timur menyerap sinar mentari pagi, terhubung langsung ke kamar mandi semi-terbuka berlantai batu kali.'
+      },
+      kitchen: {
+        tag: 'ZONASI A-105',
+        title: 'Dapur Basah & Dry Bar',
+        dim: '4.25 × 8.00 meter',
+        area: '34.0 m²',
+        ceiling: '3.20 m (Exhaust Alami)',
+        wind: '1.65 m/s',
+        light: '4.0%',
+        desc: 'Dapur fungsional dengan meja cor semen terrazzo monolitik terhubung ke kebun herbal organik bumbu dapur.'
+      },
+      deck: {
+        tag: 'ZONASI A-106',
+        title: 'Deck Kayu Ulin & Lap Pool',
+        dim: '6.80 × 8.50 meter',
+        area: '58.0 m²',
+        ceiling: 'Terbuka',
+        wind: '2.30 m/s',
+        light: '100% Terbuka',
+        desc: 'Plat kantilever kayu ulin reklamasi tanpa paku di atas tebing lereng dengan kolam renang infinity 15 meter.'
+      }
+    };
+
+    let activeZoneKey = 'living';
+    let drawingRegister = [];
+
+    // Switch CAD Layers (Architecture, Structure, MEP)
+    function switchLayer(layerType, btn) {
+      document.querySelectorAll('.btn-layer-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const structGroup = document.getElementById('layer-structure-group');
+      const mepGroup = document.getElementById('layer-mep-group');
+
+      if (layerType === 'arch') {
+        structGroup.style.display = 'none';
+        mepGroup.style.display = 'none';
+        showToast('Lapisan: Denah Arsitektural & Sirkulasi Aktif');
+      } else if (layerType === 'struct') {
+        structGroup.style.display = 'inline';
+        mepGroup.style.display = 'none';
+        showToast('Lapisan: Kolom Beton Bertulang & Balok Baja WF Aktif');
+      } else if (layerType === 'mep') {
+        structGroup.style.display = 'none';
+        mepGroup.style.display = 'inline';
+        showToast('Lapisan: Pemipaan Air Bersih & Jalur Elektrikal Aktif');
+      }
+    }
+
+    // Set Scale
+    function setScale(scaleVal, btn) {
+      document.querySelectorAll('.btn-scale-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      showToast(`Skala Tampilan Disesuaikan ke 1:${scaleVal} Metrik`);
+    }
+
+    // Select Room on Floor Plan
+    function selectRoom(key) {
+      activeZoneKey = key;
+      const data = roomsData[key];
+      if (!data) return;
+
+      document.getElementById('inspectZoneTag').textContent = data.tag;
+      document.getElementById('inspectZoneTitle').textContent = data.title;
+      document.getElementById('inspectZoneDim').textContent = data.dim;
+      document.getElementById('inspectZoneArea').textContent = data.area;
+      document.getElementById('inspectZoneCeiling').textContent = data.ceiling;
+      document.getElementById('inspectZoneWind').textContent = data.wind;
+      document.getElementById('inspectZoneLight').textContent = data.light;
+      document.getElementById('inspectLayerDesc').textContent = data.desc;
+    }
+
+    function addCurrentZoneToDrawer() {
+      const zone = roomsData[activeZoneKey];
+      showToast(`${zone.title} berhasil disimpan ke daftar arsip!`);
+      toggleDrawer(true);
+    }
+
+    // Filter Project Categories
+    function filterProjects(cat, btn) {
+      document.querySelectorAll('.cat-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Drawing Register (Slide-over drawer)
+    function addToDrawingRegister(slug) {
+      const p = projectsData[slug];
+      if (!p) return;
+
+      if (drawingRegister.some(item => item.code === p.code)) {
+        showToast(`Lembar ${p.code} sudah ada di dalam arsip Anda.`);
+        toggleDrawer(true);
+        return;
+      }
+
+      drawingRegister.push(p);
+      updateDrawingRegisterUI();
+      showToast(`${p.code} - ${p.title} ditambahkan ke arsip gambar.`);
+      toggleDrawer(true);
+    }
+
+    function removeFromRegister(code) {
+      drawingRegister = drawingRegister.filter(i => i.code !== code);
+      updateDrawingRegisterUI();
+      showToast(`Lembar ${code} dihapus dari arsip.`);
+    }
+
+    function updateDrawingRegisterUI() {
+      const count = drawingRegister.length;
+      document.getElementById('drawingCountBadge').textContent = count;
+      document.getElementById('drawerSummaryCount').textContent = `${count} Lembar Dokumen`;
+
+      const listContainer = document.getElementById('drawerItemsList');
+
+      if (count === 0) {
+        listContainer.innerHTML = `
+          <div style="text-align:center; padding:40px 20px; color:var(--cyano-muted);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:12px; opacity:0.6;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+            <p style="font-size:13.5px;">Belum ada lembar gambar yang diarsipkan. Klik tombol <strong>+ Arsipkan</strong> pada etalase karya di atas.</p>
+          </div>
+        `;
+        return;
+      }
+
+      listContainer.innerHTML = drawingRegister.map(item => `
+        <div class="drawer-item-card">
+          <img src="${item.img}" alt="${item.title}" class="dic-img">
+          <div class="dic-info">
+            <span class="dic-sheet">${item.code} · ${item.halaman}</span>
+            <h4 class="dic-name">${item.title}</h4>
+            <div class="dic-loc">${item.location}</div>
+          </div>
+          <button class="dic-remove-btn" onclick="removeFromRegister('${item.code}')">Hapus</button>
+        </div>
+      `).join('');
+    }
+
+    function toggleDrawer(open) {
+      const drawer = document.getElementById('drawerContainer');
+      const overlay = document.getElementById('drawerOverlay');
+      if (open) {
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+      } else {
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+      }
+    }
+
+    // Modal Details
+    function openDetailModal(slug) {
+      const p = projectsData[slug];
+      if (!p) return;
+
+      document.getElementById('modalSheetCode').textContent = p.code;
+      document.getElementById('modalProjectTitle').textContent = p.title;
+      document.getElementById('modalProjectLoc').textContent = p.location;
+      document.getElementById('modalProjectDesc').textContent = p.desc;
+      document.getElementById('modalProjectImg').src = p.img;
+      document.getElementById('modalOrientasi').textContent = p.orientasi;
+      document.getElementById('modalRTH').textContent = p.rth;
+      document.getElementById('modalHalaman').textContent = p.halaman;
+
+      const addBtn = document.getElementById('modalAddBtn');
+      addBtn.onclick = function() {
+        addToDrawingRegister(slug);
+        closeDetailModal();
+      };
+
+      document.getElementById('detailModal').classList.add('open');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.remove('open');
+    }
+
+    // Modal Consultation
+    function openConsultationModal() {
+      document.getElementById('consultationModal').classList.add('open');
+    }
+
+    function closeConsultationModal() {
+      document.getElementById('consultationModal').classList.remove('open');
+    }
+
+    function handleConsultationSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('consultName').value;
+      const type = document.getElementById('consultType').value;
+      const area = document.getElementById('consultArea').value;
+      const loc = document.getElementById('consultLoc').value;
+      const notes = document.getElementById('consultNotes').value;
+
+      const message = `Halo Principal Architect CYANO, saya ingin berkonsultasi perancangan denah & tapak:\n\nNama: ${name}\nTipe Proyek: ${type}\nLuas Lahan: ${area}\nLokasi: ${loc}\nCatatan Khusus: ${notes}\n\nMohon info ketersediaan jadwal evaluasi denah. Terima kasih.`;
+      const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
+      closeConsultationModal();
+      showToast('Mengalihkan ke WhatsApp Principal Architect...');
+    }
+
+    function submitDrawerToWhatsApp() {
+      if (drawingRegister.length === 0) {
+        showToast('Pilih minimal satu lembar gambar terlebih dahulu.');
+        return;
+      }
+
+      const listText = drawingRegister.map((item, i) => `${i + 1}. [${item.code}] ${item.title} (${item.location})`).join('\n');
+      const message = `Halo Principal Architect CYANO, saya telah mengarsipkan lembar gambar berikut untuk diskusi studi banding proyek:\n\n${listText}\n\nMohon bantuan review kelayakan lahan dan estimasi paket gambar kerja DED. Terima kasih.`;
+      const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // Toast Utility
+    function showToast(msg) {
+      const toast = document.getElementById('toastPill');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

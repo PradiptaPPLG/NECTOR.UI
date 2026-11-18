@@ -2282,6 +2282,89 @@ export function TanahLiatStudio() {
       { hex: '#A6B1E1', rgb: 'rgb(166, 177, 225)', name: 'Celestial Cornflower Slate', role: 'Subdial Sky Chart, Balance Wheel Wire & Border Accents' },
       { hex: '#424874', rgb: 'rgb(66, 72, 116)', name: 'Deep Twilight Iris Navy', role: 'Night Sky Complication Disc, Primary Buttons & Alligator Strap' }
     ]
+  },
+  {
+    id: 'tpl-32',
+    slug: 'cyano-blueprint-architecture',
+    title: 'CYANO ARCHITECTURE (Studio Cetak Biru & Gambar Kerja Arsitektur)',
+    tagline: 'Atelier cetak biru arsitektur tropis, inspektor multi-layer CAD interaktif, dan standar gambar kerja DED IAI',
+    description: 'Template website atelier arsitektur dan gambar kerja tropis CYANO ARCHITECTURE dengan palet warna Abyssal Blueprint Ink (#1B262C), Prussian Blue Ground (#0F4C75), Technical Steel Cyan (#3282B8), dan Glacial Chalk White (#BBE1FA). Dilengkapi inspektor lapisan CAD interaktif (Arsitektur & Zonasi, Struktur Kolom/Balok Baja, Elektrikal & Sanitasi), simulasi telemetri sirkulasi angin silang 1.8 m/s, katalog 6 lembar gambar kerja DED nyata, tabel jadwal spesifikasi material RKS standar IAI, laci arsip lembar gambar, dan konsultasi kelayakan lahan via WhatsApp.',
+    category: 'architecture',
+    tags: ['Architecture', 'Blueprint', 'Cyanotype', 'CAD Drafting', 'DED', 'Tropical Architecture', 'Technical Drawing', 'Structural Grid', 'Material Schedule'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'SVG CAD Blueprint Engine', 'Spatial Telemetry Inspector', 'Drawing Register Drawer', 'WhatsApp Architectural Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'architecture-cyano',
+    htmlPath: '/templates/architecture/cyano-architects.html',
+    htmlFolderPath: 'templates/architecture/cyano-architects.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Inspektor multi-lapisan CAD vektor SVG (Lapisan Arsitektur & Zonasi, Struktur Kolom Beton K-350 & Balok WF, serta Jaringan Pipa Sanitasi & Elektrikal)',
+      'Panel telemetri spasial mikro-klimat interaktif (Dimensi ruang, luas m², tinggi plafon, kecepatan angin silang m/s, dan faktor pencahayaan DF)',
+      'Pengubah skala metrik cepat (1:50 dan 1:100) dengan sumbu as grid terukur A-B-C dan 1-2-3',
+      'Katalog 6 lembar gambar kerja arsitektur tropis terkurasi dengan filter kategori dan modal inspeksi teknis mendalam',
+      'Tabel jadwal spesifikasi material kontraktual RKS (Beton ekspos film-faced, kayu ulin SVLK, kaca Low-E akustik, batu andesit Merapi, dan baja WF Krakatau Steel)',
+      'Laci geser buku lembar gambar (slide-over drawer) terintegrasi pengajuan konsultasi DED via WhatsApp berformat pesan terstruktur',
+      'Standar kriya antislop dengan palet cyanotype presisi (#1B262C, #0F4C75, #3282B8, #BBE1FA) dan tipografi Space Grotesk & IBM Plex Mono'
+    ],
+    usageInstructions: [
+      'Buka templates/architecture/cyano-architects.html di editor kode Anda.',
+      'Sesuaikan daftar proyek, nomor lembar gambar (DWG-A), dan spesifikasi material pada objek projectsData di dalam tag <script>.',
+      'Kustomisasi parameter dimensi ruangan dan data telemetri iklim mikro pada objek roomsData.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase studio arsitektur langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'cyano-architects.html',
+        language: 'html',
+        content: `<!-- CYANO ARCHITECTURE — Atelier Cetak Biru & Gambar Kerja Tropis -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>CYANO ARCHITECTURE — Atelier Cetak Biru</title>
+  <style>
+    :root {
+      --cyano-obsidian: #1B262C;
+      --cyano-prussian: #0F4C75;
+      --cyano-steel: #3282B8;
+      --cyano-ice: #BBE1FA;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">STATUS ATELIER: MEJA GAMBAR AKTIF • STANDAR GAMBAR: IAI-K350 • CAD V2026.4</div>
+  <header>
+    <div class="brand">CYANO ARCHITECTURE</div>
+    <nav>Denah Interaktif · Lapisan CAD · Koleksi Gambar · Spesifikasi Material</nav>
+  </header>
+  <!-- Full Interactive Architectural CAD Multi-Layer Inspector & Material Schedule -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website studio arsitektur dan cetak biru CYANO ARCHITECTURE dengan palet warna Abyssal Blueprint Ink (#1B262C), Prussian Blue Ground (#0F4C75), Technical Steel Cyan (#3282B8), dan Glacial Chalk White (#BBE1FA). Dilengkapi inspektor lapisan CAD interaktif (Arsitektur, Struktur, MEP), simulasi telemetri sirkulasi angin silang 1.8 m/s, katalog 6 lembar gambar kerja DED nyata, tabel jadwal spesifikasi material RKS standar IAI, laci arsip lembar gambar, dan konsultasi kelayakan lahan via WhatsApp.',
+      designDirection: 'Architectural cyanotype drafting atelier berstandar antislop: Abyssal Blueprint Ink (#1B262C), Prussian Blue Ground (#0F4C75), Technical Steel Cyan (#3282B8), Glacial Chalk White (#BBE1FA), dan Fine Technical Grid Hairlines rgba(50, 130, 184, 0.18). Tipografi Space Grotesk, Plus Jakarta Sans, dan IBM Plex Mono.',
+      layoutAndGrid: 'Top telemetry bar koordinat GPS Bandung, sticky header dengan brand title block dan navigasi non-wrapping kokoh, hero blueprint bench 2 kolom dengan elevasi potongan Villa Dago, panggung inspektor denah CAD vektor interaktif 3 lapisan, grid 6 lembar karya arsitektur 3 kolom, tabel jadwal spesifikasi bahan RKS, dan drawer buku arsip lembar gambar.',
+      typographyAndColor: 'Space Grotesk untuk tajuk utama berkarakter geometris arsitektural, Plus Jakarta Sans untuk teks bodi penjelasan filosofi spasial dan kontrol tombol interaktif, IBM Plex Mono untuk nomor gambar DWG, koordinat datum, skala metrik, koefisien KDB, dan dimensi teknis.',
+      interactions: 'Inspektor lapisan CAD interaktif (Arsitektur, Struktur WF/Beton, MEP) dengan hover telemetri ruangan dinamis, sakelar skala metrik 1:50 dan 1:100, filter kategori lembar proyek instan, modal inspeksi detail tapak, formulir konsultasi kelayakan lahan, serta drawer arsip dokumen gambar kerja terintegrasi WhatsApp Principal Architect.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#0F4C75',
+    colorPalette: [
+      { hex: '#1B262C', rgb: 'rgb(27, 38, 44)', name: 'Abyssal Blueprint Ink', role: 'Latar Viewport CAD, Border Cetak Biru & Teks Bodi Kontras Tinggi' },
+      { hex: '#0F4C75', rgb: 'rgb(15, 76, 117)', name: 'Prussian Blue Ground', role: 'Warna Kanvas Cetak Biru Utama, Tombol Aksi Primer & Header Titel Blok' },
+      { hex: '#3282B8', rgb: 'rgb(50, 130, 184)', name: 'Technical Steel Cyan', role: 'Garis Sumbu Grid Struktural, Garis Dimensi CAD & Indikator Interaktif' },
+      { hex: '#BBE1FA', rgb: 'rgb(187, 225, 250)', name: 'Glacial Chalk White', role: 'Anotasi Denah Gambar Teknik, Badge Status Lembar & Latar Kartu Lembut' }
+    ]
   }
 ];
 

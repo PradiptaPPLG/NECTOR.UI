@@ -30,6 +30,7 @@ export type Category =
   | 'leather'
   | 'dermatology'
   | 'horology'
+  | 'architecture'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

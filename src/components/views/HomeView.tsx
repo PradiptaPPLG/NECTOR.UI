@@ -28,6 +28,7 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
+    templates.find(t => t.slug === 'cyano-blueprint-architecture') || templates[0],
     templates.find(t => t.slug === 'celeste-astronomical-horology') || templates[0],
     templates.find(t => t.slug === 'aura-derma-clinic') || templates[0],
     templates.find(t => t.slug === 'tatah-artisanal-leather') || templates[1],
@@ -39,6 +40,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'architecture', label: 'Arsitektur & Cetak Biru Cyanotype', count: templates.filter(t => t.category === 'architecture').length, desc: 'Atelier gambar kerja & cetak biru arsitektur tropis: inspektor multi-layer CAD interaktif, sirkulasi angin 1.8 m/s & tabel material RKS' },
     { id: 'horology', label: 'Horologi & Jam Tangan Astronomi', count: templates.filter(t => t.category === 'horology').length, desc: 'Atelier jam mekanis Haute Horlogerie: simulator fase bulan sinodik 29.53 hari, tuner roda keseimbangan 2.5Hz - 5.0Hz & salon privat' },
     { id: 'dermatology', label: 'Dermatologi & Skin Barrier', count: templates.filter(t => t.category === 'dermatology').length, desc: 'Klinik dermatologi estetika, fototerapi LED 3-gelombang, tes skin barrier 60 detik & dokter Sp.D.V.E' },
     { id: 'leather', label: 'Kulit Nabati & Saddlery', count: templates.filter(t => t.category === 'leather').length, desc: 'Atelier kriya kulit penyamakan nabati, panggung meja kerja 3 kolom, simulator patina 1.000 hari & cap monogram' },
