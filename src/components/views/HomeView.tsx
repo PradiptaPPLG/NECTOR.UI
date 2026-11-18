@@ -28,16 +28,17 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
-    templates.find(t => t.slug === 'verra-japanese-eyewear') || templates[0],
-    templates.find(t => t.slug === 'svala-nordic-bathhouse') || templates[1],
-    templates.find(t => t.slug === 'sola-artisan-gelato') || templates[2],
-    templates.find(t => t.slug === 'kayan-solid-furniture') || templates[3],
-    templates.find(t => t.slug === 'wana-wild-honey') || templates[4],
+    templates.find(t => t.slug === 'chidori-kyoto-wagashi') || templates[0],
+    templates.find(t => t.slug === 'verra-japanese-eyewear') || templates[1],
+    templates.find(t => t.slug === 'svala-nordic-bathhouse') || templates[2],
+    templates.find(t => t.slug === 'sola-artisan-gelato') || templates[3],
+    templates.find(t => t.slug === 'kayan-solid-furniture') || templates[4],
   ];
 
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'wagashi', label: 'Wagashi & Nerikiri', count: templates.filter(t => t.category === 'wagashi').length, desc: 'Atelier kriya manisan tradisional Kyoto, kalender 24-sekki, perakit kotak 6-slot & Chanoyu' },
     { id: 'eyewear', label: 'Optik & Kacamata', count: templates.filter(t => t.category === 'eyewear').length, desc: 'Atelier kacamata Beta-Titanium kriya Sabae, simulator lensa Blue-Shield & kotak Home Try-On' },
     { id: 'wellness', label: 'Hidroterapi & Bathhouse', count: templates.filter(t => t.category === 'wellness').length, desc: 'Santuari pemandian termal Nordik, telemetri suhu 4 kolam live, ritual kontras 90-menit & lab air murni' },
     { id: 'gelato', label: 'Gelato & Sorbet', count: templates.filter(t => t.category === 'gelato').length, desc: 'Gelato artigianale Italia lambat, boks 3-pint pendingin dry ice & sains overrun' },

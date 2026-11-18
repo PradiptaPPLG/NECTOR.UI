@@ -26,8 +26,10 @@ import { KAYAN_FURNITURE_MASTER_PROMPT } from './furniturePrompt';
 import { SOLA_GELATO_MASTER_PROMPT } from './gelatoPrompt';
 import { SVALA_BATHHOUSE_MASTER_PROMPT } from './wellnessPrompt';
 import { VERRA_OPTICS_MASTER_PROMPT } from './eyewearPrompt';
+import { CHIDORI_WAGASHI_MASTER_PROMPT } from './wagashiPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'chidori-kyoto-wagashi': CHIDORI_WAGASHI_MASTER_PROMPT,
   'verra-japanese-eyewear': VERRA_OPTICS_MASTER_PROMPT,
   'svala-nordic-bathhouse': SVALA_BATHHOUSE_MASTER_PROMPT,
   'sola-artisan-gelato': SOLA_GELATO_MASTER_PROMPT,
@@ -83,4 +85,5 @@ export {
   ARUNG_FOOTWEAR_MASTER_PROMPT,
   SVALA_BATHHOUSE_MASTER_PROMPT,
   VERRA_OPTICS_MASTER_PROMPT,
+  CHIDORI_WAGASHI_MASTER_PROMPT,
 };

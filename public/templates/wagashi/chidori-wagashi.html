@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHIDORI WAGASHI (千鳥菓舗) — Kyoto Seasonal Nerikiri & Artisanal Daifuku Atelier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       CHIDORI WAGASHI — DESIGN SYSTEM (WARM CREAM, BLOSSOM BLUSH & CORAL ROUGE)
+       Exact colors from user reference:
+       #FFF5E4 · #FFE3E1 · #FFD1D1 · #FF9494
+       ========================================================================== */
+    :root {
+      --chidori-cream: #FFF5E4;      /* Shiro-an warm almond dough / canvas tint */
+      --chidori-blush: #FFE3E1;      /* Whisper sakura petal / soft box background */
+      --chidori-rose: #FFD1D1;       /* Rosewater lychee tint / pill base */
+      --chidori-coral: #FF9494;      /* Ichigo strawberry rouge / primary brand accent */
+      --chidori-coral-dark: #E26D6D; /* Hover & active coral */
+
+      --ink-adzuki: #2A1813;         /* Deep adzuki chestnut ink (WCAG AAA) */
+      --ink-secondary: #5C3D34;      /* Supporting editorial text */
+      --ink-muted: #8F6E65;          /* Monospace specs & metadata */
+
+      --bg-canvas: #FFFBF5;          /* Warm porcelain ground canvas */
+      --bg-surface: #FFFFFF;         /* Crisp white cards */
+      --bg-surface-tint: rgba(255, 245, 228, 0.6);
+
+      --border-light: rgba(255, 148, 148, 0.22);
+      --border-medium: rgba(255, 148, 148, 0.45);
+      --border-solid: #FFD1D1;
+
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --radius-pill: 999px;
+
+      --shadow-sm: 0 2px 8px rgba(42, 24, 19, 0.05);
+      --shadow-md: 0 8px 24px rgba(42, 24, 19, 0.08);
+      --shadow-lg: 0 16px 40px rgba(255, 148, 148, 0.18);
+
+      --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--ink-adzuki);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    /* -------------------------------------------------------------
+       1. TOP METROLOGY & SOLAR CALENDAR TICKER
+       ------------------------------------------------------------- */
+    .top-status-bar {
+      background-color: var(--ink-adzuki);
+      color: var(--chidori-cream);
+      padding: 8px 24px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      border-bottom: 1px solid rgba(255, 209, 209, 0.15);
+    }
+
+    .status-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .status-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--chidori-coral);
+      box-shadow: 0 0 8px var(--chidori-coral);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .status-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 10.5px;
+      color: var(--chidori-blush);
+      white-space: nowrap;
+    }
+
+    /* -------------------------------------------------------------
+       2. PRIMARY NAVBAR (100% SINGLE-LINE & ANTI-SLOP PROTECTED)
+       ------------------------------------------------------------- */
+    header.site-header {
+      background: rgba(255, 251, 245, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: var(--transition-smooth);
+    }
+
+    .navbar-inner {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .brand-logo-badge {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--chidori-coral), var(--chidori-coral-dark));
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(255, 148, 148, 0.35);
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink-adzuki);
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: var(--ink-muted);
+      margin-top: 3px;
+      text-transform: uppercase;
+    }
+
+    /* Strictly single-line nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      letter-spacing: 0.02em;
+      position: relative;
+      padding: 6px 0;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--ink-adzuki);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--chidori-coral);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-box-shortcut {
+      background: var(--chidori-cream);
+      border: 1px solid var(--border-medium);
+      color: var(--ink-adzuki);
+      padding: 8px 15px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-box-shortcut:hover {
+      background: var(--chidori-coral);
+      color: #FFFFFF;
+      border-color: var(--chidori-coral);
+      box-shadow: 0 4px 12px rgba(255, 148, 148, 0.3);
+    }
+
+    .cart-btn-trigger {
+      background: var(--ink-adzuki);
+      color: var(--chidori-cream);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cart-btn-trigger:hover {
+      background: var(--chidori-coral-dark);
+      color: #FFFFFF;
+    }
+
+    .cart-badge-count {
+      background: var(--chidori-coral);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 999px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 6px;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink-adzuki);
+    }
+
+    /* -------------------------------------------------------------
+       3. HERO EDITORIAL SHOWCASE
+       ------------------------------------------------------------- */
+    .hero-wagashi {
+      position: relative;
+      padding: 70px 0 60px 0;
+      background: linear-gradient(180deg, var(--chidori-cream) 0%, rgba(255, 227, 225, 0.35) 60%, var(--bg-canvas) 100%);
+      border-bottom: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: -30px;
+      right: -20px;
+      font-family: var(--font-display);
+      font-size: 180px;
+      font-weight: 700;
+      color: rgba(255, 148, 148, 0.06);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11.5px;
+      color: var(--ink-secondary);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-badge {
+      background: #FFFFFF;
+      border: 1px solid var(--chidori-coral);
+      color: var(--ink-adzuki);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: 42px;
+      line-height: 1.18;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--chidori-coral);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: var(--chidori-rose);
+      text-underline-offset: 4px;
+    }
+
+    .hero-lead {
+      font-size: 16px;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      background: var(--ink-adzuki);
+      color: var(--chidori-cream);
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 13.5px;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      border: 1px solid var(--ink-adzuki);
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--chidori-coral);
+      border-color: var(--chidori-coral);
+      color: #FFFFFF;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-hero-secondary {
+      background: #FFFFFF;
+      color: var(--ink-adzuki);
+      border: 1px solid var(--border-medium);
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 13.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-hero-secondary:hover {
+      border-color: var(--chidori-coral);
+      background: var(--chidori-blush);
+    }
+
+    .hero-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+      line-height: 1.2;
+    }
+
+    .metric-sub {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    /* Hero Right Showcase Visual Card */
+    .hero-showcase-card {
+      position: relative;
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      height: 380px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--ink-adzuki);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-img-wrap:hover img {
+      transform: scale(1.03);
+    }
+
+    .hero-floating-spec-card {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(42, 24, 19, 0.90);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 209, 209, 0.35);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      color: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hsc-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--chidori-blush);
+    }
+
+    .hsc-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .hsc-brix {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--chidori-cream);
+    }
+
+    /* -------------------------------------------------------------
+       4. INTERACTIVE 6-PIECE WAGASHI BENTO BOX BUILDER
+       ------------------------------------------------------------- */
+    .section-box-builder {
+      padding: 80px 0;
+      background: linear-gradient(180deg, var(--bg-canvas) 0%, rgba(255, 245, 228, 0.4) 50%, var(--bg-canvas) 100%);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .section-header-centered {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px auto;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--chidori-coral-dark);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 14.5px;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+    }
+
+    .box-builder-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .box-grid-slots {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .box-slot-card {
+      border: 2px dashed var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 16px 12px;
+      text-align: center;
+      background: var(--bg-canvas);
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+
+    .box-slot-card.filled {
+      border-style: solid;
+      border-color: var(--chidori-coral);
+      background: var(--chidori-cream);
+    }
+
+    .slot-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--chidori-coral);
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      padding: 2px 6px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 8px;
+    }
+
+    .slot-item-name {
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .slot-item-sub {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--ink-muted);
+    }
+
+    .btn-remove-wagashi {
+      margin-top: 8px;
+      font-size: 10.5px;
+      color: #dc2626;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Box Summary Bar */
+    .box-summary-bar {
+      background: var(--ink-adzuki);
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      padding: 22px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .bsb-info {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .bsb-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bsb-label {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--chidori-blush);
+    }
+
+    .bsb-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--chidori-cream);
+      margin-top: 2px;
+    }
+
+    /* -------------------------------------------------------------
+       5. 24 SOLAR TERMS (NIJUUSHI SEKKI) SEASONAL CALENDAR
+       ------------------------------------------------------------- */
+    .section-sekki {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .sekki-tabs-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .sekki-tab-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .sekki-tab-btn:hover {
+      border-color: var(--chidori-coral);
+      color: var(--ink-adzuki);
+    }
+
+    .sekki-tab-btn.active {
+      background: var(--ink-adzuki);
+      border-color: var(--ink-adzuki);
+      color: var(--chidori-cream);
+      box-shadow: var(--shadow-md);
+    }
+
+    .sekki-display-panel {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      box-shadow: var(--shadow-md);
+    }
+
+    .sdp-visual {
+      position: relative;
+      height: 440px;
+      background: var(--chidori-cream);
+    }
+
+    .sdp-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sdp-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(42, 24, 19, 0.88);
+      border: 1px solid rgba(255, 209, 209, 0.4);
+      color: var(--chidori-cream);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sdp-details {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sdp-top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .sdp-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+    }
+
+    .sdp-kanji {
+      font-size: 15px;
+      color: var(--chidori-coral-dark);
+      font-weight: 600;
+    }
+
+    .sdp-price {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+      text-align: right;
+    }
+
+    .sdp-narrative {
+      font-size: 14px;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .sdp-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      padding: 16px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      margin-bottom: 24px;
+    }
+
+    .sdp-spec-label {
+      font-size: 10.5px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+
+    .sdp-spec-val {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+    }
+
+    .sdp-action-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* -------------------------------------------------------------
+       6. THE 5 SENSORY DIMENSIONS OF NERIKIRI
+       ------------------------------------------------------------- */
+    .section-sensory {
+      padding: 80px 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .sensory-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .sensory-card {
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 24px 18px;
+      text-align: center;
+      transition: var(--transition-smooth);
+    }
+
+    .sensory-card:hover {
+      border-color: var(--chidori-coral);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sensory-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .sensory-kanji {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--chidori-coral);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .sensory-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+      margin-bottom: 6px;
+    }
+
+    .sensory-desc {
+      font-size: 12px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    /* -------------------------------------------------------------
+       7. CATALOG OF 6 INDIVIDUAL WAGASHI
+       ------------------------------------------------------------- */
+    .section-catalog {
+      padding: 80px 0;
+      background: var(--bg-canvas);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .catalog-filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .catalog-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cat-pill {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .cat-pill:hover, .cat-pill.active {
+      background: var(--ink-adzuki);
+      color: #FFFFFF;
+      border-color: var(--ink-adzuki);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .wagashi-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+    }
+
+    .wagashi-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--chidori-coral);
+    }
+
+    .wagashi-img-box {
+      height: 230px;
+      position: relative;
+      background: var(--chidori-cream);
+      overflow: hidden;
+    }
+
+    .wagashi-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .wagashi-card:hover .wagashi-img-box img {
+      transform: scale(1.05);
+    }
+
+    .wagashi-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--ink-adzuki);
+      color: var(--chidori-cream);
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.05em;
+    }
+
+    .wagashi-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .wagashi-season-line {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .wagashi-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .wagashi-desc {
+      font-size: 12.5px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .wagashi-specs-strip {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+      background: var(--bg-canvas);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .wagashi-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .wagashi-price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+    }
+
+    .btn-wagashi-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-add-box-sm {
+      background: var(--chidori-blush);
+      border: 1px solid var(--border-medium);
+      color: var(--ink-adzuki);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-add-box-sm:hover {
+      background: var(--chidori-coral);
+      color: #FFFFFF;
+    }
+
+    .btn-add-cart-sm {
+      background: var(--ink-adzuki);
+      color: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-add-cart-sm:hover {
+      background: var(--chidori-coral-dark);
+    }
+
+    /* -------------------------------------------------------------
+       8. MODAL: TASTING & WORKSHOP RESERVATION
+       ------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(42, 24, 19, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      max-width: 580px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 32px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      color: var(--ink-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+      margin-bottom: 6px;
+    }
+
+    .modal-sub {
+      font-size: 13px;
+      color: var(--ink-secondary);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--ink-adzuki);
+      background: var(--bg-canvas);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--chidori-coral);
+      background: #FFFFFF;
+    }
+
+    .btn-submit-booking {
+      width: 100%;
+      background: var(--ink-adzuki);
+      color: var(--chidori-cream);
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-submit-booking:hover {
+      background: var(--chidori-coral);
+      color: #FFFFFF;
+    }
+
+    /* -------------------------------------------------------------
+       9. CART DRAWER COMPONENT
+       ------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(42, 24, 19, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1200;
+      display: none;
+    }
+
+    .cart-drawer-overlay.active {
+      display: block;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 380px;
+      height: 100%;
+      background: #FFFFFF;
+      box-shadow: -8px 0 32px rgba(42, 24, 19, 0.2);
+      z-index: 1300;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer.active {
+      right: 0;
+    }
+
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-canvas);
+    }
+
+    .cdh-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+    }
+
+    .cart-drawer-items {
+      padding: 20px 24px;
+      flex-grow: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .cart-item-info {
+      flex-grow: 1;
+    }
+
+    .cart-item-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink-adzuki);
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--chidori-coral-dark);
+      margin-top: 2px;
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .btn-qty {
+      width: 22px;
+      height: 22px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .cart-drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-light);
+      background: var(--bg-canvas);
+    }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .cart-total-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink-adzuki);
+    }
+
+    .btn-checkout {
+      width: 100%;
+      background: var(--ink-adzuki);
+      color: var(--chidori-cream);
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-align: center;
+      display: block;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-checkout:hover {
+      background: var(--chidori-coral);
+      color: #FFFFFF;
+    }
+
+    /* -------------------------------------------------------------
+       10. FOOTER SECTION
+       ------------------------------------------------------------- */
+    footer.site-footer {
+      background: var(--ink-adzuki);
+      color: var(--chidori-blush);
+      padding: 60px 0 30px 0;
+      border-top: 1px solid rgba(255, 209, 209, 0.2);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--chidori-cream);
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand-sub {
+      font-size: 13px;
+      color: var(--chidori-blush);
+      line-height: 1.6;
+      max-width: 320px;
+      margin-bottom: 16px;
+    }
+
+    .footer-heading {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--chidori-cream);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: var(--chidori-cream);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 209, 209, 0.15);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* -------------------------------------------------------------
+       11. TOAST NOTIFICATION
+       ------------------------------------------------------------- */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--ink-adzuki);
+      color: var(--chidori-cream);
+      border: 1px solid var(--chidori-coral);
+      border-radius: var(--radius-sm);
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 2000;
+      display: none;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .toast-box.active {
+      display: block;
+      animation: fadeInSlide 0.3s ease;
+    }
+
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid, .sekki-display-panel {
+        grid-template-columns: 1fr;
+      }
+      .box-grid-slots {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .sensory-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .btn-box-shortcut {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .box-grid-slots {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .sensory-grid {
+        grid-template-columns: 1fr;
+      }
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .status-right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. TOP METROLOGY & SOLAR CALENDAR TICKER -->
+  <aside class="top-status-bar">
+    <div class="status-inner">
+      <div class="status-left">
+        <span class="pulse-dot"></span>
+        <span>24 SEKKI: MUSIM SHUNBUN (春分 · EKUINOKS MUSIM SEMI)</span>
+        <span>·</span>
+        <span>KACANG ADZUKI HOKKAIDO ASLI</span>
+        <span>·</span>
+        <span>GULA TEBU WASANBON KAGAWA</span>
+      </div>
+      <div class="status-right">
+        <span>KOTAK HANTARAN TALI MIZUHIKI & KERTAS WASHI</span>
+        <span>·</span>
+        <span>STUDIO WAGASHI BANDUNG & KYOTO</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. SITE HEADER & NAVIGATION (SINGLE LINE NON-WRAPPING) -->
+  <header class="site-header">
+    <div class="container navbar-inner">
+      <a href="#" class="brand-mark" aria-label="Chidori Wagashi Beranda">
+        <div class="brand-logo-badge">千</div>
+        <div class="brand-titles">
+          <span class="brand-name">CHIDORI WAGASHI</span>
+          <span class="brand-sub">KYOTO SEASONAL NERIKIRI · EST. 2026</span>
+        </div>
+      </a>
+
+      <nav aria-label="Navigasi Utama">
+        <ul class="nav-links">
+          <li><a href="#sekki" class="nav-link active">Koleksi 24-Sekki</a></li>
+          <li><a href="#bento-builder" class="nav-link">Kotak 6-Wagashi</a></li>
+          <li><a href="#sensory" class="nav-link">5 Dimensi Indera</a></li>
+          <li><a href="#catalog" class="nav-link">Katalog Musim</a></li>
+          <li><a href="#ceremony" class="nav-link">Sanding Teh Matcha</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-box-shortcut" onclick="scrollToSection('bento-builder')">
+          <span>🍱 Racik Kotak 6-Slot</span>
+        </button>
+
+        <button class="cart-btn-trigger" onclick="toggleCartDrawer()">
+          <span>Keranjang</span>
+          <span class="cart-badge-count" id="cartCountBadge">0</span>
+        </button>
+
+        <button class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Buka Menu Navigasi">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO EDITORIAL SHOWCASE -->
+  <main>
+    <section class="hero-wagashi">
+      <div class="hero-watermark">WAGASHI</div>
+      <div class="container hero-grid">
+        <div class="hero-content-col">
+          <div class="hero-eyebrow-row mono">
+            <span class="eyebrow-badge">SHUNBUN 2026 · SPRING EQUINOX</span>
+            <span>HAND-SCULPTED GYUHI & SHIRO-AN</span>
+          </div>
+          <h1 class="hero-headline">
+            Puisi musim gugur dan semi yang dipahat manis dalam <em>nerikiri adzuki sutra</em>.
+          </h1>
+          <p class="hero-lead">
+            CHIDORI (千鳥) merayakan peralihan 24 musim mikro kalender tradisional Jepang. Menggunakan pasta kacang putih Shiro-an murni, gula tebu halus Wasanbon Kagawa, dan tepung ketan beras gyuhi tanpa pewarna kimiawi sintetis. Dibuat segar subuh hari untuk disandingkan dengan pekatnya teh hijau Uji.
+          </p>
+          <div class="hero-ctas">
+            <button class="btn-hero-primary" onclick="openBookingModal()">
+              <span>Reservasi Sesi Tasting & Teh</span>
+              <span>→</span>
+            </button>
+            <a href="#bento-builder" class="btn-hero-secondary">
+              <span>Racik Kotak Hantaran Kayu</span>
+            </a>
+          </div>
+
+          <div class="hero-metrics-strip">
+            <div class="metric-item">
+              <span class="metric-val">Brix 38°</span>
+              <span class="metric-sub">Kadar Manis Halus Tanpa Eneg</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">24 Sekki</span>
+              <span class="metric-sub">Desain Berganti Tiap 15 Hari</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-val">100% Nabati</span>
+              <span class="metric-sub">Dairy-Free · Adzuki & Umbi Kuzu</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-showcase-card">
+          <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=900&q=80" alt="CHIDORI Handcrafted Nerikiri and Fresh Strawberry Daifuku">
+            <div class="hero-floating-spec-card">
+              <div>
+                <div class="hsc-title mono">SIGNATURE MUSIM INI</div>
+                <div class="hsc-name">Sakura Kasumi & Ichigo Daifuku</div>
+              </div>
+              <div class="hsc-brix">Brix 36°</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 24 SOLAR TERMS (NIJUUSHI SEKKI) SEASONAL CALENDAR -->
+    <section class="section-sekki" id="sekki">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow mono">KALENDER 24 MIKRO-MUSIM JEPANG</span>
+          <h2 class="section-title">Harmoni Rasa yang Mengalir Mengikuti Alam</h2>
+          <p class="section-desc">
+            Dalam tradisi chado (upacara teh), wagashi adalah lambang peralihan waktu. Setiap karya seni manis ini hanya hadir selama 15 hari kalender mikro sebelum digantikan oleh siluet alam berikutnya.
+          </p>
+        </div>
+
+        <!-- Sekki Tabs -->
+        <div class="sekki-tabs-row" id="sekkiTabs">
+          <button class="sekki-tab-btn active" onclick="switchSekkiTab(0)">
+            <span>Shunbun (春分 · Bunga Sakura Mekar)</span>
+          </button>
+          <button class="sekki-tab-btn" onclick="switchSekkiTab(1)">
+            <span>Seimei (清明 · Jernih dan Cerah)</span>
+          </button>
+          <button class="sekki-tab-btn" onclick="switchSekkiTab(2)">
+            <span>Kokuu (穀雨 · Hujan Pembawa Benih)</span>
+          </button>
+          <button class="sekki-tab-btn" onclick="switchSekkiTab(3)">
+            <span>Rikka (立夏 · Awal Hawa Hangat)</span>
+          </button>
+        </div>
+
+        <!-- Sekki Display Panel -->
+        <div class="sekki-display-panel" id="sekkiPanel">
+          <div class="sdp-visual">
+            <img id="sdpImage" src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1200&q=80" alt="Sakura Kasumi Nerikiri">
+            <div class="sdp-badge" id="sdpBadge">
+              <span class="pulse-dot"></span>
+              <span>MUSIM AKTIF: SHUNBUN</span>
+            </div>
+          </div>
+
+          <div class="sdp-details">
+            <div>
+              <div class="sdp-top-meta">
+                <div>
+                  <span class="mono" style="font-size:11px; color:var(--chidori-coral-dark); font-weight:700;">NERIKIRI SEKKI NO. 04</span>
+                  <h3 class="sdp-title" id="sdpTitle">Sakura Kasumi (桜霞)</h3>
+                  <div class="sdp-kanji" id="sdpKanji">KABUT KELOPAK SAKURA MERAH MUDA</div>
+                </div>
+                <div>
+                  <div class="sdp-price" id="sdpPrice">Rp 48.000</div>
+                  <span class="mono" style="font-size:11px; color:var(--ink-muted); display:block; text-align:right;">PER SATUAN PIECE</span>
+                </div>
+              </div>
+
+              <p class="sdp-narrative" id="sdpNarrative">
+                Siluet nerikiri yang memvisualisasikan hamparan kelopak bunga sakura yang tertutup kabut pagi pegunungan Yoshino. Dibuat dengan mencampurkan adonan Shiro-an kacang putih dan pewarna alami buah bit merah, dengan inti pasta kacang merah manis Hokkaido.
+              </p>
+
+              <div class="sdp-specs-grid">
+                <div>
+                  <div class="sdp-spec-label mono">TINGKAT MANIS</div>
+                  <div class="sdp-spec-val" id="sdpBrix">Brix 36° (Lembut Halus)</div>
+                </div>
+                <div>
+                  <div class="sdp-spec-label mono">BAHAN DASAR</div>
+                  <div class="sdp-spec-val" id="sdpBase">Shiro-an & Gyuhi Ketan</div>
+                </div>
+                <div>
+                  <div class="sdp-spec-label mono">KETAHANAN SEGAR</div>
+                  <div class="sdp-spec-val" id="sdpExpiry">3 Hari (Suhu Ruang 20°C)</div>
+                </div>
+                <div>
+                  <div class="sdp-spec-label mono">PASANGAN TEH</div>
+                  <div class="sdp-spec-val" id="sdpTea">Uji Koicha / Usucha Matcha</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sdp-action-row">
+              <button class="btn-hero-primary" onclick="addCurrentSekkiToCart()">
+                <span>+ Masukkan Keranjang</span>
+              </button>
+              <button class="btn-hero-secondary" onclick="addCurrentSekkiToBox()">
+                <span>+ Kotak 6-Slot</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. INTERACTIVE 6-PIECE WAGASHI BENTO BOX BUILDER -->
+    <section class="section-box-builder" id="bento-builder">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow mono">KOTAK HANTARAN KAYU CEMARA</span>
+          <h2 class="section-title">Racik Kotak Hantaran 6-Slot Wagashi Pilihan Anda</h2>
+          <p class="section-desc">
+            Pilih 6 kreasi wagashi dari etalase untuk dirangkai ke dalam kotak kayu cemara alami beralas kertas washi emas dan diikat tali simpul keberuntungan Mizuhiki.
+          </p>
+        </div>
+
+        <div class="box-builder-wrapper">
+          <div class="box-grid-slots" id="boxSlotsContainer">
+            <!-- Slot 1 -->
+            <div class="box-slot-card" id="bSlot0">
+              <span class="slot-num">SLOT 01</span>
+              <div class="slot-item-name" id="bSlotTitle0">Pilih Wagashi</div>
+              <div class="slot-item-sub" id="bSlotSub0">Klik "+ Kotak 6-Slot"</div>
+            </div>
+
+            <!-- Slot 2 -->
+            <div class="box-slot-card" id="bSlot1">
+              <span class="slot-num">SLOT 02</span>
+              <div class="slot-item-name" id="bSlotTitle1">Pilih Wagashi</div>
+              <div class="slot-item-sub" id="bSlotSub1">Pilih varian rasa lain</div>
+            </div>
+
+            <!-- Slot 3 -->
+            <div class="box-slot-card" id="bSlot2">
+              <span class="slot-num">SLOT 03</span>
+              <div class="slot-item-name" id="bSlotTitle2">Pilih Wagashi</div>
+              <div class="slot-item-sub" id="bSlotSub2">Pilih daifuku / mochi</div>
+            </div>
+
+            <!-- Slot 4 -->
+            <div class="box-slot-card" id="bSlot3">
+              <span class="slot-num">SLOT 04</span>
+              <div class="slot-item-name" id="bSlotTitle3">Pilih Wagashi</div>
+              <div class="slot-item-sub" id="bSlotSub3">Kombinasikan warna</div>
+            </div>
+
+            <!-- Slot 5 -->
+            <div class="box-slot-card" id="bSlot4">
+              <span class="slot-num">SLOT 05</span>
+              <div class="slot-item-name" id="bSlotTitle4">Pilih Wagashi</div>
+              <div class="slot-item-sub" id="bSlotSub4">Tambahkan agar kristal</div>
+            </div>
+
+            <!-- Slot 6 -->
+            <div class="box-slot-card" id="bSlot5">
+              <span class="slot-num">SLOT 06</span>
+              <div class="slot-item-name" id="bSlotTitle5">Pilih Wagashi</div>
+              <div class="slot-item-sub" id="bSlotSub5">Lengkapi kotak 6-slot</div>
+            </div>
+          </div>
+
+          <div class="box-summary-bar">
+            <div class="bsb-info">
+              <div class="bsb-item">
+                <span class="bsb-label mono">KAPASITAS KOTAK</span>
+                <span class="bsb-val" id="boxCountText">0 dari 6 Terisi</span>
+              </div>
+              <div class="bsb-item">
+                <span class="bsb-label mono">HARGA PAKET KOTAK</span>
+                <span class="bsb-val" id="boxPriceText">Rp 265.000</span>
+              </div>
+              <div class="bsb-item">
+                <span class="bsb-label mono">TERMASUK KEMASAN</span>
+                <span class="bsb-val" style="font-size:13px; font-weight:600;">Kotak Cemara · Tali Mizuhiki · Garpu Kuromoji</span>
+              </div>
+            </div>
+
+            <div>
+              <button class="btn-box-shortcut" style="padding:12px 24px; font-size:13.5px;" onclick="handleBoxCheckout()">
+                <span>Beli Kotak Hantaran Ini →</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. THE 5 SENSORY DIMENSIONS OF NERIKIRI -->
+    <section class="section-sensory" id="sensory">
+      <div class="container">
+        <div class="section-header-centered" style="margin-bottom:36px;">
+          <span class="section-eyebrow mono">FILOSOFI GOBOU NO WAGASHI</span>
+          <h2 class="section-title">Lima Dimensi Menikmati Manisan Tradisional</h2>
+          <p class="section-desc">
+            Di Kyoto, menyantap wagashi bukanlah sekadar memakan kudapan manis, melainkan mengapresiasi keindahan alam melalui panca indera.
+          </p>
+        </div>
+
+        <div class="sensory-grid">
+          <div class="sensory-card">
+            <div class="sensory-icon">👁️</div>
+            <div class="sensory-kanji">SHIKAKU · PENGLIHATAN</div>
+            <h4 class="sensory-title">Keindahan Visual</h4>
+            <p class="sensory-desc">Gradasi warna alami kelopak bunga sakura dan lekuk kelopak yang dipahat dengan pisau segitiga kayu sakura.</p>
+          </div>
+
+          <div class="sensory-card">
+            <div class="sensory-icon">👃</div>
+            <div class="sensory-kanji">KYUUKAKU · PENCIUMAN</div>
+            <h4 class="sensory-title">Aroma Tersirat</h4>
+            <p class="sensory-desc">Aroma samar daun sakura yang diawetkan dengan garam Kusamba dan wangi lembut gula Wasanbon.</p>
+          </div>
+
+          <div class="sensory-card">
+            <div class="sensory-icon">👄</div>
+            <div class="sensory-kanji">MIKAKU · PENGECAPAN</div>
+            <h4 class="sensory-title">Rasa Manis Sutra</h4>
+            <p class="sensory-desc">Lumeran tekstur pasta adzuki putih di lidah tanpa meninggalkan rasa lengket, menyeimbangkan pahitnya matcha.</p>
+          </div>
+
+          <div class="sensory-card">
+            <div class="sensory-icon">✋</div>
+            <div class="sensory-kanji">SHOKKAKU · SENTUHAN</div>
+            <h4 class="sensory-title">Sensasi Beludru</h4>
+            <p class="sensory-desc">Kelembutan permukaan gyuhi yang empuk dan kenyal bagaikan kulit persik matang saat dipegang.</p>
+          </div>
+
+          <div class="sensory-card">
+            <div class="sensory-icon">👂</div>
+            <div class="sensory-kanji">CHOOKAKU · PENDENGARAN</div>
+            <h4 class="sensory-title">Suara Kuromoji</h4>
+            <p class="sensory-desc">Suara lembut saat garpu kayu kuromoji membelah bagian tengah wagashi di atas piring tembikar raku.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CATALOG OF 6 INDIVIDUAL WAGASHI -->
+    <section class="section-catalog" id="catalog">
+      <div class="container">
+        <div class="catalog-filter-bar">
+          <div>
+            <span class="section-eyebrow mono">KARYA ATELIER MUSIM INI</span>
+            <h2 class="section-title" style="margin-bottom:0; font-size:26px;">Katalog Wagashi & Nerikiri Satuan</h2>
+          </div>
+
+          <div class="catalog-pills">
+            <button class="cat-pill active" onclick="filterCatalog('all')">Semua Manisan</button>
+            <button class="cat-pill" onclick="filterCatalog('nerikiri')">Nerikiri Pahat Tangan</button>
+            <button class="cat-pill" onclick="filterCatalog('daifuku')">Mochi & Daifuku Segar</button>
+            <button class="cat-pill" onclick="filterCatalog('jelly')">Kohakuto & Agar Transparan</button>
+          </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CEREMONIAL TEA PAIRING & WORKSHOP SECTION -->
+    <section class="section-sekki" id="ceremony" style="background:#FFFFFF;">
+      <div class="container">
+        <div class="section-header-centered" style="margin-bottom:36px;">
+          <span class="section-eyebrow mono">RITUAL SANDINGAN TEH MATCHA</span>
+          <h2 class="section-title">Penyempurna Momen Hening Upacara Teh</h2>
+          <p class="section-desc">
+            Manisnya wagashi dirancang khusus sebagai pengantar rasa sebelum seteguk matcha hijau pekat dinikmati.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:24px;">
+          <div style="padding:24px; border:1px solid var(--border-light); border-radius:var(--radius-sm); background:var(--bg-canvas);">
+            <div style="font-size:24px; margin-bottom:10px;">🍵</div>
+            <h4 style="font-family:var(--font-display); font-size:16px; margin-bottom:6px; color:var(--ink-adzuki);">Koicha (Teh Pekat)</h4>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">Matcha kental bertekstur sirup beludru dari daun teh berumur 30 tahun di perkebunan Uji, Kyoto. Sempurna dipasangkan dengan Nerikiri berkadar manis Brix 40°.</p>
+          </div>
+          <div style="padding:24px; border:1px solid var(--border-light); border-radius:var(--radius-sm); background:var(--bg-canvas);">
+            <div style="font-size:24px; margin-bottom:10px;">🍃</div>
+            <h4 style="font-family:var(--font-display); font-size:16px; margin-bottom:6px; color:var(--ink-adzuki);">Usucha (Teh Berbuih)</h4>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">Matcha segar berbuih halus yang dikocok cepat dengan chasen bambu 100 helai. Mengimbangi kesegaran asam buah stroberi pada Ichigo Daifuku.</p>
+          </div>
+          <div style="padding:24px; border:1px solid var(--border-light); border-radius:var(--radius-sm); background:var(--bg-canvas);">
+            <div style="font-size:24px; margin-bottom:10px;">🪵</div>
+            <h4 style="font-family:var(--font-display); font-size:16px; margin-bottom:6px; color:var(--ink-adzuki);">Hojicha Panggang Arang</h4>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">Teh hijau sangrai bersuhu tinggi dengan aroma karamel hangat dan kandungan kafein rendah, sangat nikmat diseruput sore hari bersama permata manis Kohakuto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. FOOTER SECTION -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">CHIDORI WAGASHI · 千鳥菓舗</div>
+          <p class="footer-brand-sub">
+            Atelier manisan tradisional Kyoto dan seni pahat nerikiri musiman. Membawa harmoni alam 24-Sekki ke atas piring tembikar Anda.
+          </p>
+          <div class="mono" style="font-size:11.5px; color:var(--chidori-blush);">
+            Atelier Bandung: Jl. Sukajadi No. 192, Bandung<br>
+            Atelier Kyoto: Gion Minamigawa, Higashiyama, Kyoto<br>
+            Buka Setiap Hari: 09:00 – 19:00 WIB
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Koleksi Musim</h5>
+          <ul class="footer-links">
+            <li><a href="#sekki">Sakura Kasumi Nerikiri</a></li>
+            <li><a href="#sekki">Hana Ikada Transparan</a></li>
+            <li><a href="#sekki">Ichigo Daifuku Stroberi</a></li>
+            <li><a href="#sekki">Kohakuto Permata Kristal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Layanan & Hantaran</h5>
+          <ul class="footer-links">
+            <li><a href="#bento-builder">Kotak Hantaran Kayu 6-Slot</a></li>
+            <li><a href="javascript:void(0)" onclick="openBookingModal()">Sesi Tasting & Workshop</a></li>
+            <li><a href="#">Hantaran Pernikahan Mizuhiki</a></li>
+            <li><a href="#ceremony">Pasangan Teh Uji Matcha</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Standar & Bahan</h5>
+          <ul class="footer-links">
+            <li><a href="#sensory">5 Dimensi Indera Nerikiri</a></li>
+            <li><a href="#">Kacang Adzuki Asli Hokkaido</a></li>
+            <li><a href="#">Gula Alami Wasanbon Kagawa</a></li>
+            <li><a href="#">NECTOR.UI Craft Standard</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 CHIDORI WAGASHI ATELIER. Seluruh hak cipta dilindungi.</div>
+        <div>PALET WARNA RESMI: #FFF5E4 · #FFE3E1 · #FFD1D1 · #FF9494</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 10. MODAL: TASTING & WORKSHOP RESERVATION -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeBookingModal()">✕</button>
+      <h3 class="modal-title">Reservasi Sesi Tasting & Teh</h3>
+      <p class="modal-sub">Nikmati upacara minum teh privat dan mencicipi 3 jenis nerikiri segar yang dipahat langsung di hadapan Anda.</p>
+
+      <form onsubmit="handleBookingSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Pilihan Pengalaman</label>
+          <select class="form-control" id="bookExperience" required>
+            <option value="Matcha & 3 Wagashi Tasting">Sesi Tasting Teh Uji & 3 Wagashi Musiman (60m) — Rp 180.000 / orang</option>
+            <option value="Private Nerikiri Sculpting Class">Kelas Pahat Nerikiri Mandiri Bersama Master (90m) — Rp 320.000 / orang</option>
+            <option value="Ceremonial Omotenashi Set">Paket Upacara Minum Teh Lengkap & Hantaran Boks (120m) — Rp 550.000 / 2 orang</option>
+          </select>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <div class="form-group">
+            <label class="form-label">Tanggal Reservasi</label>
+            <input type="date" class="form-control" id="bookDate" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Slot Jam</label>
+            <select class="form-control" id="bookSlot" required>
+              <option value="10:30">10:30 – 11:30 WIB (Pagi Teduh)</option>
+              <option value="13:30">13:30 – 14:30 WIB (Siang Hening)</option>
+              <option value="15:30">15:30 – 16:30 WIB (Sore Teh)</option>
+              <option value="17:00">17:00 – 18:00 WIB (Senja Gion)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Jumlah Tamu</label>
+          <input type="number" class="form-control" id="bookGuests" min="1" max="6" value="2" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nama Lengkap Pemesan</label>
+          <input type="text" class="form-control" placeholder="Contoh: Maya Sekar Wangi" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nomor WhatsApp Konfirmasi</label>
+          <input type="tel" class="form-control" placeholder="0812-xxxx-xxxx" required>
+        </div>
+
+        <button type="submit" class="btn-submit-booking">Konfirmasi Reservasi Kursi</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 11. CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <div class="cdh-title">Arsip Hantaran Wagashi</div>
+      <button onclick="toggleCartDrawer()" style="font-size:18px;">✕</button>
+    </div>
+
+    <div class="cart-drawer-items" id="cartItemsList">
+      <p style="text-align:center; color:var(--ink-muted); margin-top:40px; font-size:13px;">
+        Keranjang pesanan masih kosong.<br>Pilih nerikiri musiman dari katalog atau rancang kotak 6-slot.
+      </p>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-total-row">
+        <span>Total Hantaran:</span>
+        <span class="cart-total-val" id="cartTotalVal">Rp 0</span>
+      </div>
+      <button class="btn-checkout" onclick="handleCheckout()">Pesan via WhatsApp Resmi</button>
+    </div>
+  </aside>
+
+  <!-- 12. FLOATING TOAST -->
+  <div class="toast-box" id="toastBox">Manisan berhasil ditambahkan ke keranjang</div>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    // Set default date to tomorrow
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dateInput = document.getElementById('bookDate');
+    if (dateInput) {
+      dateInput.value = tomorrow.toISOString().split('T')[0];
+    }
+
+    // Sekki Solar Calendar Data
+    const sekkiData = [
+      {
+        title: "Sakura Kasumi (桜霞)",
+        kanji: "KABUT KELOPAK SAKURA MERAH MUDA",
+        price: "Rp 48.000",
+        rawPrice: 48000,
+        badge: "MUSIM AKTIF: SHUNBUN",
+        brix: "Brix 36° (Lembut Halus)",
+        base: "Shiro-an & Gyuhi Ketan",
+        expiry: "3 Hari (Suhu Ruang 20°C)",
+        tea: "Uji Koicha / Usucha Matcha",
+        narrative: "Siluet nerikiri yang memvisualisasikan hamparan kelopak bunga sakura yang tertutup kabut pagi pegunungan Yoshino. Dibuat dengan mencampurkan adonan Shiro-an kacang putih dan pewarna alami buah bit merah, dengan inti pasta kacang merah manis Hokkaido.",
+        image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "Hana Ikada (花筏)",
+        kanji: "RAKIT KELOPAK APUNG SUNGAI KAMO",
+        price: "Rp 45.000",
+        rawPrice: 45000,
+        badge: "SEKKI: SEIMEI (MEI)",
+        brix: "Brix 32° (Segar Dingin)",
+        base: "Kanten Kristal & Serpihan Emas",
+        expiry: "4 Hari (Dalam Pendingin)",
+        tea: "Gyokuro Green Tea Dingin",
+        narrative: "Agar kristal transparan kanten yang menggambarkan kelopak sakura yang gugur dan hanyut mengambang bagaikan rakit di permukaan air jernih sungai Kamo. Dingin menyegarkan dengan semburat aroma leci manis.",
+        image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Ichigo Daifuku Mochi (草莓大福)",
+        kanji: "STROBERI SEGAR BUNGKUS GYUHI",
+        price: "Rp 42.000",
+        rawPrice: 42000,
+        badge: "BESTSELLER HARIAN",
+        brix: "Brix 34° (Asam Segar Seimbang)",
+        base: "Stroberi Lembang & Tsubu-an",
+        expiry: "2 Hari (Paling Enak Hari H)",
+        tea: "Usucha Matcha Berbuih",
+        narrative: "Satu buah stroberi segar utuh berlapis pasta kacang merah adzuki berbutir, dibalut lapisan kulit mochi gyuhi super lembut yang kenyal elastis. Kontras rasa asam manis yang meledak di mulut.",
+        image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Kiku Kasane (重菊)",
+        kanji: "BUNGA KRISAN 24 SAYATAN MANUAL",
+        price: "Rp 52.000",
+        rawPrice: 52000,
+        badge: "KRIYA MASTER TINGKAT TINGGI",
+        brix: "Brix 38° (Manis Klasik)",
+        base: "Shiro-an Halus & Wasanbon",
+        expiry: "3 Hari (Suhu Ruang 20°C)",
+        tea: "Sencha Berkualitas Tinggi",
+        narrative: "Karya puncak nerikiri di mana master pembuat kue menyayat 24 kelopak bunga krisan mekar sempurna dalam tempo 90 detik sebelum adonan mengeras. Lambang umur panjang dan kemuliaan istana kaisar.",
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80"
+      }
+    ];
+
+    let currentSekkiIndex = 0;
+
+    function switchSekkiTab(index) {
+      currentSekkiIndex = index;
+      const tabs = document.querySelectorAll('.sekki-tab-btn');
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+      });
+
+      const s = sekkiData[index];
+      document.getElementById('sdpTitle').innerText = s.title;
+      document.getElementById('sdpKanji').innerText = s.kanji;
+      document.getElementById('sdpPrice').innerText = s.price;
+      document.getElementById('sdpBrix').innerText = s.brix;
+      document.getElementById('sdpBase').innerText = s.base;
+      document.getElementById('sdpExpiry').innerText = s.expiry;
+      document.getElementById('sdpTea').innerText = s.tea;
+      document.getElementById('sdpNarrative').innerText = s.narrative;
+      document.getElementById('sdpImage').src = s.image;
+      document.getElementById('sdpBadge').innerHTML = `<span class="pulse-dot"></span><span>${s.badge}</span>`;
+    }
+
+    function addCurrentSekkiToCart() {
+      const s = sekkiData[currentSekkiIndex];
+      addToCart(s.title, s.rawPrice);
+    }
+
+    function addCurrentSekkiToBox() {
+      const s = sekkiData[currentSekkiIndex];
+      addToBox(s.title);
+    }
+
+    // 6-Slot Bento Box Manager
+    let bentoBox = [];
+
+    function addToBox(itemTitle) {
+      if (bentoBox.length >= 6) {
+        showToast("Kotak hantaran sudah terisi penuh 6 slot");
+        return;
+      }
+      bentoBox.push(itemTitle);
+      updateBoxUI();
+      showToast(`"${itemTitle}" dimasukkan ke kotak 6-slot`);
+    }
+
+    function removeFromBox(index) {
+      bentoBox.splice(index, 1);
+      updateBoxUI();
+    }
+
+    function updateBoxUI() {
+      for (let i = 0; i < 6; i++) {
+        const card = document.getElementById(`bSlot${i}`);
+        const title = document.getElementById(`bSlotTitle${i}`);
+        const sub = document.getElementById(`bSlotSub${i}`);
+
+        if (i < bentoBox.length) {
+          card.classList.add('filled');
+          title.innerText = bentoBox[i];
+          sub.innerHTML = `Terisi · Siap tata <br><button class="btn-remove-wagashi" onclick="removeFromBox(${i})">✕ Hapus</button>`;
+        } else {
+          card.classList.remove('filled');
+          title.innerText = `Slot 0${i + 1}`;
+          sub.innerText = 'Klik "+ Kotak 6-Slot" di katalog';
+        }
+      }
+
+      document.getElementById('boxCountText').innerText = `${bentoBox.length} dari 6 Terisi`;
+    }
+
+    function handleBoxCheckout() {
+      if (bentoBox.length === 0) {
+        alert("Pilih minimal 1 wagashi untuk mulai meracik kotak hantaran.");
+        return;
+      }
+      addToCart(`Kotak Hantaran Kayu 6-Wagashi (${bentoBox.join(', ')})`, 265000);
+      toggleCartDrawer();
+    }
+
+    // Catalog Products
+    const catalogData = [
+      {
+        id: 1,
+        title: "Sakura Kasumi Nerikiri",
+        category: "nerikiri",
+        price: 48000,
+        specs: "Brix 36° · Shiro-an Kacang Putih",
+        badge: "MUSIM SHUNBUN",
+        desc: "Pahat tangan kelopak sakura merah muda dengan pasta kacang merah Hokkaido lumer.",
+        image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 2,
+        title: "Hana Ikada Kanten Jelly",
+        category: "jelly",
+        price: 45000,
+        specs: "Brix 32° · Kanten Agar & Emas Murni",
+        badge: "SEGAR DINGIN",
+        desc: "Rakit kelopak bunga mengambang di air jernih dengan sari leci segar dan daun mint.",
+        image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 3,
+        title: "Ichigo Daifuku Fresh Berry",
+        category: "daifuku",
+        price: 42000,
+        specs: "Brix 34° · Buah Stroberi Utuh",
+        badge: "BESTSELLER",
+        desc: "Stroberi manis asam dibalut pasta adzuki halus dan kulit mochi gyuhi lembut kenyal.",
+        image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 4,
+        title: "Kiku Kasane Chrysanthemum",
+        category: "nerikiri",
+        price: 52000,
+        specs: "Brix 38° · 24 Sayatan Presisi",
+        badge: "MASTER CRAFT",
+        desc: "Karya krisan kaisar berlayer 24 kelopak rumit dengan inti gula Wasanbon Kagawa murni.",
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 5,
+        title: "Kohakuto Crystal Gems Jar",
+        category: "jelly",
+        price: 65000,
+        specs: "Brix 42° · Agar Kristal Renyah Luar",
+        badge: "PERMATA MANIS",
+        desc: "Permata kristal yang garing renyah di luar dan lembut lumer di dalam rasa mawar & peach.",
+        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 6,
+        title: "Uji Matcha Warabi Mochi",
+        category: "daifuku",
+        price: 46000,
+        specs: "Brix 30° · Bubuk Teh Hijau Uji",
+        badge: "TEKSTUR SUTRA",
+        desc: "Jeli umbi warabi lembut bertabur bubuk matcha pahit harum dan kuromitsu gula merah pekat.",
+        image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    function renderCatalog(items) {
+      const grid = document.getElementById('catalogGrid');
+      grid.innerHTML = items.map(w => `
+        <div class="wagashi-card">
+          <div class="wagashi-img-box">
+            <img src="${w.image}" alt="${w.title}">
+            <span class="wagashi-badge">${w.badge}</span>
+          </div>
+          <div class="wagashi-content">
+            <div>
+              <div class="wagashi-season-line">HOKKAIDO ADZUKI · NON-DAIRY</div>
+              <h4 class="wagashi-title">${w.title}</h4>
+              <p class="wagashi-desc">${w.desc}</p>
+              <div class="wagashi-specs-strip">
+                <span>Profil:</span>
+                <span>${w.specs}</span>
+              </div>
+            </div>
+            <div class="wagashi-bottom-row">
+              <span class="wagashi-price">Rp ${w.price.toLocaleString('id-ID')}</span>
+              <div class="btn-wagashi-actions">
+                <button class="btn-add-box-sm" onclick="addToBox('${w.title}')">+ Kotak 6-Slot</button>
+                <button class="btn-add-cart-sm" onclick="addToCart('${w.title}', ${w.price})">+ Beli</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCatalog(category) {
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      if (category === 'all') {
+        renderCatalog(catalogData);
+      } else {
+        const filtered = catalogData.filter(i => i.category === category);
+        renderCatalog(filtered);
+      }
+    }
+
+    // Initial Catalog Render
+    renderCatalog(catalogData);
+
+    // Cart Management
+    let cart = [];
+
+    function addToCart(title, price) {
+      const existing = cart.find(i => i.title === title);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ title, price, qty: 1 });
+      }
+      updateCartUI();
+      showToast(`"${title}" berhasil dimasukkan ke keranjang`);
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cartCountBadge');
+      const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+      badge.innerText = totalCount;
+
+      const itemsContainer = document.getElementById('cartItemsList');
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = `
+          <p style="text-align:center; color:var(--ink-muted); margin-top:40px; font-size:13px;">
+            Keranjang pesanan masih kosong.<br>Pilih nerikiri musiman dari katalog atau rancang kotak 6-slot.
+          </p>
+        `;
+        document.getElementById('cartTotalVal').innerText = "Rp 0";
+        return;
+      }
+
+      let total = 0;
+      itemsContainer.innerHTML = cart.map((item, idx) => {
+        total += item.price * item.qty;
+        return `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <div class="cart-item-title">${item.title}</div>
+              <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')} / paket</div>
+              <div class="cart-qty-ctrl">
+                <button class="btn-qty" onclick="changeQty(${idx}, -1)">−</button>
+                <span>${item.qty}</span>
+                <button class="btn-qty" onclick="changeQty(${idx}, 1)">+</button>
+              </div>
+            </div>
+            <div style="font-family:var(--font-mono); font-weight:700; font-size:13px; color:var(--ink-adzuki);">
+              Rp ${(item.price * item.qty).toLocaleString('id-ID')}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('cartTotalVal').innerText = `Rp ${total.toLocaleString('id-ID')}`;
+    }
+
+    function changeQty(idx, delta) {
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUI();
+    }
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      drawer.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function handleCheckout() {
+      if (cart.length === 0) {
+        alert("Keranjang masih kosong.");
+        return;
+      }
+      alert("Pesanan Wagashi CHIDORI Anda telah diterima. Tim dapur kami akan menyiapkan kemasan boks kayu cemara dengan kartu ucapan personal.");
+      cart = [];
+      updateCartUI();
+      toggleCartDrawer();
+    }
+
+    // Modal Booking
+    function openBookingModal() {
+      document.getElementById('bookingModal').classList.add('active');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const exp = document.getElementById('bookExperience').value;
+      const date = document.getElementById('bookDate').value;
+      const slot = document.getElementById('bookSlot').value;
+      const guests = document.getElementById('bookGuests').value;
+
+      closeBookingModal();
+      showToast(`Reservasi ${exp} (${guests} tamu) pada ${date} pukul ${slot} berhasil dikonfirmasi!`);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastBox');
+      toast.innerText = msg;
+      toast.classList.add('active');
+      setTimeout(() => toast.classList.remove('active'), 3200);
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function toggleMobileNav() {
+      const nav = document.querySelector('.nav-links');
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.position = 'absolute';
+        nav.style.top = '72px';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.background = '#FFFFFF';
+        nav.style.flexDirection = 'column';
+        nav.style.padding = '20px';
+        nav.style.borderBottom = '1px solid var(--border-medium)';
+      }
+    }
+  </script>
+</body>
+</html>

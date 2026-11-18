@@ -1867,6 +1867,89 @@ export function TanahLiatStudio() {
       { hex: '#3F72AF', rgb: 'rgb(63, 114, 175)', name: 'Classic Cadet Blue', role: 'Anti-Reflective AR Lens Coating, Primary Accent & Action Buttons' },
       { hex: '#112D4E', rgb: 'rgb(17, 45, 78)', name: 'Deep Midnight Navy', role: 'Primary Brand Frame Color, Contrast Typography & Active Status' }
     ]
+  },
+  {
+    id: 'tpl-27',
+    slug: 'chidori-kyoto-wagashi',
+    title: 'CHIDORI WAGASHI (千鳥菓舗)',
+    tagline: 'Atelier wagashi musiman Kyoto, 24 kalender mikro-sekki, dan kriya nerikiri adonan shiro-an',
+    description: 'Template website atelier kriya manisan tradisional Jepang CHIDORI WAGASHI dengan palet warna Warm Almond Cream (#FFF5E4), Whisper Sakura Petal (#FFE3E1), Soft Peach Blossom (#FFD1D1), dan Vibrant Ichigo Coral Rouge (#FF9494). Dilengkapi penjelajah 24 kalender mikro-musim (24-Sekki), perakit kotak kayu 6-slot (Kiribako Box Builder), simulator 5 dimensi indera nerikiri, katalog 6 varian wagashi & daifuku, serta slide-over keranjang pemesanan WhatsApp dan reservasi Chanoyu privat.',
+    category: 'wagashi',
+    tags: ['Wagashi', 'Kyoto Confectionery', 'Nerikiri', 'Daifuku', '24 Sekki', 'Chanoyu Tea Ceremony', 'Kiribako Bento Box', 'WhatsApp Checkout', 'Artisanal Food'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', '24-Sekki Season Switcher', '6-Slot Kiribako Box Builder', '5 Senses Explorer', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'bakery',
+    previewComponentKey: 'wagashi-chidori',
+    htmlPath: '/templates/wagashi/chidori-wagashi.html',
+    htmlFolderPath: 'templates/wagashi/chidori-wagashi.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Penjelajah 24 kalender musim mikro (24-Sekki) dinamis: Shunbun, Seimei, Kokuu, dan Rikka dengan pembaruan profil rasa & foto instan',
+      'Sistem perakit kotak kayu wagashi 6-slot interaktif (Kiribako Bento Crate) dengan batas kuota dan estimasi gramatur netto real-time',
+      'Penjelajah 5 dimensi indera nerikiri (visual warna botani, aroma daun sakura, tekstur shiratama, lumer manis wasanbon, dan irisan kuromoji)',
+      'Katalog 6 wagashi dan daifuku artisanal dengan filter kategori instan tanpa reload',
+      'Laci keranjang belanja geser (slide-over cart) terintegrasi WhatsApp dengan rincian kemasan boks kayu paulownia gratis',
+      'Standar kriya antislop dengan palet sakura coral (#FFF5E4, #FFE3E1, #FFD1D1, #FF9494) dan tipografi Playfair Display & Shippori Mincho'
+    ],
+    usageInstructions: [
+      'Buka templates/wagashi/chidori-wagashi.html di editor kode Anda.',
+      'Sesuaikan daftar wagashi, harga, dan profil musim pada objek sekkiData dan catalogData di dalam tag <script>.',
+      'Kustomisasi opsi slot kotak kayu 6-wagashi pada fungsi addToCrate() dan renderCrateSlots().',
+      'Buka file HTML langsung di browser desktop atau mobile untuk toko wagashi langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'chidori-wagashi.html',
+        language: 'html',
+        content: `<!-- CHIDORI WAGASHI (千鳥菓舗) — Kyoto Seasonal Nerikiri & Daifuku Atelier -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>CHIDORI WAGASHI — Kyoto Seasonal Nerikiri Atelier</title>
+  <style>
+    :root {
+      --wagashi-cream: #FFF5E4;
+      --wagashi-sakura: #FFE3E1;
+      --wagashi-blush: #FFD1D1;
+      --wagashi-coral: #FF9494;
+      --wagashi-ink: #2A1813;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">EDISI 24-SEKKI MUSIM SEMI • DIBUAT SEGAR SETIAP PAGI • GULA ALAMI WASANBON AWA</div>
+  <header>
+    <div class="brand">千鳥 CHIDORI</div>
+    <nav>Koleksi 24-Sekki · Kotak 6-Wagashi · 5 Dimensi Indera · Katalog Musim · Sanding Teh Matcha</nav>
+  </header>
+  <!-- Full Interactive Kyoto Wagashi Atelier: 6-Slot Box Builder, 24-Sekki Explorer & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier kriya manisan tradisional Jepang CHIDORI WAGASHI dengan palet warna Warm Almond Cream (#FFF5E4), Whisper Sakura Petal (#FFE3E1), Soft Peach Blossom (#FFD1D1), dan Vibrant Ichigo Coral Rouge (#FF9494). Dilengkapi penjelajah 24 kalender mikro-musim (24-Sekki), perakit kotak kayu 6-slot (Kiribako Box Builder), simulator 5 dimensi indera nerikiri, katalog 6 varian wagashi & daifuku, serta slide-over keranjang pemesanan WhatsApp dan reservasi Chanoyu privat.',
+      designDirection: 'Kyoto traditional tea-ceremony atelier berstandar antislop: Warm Almond Cream (#FFF5E4), Whisper Sakura Petal (#FFE3E1), Soft Peach Blossom (#FFD1D1), Vibrant Ichigo Coral Rouge (#FF9494), dan Deep Adzuki Chestnut Ink (#2A1813). Tipografi Playfair Display, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top sekki ticker cream lembut, sticky washi navbar dengan navigasi non-wrapping kokoh, hero showcase 2 kolom dengan telemetri kesegaran, panel penjelajah 24 kalender mikro-musim seketika, perakit boks bento kayu 6-slot (Kiribako), simulator 5 dimensi indera nerikiri, grid katalog 6 wagashi 3 kolom, dan drawer keranjang belanja.',
+      typographyAndColor: 'Playfair Display untuk tajuk utama keanggunan kriya Kyoto, Plus Jakarta Sans untuk teks bodi dan kontrol tombol interaktif, JetBrains Mono untuk kalender mikro-sekki, gramatur (38g-45g), dan rincian harga rupiah.',
+      interactions: 'Tab pemilih musim mikro 24-sekki seketika dengan pembaruan narasi dan foto, perakit kotak 6 slot dengan alokasi slot visual, simulator indera interaktif, dan drawer keranjang terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#FF9494',
+    colorPalette: [
+      { hex: '#FFF5E4', rgb: 'rgb(255, 245, 228)', name: 'Warm Almond Cream', role: 'Shiro-An Dough Ground, Washi Paper Canvas & Clean Table Base' },
+      { hex: '#FFE3E1', rgb: 'rgb(255, 227, 225)', name: 'Whisper Sakura Petal', role: 'Paulownia Crate Slot Tint, Delicate Petal Fill & Soft Badges' },
+      { hex: '#FFD1D1', rgb: 'rgb(255, 209, 209)', name: 'Soft Peach Blossom', role: 'Rosewater Daifuku Tint, Hairline Separator & Pill Accent' },
+      { hex: '#FF9494', rgb: 'rgb(255, 148, 148)', name: 'Vibrant Ichigo Coral', role: 'Fresh Strawberry Rouge, Primary CTA Button & Seasonal Focus' }
+    ]
   }
 ];
 

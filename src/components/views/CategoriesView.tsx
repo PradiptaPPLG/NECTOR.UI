@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'wagashi',
+      title: 'Wagashi & Nerikiri Musiman',
+      icon: Cherry,
+      desc: 'Atelier kriya manisan tradisional Kyoto: penjelajah 24 kalender mikro-sekki, perakit kotak kayu bento 6-slot (Kiribako Box), simulator 5 dimensi indera nerikiri, dan reservasi seduh teh Chanoyu.',
+      accent: '#FF9494'
+    },
     {
       id: 'eyewear',
       title: 'Optik & Kacamata Titanium',
