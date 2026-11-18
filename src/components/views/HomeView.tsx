@@ -28,16 +28,17 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
-    templates.find(t => t.slug === 'tatah-artisanal-leather') || templates[0],
-    templates.find(t => t.slug === 'etoile-bridal-couture') || templates[1],
-    templates.find(t => t.slug === 'chidori-kyoto-wagashi') || templates[2],
-    templates.find(t => t.slug === 'verra-japanese-eyewear') || templates[3],
-    templates.find(t => t.slug === 'svala-nordic-bathhouse') || templates[4],
+    templates.find(t => t.slug === 'aura-derma-clinic') || templates[0],
+    templates.find(t => t.slug === 'tatah-artisanal-leather') || templates[1],
+    templates.find(t => t.slug === 'etoile-bridal-couture') || templates[2],
+    templates.find(t => t.slug === 'chidori-kyoto-wagashi') || templates[3],
+    templates.find(t => t.slug === 'verra-japanese-eyewear') || templates[4],
   ];
 
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'dermatology', label: 'Dermatologi & Skin Barrier', count: templates.filter(t => t.category === 'dermatology').length, desc: 'Klinik dermatologi estetika, fototerapi LED 3-gelombang, tes skin barrier 60 detik & dokter Sp.D.V.E' },
     { id: 'leather', label: 'Kulit Nabati & Saddlery', count: templates.filter(t => t.category === 'leather').length, desc: 'Atelier kriya kulit penyamakan nabati, panggung meja kerja 3 kolom, simulator patina 1.000 hari & cap monogram' },
     { id: 'wedding', label: 'Bridal & Gaun Pengantin', count: templates.filter(t => t.category === 'wedding').length, desc: 'Atelier gaun pengantin sutra kustom, inspektur 4 siluet couture, studio veil monogram & fitting privat' },
     { id: 'wagashi', label: 'Wagashi & Nerikiri', count: templates.filter(t => t.category === 'wagashi').length, desc: 'Atelier kriya manisan tradisional Kyoto, kalender 24-sekki, perakit kotak 6-slot & Chanoyu' },

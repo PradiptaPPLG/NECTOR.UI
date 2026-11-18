@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'dermatology',
+      title: 'Dermatologi & Skin Barrier Lab',
+      icon: ShieldCheck,
+      desc: 'Klinik dermatologi estetika medis & skin barrier lab: simulator fototerapi LED terkalibrasi 3 panjang gelombang, tes skin barrier 60 detik dengan resep protokol otomatis, dan konsultasi dokter spesialis Sp.D.V.E.',
+      accent: '#8785A2'
+    },
     {
       id: 'leather',
       title: 'Kriya Kulit Nabati & Saddlery',

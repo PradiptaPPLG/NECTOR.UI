@@ -2116,6 +2116,89 @@ export function TanahLiatStudio() {
       { hex: '#E3CAA5', rgb: 'rgb(227, 202, 165)', name: 'Toasted Oat Cream', role: 'Waxed Linen Thread, Subtle Stitch Borders & Badge Highlights' },
       { hex: '#FFFBE9', rgb: 'rgb(255, 251, 233)', name: 'Parchment Ivory Canvas', role: 'Main Workshop Canvas Ground, Fresh Crust Base & Clean Cards' }
     ]
+  },
+  {
+    id: 'tpl-30',
+    slug: 'aura-derma-clinic',
+    title: 'AURA DERMA (Aesthetic Dermatology & Skin Barrier Clinic)',
+    tagline: 'Klinik dermatologi estetika medis, simulator fototerapi LED terkalibrasi, dan laboratorium pemulihan skin barrier',
+    description: 'Template website klinik dermatologi estetika dan skin barrier lab AURA DERMA dengan palet warna Active Collagen Coral (#FFC7C7), Soothing Powder Blush (#FFE2E2), Clean Alabaster Ground (#F6F6F6), dan Clinical Slate Lavender (#8785A2). Dilengkapi simulator spektrum fototerapi LED medis multi-panjang gelombang (630nm, 590nm, 415nm), tes diagnostik skin barrier 60 detik dengan rekomendasi resep protokol personal, katalog 6 prosedur klinis & dermo-cosmeceuticals, laci keranjang regimen, dan modal booking konsultasi dokter spesialis kulit Sp.D.V.E.',
+    category: 'dermatology',
+    tags: ['Dermatology', 'Aesthetic Clinic', 'Skin Barrier', 'LED Phototherapy', 'Dermo Cosmetics', 'Dokter SpDVE', 'Ceramide Repair', 'Clinical Facial', 'Medical Aesthetics'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Multi-Wavelength LED Simulator', '60-Sec Barrier Diagnostic Engine', 'Clinical Regimen Builder', 'WhatsApp Clinic Flow'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'dermatology-aura',
+    htmlPath: '/templates/dermatology/aura-derma.html',
+    htmlFolderPath: 'templates/dermatology/aura-derma.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Simulator spektrum fototerapi LED medis 3 panjang gelombang (630nm Collagen Red, 590nm Soothing Amber, 415nm Twilight Lavender) dengan simulasi glow visual',
+      'Mesin tes diagnostik skin barrier 60 detik interaktif dengan kalkulasi profil kerentanan dan rekomendasi protokol resep otomatis',
+      'Panel telemetri diagnostik dermal 3D live (hidrasi seluler 82%, nilai TEWL 4.2 g/m²h, status mikrobiom optimal)',
+      'Katalog 6 prosedur medis in-clinic dan produk dermo-skincare dengan filter kategori instan',
+      'Laci keranjang belanja geser (slide-over cart) terintegrasi WhatsApp dokter spesialis Sp.D.V.E',
+      'Standar kriya antislop dengan palet klinis (#FFC7C7, #FFE2E2, #F6F6F6, #8785A2) dan tipografi Playfair Display & Plus Jakarta Sans'
+    ],
+    usageInstructions: [
+      'Buka templates/dermatology/aura-derma.html di editor kode Anda.',
+      'Sesuaikan daftar tindakan medis, harga, dan bahan aktif pada objek catalogData di dalam tag <script>.',
+      'Kustomisasi parameter spektrum fototerapi LED pada array spectrumModes.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase klinik dermatologi langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'aura-derma.html',
+        language: 'html',
+        content: `<!-- AURA DERMA CLINIC — Aesthetic Dermatology & Skin Barrier Clinic -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>AURA DERMA CLINIC — Aesthetic Dermatology</title>
+  <style>
+    :root {
+      --derma-coral: #FFC7C7;
+      --derma-blush: #FFE2E2;
+      --derma-alabaster: #F6F6F6;
+      --derma-slate: #8785A2;
+      --derma-ink: #1E1B26;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">SIP DOKTER SPESIALIS KULIT (Sp.D.V.E) • STERILISASI KELAS 100 • TEKNOLOGI FOTOTERAPI LED MEDIS KEMENKES RI</div>
+  <header>
+    <div class="brand">AURA DERMA</div>
+    <nav>Simulator Fototerapi LED · Tes Skin Barrier · Prosedur & Dermo-Skincare · Jadwal Dokter Sp.D.V.E</nav>
+  </header>
+  <!-- Full Interactive Aesthetic Clinic: LED Phototherapy Simulator, 60s Barrier Quiz & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website klinik dermatologi estetika dan skin barrier lab AURA DERMA dengan palet warna Active Collagen Coral (#FFC7C7), Soothing Powder Blush (#FFE2E2), Clean Alabaster Ground (#F6F6F6), dan Clinical Slate Lavender (#8785A2). Dilengkapi simulator spektrum fototerapi LED medis multi-panjang gelombang (630nm, 590nm, 415nm), tes diagnostik skin barrier 60 detik dengan rekomendasi resep protokol personal, katalog 6 prosedur klinis & dermo-cosmeceuticals, laci keranjang regimen, dan modal booking konsultasi dokter spesialis kulit Sp.D.V.E.',
+      designDirection: 'Clinical dermo-aesthetic atelier berstandar antislop: Active Collagen Coral (#FFC7C7), Soothing Powder Blush (#FFE2E2), Clean Alabaster Ground (#F6F6F6), Clinical Slate Lavender (#8785A2), dan Deep Amethyst Charcoal Ink (#1E1B26). Tipografi Playfair Display, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top clinical protocol bar, sticky alabaster navbar dengan navigasi non-wrapping kokoh, hero clinical editorial 2 kolom dengan telemetri diagnostik dermal 3D, panel simulator fototerapi LED multi-spektrum, mesin kuesioner diagnostik skin barrier 60 detik, grid katalog 6 prosedur medis 3 kolom, dan drawer keranjang belanja.',
+      typographyAndColor: 'Playfair Display untuk tajuk utama keanggunan dermatologi presisi, Plus Jakarta Sans untuk teks bodi dan formulir klinis, JetBrains Mono untuk panjang gelombang nanometer, indeks hidrasi, TEWL, dan rincian harga rupiah.',
+      interactions: 'Simulator 3 spektrum fototerapi LED dengan pembaruan glow visual seketika, kuesioner skin barrier 3 langkah dengan kalkulasi resep otomatis, filter katalog instan, dan drawer keranjang terintegrasi WhatsApp dokter spesialis Sp.D.V.E.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#8785A2',
+    colorPalette: [
+      { hex: '#FFC7C7', rgb: 'rgb(255, 199, 199)', name: 'Active Collagen Coral', role: 'Collagen Red Stimulation, Primary Action & Diagnosis Pill' },
+      { hex: '#FFE2E2', rgb: 'rgb(255, 226, 226)', name: 'Soothing Powder Blush', role: 'Barrier Repair Ground, Soft Tint & Clinical Card Background' },
+      { hex: '#F6F6F6', rgb: 'rgb(246, 246, 246)', name: 'Clean Alabaster Canvas', role: 'Main Clinical Ground, Sterile Atmosphere & Pure Base' },
+      { hex: '#8785A2', rgb: 'rgb(135, 133, 162)', name: 'Clinical Slate Lavender', role: 'Physician Authority, Primary Buttons & Wavelength Filter' }
+    ]
   }
 ];
 

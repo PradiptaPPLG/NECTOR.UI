@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA DERMA CLINIC — Klinik Dermatologi Estetika & Laboratorium Skin Barrier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       AURA DERMA CLINIC — PALET WARNA RESMI USER SPEC
+       #FFC7C7 : Active Collagen Coral (Vitality Pink / Primary Action)
+       #FFE2E2 : Soothing Powder Blush (Barrier Repair / Soft Tint & Cards)
+       #F6F6F6 : Clean Alabaster Ground (Clinical Pure Canvas)
+       #8785A2 : Clinical Slate Lavender (Dermatology Specialist Accent & Filter)
+       #1E1B26 : Deep Amethyst Charcoal Ink (Contrast Typography WCAG AAA)
+       ========================================================================== */
+    :root {
+      --derma-coral: #FFC7C7;
+      --derma-coral-dark: #E89B9B;
+      --derma-blush: #FFE2E2;
+      --derma-alabaster: #F6F6F6;
+      --derma-slate: #8785A2;
+      --derma-slate-dark: #6C6A86;
+      --derma-ink: #1E1B26;
+      --derma-muted: #646175;
+      --derma-card-bg: #FFFFFF;
+      --derma-border: rgba(135, 133, 162, 0.28);
+      --derma-border-subtle: rgba(30, 27, 38, 0.08);
+      --derma-shadow: 0 14px 38px -10px rgba(30, 27, 38, 0.07), 0 2px 6px -1px rgba(30, 27, 38, 0.03);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --container-max: 1260px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--derma-alabaster);
+      color: var(--derma-ink);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --------------------------------------------------------------------------
+       TOP CLINICAL PROTOCOL & CREDENTIAL TICKER
+       -------------------------------------------------------------------------- */
+    .top-ticker {
+      background-color: var(--derma-blush);
+      border-bottom: 1px solid var(--derma-border);
+      padding: 8px 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--derma-ink);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 36px;
+      animation: tickerRoll 45s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ticker-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: var(--derma-slate);
+      border-radius: 50%;
+    }
+
+    @keyframes tickerRoll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* --------------------------------------------------------------------------
+       EDITORIAL STICKY NAVBAR (ANTI-SLOP NO-WRAP)
+       Strict single-line layout: all items flex-shrink: 0, white-space: nowrap
+       -------------------------------------------------------------------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(246, 246, 246, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--derma-border);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .brand-symbol-box {
+      width: 38px;
+      height: 38px;
+      background-color: var(--derma-slate);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 20px;
+      box-shadow: 0 2px 8px rgba(135, 133, 162, 0.35);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--derma-ink);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--derma-muted);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-shrink: 0;
+    }
+
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--derma-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.18s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--derma-ink);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--derma-slate);
+      border-radius: 1px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-nav-quiz {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--derma-blush);
+      color: var(--derma-ink);
+      border: 1px solid var(--derma-coral);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-quiz:hover {
+      background: var(--derma-coral);
+      transform: translateY(-1px);
+    }
+
+    .btn-nav-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--derma-ink);
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-cart:hover {
+      background: #322D3D;
+      transform: translateY(-1px);
+    }
+
+    .cart-count-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--derma-coral);
+      color: var(--derma-ink);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* --------------------------------------------------------------------------
+       HERO CLINICAL EDITORIAL SECTION
+       -------------------------------------------------------------------------- */
+    .hero-section {
+      padding: 64px 0 76px;
+      position: relative;
+    }
+
+    .hero-clinical-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-clinical-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .credentials-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      background: #FFFFFF;
+      border: 1px solid var(--derma-border);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--derma-muted);
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 50px;
+      line-height: 1.14;
+      font-weight: 600;
+      color: var(--derma-ink);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--derma-slate);
+      font-weight: 500;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--derma-muted);
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    .hero-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid var(--derma-border);
+      border-bottom: 1px solid var(--derma-border);
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .metric-num {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .metric-caption {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--derma-muted);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--derma-slate);
+      color: #FFFFFF;
+      border: 1px solid var(--derma-slate-dark);
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(135, 133, 162, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--derma-slate-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(135, 133, 162, 0.5);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      color: var(--derma-ink);
+      border: 1px solid var(--derma-border);
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: var(--derma-blush);
+      border-color: var(--derma-coral);
+    }
+
+    /* Centerpiece Clinical Card */
+    .hero-clinical-card {
+      background: #FFFFFF;
+      border: 1px solid var(--derma-border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--derma-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+    }
+
+    .card-photo-wrapper {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.6;
+      background: #EDEAE5;
+      position: relative;
+    }
+
+    .card-photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .live-diagnostic-plate {
+      background: var(--derma-alabaster);
+      border: 1px solid var(--derma-border);
+      border-radius: 12px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+
+    .telemetry-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .telemetry-val {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .telemetry-label {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--derma-muted);
+      text-transform: uppercase;
+    }
+
+    /* --------------------------------------------------------------------------
+       SECTION HEADER COMMON
+       -------------------------------------------------------------------------- */
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 46px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--derma-slate);
+      margin-bottom: 10px;
+    }
+
+    .section-eyebrow::before, .section-eyebrow::after {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background-color: var(--derma-coral);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--derma-ink);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--derma-muted);
+      line-height: 1.6;
+    }
+
+    /* --------------------------------------------------------------------------
+       INTERACTIVE FEATURE 1: MULTI-WAVELENGTH LED PHOTOTHERAPY SPECTRUM
+       -------------------------------------------------------------------------- */
+    .spectrum-section {
+      padding: 76px 0 84px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--derma-border);
+      border-bottom: 1px solid var(--derma-border);
+    }
+
+    .spectrum-stage-card {
+      background: var(--derma-alabaster);
+      border: 1px solid var(--derma-border);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: var(--derma-shadow);
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .spectrum-visual-frame {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.4;
+      background: #1E1B26;
+      border: 1px solid var(--derma-border);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spectrum-visual-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: filter 0.4s ease;
+    }
+
+    .spectrum-glow-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      mix-blend-mode: color-dodge;
+      transition: background 0.4s ease;
+      background: radial-gradient(circle, rgba(255, 199, 199, 0.45) 0%, transparent 70%);
+    }
+
+    .spectrum-badge-floating {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(30, 27, 38, 0.85);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .spectrum-controls-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .spectrum-nav-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .btn-spectrum-tab {
+      background: #FFFFFF;
+      border: 1px solid var(--derma-border);
+      border-radius: 10px;
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-spectrum-tab:hover {
+      background: var(--derma-blush);
+      border-color: var(--derma-coral);
+    }
+
+    .btn-spectrum-tab.active {
+      background: var(--derma-slate);
+      color: #FFFFFF;
+      border-color: var(--derma-slate-dark);
+      box-shadow: 0 4px 12px rgba(135, 133, 162, 0.35);
+    }
+
+    .btn-spectrum-tab.active .tab-sub {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .tab-nm {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .tab-sub {
+      font-size: 10.5px;
+      color: var(--derma-muted);
+    }
+
+    .spectrum-dossier-box {
+      background: #FFFFFF;
+      border: 1px solid var(--derma-border);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .spectrum-dossier-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .spectrum-dossier-desc {
+      font-size: 14px;
+      color: var(--derma-muted);
+      line-height: 1.6;
+    }
+
+    .spectrum-clinical-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--derma-border);
+    }
+
+    .clinical-metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .c-metric-key {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--derma-muted);
+      text-transform: uppercase;
+    }
+
+    .c-metric-val {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    /* --------------------------------------------------------------------------
+       INTERACTIVE FEATURE 2: 60-SECOND SKIN BARRIER DIAGNOSTIC QUIZ
+       -------------------------------------------------------------------------- */
+    .diagnostic-section {
+      padding: 80px 0;
+      background: var(--derma-alabaster);
+    }
+
+    .diagnostic-card-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--derma-border);
+      border-radius: 20px;
+      padding: 38px;
+      box-shadow: var(--derma-shadow);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .quiz-form-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .quiz-question-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-question-title {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--derma-slate);
+      font-weight: 600;
+    }
+
+    .quiz-options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .btn-quiz-option {
+      background: var(--derma-alabaster);
+      border: 1px solid var(--derma-border-subtle);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .btn-quiz-option:hover {
+      background: var(--derma-blush);
+      border-color: var(--derma-coral);
+    }
+
+    .btn-quiz-option.selected {
+      background: var(--derma-blush);
+      border-color: var(--derma-coral);
+      box-shadow: 0 0 0 1px var(--derma-coral);
+    }
+
+    .opt-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--derma-ink);
+    }
+
+    .opt-desc {
+      font-size: 11px;
+      color: var(--derma-muted);
+    }
+
+    /* Result Preview Box */
+    .diagnostic-result-card {
+      background: var(--derma-blush);
+      border: 1px solid var(--derma-coral);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .result-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .result-badge {
+      background: var(--derma-slate);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .result-profile-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .result-prescription-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #FFFFFF;
+      border: 1px solid var(--derma-border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .prescribe-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--derma-ink);
+    }
+
+    .prescribe-icon {
+      color: var(--derma-slate);
+      font-weight: 700;
+    }
+
+    /* --------------------------------------------------------------------------
+       CURATED CATALOG OF 6 CLINICAL TREATMENTS & DERMO-COSMETICS
+       -------------------------------------------------------------------------- */
+    .catalog-section {
+      padding: 80px 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--derma-border);
+      border-bottom: 1px solid var(--derma-border);
+    }
+
+    .catalog-filters-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 38px;
+      flex-wrap: wrap;
+    }
+
+    .btn-filter-pill {
+      background: var(--derma-alabaster);
+      border: 1px solid var(--derma-border-subtle);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--derma-muted);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-filter-pill:hover {
+      border-color: var(--derma-slate);
+      color: var(--derma-ink);
+    }
+
+    .btn-filter-pill.active {
+      background: var(--derma-slate);
+      color: #FFFFFF;
+      border-color: var(--derma-slate-dark);
+      font-weight: 600;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .treatment-card {
+      background: var(--derma-alabaster);
+      border: 1px solid var(--derma-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--derma-shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .treatment-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(30, 27, 38, 0.1);
+    }
+
+    .card-photo-box {
+      aspect-ratio: 4 / 3.2;
+      background: var(--derma-blush);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .treatment-card:hover .card-photo-box img {
+      transform: scale(1.04);
+    }
+
+    .card-category-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--derma-border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--derma-ink);
+    }
+
+    .card-content-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .treatment-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .treatment-price {
+      font-family: var(--font-mono);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--derma-ink);
+      white-space: nowrap;
+    }
+
+    .treatment-desc {
+      font-size: 13.5px;
+      color: var(--derma-muted);
+      line-height: 1.55;
+    }
+
+    .treatment-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chip-pill {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background: #FFFFFF;
+      border: 1px solid var(--derma-border-subtle);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--derma-muted);
+    }
+
+    .card-actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--derma-border);
+    }
+
+    .btn-add-regimen {
+      flex: 1;
+      background: var(--derma-slate);
+      color: #FFFFFF;
+      border: 1px solid var(--derma-slate-dark);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.18s ease;
+    }
+
+    .btn-add-regimen:hover {
+      background: var(--derma-slate-dark);
+    }
+
+    .btn-book-quick {
+      background: transparent;
+      color: var(--derma-ink);
+      border: 1px solid var(--derma-border);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-book-quick:hover {
+      background: var(--derma-blush);
+      border-color: var(--derma-coral);
+    }
+
+    /* --------------------------------------------------------------------------
+       SLIDE-OVER CLINICAL DRAWER
+       -------------------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(30, 27, 38, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background: #FFFFFF;
+      box-shadow: -10px 0 40px rgba(30, 27, 38, 0.18);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer-overlay.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 22px 26px;
+      border-bottom: 1px solid var(--derma-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--derma-alabaster);
+    }
+
+    .drawer-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .btn-close-drawer {
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      color: var(--derma-muted);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .drawer-items-list {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 22px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-item-card {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--derma-border-subtle);
+    }
+
+    .cart-item-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: var(--derma-blush);
+      flex-shrink: 0;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .cart-item-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .cart-item-meta {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--derma-muted);
+    }
+
+    .cart-item-row-bot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .btn-del-item {
+      background: transparent;
+      border: none;
+      color: #9C5238;
+      font-size: 11.5px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .drawer-footer {
+      padding: 22px 26px;
+      border-top: 1px solid var(--derma-border);
+      background: var(--derma-alabaster);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .subtotal-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .subtotal-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .btn-checkout-wa {
+      background: var(--derma-ink);
+      color: #FFFFFF;
+      border: none;
+      padding: 13px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s ease;
+    }
+
+    .btn-checkout-wa:hover {
+      background: #322D3D;
+    }
+
+    /* --------------------------------------------------------------------------
+       BOOKING MODAL
+       -------------------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(30, 27, 38, 0.55);
+      backdrop-filter: blur(5px);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: #FFFFFF;
+      border: 1px solid var(--derma-border);
+      border-radius: 20px;
+      width: 520px;
+      max-width: 95vw;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(30, 27, 38, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    /* --------------------------------------------------------------------------
+       FOOTER
+       -------------------------------------------------------------------------- */
+    .site-footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--derma-border);
+      padding: 60px 0 32px;
+      color: var(--derma-ink);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--derma-ink);
+    }
+
+    .footer-col-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13.5px;
+      color: var(--derma-muted);
+    }
+
+    .footer-col-links a:hover {
+      color: var(--derma-ink);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--derma-border);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--derma-muted);
+    }
+
+    /* --------------------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       -------------------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-clinical-grid, .spectrum-stage-card, .diagnostic-card-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-nav {
+        display: none;
+      }
+      .hero-title {
+        font-size: 34px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Clinical Protocol Bar -->
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ticker-dot"></span> SIP DOKTER SPESIALIS KULIT & KELAMIN (Sp.D.V.E) BERSERTIFIKASI RESMI</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PROTOKOL STERILISASI MEDIS KELAS 100 & HIGIENE TINGGI</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> TEKNOLOGI FOTOTERAPI LED MEDIS KEMENKES RI NO. AKL 21403022194</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PRIVAT CONSULTATION SUITE: JL. RIAU NO. 28 BANDUNG & DHARMAWANGSA JAKARTA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> SIP DOKTER SPESIALIS KULIT & KELAMIN (Sp.D.V.E) BERSERTIFIKASI RESMI</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PROTOKOL STERILISASI MEDIS KELAS 100 & HIGIENE TINGGI</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> TEKNOLOGI FOTOTERAPI LED MEDIS KEMENKES RI NO. AKL 21403022194</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PRIVAT CONSULTATION SUITE: JL. RIAU NO. 28 BANDUNG & DHARMAWANGSA JAKARTA</div>
+    </div>
+  </div>
+
+  <!-- Editorial Sticky Navbar (Non-wrapping single-line) -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-mark">
+        <div class="brand-symbol-box">A</div>
+        <div class="brand-text">
+          <span class="brand-name">AURA DERMA</span>
+          <span class="brand-sub">AESTHETIC & SKIN BARRIER CLINIC</span>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <a href="#fototerapi" class="nav-link active">Simulator Fototerapi LED</a>
+        <a href="#diagnostik" class="nav-link">Tes Skin Barrier 60-Detik</a>
+        <a href="#katalog" class="nav-link">Prosedur & Dermo-Skincare</a>
+        <a href="#konsultasi" class="nav-link" onclick="openBookingModal(); return false;">Jadwal Dokter Sp.D.V.E</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-nav-quiz" onclick="document.getElementById('diagnostik').scrollIntoView({behavior: 'smooth'})">
+          <span>🧪 Cek Skin Barrier</span>
+        </button>
+        <button class="btn-nav-cart" onclick="toggleCartDrawer()">
+          <span>Arsip Regimen</span>
+          <span class="cart-count-badge" id="navCartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Clinical Editorial Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-clinical-grid">
+      <!-- Copy Column -->
+      <div class="hero-clinical-copy">
+        <div class="credentials-badge">
+          <span>CLINICAL DERMO-AESTHETIC</span>
+          <span>•</span>
+          <span>EST. 2026</span>
+          <span>•</span>
+          <span>BANDUNG & JAKARTA</span>
+        </div>
+
+        <h1 class="hero-title">
+          Pemulihan integritas <em>skin barrier</em> berbasis sains dermatologi presisi.
+        </h1>
+
+        <p class="hero-desc">
+          Kami menolak tren perawatan instan yang mengikis lapisan pelindung kulit. Bersama dokter spesialis Sp.D.V.E, kami mengukur kadar hidrasi seluler, menyeimbangkan lipid stratum korneum, dan merawat sensitivitas melalui fototerapi LED berspektrum murni.
+        </p>
+
+        <div class="hero-metrics-strip">
+          <div class="metric-item">
+            <span class="metric-num">98.4%</span>
+            <span class="metric-caption">Retensi Kelembaban Barrier</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-num">3 Panjang</span>
+            <span class="metric-caption">Gelombang LED Terkalibrasi</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-num">0% Steroid</span>
+            <span class="metric-caption">Formula Bersih & Aman</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-row">
+          <button class="btn-hero-primary" onclick="openBookingModal()">
+            <span>Konsultasi Dokter Spesialis Kulit</span>
+          </button>
+          <button class="btn-hero-secondary" onclick="document.getElementById('fototerapi').scrollIntoView({behavior: 'smooth'})">
+            <span>Uji Spektrum LED →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Feature Card Column -->
+      <div class="hero-clinical-card">
+        <div class="card-photo-wrapper">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80" alt="Clinical Facial & Skin Diagnostic" id="heroCardPhoto">
+        </div>
+        <div class="live-diagnostic-plate">
+          <div class="telemetry-item">
+            <span class="telemetry-val">82%</span>
+            <span class="telemetry-label">Hidrasi Sel</span>
+          </div>
+          <div class="telemetry-item">
+            <span class="telemetry-val">4.2 g/m²h</span>
+            <span class="telemetry-label">TEWL Barrier</span>
+          </div>
+          <div class="telemetry-item">
+            <span class="telemetry-val">Optimal</span>
+            <span class="telemetry-label">Status Mikrobiom</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 1: Multi-Wavelength LED Phototherapy Spectrum -->
+  <section class="spectrum-section" id="fototerapi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">TEKNOLOGI MEDIS BERSERTIFIKASI</span>
+        <h2 class="section-title">Simulator Spektrum Fototerapi LED Medis</h2>
+        <p class="section-subtitle">Pilih panjang gelombang cahaya terkalibrasi untuk melihat kedalaman penetrasi jaringan dermis dan manfaat terapeutiknya pada sel kulit.</p>
+      </div>
+
+      <div class="spectrum-stage-card">
+        <div class="spectrum-visual-frame">
+          <img src="https://images.unsplash.com/photo-1512290900672-1f41b384d5df?auto=format&fit=crop&w=1000&q=80" alt="LED Phototherapy Treatment" id="spectrumPhoto">
+          <div class="spectrum-glow-overlay" id="spectrumGlow"></div>
+          <div class="spectrum-badge-floating" id="spectrumBadge">SPEKTRUM 1 : 630nm COLLAGEN RED</div>
+        </div>
+
+        <div class="spectrum-controls-col">
+          <div class="spectrum-nav-tabs">
+            <button class="btn-spectrum-tab active" onclick="setSpectrum(0)">
+              <span class="tab-nm">630 nm</span>
+              <span class="tab-sub">Collagen Red</span>
+            </button>
+            <button class="btn-spectrum-tab" onclick="setSpectrum(1)">
+              <span class="tab-nm">590 nm</span>
+              <span class="tab-sub">Soothing Amber</span>
+            </button>
+            <button class="btn-spectrum-tab" onclick="setSpectrum(2)">
+              <span class="tab-nm">415 nm</span>
+              <span class="tab-sub">Twilight Lavender</span>
+            </button>
+          </div>
+
+          <div class="spectrum-dossier-box">
+            <h3 class="spectrum-dossier-title" id="spectrumTitle">Spektrum 630nm: Collagen Red Stimulator</h3>
+            <p class="spectrum-dossier-desc" id="spectrumDesc">
+              Menembus hingga kedalaman 2.5mm di lapisan dermis retikuler. Mengaktifkan mitokondria fibroblas untuk mempercepat biosintesis kolagen tipe I & III serta mempercepat regenerasi pasca-tindakan klinis.
+            </p>
+
+            <div class="spectrum-clinical-metrics">
+              <div class="clinical-metric-item">
+                <span class="c-metric-key">Kedalaman Jaringan</span>
+                <span class="c-metric-val" id="specDepth">2.5 mm (Dermis Retikuler)</span>
+              </div>
+              <div class="clinical-metric-item">
+                <span class="c-metric-key">Target Seluler</span>
+                <span class="c-metric-val" id="specTarget">Fibroblas & Elastin</span>
+              </div>
+              <div class="clinical-metric-item">
+                <span class="c-metric-key">Waktu Sesi Standar</span>
+                <span class="c-metric-val" id="specTime">20 Menit Tanpa Nyeri</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-hero-primary" onclick="openBookingModal()" style="justify-content: center;">
+            Jadwalkan Sesi Fototerapi Ini
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 2: 60-Second Skin Barrier Diagnostic Quiz -->
+  <section class="diagnostic-section" id="diagnostik">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">DIAGNOSTIK AWAL KELINIS</span>
+        <h2 class="section-title">Tes Cepat Integritas Skin Barrier 60 Detik</h2>
+        <p class="section-subtitle">Jawab 3 pertanyaan klinis sederhana untuk mendapatkan profil kerentanan barrier kulit Anda dan rekomendasi regimen perawatan yang dipersonalisasi.</p>
+      </div>
+
+      <div class="diagnostic-card-wrapper">
+        <!-- Questions Column -->
+        <div class="quiz-form-col">
+          <!-- Pertanyaan 1 -->
+          <div class="quiz-question-block">
+            <span class="quiz-question-title">1. Sensasi Kulit Setelah Cuci Muka</span>
+            <div class="quiz-options-grid">
+              <div class="btn-quiz-option selected" onclick="selectQuizOption('q1', 'tight', this)">
+                <span class="opt-name">Terasa Kencang / Menarik</span>
+                <span class="opt-desc">Stratum korneum kehilangan lipid</span>
+              </div>
+              <div class="btn-quiz-option" onclick="selectQuizOption('q1', 'oily', this)">
+                <span class="opt-name">Cepat Berminyak Kembali</span>
+                <span class="opt-desc">Dehidrasi kompensasi sebum</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertanyaan 2 -->
+          <div class="quiz-question-block">
+            <span class="quiz-question-title">2. Gejala Reaktivitas Terhadap Skincare Baru</span>
+            <div class="quiz-options-grid">
+              <div class="btn-quiz-option selected" onclick="selectQuizOption('q2', 'sting', this)">
+                <span class="opt-name">Sering Perih / Kemerahan</span>
+                <span class="opt-desc">Reseptor saraf mikro terpapar</span>
+              </div>
+              <div class="btn-quiz-option" onclick="selectQuizOption('q2', 'clog', this)">
+                <span class="opt-name">Mudah Beruntusan Komedo</span>
+                <span class="opt-desc">Hiperkeratinisasi folikel</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertanyaan 3 -->
+          <div class="quiz-question-block">
+            <span class="quiz-question-title">3. Lingkungan Sehari-Hari Utama</span>
+            <div class="quiz-options-grid">
+              <div class="btn-quiz-option selected" onclick="selectQuizOption('q3', 'ac', this)">
+                <span class="opt-name">Ruangan Ber-AC > 8 Jam</span>
+                <span class="opt-desc">Evaporasi kelembaban tinggi (TEWL)</span>
+              </div>
+              <div class="btn-quiz-option" onclick="selectQuizOption('q3', 'sun', this)">
+                <span class="opt-name">Luar Ruang Tropis & Polusi</span>
+                <span class="opt-desc">Stres oksidatif sinar UV</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Column -->
+        <div class="diagnostic-result-card">
+          <div class="result-head">
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--derma-muted); text-transform: uppercase;">Hasil Analisis Algoritma Kulit</span>
+            <span class="result-badge" id="quizBadgeStatus">Barrier Compromised Grade II</span>
+          </div>
+
+          <h3 class="result-profile-title" id="quizProfileTitle">Sensitized Lipid-Deficient Barrier</h3>
+          <p style="font-size: 13.5px; color: var(--derma-muted); line-height: 1.55;" id="quizProfileDesc">
+            Lapisan pelindung kulit Anda mengalami defisit ceramide dan kolesterol alami, memicu penguapan air transepidermal tinggi dan rasa perih.
+          </p>
+
+          <div class="result-prescription-list">
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--derma-ink); text-transform: uppercase;">Protokol Klinis Rekomendasi:</span>
+            <div class="prescribe-item">
+              <span class="prescribe-icon">✓</span>
+              <span id="prescribeTmt">Prosedur: Ceramide Hydro-Infusion Treatment</span>
+            </div>
+            <div class="prescribe-item">
+              <span class="prescribe-icon">✓</span>
+              <span id="prescribeHome">Home Care: 5% Multi-Ceramide Barrier Cream</span>
+            </div>
+            <div class="prescribe-item">
+              <span class="prescribe-icon">✓</span>
+              <span id="prescribeLed">Terapi Cahaya: 630nm Collagen Red Light (20 Menit)</span>
+            </div>
+          </div>
+
+          <button class="btn-hero-primary" onclick="addPrescriptionToCart()" style="justify-content: center;">
+            + Simpan Hasil & Pesan Konsultasi
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Catalog of 6 Treatments & Dermo-Cosmetics -->
+  <section class="catalog-section" id="katalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">FORMULA DERMATOLOGIS</span>
+        <h2 class="section-title">Katalog Perawatan Klinik & Home Care</h2>
+        <p class="section-subtitle">Setiap prosedur dilakukan di ruang privat steril, menggunakan bahan bio-identik yang telah melewati uji kompatibilitas kulit sensitif.</p>
+      </div>
+
+      <div class="catalog-filters-row">
+        <button class="btn-filter-pill active" onclick="filterCatalog('all', this)">Semua Layanan (6)</button>
+        <button class="btn-filter-pill" onclick="filterCatalog('clinic', this)">Tindakan Klinik (In-Clinic)</button>
+        <button class="btn-filter-pill" onclick="filterCatalog('home', this)">Dermo-Skincare Rumah</button>
+        <button class="btn-filter-pill" onclick="filterCatalog('package', this)">Paket Pemulihan Total</button>
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart / Regimen Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="if(event.target === this) toggleCartDrawer()">
+    <div class="cart-drawer">
+      <div class="drawer-header">
+        <h3 class="drawer-title">Arsip Regimen Kulit</h3>
+        <button class="btn-close-drawer" onclick="toggleCartDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-items-list" id="drawerItemsList">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="subtotal-line">
+          <span>Estimasi Investasi Kesehatan Kulit</span>
+          <span class="subtotal-val" id="drawerSubtotal">Rp 0</span>
+        </div>
+        <p style="font-size: 11px; color: var(--derma-muted); line-height: 1.5;">
+          * Sudah termasuk sesi pemetaan skin analyzer 3D, konsultasi dokter Sp.D.V.E, dan garansi sterilitas alat medis.
+        </p>
+        <button class="btn-checkout-wa" onclick="checkoutWhatsApp()">
+          🧪 Konfirmasi Jadwal Dokter via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="modal-overlay" id="bookingModal" onclick="if(event.target === this) closeBookingModal()">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 class="modal-title">Reservasi Konsultasi Dokter Sp.D.V.E</h3>
+        <button class="btn-close-drawer" onclick="closeBookingModal()">✕</button>
+      </div>
+      <p style="font-size: 13.5px; color: var(--derma-muted);">
+        Konsultasi 45 menit bersama dokter spesialis kulit dan kelamin, lengkap dengan foto analisis dermal 3D dan penyusunan regimen personal.
+      </p>
+
+      <form onsubmit="handleBookingSubmit(event)" style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <label style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--derma-muted);">Nama Lengkap Pasien</label>
+          <input type="text" placeholder="Nama Lengkap" required style="width: 100%; background: var(--derma-alabaster); border: 1px solid var(--derma-border); border-radius: 8px; padding: 10px 14px; margin-top: 4px; outline: none;">
+        </div>
+        <div>
+          <label style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--derma-muted);">Nomor WhatsApp Aktif</label>
+          <input type="tel" placeholder="0812-xxxx-xxxx" required style="width: 100%; background: var(--derma-alabaster); border: 1px solid var(--derma-border); border-radius: 8px; padding: 10px 14px; margin-top: 4px; outline: none;">
+        </div>
+        <div>
+          <label style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--derma-muted);">Lokasi Klinik Suite</label>
+          <select style="width: 100%; background: var(--derma-alabaster); border: 1px solid var(--derma-border); border-radius: 8px; padding: 10px 14px; margin-top: 4px; outline: none; font-size: 14px;">
+            <option>Jl. Riau No. 28, Dago - Bandung Heritage Suite</option>
+            <option>Jl. Dharmawangsa Raya No. 14, Kebayoran Baru - Jakarta</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-hero-primary" style="justify-content: center; margin-top: 6px;">
+          Konfirmasi Janji Temu Klinis
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-mark">
+            <div class="brand-symbol-box">A</div>
+            <div class="brand-text">
+              <span class="brand-name">AURA DERMA</span>
+              <span class="brand-sub">AESTHETIC & SKIN BARRIER CLINIC</span>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--derma-muted); max-width: 300px; margin-top: 6px;">
+            Klinik dermatologi estetika dan laboratorium pemulihan skin barrier bersertifikasi medis di Bandung dan Jakarta Selatan.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Prosedur Medis</span>
+          <div class="footer-col-links">
+            <a href="#fototerapi">Fototerapi LED Medis</a>
+            <a href="#katalog">Ceramide Hydro-Infusion</a>
+            <a href="#katalog">Mandelic Peeling Halus</a>
+            <a href="#katalog">Laser Barier Rebalancing</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Layanan Pasien</span>
+          <div class="footer-col-links">
+            <a href="#diagnostik">Tes Skin Barrier Online</a>
+            <a href="#konsultasi" onclick="openBookingModal(); return false;">Konsultasi Dokter Sp.D.V.E</a>
+            <a href="https://wa.me/6281234567890" target="_blank">Layanan Resep WhatsApp</a>
+            <a href="#katalog">Panduan Pasca-Tindakan</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Alamat & Izin Operasional</span>
+          <p style="font-size: 13px; color: var(--derma-muted); line-height: 1.6;">
+            <strong>Klinik Utama Bandung:</strong><br>
+            Jl. LLRE Martadinata (Riau) No. 28, Citarum, Bandung<br>
+            Senin – Minggu: 09:00 – 20:00 WIB<br>
+            <em>Izin Operasional Dinkes No. 445/7821-Dinkes/2026</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 AURA DERMA CLINIQUE. SELURUH HAK MEDIS DILINDUNGI.</div>
+        <div>PALET WARNA RESMI: #FFC7C7 • #FFE2E2 • #F6F6F6 • #8785A2</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    /* ==========================================================================
+       DATA SOURCE — 3 SPECTRUM MODES
+       ========================================================================== */
+    const spectrumModes = [
+      {
+        badge: 'SPEKTRUM 1 : 630nm COLLAGEN RED',
+        title: 'Spektrum 630nm: Collagen Red Stimulator',
+        desc: 'Menembus hingga kedalaman 2.5mm di lapisan dermis retikuler. Mengaktifkan mitokondria fibroblas untuk mempercepat biosintesis kolagen tipe I & III serta mempercepat regenerasi pasca-tindakan klinis.',
+        depth: '2.5 mm (Dermis Retikuler)',
+        target: 'Fibroblas & Sintesis Kolagen',
+        time: '20 Menit Tanpa Nyeri',
+        glow: 'radial-gradient(circle, rgba(255, 199, 199, 0.6) 0%, transparent 70%)',
+        img: 'https://images.unsplash.com/photo-1512290900672-1f41b384d5df?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        badge: 'SPEKTRUM 2 : 590nm SOOTHING AMBER',
+        title: 'Spektrum 590nm: Soothing Amber Calm',
+        desc: 'Menembus papiler dermis superfisial. Menenangkan kemerahan eritema, mengontrol permeabilitas pembuluh darah kapiler, dan meredakan iritasi kulit terbakar matahari atau eksfoliasi berlebih.',
+        depth: '1.2 mm (Dermis Papiler)',
+        target: 'Endotel Vaskular & Eritema',
+        time: '15 Menit Anti-Kemerahan',
+        glow: 'radial-gradient(circle, rgba(255, 226, 226, 0.7) 0%, transparent 70%)',
+        img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        badge: 'SPEKTRUM 3 : 415nm TWILIGHT LAVENDER',
+        title: 'Spektrum 415nm: Twilight Lavender Purifier',
+        desc: 'Menggabungkan cahaya biru murni 415nm dengan saturasi lavender 830nm untuk mensterilkan bakteri Cutibacterium acnes via pelepasan singlet oksigen intraseluler tanpa merusak kelembaban skin barrier.',
+        depth: '0.8 mm (Epidermis & Folikel)',
+        target: 'Porfirin Bakteri C. Acnes',
+        time: '15 Menit Anti-Inflamasi',
+        glow: 'radial-gradient(circle, rgba(135, 133, 162, 0.7) 0%, transparent 70%)',
+        img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80'
+      }
+    ];
+
+    function setSpectrum(index) {
+      const mode = spectrumModes[index];
+      const tabs = document.querySelectorAll('.btn-spectrum-tab');
+      tabs.forEach((t, i) => t.classList.toggle('active', i === index));
+
+      document.getElementById('spectrumBadge').textContent = mode.badge;
+      document.getElementById('spectrumTitle').textContent = mode.title;
+      document.getElementById('spectrumDesc').textContent = mode.desc;
+      document.getElementById('specDepth').textContent = mode.depth;
+      document.getElementById('specTarget').textContent = mode.target;
+      document.getElementById('specTime').textContent = mode.time;
+
+      const glow = document.getElementById('spectrumGlow');
+      glow.style.background = mode.glow;
+
+      const photo = document.getElementById('spectrumPhoto');
+      photo.src = mode.img;
+    }
+
+    /* ==========================================================================
+       DATA SOURCE — 6 CATALOG TREATMENTS & DERMO-COSMETICS
+       ========================================================================== */
+    const catalogData = [
+      {
+        id: 'dr-1',
+        name: 'Ceramide Hydro-Infusion Treatment',
+        type: 'clinic',
+        typeName: 'Tindakan Klinik',
+        price: 'Rp 850.000',
+        priceNum: 850000,
+        desc: 'Infusi mikromolekul ceramide NP, asam hialuronat murni, dan ectoin menggunakan gelombang sonik transdermal tanpa jarum.',
+        chips: ['Durasi 60 Menit', 'Zero Downtime', 'Dokter Sp.D.V.E'],
+        img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'dr-2',
+        name: 'Medical Multi-Spectrum LED Therapy',
+        type: 'clinic',
+        typeName: 'Tindakan Klinik',
+        price: 'Rp 450.000',
+        priceNum: 450000,
+        desc: 'Terapi fotodinamik 3 gelombang (630nm, 590nm, 415nm) untuk stimulasi kolagen dan meredakan peradangan jerawat aktif.',
+        chips: ['Durasi 30 Menit', 'FDA Cleared', 'Kemenkes RI'],
+        img: 'https://images.unsplash.com/photo-1512290900672-1f41b384d5df?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'dr-3',
+        name: '5% Multi-Ceramide Barrier Balm (50ml)',
+        type: 'home',
+        typeName: 'Dermo-Skincare',
+        price: 'Rp 280.000',
+        priceNum: 280000,
+        desc: 'Krim pelembab bertekstur beludru dengan rasio lipid fisiologis 3:1:1 (Ceramide, Kolesterol, Asam Lemak Bebas). Bebas pewangi buatan.',
+        chips: ['Rasio Lipid 3:1:1', 'Bebas Steroid', 'Hipoalergenik'],
+        img: 'https://images.unsplash.com/photo-1608248597359-009748644558?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'dr-4',
+        name: 'Gentle Mandelic Acid 8% Exfoliator',
+        type: 'home',
+        typeName: 'Dermo-Skincare',
+        price: 'Rp 245.000',
+        priceNum: 245000,
+        desc: 'Eksfoliator kimiawi molekul besar yang aman untuk kulit sensitif dan rentan kemerahan. Meratakan tekstur tanpa merusak barrier.',
+        chips: ['Molekul Mandelic 8%', 'pH Aman 3.8', 'Untuk Kulit Sensitif'],
+        img: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'dr-5',
+        name: 'Barrier Recovery Post-Procedure Kit',
+        type: 'package',
+        typeName: 'Paket Perawatan',
+        price: 'Rp 620.000',
+        priceNum: 620000,
+        desc: 'Paket 3 langkah: Gentle Amino Cleanser, Soothing Centella Mist, dan Ceramide Barrier Cream untuk pemulihan pasca-laser.',
+        chips: ['3 Produk Lengkap', 'Diskon Bundling', 'Tas Medis Steril'],
+        img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'dr-6',
+        name: 'Total Skin Barrier Reset Program',
+        type: 'package',
+        typeName: 'Paket Klinik & Home',
+        price: 'Rp 1.450.000',
+        priceNum: 1450000,
+        desc: 'Paket terintegrasi: 1x Ceramide Hydro-Infusion + 1x Fototerapi LED + 1 Set Dermo-Skincare pemulihan lengkap 30 hari.',
+        chips: ['Program 30 Hari', 'Konsultasi Evaluasi', 'Garansi Kepuasan'],
+        img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80'
+      }
+    ];
+
+    /* ==========================================================================
+       DIAGNOSTIC QUIZ LOGIC
+       ========================================================================== */
+    let quizAnswers = {
+      q1: 'tight',
+      q2: 'sting',
+      q3: 'ac'
+    };
+
+    function selectQuizOption(qKey, val, btnEl) {
+      quizAnswers[qKey] = val;
+      const parent = btnEl.parentElement;
+      parent.querySelectorAll('.btn-quiz-option').forEach(b => b.classList.remove('selected'));
+      btnEl.classList.add('selected');
+      updateQuizResult();
+    }
+
+    function updateQuizResult() {
+      const { q1, q2, q3 } = quizAnswers;
+
+      if (q1 === 'tight' && q2 === 'sting') {
+        document.getElementById('quizBadgeStatus').textContent = 'Barrier Compromised Grade II';
+        document.getElementById('quizProfileTitle').textContent = 'Sensitized Lipid-Deficient Barrier';
+        document.getElementById('quizProfileDesc').textContent = 'Lapisan pelindung kulit Anda mengalami defisit ceramide dan kolesterol alami, memicu penguapan air transepidermal tinggi dan rasa perih.';
+        document.getElementById('prescribeTmt').textContent = 'Prosedur: Ceramide Hydro-Infusion Treatment';
+        document.getElementById('prescribeHome').textContent = 'Home Care: 5% Multi-Ceramide Barrier Balm';
+        document.getElementById('prescribeLed').textContent = 'Terapi Cahaya: 630nm Collagen Red Light (20 Menit)';
+      } else if (q1 === 'oily' || q2 === 'clog') {
+        document.getElementById('quizBadgeStatus').textContent = 'Reactive Dehydrated Acne Barrier';
+        document.getElementById('quizProfileTitle').textContent = 'Congested Moisture-Depleted Skin';
+        document.getElementById('quizProfileDesc').textContent = 'Kulit memproduksi sebum berlebih sebagai mekanisme darurat karena lapisan dalam mengalami dehidrasi kronis dan folikel tersumbat.';
+        document.getElementById('prescribeTmt').textContent = 'Prosedur: Mandelic Skin Clearing & Hydro-Flush';
+        document.getElementById('prescribeHome').textContent = 'Home Care: Mandelic 8% + Ectoin Calming Gel';
+        document.getElementById('prescribeLed').textContent = 'Terapi Cahaya: 415nm Twilight Lavender Purifier (15 Menit)';
+      } else {
+        document.getElementById('quizBadgeStatus').textContent = 'Mild Environmental Barrier Stress';
+        document.getElementById('quizProfileTitle').textContent = 'Photo-Stressed Sensitive Barrier';
+        document.getElementById('quizProfileDesc').textContent = 'Paparan pendingin ruangan atau sinar UV mengurangi fleksibilitas lapisan terluar, memerlukan penguncian kelembaban dan antioksidan.';
+        document.getElementById('prescribeTmt').textContent = 'Prosedur: Soothing Amber Calm Treatment';
+        document.getElementById('prescribeHome').textContent = 'Home Care: Barrier Recovery Kit 3-Langkah';
+        document.getElementById('prescribeLed').textContent = 'Terapi Cahaya: 590nm Soothing Amber Light (15 Menit)';
+      }
+    }
+
+    function addPrescriptionToCart() {
+      const title = document.getElementById('quizProfileTitle').textContent;
+      const tmt = document.getElementById('prescribeTmt').textContent;
+
+      cart.push({
+        id: 'quiz-prescribe-' + Date.now(),
+        name: 'Regimen: ' + title,
+        price: 850000,
+        priceStr: 'Rp 850.000',
+        meta: tmt,
+        img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=400&q=80'
+      });
+
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    /* ==========================================================================
+       CART & STATE
+       ========================================================================== */
+    let cart = [];
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    function renderCatalog(filter = 'all') {
+      const grid = document.getElementById('catalogGrid');
+      const filtered = filter === 'all' ? catalogData : catalogData.filter(c => c.type === filter);
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="treatment-card">
+          <div class="card-photo-box">
+            <img src="${item.img}" alt="${item.name}" loading="lazy">
+            <span class="card-category-badge">${item.typeName}</span>
+          </div>
+          <div class="card-content-body">
+            <div class="card-title-row">
+              <h4 class="treatment-title">${item.name}</h4>
+              <span class="treatment-price">${item.price}</span>
+            </div>
+            <p class="treatment-desc">${item.desc}</p>
+            <div class="treatment-chips">
+              ${item.chips.map(c => `<span class="chip-pill">${c}</span>`).join('')}
+            </div>
+            <div class="card-actions-bar">
+              <button class="btn-add-regimen" onclick="addToCart('${item.id}')">
+                + Tambah ke Regimen
+              </button>
+              <button class="btn-book-quick" onclick="openBookingModal()">
+                Konsultasi
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCatalog(category, btnElement) {
+      document.querySelectorAll('.btn-filter-pill').forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+      renderCatalog(category);
+    }
+
+    function addToCart(itemId) {
+      const item = catalogData.find(c => c.id === itemId);
+      if (!item) return;
+
+      cart.push({
+        id: item.id + '-' + Date.now(),
+        name: item.name,
+        price: item.priceNum,
+        priceStr: item.price,
+        meta: item.typeName,
+        img: item.img
+      });
+
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    function toggleCartDrawer(forceOpen = null) {
+      const overlay = document.getElementById('cartOverlay');
+      if (forceOpen === true) {
+        overlay.classList.add('open');
+      } else if (forceOpen === false) {
+        overlay.classList.remove('open');
+      } else {
+        overlay.classList.toggle('open');
+      }
+    }
+
+    function removeCartItem(idx) {
+      cart.splice(idx, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('navCartBadge');
+      badge.textContent = cart.length;
+
+      const list = document.getElementById('drawerItemsList');
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div style="text-align: center; padding: 48px 16px; color: var(--derma-muted);">
+            <div style="font-size: 32px; margin-bottom: 12px;">🧪</div>
+            <p style="font-family: var(--font-display); font-size: 18px; color: var(--derma-ink); margin-bottom: 6px;">Arsip Regimen Masih Kosong</p>
+            <p style="font-size: 13px;">Lakukan tes skin barrier 60 detik atau pilih formula perawatan untuk memulai konsultasi dokter.</p>
+          </div>
+        `;
+        document.getElementById('drawerSubtotal').textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      list.innerHTML = cart.map((item, idx) => {
+        subtotal += item.price;
+        return `
+          <div class="cart-item-card">
+            <img src="${item.img}" alt="${item.name}" class="cart-item-thumb">
+            <div class="cart-item-details">
+              <span class="cart-item-title">${item.name}</span>
+              <span class="cart-item-meta">${item.meta}</span>
+              <div class="cart-item-row-bot">
+                <span class="cart-item-price">${item.priceStr}</span>
+                <button class="btn-del-item" onclick="removeCartItem(${idx})">Hapus</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('drawerSubtotal').textContent = formatRupiah(subtotal);
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Arsip regimen Anda masih kosong.');
+        return;
+      }
+
+      let text = 'Halo AURA DERMA CLINIQUE, saya ingin mengonfirmasi konsultasi & pesanan regimen kulit berikut:\n\n';
+      let total = 0;
+      cart.forEach((item, i) => {
+        text += `${i + 1}. ${item.name} (${item.priceStr})\n   Kategori: ${item.meta}\n`;
+        total += item.price;
+      });
+      text += `\nEstimasi Total: ${formatRupiah(total)}\n\nMohon jadwal temu dokter spesialis kulit Sp.D.V.E terdekat. Terima kasih!`;
+
+      const url = 'https://wa.me/6281234567890?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+    }
+
+    /* ==========================================================================
+       MODAL HANDLERS
+       ========================================================================= */
+    function openBookingModal() {
+      document.getElementById('bookingModal').classList.add('open');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.remove('open');
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      alert('Terima kasih! Tim administrasi medis AURA DERMA akan mengonfirmasi slot dokter via WhatsApp dalam waktu 30 menit.');
+      closeBookingModal();
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCatalog();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>

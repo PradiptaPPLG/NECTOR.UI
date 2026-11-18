@@ -97,6 +97,7 @@ export const TemplateThumbnail: React.FC<Props> = ({ template, showBrowserChrome
     'chidori-kyoto-wagashi': 'https://chidoriasahi.nector.ui',
     'etoile-bridal-couture': 'https://etoilecouture.nector.ui',
     'tatah-artisanal-leather': 'https://tatah.leather.nector.ui',
+    'aura-derma-clinic': 'https://auraderma.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;
