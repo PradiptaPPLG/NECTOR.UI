@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'apiculture',
+      title: 'Madu Hutan & Apikultur',
+      icon: TreePine,
+      desc: 'Arsip madu hutan liar Nusantara & botanical pantry: pemilih 4 terroir kanopi hutan, studio racik boks kado flight 3-jar kustom, slider uji kadar air lab SNI, dan keranjang WhatsApp.',
+      accent: '#15370D'
+    },
     {
       id: 'packaging',
       title: 'Kemasan & Sablon Kustom',

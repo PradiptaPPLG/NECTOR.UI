@@ -1448,6 +1448,91 @@ export function TanahLiatStudio() {
       { hex: '#B7D894', rgb: 'rgb(183, 216, 148)', name: 'Matcha Pistachio Sage', role: 'Botanical Fiber Action & Key CTA Button' },
       { hex: '#E0F8C7', rgb: 'rgb(224, 248, 199)', name: 'Pale Celadon Dew', role: 'Fresh Eco Highlight, Tag Fill & Card Tint' }
     ]
+  },
+  {
+    id: 'tpl-22',
+    slug: 'wana-wild-honey',
+    title: 'WANA (Wild Forest Honey & Botanical Pantry)',
+    tagline: 'Arsip madu hutan liar Nusantara, panen kanopi lestari, dan kurasi botanikal tanpa pemanasan buatan',
+    description: 'Template website artisanal apiculture & botanical pantry dengan palet warna hutan purba Deep Hunter Forest Green (#15370D), Sage Fern Foliage (#728E6D), Warm Harvest Honeycomb (#E5CD82), dan Cream Butter Sunlight (#FFF2B4). Dilengkapi pemilih 4 terroir kanopi hutan Indonesia, Studio Racik Kado Tasting Flight 3-Jar Kustom (boks kayu pinus dengan segel lilin lebah murni), inspektur kadar air & viskositas laboratorium SNI 8664:2018, katalog 6 madu mentah & sarang utuh, protokol panen lestari tanpa asap membakar, serta slide-over keranjang pemesanan WhatsApp resmi.',
+    category: 'apiculture',
+    tags: ['Apiculture', 'Raw Honey', 'Madu Hutan Liar', 'Botanical Pantry', 'Tasting Flight Builder', 'Sumbawa Karst', 'Trigona Klanceng', 'WhatsApp Checkout', 'UMKM Artisan'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Interactive Terroir Selector', 'Custom Flight Coffret Builder', 'Laboratory Viscosity Slider', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'apiculture',
+    previewComponentKey: 'apiculture-wana-honey',
+    htmlPath: '/templates/apiculture/wana-honey.html',
+    htmlFolderPath: 'templates/apiculture/wana-honey.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Terroir Selector 4 wilayah kanopi hutan liar (Riau Peat, Sumbawa Karst, Gunung Prau Trigona, Java Randu) dengan data elevasi & uji bioaktif',
+      'Studio Racik Kado Tasting Flight 3-Jar Kustom (3×150g) dengan visualisasi boks kayu pinus, pilihan warna segel lilin lebah, dan pesan kartu kaligrafi',
+      'Inspektur kadar air laboratorium interaktif (15.0% - 23.5%) dengan evaluasi mutu SNI 8664:2018 dan enzim diastase real-time',
+      'Katalog 6 madu hutan liar, sarang madu murni utuh, dan ramuan botani dengan pencarian instan dan filter kategori',
+      'Modal Quick-View detail produk dengan tabel spesifikasi lab batch dan rekomendasi konsumsi ritual pagi',
+      'Slide-over keranjang belanja terintegrasi WhatsApp dengan pengecekan batas bonus sendok kayu jati ulir (min. Rp 350.000)'
+    ],
+    usageInstructions: [
+      'Buka templates/apiculture/wana-honey.html di editor kode Anda.',
+      'Sesuaikan daftar koleksi madu, harga, dan catatan rasa pada objek CATALOG_PRODUCTS di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan resmi pada fungsi checkoutWhatsApp dan openWhatsAppContact.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase apikultur langsung aktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'wana-honey.html',
+        language: 'html',
+        content: `<!-- WANA (和名) — Wild Forest Honey & Botanical Pantry -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>WANA — Arsip Madu Hutan Liar Nusantara</title>
+  <style>
+    :root {
+      --forest-dark: #15370D;
+      --sage-foliage: #728E6D;
+      --gold-harvest: #E5CD82;
+      --cream-butter: #FFF2B4;
+      --cream-paper: #FAF8F2;
+      --ink-primary: #12210E;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">PANEN LESTARI KANOPI HUTAN SUMBAWA & RIAU • KADAR AIR < 18% • UJI LAB COA DIASTASE DN 11.4</div>
+  <header>
+    <div class="brand-monogram">WN</div>
+    <h1>WANA</h1>
+    <nav>Terroir Hutan · Tasting Flight · Uji Kemurnian · Katalog Madu · Etika Panen</nav>
+  </header>
+  <!-- Full Interactive Apiculture Experience: Terroir Selector, Tasting Flight Builder & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website arsip madu hutan liar dan botanical pantry WANA dengan palet warna Deep Hunter Forest Green (#15370D), Sage Fern Foliage (#728E6D), Warm Harvest Honeycomb (#E5CD82), dan Cream Butter Sunlight (#FFF2B4). Dilengkapi pemilih terroir 4 wilayah hutan, studio kado tasting flight 3-jar boks kayu, inspektur kadar air viskositas lab SNI, etalase 6 madu liar murni, dan slide-over cart WhatsApp.',
+      designDirection: 'Luxury botanical apiculture & artisanal pantry berstandar antislop: Deep Hunter Forest Green (#15370D), Sage Fern Foliage (#728E6D), Warm Harvest Honeycomb (#E5CD82), Cream Butter Sunlight (#FFF2B4), dan Warm Linen Paper Ground (#FAF8F2). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top harvest ticker pine green, sticky editorial navbar dengan monogram WN, hero asymmetric showcase 2 kolom dengan spotlight toples madu signature, panel terroir 4 wilayah dengan spesifikasi botani elevasi dpl, studio kustomisasi tasting flight 3-slot boks kayu 2 kolom, kartu inspektur laboratorium dengan slider kadar air interaktif, grid katalog 6 produk 3 kolom responsif, komitmen panen lestari 3 kolom, dan slide-over cart drawer kanan.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk editorial mewah dan terroir hutan, Plus Jakarta Sans untuk teks bodi dan kontrol navigasi, JetBrains Mono untuk metrik kadar air persentase, enzim diastase DN 11.4, batas SNI 8664:2018, dan rincian harga rupiah.',
+      interactions: 'Pilihan terroir dengan pembaruan profil nektar instan, builder boks kayu 3-slot dengan live visual preview dan pemilih segel lilin lebah, slider kadar air laboratorium dengan update evaluasi grade mutu real-time, filter katalog tanpa reload, modal quick view detail batch, dan slide-over cart WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive dari smartphone 360px hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#15370D',
+    colorPalette: [
+      { hex: '#15370D', rgb: 'rgb(21, 55, 13)', name: 'Deep Hunter Forest Green', role: 'Primary Anchor / Ancient Canopy & Dark Contrast' },
+      { hex: '#728E6D', rgb: 'rgb(114, 142, 109)', name: 'Sage Fern Foliage', role: 'Secondary Botanical Tone & Herbaceous Accent' },
+      { hex: '#E5CD82', rgb: 'rgb(229, 205, 130)', name: 'Warm Harvest Honeycomb', role: 'Amber Honey Action & Key Border Accent' },
+      { hex: '#FFF2B4', rgb: 'rgb(255, 242, 180)', name: 'Cream Butter Sunlight', role: 'Royal Jelly Highlight, Badge Fill & Warm Tint' }
+    ]
   }
 ];
 

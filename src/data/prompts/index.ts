@@ -21,8 +21,10 @@ import { KURA_APPAREL_MASTER_PROMPT } from './fashionPrompt';
 import { MAISON_NOCTURNE_MASTER_PROMPT } from './perfumeryPrompt';
 import { ARUNG_FOOTWEAR_MASTER_PROMPT } from './footwearPrompt';
 import { KEMAS_LAB_MASTER_PROMPT } from './packagingPrompt';
+import { WANA_APICULTURE_MASTER_PROMPT } from './apiculturePrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'wana-wild-honey': WANA_APICULTURE_MASTER_PROMPT,
   'kemas-lab-packaging': KEMAS_LAB_MASTER_PROMPT,
   'arung-technical-footwear': ARUNG_FOOTWEAR_MASTER_PROMPT,
   'maison-nocturne-parfumerie': MAISON_NOCTURNE_MASTER_PROMPT,
