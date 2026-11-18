@@ -1950,6 +1950,89 @@ export function TanahLiatStudio() {
       { hex: '#FFD1D1', rgb: 'rgb(255, 209, 209)', name: 'Soft Peach Blossom', role: 'Rosewater Daifuku Tint, Hairline Separator & Pill Accent' },
       { hex: '#FF9494', rgb: 'rgb(255, 148, 148)', name: 'Vibrant Ichigo Coral', role: 'Fresh Strawberry Rouge, Primary CTA Button & Seasonal Focus' }
     ]
+  },
+  {
+    id: 'tpl-28',
+    slug: 'etoile-bridal-couture',
+    title: 'ÉTOILE BRIDAL (Bespoke Silk Gowns & Haute Veil Atelier)',
+    tagline: 'Atelier gaun pengantin sutra kustom, veil bordir tangan warisan Prancis, dan salon fitting privat',
+    description: 'Template website atelier gaun pengantin couture ÉTOILE BRIDAL dengan palet warna Porcelain Whisper Silk (#F9F5F6), Delicate Blush Mist (#F8E8EE), Soft Rose Quartz (#FDCEDF), dan Vintage Peony Mauve (#F2BED1). Dilengkapi inspektur 4 siluet gaun arsitektural (The Celeste, The Vivienne, The Seraphina, The Colette), studio perakit veil kustom dengan bordir inisial monogram & tanggal pernikahan live, formulir buku swatch kain sutra gratis, katalog 6 busana & aksesori bridal, serta laci keranjang arsip dan modal reservasi fitting privat VIP.',
+    category: 'wedding',
+    tags: ['Bridal', 'Wedding Gown', 'Haute Couture', 'Silk Veil', 'Hand Embroidery', 'Mulberry Silk', 'Chantilly Lace', 'Private Salon Fitting', 'Luxury Atelier'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Architectural Silhouette Inspector', 'Custom Monogram Veil Studio', 'Fabric Swatch Book Requester', 'WhatsApp VIP Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'wedding-etoile',
+    htmlPath: '/templates/wedding/etoile-bridal.html',
+    htmlFolderPath: 'templates/wedding/etoile-bridal.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Inspektur 4 siluet gaun arsitektural (A-Line, Mermaid, Royal Ballgown, Column) dengan spesifikasi teknis kain, panjang train, dan boning internal',
+      'Studio kustomisasi veil & bordir tangan live: pengaturan 4 panjang kelambu (100cm-300cm), 4 tepian renda Prancis, dan kaligrafi monogram inisial/tanggal',
+      'Layanan pemesanan buku swatch kain sutra mulberry 100% dan renda Chantilly gratis dalam boks wax-seal resmi',
+      'Katalog 6 busana dan aksesori bridal couture dengan filter kategori cepat tanpa reload halaman',
+      'Laci keranjang belanja geser (slide-over cart) terintegrasi WhatsApp VIP Concierge dan garansi fitting sempurna',
+      'Standar kriya antislop dengan palet peony blush (#F9F5F6, #F8E8EE, #FDCEDF, #F2BED1) dan tipografi Cormorant Garamond yang anggun'
+    ],
+    usageInstructions: [
+      'Buka templates/wedding/etoile-bridal.html di editor kode Anda.',
+      'Sesuaikan daftar siluet gaun, harga, dan spesifikasi kain pada objek silhouettesData di dalam tag <script>.',
+      'Kustomisasi opsi kelambu veil, trim renda, dan harga dasar pada array veilLengths dan veilTrims.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk atelier bridal langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'etoile-bridal.html',
+        language: 'html',
+        content: `<!-- ÉTOILE BRIDAL COUTURE — Bespoke Silk Gowns & Haute Veil Atelier -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>ÉTOILE BRIDAL COUTURE — Atelier Gaun Pengantin Sutra</title>
+  <style>
+    :root {
+      --etoile-porcelain: #F9F5F6;
+      --etoile-mist: #F8E8EE;
+      --etoile-blush: #FDCEDF;
+      --etoile-mauve: #F2BED1;
+      --etoile-ink: #22161B;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">180 JAM JAHIT TANGAN SUTRA MULBERRY 100% • RENDA PRANCIS CAUDRY • SALON FITTING PRIVAT VIP VILLA DAGO BANDUNG</div>
+  <header>
+    <div class="brand">ÉTOILE BRIDAL</div>
+    <nav>Koleksi Siluet · Studio Veil & Bordir · Buku Swatch Kain · Katalog Gaun · Fitting Privat VIP</nav>
+  </header>
+  <!-- Full Interactive Bridal Atelier: 4-Silhouette Inspector, Bespoke Monogram Veil Studio & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier gaun pengantin couture ÉTOILE BRIDAL dengan palet warna Porcelain Whisper Silk (#F9F5F6), Delicate Blush Mist (#F8E8EE), Soft Rose Quartz (#FDCEDF), dan Vintage Peony Mauve (#F2BED1). Dilengkapi inspektur 4 siluet gaun arsitektural (The Celeste, The Vivienne, The Seraphina, The Colette), studio perakit veil kustom dengan bordir inisial monogram & tanggal pernikahan live, formulir buku swatch kain sutra gratis, katalog 6 busana & aksesori bridal, serta laci keranjang arsip dan modal reservasi fitting privat VIP.',
+      designDirection: 'Haute couture bridal atelier berstandar antislop: Porcelain Whisper Silk (#F9F5F6), Delicate Blush Mist (#F8E8EE), Soft Rose Quartz (#FDCEDF), Vintage Peony Mauve (#F2BED1), dan Deep Blackberry Plum Ink (#22161B). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top atelier ticker blush mist, sticky silk navbar dengan navigasi non-wrapping kokoh, hero showcase 2 kolom dengan telemetri 180 jam bordir tangan, panel inspektur 4 siluet gaun arsitektural, studio kelambu veil interaktif dengan kaligrafi live, seksi swatch box requester, grid katalog 6 busana bridal 3 kolom, dan drawer keranjang belanja.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk utama keanggunan couture Prancis, Plus Jakarta Sans untuk teks bodi dan kontrol tombol interaktif, JetBrains Mono untuk panjang train, jumlah boning, gramatur, dan rincian harga rupiah.',
+      interactions: 'Tab pemilih 4 siluet gaun seketika dengan pembaruan foto dan spesifikasi teknis, studio veil interaktif dengan live monogram embroidery generator, formulir pemesanan swatch box gratis, dan drawer keranjang terintegrasi WhatsApp VIP Concierge.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#F2BED1',
+    colorPalette: [
+      { hex: '#F9F5F6', rgb: 'rgb(249, 245, 246)', name: 'Porcelain Whisper Silk', role: 'Clean Bridal Canvas Ground, Card Tint & Silk Drapery Base' },
+      { hex: '#F8E8EE', rgb: 'rgb(248, 232, 238)', name: 'Delicate Blush Mist', role: 'Soft Swatch Base, Secondary Card Fill & Veil Mesh Tone' },
+      { hex: '#FDCEDF', rgb: 'rgb(253, 206, 223)', name: 'Soft Rose Quartz', role: 'Peony Petal Accent, Hairline Borders & Active Pill Tint' },
+      { hex: '#F2BED1', rgb: 'rgb(242, 190, 209)', name: 'Vintage Peony Mauve', role: 'Primary Atelier Accent, Action CTA Buttons & Ribbon Focus' }
+    ]
   }
 ];
 

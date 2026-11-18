@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'wedding',
+      title: 'Bridal & Gaun Pengantin Couture',
+      icon: Heart,
+      desc: 'Atelier gaun pengantin sutra kustom: inspektur 4 siluet couture arsitektural, studio perakit veil dengan bordir inisial monogram & tanggal pernikahan live, buku swatch kain sutra gratis, dan reservasi salon privat.',
+      accent: '#F2BED1'
+    },
     {
       id: 'wagashi',
       title: 'Wagashi & Nerikiri Musiman',

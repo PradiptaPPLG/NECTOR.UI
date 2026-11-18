@@ -1,0 +1,2458 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÉTOILE BRIDAL COUTURE — Atelier Gaun Pengantin Sutra & Veil Bordir Kustom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       ÉTOILE BRIDAL COUTURE — PALET WARNA RESMI USER SPEC
+       #F9F5F6 : Porcelain Whisper Silk (Canvas Ground)
+       #F8E8EE : Delicate Blush Mist (Card Base & Mesh Tone)
+       #FDCEDF : Soft Rose Quartz (Pill Border & Active States)
+       #F2BED1 : Vintage Peony Mauve (Primary Atelier Accent & CTA)
+       #22161B : Deep Blackberry Plum Ink (Contrast Typography WCAG AAA)
+       ========================================================================== */
+    :root {
+      --etoile-porcelain: #F9F5F6;
+      --etoile-mist: #F8E8EE;
+      --etoile-blush: #FDCEDF;
+      --etoile-mauve: #F2BED1;
+      --etoile-mauve-dark: #D89FB5;
+      --etoile-ink: #22161B;
+      --etoile-muted: #6E5661;
+      --etoile-border: rgba(242, 190, 209, 0.38);
+      --etoile-border-subtle: rgba(34, 22, 27, 0.08);
+      --etoile-card-shadow: 0 12px 36px -10px rgba(34, 22, 27, 0.06), 0 2px 6px -1px rgba(34, 22, 27, 0.03);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --container-max: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--etoile-porcelain);
+      color: var(--etoile-ink);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --------------------------------------------------------------------------
+       TOP TICKER / ATELIER CRAFT DISCLOSURE
+       -------------------------------------------------------------------------- */
+    .top-ticker {
+      background-color: var(--etoile-mist);
+      border-bottom: 1px solid var(--etoile-border);
+      padding: 8px 16px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--etoile-muted);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      animation: tickerRoll 45s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ticker-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--etoile-mauve);
+      border-radius: 50%;
+    }
+
+    @keyframes tickerRoll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* --------------------------------------------------------------------------
+       EDITORIAL STICKY NAVBAR (ANTI-SLOP NO-WRAP)
+       Strict single-line layout: all items flex-shrink: 0, white-space: nowrap
+       -------------------------------------------------------------------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(249, 245, 246, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--etoile-border);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .brand-monogram {
+      width: 38px;
+      height: 38px;
+      background-color: var(--etoile-mist);
+      border: 1px solid var(--etoile-mauve);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+      box-shadow: 0 2px 8px rgba(242, 190, 209, 0.3);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--etoile-ink);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--etoile-muted);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-shrink: 0;
+    }
+
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--etoile-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.18s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--etoile-ink);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--etoile-mauve);
+      border-radius: 1px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-nav-custom {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--etoile-mist);
+      color: var(--etoile-ink);
+      border: 1px solid var(--etoile-mauve);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-custom:hover {
+      background: var(--etoile-blush);
+      border-color: var(--etoile-mauve-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-nav-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--etoile-ink);
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-cart:hover {
+      background: #3B242E;
+      transform: translateY(-1px);
+    }
+
+    .cart-count-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--etoile-mauve);
+      color: var(--etoile-ink);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* --------------------------------------------------------------------------
+       HERO EDITORIAL SHOWCASE
+       -------------------------------------------------------------------------- */
+    .hero-section {
+      padding: 64px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .atelier-provenance {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      background: var(--etoile-mist);
+      border: 1px solid var(--etoile-blush);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.08em;
+      color: var(--etoile-muted);
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 52px;
+      line-height: 1.12;
+      font-weight: 600;
+      color: var(--etoile-ink);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: #9C526F;
+    }
+
+    .hero-description {
+      font-size: 16px;
+      color: var(--etoile-muted);
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    .hero-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 18px 0;
+      border-top: 1px solid var(--etoile-border);
+      border-bottom: 1px solid var(--etoile-border);
+    }
+
+    .metric-box {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--etoile-ink);
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.06em;
+      color: var(--etoile-muted);
+      text-transform: uppercase;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .btn-primary-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--etoile-mauve);
+      color: var(--etoile-ink);
+      border: 1px solid var(--etoile-mauve-dark);
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14.5px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(242, 190, 209, 0.45);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary-hero:hover {
+      background: #E8ADC2;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(242, 190, 209, 0.55);
+    }
+
+    .btn-secondary-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--etoile-ink);
+      border: 1px solid var(--etoile-border-subtle);
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary-hero:hover {
+      background: var(--etoile-mist);
+      border-color: var(--etoile-mauve);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      background: var(--etoile-mist);
+      border: 1px solid var(--etoile-border);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: var(--etoile-card-shadow);
+    }
+
+    .hero-image-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: #EED7DF;
+      position: relative;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      right: 28px;
+      background: rgba(249, 245, 246, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--etoile-border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(34, 22, 27, 0.1);
+    }
+
+    .badge-info-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .badge-gown-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--etoile-ink);
+    }
+
+    .badge-gown-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--etoile-muted);
+    }
+
+    .badge-pill-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--etoile-blush);
+      border: 1px solid var(--etoile-mauve);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    /* --------------------------------------------------------------------------
+       SECTION HEADER COMMON
+       -------------------------------------------------------------------------- */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--etoile-muted);
+      margin-bottom: 10px;
+    }
+
+    .section-eyebrow::before, .section-eyebrow::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background-color: var(--etoile-mauve);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--etoile-muted);
+      line-height: 1.6;
+    }
+
+    /* --------------------------------------------------------------------------
+       INTERACTIVE COUTURE SILHOUETTE INSPECTOR
+       -------------------------------------------------------------------------- */
+    .silhouette-section {
+      padding: 64px 0 80px;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--etoile-border);
+      border-bottom: 1px solid var(--etoile-border);
+    }
+
+    .silhouette-tabs-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .sil-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--etoile-porcelain);
+      border: 1px solid var(--etoile-border-subtle);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--etoile-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .sil-tab-btn:hover {
+      background: var(--etoile-mist);
+      color: var(--etoile-ink);
+    }
+
+    .sil-tab-btn.active {
+      background: var(--etoile-mist);
+      border-color: var(--etoile-mauve);
+      color: var(--etoile-ink);
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(242, 190, 209, 0.25);
+    }
+
+    .silhouette-stage-card {
+      background: var(--etoile-porcelain);
+      border: 1px solid var(--etoile-border);
+      border-radius: 20px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: var(--etoile-card-shadow);
+    }
+
+    .sil-preview-frame {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--etoile-mist);
+      border: 1px solid var(--etoile-border);
+      position: relative;
+    }
+
+    .sil-preview-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .sil-details {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .sil-header-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--etoile-border);
+      padding-bottom: 14px;
+    }
+
+    .sil-name {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    .sil-price {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    .sil-description {
+      font-size: 15px;
+      color: var(--etoile-muted);
+      line-height: 1.7;
+    }
+
+    .sil-specs-table {
+      background: #FFFFFF;
+      border: 1px solid var(--etoile-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px 20px;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .spec-key {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--etoile-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .spec-val {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    .sil-actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    /* --------------------------------------------------------------------------
+       BESPOKE VEIL & MONOGRAM EMBROIDERY STUDIO (SPECIAL INTERACTIVE LAB)
+       -------------------------------------------------------------------------- */
+    .veil-studio-section {
+      padding: 80px 0;
+      background: var(--etoile-porcelain);
+      position: relative;
+    }
+
+    .veil-studio-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .veil-canvas-card {
+      background: var(--etoile-mist);
+      border: 1px solid var(--etoile-border);
+      border-radius: 20px;
+      padding: 28px;
+      position: sticky;
+      top: 100px;
+      box-shadow: var(--etoile-card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .veil-canvas-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .canvas-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--etoile-ink);
+    }
+
+    .canvas-scale-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      background: #FFFFFF;
+      border: 1px solid var(--etoile-border);
+      border-radius: 999px;
+      color: var(--etoile-muted);
+    }
+
+    .veil-visual-display {
+      position: relative;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #F9F5F6 0%, #F4E2E9 100%);
+      border: 1px solid var(--etoile-border);
+      height: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 10px rgba(242, 190, 209, 0.2);
+    }
+
+    .veil-drapery-mesh {
+      position: absolute;
+      top: 20px;
+      width: 78%;
+      height: 90%;
+      border: 1px dashed var(--etoile-mauve);
+      border-radius: 120px 120px 20px 20px;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(2px);
+      box-shadow: 0 10px 30px rgba(242, 190, 209, 0.35);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .veil-comb-pin {
+      position: absolute;
+      top: 10px;
+      background: #D4AF37;
+      height: 8px;
+      width: 50px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .monogram-embroidery-box {
+      text-align: center;
+      padding: 12px 20px;
+      border: 1px solid rgba(242, 190, 209, 0.5);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.85);
+      max-width: 80%;
+      transition: all 0.25s ease;
+    }
+
+    .embroidery-initials {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 600;
+      color: #7A3D54;
+      letter-spacing: 0.15em;
+      line-height: 1.1;
+      text-shadow: 0 1px 2px rgba(242, 190, 209, 0.4);
+    }
+
+    .embroidery-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--etoile-muted);
+      margin-top: 4px;
+    }
+
+    .canvas-summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--etoile-border);
+      padding-top: 16px;
+    }
+
+    .canvas-price-tag {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--etoile-ink);
+    }
+
+    .veil-controls-column {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .control-block {
+      background: #FFFFFF;
+      border: 1px solid var(--etoile-border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--etoile-card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .control-block-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .control-subtitle {
+      font-size: 12.5px;
+      color: var(--etoile-muted);
+      margin-top: -8px;
+    }
+
+    .radio-grid-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .option-pill-label {
+      border: 1px solid var(--etoile-border-subtle);
+      background: var(--etoile-porcelain);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .option-pill-label:hover {
+      background: var(--etoile-mist);
+      border-color: var(--etoile-mauve);
+    }
+
+    .option-pill-label.selected {
+      background: var(--etoile-mist);
+      border-color: var(--etoile-mauve);
+      box-shadow: 0 0 0 1px var(--etoile-mauve);
+    }
+
+    .pill-opt-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    .pill-opt-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--etoile-muted);
+    }
+
+    .embroidery-input-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .input-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .input-field-group label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--etoile-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .input-field-group input {
+      background: var(--etoile-porcelain);
+      border: 1px solid var(--etoile-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: var(--etoile-ink);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .input-field-group input:focus {
+      border-color: var(--etoile-mauve);
+      background: #FFFFFF;
+    }
+
+    /* --------------------------------------------------------------------------
+       COMPLIMENTARY SWATCH BOOK REQUEST SECTION
+       -------------------------------------------------------------------------- */
+    .swatch-section {
+      padding: 72px 0;
+      background: var(--etoile-mist);
+      border-top: 1px solid var(--etoile-border);
+      border-bottom: 1px solid var(--etoile-border);
+    }
+
+    .swatch-card-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--etoile-border);
+      border-radius: 20px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      box-shadow: var(--etoile-card-shadow);
+    }
+
+    .swatch-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .swatch-samples-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 12px 0;
+    }
+
+    .swatch-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border: 1px solid var(--etoile-border);
+      border-radius: 10px;
+      background: var(--etoile-porcelain);
+    }
+
+    .swatch-color-chip {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+
+    .swatch-meta-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swatch-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    .swatch-type {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--etoile-muted);
+    }
+
+    .swatch-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: var(--etoile-porcelain);
+      border: 1px solid var(--etoile-border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    .btn-submit-swatch {
+      background: var(--etoile-ink);
+      color: #FFFFFF;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 4px;
+    }
+
+    .btn-submit-swatch:hover {
+      background: #3B242E;
+      transform: translateY(-1px);
+    }
+
+    /* --------------------------------------------------------------------------
+       CATALOG OF 6 COUTURE GOWNS & PIECES
+       -------------------------------------------------------------------------- */
+    .catalog-section {
+      padding: 80px 0;
+    }
+
+    .catalog-filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--etoile-border-subtle);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--etoile-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--etoile-mauve);
+      color: var(--etoile-ink);
+    }
+
+    .filter-btn.active {
+      background: var(--etoile-mist);
+      border-color: var(--etoile-mauve);
+      color: var(--etoile-ink);
+      font-weight: 600;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .catalog-card {
+      background: #FFFFFF;
+      border: 1px solid var(--etoile-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--etoile-card-shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .catalog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px -10px rgba(34, 22, 27, 0.1);
+    }
+
+    .card-photo-box {
+      aspect-ratio: 3 / 4;
+      background: var(--etoile-mist);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .catalog-card:hover .card-photo-box img {
+      transform: scale(1.03);
+    }
+
+    .card-category-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(249, 245, 246, 0.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--etoile-border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--etoile-ink);
+      font-weight: 500;
+    }
+
+    .card-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    .card-price {
+      font-family: var(--font-mono);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+      white-space: nowrap;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--etoile-muted);
+      line-height: 1.55;
+    }
+
+    .card-meta-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .meta-chip {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background: var(--etoile-porcelain);
+      border: 1px solid var(--etoile-border-subtle);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--etoile-muted);
+    }
+
+    .card-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--etoile-border);
+    }
+
+    .btn-card-add {
+      flex: 1;
+      background: var(--etoile-mist);
+      color: var(--etoile-ink);
+      border: 1px solid var(--etoile-mauve);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-align: center;
+    }
+
+    .btn-card-add:hover {
+      background: var(--etoile-blush);
+      border-color: var(--etoile-mauve-dark);
+    }
+
+    .btn-card-details {
+      background: transparent;
+      color: var(--etoile-muted);
+      border: 1px solid var(--etoile-border-subtle);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-card-details:hover {
+      color: var(--etoile-ink);
+      border-color: var(--etoile-mauve);
+      background: var(--etoile-porcelain);
+    }
+
+    /* --------------------------------------------------------------------------
+       SLIDE-OVER CART / WISHLIST DRAWER
+       -------------------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(34, 22, 27, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background: #FFFFFF;
+      box-shadow: -10px 0 40px rgba(34, 22, 27, 0.15);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer-overlay.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--etoile-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--etoile-porcelain);
+    }
+
+    .drawer-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--etoile-ink);
+    }
+
+    .btn-close-drawer {
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      color: var(--etoile-muted);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .drawer-items-list {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--etoile-border);
+    }
+
+    .cart-thumb {
+      width: 64px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: var(--etoile-mist);
+      flex-shrink: 0;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cart-item-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    .cart-item-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--etoile-muted);
+    }
+
+    .cart-item-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    .btn-item-del {
+      background: transparent;
+      border: none;
+      color: #9C526F;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .drawer-footer {
+      padding: 24px 28px;
+      border-top: 1px solid var(--etoile-border);
+      background: var(--etoile-porcelain);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .subtotal-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .subtotal-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--etoile-ink);
+    }
+
+    .btn-checkout-wa {
+      background: var(--etoile-ink);
+      color: #FFFFFF;
+      border: none;
+      padding: 13px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s ease;
+    }
+
+    .btn-checkout-wa:hover {
+      background: #3B242E;
+    }
+
+    /* --------------------------------------------------------------------------
+       VIP FITTING APPOINTMENT MODAL
+       -------------------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(34, 22, 27, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: #FFFFFF;
+      border: 1px solid var(--etoile-border);
+      border-radius: 20px;
+      width: 540px;
+      max-width: 95vw;
+      padding: 32px;
+      box-shadow: 0 20px 50px rgba(34, 22, 27, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--etoile-ink);
+    }
+
+    /* --------------------------------------------------------------------------
+       FOOTER
+       -------------------------------------------------------------------------- */
+    .site-footer {
+      background: var(--etoile-mist);
+      border-top: 1px solid var(--etoile-border);
+      padding: 64px 0 36px;
+      color: var(--etoile-ink);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--etoile-ink);
+    }
+
+    .footer-col-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13.5px;
+      color: var(--etoile-muted);
+    }
+
+    .footer-col-links a:hover {
+      color: var(--etoile-ink);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--etoile-border);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--etoile-muted);
+    }
+
+    /* --------------------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       -------------------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-grid, .silhouette-stage-card, .veil-studio-layout, .swatch-card-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .veil-canvas-card {
+        position: static;
+      }
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-nav {
+        display: none;
+      }
+      .hero-title {
+        font-size: 38px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Atelier Provenance & Craft Ticker -->
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ticker-dot"></span> 180 JAM JAHIT TANGAN SUTRA MULBERRY 100%</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> RENDA PERANCIS DARI CHANTILLY & CAUDRY</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> SALON FITTING PRIVAT VIP VILLA DAGO BANDUNG & MENTENG JAKARTA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> BORDIR INISIAL & TANGGAL PERNIKAHAN CUSTOM PADA HEM VEIL</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> 180 JAM JAHIT TANGAN SUTRA MULBERRY 100%</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> RENDA PERANCIS DARI CHANTILLY & CAUDRY</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> SALON FITTING PRIVAT VIP VILLA DAGO BANDUNG & MENTENG JAKARTA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> BORDIR INISIAL & TANGGAL PERNIKAHAN CUSTOM PADA HEM VEIL</div>
+    </div>
+  </div>
+
+  <!-- Editorial Sticky Navbar (Non-wrapping single-line) -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-mark">
+        <div class="brand-monogram">É</div>
+        <div class="brand-text">
+          <span class="brand-name">ÉTOILE BRIDAL</span>
+          <span class="brand-sub">HAUTE COUTURE MARIÉE</span>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <a href="#siluet" class="nav-link active">Koleksi Siluet</a>
+        <a href="#veil-studio" class="nav-link">Studio Veil & Bordir</a>
+        <a href="#swatch-box" class="nav-link">Buku Swatch Kain</a>
+        <a href="#katalog" class="nav-link">Katalog Gaun</a>
+        <a href="#fitting" class="nav-link" onclick="openFittingModal(); return false;">Fitting Privat VIP</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-nav-custom" onclick="document.getElementById('veil-studio').scrollIntoView({behavior: 'smooth'})">
+          <span>✨ Rancang Veil</span>
+        </button>
+        <button class="btn-nav-cart" onclick="toggleCartDrawer()">
+          <span>Arsip Gaun</span>
+          <span class="cart-count-badge" id="navCartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Editorial Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="atelier-provenance">
+          <span>ATELIER DE MARIÉE</span>
+          <span>•</span>
+          <span>EST. 2026</span>
+          <span>•</span>
+          <span>BANDUNG & PARIS</span>
+        </div>
+
+        <h1 class="hero-title">
+          Keanggunan gaun pengantin sutra dengan <em>jiwa kriya tangan</em> abadi.
+        </h1>
+
+        <p class="hero-description">
+          Setiap gaun dirancang secara arsitektural mengikuti lekuk tubuh alami calon mempelai wanita: dijahit menggunakan sutra mulberry organik, renda Chantilly tenun tangan Prancis, serta veil dengan bordir inisial monogram personal.
+        </p>
+
+        <div class="hero-metrics-row">
+          <div class="metric-box">
+            <span class="metric-value">180 Jam</span>
+            <span class="metric-label">Bordir Tangan Halus</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-value">4 Siluet</span>
+            <span class="metric-label">Koleksi Arsitektural</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-value">100% Sutra</span>
+            <span class="metric-label">Mulberry Bebas Sintetis</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="btn-primary-hero" onclick="openFittingModal()">
+            <span>💍 Reservasi Salon Fitting Privat</span>
+          </button>
+          <button class="btn-secondary-hero" onclick="document.getElementById('veil-studio').scrollIntoView({behavior: 'smooth'})">
+            <span>Rancang Veil Monogram →</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-visual-card">
+        <div class="hero-image-wrap">
+          <img src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=1200&q=80" alt="ÉTOILE Bridal Silk Gown & Veil" id="heroFeaturedImg">
+          <div class="hero-floating-badge">
+            <div class="badge-info-col">
+              <span class="badge-gown-title">The Celeste A-Line Organza</span>
+              <span class="badge-gown-meta">Koleksi Étoile Mariée • Train 2.2 Meter</span>
+            </div>
+            <div class="badge-pill-status">
+              <span>●</span> Ready for Fitting
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Couture Silhouette Inspector -->
+  <section class="silhouette-section" id="siluet">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">ARSITEKTUR ANATOMIS</span>
+        <h2 class="section-title">Eksplorasi 4 Siluet Ikonik Couture</h2>
+        <p class="section-subtitle">Pilih siluet untuk memeriksa material kain, konstruksi boning korset internal, dan rekomendasi tipe venue pernikahan.</p>
+      </div>
+
+      <div class="silhouette-tabs-bar" id="silhouetteTabs">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="silhouette-stage-card" id="silhouetteDisplay">
+        <div class="sil-preview-frame">
+          <img src="" alt="Gaun Pengantin Siluet" id="silImage">
+        </div>
+        <div class="sil-details">
+          <div class="sil-header-line">
+            <h3 class="sil-name" id="silName">The Celeste A-Line</h3>
+            <span class="sil-price" id="silPrice">Rp 28.500.000</span>
+          </div>
+          <p class="sil-description" id="silDesc">Gaun A-line mengalir bebas berbahan silk organza dengan korset semi-transparan berhiaskan kelopak bunga 3D bordir tangan.</p>
+          
+          <div class="sil-specs-table">
+            <div class="spec-item">
+              <span class="spec-key">Komposisi Kain</span>
+              <span class="spec-val" id="silFabric">100% Mulberry Silk Organza & French Tulle</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">Panjang Train Gaun</span>
+              <span class="spec-val" id="silTrain">2.2 Meter (Chapel Length)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">Konstruksi Internal</span>
+              <span class="spec-val" id="silBoning">16 Spiral Steel Bones & Built-in Bra Cup</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">Karakter Venue</span>
+              <span class="spec-val" id="silVenue">Garden Wedding, Glasshouse, Ballroom Katedral</span>
+            </div>
+          </div>
+
+          <div class="sil-actions-bar">
+            <button class="btn-primary-hero" onclick="addCurrentSilToCart()">
+              <span>+ Masukkan Gaun ke Arsip Pilihan</span>
+            </button>
+            <button class="btn-secondary-hero" onclick="openFittingModal()">
+              <span>Jadwalkan Fitting Gaun Ini</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Bespoke Veil & Monogram Embroidery Studio -->
+  <section class="veil-studio-section" id="veil-studio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">STUDIO VEIL & BORDIR TANGAN</span>
+        <h2 class="section-title">Kustomisasi Veil Pengantin & Monogram</h2>
+        <p class="section-subtitle">Sesuaikan panjang kelambu sutra, tepian renda Prancis, serta inisial nama dan tanggal sakral pernikahan Anda secara interaktif.</p>
+      </div>
+
+      <div class="veil-studio-layout">
+        <!-- Visual Preview Canvas -->
+        <div class="veil-canvas-card">
+          <div class="veil-canvas-header">
+            <h3 class="canvas-title">Preview Veil Sutra</h3>
+            <span class="canvas-scale-badge" id="veilScaleBadge">Panjang: Cathedral (300cm)</span>
+          </div>
+
+          <div class="veil-visual-display">
+            <div class="veil-comb-pin"></div>
+            <div class="veil-drapery-mesh" id="veilMeshBox">
+              <div class="monogram-embroidery-box" id="monogramBox">
+                <div class="embroidery-initials" id="previewInitials">C & J</div>
+                <div class="embroidery-date" id="previewDate">24 . 10 . 2026</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="canvas-summary-row">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--etoile-muted); text-transform: uppercase;">Estimasi Pengerjaan 3-4 Minggu</div>
+              <div class="canvas-price-tag" id="veilCalculatedPrice">Rp 6.200.000</div>
+            </div>
+            <button class="btn-nav-custom" onclick="addCustomVeilToCart()" style="padding: 10px 20px;">
+              <span>+ Simpan Rancangan Veil</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Controls Column -->
+        <div class="veil-controls-column">
+          <!-- Panjang Veil -->
+          <div class="control-block">
+            <div class="control-block-title">
+              <span>1. Panjang Veil Kelambu</span>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--etoile-muted);">4 Pilihan Panjang</span>
+            </div>
+            <div class="control-subtitle">Sesuaikan proporsi panjang kelambu terhadap siluet gaun dan ketinggian pelaminan.</div>
+            <div class="radio-grid-options" id="veilLengthOptions">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- Pilihan Tepian Renda -->
+          <div class="control-block">
+            <div class="control-block-title">
+              <span>2. Tepian Renda & Aplikasi</span>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--etoile-muted);">4 Desain Trim</span>
+            </div>
+            <div class="control-subtitle">Detail renda tenun tangan asal Caudry & mutiara air tawar alami.</div>
+            <div class="radio-grid-options" id="veilTrimOptions">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- Bordir Monogram Kustom -->
+          <div class="control-block">
+            <div class="control-block-title">
+              <span>3. Bordir Inisial & Tanggal Sakral</span>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: #9C526F;">Bordir Benang Emas/Rose</span>
+            </div>
+            <div class="control-subtitle">Bordir kaligrafi halus pada bagian ujung hem ekor veil.</div>
+            <div class="embroidery-input-grid">
+              <div class="input-field-group">
+                <label>Inisial Pengantin (Maks. 5 Karakter)</label>
+                <input type="text" id="inputInitials" value="C & J" maxlength="7" oninput="updateMonogramLive()">
+              </div>
+              <div class="input-field-group">
+                <label>Tanggal Pernikahan</label>
+                <input type="text" id="inputDate" value="24.10.2026" maxlength="12" oninput="updateMonogramLive()">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complimentary Swatch Book Requester -->
+  <section class="swatch-section" id="swatch-box">
+    <div class="container">
+      <div class="swatch-card-wrapper">
+        <div class="swatch-info-col">
+          <span class="section-eyebrow" style="text-align: left; margin: 0;">LAYANAN SAMPLE KAIN</span>
+          <h2 class="section-title" style="text-align: left; margin: 0; font-size: 34px;">Buku Swatch Kain Sutra ke Rumah Anda</h2>
+          <p class="section-subtitle" style="text-align: left; margin: 0;">
+            Rasakan langsung kelembutan sutra mulberry 100%, tenun renda Chantilly Prancis autentik, dan kemewahan mikado sutra sebelum memutuskan janji temu fitting.
+          </p>
+
+          <div class="swatch-samples-grid">
+            <div class="swatch-item">
+              <div class="swatch-color-chip" style="background: #F9F5F6;"></div>
+              <div class="swatch-meta-text">
+                <span class="swatch-name">Mulberry Silk Organza</span>
+                <span class="swatch-type">100% Sutra Organik • 22mm</span>
+              </div>
+            </div>
+            <div class="swatch-item">
+              <div class="swatch-color-chip" style="background: #F8E8EE;"></div>
+              <div class="swatch-meta-text">
+                <span class="swatch-name">French Chantilly Lace</span>
+                <span class="swatch-type">Bordir Caudry Tradisional</span>
+              </div>
+            </div>
+            <div class="swatch-item">
+              <div class="swatch-color-chip" style="background: #FDCEDF;"></div>
+              <div class="swatch-meta-text">
+                <span class="swatch-name">Blush Silk Charmeuse</span>
+                <span class="swatch-type">Draping Mengalir Lembut</span>
+              </div>
+            </div>
+            <div class="swatch-item">
+              <div class="swatch-color-chip" style="background: #F2BED1;"></div>
+              <div class="swatch-meta-text">
+                <span class="swatch-name">Heavy Silk Mikado</span>
+                <span class="swatch-type">Struktur Arsitektural Mewah</span>
+              </div>
+            </div>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--etoile-muted);">
+            ✨ Dikemas dalam boks bludru rose quartz berstempel segel lilin wax-seal resmi Étoile.
+          </div>
+        </div>
+
+        <form class="swatch-form" onsubmit="handleSwatchSubmit(event)">
+          <h3 class="form-title">Pesan Buku Swatch Gratis</h3>
+          <div class="input-field-group">
+            <label>Nama Calon Mempelai</label>
+            <input type="text" placeholder="misal: Clara Anggraeni" required>
+          </div>
+          <div class="input-field-group">
+            <label>Nomor WhatsApp</label>
+            <input type="tel" placeholder="misal: 0812-3456-7890" required>
+          </div>
+          <div class="input-field-group">
+            <label>Alamat Pengiriman Boks</label>
+            <input type="text" placeholder="Alamat lengkap, kota, kode pos" required>
+          </div>
+          <button type="submit" class="btn-submit-swatch">
+            Kirimkan Boks Swatch ke Rumah Saya
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Catalog of 6 Couture Pieces -->
+  <section class="catalog-section" id="katalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">KOLEKSI HAUTE COUTURE</span>
+        <h2 class="section-title">Katalog Gaun, Veil & Jubah Sutra</h2>
+        <p class="section-subtitle">Dibuat terbatas hanya 12 gaun per musim untuk mempertahankan kesempurnaan teknik jahit tangan perajin kami.</p>
+      </div>
+
+      <div class="catalog-filter-bar">
+        <button class="filter-btn active" onclick="filterCatalog('all', this)">Semua Koleksi (6)</button>
+        <button class="filter-btn" onclick="filterCatalog('gown', this)">Gaun Pengantin</button>
+        <button class="filter-btn" onclick="filterCatalog('veil', this)">Couture Veil</button>
+        <button class="filter-btn" onclick="filterCatalog('robe', this)">Bridal Robe Sutra</button>
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Wishlist / Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="if(event.target === this) toggleCartDrawer()">
+    <div class="cart-drawer">
+      <div class="drawer-header">
+        <h3 class="drawer-title">Arsip Gaun & Pilihan Anda</h3>
+        <button class="btn-close-drawer" onclick="toggleCartDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-items-list" id="drawerItemsList">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="subtotal-line">
+          <span>Estimasi Investasi Gaun</span>
+          <span class="subtotal-val" id="drawerSubtotal">Rp 0</span>
+        </div>
+        <p style="font-size: 11.5px; color: var(--etoile-muted); line-height: 1.5;">
+          * Termasuk 3x sesi fitting privat, konsultasi perancang, dan garansi penyesuaian ukuran hingga hari H.
+        </p>
+        <button class="btn-checkout-wa" onclick="checkoutWhatsApp()">
+          💍 Hubungi VIP Concierge via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIP Fitting Appointment Modal -->
+  <div class="modal-overlay" id="fittingModal" onclick="if(event.target === this) closeFittingModal()">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 class="modal-title">Reservasi Fitting Privat VIP</h3>
+        <button class="btn-close-drawer" onclick="closeFittingModal()">✕</button>
+      </div>
+      <p style="font-size: 13.5px; color: var(--etoile-muted);">
+        Nikmati sesi fitting eksklusif 120 menit diiringi sambutan champagne rosé, ditemani langsung oleh Lead Pattern Maker & Master Draper ÉTOILE.
+      </p>
+
+      <form onsubmit="handleFittingSubmit(event)" style="display: flex; flex-direction: column; gap: 14px;">
+        <div class="input-field-group">
+          <label>Nama Calon Mempelai</label>
+          <input type="text" placeholder="Nama Lengkap" required>
+        </div>
+        <div class="input-field-group">
+          <label>Nomor WhatsApp</label>
+          <input type="tel" placeholder="0812-xxxx-xxxx" required>
+        </div>
+        <div class="input-field-group">
+          <label>Lokasi Salon Fitting</label>
+          <select style="background: var(--etoile-porcelain); border: 1px solid var(--etoile-border); border-radius: 8px; padding: 10px 14px; font-size: 14px; color: var(--etoile-ink); outline: none;">
+            <option>Villa Dago Heritage Atelier (Bandung)</option>
+            <option>Menteng Private Salon (Jakarta)</option>
+          </select>
+        </div>
+        <div class="input-field-group">
+          <label>Perkiraan Tanggal Pernikahan</label>
+          <input type="date" required>
+        </div>
+        <button type="submit" class="btn-primary-hero" style="justify-content: center; margin-top: 8px;">
+          Konfirmasi Jadwal Fitting VIP
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-mark">
+            <div class="brand-monogram">É</div>
+            <div class="brand-text">
+              <span class="brand-name">ÉTOILE BRIDAL</span>
+              <span class="brand-sub">HAUTE COUTURE MARIÉE</span>
+            </div>
+          </div>
+          <p style="font-size: 13.5px; color: var(--etoile-muted); max-width: 300px; margin-top: 6px;">
+            Atelier gaun pengantin sutra kustom, veil bordir tangan warisan Prancis, dan salon fitting privat di Bandung & Paris.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Koleksi Couture</span>
+          <div class="footer-col-links">
+            <a href="#siluet">The Celeste A-Line</a>
+            <a href="#siluet">The Vivienne Mermaid</a>
+            <a href="#siluet">The Seraphina Ballgown</a>
+            <a href="#siluet">The Colette Column</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Layanan Atelier</span>
+          <div class="footer-col-links">
+            <a href="#veil-studio">Studio Veil & Monogram</a>
+            <a href="#swatch-box">Buku Swatch Kain Gratis</a>
+            <a href="#fitting" onclick="openFittingModal(); return false;">Reservasi Fitting VIP</a>
+            <a href="https://wa.me/6281234567890" target="_blank">Konsultasi WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Salon & Jam Temu</span>
+          <p style="font-size: 13px; color: var(--etoile-muted); line-height: 1.6;">
+            <strong>Villa Dago Bandung:</strong><br>
+            Jl. Rancakendal No. 18, Dago Atas, Bandung<br>
+            Selasa – Minggu: 10:00 – 19:00 WIB<br>
+            <em>(Hanya melayani dengan reservasi privat)</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 ÉTOILE BRIDAL COUTURE. SELURUH HAK KRIYA DILINDUNGI.</div>
+        <div>PALET WARNA RESMI: #F9F5F6 • #F8E8EE • #FDCEDF • #F2BED1</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    /* ==========================================================================
+       DATA SOURCE — 4 SILUET COUTURE
+       ========================================================================== */
+    const silhouettesData = [
+      {
+        id: 'celeste',
+        name: 'The Celeste A-Line',
+        price: 'Rp 28.500.000',
+        priceNum: 28500000,
+        desc: 'Gaun A-line mengalir bebas berbahan silk organza dengan korset semi-transparan berhiaskan kelopak bunga 3D bordir tangan.',
+        fabric: '100% Mulberry Silk Organza & French Tulle',
+        train: '2.2 Meter (Chapel Length)',
+        boning: '16 Spiral Steel Bones & Built-in Bra Cup',
+        venue: 'Garden Wedding, Glasshouse, Ballroom Katedral',
+        img: 'https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        id: 'vivienne',
+        name: 'The Vivienne Mermaid',
+        price: 'Rp 32.000.000',
+        priceNum: 32000000,
+        desc: 'Siluet duyung yang memeluk lekuk tubuh dengan bahan silk crepe de chine berbobot berat, belahan punggung rendah, dan deretan kancing satin.',
+        fabric: 'Heavy Silk Crepe de Chine & Chantilly Lace',
+        train: '1.8 Meter (Sweep Train)',
+        boning: 'Internal Power-Mesh Corsetry & Hip Sculpting',
+        venue: 'Luxury Hotel Ballroom, Museum, Rooftop Sunset',
+        img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        id: 'seraphina',
+        name: 'The Seraphina Ballgown',
+        price: 'Rp 38.500.000',
+        priceNum: 38500000,
+        desc: 'Gaun pesta megah kerajaan dengan 40 meter tulle Prancis berlapis, korset basque waist bertabur mutiara kristal, dan ekor katedral dramatis.',
+        fabric: 'French Sparkle Tulle & Duchess Silk Satin',
+        train: '3.0 Meter (Royal Cathedral Length)',
+        boning: '22 Reinforced Boning Channels & Basque Waist',
+        venue: 'Grand Palace, Castle, Grand Ballroom Hotel Bintang 5',
+        img: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        id: 'colette',
+        name: 'The Colette Column',
+        price: 'Rp 26.000.000',
+        priceNum: 26000000,
+        desc: 'Keanggunan minimalis arsitektural berbahan silk mikado dengan leher sabrina klasik, cape bahu lepas-pasang, dan potongan rok lurus ramping.',
+        fabric: 'Crisp Heavy Silk Mikado & Charmeuse Lining',
+        train: '1.5 Meter (Semi-Cathedral)',
+        boning: 'Clean Sculpted Architectural Boning',
+        venue: 'Modern Art Gallery, City Hall, Intimate Vineyard',
+        img: 'https://images.unsplash.com/photo-1546804784-896d0dca3805?auto=format&fit=crop&w=1000&q=80'
+      }
+    ];
+
+    /* ==========================================================================
+       DATA SOURCE — VEIL STUDIO CONFIGURATIONS
+       ========================================================================== */
+    const veilLengths = [
+      { id: 'fingertip', name: 'Fingertip (100cm)', meta: 'Modern & Fleksibel', basePrice: 2800000 },
+      { id: 'waltz', name: 'Waltz (150cm)', meta: 'Menyentuh Betis', basePrice: 3500000 },
+      { id: 'chapel', name: 'Chapel (220cm)', meta: 'Menyapu Lantai 50cm', basePrice: 4800000 },
+      { id: 'cathedral', name: 'Cathedral (300cm)', meta: 'Dramatis & Megah', basePrice: 6200000 }
+    ];
+
+    const veilTrims = [
+      { id: 'chantilly', name: 'French Chantilly', meta: 'Tenun Renda Caudry', addPrice: 900000 },
+      { id: 'pearl', name: 'Freshwater Pearl', meta: 'Taburan Mutiara Air Tawar', addPrice: 1200000 },
+      { id: 'guipure', name: 'Vintage Scalloped', meta: 'Lekukan Renda Antik', addPrice: 750000 },
+      { id: 'raw', name: 'Minimalist Raw Cut', meta: 'Tepi Polos Halus', addPrice: 0 }
+    ];
+
+    let currentVeilState = {
+      lengthId: 'cathedral',
+      trimId: 'chantilly',
+      initials: 'C & J',
+      date: '24.10.2026'
+    };
+
+    /* ==========================================================================
+       DATA SOURCE — 6 CATALOG ITEMS
+       ========================================================================== */
+    const catalogData = [
+      {
+        id: 'cat-1',
+        title: 'The Celeste A-Line Gown',
+        type: 'gown',
+        typeName: 'Gaun Pengantin',
+        price: 'Rp 28.500.000',
+        priceNum: 28500000,
+        desc: 'Gaun silk organza dengan train 2.2 meter dan kelopak 3D bordir tangan.',
+        tags: ['Mulberry Silk', 'Chapel Train', '180 Jam Bordir'],
+        img: 'https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'cat-2',
+        title: 'The Vivienne Mermaid Gown',
+        type: 'gown',
+        typeName: 'Gaun Pengantin',
+        price: 'Rp 32.000.000',
+        priceNum: 32000000,
+        desc: 'Siluet duyung dengan bahan silk crepe de chine dan korset penopang internal.',
+        tags: ['Heavy Crepe', 'Low Back', 'Fitting Khusus'],
+        img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'cat-3',
+        title: 'Monogram Cathedral Veil (300cm)',
+        type: 'veil',
+        typeName: 'Couture Veil',
+        price: 'Rp 6.200.000',
+        priceNum: 6200000,
+        desc: 'Veil katedral dengan tepian renda Prancis dan bordir inisial pasangan pengantin.',
+        tags: ['French Tulle', 'Custom Monogram', 'Hand-Sewn Comb'],
+        img: 'https://images.unsplash.com/photo-1549416864-228c7dd24f7f?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'cat-4',
+        title: 'Freshwater Pearl Chapel Veil (220cm)',
+        type: 'veil',
+        typeName: 'Couture Veil',
+        price: 'Rp 5.800.000',
+        priceNum: 5800000,
+        desc: 'Veil kelambu halus dihiasi ratusan mutiara air tawar alami yang dijahit satu per satu.',
+        tags: ['Freshwater Pearls', 'Chapel Length', 'Invisible Mesh'],
+        img: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'cat-5',
+        title: 'Aura Silk Charmeuse Morning Robe',
+        type: 'robe',
+        typeName: 'Bridal Robe',
+        price: 'Rp 4.500.000',
+        priceNum: 4500000,
+        desc: 'Jubah pagi persiapan rias pengantin berbahan silk charmeuse lembut dengan lengan berenda.',
+        tags: ['100% Silk Charmeuse', 'Wedding Morning', 'Belted Sash'],
+        img: 'https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'cat-6',
+        title: 'Étoile Sheer Organza Bridal Cape',
+        type: 'robe',
+        typeName: 'Bridal Cape',
+        price: 'Rp 7.800.000',
+        priceNum: 7800000,
+        desc: 'Cape bahu transparan alternatif veil, menjuntai 2 meter dengan kancing mutiara vintage.',
+        tags: ['Detachable', 'Silk Organza', 'Modern Bride'],
+        img: 'https://images.unsplash.com/photo-1546804784-896d0dca3805?auto=format&fit=crop&w=800&q=80'
+      }
+    ];
+
+    /* ==========================================================================
+       CART & STATE MANAGEMENT
+       ========================================================================== */
+    let cart = [];
+    let activeSilhouetteIdx = 0;
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    /* --------------------------------------------------------------------------
+       RENDER SILHOUETTES
+       -------------------------------------------------------------------------- */
+    function initSilhouettes() {
+      const tabsContainer = document.getElementById('silhouetteTabs');
+      tabsContainer.innerHTML = silhouettesData.map((sil, idx) => `
+        <button class="sil-tab-btn ${idx === 0 ? 'active' : ''}" onclick="selectSilhouette(${idx})">
+          <span>${sil.name}</span>
+        </button>
+      `).join('');
+
+      renderSilhouetteDetail(0);
+    }
+
+    function selectSilhouette(idx) {
+      activeSilhouetteIdx = idx;
+      const buttons = document.querySelectorAll('.sil-tab-btn');
+      buttons.forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+      });
+      renderSilhouetteDetail(idx);
+    }
+
+    function renderSilhouetteDetail(idx) {
+      const sil = silhouettesData[idx];
+      document.getElementById('silName').textContent = sil.name;
+      document.getElementById('silPrice').textContent = sil.price;
+      document.getElementById('silDesc').textContent = sil.desc;
+      document.getElementById('silFabric').textContent = sil.fabric;
+      document.getElementById('silTrain').textContent = sil.train;
+      document.getElementById('silBoning').textContent = sil.boning;
+      document.getElementById('silVenue').textContent = sil.venue;
+      document.getElementById('silImage').src = sil.img;
+    }
+
+    function addCurrentSilToCart() {
+      const sil = silhouettesData[activeSilhouetteIdx];
+      cart.push({
+        id: 'sil-' + sil.id + '-' + Date.now(),
+        title: sil.name,
+        price: sil.priceNum,
+        priceStr: sil.price,
+        meta: sil.fabric,
+        img: sil.img
+      });
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    /* --------------------------------------------------------------------------
+       RENDER VEIL STUDIO CONTROLS
+       -------------------------------------------------------------------------- */
+    function initVeilStudio() {
+      const lengthContainer = document.getElementById('veilLengthOptions');
+      lengthContainer.innerHTML = veilLengths.map(l => `
+        <div class="option-pill-label ${l.id === currentVeilState.lengthId ? 'selected' : ''}" onclick="selectVeilLength('${l.id}')">
+          <span class="pill-opt-name">${l.name}</span>
+          <span class="pill-opt-meta">${l.meta}</span>
+        </div>
+      `).join('');
+
+      const trimContainer = document.getElementById('veilTrimOptions');
+      trimContainer.innerHTML = veilTrims.map(t => `
+        <div class="option-pill-label ${t.id === currentVeilState.trimId ? 'selected' : ''}" onclick="selectVeilTrim('${t.id}')">
+          <span class="pill-opt-name">${t.name}</span>
+          <span class="pill-opt-meta">${t.meta}</span>
+        </div>
+      `).join('');
+
+      updateVeilStudioPrice();
+    }
+
+    function selectVeilLength(id) {
+      currentVeilState.lengthId = id;
+      document.querySelectorAll('#veilLengthOptions .option-pill-label').forEach((el, i) => {
+        el.classList.toggle('selected', veilLengths[i].id === id);
+      });
+      const selected = veilLengths.find(l => l.id === id);
+      document.getElementById('veilScaleBadge').textContent = 'Panjang: ' + selected.name;
+      updateVeilStudioPrice();
+    }
+
+    function selectVeilTrim(id) {
+      currentVeilState.trimId = id;
+      document.querySelectorAll('#veilTrimOptions .option-pill-label').forEach((el, i) => {
+        el.classList.toggle('selected', veilTrims[i].id === id);
+      });
+      updateVeilStudioPrice();
+    }
+
+    function updateMonogramLive() {
+      const initVal = document.getElementById('inputInitials').value.trim() || 'A & B';
+      const dateVal = document.getElementById('inputDate').value.trim() || '2026';
+      currentVeilState.initials = initVal;
+      currentVeilState.date = dateVal;
+      document.getElementById('previewInitials').textContent = initVal;
+      document.getElementById('previewDate').textContent = dateVal;
+    }
+
+    function updateVeilStudioPrice() {
+      const l = veilLengths.find(item => item.id === currentVeilState.lengthId);
+      const t = veilTrims.find(item => item.id === currentVeilState.trimId);
+      const total = (l ? l.basePrice : 0) + (t ? t.addPrice : 0);
+      document.getElementById('veilCalculatedPrice').textContent = formatRupiah(total);
+      return total;
+    }
+
+    function addCustomVeilToCart() {
+      const l = veilLengths.find(item => item.id === currentVeilState.lengthId);
+      const t = veilTrims.find(item => item.id === currentVeilState.trimId);
+      const price = updateVeilStudioPrice();
+
+      cart.push({
+        id: 'veil-custom-' + Date.now(),
+        title: 'Custom ' + l.name + ' Veil',
+        price: price,
+        priceStr: formatRupiah(price),
+        meta: `Trim: ${t.name} • Monogram: "${currentVeilState.initials}" (${currentVeilState.date})`,
+        img: 'https://images.unsplash.com/photo-1549416864-228c7dd24f7f?auto=format&fit=crop&w=400&q=80'
+      });
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    /* --------------------------------------------------------------------------
+       RENDER CATALOG
+       -------------------------------------------------------------------------- */
+    function renderCatalog(filter = 'all') {
+      const grid = document.getElementById('catalogGrid');
+      const filtered = filter === 'all' ? catalogData : catalogData.filter(c => c.type === filter);
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="catalog-card">
+          <div class="card-photo-box">
+            <img src="${item.img}" alt="${item.title}" loading="lazy">
+            <span class="card-category-badge">${item.typeName}</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h4 class="card-title">${item.title}</h4>
+              <span class="card-price">${item.price}</span>
+            </div>
+            <p class="card-desc">${item.desc}</p>
+            <div class="card-meta-chips">
+              ${item.tags.map(tag => `<span class="meta-chip">${tag}</span>`).join('')}
+            </div>
+            <div class="card-actions-row">
+              <button class="btn-card-add" onclick="addCatalogItemToCart('${item.id}')">
+                + Tambah ke Arsip
+              </button>
+              <button class="btn-card-details" onclick="openFittingModal()">
+                Fitting
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCatalog(category, btnElement) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+      renderCatalog(category);
+    }
+
+    function addCatalogItemToCart(itemId) {
+      const item = catalogData.find(c => c.id === itemId);
+      if (!item) return;
+
+      cart.push({
+        id: item.id + '-' + Date.now(),
+        title: item.title,
+        price: item.priceNum,
+        priceStr: item.price,
+        meta: item.typeName,
+        img: item.img
+      });
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    /* --------------------------------------------------------------------------
+       CART DRAWER MANAGEMENT
+       -------------------------------------------------------------------------- */
+    function toggleCartDrawer(forceOpen = null) {
+      const overlay = document.getElementById('cartOverlay');
+      if (forceOpen === true) {
+        overlay.classList.add('open');
+      } else if (forceOpen === false) {
+        overlay.classList.remove('open');
+      } else {
+        overlay.classList.toggle('open');
+      }
+    }
+
+    function removeCartItem(idx) {
+      cart.splice(idx, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('navCartBadge');
+      badge.textContent = cart.length;
+
+      const list = document.getElementById('drawerItemsList');
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div style="text-align: center; padding: 48px 16px; color: var(--etoile-muted);">
+            <div style="font-size: 32px; margin-bottom: 12px;">💍</div>
+            <p style="font-family: var(--font-display); font-size: 18px; color: var(--etoile-ink); margin-bottom: 6px;">Arsip Gaun Anda Masih Kosong</p>
+            <p style="font-size: 13px;">Silakan pilih siluet gaun couture atau rancang veil kustom untuk memulai konsultasi privat.</p>
+          </div>
+        `;
+        document.getElementById('drawerSubtotal').textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      list.innerHTML = cart.map((item, idx) => {
+        subtotal += item.price;
+        return `
+          <div class="cart-item-row">
+            <img src="${item.img}" alt="${item.title}" class="cart-thumb">
+            <div class="cart-item-info">
+              <span class="cart-item-name">${item.title}</span>
+              <span class="cart-item-meta">${item.meta}</span>
+              <div class="cart-item-bottom">
+                <span class="cart-item-price">${item.priceStr}</span>
+                <button class="btn-item-del" onclick="removeCartItem(${idx})">Hapus</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('drawerSubtotal').textContent = formatRupiah(subtotal);
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Silakan pilih setidaknya satu gaun atau veil sebelum menghubungi VIP concierge.');
+        return;
+      }
+      let text = 'Halo ÉTOILE Bridal Couture, saya ingin berkonsultasi mengenai arsip gaun & veil pilihan saya:\n\n';
+      let total = 0;
+      cart.forEach((item, i) => {
+        text += `${i + 1}. ${item.title} (${item.priceStr})\n   Detail: ${item.meta}\n`;
+        total += item.price;
+      });
+      text += `\nEstimasi Total: ${formatRupiah(total)}\n\nMohon informasi ketersediaan jadwal salon fitting privat. Terima kasih!`;
+      
+      const url = 'https://wa.me/6281234567890?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+    }
+
+    /* --------------------------------------------------------------------------
+       MODAL & FORM HANDLERS
+       -------------------------------------------------------------------------- */
+    function openFittingModal() {
+      document.getElementById('fittingModal').classList.add('open');
+    }
+
+    function closeFittingModal() {
+      document.getElementById('fittingModal').classList.remove('open');
+    }
+
+    function handleFittingSubmit(e) {
+      e.preventDefault();
+      alert('Terima kasih! Tim VIP Concierge ÉTOILE akan menghubungi WhatsApp Anda dalam 1x24 jam untuk mengonfirmasi sesi fitting.');
+      closeFittingModal();
+    }
+
+    function handleSwatchSubmit(e) {
+      e.preventDefault();
+      alert('Permintaan berhasil dicatat! Boks Swatch Kain Sutra & Renda Chantilly Anda akan dikirimkan dengan segel wax-seal dalam 2 hari kerja.');
+      e.target.reset();
+    }
+
+    // Initialize all components on load
+    document.addEventListener('DOMContentLoaded', () => {
+      initSilhouettes();
+      initVeilStudio();
+      renderCatalog();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>
