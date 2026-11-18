@@ -307,15 +307,26 @@
    2. HERO SECTION
    ========================================================= */
 .hero-section {
-  padding: var(--space-16) 0 var(--space-12);
+  padding: var(--space-12) 0 var(--space-10);
   border-bottom: 1px solid var(--border-hairline);
+  overflow: hidden;
 }
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-12);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  gap: var(--space-10);
   align-items: center;
+}
+
+.hero-text-col {
+  min-width: 0;
+  width: 100%;
+}
+
+.hero-visual-col {
+  min-width: 0;
+  width: 100%;
 }
 
 .hero-meta {
@@ -338,27 +349,30 @@
 
 .hero-headline {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-size: clamp(2rem, 3.2vw, 3.3rem);
   font-weight: 400;
-  line-height: 1.12;
+  line-height: 1.16;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: var(--space-6);
-  max-width: 680px;
+  margin-bottom: var(--space-5);
+  max-width: 600px;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .hero-paragraph {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--text-secondary);
-  max-width: 580px;
-  margin-bottom: var(--space-8);
+  max-width: 540px;
+  margin-bottom: var(--space-6);
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  flex-wrap: wrap;
 }
 
 .btn-hero-primary {
@@ -556,6 +570,9 @@
   transition: transform 180ms ease, border-color 150ms ease, box-shadow 180ms ease;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .hero-etalase-tabs {
@@ -565,13 +582,17 @@
   padding: 4px 6px;
   gap: 4px;
   overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
 }
 
 .hero-tab-btn {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 10px;
+  padding: 5px 9px;
   border-radius: var(--radius-xs);
   font-size: 11px;
   color: var(--text-secondary);
@@ -579,6 +600,7 @@
   border: none;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
   transition: all 120ms ease;
 }
 
@@ -595,7 +617,7 @@
 }
 
 .hero-tab-btn .tab-name {
-  max-width: 120px;
+  max-width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -604,7 +626,11 @@
 .hero-browser-viewport {
   cursor: pointer;
   background-color: var(--bg-page);
-  padding: 8px;
+  padding: 6px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .hero-etalase-footer {

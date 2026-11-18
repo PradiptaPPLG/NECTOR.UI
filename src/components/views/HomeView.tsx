@@ -140,16 +140,20 @@ export const HomeView: React.FC<Props> = ({
             <div className="hero-etalase-card">
               {/* Etalase Switcher Tabs */}
               <div className="hero-etalase-tabs">
-                {heroShowcaseList.map((item, idx) => (
-                  <button
-                    key={item.id}
-                    className={`hero-tab-btn ${heroIndex === idx ? 'active' : ''}`}
-                    onClick={() => setHeroIndex(idx)}
-                  >
-                    <span className="mono">0{idx + 1}</span>
-                    <span className="tab-name">{item.title}</span>
-                  </button>
-                ))}
+                {heroShowcaseList.map((item, idx) => {
+                  const shortName = item.title.split('(')[0].trim();
+                  return (
+                    <button
+                      key={item.id}
+                      className={`hero-tab-btn ${heroIndex === idx ? 'active' : ''}`}
+                      onClick={() => setHeroIndex(idx)}
+                      title={item.title}
+                    >
+                      <span className="mono">0{idx + 1}</span>
+                      <span className="tab-name">{shortName}</span>
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Realistic Browser Window Display */}
