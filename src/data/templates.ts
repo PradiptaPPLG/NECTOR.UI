@@ -2033,6 +2033,89 @@ export function TanahLiatStudio() {
       { hex: '#FDCEDF', rgb: 'rgb(253, 206, 223)', name: 'Soft Rose Quartz', role: 'Peony Petal Accent, Hairline Borders & Active Pill Tint' },
       { hex: '#F2BED1', rgb: 'rgb(242, 190, 209)', name: 'Vintage Peony Mauve', role: 'Primary Atelier Accent, Action CTA Buttons & Ribbon Focus' }
     ]
+  },
+  {
+    id: 'tpl-29',
+    slug: 'tatah-artisanal-leather',
+    title: 'TATAH LEATHERWORKS (Artisanal Saddlery & Veg-Tan Atelier)',
+    tagline: 'Atelier kriya kulit nabati full-grain, jahitan tangan saddle stitch benang linen, dan simulator penuaan patina alami',
+    description: 'Template website atelier kriya kulit penyamakan nabati TATAH LEATHERWORKS dengan palet warna Deep Saddle Mocha (#AD8B73), Warm Bisque Tan (#CEAB93), Toasted Oat Cream (#E3CAA5), dan Parchment Ivory (#FFFBE9). Menghadirkan panggung meja kerja asimetris 3 kolom, simulator penuaan patina 1.000 hari (1,000-Day Leather Patina Simulator), studio cap monogram kuningan tekan panas (Bespoke Brass Hot-Stamp Debosser), katalog 6 produk kulit full-grain disulam tangan, laci keranjang terintegrasi garansi seumur hidup, serta formulir konsultasi pesanan khusus (bespoke).',
+    category: 'leather',
+    tags: ['Leathercraft', 'Vegetable Tanned', 'Saddlery', 'Saddle Stitch', 'Full Grain Leather', 'Patina Aging', 'Brass Monogram', 'Handmade', 'Artisanal Craft'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', '3-Column Workbench Stage', '1000-Day Patina Simulator', 'Brass Hot-Stamp Studio', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'leather-tatah',
+    htmlPath: '/templates/leather/tatah-leather.html',
+    htmlFolderPath: 'templates/leather/tatah-leather.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Panggung meja kerja asimetris 3 kolom: narasi kurasi, foto sorotan tote bag, dan panel telemetri metrologi meja kerja (2.2mm, 7.0 SPI)',
+      'Simulator penuaan patina 1.000 hari interaktif (Hari 1 Fresh Crust, Bulan 3 Honey Tan, Tahun 1 Amber Cognac, Tahun 3 Heritage Patina)',
+      'Studio cap monogram kuningan interaktif dengan pemilihan 3 finishing foil (Blind Heat, 24K Gold, Vintage Bronze) dan preview kaligrafi live',
+      'Katalog 6 karya kulit nabati (cardholder, saddle tote, notebook cover, bifold wallet, camera sling, desk mat) dengan filter kategori tanpa reload',
+      'Laci keranjang belanja geser (slide-over cart) terintegrasi rincian monogram kustom dan garansi jahitan seumur hidup via WhatsApp',
+      'Standar kriya antislop dengan palet kulit nabati (#AD8B73, #CEAB93, #E3CAA5, #FFFBE9) dan tipografi Playfair Display & Plus Jakarta Sans'
+    ],
+    usageInstructions: [
+      'Buka templates/leather/tatah-leather.html di editor kode Anda.',
+      'Sesuaikan daftar produk kulit, harga, dan spesifikasi pada objek catalogData di dalam tag <script>.',
+      'Kustomisasi fase transformasi penuaan kulit pada array patinaStages.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase atelier kulit langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'tatah-leather.html',
+        language: 'html',
+        content: `<!-- TATAH LEATHERWORKS — Artisanal Saddlery & Veg-Tan Atelier -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>TATAH LEATHERWORKS — Artisanal Saddlery & Veg-Tan Atelier</title>
+  <style>
+    :root {
+      --tatah-mocha: #AD8B73;
+      --tatah-tan: #CEAB93;
+      --tatah-oat: #E3CAA5;
+      --tatah-parchment: #FFFBE9;
+      --tatah-ink: #261C14;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">KULIT SAPI FULL-GRAIN VEG-TANNED • 100% SADDLE STITCH TANGAN • GARANSI JAHITAN SEUMUR HIDUP</div>
+  <header>
+    <div class="brand">TATAH LEATHER</div>
+    <nav>Studio Patina 1.000 Hari · Studio Monogram Deboss · Katalog Kriya Kulit · Bespoke & Workshop</nav>
+  </header>
+  <!-- Full Interactive Leather Atelier: 1000-Day Patina Simulator, Brass Monogram Debosser & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier kriya kulit penyamakan nabati TATAH LEATHERWORKS dengan palet warna Deep Saddle Mocha (#AD8B73), Warm Bisque Tan (#CEAB93), Toasted Oat Cream (#E3CAA5), dan Parchment Ivory (#FFFBE9). Menghadirkan panggung meja kerja asimetris 3 kolom, simulator penuaan patina 1.000 hari (1,000-Day Leather Patina Simulator), studio cap monogram kuningan tekan panas (Bespoke Brass Hot-Stamp Debosser), katalog 6 produk kulit full-grain disulam tangan, laci keranjang terintegrasi garansi seumur hidup, serta formulir konsultasi pesanan khusus (bespoke).',
+      designDirection: 'Artisanal leather saddlery atelier berstandar antislop: Deep Saddle Mocha (#AD8B73), Warm Bisque Tan (#CEAB93), Toasted Oat Cream (#E3CAA5), Parchment Ivory (#FFFBE9), dan Deep Peat Espresso Ink (#261C14). Tipografi Playfair Display, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top atelier ticker kulit nabati, sticky parchment navbar dengan navigasi non-wrapping kokoh, panggung meja kerja asimetris 3 kolom dengan telemetri ketebalan 2.2mm dan kerapatan 7.0 SPI, panel simulator penuaan patina 1.000 hari interaktif, studio plat debossing monogram kuningan, grid katalog 6 produk kriya kulit 3 kolom, dan drawer keranjang belanja.',
+      typographyAndColor: 'Playfair Display untuk tajuk utama kehangatan kriya kulit klasik, Plus Jakarta Sans untuk teks bodi dan kontrol tombol interaktif, JetBrains Mono untuk ketebalan milimeter/oz, kerapatan tusukan SPI, dan rincian harga rupiah.',
+      interactions: 'Simulator penuaan patina 4 fase dengan pembaruan foto dan kilau warna seketika, studio cap monogram kuningan dengan live input inisial dan 3 pilihan foil finishing (Blind, Gold, Bronze), filter katalog instan, dan drawer keranjang terintegrasi WhatsApp dengan garansi seumur hidup.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#AD8B73',
+    colorPalette: [
+      { hex: '#AD8B73', rgb: 'rgb(173, 139, 115)', name: 'Deep Saddle Mocha', role: 'Aged Patina Year 3, Primary CTA Button & Mature Leather Accent' },
+      { hex: '#CEAB93', rgb: 'rgb(206, 171, 147)', name: 'Warm Bisque Tan', role: 'Honey Glow Transition Month 3, Secondary Cards & Pill Fill' },
+      { hex: '#E3CAA5', rgb: 'rgb(227, 202, 165)', name: 'Toasted Oat Cream', role: 'Waxed Linen Thread, Subtle Stitch Borders & Badge Highlights' },
+      { hex: '#FFFBE9', rgb: 'rgb(255, 251, 233)', name: 'Parchment Ivory Canvas', role: 'Main Workshop Canvas Ground, Fresh Crust Base & Clean Cards' }
+    ]
   }
 ];
 

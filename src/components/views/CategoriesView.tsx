@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'leather',
+      title: 'Kriya Kulit Nabati & Saddlery',
+      icon: Briefcase,
+      desc: 'Atelier kriya kulit sapi penyamakan nabati (veg-tanned): panggung meja kerja 3 kolom, simulator penuaan patina 1.000 hari, studio cap monogram kuningan tekan panas, dan jahitan tangan saddle stitch seumur hidup.',
+      accent: '#AD8B73'
+    },
     {
       id: 'wedding',
       title: 'Bridal & Gaun Pengantin Couture',

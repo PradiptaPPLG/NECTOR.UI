@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TATAH LEATHERWORKS — Atelier Kriya Kulit Nabati & Saddle Stitch Manual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       TATAH LEATHERWORKS — PALET WARNA RESMI USER SPEC
+       #AD8B73 : Deep Saddle Mocha / Aged Patina (Primary Accent & Aged Luster)
+       #CEAB93 : Warm Bisque Tan / Cognac Vachetta (Secondary Accent & Mid-Patina)
+       #E3CAA5 : Toasted Oat Cream / Raw Crust Leather (Subtle Borders & Highlights)
+       #FFFBE9 : Parchment Ivory / Workshop Canvas (Main Background Canvas)
+       #261C14 : Deep Espresso Peat Ink (Contrast Typography WCAG AAA)
+       ========================================================================== */
+    :root {
+      --tatah-mocha: #AD8B73;
+      --tatah-tan: #CEAB93;
+      --tatah-oat: #E3CAA5;
+      --tatah-parchment: #FFFBE9;
+      --tatah-parchment-card: #FFFFFF;
+      --tatah-ink: #261C14;
+      --tatah-muted: #6E5646;
+      --tatah-border: rgba(173, 139, 115, 0.32);
+      --tatah-border-subtle: rgba(38, 28, 20, 0.08);
+      --tatah-shadow: 0 14px 38px -10px rgba(38, 28, 20, 0.08), 0 2px 6px -1px rgba(38, 28, 20, 0.04);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --container-max: 1260px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--tatah-parchment);
+      color: var(--tatah-ink);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --------------------------------------------------------------------------
+       TOP WORKSHOP PROVENANCE TICKER
+       -------------------------------------------------------------------------- */
+    .top-ticker {
+      background-color: #F5EBD7;
+      border-bottom: 1px solid var(--tatah-border);
+      padding: 8px 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tatah-muted);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 36px;
+      animation: tickerRoll 50s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ticker-badge {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: var(--tatah-mocha);
+      border-radius: 50%;
+    }
+
+    @keyframes tickerRoll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* --------------------------------------------------------------------------
+       EDITORIAL STICKY NAVBAR (ANTI-SLOP NO-WRAP)
+       Strict single-line layout: all items flex-shrink: 0, white-space: nowrap
+       -------------------------------------------------------------------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(255, 251, 233, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--tatah-border);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .brand-icon-box {
+      width: 40px;
+      height: 40px;
+      background-color: var(--tatah-mocha);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.05em;
+      box-shadow: 0 2px 8px rgba(173, 139, 115, 0.35);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tatah-ink);
+      line-height: 1.1;
+    }
+
+    .brand-tagline {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tatah-muted);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-shrink: 0;
+    }
+
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--tatah-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.18s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--tatah-ink);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--tatah-mocha);
+      border-radius: 1px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-nav-custom {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #F4E7D3;
+      color: var(--tatah-ink);
+      border: 1px solid var(--tatah-oat);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-custom:hover {
+      background: var(--tatah-oat);
+      border-color: var(--tatah-mocha);
+      transform: translateY(-1px);
+    }
+
+    .btn-nav-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--tatah-ink);
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-cart:hover {
+      background: #3B2A1E;
+      transform: translateY(-1px);
+    }
+
+    .cart-count-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--tatah-mocha);
+      color: #FFFFFF;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* --------------------------------------------------------------------------
+       HERO EDITORIAL SECTION — 3-COLUMN ASYMMETRIC WORKBENCH STAGE
+       -------------------------------------------------------------------------- */
+    .hero-section {
+      padding: 60px 0 72px;
+      position: relative;
+    }
+
+    .hero-workbench-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1.15fr 0.9fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .hero-col-narrative {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .provenance-pills-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      background: #F4E7D3;
+      border: 1px solid var(--tatah-oat);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--tatah-muted);
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 46px;
+      line-height: 1.14;
+      font-weight: 600;
+      color: var(--tatah-ink);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--tatah-mocha);
+      font-weight: 500;
+    }
+
+    .hero-description {
+      font-size: 15.5px;
+      color: var(--tatah-muted);
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--tatah-mocha);
+      color: #FFFFFF;
+      border: 1px solid #94725C;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(173, 139, 115, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-primary:hover {
+      background: #9A7761;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(173, 139, 115, 0.5);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--tatah-ink);
+      border: 1px solid var(--tatah-border);
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: #F4E7D3;
+      border-color: var(--tatah-mocha);
+    }
+
+    /* Column 2: Center Showcase Photo */
+    .hero-col-showcase {
+      position: relative;
+      background: #EFE4D2;
+      border: 1px solid var(--tatah-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--tatah-shadow);
+    }
+
+    .hero-showcase-image {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-photo-footer {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(255, 251, 233, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--tatah-border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .showcase-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .showcase-sub {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--tatah-muted);
+    }
+
+    /* Column 3: Live Workbench Specs Dossier */
+    .hero-col-specs {
+      background: var(--tatah-parchment-card);
+      border: 1px solid var(--tatah-border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--tatah-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .specs-header {
+      border-bottom: 1px solid var(--tatah-border);
+      padding-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .specs-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .specs-live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: #38761D;
+    }
+
+    .specs-live-dot::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: #38761D;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .spec-block-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--tatah-border-subtle);
+    }
+
+    .spec-block-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-caption {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tatah-muted);
+    }
+
+    .spec-val-bold {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .spec-val-desc {
+      font-size: 12px;
+      color: var(--tatah-muted);
+      line-height: 1.4;
+    }
+
+    /* --------------------------------------------------------------------------
+       SECTION HEADER COMMON
+       -------------------------------------------------------------------------- */
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 44px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tatah-muted);
+      margin-bottom: 10px;
+    }
+
+    .section-eyebrow::before, .section-eyebrow::after {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background-color: var(--tatah-mocha);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--tatah-ink);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--tatah-muted);
+      line-height: 1.6;
+    }
+
+    /* --------------------------------------------------------------------------
+       INTERACTIVE FEATURE 1: 1.000-DAY LEATHER PATINA SIMULATOR
+       -------------------------------------------------------------------------- */
+    .patina-section {
+      padding: 72px 0 80px;
+      background: #F8EFE0;
+      border-top: 1px solid var(--tatah-border);
+      border-bottom: 1px solid var(--tatah-border);
+    }
+
+    .patina-card-stage {
+      background: var(--tatah-parchment-card);
+      border: 1px solid var(--tatah-border);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: var(--tatah-shadow);
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .patina-canvas-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.4;
+      background: #EFE4D2;
+      border: 1px solid var(--tatah-border);
+      position: relative;
+    }
+
+    .patina-canvas-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+
+    .patina-overlay-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(38, 28, 20, 0.82);
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .patina-controls-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .patina-milestones-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .btn-patina-step {
+      background: var(--tatah-parchment);
+      border: 1px solid var(--tatah-border);
+      border-radius: 8px;
+      padding: 10px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-patina-step:hover {
+      background: #F4E7D3;
+      border-color: var(--tatah-mocha);
+    }
+
+    .btn-patina-step.active {
+      background: var(--tatah-mocha);
+      color: #FFFFFF;
+      border-color: #94725C;
+      box-shadow: 0 4px 10px rgba(173, 139, 115, 0.35);
+    }
+
+    .btn-patina-step.active .step-sub {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .step-label {
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+
+    .step-sub {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--tatah-muted);
+    }
+
+    .patina-story-box {
+      background: var(--tatah-parchment);
+      border: 1px solid var(--tatah-border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .patina-story-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .patina-story-p {
+      font-size: 14px;
+      color: var(--tatah-muted);
+      line-height: 1.6;
+    }
+
+    .patina-tannin-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 6px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--tatah-border);
+    }
+
+    .tannin-metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .tannin-key {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--tatah-muted);
+      text-transform: uppercase;
+    }
+
+    .tannin-val {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    /* --------------------------------------------------------------------------
+       INTERACTIVE FEATURE 2: BESPOKE BRASS MONOGRAM DEBOSSER
+       -------------------------------------------------------------------------- */
+    .monogram-section {
+      padding: 80px 0;
+      background: var(--tatah-parchment);
+    }
+
+    .monogram-studio-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .monogram-leather-plate {
+      background: linear-gradient(145deg, #B5937B 0%, #9C7963 100%);
+      border-radius: 20px;
+      padding: 48px 36px;
+      height: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 12px rgba(255, 255, 255, 0.2), 0 16px 40px rgba(38, 28, 20, 0.15);
+      position: relative;
+      border: 3px solid #8D6B56;
+    }
+
+    .plate-stitch-border {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      border: 2px dashed #E3CAA5;
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .plate-brass-monogram {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      text-align: center;
+    }
+
+    /* Monogram Styles */
+    .plate-brass-monogram.style-blind {
+      color: #694C3B;
+      text-shadow: inset 2px 3px 4px rgba(0, 0, 0, 0.6), 1px 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .plate-brass-monogram.style-gold {
+      color: #F3E5AB;
+      text-shadow: 0 0 10px rgba(243, 229, 171, 0.8), inset 1px 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    .plate-brass-monogram.style-bronze {
+      color: #D4AF37;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.5), inset 1px 1px 2px rgba(255,255,255,0.4);
+    }
+
+    .plate-sub-stamp {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(255, 251, 233, 0.7);
+      margin-top: 14px;
+      text-transform: uppercase;
+    }
+
+    .monogram-controls-card {
+      background: var(--tatah-parchment-card);
+      border: 1px solid var(--tatah-border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--tatah-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .control-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tatah-muted);
+    }
+
+    .input-monogram-text {
+      background: var(--tatah-parchment);
+      border: 1px solid var(--tatah-border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+      letter-spacing: 0.1em;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .input-monogram-text:focus {
+      border-color: var(--tatah-mocha);
+      background: #FFFFFF;
+    }
+
+    .foil-style-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .btn-foil-option {
+      background: var(--tatah-parchment);
+      border: 1px solid var(--tatah-border);
+      border-radius: 8px;
+      padding: 10px 8px;
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-foil-option:hover {
+      background: #F4E7D3;
+      border-color: var(--tatah-mocha);
+    }
+
+    .btn-foil-option.active {
+      background: #F4E7D3;
+      border-color: var(--tatah-mocha);
+      box-shadow: 0 0 0 1px var(--tatah-mocha);
+    }
+
+    .foil-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .foil-meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--tatah-muted);
+    }
+
+    /* --------------------------------------------------------------------------
+       CURATED CATALOG OF 6 FULL-GRAIN LEATHER GOODS
+       -------------------------------------------------------------------------- */
+    .catalog-section {
+      padding: 72px 0 80px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--tatah-border);
+      border-bottom: 1px solid var(--tatah-border);
+    }
+
+    .catalog-filters-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .btn-filter-pill {
+      background: var(--tatah-parchment);
+      border: 1px solid var(--tatah-border-subtle);
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--tatah-muted);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-filter-pill:hover {
+      border-color: var(--tatah-mocha);
+      color: var(--tatah-ink);
+    }
+
+    .btn-filter-pill.active {
+      background: var(--tatah-mocha);
+      color: #FFFFFF;
+      border-color: #94725C;
+      font-weight: 600;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--tatah-parchment);
+      border: 1px solid var(--tatah-border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--tatah-shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(38, 28, 20, 0.12);
+    }
+
+    .card-photo-frame {
+      aspect-ratio: 4 / 3.2;
+      background: #EFE4D2;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .card-photo-frame img {
+      transform: scale(1.04);
+    }
+
+    .card-cat-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 251, 233, 0.94);
+      border: 1px solid var(--tatah-border);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--tatah-ink);
+    }
+
+    .card-content-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .card-title-line {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+      white-space: nowrap;
+    }
+
+    .product-desc {
+      font-size: 13.5px;
+      color: var(--tatah-muted);
+      line-height: 1.55;
+    }
+
+    .card-specs-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chip-item {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background: #F4E7D3;
+      border: 1px solid var(--tatah-oat);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--tatah-muted);
+    }
+
+    .card-action-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--tatah-border);
+    }
+
+    .btn-add-item {
+      flex: 1;
+      background: var(--tatah-mocha);
+      color: #FFFFFF;
+      border: 1px solid #94725C;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.18s ease;
+    }
+
+    .btn-add-item:hover {
+      background: #9A7761;
+    }
+
+    .btn-deboss-quick {
+      background: transparent;
+      color: var(--tatah-ink);
+      border: 1px solid var(--tatah-border);
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-deboss-quick:hover {
+      background: #F4E7D3;
+      border-color: var(--tatah-mocha);
+    }
+
+    /* --------------------------------------------------------------------------
+       SLIDE-OVER ATELIER CART DRAWER
+       -------------------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(38, 28, 20, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background: #FFFFFF;
+      box-shadow: -10px 0 40px rgba(38, 28, 20, 0.18);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer-overlay.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 22px 26px;
+      border-bottom: 1px solid var(--tatah-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--tatah-parchment);
+    }
+
+    .drawer-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .btn-close-drawer {
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      color: var(--tatah-muted);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .drawer-items-list {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 22px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-item-card {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--tatah-border-subtle);
+    }
+
+    .cart-item-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: 6px;
+      object-fit: cover;
+      background: #EFE4D2;
+      flex-shrink: 0;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .cart-item-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .cart-item-meta {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--tatah-muted);
+    }
+
+    .cart-item-row-bot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .btn-del-item {
+      background: transparent;
+      border: none;
+      color: #9C5238;
+      font-size: 11.5px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .drawer-footer {
+      padding: 22px 26px;
+      border-top: 1px solid var(--tatah-border);
+      background: var(--tatah-parchment);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .subtotal-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .subtotal-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .btn-checkout-wa {
+      background: var(--tatah-ink);
+      color: #FFFFFF;
+      border: none;
+      padding: 13px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s ease;
+    }
+
+    .btn-checkout-wa:hover {
+      background: #3B2A1E;
+    }
+
+    /* --------------------------------------------------------------------------
+       CUSTOM WORKSHOP COMMISSION MODAL
+       -------------------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(38, 28, 20, 0.55);
+      backdrop-filter: blur(5px);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: #FFFFFF;
+      border: 1px solid var(--tatah-border);
+      border-radius: 16px;
+      width: 520px;
+      max-width: 95vw;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(38, 28, 20, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    /* --------------------------------------------------------------------------
+       FOOTER
+       -------------------------------------------------------------------------- */
+    .site-footer {
+      background: #F4E7D3;
+      border-top: 1px solid var(--tatah-border);
+      padding: 60px 0 32px;
+      color: var(--tatah-ink);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--tatah-ink);
+    }
+
+    .footer-col-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13.5px;
+      color: var(--tatah-muted);
+    }
+
+    .footer-col-links a:hover {
+      color: var(--tatah-ink);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--tatah-border);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--tatah-muted);
+    }
+
+    /* --------------------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       -------------------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-workbench-grid {
+        grid-template-columns: 1fr;
+      }
+      .patina-card-stage, .monogram-studio-grid {
+        grid-template-columns: 1fr;
+      }
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-nav {
+        display: none;
+      }
+      .hero-title {
+        font-size: 34px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Workshop Provenance & Tannery Ticker -->
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ticker-badge"></span> KULIT SAPI FULL-GRAIN PENYAMAKAN NABATI ALAMI (VEG-TANNED)</div>
+      <div class="ticker-item"><span class="ticker-badge"></span> 100% SADDLE STITCH TANGAN TANPA MESIN JAHIT</div>
+      <div class="ticker-item"><span class="ticker-badge"></span> BENANG LINEN WAX-COATED PRANCIS & TEPIAN TOKONOLE BURNISHED</div>
+      <div class="ticker-item"><span class="ticker-badge"></span> GARANSI JAHITAN SEUMUR HIDUP ATELIER TATAH BANDUNG</div>
+      <div class="ticker-item"><span class="ticker-badge"></span> KULIT SAPI FULL-GRAIN PENYAMAKAN NABATI ALAMI (VEG-TANNED)</div>
+      <div class="ticker-item"><span class="ticker-badge"></span> 100% SADDLE STITCH TANGAN TANPA MESIN JAHIT</div>
+      <div class="ticker-item"><span class="ticker-badge"></span> BENANG LINEN WAX-COATED PRANCIS & TEPIAN TOKONOLE BURNISHED</div>
+      <div class="ticker-item"><span class="ticker-badge"></span> GARANSI JAHITAN SEUMUR HIDUP ATELIER TATAH BANDUNG</div>
+    </div>
+  </div>
+
+  <!-- Editorial Sticky Navbar (Non-wrapping single-line) -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-mark">
+        <div class="brand-icon-box">T</div>
+        <div class="brand-text">
+          <span class="brand-title">TATAH LEATHER</span>
+          <span class="brand-tagline">ARTISANAL SADDLERY ATELIER</span>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <a href="#patina" class="nav-link active">Studio Patina 1.000 Hari</a>
+        <a href="#monogram" class="nav-link">Studio Monogram Deboss</a>
+        <a href="#katalog" class="nav-link">Katalog Kriya Kulit</a>
+        <a href="#custom" class="nav-link" onclick="openCommissionModal(); return false;">Bespoke & Workshop</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-nav-custom" onclick="document.getElementById('monogram').scrollIntoView({behavior: 'smooth'})">
+          <span>🔨 Cap Monogram</span>
+        </button>
+        <button class="btn-nav-cart" onclick="toggleCartDrawer()">
+          <span>Arsip Pesanan</span>
+          <span class="cart-count-badge" id="navCartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section: Asymmetric 3-Column Workbench Stage -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-workbench-grid">
+      <!-- Col 1: Narrative & Direct Action -->
+      <div class="hero-col-narrative">
+        <div>
+          <div class="provenance-pills-row">
+            <span>FULL-GRAIN VEG-TAN</span>
+            <span>•</span>
+            <span>EST. 2026</span>
+            <span>•</span>
+            <span>SADDLE STITCH MANUAL</span>
+          </div>
+
+          <h1 class="hero-title" style="margin-top: 18px;">
+            Kriya kulit nabati yang menua <em>semakin elok</em> bersama waktu.
+          </h1>
+
+          <p class="hero-description" style="margin-top: 16px;">
+            Dibuat satu per satu di meja kerja menggunakan kulit sapi penyamakan nabati ekstrak mimosa, disulam manual dengan teknik saddle stitch dua jarum, dan dipoles lilin lebah alami hingga menghasilkan kilau patina abadi.
+          </p>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="btn-hero-primary" onclick="document.getElementById('katalog').scrollIntoView({behavior: 'smooth'})">
+            <span>Jelajahi Koleksi Kriya Kulit</span>
+          </button>
+          <button class="btn-hero-secondary" onclick="document.getElementById('patina').scrollIntoView({behavior: 'smooth'})">
+            <span>Uji Patina 1.000 Hari →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Col 2: Centerpiece Craft Photography -->
+      <div class="hero-col-showcase">
+        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80" alt="Full-grain Leather Tote & Workbench" class="hero-showcase-image" id="heroShowcaseImg">
+        <div class="hero-photo-footer">
+          <div>
+            <div class="showcase-name">The Bento Saddle Tote</div>
+            <div class="showcase-sub">Natural Crust Vachetta • 18 Jam Jahit Tangan</div>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 11px; background: var(--tatah-mocha); color: #fff; padding: 4px 10px; border-radius: 4px;">Tersedia Terbatas</span>
+        </div>
+      </div>
+
+      <!-- Col 3: Live Workbench Telemetry Dossier -->
+      <div class="hero-col-specs">
+        <div class="specs-header">
+          <span class="specs-title">Metrologi Meja Kerja</span>
+          <span class="specs-live-dot">Aktif Disulam</span>
+        </div>
+
+        <div class="spec-block-item">
+          <span class="spec-caption">Ketebalan Bahan</span>
+          <span class="spec-val-bold">2.2 mm (5.5 oz) Full-Grain</span>
+          <span class="spec-val-desc">Kekuatan tarik tinggi, pori-pori alami bernapas tanpa dempul kimia.</span>
+        </div>
+
+        <div class="spec-block-item">
+          <span class="spec-caption">Teknik Jahitan</span>
+          <span class="spec-val-bold">Hand Saddle Stitch (2 Jarum)</span>
+          <span class="spec-val-desc">Jahitan silang ganda: bila satu benang putus, benang lain tetap terkunci.</span>
+        </div>
+
+        <div class="spec-block-item">
+          <span class="spec-caption">Kerapatan Tusukan</span>
+          <span class="spec-val-bold">7.0 SPI (Stitches Per Inch)</span>
+          <span class="spec-val-desc">Ditusuk menggunakan pricking iron baja Prancis sudut 45 derajat.</span>
+        </div>
+
+        <div class="spec-block-item">
+          <span class="spec-caption">Finishing Tepian</span>
+          <span class="spec-val-bold">Beeswax & Tokonole Burnished</span>
+          <span class="spec-val-desc">Dipoles tangan kayu sonokeling 3 tahap hingga tepi halus mengilap.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 1: The 1,000-Day Leather Patina Simulator -->
+  <section class="patina-section" id="patina">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">SIFAT PENYAMAKAN NABATI</span>
+        <h2 class="section-title">Simulator Penuaan Patina 1.000 Hari</h2>
+        <p class="section-subtitle">Kulit penyamakan nabati (veg-tanned) tidak pernah rusak oleh waktu; ia justru bertransformasi dari warna pucat menjadi karamel mengilap yang sarat kisah hidup Anda.</p>
+      </div>
+
+      <div class="patina-card-stage">
+        <div class="patina-canvas-wrap">
+          <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1000&q=80" alt="Kulit Veg-Tan Patina" id="patinaImage">
+          <div class="patina-overlay-badge" id="patinaBadge">HARI KE-1 : FRESH CRUST</div>
+        </div>
+
+        <div class="patina-controls-col">
+          <div class="patina-milestones-row">
+            <button class="btn-patina-step active" onclick="setPatinaStage(0)">
+              <span class="step-label">Hari 1</span>
+              <span class="step-sub">Fresh Tan</span>
+            </button>
+            <button class="btn-patina-step" onclick="setPatinaStage(1)">
+              <span class="step-label">Bulan 3</span>
+              <span class="step-sub">Honey Glow</span>
+            </button>
+            <button class="btn-patina-step" onclick="setPatinaStage(2)">
+              <span class="step-label">Tahun 1</span>
+              <span class="step-sub">Rich Cognac</span>
+            </button>
+            <button class="btn-patina-step" onclick="setPatinaStage(3)">
+              <span class="step-label">Tahun 3</span>
+              <span class="step-sub">Deep Patina</span>
+            </button>
+          </div>
+
+          <div class="patina-story-box">
+            <h3 class="patina-story-title" id="patinaTitle">Tahap 1: Fresh Natural Crust Vachetta</h3>
+            <p class="patina-story-p" id="patinaDesc">Kulit masih dalam warna aslinya yang hangat dan bersih (#FFFBE9 & #E3CAA5). Pori-pori terbuka bebas, sangat sensitif terhadap sinar matahari dan minyak alami dari telapak tangan pemakai.</p>
+
+            <div class="patina-tannin-metrics">
+              <div class="tannin-metric-item">
+                <span class="tannin-key">Kecerahan Warna</span>
+                <span class="tannin-val" id="patinaLuster">Tingkat 1 (Matte Pucat)</span>
+              </div>
+              <div class="tannin-metric-item">
+                <span class="tannin-key">Ketahanan Noda</span>
+                <span class="tannin-val" id="patinaResistance">Fase Adaptasi</span>
+              </div>
+              <div class="tannin-metric-item">
+                <span class="tannin-key">Rekomendasi Rawat</span>
+                <span class="tannin-val" id="patinaCare">Gunakan Kering</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <button class="btn-hero-primary" onclick="document.getElementById('katalog').scrollIntoView({behavior: 'smooth'})" style="flex: 1; justify-content: center;">
+              Pilih Produk Kulit Asli Ini
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 2: Bespoke Brass Hot-Stamp Monogram Debosser -->
+  <section class="monogram-section" id="monogram">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">SENTUHAN IDENTITAS PRIBADI</span>
+        <h2 class="section-title">Studio Cap Monogram Kuningan</h2>
+        <p class="section-subtitle">Personalisasikan produk kulit pilihan Anda dengan huruf kuningan cetak tekan panas (heat debossing). Tuliskan inisial nama Anda dan pilih hasil akhir foil.</p>
+      </div>
+
+      <div class="monogram-studio-grid">
+        <!-- Visual Leather Plate -->
+        <div class="monogram-leather-plate">
+          <div class="plate-stitch-border"></div>
+          <div class="plate-brass-monogram style-blind" id="monogramPreview">T . W</div>
+          <div class="plate-sub-stamp" id="monogramSubPreview">ATELIER TATAH • VEG-TANNED</div>
+        </div>
+
+        <!-- Controls Card -->
+        <div class="monogram-controls-card">
+          <div class="control-group">
+            <span class="control-label">1. Masukkan Inisial Nama (Maksimal 5 Karakter)</span>
+            <input type="text" class="input-monogram-text" id="inputMonogram" value="T . W" maxlength="6" oninput="updateMonogramText()">
+          </div>
+
+          <div class="control-group">
+            <span class="control-label">2. Pilih Tipe Finishing Debossing</span>
+            <div class="foil-style-selector">
+              <div class="btn-foil-option active" onclick="selectFoilStyle('blind', this)">
+                <span class="foil-name">Blind Heat</span>
+                <span class="foil-meta">Tekan Panas Polos</span>
+              </div>
+              <div class="btn-foil-option" onclick="selectFoilStyle('gold', this)">
+                <span class="foil-name">24K Gold Foil</span>
+                <span class="foil-meta">Foil Emas Klasik</span>
+              </div>
+              <div class="btn-foil-option" onclick="selectFoilStyle('bronze', this)">
+                <span class="foil-name">Vintage Bronze</span>
+                <span class="foil-meta">Perunggu Antik</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--tatah-parchment); border: 1px solid var(--tatah-border); border-radius: 8px; padding: 12px 14px; font-size: 12.5px; color: var(--tatah-muted);">
+            ✨ Cap monogram dibuat menggunakan blok huruf kuningan padat dengan suhu 130°C selama 4 detik, menghasilkan impresi dalam permanen yang tidak akan pudar.
+          </div>
+
+          <button class="btn-hero-primary" onclick="applyMonogramToCart()" style="justify-content: center;">
+            + Terapkan Monogram ke Pesanan
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Catalog of 6 Leathercraft Essentials -->
+  <section class="catalog-section" id="katalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">KATALOG KULIT NABATI</span>
+        <h2 class="section-title">Koleksi Kriya Meja Kerja & Saku</h2>
+        <p class="section-subtitle">Setiap barang dipotong dari bagian terbaik lembaran kulit sapi Jawa & Tuscany, disulam manual benang linen, dan diuji ketahanan gesekan.</p>
+      </div>
+
+      <div class="catalog-filters-row">
+        <button class="btn-filter-pill active" onclick="filterCatalog('all', this)">Semua Koleksi (6)</button>
+        <button class="btn-filter-pill" onclick="filterCatalog('wallet', this)">Dompet & Saku</button>
+        <button class="btn-filter-pill" onclick="filterCatalog('bag', this)">Tas & Carry Goods</button>
+        <button class="btn-filter-pill" onclick="filterCatalog('desk', this)">Aksesori Meja & Tali</button>
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="if(event.target === this) toggleCartDrawer()">
+    <div class="cart-drawer">
+      <div class="drawer-header">
+        <h3 class="drawer-title">Arsip Pesanan Kulit</h3>
+        <button class="btn-close-drawer" onclick="toggleCartDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-items-list" id="drawerItemsList">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="subtotal-line">
+          <span>Total Investasi Kriya</span>
+          <span class="subtotal-val" id="drawerSubtotal">Rp 0</span>
+        </div>
+        <p style="font-size: 11px; color: var(--tatah-muted); line-height: 1.5;">
+          * Termasuk free custom initial monogram deboss, garansi perbaikan jahitan saddle seumur hidup, dan 1 pot krim perawat beeswax alami.
+        </p>
+        <button class="btn-checkout-wa" onclick="checkoutWhatsApp()">
+          🔨 Pesan via WhatsApp Atelier Tatah
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Commission Modal -->
+  <div class="modal-overlay" id="commissionModal" onclick="if(event.target === this) closeCommissionModal()">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 class="modal-title">Konsultasi Pesanan Khusus (Bespoke)</h3>
+        <button class="btn-close-drawer" onclick="closeCommissionModal()">✕</button>
+      </div>
+      <p style="font-size: 13.5px; color: var(--tatah-muted);">
+        Ingin ukuran tas kustom, holster pisau koki, atau sampul buku catatan arsitek? Diskusikan langsung dengan pengrajin utama kami di Bandung.
+      </p>
+
+      <form onsubmit="handleCommissionSubmit(event)" style="display: flex; flex-direction: column; gap: 14px;">
+        <div class="control-group">
+          <span class="control-label">Nama Lengkap</span>
+          <input type="text" class="input-monogram-text" placeholder="Nama Anda" required style="font-weight: 500;">
+        </div>
+        <div class="control-group">
+          <span class="control-label">Nomor WhatsApp</span>
+          <input type="tel" class="input-monogram-text" placeholder="0812-xxxx-xxxx" required style="font-weight: 500;">
+        </div>
+        <div class="control-group">
+          <span class="control-label">Kategori Pesanan Khusus</span>
+          <select style="background: var(--tatah-parchment); border: 1px solid var(--tatah-border); border-radius: 8px; padding: 12px; font-size: 14px; color: var(--tatah-ink); outline: none;">
+            <option>Tas Kerja Kulit Kustom (Briefcase / Tote)</option>
+            <option>Sampul Buku / Binder Kulit Arsitektur</option>
+            <option>Strap Jam Tangan & Kamera Kustom</option>
+            <option>Proyek Aksesori Kafe / Hospitality Leather Goods</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-hero-primary" style="justify-content: center; margin-top: 6px;">
+          Kirim Pengajuan Bespoke
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-mark">
+            <div class="brand-icon-box">T</div>
+            <div class="brand-text">
+              <span class="brand-title">TATAH LEATHER</span>
+              <span class="brand-tagline">ARTISANAL SADDLERY ATELIER</span>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--tatah-muted); max-width: 300px; margin-top: 6px;">
+            Atelier kriya kulit nabati full-grain, jahitan tangan saddle stitch benang linen, dan simulator penuaan patina alami di Bandung, Jawa Barat.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Koleksi Kriya</span>
+          <div class="footer-col-links">
+            <a href="#katalog">The Arka Cardholder</a>
+            <a href="#katalog">The Bento Saddle Tote</a>
+            <a href="#katalog">The Sapa Notebook Cover</a>
+            <a href="#katalog">The Karsa Bifold Wallet</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Eksplorasi Studio</span>
+          <div class="footer-col-links">
+            <a href="#patina">Simulator Patina 1.000 Hari</a>
+            <a href="#monogram">Studio Cap Monogram</a>
+            <a href="#custom" onclick="openCommissionModal(); return false;">Konsultasi Pesanan Khusus</a>
+            <a href="https://wa.me/6281234567890" target="_blank">Layanan WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-title">Lokasi Meja Kerja</span>
+          <p style="font-size: 13px; color: var(--tatah-muted); line-height: 1.6;">
+            <strong>Bengkel Kerja Tatah:</strong><br>
+            Jl. Cigadung Raya Timur No. 44, Cibeunying Kaler, Bandung<br>
+            Senin – Sabtu: 09:00 – 18:00 WIB<br>
+            <em>(Kunjungan bengkel kerja harap melakukan janji temu)</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 TATAH LEATHERWORKS. SELURUH HAK KRIYA DILINDUNGI.</div>
+        <div>PALET WARNA RESMI: #AD8B73 • #CEAB93 • #E3CAA5 • #FFFBE9</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    /* ==========================================================================
+       DATA SOURCE — 4 STAGES OF PATINA
+       ========================================================================== */
+    const patinaStages = [
+      {
+        badge: 'HARI KE-1 : FRESH CRUST',
+        title: 'Tahap 1: Fresh Natural Crust Vachetta',
+        desc: 'Kulit masih dalam warna aslinya yang hangat dan bersih (#FFFBE9 & #E3CAA5). Pori-pori terbuka bebas, sangat sensitif terhadap sinar matahari dan minyak alami dari telapak tangan pemakai.',
+        luster: 'Tingkat 1 (Matte Pucat)',
+        resistance: 'Fase Adaptasi Awal',
+        care: 'Gunakan Kering & Hindari Air Hujan',
+        img: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1000&q=80',
+        filter: 'sepia(0.2) saturate(0.9) brightness(1.05)'
+      },
+      {
+        badge: 'BULAN KE-3 : HONEY TAN GLOW',
+        title: 'Tahap 2: Golden Honey Tan Transition',
+        desc: 'Paparan sinar UV matahari mulai mengoksidasi tanin nabati kayu mimosa. Kulit menghangat menjadi rona keemasan (#CEAB93), permukaan mulai mengompak dan lebih tangguh terhadap goresan halus.',
+        luster: 'Tingkat 2 (Satin Halus)',
+        resistance: 'Mulai Tahan Percikan Air',
+        care: 'Oleskan Sedikit Beeswax Balm',
+        img: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
+        filter: 'sepia(0.4) saturate(1.1) brightness(0.98)'
+      },
+      {
+        badge: 'TAHUN KE-1 : RICH AMBER COGNAC',
+        title: 'Tahap 3: Rich Amber Cognac Maturity',
+        desc: 'Minyak alami kulit pemakai telah meresap ke dalam serat corium. Terbentuk lapisan pelindung kilau alami yang kaya warna amber (#AD8B73), tekstur lentur sempurna dan berkarakter kuat.',
+        luster: 'Tingkat 3 (Kilap Alami Tinggi)',
+        resistance: 'Tahan Gesekan & Cuaca Tropis',
+        care: 'Kondisioner Tiap 6 Bulan',
+        img: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=80',
+        filter: 'sepia(0.6) saturate(1.3) brightness(0.92)'
+      },
+      {
+        badge: 'TAHUN KE-3+ : VINTAGE CHESTNUT PATINA',
+        title: 'Tahap 4: Heritage Deep Chestnut Patina',
+        desc: 'Karya seni hidup yang menyimpan seluruh perjalanan hidup pemiliknya. Warna cokelat gelap pekat dengan kilau licin layaknya keramik antik. Nilai sentimental dan estetika berada di titik tertingginya.',
+        luster: 'Tingkat 4 (Patina Abadi Menyilau)',
+        resistance: 'Sangat Tangguh Seumur Hidup',
+        care: 'Cukup Lap Kain Katun Lembut',
+        img: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&w=1000&q=80',
+        filter: 'sepia(0.8) saturate(1.4) contrast(1.1) brightness(0.85)'
+      }
+    ];
+
+    function setPatinaStage(index) {
+      const stage = patinaStages[index];
+      const buttons = document.querySelectorAll('.btn-patina-step');
+      buttons.forEach((b, i) => b.classList.toggle('active', i === index));
+
+      document.getElementById('patinaBadge').textContent = stage.badge;
+      document.getElementById('patinaTitle').textContent = stage.title;
+      document.getElementById('patinaDesc').textContent = stage.desc;
+      document.getElementById('patinaLuster').textContent = stage.luster;
+      document.getElementById('patinaResistance').textContent = stage.resistance;
+      document.getElementById('patinaCare').textContent = stage.care;
+
+      const img = document.getElementById('patinaImage');
+      img.src = stage.img;
+      img.style.filter = stage.filter;
+    }
+
+    /* ==========================================================================
+       MONOGRAM DEBOSSER LOGIC
+       ========================================================================== */
+    let currentFoilStyle = 'blind';
+
+    function updateMonogramText() {
+      const val = document.getElementById('inputMonogram').value.trim() || 'T . W';
+      document.getElementById('monogramPreview').textContent = val;
+    }
+
+    function selectFoilStyle(styleName, btnEl) {
+      currentFoilStyle = styleName;
+      document.querySelectorAll('.btn-foil-option').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const preview = document.getElementById('monogramPreview');
+      preview.className = 'plate-brass-monogram style-' + styleName;
+    }
+
+    function applyMonogramToCart() {
+      const text = document.getElementById('inputMonogram').value.trim() || 'T . W';
+      alert(`Monogram "${text}" dengan gaya ${currentFoilStyle.toUpperCase()} telah disimpan untuk pesanan berikutnya.`);
+    }
+
+    /* ==========================================================================
+       DATA SOURCE — 6 LEATHER GOODS CATALOG
+       ========================================================================== */
+    const catalogData = [
+      {
+        id: 'lt-1',
+        name: 'The Arka Minimalist Cardholder',
+        type: 'wallet',
+        typeName: 'Dompet Saku',
+        price: 'Rp 385.000',
+        priceNum: 385000,
+        desc: 'Dompet saku 4 slot kartu dan 1 kompartemen uang lipat. Dibuat dari kulit sapi nabati 1.4mm dengan tepian tokonole poles licin.',
+        specs: ['1.4mm Veg-Tan', '7.0 SPI Saddle Stitch', 'Kapasitas 8 Kartu'],
+        img: 'https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'lt-2',
+        name: 'The Bento Saddle Tote',
+        type: 'bag',
+        typeName: 'Tas Kerja & Tote',
+        price: 'Rp 2.450.000',
+        priceNum: 2450000,
+        desc: 'Tote bag arsitektural berbahan kulit sapi tebal 2.2mm tanpa furing sintetis. Muat laptop 15 inch dengan kantong saku gantung.',
+        specs: ['2.2mm Cowhide', 'Solid Brass Rivets', 'Hand Stitch 18 Jam'],
+        img: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'lt-3',
+        name: 'The Sapa A5 Field Notebook Cover',
+        type: 'desk',
+        typeName: 'Aksesori Meja',
+        price: 'Rp 520.000',
+        priceNum: 520000,
+        desc: 'Sampul buku jurnal A5 dengan slot pena ganda dan tali penutup elastis. Cocok untuk buku catatan arsitek & penulis lapangan.',
+        specs: ['Cocok Midori / Moleskine A5', 'Pen Loop Ganda', 'Waxed Linen'],
+        img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'lt-4',
+        name: 'The Karsa Bifold 6-Slot Wallet',
+        type: 'wallet',
+        typeName: 'Dompet Lipat',
+        price: 'Rp 650.000',
+        priceNum: 650000,
+        desc: 'Dompet lipat klasik 6 slot kartu dan slot uang tunai lapang. Konstruksi tipis tidak menggembung di saku celana belakang.',
+        specs: ['Full-Grain Cow Crust', 'Edge Skiving Tipis', 'Jahitan Tangan'],
+        img: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'lt-5',
+        name: 'The Rengganis Quick-Release Camera Sling',
+        type: 'desk',
+        typeName: 'Tali Kamera',
+        price: 'Rp 480.000',
+        priceNum: 480000,
+        desc: 'Tali kamera bahu berbahan kulit bridle nabati dengan bantalan leher empuk dan pengait kuningan antik anti-karat.',
+        specs: ['Beban Uji 35 Kg', 'Kuningan Padat Antik', 'Panjang 115cm'],
+        img: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'lt-6',
+        name: 'The Teras Desk Mat & Coaster Duo',
+        type: 'desk',
+        typeName: 'Aksesori Meja',
+        price: 'Rp 890.000',
+        priceNum: 890000,
+        desc: 'Alas meja kerja kulit sapi utuh ukuran 70×35 cm lengkap dengan tatakan cangkir kopi. Menghidupkan kehangatan meja kerja kayu.',
+        specs: ['Ukuran 70 x 35 cm', 'Tepi Bevel Halus', 'Tahan Cangkir Panas'],
+        img: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80'
+      }
+    ];
+
+    /* ==========================================================================
+       CART & STATE
+       ========================================================================== */
+    let cart = [];
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    function renderCatalog(filter = 'all') {
+      const grid = document.getElementById('catalogGrid');
+      const filtered = filter === 'all' ? catalogData : catalogData.filter(c => c.type === filter);
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="product-card">
+          <div class="card-photo-frame">
+            <img src="${item.img}" alt="${item.name}" loading="lazy">
+            <span class="card-cat-badge">${item.typeName}</span>
+          </div>
+          <div class="card-content-body">
+            <div class="card-title-line">
+              <h4 class="product-name">${item.name}</h4>
+              <span class="product-price">${item.price}</span>
+            </div>
+            <p class="product-desc">${item.desc}</p>
+            <div class="card-specs-chips">
+              ${item.specs.map(s => `<span class="chip-item">${s}</span>`).join('')}
+            </div>
+            <div class="card-action-bar">
+              <button class="btn-add-item" onclick="addToCart('${item.id}')">
+                + Tambah ke Keranjang
+              </button>
+              <button class="btn-deboss-quick" onclick="document.getElementById('monogram').scrollIntoView({behavior: 'smooth'})">
+                + Monogram
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCatalog(category, btnElement) {
+      document.querySelectorAll('.btn-filter-pill').forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+      renderCatalog(category);
+    }
+
+    function addToCart(itemId) {
+      const item = catalogData.find(c => c.id === itemId);
+      if (!item) return;
+
+      const monoText = document.getElementById('inputMonogram').value.trim() || 'T . W';
+      cart.push({
+        id: item.id + '-' + Date.now(),
+        name: item.name,
+        price: item.priceNum,
+        priceStr: item.price,
+        meta: `${item.typeName} • Monogram: "${monoText}" (${currentFoilStyle.toUpperCase()})`,
+        img: item.img
+      });
+
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    function toggleCartDrawer(forceOpen = null) {
+      const overlay = document.getElementById('cartOverlay');
+      if (forceOpen === true) {
+        overlay.classList.add('open');
+      } else if (forceOpen === false) {
+        overlay.classList.remove('open');
+      } else {
+        overlay.classList.toggle('open');
+      }
+    }
+
+    function removeCartItem(idx) {
+      cart.splice(idx, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('navCartBadge');
+      badge.textContent = cart.length;
+
+      const list = document.getElementById('drawerItemsList');
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div style="text-align: center; padding: 48px 16px; color: var(--tatah-muted);">
+            <div style="font-size: 32px; margin-bottom: 12px;">🔨</div>
+            <p style="font-family: var(--font-display); font-size: 18px; color: var(--tatah-ink); margin-bottom: 6px;">Arsip Pesanan Masih Kosong</p>
+            <p style="font-size: 13px;">Pilih karya kulit saku atau tas meja kerja untuk memulai penyulaman tangan.</p>
+          </div>
+        `;
+        document.getElementById('drawerSubtotal').textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      list.innerHTML = cart.map((item, idx) => {
+        subtotal += item.price;
+        return `
+          <div class="cart-item-card">
+            <img src="${item.img}" alt="${item.name}" class="cart-item-thumb">
+            <div class="cart-item-details">
+              <span class="cart-item-title">${item.name}</span>
+              <span class="cart-item-meta">${item.meta}</span>
+              <div class="cart-item-row-bot">
+                <span class="cart-item-price">${item.priceStr}</span>
+                <button class="btn-del-item" onclick="removeCartItem(${idx})">Hapus</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('drawerSubtotal').textContent = formatRupiah(subtotal);
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang belanja Anda masih kosong.');
+        return;
+      }
+
+      let text = 'Halo Atelier TATAH LEATHERWORKS, saya ingin memesan kriya kulit buatan tangan berikut:\n\n';
+      let total = 0;
+      cart.forEach((item, i) => {
+        text += `${i + 1}. ${item.name} (${item.priceStr})\n   Detail: ${item.meta}\n`;
+        total += item.price;
+      });
+      text += `\nEstimasi Total: ${formatRupiah(total)}\n\nMohon informasi antrean pengerjaan dan estimasi pengiriman. Terima kasih!`;
+
+      const url = 'https://wa.me/6281234567890?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+    }
+
+    /* ==========================================================================
+       COMMISSION MODAL
+       ========================================================================== */
+    function openCommissionModal() {
+      document.getElementById('commissionModal').classList.add('open');
+    }
+
+    function closeCommissionModal() {
+      document.getElementById('commissionModal').classList.remove('open');
+    }
+
+    function handleCommissionSubmit(e) {
+      e.preventDefault();
+      alert('Terima kasih! Tim pengrajin TATAH akan meninjau rancangan kustom Anda dan menghubungi via WhatsApp dalam 1x24 jam.');
+      closeCommissionModal();
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCatalog();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>

@@ -28,8 +28,10 @@ import { SVALA_BATHHOUSE_MASTER_PROMPT } from './wellnessPrompt';
 import { VERRA_OPTICS_MASTER_PROMPT } from './eyewearPrompt';
 import { CHIDORI_WAGASHI_MASTER_PROMPT } from './wagashiPrompt';
 import { ETOILE_BRIDAL_MASTER_PROMPT } from './bridalPrompt';
+import { TATAH_LEATHER_MASTER_PROMPT } from './leatherPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'tatah-artisanal-leather': TATAH_LEATHER_MASTER_PROMPT,
   'etoile-bridal-couture': ETOILE_BRIDAL_MASTER_PROMPT,
   'chidori-kyoto-wagashi': CHIDORI_WAGASHI_MASTER_PROMPT,
   'verra-japanese-eyewear': VERRA_OPTICS_MASTER_PROMPT,
@@ -89,4 +91,5 @@ export {
   VERRA_OPTICS_MASTER_PROMPT,
   CHIDORI_WAGASHI_MASTER_PROMPT,
   ETOILE_BRIDAL_MASTER_PROMPT,
+  TATAH_LEATHER_MASTER_PROMPT,
 };
