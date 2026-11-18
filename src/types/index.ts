@@ -18,6 +18,7 @@ export type Category =
   | 'pet'
   | 'donat'
   | 'fashion'
+  | 'perfumery'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

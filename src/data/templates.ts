@@ -1198,6 +1198,82 @@ export function TanahLiatStudio() {
     publishedAt: '2026-05-18',
     livePreviewAvailable: true,
     accentColor: '#E60012'
+  },
+  {
+    id: 'tpl-19',
+    slug: 'maison-nocturne-parfumerie',
+    title: 'Maison Nocturne (Atelier de Parfum)',
+    tagline: 'Haute parfumerie botani, ekstrak wewangian langka, dan arsip formula malam',
+    description: 'Template website haute parfumerie & botanical scent laboratory dengan palet velvet plum (#7C0E44), muted berry mauve (#AA5E7A), dusty rose (#D49A9A), dan warm linen cream (#F2DACE). Dilengkapi piramida olfaktori interaktif (top/heart/base), custom discovery trio builder (3×5ml), live flacon monogram engraving studio, scent finder quiz 3-langkah, pemesanan tester blotter wax-seal, dan slide-over cart terintegrasi pemesanan WhatsApp.',
+    category: 'perfumery',
+    tags: ['Perfumery', 'Haute Parfumerie', 'Wewangian', 'Boutique Fragrance', 'Discovery Set', 'Engraving Studio', 'Olfactory Archive', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Interactive Scent Pyramid', 'Custom Discovery Set Builder', 'Live Engraving Canvas', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'perfumery',
+    previewComponentKey: 'perfumery-maison-nocturne',
+    htmlPath: '/templates/perfumery/maison-nocturne.html',
+    htmlFolderPath: 'templates/perfumery/maison-nocturne.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Piramida aroma olfaktori interaktif dengan visualisasi breakdown akord real-time (Top, Heart, dan Base notes)',
+      'Custom Discovery Trio Builder (3×5ml) dengan visual 3-slot box, pilihan warna boks presentasi, dan kalkulasi dinamis',
+      'Studio Monogram & Live Flacon Engraving dengan simulasi ukiran inisial pada botol kaca secara real-time',
+      'Scent Finder Quiz 3-langkah untuk konsultasi digital aroma yang cocok sesuai kepribadian & suasana',
+      'Slide-over keranjang belanja terintegrasi pemesanan resmi via WhatsApp beserta data nama & kota pengiriman'
+    ],
+    usageInstructions: [
+      'Buka templates/perfumery/maison-nocturne.html di editor kode Anda.',
+      'Sesuaikan daftar koleksi parfum, harga, dan catatan aroma pada objek PERFUMES_DB di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan resmi pada fungsi checkoutViaWhatsApp dan bookAtelierVisit.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase wewangian langsung aktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'maison-nocturne.html',
+        language: 'html',
+        content: `<!-- MAISON NOCTURNE — Parfumerie Botanique & Archives Olfactives -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>MAISON NOCTURNE — Parfumerie Botanique</title>
+  <style>
+    :root {
+      --plum-wine: #7C0E44;
+      --berry-mauve: #AA5E7A;
+      --dusty-rose: #D49A9A;
+      --cream-linen: #F2DACE;
+      --cream-light: #FBF4F0;
+      --ink-primary: #1F0713;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">ARSIP EDISI 2026 • COMPLIMENTARY VIAL PADA ORDER > RP 450K</div>
+  <header>
+    <div class="brand-crest">MN</div>
+    <h1>MAISON NOCTURNE</h1>
+    <nav>Koleksi Ekstrak · Piramida Olfaktori · Discovery Trio · Monogram · Scent Finder · Atelier</nav>
+  </header>
+  <!-- Full Interactive Parfumerie Experience: Pyramid Explorer, Discovery Coffret Builder, Bottle Engraving & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier haute parfumerie dan wewangian botani MAISON NOCTURNE dengan palet warna velvet plum (#7C0E44), muted berry mauve (#AA5E7A), dusty rose (#D49A9A), dan warm linen cream (#F2DACE). Dilengkapi piramida olfaktori interaktif, custom discovery set builder, live bottle engraving studio, scent quiz, dan slide-over cart WhatsApp.',
+      designDirection: 'Editorial luxury perfumery berstandar antislop: Velvet Plum (#7C0E44), Deep Wine (#56082E), Muted Berry Mauve (#AA5E7A), Dusty Rose (#D49A9A), Warm Porcelain Linen (#F2DACE), dan Light Cream Ground (#FBF4F0). Tipografi Cormorant Garamond dan Plus Jakarta Sans.',
+      layoutAndGrid: 'Top announcement bar burgundy, sticky editorial header dengan monogram MN, hero showcase asimetris 2 kolom dengan spotlight flacon signature, piramida interaktif 3 tingkat dengan visual bar meter, katalog 6 varian wewangian dengan live search & filter tab, discovery coffret builder 3 slot, studio monogram live flacon, dan slide-over cart drawer kanan.',
+      typographyAndColor: 'Cormorant Garamond untuk headline editorial mewah dan nuansa artisanal Grasse/Bandung, Plus Jakarta Sans untuk teks bodi dan kontrol UI, JetBrains Mono untuk spesifikasi batch, konsentrasi 28% Extrait, dan kode formulasi.',
+      interactions: 'Piramida olfaktori interaktif dengan transisi akord instan, pencarian dan filter katalog tanpa reload halaman, pemilihan 3 vial ke boks custom dengan visual slot terisi/kosong, simulasi monogram grafir kaca live text rendering, kuis pencari aroma 3-langkah dengan kalkulasi rekomendasi, quick view modal dengan pemilih ukuran botol, dan slide-over cart WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive dari smartphone 360px hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#7C0E44'
   }
 ];
 

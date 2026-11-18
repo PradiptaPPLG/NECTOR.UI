@@ -28,15 +28,18 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
-    templates.find(t => t.slug === 'rukun-buah-segar') || templates[0],
-    templates.find(t => t.slug === 'raso-mandeh-padang') || templates[1],
-    templates.find(t => t.slug === 'savore-cafe') || templates[2],
-    templates.find(t => t.slug === 'sakumart-pos') || templates[3],
+    templates.find(t => t.slug === 'maison-nocturne-parfumerie') || templates[0],
+    templates.find(t => t.slug === 'kura-apparel') || templates[1],
+    templates.find(t => t.slug === 'rukun-buah-segar') || templates[2],
+    templates.find(t => t.slug === 'raso-mandeh-padang') || templates[3],
+    templates.find(t => t.slug === 'savore-cafe') || templates[4],
   ];
 
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'perfumery', label: 'Parfum & Aromatik', count: templates.filter(t => t.category === 'perfumery').length, desc: 'Atelier haute parfumerie botani, piramida olfaktori, discovery set & monogram studio' },
+    { id: 'fashion', label: 'Fashion & Toko Baju', count: templates.filter(t => t.category === 'fashion').length, desc: 'Etalase baju & lifewear modern gaya Uniqlo, preview modal interaktif & diskon' },
     { id: 'sekolah', label: 'Sekolah & Akademik', count: templates.filter(t => t.category === 'sekolah').length, desc: 'Meja belajar digital siswa, jadwal pelajaran mingguan, agenda tugas & rekap nilai rapor' },
     { id: 'buah', label: 'Pasar & Toko Buah', count: templates.filter(t => t.category === 'buah').length, desc: 'Penjualan buah segar lokal & impor dengan timbangan digital presisi dan garansi manis' },
     { id: 'perpustakaan', label: 'Perpustakaan & Arsip', count: templates.filter(t => t.category === 'perpustakaan').length, desc: 'Sistem sirkulasi peminjaman buku, katalog rak DDC & ruang baca fisik' },

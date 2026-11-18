@@ -18,8 +18,10 @@ import {
   RUKUN_BUAH_MASTER_PROMPT,
 } from './otherPrompts';
 import { KURA_APPAREL_MASTER_PROMPT } from './fashionPrompt';
+import { MAISON_NOCTURNE_MASTER_PROMPT } from './perfumeryPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'maison-nocturne-parfumerie': MAISON_NOCTURNE_MASTER_PROMPT,
   'kura-apparel': KURA_APPAREL_MASTER_PROMPT,
   'kantin-sekolah-selasar': KANTIN_MASTER_PROMPT,
   'savore-cafe': SAVORE_MASTER_PROMPT,
@@ -63,4 +65,5 @@ export {
   SIPARA_MASTER_PROMPT,
   RUKUN_BUAH_MASTER_PROMPT,
   KURA_APPAREL_MASTER_PROMPT,
+  MAISON_NOCTURNE_MASTER_PROMPT,
 };

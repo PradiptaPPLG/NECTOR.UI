@@ -86,6 +86,7 @@ export const TemplateThumbnail: React.FC<Props> = ({ template, showBrowserChrome
     'miau-cattery-boutique': 'https://miau.cattery.id',
     'dough-and-glaze-donat': 'https://doughglaze.id',
     'kura-apparel': 'https://kura-apparel.nector.ui',
+    'maison-nocturne-parfumerie': 'https://maison-nocturne.parfum.id',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;
