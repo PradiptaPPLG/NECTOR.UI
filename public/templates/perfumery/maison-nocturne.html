@@ -252,17 +252,22 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 16px;
       list-style: none;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .nav-link {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--ink-secondary);
       letter-spacing: 0.02em;
       position: relative;
       padding: 6px 0;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
     }
     .nav-link:hover, .nav-link.active {
       color: var(--plum-wine);
@@ -284,21 +289,25 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .btn-scent-finder {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       background: rgba(170, 94, 122, 0.12);
       border: 1px solid var(--berry-mauve);
       color: var(--plum-wine);
-      padding: 8px 15px;
+      padding: 7px 13px;
       border-radius: var(--radius-pill);
       font-size: 12.5px;
       font-weight: 600;
       letter-spacing: 0.02em;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .btn-scent-finder:hover {
       background: var(--berry-mauve);
@@ -308,16 +317,18 @@
     .btn-cart-trigger {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: var(--plum-wine);
       color: var(--cream-linen);
-      padding: 9px 18px;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
       letter-spacing: 0.04em;
       border: 1px solid var(--plum-dark);
       position: relative;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .btn-cart-trigger:hover {
       background: var(--plum-dark);
@@ -2162,24 +2173,24 @@
 
       <nav aria-label="Navigasi Utama">
         <ul class="nav-links">
-          <li><a href="#koleksi" class="nav-link active">Koleksi Ekstrak</a></li>
-          <li><a href="#piramida" class="nav-link">Piramida Olfaktori</a></li>
+          <li><a href="#koleksi" class="nav-link active">Koleksi</a></li>
+          <li><a href="#piramida" class="nav-link">Piramida</a></li>
           <li><a href="#discovery-set" class="nav-link">Discovery Trio</a></li>
-          <li><a href="#monogram" class="nav-link">Studio Monogram</a></li>
+          <li><a href="#monogram" class="nav-link">Monogram</a></li>
           <li><a href="#scent-quiz" class="nav-link">Scent Finder</a></li>
-          <li><a href="#atelier" class="nav-link">Atelier & Sampel</a></li>
+          <li><a href="#atelier" class="nav-link">Atelier</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
         <button class="btn-scent-finder" onclick="document.getElementById('scent-quiz').scrollIntoView({behavior:'smooth'})">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <span>Cari Aromamu</span>
+          <span>Cari Aroma</span>
         </button>
 
         <button class="btn-cart-trigger" id="btnOpenCart" aria-label="Buka Keranjang Belanja">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span>Arsip Pesanan</span>
+          <span>Pesanan</span>
           <span class="cart-badge" id="cartCountBadge">0</span>
         </button>
 

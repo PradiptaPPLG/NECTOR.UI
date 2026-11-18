@@ -167,15 +167,20 @@
     nav.main-nav {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 18px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     nav.main-nav a {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--ink-secondary);
       transition: color 0.2s ease;
       letter-spacing: 0.02em;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
     }
 
     nav.main-nav a:hover {
@@ -185,22 +190,26 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .btn-flight-shortcut {
       background: var(--cream-butter);
       color: var(--forest-dark);
       border: 1px solid var(--gold-harvest);
-      padding: 9px 18px;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .btn-flight-shortcut:hover {
@@ -212,12 +221,17 @@
       background: var(--forest-dark);
       color: var(--cream-paper);
       border: 1px solid var(--forest-dark);
-      padding: 9px 18px;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
       align-items: center;
       gap: 10px;
       transition: all 0.2s ease;
@@ -1702,16 +1716,16 @@
     </div>
 
     <nav class="main-nav">
-      <a href="#terroir">Terroir Hutan</a>
-      <a href="#flight-builder">Tasting Flight Trio</a>
-      <a href="#lab-purity">Uji Kemurnian</a>
-      <a href="#catalog">Katalog Madu</a>
+      <a href="#terroir">Terroir</a>
+      <a href="#flight-builder">Flight Trio</a>
+      <a href="#lab-purity">Uji Lab</a>
+      <a href="#catalog">Katalog</a>
       <a href="#ethical">Etika Panen</a>
     </nav>
 
     <div class="header-actions">
       <button class="btn-flight-shortcut" onclick="scrollToSection('flight-builder')">
-        <span>✨</span> Racik Boks Flight
+        <span>✨</span> Racik Boks
       </button>
       <button class="cart-btn-trigger" onclick="toggleCartDrawer()">
         <span>Keranjang</span>

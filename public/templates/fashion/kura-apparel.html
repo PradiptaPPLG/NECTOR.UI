@@ -196,18 +196,23 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 16px;
       list-style: none;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .nav-link-btn {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--text-secondary);
-      padding: 8px 4px;
+      padding: 6px 4px;
       position: relative;
       transition: color 0.15s ease;
       cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
     }
 
     .nav-link-btn:hover,
@@ -232,20 +237,29 @@
       font-weight: 800;
       padding: 2px 6px;
       border-radius: var(--radius-xs);
-      margin-left: 4px;
+      margin-left: 6px;
       letter-spacing: 0.04em;
+      white-space: nowrap;
+      display: inline-block;
+      line-height: 1.2;
     }
 
     /* Search & Action bar */
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .search-wrapper {
       position: relative;
-      width: 260px;
+      width: 180px;
+      transition: width 0.2s ease;
+    }
+    .search-wrapper:focus-within {
+      width: 220px;
     }
 
     .search-input {
@@ -2009,14 +2023,14 @@
       <!-- Navigation Links -->
       <nav aria-label="Navigasi Utama">
         <ul class="nav-links">
-          <li><button class="nav-link-btn active" onclick="setCategoryFilter('all')">Semua Koleksi</button></li>
-          <li><button class="nav-link-btn" onclick="setCategoryFilter('kaos')">Kaos & Atasan</button></li>
+          <li><button class="nav-link-btn active" onclick="setCategoryFilter('all')">Semua</button></li>
+          <li><button class="nav-link-btn" onclick="setCategoryFilter('kaos')">Kaos</button></li>
           <li><button class="nav-link-btn" onclick="setCategoryFilter('kemeja')">Kemeja</button></li>
-          <li><button class="nav-link-btn" onclick="setCategoryFilter('outer')">Jaket & Outer</button></li>
+          <li><button class="nav-link-btn" onclick="setCategoryFilter('outer')">Outer</button></li>
           <li><button class="nav-link-btn" onclick="setCategoryFilter('celana')">Celana</button></li>
           <li>
             <button class="nav-link-btn" onclick="toggleSaleOnlyFilter()">
-              Promo Diskon <span class="badge-promo-nav">SALE 40%</span>
+              Promo <span class="badge-promo-nav">SALE 40%</span>
             </button>
           </li>
         </ul>
