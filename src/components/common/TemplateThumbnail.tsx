@@ -17,8 +17,8 @@ const ScaledIframeThumbnail: React.FC<{ htmlPath: string; title: string }> = ({ 
       if (containerRef.current) {
         const width = containerRef.current.clientWidth;
         if (width > 0) {
-          // Virtual desktop viewport width is 1200px
-          setScale(width / 1200);
+          // Virtual desktop viewport width is 1280px (Standard HD desktop)
+          setScale(width / 1280);
         }
       }
     };
@@ -48,8 +48,8 @@ const ScaledIframeThumbnail: React.FC<{ htmlPath: string; title: string }> = ({ 
         tabIndex={-1}
         scrolling="no"
         style={{
-          width: '1200px',
-          height: '750px',
+          width: '1280px',
+          height: '800px',
           border: 'none',
           position: 'absolute',
           top: 0,

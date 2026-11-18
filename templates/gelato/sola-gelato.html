@@ -163,15 +163,20 @@
     nav.main-nav {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 18px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     nav.main-nav a {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--ink-secondary);
       transition: color 0.2s ease;
       letter-spacing: 0.02em;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
     }
 
     nav.main-nav a:hover {
@@ -181,22 +186,26 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .btn-pint-shortcut {
       background: var(--custard-cream);
       color: var(--ink-primary);
       border: 1px solid var(--marigold-gold);
-      padding: 9px 18px;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .btn-pint-shortcut:hover {
@@ -207,15 +216,18 @@
       background: var(--coastal-blue);
       color: #FFFFFF;
       border: 1px solid var(--coastal-deep);
-      padding: 9px 18px;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
     }
 
     .cart-btn-trigger:hover {
@@ -1445,7 +1457,7 @@
     </div>
 
     <nav class="main-nav">
-      <a href="#flavor-flight">Boks 3-Pint</a>
+      <a href="#flavor-flight">Boks Flight</a>
       <a href="#science">Sains Gelato</a>
       <a href="#catalog">Katalog Rasa</a>
       <a href="#cold-chain">Jaminan Dingin</a>
@@ -1453,7 +1465,7 @@
 
     <div class="header-actions">
       <button class="btn-pint-shortcut" onclick="scrollToSection('flavor-flight')">
-        <span>🍨</span> Racik Boks 3-Pint
+        <span>🍨</span> Racik Boks
       </button>
       <button class="cart-btn-trigger" onclick="toggleCartDrawer()">
         <span>Pesanan</span>

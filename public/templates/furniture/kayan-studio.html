@@ -164,15 +164,20 @@
     nav.main-nav {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 18px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     nav.main-nav a {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--ink-secondary);
       transition: color 0.2s ease;
       letter-spacing: 0.02em;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
     }
 
     nav.main-nav a:hover {
@@ -182,22 +187,26 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .btn-swatch-shortcut {
       background: #FFFFFF;
       color: var(--forest-spruce);
       border: 1px solid var(--cane-teak);
-      padding: 9px 18px;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .btn-swatch-shortcut:hover {
@@ -209,15 +218,18 @@
       background: var(--forest-spruce);
       color: var(--parchment-cream);
       border: 1px solid var(--forest-spruce);
-      padding: 9px 18px;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
     }
 
     .cart-btn-trigger:hover {
@@ -1361,15 +1373,15 @@
     </div>
 
     <nav class="main-nav">
-      <a href="#customizer">Studio Material</a>
-      <a href="#room-scale">Simulasi Skala Ruang</a>
-      <a href="#catalog">Koleksi Perabot</a>
-      <a href="#sample-box">Swatch Box Gratis</a>
+      <a href="#customizer">Material</a>
+      <a href="#room-scale">Skala Ruang</a>
+      <a href="#catalog">Koleksi</a>
+      <a href="#sample-box">Swatch Box</a>
     </nav>
 
     <div class="header-actions">
       <button class="btn-swatch-shortcut" onclick="scrollToSection('sample-box')">
-        <span>🪵</span> Pesan Box Sampel
+        <span>🪵</span> Swatch Box
       </button>
       <button class="cart-btn-trigger" onclick="toggleCartDrawer()">
         <span>Pesanan</span>

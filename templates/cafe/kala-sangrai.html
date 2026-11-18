@@ -185,15 +185,20 @@
     nav.nav-menu {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 22px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     nav.nav-menu a {
       color: var(--crema-muted);
       text-decoration: none;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       transition: color 0.2s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
     }
 
     nav.nav-menu a:hover, nav.nav-menu a.active {
@@ -204,6 +209,8 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* Order Tray Trigger */
@@ -212,15 +219,17 @@
       border: 1px solid var(--roast-border);
       color: var(--crema);
       font-family: var(--font-mono);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
-      padding: 8px 16px;
+      padding: 8px 15px;
       border-radius: 999px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       cursor: pointer;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .tray-btn:hover {
@@ -1273,7 +1282,7 @@
         <nav class="nav-menu">
           <a href="#cerita" class="active">Karakter</a>
           <a href="#lab">Brew Lab</a>
-          <a href="#menu">Menu Minuman</a>
+          <a href="#menu">Menu</a>
           <a href="#ruang">Ruang Seduh</a>
           <a href="#lokasi">Kedai</a>
         </nav>

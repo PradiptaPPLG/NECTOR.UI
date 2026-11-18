@@ -242,16 +242,21 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 16px;
       list-style: none;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .nav-link {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--ink-secondary);
       padding: 6px 0;
       position: relative;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
     }
     .nav-link:hover, .nav-link.active {
       color: var(--slate-dark);
@@ -269,14 +274,16 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .btn-sample-nav {
       background: var(--celadon-soft);
       border: 1px solid var(--border-medium);
       color: var(--slate-dark);
-      padding: 8px 14px;
+      padding: 7px 12px;
       border-radius: var(--radius-sm);
       font-size: 12px;
       font-weight: 700;
@@ -284,6 +291,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .btn-sample-nav:hover {
       background: var(--matcha-green);
@@ -293,14 +302,16 @@
     .btn-cart-nav {
       background: var(--slate-dark);
       color: #FFFFFF;
-      padding: 9px 16px;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .btn-cart-nav:hover {
       background: var(--slate-indigo);
@@ -1505,23 +1516,23 @@
 
       <nav aria-label="Navigasi Utama">
         <ul class="nav-links">
-          <li><a href="#koleksi" class="nav-link active">Katalog Kemasan</a></li>
-          <li><a href="#visualizer" class="nav-link">Visualizer Sablon</a></li>
-          <li><a href="#kalkulator" class="nav-link">Kalkulator Harga Grosir</a></li>
-          <li><a href="#sampel-gratis" class="nav-link">Boks Sampel Gratis</a></li>
-          <li><a href="#diecut" class="nav-link">Template Die-Cut</a></li>
+          <li><a href="#koleksi" class="nav-link active">Katalog</a></li>
+          <li><a href="#visualizer" class="nav-link">Studio Sablon</a></li>
+          <li><a href="#kalkulator" class="nav-link">Kalkulator Grosir</a></li>
+          <li><a href="#sampel-gratis" class="nav-link">Sampel Kit</a></li>
+          <li><a href="#diecut" class="nav-link">Die-Cut</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
         <button class="btn-sample-nav" onclick="document.getElementById('sampel-gratis').scrollIntoView({behavior:'smooth'})">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          <span>Minta Sampel Gratis</span>
+          <span>Minta Sampel</span>
         </button>
 
         <button class="btn-cart-nav" id="btnOpenCart" aria-label="Buka Keranjang Penawaran">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span>Arsip Penawaran</span>
+          <span>Penawaran</span>
           <span class="cart-badge" id="cartCountBadge">0</span>
         </button>
 
