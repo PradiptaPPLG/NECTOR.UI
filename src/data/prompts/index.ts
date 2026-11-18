@@ -32,8 +32,10 @@ import { TATAH_LEATHER_MASTER_PROMPT } from './leatherPrompt';
 import { AURA_DERMA_MASTER_PROMPT } from './dermaPrompt';
 import { CELESTE_HORLOGERIE_MASTER_PROMPT } from './horologyPrompt';
 import { CYANO_ARCHITECTURE_MASTER_PROMPT } from './architecturePrompt';
+import { RESONANCE_AUDIO_MASTER_PROMPT } from './audioPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'resonance-analog-audio': RESONANCE_AUDIO_MASTER_PROMPT,
   'cyano-blueprint-architecture': CYANO_ARCHITECTURE_MASTER_PROMPT,
   'celeste-astronomical-horology': CELESTE_HORLOGERIE_MASTER_PROMPT,
   'aura-derma-clinic': AURA_DERMA_MASTER_PROMPT,
@@ -101,4 +103,5 @@ export {
   AURA_DERMA_MASTER_PROMPT,
   CELESTE_HORLOGERIE_MASTER_PROMPT,
   CYANO_ARCHITECTURE_MASTER_PROMPT,
+  RESONANCE_AUDIO_MASTER_PROMPT,
 };

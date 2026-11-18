@@ -31,6 +31,7 @@ export type Category =
   | 'dermatology'
   | 'horology'
   | 'architecture'
+  | 'audio'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

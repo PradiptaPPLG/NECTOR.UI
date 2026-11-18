@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'audio',
+      title: 'Audio Analog & Akustik Hi-Fi',
+      icon: Headphones,
+      desc: 'Atelier audio analog & laboratorium akustik: kalibrator jarum VU meter analog ganda, penguat tabung trioda Class-A 300B, DAC tangga resistor diskrit R-2R, dan reservasi salon dengar privat IEC-60268.',
+      accent: '#27374D'
+    },
     {
       id: 'architecture',
       title: 'Arsitektur & Cetak Biru Cyanotype',

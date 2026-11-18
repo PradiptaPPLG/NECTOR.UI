@@ -2365,6 +2365,89 @@ export function TanahLiatStudio() {
       { hex: '#3282B8', rgb: 'rgb(50, 130, 184)', name: 'Technical Steel Cyan', role: 'Garis Sumbu Grid Struktural, Garis Dimensi CAD & Indikator Interaktif' },
       { hex: '#BBE1FA', rgb: 'rgb(187, 225, 250)', name: 'Glacial Chalk White', role: 'Anotasi Denah Gambar Teknik, Badge Status Lembar & Latar Kartu Lembut' }
     ]
+  },
+  {
+    id: 'tpl-33',
+    slug: 'resonance-analog-audio',
+    title: 'RESONANCE (Atelier Audio Analog, Tabung Trioda & Hi-Fi Akustik)',
+    tagline: 'Laboratorium kalibrasi audio analog presisi, penguat tabung trioda Class-A 300B, dan tuner jarum VU meter',
+    description: 'Template website atelier audio analog mewah dan laboratorium akustik RESONANCE AUDIO LAB dengan palet warna Deep Slate Steel Navy (#27374D), Muted Slate Cerulean (#526D82), Pale Mineral Slate (#9DB2BF), dan Clean Frost Mist (#DDE6ED). Dilengkapi kalibrator atenuasi desibel dengan jarum balistik VU-Meter analog ganda interaktif, tuner kurva respon frekuensi akustik 20Hz-40kHz 4-profil tonal, katalog 6 perangkat master audio diskrit (Tube Amp, Ladder DAC R-2R, Planar Headphones, Turntable), tabel spesifikasi bahan UP-OCC 6N, laci arsip audisi perangkat, dan reservasi sesi dengar privat salon akustik IEC-60268 via WhatsApp.',
+    category: 'audio',
+    tags: ['Audiophile', 'Hi-Fi Audio', 'Vacuum Tube', '300B Triode', 'R-2R Ladder DAC', 'VU Meter', 'Planar Magnetic', 'Acoustic Lab', 'Analog Sound'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'SVG Ballistic VU-Meter Engine', 'Acoustic Frequency Curve Visualizer', 'Audition Vault Flow', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'audio-resonance',
+    htmlPath: '/templates/audio/resonance-audio.html',
+    htmlFolderPath: 'templates/audio/resonance-audio.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Kalibrator jarum balistik VU-Meter analog ganda vektor SVG interaktif dengan slider atenuasi desibel (-36 dB s/d +3 dB)',
+      'Sakelar topologi amplifikasi interaktif: Single-Ended Triode 300B (Harmonik Genap) vs Solid-State Class-A (Ultra-Linear)',
+      'Layar visualizer kurva respon frekuensi 20 Hz - 40.000 Hz dinamis dengan 4 profil suara (Flat Monitor, Acoustic Vocal, Symphonic Hall, Late Night)',
+      'Katalog 6 perangkat audio referensi diskrit (AERO-300B Tube Amp, APEX-R2R DAC, STRATA-9 Planar, VELOX-1 Turntable, MONITOR-7 Beryllium, ISOL-4)',
+      'Tabel spesifikasi material audiophile (Konduktor UP-OCC 6N, filamen 300B tungsten, resistor Vishay 0.01%, transformator pelindung Mu-metal)',
+      'Laci geser daftar perangkat audisi (slide-over vault) dengan ringkasan sistem dan konsultasi kurator audio via WhatsApp',
+      'Standar kriya antislop dengan palet slate mineral (#27374D, #526D82, #9DB2BF, #DDE6ED) dan tipografi Space Grotesk & IBM Plex Mono'
+    ],
+    usageInstructions: [
+      'Buka templates/audio/resonance-audio.html di editor kode Anda.',
+      'Sesuaikan katalog perangkat audio, harga, dan spesifikasi impedansi pada objek gearData di dalam tag <script>.',
+      'Kustomisasi kurva respon frekuensi pada objek profileCurves.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase audio referensi langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'resonance-audio.html',
+        language: 'html',
+        content: `<!-- RESONANCE AUDIO LAB — Analog Audio & Precision Acoustic Lab -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>RESONANCE — Analog Audio Lab</title>
+  <style>
+    :root {
+      --audio-slate-dark: #27374D;
+      --audio-storm: #526D82;
+      --audio-mineral: #9DB2BF;
+      --audio-frost: #DDE6ED;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">ACOUSTIC LAB BANDUNG • THD+N < 0.0003% • TOPOLOGI CLASS-A SINGLE-ENDED 300B</div>
+  <header>
+    <div class="brand">RESONANCE</div>
+    <nav>Kalibrasi VU · Kurva Akustik · Koleksi Perangkat · Ruang Dengar</nav>
+  </header>
+  <!-- Full Interactive Audiophile Bench: Dual VU-Meters, Curve Visualizer & Audition Vault -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier audio analog mewah dan laboratorium akustik RESONANCE AUDIO LAB dengan palet warna Deep Slate Steel Navy (#27374D), Muted Slate Cerulean (#526D82), Pale Mineral Slate (#9DB2BF), dan Clean Frost Mist (#DDE6ED). Dilengkapi kalibrator atenuasi desibel dengan jarum balistik VU-Meter analog ganda interaktif, tuner kurva respon frekuensi akustik 20Hz-40kHz 4-profil tonal, katalog 6 perangkat master audio diskrit (Tube Amp, Ladder DAC R-2R, Planar Headphones, Turntable), tabel spesifikasi bahan UP-OCC 6N, laci arsip audisi perangkat, dan reservasi sesi dengar privat salon akustik IEC-60268 via WhatsApp.',
+      designDirection: 'Audiophile acoustic laboratory berstandar antislop: Deep Slate Steel Navy (#27374D), Muted Slate Cerulean (#526D82), Pale Mineral Slate (#9DB2BF), Clean Frost Mist (#DDE6ED), Tube Filament Amber (#F59E0B), dan Needle Red (#DC2626). Tipografi Space Grotesk, Plus Jakarta Sans, dan IBM Plex Mono.',
+      layoutAndGrid: 'Top telemetry bar laboratorium akustik IEC-60268, sticky header dengan brand monogram RS dan navigasi non-wrapping kokoh, hero audiophile rack plate 2 kolom dengan dual analog needle VU meter dan lampu filamen tabung 300B hangat, panggung kalibrator jarum VU meter analog ganda dengan slider atenuasi desibel, layar kurva frekuensi 20Hz-40kHz dinamis, grid katalog 6 perangkat master 3 kolom, dan drawer buku audisi perangkat.',
+      typographyAndColor: 'Space Grotesk untuk tajuk utama berkarakter akustik presisi tinggi, Plus Jakarta Sans untuk teks bodi penjelasan filosofi suara dan kontrol tombol interaktif, IBM Plex Mono untuk spesifikasi teknis THD+N, rasio SNR, resistansi ohm, kapasitas daya VA, dan desibel dB.',
+      interactions: 'Kalibrator jarum balistik VU-Meter ganda interaktif dengan pergerakan busur dinamis sesuai slider atenuasi dB, sakelar topologi tabung vs solid-state, selektor 4 profil respon frekuensi dengan kurva SVG beranimasi, filter katalog instan, modal inspeksi detail sasis pejal, formulir reservasi ruang dengar privat, serta drawer daftar audisi terintegrasi WhatsApp Master Kurator Audio.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#27374D',
+    colorPalette: [
+      { hex: '#27374D', rgb: 'rgb(39, 55, 77)', name: 'Deep Slate Steel Navy', role: 'Sasis Anodized Gelap, Panel VU Meter & Tombol Aksi Primer' },
+      { hex: '#526D82', rgb: 'rgb(82, 109, 130)', name: 'Muted Slate Cerulean', role: 'Bingkai Bezel Meteran, Tab Kalibrator & Aksen Kartu' },
+      { hex: '#9DB2BF', rgb: 'rgb(157, 178, 191)', name: 'Pale Mineral Slate', role: 'Garis Skala Desibel, Sumbu Respon Frekuensi & Border Sasis' },
+      { hex: '#DDE6ED', rgb: 'rgb(221, 230, 237)', name: 'Clean Frost Mist', role: 'Kanvas Latar Utama, Permukaan Brushed Metal & Latar Lembut' }
+    ]
   }
 ];
 
