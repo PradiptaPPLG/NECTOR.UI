@@ -23,8 +23,10 @@ import { ARUNG_FOOTWEAR_MASTER_PROMPT } from './footwearPrompt';
 import { KEMAS_LAB_MASTER_PROMPT } from './packagingPrompt';
 import { WANA_APICULTURE_MASTER_PROMPT } from './apiculturePrompt';
 import { KAYAN_FURNITURE_MASTER_PROMPT } from './furniturePrompt';
+import { SOLA_GELATO_MASTER_PROMPT } from './gelatoPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'sola-artisan-gelato': SOLA_GELATO_MASTER_PROMPT,
   'kayan-solid-furniture': KAYAN_FURNITURE_MASTER_PROMPT,
   'wana-wild-honey': WANA_APICULTURE_MASTER_PROMPT,
   'kemas-lab-packaging': KEMAS_LAB_MASTER_PROMPT,

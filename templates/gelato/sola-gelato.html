@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOLA GELATO (ソーラ) — Gelateria Artigianale & Sorbetto Tropis Nusantara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* User Palette Specification */
+      --tangerine-sun: #FF933E;
+      --tangerine-deep: #e5751f;
+      --marigold-gold: #FFCB56;
+      --custard-cream: #FFE9A9;
+      --coastal-blue: #73A5CA;
+      --coastal-deep: #4c82aa;
+      --coastal-light: #e5f1f9;
+      --ground-paper: #FCFBF8;
+      --canvas-white: #FFFFFF;
+      --ink-primary: #1C1917;
+      --ink-secondary: #57534E;
+      --ink-muted: #8E877F;
+      --border-hairline: #EBE5D8;
+      --border-tangerine: #FF933E;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 2px 10px rgba(255, 147, 62, 0.06);
+      --shadow-md: 0 8px 28px rgba(255, 147, 62, 0.1);
+      --shadow-lg: 0 18px 45px rgba(28, 25, 23, 0.12);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--ground-paper);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .serif-font {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    /* TOP ANNOUNCEMENT TICKER */
+    .top-ticker {
+      background-color: var(--tangerine-sun);
+      color: #FFFFFF;
+      padding: 9px 16px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--font-mono);
+      overflow: hidden;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .top-ticker span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-ticker span::after {
+      content: '•';
+      color: var(--custard-cream);
+      margin-left: 14px;
+    }
+
+    .top-ticker span:last-child::after {
+      display: none;
+    }
+
+    /* SITE HEADER */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(252, 251, 248, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-monogram {
+      width: 44px;
+      height: 44px;
+      background: var(--tangerine-sun);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 12px rgba(255, 147, 62, 0.25);
+    }
+
+    .brand-meta h1 {
+      font-size: 24px;
+      letter-spacing: 0.04em;
+      color: var(--ink-primary);
+      margin-bottom: 1px;
+    }
+
+    .brand-meta p {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--tangerine-deep);
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    nav.main-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav.main-nav a {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      transition: color 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    nav.main-nav a:hover {
+      color: var(--tangerine-sun);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-pint-shortcut {
+      background: var(--custard-cream);
+      color: var(--ink-primary);
+      border: 1px solid var(--marigold-gold);
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-pint-shortcut:hover {
+      background: var(--marigold-gold);
+    }
+
+    .cart-btn-trigger {
+      background: var(--coastal-blue);
+      color: #FFFFFF;
+      border: 1px solid var(--coastal-deep);
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .cart-btn-trigger:hover {
+      background: var(--coastal-deep);
+    }
+
+    .cart-badge-count {
+      background: var(--tangerine-sun);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 99px;
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HERO SHOWCASE */
+    .hero-section {
+      padding: 56px 0 68px;
+      border-bottom: 1px solid var(--border-hairline);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 233, 169, 0.2) 0%, rgba(252, 251, 248, 1) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .hero-pretitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      background: var(--custard-cream);
+      border: 1px solid var(--marigold-gold);
+      color: var(--ink-primary);
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      border-radius: 99px;
+      margin-bottom: 18px;
+      font-family: var(--font-mono);
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 4.4vw, 56px);
+      line-height: 1.08;
+      color: var(--ink-primary);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--tangerine-sun);
+      font-weight: 500;
+    }
+
+    .hero-lead {
+      font-size: 17px;
+      color: var(--ink-secondary);
+      line-height: 1.68;
+      margin-bottom: 30px;
+      max-width: 580px;
+    }
+
+    .hero-key-badges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .metric-badge {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-badge .val {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--tangerine-sun);
+      font-family: var(--font-mono);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .metric-badge .val span {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--coastal-blue);
+    }
+
+    .metric-badge .label {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--tangerine-sun);
+      color: #FFFFFF;
+      border: 1px solid var(--tangerine-deep);
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 14px rgba(255, 147, 62, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--tangerine-deep);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--ink-primary);
+      border: 1px solid var(--coastal-blue);
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--coastal-light);
+    }
+
+    /* HERO SPOTLIGHT PINT CARD */
+    .hero-spotlight-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .spotlight-media {
+      position: relative;
+      height: 340px;
+      background: var(--tangerine-sun);
+      overflow: hidden;
+    }
+
+    .spotlight-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-spotlight-card:hover .spotlight-media img {
+      transform: scale(1.03);
+    }
+
+    .spotlight-tag-flavor {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 147, 62, 0.95);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      font-size: 10.5px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .spotlight-badge-origin {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: var(--canvas-white);
+      color: var(--coastal-deep);
+      border: 1px solid var(--coastal-blue);
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .spotlight-body {
+      padding: 24px;
+    }
+
+    .spotlight-sub {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--tangerine-deep);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .spotlight-title {
+      font-size: 26px;
+      color: var(--ink-primary);
+      margin-bottom: 8px;
+    }
+
+    .spotlight-notes {
+      font-size: 13.5px;
+      color: var(--ink-secondary);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .spotlight-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .spotlight-price {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--tangerine-sun);
+    }
+
+    .spotlight-price span {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 400;
+    }
+
+    /* SECTION BASICS */
+    section.content-section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .section-head {
+      margin-bottom: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+    }
+
+    .section-meta-tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--tangerine-deep);
+      margin-bottom: 8px;
+      display: block;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 3.2vw, 42px);
+      color: var(--ink-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--tangerine-sun);
+    }
+
+    .section-lead {
+      max-width: 500px;
+      font-size: 14.5px;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+    }
+
+    /* 3-PINT THERMAL BOX BUILDER */
+    .flight-builder-container {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flight-builder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 48px;
+    }
+
+    .flight-box-visual {
+      background: var(--coastal-light);
+      border: 2px solid var(--coastal-blue);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .box-header-crest {
+      text-align: center;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed var(--coastal-blue);
+      margin-bottom: 24px;
+    }
+
+    .box-header-crest .crest-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--coastal-deep);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .box-header-crest h4 {
+      font-size: 24px;
+      color: var(--ink-primary);
+      margin-top: 2px;
+    }
+
+    .flight-slots-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .box-slot {
+      background: #FFFFFF;
+      border: 1.5px dashed var(--coastal-blue);
+      border-radius: var(--radius-sm);
+      min-height: 160px;
+      padding: 14px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .box-slot.filled {
+      border-style: solid;
+      border-color: var(--tangerine-sun);
+      background: var(--custard-cream);
+    }
+
+    .slot-pint-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .slot-pint-name {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--ink-primary);
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .slot-pint-tag {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--tangerine-deep);
+      font-weight: 600;
+    }
+
+    .btn-remove-slot {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 18px;
+      height: 18px;
+      background: var(--tangerine-sun);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 99px;
+      font-size: 11px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box-slot-empty-label {
+      font-size: 11px;
+      color: var(--coastal-deep);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .flight-box-details {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 12px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    /* Controls Column */
+    .flight-controls-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .controls-step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .controls-step-title span {
+      width: 22px;
+      height: 22px;
+      background: var(--tangerine-sun);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      border-radius: 99px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .jars-library-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .jar-select-card {
+      background: var(--ground-paper);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .jar-select-card:hover {
+      border-color: var(--tangerine-sun);
+      background: #FFF7ED;
+    }
+
+    .jar-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .jar-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .jar-card-origin {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--tangerine-deep);
+      font-weight: 600;
+    }
+
+    .jar-card-note {
+      font-size: 11.5px;
+      color: var(--ink-secondary);
+      line-height: 1.35;
+    }
+
+    .flight-checkout-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .flight-total-price {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--tangerine-sun);
+    }
+
+    .flight-total-price span {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 400;
+    }
+
+    /* SCIENCE OF GELATO (OVERRUN & TEMPERATURE) */
+    .science-wrapper {
+      background: #1C1917;
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .science-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .science-info-col h3 {
+      font-size: 34px;
+      color: var(--marigold-gold);
+      margin-bottom: 16px;
+    }
+
+    .science-info-col p {
+      color: #D6D3D1;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .science-benchmark-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .benchmark-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 203, 86, 0.2);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+    }
+
+    .benchmark-row .param {
+      color: var(--marigold-gold);
+    }
+
+    .benchmark-row .val {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    /* Interactive Overrun Simulator */
+    .science-interactive-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--tangerine-sun);
+      border-radius: var(--radius-sm);
+      padding: 30px;
+    }
+
+    .slider-group-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+
+    .slider-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--custard-cream);
+    }
+
+    .slider-live-value {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--tangerine-sun);
+    }
+
+    .interactive-range-slider {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      outline: none;
+      -webkit-appearance: none;
+      margin-bottom: 24px;
+    }
+
+    .interactive-range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 99px;
+      background: var(--tangerine-sun);
+      cursor: pointer;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 10px rgba(255, 147, 62, 0.7);
+    }
+
+    .live-density-box {
+      background: rgba(41, 37, 36, 0.7);
+      border: 1px solid var(--marigold-gold);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .density-title {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--coastal-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .density-badge-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--custard-cream);
+      font-family: var(--font-serif);
+      margin-bottom: 6px;
+    }
+
+    .density-explanation {
+      font-size: 12.5px;
+      color: #E7E5E4;
+      line-height: 1.5;
+    }
+
+    /* CATALOG SECTION */
+    .catalog-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .catalog-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .catalog-tab-btn {
+      padding: 8px 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .catalog-tab-btn:hover {
+      border-color: var(--tangerine-sun);
+      color: var(--tangerine-sun);
+    }
+
+    .catalog-tab-btn.active {
+      background: var(--tangerine-sun);
+      color: #FFFFFF;
+      border-color: var(--tangerine-sun);
+    }
+
+    .catalog-search-input {
+      padding: 9px 16px;
+      border: 1px solid var(--border-hairline);
+      border-radius: 99px;
+      font-size: 13px;
+      background: #FFFFFF;
+      width: 260px;
+      color: var(--ink-primary);
+    }
+
+    .catalog-search-input:focus {
+      outline: none;
+      border-color: var(--tangerine-sun);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .gelato-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+
+    .gelato-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+      border-color: var(--tangerine-sun);
+    }
+
+    .gelato-media {
+      position: relative;
+      height: 220px;
+      background: var(--custard-cream);
+      overflow: hidden;
+    }
+
+    .gelato-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gelato-card:hover .gelato-media img {
+      transform: scale(1.04);
+    }
+
+    .gelato-tag-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 147, 62, 0.95);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 9.5px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .gelato-body {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gelato-italian-sub {
+      font-size: 11px;
+      font-style: italic;
+      color: var(--tangerine-deep);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .gelato-title {
+      font-size: 21px;
+      color: var(--ink-primary);
+      margin-bottom: 6px;
+    }
+
+    .gelato-notes {
+      font-size: 13px;
+      color: var(--ink-secondary);
+      line-height: 1.45;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .gelato-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-hairline);
+      margin-bottom: 16px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--ink-muted);
+    }
+
+    .gelato-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gelato-price {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--tangerine-sun);
+    }
+
+    .btn-quick-scoop {
+      background: var(--custard-cream);
+      color: var(--ink-primary);
+      border: 1px solid var(--marigold-gold);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-quick-scoop:hover {
+      background: var(--tangerine-sun);
+      color: #FFFFFF;
+      border-color: var(--tangerine-sun);
+    }
+
+    .btn-flavor-info {
+      background: transparent;
+      color: var(--ink-secondary);
+      border: 1px solid var(--border-hairline);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .btn-flavor-info:hover {
+      background: var(--ground-paper);
+      color: var(--ink-primary);
+    }
+
+    /* COLD-CHAIN DELIVERY GUARANTEE */
+    .cold-chain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .cold-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 30px;
+    }
+
+    .cold-icon-crest {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .cold-card h4 {
+      font-size: 22px;
+      color: var(--ink-primary);
+      margin-bottom: 10px;
+    }
+
+    .cold-card p {
+      font-size: 14px;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer.site-footer {
+      background: #1C1917;
+      color: #D6D3D1;
+      padding: 64px 0 32px;
+      border-top: 1px solid #292524;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-brand h3 {
+      font-size: 28px;
+      color: var(--marigold-gold);
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      max-width: 340px;
+      color: #A8A29E;
+    }
+
+    .footer-col h5 {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--tangerine-sun);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+    }
+
+    .footer-col a:hover {
+      color: var(--marigold-gold);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: #78716C;
+    }
+
+    /* SLIDE-OVER CART DRAWER */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 25, 23, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 440px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--ground-paper);
+      z-index: 101;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      background: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-drawer-header h3 {
+      font-size: 22px;
+      color: var(--ink-primary);
+    }
+
+    .btn-close-cart {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--ink-muted);
+    }
+
+    .cart-shipping-notice {
+      background: var(--custard-cream);
+      border-bottom: 1px solid var(--marigold-gold);
+      padding: 10px 24px;
+      font-size: 12px;
+      color: var(--ink-primary);
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cart-items-body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cart-empty-message {
+      text-align: center;
+      color: var(--ink-muted);
+      margin: auto 0;
+      font-size: 14px;
+    }
+
+    .cart-item-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-drawer-footer {
+      padding: 24px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--font-mono);
+    }
+
+    .subtotal-row .s-sum {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--tangerine-sun);
+    }
+
+    .cart-input-field {
+      width: 100%;
+      padding: 10px 12px;
+      background: var(--ground-paper);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+    }
+
+    .btn-whatsapp-checkout {
+      background: #25D366;
+      color: #FFFFFF;
+      border: none;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* QUICK VIEW MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 25, 23, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      max-width: 680px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      background: rgba(0, 0, 0, 0.08);
+      border: none;
+      border-radius: 99px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+    }
+
+    .modal-image-col {
+      height: 100%;
+      min-height: 320px;
+      background: var(--tangerine-sun);
+    }
+
+    .modal-image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-content-col {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-grid, .flight-builder-grid, .science-grid, .modal-grid {
+        grid-template-columns: 1fr;
+      }
+      .catalog-grid, .cold-chain-grid, .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header.site-header {
+        padding: 14px 20px;
+      }
+      nav.main-nav {
+        display: none;
+      }
+      .catalog-grid, .cold-chain-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP TICKER -->
+  <div class="top-ticker">
+    <span>DIPUTAR SEGAR TIAP PAGI (MANTECAZIONE LENTA)</span>
+    <span>100% BUAH ASLI TANPA PASTA SINTETIS</span>
+    <span>THERMAL BOX & DRY ICE GARANSI ANTI-MELELEH</span>
+    <span>GRATIS ONGKIR MIN. 3 PINT (473ML)</span>
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="brand-group">
+      <div class="brand-monogram">SG</div>
+      <div class="brand-meta">
+        <h1>SOLA</h1>
+        <p>Gelateria Artigianale & Sorbetto</p>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="#flavor-flight">Boks 3-Pint</a>
+      <a href="#science">Sains Gelato</a>
+      <a href="#catalog">Katalog Rasa</a>
+      <a href="#cold-chain">Jaminan Dingin</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn-pint-shortcut" onclick="scrollToSection('flavor-flight')">
+        <span>🍨</span> Racik Boks 3-Pint
+      </button>
+      <button class="cart-btn-trigger" onclick="toggleCartDrawer()">
+        <span>Pesanan</span>
+        <span class="cart-badge-count" id="cartCountBadge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-info-col">
+        <div class="hero-pretitle">
+          <span>☀️</span> Fresh Daily Churn · Mantecazione Lenta
+        </div>
+        <h2 class="hero-title">
+          Gelato artigianale Italia dengan buah tropis Nusantara yang <em>dipanen matang pohon</em>.
+        </h2>
+        <p class="hero-lead">
+          Menolak bubuk perisa kimia dan pompa udara es krim industri. Sola Gelato diputar perlahan dengan susu segar sapi perah Lembang dan sari buah murni bertekstur selembut sutra pada suhu saji optimal -11°C.
+        </p>
+
+        <div class="hero-key-badges">
+          <div class="metric-badge">
+            <span class="val">25<span>%</span></span>
+            <div class="label">Overrun Alami (Sangat Padat & Creamy)</div>
+          </div>
+          <div class="metric-badge">
+            <span class="val">&ge; 48<span>%</span></span>
+            <div class="label">Kandungan Buah Asli pada Sorbetto</div>
+          </div>
+          <div class="metric-badge">
+            <span class="val">-11<span>°C</span></span>
+            <div class="label">Suhu Saji Sutra (Lidah Tidak Mati Rasa)</div>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="btn-primary" onclick="scrollToSection('catalog')">
+            Pilih Varian Rasa Gelato →
+          </button>
+          <button class="btn-secondary" onclick="scrollToSection('flavor-flight')">
+            Buat Paket Boks 3-Pint
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Spotlight Pint Card -->
+      <div class="hero-spotlight-card">
+        <div class="spotlight-media">
+          <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?auto=format&fit=crop&w=900&q=80" alt="Mangga Arumanis Sorbetto">
+          <span class="spotlight-tag-flavor">Signature Sorbetto</span>
+          <span class="spotlight-badge-origin">Mangga Probolinggo & Kintamani</span>
+        </div>
+        <div class="spotlight-body">
+          <div class="spotlight-sub">Panen Musim Kemarau · Dairy-Free Vegan</div>
+          <h3 class="spotlight-title">Sorbetto Mangga Arumanis & Kintamani 473ml</h3>
+          <p class="spotlight-notes">
+            Dibuat dari 65% daging mangga Arumanis matang pohon dipadukan dengan perasan bulir jeruk Kintamani Bali. Rasa asam manis segar alami yang meledak di lidah tanpa setetes pun susu hewani.
+          </p>
+          <div class="spotlight-footer">
+            <div class="spotlight-price">
+              Rp 89.000 <span>/ Pint 473ml</span>
+            </div>
+            <button class="btn-primary" onclick="addDirectToCart('sola-mangga-pint', 'Sorbetto Mangga Arumanis & Kintamani (473ml)', 89000)">
+              + Pesan Sekarang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-PINT INSULATED BOX BUILDER -->
+  <section class="content-section" id="flavor-flight">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-meta-tag">BOKS THERMAL DRY ICE</span>
+          <h3 class="section-title">Studio Racik <em>Boks 3-Pint</em> Kustom</h3>
+        </div>
+        <p class="section-lead">
+          Pilih 3 toples pint gelato favorit Anda dalam kantong insulasi thermal perak berpendingin es kering (*dry ice* food grade).
+        </p>
+      </div>
+
+      <div class="flight-builder-container">
+        <div class="flight-builder-grid">
+          <!-- Visual Thermal Box -->
+          <div class="flight-box-visual">
+            <div>
+              <div class="box-header-crest">
+                <div class="crest-tag">SOLA INSULATED COLD BOX</div>
+                <h4>3× Pint (1.419 ml) Curated Flight</h4>
+              </div>
+
+              <div class="flight-slots-row" id="pintSlotsRow">
+                <!-- Slots rendered via JS -->
+              </div>
+            </div>
+
+            <div class="flight-box-details">
+              <strong>Paket Boks Sudah Termasuk:</strong>
+              <br>• Kotak thermal insulasi ganda tahan dingin hingga 3 jam
+              <br>• Bongkahan *dry ice food-grade* terbungkus aman
+              <br>• 4x Sendok gelato kayu birch ramah lingkungan
+              <br>• Kartu catatan rasa dan instruksi penyimpanan freezer
+            </div>
+          </div>
+
+          <!-- Controls & Jars Library -->
+          <div class="flight-controls-col">
+            <div>
+              <div class="controls-step-title">
+                <span>1</span> Pilih 3 Varian Rasa Pint (473ml):
+              </div>
+              <div class="jars-library-grid" id="pintLibraryGrid">
+                <!-- Populated by JS -->
+              </div>
+
+              <div class="controls-step-title">
+                <span>2</span> Pesan di Kartu Hadiah (Opsional):
+              </div>
+              <div style="margin-bottom: 24px;">
+                <input type="text" class="cart-input-field" id="giftCardInput" placeholder="Contoh: Selamat ulang tahun! Nikmati gelato segar di hari istimewamu.">
+              </div>
+            </div>
+
+            <div class="flight-checkout-bar">
+              <div>
+                <div style="font-size: 11px; color: var(--ink-muted); text-transform: uppercase; font-family: var(--font-mono);">Total Paket Boks 3-Pint</div>
+                <div class="flight-total-price">Rp 249.000 <span>/ 3 Pint Lengkap</span></div>
+              </div>
+              <button class="btn-primary" onclick="addFlightBoxToCart()">
+                + Masukkan Paket ke Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCIENCE OF GELATO (OVERRUN & TEMPERATURE) -->
+  <section class="content-section" id="science">
+    <div class="container">
+      <div class="science-wrapper">
+        <div class="science-grid">
+          <div class="science-info-col">
+            <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--tangerine-sun); margin-bottom: 8px; display: block; font-weight: 700;">
+              SAINS TEKSTUR & TERMODINAMIKA RASA
+            </span>
+            <h3>Mengapa Gelato Jauh Lebih Intens dari Es Krim Biasa?</h3>
+            <p>
+              Es krim industri di supermarket dipompa udara hingga 100% dari volumenya (*air overrun*) dan mengandung lemak mentega hingga 20% yang melapisi lidah. Gelato Italia diputar lambat sehingga padat, rendah lemak (4-8%), dan meleleh seketika di mulut untuk melepaskan aroma buah alami.
+            </p>
+
+            <div class="science-benchmark-list">
+              <div class="benchmark-row">
+                <span class="param">Kandungan Udara (Overrun)</span>
+                <span class="val">Gelato 20-30% vs Industri 70-100%</span>
+              </div>
+              <div class="benchmark-row">
+                <span class="param">Kandungan Lemak Susu</span>
+                <span class="val">Gelato 4-8% vs Industri 14-25%</span>
+              </div>
+              <div class="benchmark-row">
+                <span class="param">Temperatur Saji Ideal</span>
+                <span class="val">Gelato -11°C vs Es Krim -18°C</span>
+              </div>
+              <div class="benchmark-row">
+                <span class="param">Bahan Buah Asli</span>
+                <span class="val">Sola Gelato: Buah Utuh Segar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Overrun Slider -->
+          <div class="science-interactive-card">
+            <div class="slider-group-head">
+              <span class="slider-title">Simulasi Pompa Udara (Overrun Level):</span>
+              <span class="slider-live-value" id="overrunValDisplay">25% (Sola Gelato)</span>
+            </div>
+            <input type="range" min="15" max="95" step="5" value="25" class="interactive-range-slider" id="overrunSlider" oninput="updateOverrunSimulator(this.value)">
+
+            <div class="live-density-box">
+              <div class="density-title">Karakter Rasa & Kepadatan:</div>
+              <div class="density-badge-name" id="densityBadge">Artisanal Gelato — Padat, Halus & Intens</div>
+              <div class="density-explanation" id="densityDesc">
+                Hanya 25% udara. Setiap suapan toples pint terasa sangat berat, legit, dan tidak cepat kempes. Sensasi buah mangga dan cokelat langsung menyentuh indra pengecap tanpa rasa beku yang menyengat.
+              </div>
+            </div>
+
+            <div style="font-size: 11.5px; color: #A8A29E; line-height: 1.45; font-family: var(--font-mono);">
+              💡 <em>Fakta: Es krim yang dipompa 100% udara akan menyusut menjadi setengah mangkuk cairan saat meleleh.</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG SECTION -->
+  <section class="content-section" id="catalog">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-meta-tag">ARSIP RASA ETALASE HARIAN</span>
+          <h3 class="section-title">Koleksi <em>Gelato & Sorbetto</em> Pilihan</h3>
+        </div>
+        <p class="section-lead">
+          Diproduksi dalam batch kecil setiap pagi menggunakan toples kedap udara ramah daur ulang.
+        </p>
+      </div>
+
+      <div class="catalog-filter-bar">
+        <div class="catalog-tabs">
+          <button class="catalog-tab-btn active" onclick="filterCatalog('all', this)">Semua Varian</button>
+          <button class="catalog-tab-btn" onclick="filterCatalog('sorbet', this)">Sorbet Buah Asli</button>
+          <button class="catalog-tab-btn" onclick="filterCatalog('cream', this)">Gelato Susu Klasik</button>
+          <button class="catalog-tab-btn" onclick="filterCatalog('vegan', this)">Vegan Dairy-Free</button>
+        </div>
+
+        <input type="text" class="catalog-search-input" id="catalogSearch" placeholder="Cari mangga, cokelat, pistachio..." oninput="handleCatalogSearch(this.value)">
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Populated via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- COLD CHAIN GUARANTEE -->
+  <section class="content-section" id="cold-chain" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-meta-tag">STANDAR PENGIRIMAN DINGIN</span>
+          <h3 class="section-title">Garansi 100% Tidak Meleleh Sampai di Rumah</h3>
+        </div>
+        <p class="section-lead">
+          Protokol kemasan rantai dingin kami menjaga suhu di bawah -8°C selama perjalanan kurir instan hingga 3 jam.
+        </p>
+      </div>
+
+      <div class="cold-chain-grid">
+        <div class="cold-card">
+          <div class="cold-icon-crest">🧊</div>
+          <h4>Es Kering Food-Grade</h4>
+          <p>
+            Bongkahan *dry ice* padat bersuhu -78.5°C dimasukkan dalam kantong pembatas untuk menjaga temperatur toples tetap beku tanpa membuat gelato berair.
+          </p>
+        </div>
+        <div class="cold-card">
+          <div class="cold-icon-crest">📦</div>
+          <h4>Insulated Thermal Pouch</h4>
+          <p>
+            Lapisan insulasi busa aluminium foil ganda menolak panas radiasi terik matahari kota selama perjalanan kurir motor.
+          </p>
+        </div>
+        <div class="cold-card">
+          <div class="cold-icon-crest">⚡</div>
+          <h4>Kirim Ulang Jika Meleleh</h4>
+          <p>
+            Jika gelato yang Anda terima cair atau bocor saat dibuka di depan kurir, foto dan kirim ke WhatsApp kami — kami ganti unit baru tanpa biaya tambahan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <div class="brand-monogram" style="width: 36px; height: 36px; font-size: 18px;">SG</div>
+            <h3 style="margin-bottom: 0;">SOLA GELATO</h3>
+          </div>
+          <p>
+            Gelateria artigianale dan sorbetto buah tropis nusantara. Memadukan tradisi gelato lambat Bologna dengan kekayaan buah matang pohon Indonesia.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Varian Gelato</h5>
+          <ul>
+            <li><a href="#catalog">Mangga Kintamani Sorbet</a></li>
+            <li><a href="#catalog">Pistacchio Kusamba</a></li>
+            <li><a href="#catalog">Fior di Latte Honeycomb</a></li>
+            <li><a href="#catalog">Cokelat Ransiki 72%</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Layanan Toko</h5>
+          <ul>
+            <li><a href="#flavor-flight">Boks Hadiah 3-Pint</a></li>
+            <li><a href="#science">Edukasi Sains Overrun</a></li>
+            <li><a href="#cold-chain">Jaminan Rantai Dingin</a></li>
+            <li><a href="javascript:void(0)" onclick="openWhatsAppChat()">Pemesanan Acara / Katering</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Laboratorio & Outlet</h5>
+          <ul>
+            <li>Lab & Toko: Jl. Progo No. 18, Riau, Bandung</li>
+            <li>WhatsApp: +62 811-9450-2026</li>
+            <li>Buka Setiap Hari: 10.00 - 22.00 WIB</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 SOLA GELATO ARTIGIANALE. ALL RIGHTS RESERVED.</div>
+        <div>STANDAR BEBAS AI-SLOP • NECTOR.UI ARCHIVE</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SLIDE-OVER CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>Keranjang Gelato Sola</h3>
+      <button class="btn-close-cart" onclick="toggleCartDrawer()">&times;</button>
+    </div>
+
+    <div class="cart-shipping-notice" id="cartShippingNotice">
+      <span>🍨</span> Pesan min. 3 pint untuk gratis ongkir instan & bonus sendok kayu!
+    </div>
+
+    <div class="cart-items-body" id="cartItemsContainer">
+      <div class="cart-empty-message">Keranjang belanja Anda masih kosong.</div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="subtotal-row">
+        <span style="font-size: 13px; color: var(--ink-muted);">Subtotal Pesanan:</span>
+        <span class="s-sum" id="cartSubtotalText">Rp 0</span>
+      </div>
+
+      <div>
+        <label style="font-size: 11px; font-family: var(--font-mono); color: var(--ink-muted); text-transform: uppercase; margin-bottom: 4px; display: block;">Nama Pemesan</label>
+        <input type="text" class="cart-input-field" id="cartCustomerName" placeholder="Nama Anda">
+      </div>
+
+      <div>
+        <label style="font-size: 11px; font-family: var(--font-mono); color: var(--ink-muted); text-transform: uppercase; margin-bottom: 4px; display: block;">Alamat Pengiriman (Kurir Instan)</label>
+        <input type="text" class="cart-input-field" id="cartCustomerAddress" placeholder="Contoh: Jl. Dago Atas No. 42, Coblong, Bandung">
+      </div>
+
+      <button class="btn-whatsapp-checkout" onclick="checkoutWhatsApp()">
+        <span>Pesan via WhatsApp Resmi →</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW MODAL -->
+  <div class="modal-overlay" id="quickModal" onclick="closeQuickModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="btn-close-modal" onclick="closeQuickModal()">&times;</button>
+      <div class="modal-grid">
+        <div class="modal-image-col">
+          <img id="modalImg" src="" alt="">
+        </div>
+        <div class="modal-content-col">
+          <div>
+            <div style="font-size: 11px; font-family: var(--font-mono); color: var(--tangerine-deep); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-weight: 700;" id="modalFlavorBadge"></div>
+            <h3 style="font-size: 26px; color: var(--ink-primary); margin-bottom: 8px;" id="modalTitle"></h3>
+            <p style="font-size: 13.5px; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 18px;" id="modalDesc"></p>
+
+            <div style="background: var(--ground-paper); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); padding: 12px; margin-bottom: 20px; font-size: 12px; font-family: var(--font-mono); color: var(--ink-secondary);" id="modalSpecs">
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border-hairline);">
+            <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--tangerine-sun);" id="modalPrice"></div>
+            <button class="btn-primary" id="modalAddBtn">
+              + Masukkan Pesanan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    /* ========================================================
+       DATA REPOSITORY
+       ======================================================== */
+    const FLAVORS_DATA = [
+      {
+        id: 'gelato-1',
+        title: 'Sorbetto Mangga Arumanis & Kintamani',
+        italian: 'Sorbetto di Mango & Agrumi',
+        category: 'sorbet',
+        vegan: true,
+        origin: 'Probolinggo & Bali',
+        price: 89000,
+        size: 'Pint 473ml',
+        fruitRatio: '65% Buah Asli',
+        allergens: 'Bebas Alergen (Dairy-Free, Gluten-Free)',
+        desc: 'Paduan daging buah mangga Arumanis matang pohon dengan kesegaran sari jeruk Kintamani Bali. Meledak segar dengan asam manis seimbang.',
+        img: 'https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'gelato-2',
+        title: 'Fior di Latte & Honeycomb Crunch',
+        italian: 'Fior di Latte con Miele di Bosco',
+        category: 'cream',
+        vegan: false,
+        origin: 'Susu Lembang & Madu Hutan Riau',
+        price: 92000,
+        size: 'Pint 473ml',
+        fruitRatio: '100% Susu Segar Murni',
+        allergens: 'Mengandung Produk Susu Sapi (Dairy)',
+        desc: 'Gelato susu segar Lembang murni tanpa tambahan telur, dicampur dengan remahan sarang lebah madu hutan liar karamel renyah buatan dapur sendiri.',
+        img: 'https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'gelato-3',
+        title: 'Pistacchio Bronte & Garam Laut Kusamba',
+        italian: 'Pistacchio Tostato & Sale di Mare',
+        category: 'cream',
+        vegan: false,
+        origin: 'Sisilia & Pantai Kusamba Bali',
+        price: 115000,
+        size: 'Pint 473ml',
+        fruitRatio: '100% Pasta Pistachio Murni',
+        allergens: 'Mengandung Kacang Pistachio & Susu',
+        desc: 'Kacang pistachio Bronte dipanggang perlahan hingga mengeluarkan minyak aromatik alami, disempurnakan taburan kristal garam laut Kusamba.',
+        img: 'https://images.unsplash.com/photo-1576506295286-5cda18df43e7?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'gelato-4',
+        title: 'Markisa Ungu Brastagi & Lemon Meyer',
+        italian: 'Sorbetto di Frutto della Passione',
+        category: 'sorbet',
+        vegan: true,
+        origin: 'Tanah Karo Brastagi, Sumut',
+        price: 89000,
+        size: 'Pint 473ml',
+        fruitRatio: '55% Sari Markisa Murni',
+        allergens: 'Bebas Alergen (Dairy-Free, Nut-Free)',
+        desc: 'Sorbetto asam sitrus tajam yang menyegarkan dahaga saat cuaca panas terik, disaring halus dari bulir markisa ungu dataran tinggi Brastagi.',
+        img: 'https://images.unsplash.com/photo-1560008511-11c63416e52d?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'gelato-5',
+        title: 'Cokelat Ransiki 72% Dark Stracciatella',
+        italian: 'Cioccolato Fondente di Papua',
+        category: 'cream',
+        vegan: false,
+        origin: 'Ransiki, Papua Barat',
+        price: 95000,
+        size: 'Pint 473ml',
+        fruitRatio: 'Cokelat Single-Origin 72%',
+        allergens: 'Mengandung Susu Sapi (Dairy)',
+        desc: 'Cokelat hitam single-origin Papua dengan aroma earthy rempah dan asam buah berry alami, diselipkan kepingan cokelat renyah yang meleleh hangat di lidah.',
+        img: 'https://images.unsplash.com/photo-1557142046-c704a3adf364?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        id: 'gelato-6',
+        title: 'Strawberry Ciwidey & Kemangi Infusion',
+        italian: 'Fragola Fresca con Basilico',
+        category: 'sorbet',
+        vegan: true,
+        origin: 'Kebun Stroberi Ciwidey, Bandung',
+        price: 89000,
+        size: 'Pint 473ml',
+        fruitRatio: '60% Stroberi Segar',
+        allergens: 'Bebas Alergen (Vegan)',
+        desc: 'Stroberi segar merah ranum asal Ciwidey diinfus dengan aroma herbal daun kemangi segar, menciptakan profil rasa yang sangat elegan dan bersih.',
+        img: 'https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?auto=format&fit=crop&w=900&q=80'
+      }
+    ];
+
+    /* ========================================================
+       STATE
+       ======================================================== */
+    let cart = [];
+    let selectedBoxPints = [
+      FLAVORS_DATA[0],
+      FLAVORS_DATA[1],
+      FLAVORS_DATA[2]
+    ];
+
+    /* ========================================================
+       INIT
+       ======================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPintSlots();
+      renderPintLibrary();
+      renderCatalogGrid(FLAVORS_DATA);
+    });
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ========================================================
+       BOX BUILDER LOGIC
+       ======================================================== */
+    function renderPintSlots() {
+      const container = document.getElementById('pintSlotsRow');
+      container.innerHTML = [0, 1, 2].map(idx => {
+        const item = selectedBoxPints[idx];
+        if (item) {
+          return `
+            <div class="box-slot filled">
+              <button class="btn-remove-slot" onclick="removePintSlot(${idx})" title="Keluarkan dari boks">&times;</button>
+              <div class="slot-pint-icon">🍨</div>
+              <div class="slot-pint-name">${item.title}</div>
+              <div class="slot-pint-tag">${item.size}</div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="box-slot">
+              <div class="box-slot-empty-label">Slot ${idx + 1} Kosong</div>
+              <div style="font-size: 10px; color: var(--ink-muted); margin-top: 4px;">Pilih di kanan →</div>
+            </div>
+          `;
+        }
+      }).join('');
+    }
+
+    function renderPintLibrary() {
+      const container = document.getElementById('pintLibraryGrid');
+      container.innerHTML = FLAVORS_DATA.map(f => `
+        <div class="jar-select-card" onclick="addPintToBox('${f.id}')">
+          <div class="jar-card-head">
+            <span class="jar-card-title">${f.title.split('&')[0]}</span>
+            <span class="jar-card-origin">+ Pilih</span>
+          </div>
+          <div class="jar-card-note">${f.origin}</div>
+        </div>
+      `).join('');
+    }
+
+    function addPintToBox(id) {
+      const pint = FLAVORS_DATA.find(f => f.id === id);
+      if (!pint) return;
+
+      const emptyIdx = selectedBoxPints.findIndex(slot => slot === null);
+      if (emptyIdx !== -1) {
+        selectedBoxPints[emptyIdx] = pint;
+      } else if (selectedBoxPints.length < 3) {
+        selectedBoxPints.push(pint);
+      } else {
+        selectedBoxPints[0] = pint;
+      }
+      renderPintSlots();
+    }
+
+    function removePintSlot(idx) {
+      selectedBoxPints[idx] = null;
+      renderPintSlots();
+    }
+
+    function addFlightBoxToCart() {
+      const filledCount = selectedBoxPints.filter(Boolean).length;
+      if (filledCount < 3) {
+        alert('Mohon pilih 3 rasa pint sebelum memasukkan paket boks ke keranjang.');
+        return;
+      }
+      const names = selectedBoxPints.map(p => p.title).join(' + ');
+      const note = document.getElementById('giftCardInput').value.trim();
+      const customTitle = `Paket Boks 3-Pint Gelato (${names}${note ? ' • Pesan: "' + note + '"' : ''})`;
+
+      addDirectToCart('box-3-pint', customTitle, 249000);
+      toggleCartDrawer(true);
+    }
+
+    /* ========================================================
+       SCIENCE OVERRUN SIMULATOR
+       ======================================================== */
+    function updateOverrunSimulator(val) {
+      const num = parseInt(val, 10);
+      document.getElementById('overrunValDisplay').textContent = num + '% ' + (num <= 30 ? '(Standar Sola Gelato)' : '(Mendekati Es Krim Pabrik)');
+
+      const badge = document.getElementById('densityBadge');
+      const desc = document.getElementById('densityDesc');
+
+      if (num <= 30) {
+        badge.textContent = 'Artisanal Gelato — Sangat Padat, Halus & Intens';
+        desc.textContent = 'Diputar lambat tanpa pompa udara mekanis. Rasa murni susu sapi dan buah asli menyentuh lidah secara pekat tanpa ada rongga udara kosong.';
+        badge.style.color = 'var(--marigold-gold)';
+      } else if (num <= 60) {
+        badge.textContent = 'Commercial Gelato — Kepadatan Sedang';
+        desc.textContent = 'Mengembang dengan 40-60% udara. Lebih cepat meleleh dan intensitas rasa buah mulai terdilusi oleh rongga gelembung.';
+        badge.style.color = 'var(--tangerine-sun)';
+      } else {
+        badge.textContent = 'Industrial Supermarket Ice Cream — Setengahnya Udara';
+        desc.textContent = 'Dipompa hingga 70-100% udara untuk memperbesar volume penjualan. Terasa sangat dingin menyengat di lidah dan menyusut menjadi busa cair saat meleleh.';
+        badge.style.color = '#73A5CA';
+      }
+    }
+
+    /* ========================================================
+       CATALOG LOGIC
+       ======================================================== */
+    function renderCatalogGrid(items) {
+      const grid = document.getElementById('catalogGrid');
+      if (items.length === 0) {
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 48px; color: var(--ink-muted);">Tidak ada varian rasa yang cocok dengan pencarian Anda.</div>';
+        return;
+      }
+      grid.innerHTML = items.map(f => `
+        <div class="gelato-card">
+          <div>
+            <div class="gelato-media">
+              <img src="${f.img}" alt="${f.title}" loading="lazy">
+              <span class="gelato-tag-badge">${f.category === 'sorbet' ? 'Sorbetto Buah' : 'Gelato Susu'}</span>
+            </div>
+            <div class="gelato-body">
+              <div class="gelato-italian-sub">${f.italian}</div>
+              <h4 class="gelato-title">${f.title}</h4>
+              <p class="gelato-notes">${f.desc}</p>
+              <div class="gelato-meta-row">
+                <span>${f.origin}</span>
+                <span>${f.size}</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 0 20px 20px;">
+            <div class="gelato-footer">
+              <div class="gelato-price">Rp ${f.price.toLocaleString('id-ID')}</div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn-flavor-info" onclick="openQuickModal('${f.id}')">Info</button>
+                <button class="btn-quick-scoop" onclick="addDirectToCart('${f.id}', '${f.title}', ${f.price})">+ Beli</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCatalog(cat, btn) {
+      document.querySelectorAll('.catalog-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      if (cat === 'all') {
+        renderCatalogGrid(FLAVORS_DATA);
+      } else if (cat === 'vegan') {
+        renderCatalogGrid(FLAVORS_DATA.filter(f => f.vegan));
+      } else {
+        renderCatalogGrid(FLAVORS_DATA.filter(f => f.category === cat));
+      }
+    }
+
+    function handleCatalogSearch(query) {
+      const q = query.toLowerCase().trim();
+      const filtered = FLAVORS_DATA.filter(f => 
+        f.title.toLowerCase().includes(q) ||
+        f.desc.toLowerCase().includes(q) ||
+        f.origin.toLowerCase().includes(q) ||
+        f.italian.toLowerCase().includes(q)
+      );
+      renderCatalogGrid(filtered);
+    }
+
+    /* ========================================================
+       MODAL LOGIC
+       ======================================================== */
+    function openQuickModal(id) {
+      const f = FLAVORS_DATA.find(item => item.id === id);
+      if (!f) return;
+
+      document.getElementById('modalImg').src = f.img;
+      document.getElementById('modalFlavorBadge').textContent = f.italian + ' • ' + f.size;
+      document.getElementById('modalTitle').textContent = f.title;
+      document.getElementById('modalDesc').textContent = f.desc;
+      document.getElementById('modalSpecs').innerHTML = `
+        <strong>Spesifikasi Rasa & Nutrisi:</strong><br>
+        • Rasio Bahan Asli: ${f.fruitRatio}<br>
+        • Asal Daerah Bahan: ${f.origin}<br>
+        • Catatan Alergen: ${f.allergens}<br>
+        • Suhu Nikmat: Diamkan 3-5 menit dari freezer sebelum disendok.
+      `;
+      document.getElementById('modalPrice').textContent = 'Rp ' + f.price.toLocaleString('id-ID');
+      
+      const addBtn = document.getElementById('modalAddBtn');
+      addBtn.onclick = () => {
+        addDirectToCart(f.id, f.title, f.price);
+        closeQuickModal();
+        toggleCartDrawer(true);
+      };
+
+      document.getElementById('quickModal').classList.add('open');
+    }
+
+    function closeQuickModal(e) {
+      if (!e || e.target.id === 'quickModal' || e.target.classList.contains('btn-close-modal')) {
+        document.getElementById('quickModal').classList.remove('open');
+      }
+    }
+
+    /* ========================================================
+       CART & WHATSAPP CHECKOUT
+       ======================================================== */
+    function toggleCartDrawer(forceOpen = null) {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      const isOpen = forceOpen !== null ? forceOpen : !drawer.classList.contains('open');
+
+      drawer.classList.toggle('open', isOpen);
+      overlay.classList.toggle('open', isOpen);
+    }
+
+    function addDirectToCart(id, title, price) {
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, title, price, qty: 1 });
+      }
+      updateCartUI();
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== id);
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+      const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+      document.getElementById('cartCountBadge').textContent = totalCount;
+      document.getElementById('cartSubtotalText').textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+
+      const notice = document.getElementById('cartShippingNotice');
+      if (subtotal >= 250000 || totalCount >= 3) {
+        notice.style.background = '#d1f4c9';
+        notice.innerHTML = '🎉 <strong>Keren!</strong> Anda berhak atas gratis ongkir kurir instan & kemasan thermal dry ice!';
+      } else {
+        notice.style.background = 'var(--custard-cream)';
+        notice.innerHTML = '🍨 Tambah hingga 3 pint untuk klaim garansi gratis ongkir & thermal pouch!';
+      }
+
+      const container = document.getElementById('cartItemsContainer');
+      if (cart.length === 0) {
+        container.innerHTML = '<div class="cart-empty-message">Keranjang belanja Anda masih kosong.</div>';
+        return;
+      }
+
+      container.innerHTML = cart.map(item => `
+        <div class="cart-item-card">
+          <div style="flex-grow: 1;">
+            <div style="font-weight: 700; font-size: 13.5px; color: var(--ink-primary);">${item.title}</div>
+            <div style="font-size: 11px; font-family: var(--font-mono); color: var(--tangerine-deep);">Rp ${item.price.toLocaleString('id-ID')} per unit</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; font-family: var(--font-mono);">
+            <button style="width: 24px; height: 24px; background: var(--ground-paper); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); cursor: pointer;" onclick="changeQty('${item.id}', -1)">-</button>
+            <span>${item.qty}</span>
+            <button style="width: 24px; height: 24px; background: var(--ground-paper); border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); cursor: pointer;" onclick="changeQty('${item.id}', 1)">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang belanja Anda masih kosong.');
+        return;
+      }
+      const name = document.getElementById('cartCustomerName').value.trim() || 'Sahabat Sola';
+      const address = document.getElementById('cartCustomerAddress').value.trim() || 'Bandung';
+      const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+      let msg = `Halo Sola Gelato Lab (ソーラ),\n\nSaya ingin memesan gelato segar dengan rincian berikut:\n`;
+      msg += `----------------------------------------\n`;
+      msg += `👤 Nama Pemesan: ${name}\n`;
+      msg += `📍 Alamat Kirim: ${address}\n`;
+      msg += `----------------------------------------\n`;
+      msg += `📋 DAFTAR PESANAN GELATO:\n`;
+
+      cart.forEach((item, idx) => {
+        msg += `${idx + 1}. ${item.title} (x${item.qty}) = Rp ${(item.price * item.qty).toLocaleString('id-ID')}\n`;
+      });
+
+      msg += `----------------------------------------\n`;
+      msg += `💰 Subtotal: Rp ${subtotal.toLocaleString('id-ID')}\n`;
+      msg += `🧊 Kemasan: Thermal Box + Dry Ice (Garansi Anti-Meleleh)\n\n`;
+      msg += `Mohon konfirmasi ketersediaan rasa batch pagi ini dan total transfernya. Terima kasih!`;
+
+      window.open(`https://wa.me/6281194502026?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function openWhatsAppChat() {
+      const msg = encodeURIComponent("Halo Sola Gelato, saya ingin berkonsultasi mengenai pesanan gelato cup/pint untuk acara katering keluarga.");
+      window.open(`https://wa.me/6281194502026?text=${msg}`, '_blank');
+    }
+  </script>
+</body>
+</html>

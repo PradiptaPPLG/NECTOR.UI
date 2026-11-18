@@ -1617,6 +1617,91 @@ export function TanahLiatStudio() {
       { hex: '#C8B48A', rgb: 'rgb(200, 180, 138)', name: 'Natural Cane Teak', role: 'Warm Rattan Webbing, Sungkai Wood & Action Accent' },
       { hex: '#F5F0E6', rgb: 'rgb(245, 240, 230)', name: 'Parchment Wool Cream', role: 'Warm Paper Parchment, Alabaster Linen & Body Ground' }
     ]
+  },
+  {
+    id: 'tpl-24',
+    slug: 'sola-artisan-gelato',
+    title: 'SOLA GELATO (Artisanal Gelateria & Sorbetto)',
+    tagline: 'Gelato artigianale lambat Italia, sari buah tropis nusantara matang pohon, dan kemasan dingin anti-meleleh',
+    description: 'Template website gelateria artigianale dan sorbet buah segar dengan palet cerah pesisir Mediterania Sunburst Tangerine (#FF933E), Golden Marigold (#FFCB56), Custard Cream (#FFE9A9), dan Coastal Breeze Blue (#73A5CA). Dilengkapi Studio Racik Boks 3-Pint (473ml) insulasi thermal es kering (*dry ice*), simulator sains kepadatan overrun (25% vs 100%) dan suhu saji ideal (-11°C), katalog 6 varian rasa buah segar & gelato susu murni Lembang, serta slide-over keranjang pemesanan instan via WhatsApp resmi.',
+    category: 'gelato',
+    tags: ['Gelato', 'Sorbetto', 'Artisanal Ice Cream', 'Dessert Cafe', 'Buah Asli', 'Thermal Box Builder', 'Dry Ice Packaging', 'WhatsApp Checkout', 'UMKM Kuliner'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Interactive 3-Pint Box Builder', 'Gelato Science Simulator', 'Cold Chain Guarantee', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'gelato',
+    previewComponentKey: 'gelato-sola-artisan',
+    htmlPath: '/templates/gelato/sola-gelato.html',
+    htmlFolderPath: 'templates/gelato/sola-gelato.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Studio Racik Boks 3-Pint (3×473ml) interaktif dengan visual slot terisi/kosong, pilihan kartu ucapan, dan kalkulasi dinamis',
+      'Simulator Sains Kepadatan Gelato (Overrun 15% - 95%) yang mengedukasi perbedaan es krim pabrik berongga udara vs gelato padat murni',
+      'Katalog 6 varian rasa gelato susu klasik dan sorbetto buah asli (vegan dairy-free) dengan filter kategori tanpa reload',
+      'Modal Quick-View detail rasa dengan rincian rasio buah asli, asal kebun petani lokal, dan matriks informasi alergen',
+      'Bagian jaminan rantai dingin (cold-chain) es kering food-grade bersuhu -78.5°C dengan garansi ganti unit jika meleleh di jalan',
+      'Slide-over keranjang belanja terintegrasi WhatsApp dengan pengecekan batas gratis ongkir instan (min. 3 pint / Rp 250.000)'
+    ],
+    usageInstructions: [
+      'Buka templates/gelato/sola-gelato.html di editor kode Anda.',
+      'Sesuaikan daftar varian rasa, harga, dan asal bahan lokal pada objek FLAVORS_DATA di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan resmi pada fungsi checkoutWhatsApp dan openWhatsAppChat.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase gelateria langsung aktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'sola-gelato.html',
+        language: 'html',
+        content: `<!-- SOLA GELATO (ソーラ) — Gelateria Artigianale & Sorbetto Tropis -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SOLA GELATO — Gelateria Artigianale & Sorbetto</title>
+  <style>
+    :root {
+      --tangerine-sun: #FF933E;
+      --marigold-gold: #FFCB56;
+      --custard-cream: #FFE9A9;
+      --coastal-blue: #73A5CA;
+      --ground-paper: #FCFBF8;
+      --ink-primary: #1C1917;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">DIPUTAR SEGAR TIAP PAGI (MANTECAZIONE LENTA) • 100% BUAH ASLI • THERMAL BOX & DRY ICE GARANSI TIDAK MELELEH</div>
+  <header>
+    <div class="brand-monogram">SG</div>
+    <h1>SOLA</h1>
+    <nav>Boks 3-Pint · Sains Gelato · Katalog Rasa · Jaminan Dingin</nav>
+  </header>
+  <!-- Full Interactive Gelateria Experience: 3-Pint Box Builder, Overrun Science & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website gelateria artigianale dan sorbetto buah tropis nusantara SOLA GELATO dengan palet warna Sunburst Tangerine (#FF933E), Golden Marigold (#FFCB56), Custard Cream (#FFE9A9), dan Coastal Breeze Blue (#73A5CA). Dilengkapi studio racik boks 3-pint insulasi pendingin dry ice, simulator sains kepadatan overrun dan suhu saji, etalase 6 rasa buah segar, dan slide-over cart WhatsApp.',
+      designDirection: 'Sunny coastal Mediterranean & tropical culinary gelateria berstandar antislop: Sunburst Tangerine (#FF933E), Golden Marigold (#FFCB56), Custard Cream (#FFE9A9), Coastal Breeze Blue (#73A5CA), dan Warm Ground Linen Paper (#FCFBF8). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top announcement ticker tangerine, sticky Mediterranean navbar dengan monogram matahari SG, hero asymmetric showcase 2 kolom dengan spotlight pint sorbet mangga signature, studio racik boks 3-pint 2 kolom, kartu simulator termodinamika rasa dengan slider overrun interaktif, grid katalog 6 varian gelato 3 kolom responsif, jaminan rantai dingin es kering 3 kolom, dan slide-over cart drawer kanan.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk editorial gelateria dan nama Italia varian rasa, Plus Jakarta Sans untuk teks bodi dan kontrol UI, JetBrains Mono untuk metrik overrun 25%, suhu saji -11°C, volume 473ml, dan harga rupiah.',
+      interactions: 'Studio boks 3-slot dengan live visual preview dan penyesuaian kartu ucapan, slider sains overrun dengan evaluasi kepadatan tekstur real-time, filter katalog tanpa reload, modal detail rasio buah asli, dan slide-over cart WhatsApp dengan pengecekan batas gratis ongkir.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive dari smartphone 360px hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#FF933E',
+    colorPalette: [
+      { hex: '#FF933E', rgb: 'rgb(255, 147, 62)', name: 'Sunburst Tangerine', role: 'Primary Brand / Sunset Citrus Energy & Main CTA' },
+      { hex: '#FFCB56', rgb: 'rgb(255, 203, 86)', name: 'Golden Marigold', role: 'Warm Meyer Lemon, Fruit Pulp & Secondary Accent' },
+      { hex: '#FFE9A9', rgb: 'rgb(255, 233, 169)', name: 'Soft Butter Custard', role: 'Fior di Latte Cream Tint, Badge Base & Box Card' },
+      { hex: '#73A5CA', rgb: 'rgb(115, 165, 202)', name: 'Coastal Breeze Blue', role: 'Mediterranean Sea Contrast, Cold-Chain & Cart Trigger' }
+    ]
   }
 ];
 

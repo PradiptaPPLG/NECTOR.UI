@@ -23,6 +23,7 @@ export type Category =
   | 'packaging'
   | 'apiculture'
   | 'furniture'
+  | 'gelato'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

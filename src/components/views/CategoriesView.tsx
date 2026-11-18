@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2 } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'gelato',
+      title: 'Gelateria & Sorbet Buah',
+      icon: IceCream2,
+      desc: 'Gelato artigianale Italia lambat & sorbetto buah tropis nusantara: studio racik boks 3-pint thermal es kering, simulator sains overrun & suhu saji -11°C, dan pesan instan via WhatsApp.',
+      accent: '#FF933E'
+    },
     {
       id: 'furniture',
       title: 'Perabot Kayu Solid & Rotan',
