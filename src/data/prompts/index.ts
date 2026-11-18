@@ -25,8 +25,10 @@ import { WANA_APICULTURE_MASTER_PROMPT } from './apiculturePrompt';
 import { KAYAN_FURNITURE_MASTER_PROMPT } from './furniturePrompt';
 import { SOLA_GELATO_MASTER_PROMPT } from './gelatoPrompt';
 import { SVALA_BATHHOUSE_MASTER_PROMPT } from './wellnessPrompt';
+import { VERRA_OPTICS_MASTER_PROMPT } from './eyewearPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'verra-japanese-eyewear': VERRA_OPTICS_MASTER_PROMPT,
   'svala-nordic-bathhouse': SVALA_BATHHOUSE_MASTER_PROMPT,
   'sola-artisan-gelato': SOLA_GELATO_MASTER_PROMPT,
   'kayan-solid-furniture': KAYAN_FURNITURE_MASTER_PROMPT,
@@ -80,4 +82,5 @@ export {
   MAISON_NOCTURNE_MASTER_PROMPT,
   ARUNG_FOOTWEAR_MASTER_PROMPT,
   SVALA_BATHHOUSE_MASTER_PROMPT,
+  VERRA_OPTICS_MASTER_PROMPT,
 };

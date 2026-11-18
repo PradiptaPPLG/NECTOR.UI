@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'eyewear',
+      title: 'Optik & Kacamata Titanium',
+      icon: Glasses,
+      desc: 'Atelier kacamata Beta-Titanium kriya Sabae Fukui: inspektur 4 siluet frame ikonik, sistem kotak Home Try-On 3-frame gratis, simulator pelapisan lensa Blue-Shield 420nm, dan booking refraksi mata.',
+      accent: '#3F72AF'
+    },
     {
       id: 'wellness',
       title: 'Hidroterapi & Thermal Bathhouse',

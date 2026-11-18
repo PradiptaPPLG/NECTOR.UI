@@ -1785,6 +1785,88 @@ export function TanahLiatStudio() {
       { hex: '#A6E3E9', rgb: 'rgb(166, 227, 233)', name: 'Vibrant Thermal Cyan', role: 'Pure Thermal Mineral Basin, Hairline Accents & Borders' },
       { hex: '#71C9CE', rgb: 'rgb(113, 201, 206)', name: 'Deep Sea Glass Teal', role: 'Primary Mineral Brand Accent, Action Buttons & Active Status' }
     ]
+  },
+  {
+    id: 'tpl-26',
+    slug: 'verra-japanese-eyewear',
+    title: 'VERRA OPTICS (Handcrafted Japanese Titanium Eyewear)',
+    tagline: 'Kacamata Beta-Titanium 8.4 gram kriya Sabae, simulator lensa optik Blue-Shield, dan kotak Home Try-On 3-frame',
+    description: 'Template website atelier kacamata titanium kriya Prefektur Fukui (Sabae, Jepang) dengan palet warna navy cetak biru Crisp Snow White (#F9F7F7), Powder Slate Frost (#DBE2EF), Classic Cadet Blue (#3F72AF), dan Deep Midnight Navy (#112D4E). Dilengkapi inspektur 4 siluet frame ikonik (Crown Panto, Octagonal, Square Aviator, Takiron Acetate) dengan data bobot mikro & toleransi milimeter, sistem racik kotak Home Try-On 3-Frame gratis 5 hari ke rumah, simulator pelapisan lensa anti-silau (Blue-Shield 420nm, Photochromic UV, Ultra-Thin 1.74), katalog optik dengan filter instan, slide-over keranjang belanja, serta formulir booking pemeriksaan mata komprehensif.',
+    category: 'eyewear',
+    tags: ['Eyewear', 'Kacamata', 'Titanium', 'Optik', 'Japanese Craft', 'Home Try-On', 'Blue Light Filter', 'Precision Optometry', 'Luxury Atelier'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Frame Silhouette Switcher', 'Home Try-On Box Builder', 'Lens Refraction Simulator', 'WhatsApp Order Flow'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'eyewear-verra-optics',
+    htmlPath: '/templates/eyewear/verra-optics.html',
+    htmlFolderPath: 'templates/eyewear/verra-optics.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Inspektur 4 siluet frame ikonik dengan kalkulasi toleransi ukuran milimeter (48 □ 21 — 145 mm) dan bobot gramatur 8.4 gram',
+      'Sistem perakit kotak Home Try-On 3-Frame interaktif dengan alokasi slot dinamis dan peminjaman tanpa biaya deposit',
+      'Simulator teknologi pelapisan lensa optik (Blue-Shield 420nm, Photochromic Fast-Transition, Ultra-Thin Index 1.74) dengan tabel spesifikasi teknis',
+      'Katalog 6 kacamata titanium dan hybrid asetat selulosa Takiron organik dengan filter instan tanpa reload',
+      'Laci keranjang belanja geser (slide-over cart) terintegrasi WhatsApp dengan rincian biaya glazing kustom',
+      'Standar kriya antislop dengan palet cetak biru klasik (#F9F7F7, #DBE2EF, #3F72AF, #112D4E) dan tipografi Playfair Display yang anggun'
+    ],
+    usageInstructions: [
+      'Buka templates/eyewear/verra-optics.html di editor kode Anda.',
+      'Sesuaikan daftar koleksi frame, harga, dan dimensi milimeter pada objek catalogData dan silhouettesData di dalam tag <script>.',
+      'Kustomisasi opsi pelapisan lensa optik dan biaya tambahannya pada objek coatingsData.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase optik langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'verra-optics.html',
+        language: 'html',
+        content: `<!-- VERRA OPTICS (ヴェラ) — Handcrafted Japanese Titanium Eyewear & Precision Optometry -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>VERRA OPTICS — Japanese Titanium Eyewear</title>
+  <style>
+    :root {
+      --verra-snow: #F9F7F7;
+      --verra-frost: #DBE2EF;
+      --verra-cadet: #3F72AF;
+      --verra-navy: #112D4E;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-status">SABAE TITANIUM ATELIER • 250 TAHAP KRIYA MANUAL • HOME TRY-ON 3-FRAME GRATIS</div>
+  <header>
+    <div class="brand">VERRA OPTICS</div>
+    <nav>Siluet Frame · Home Try-On · Studio Lensa · Katalog Optik · Kriya Sabae</nav>
+  </header>
+  <!-- Full Interactive Eyewear Atelier Experience: 3-Frame Try-On, Lens Coating Lab & WhatsApp Cart -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier kacamata titanium murni VERRA OPTICS dengan palet warna navy cetak biru Crisp Snow White (#F9F7F7), Powder Slate Frost (#DBE2EF), Classic Cadet Blue (#3F72AF), dan Deep Midnight Navy (#112D4E). Dilengkapi inspektur siluet frame, perakit kotak Home Try-On 3-frame, simulator lensa optik Blue-Shield, etalase katalog frame, dan modal booking pemeriksaan mata.',
+      designDirection: 'Japanese minimalist optical atelier berstandar antislop: Crisp Snow White (#F9F7F7), Powder Slate Frost (#DBE2EF), Classic Cadet Blue (#3F72AF), dan Deep Midnight Navy (#112D4E). Tipografi Playfair Display, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top status ticker navy gelap, sticky glass navbar dengan navigasi non-wrapping kokoh, hero showcase 2 kolom dengan spesifikasi bobot melayang, panel inspektur siluet frame interaktif, perakit kotak Home Try-On 3 slot, simulator spektrum lensa 2 kolom, grid katalog 6 frame 3 kolom, dan drawer keranjang belanja.',
+      typographyAndColor: 'Playfair Display untuk tajuk utama wibawa optik klasik, Plus Jakarta Sans untuk teks bodi dan kontrol tombol, JetBrains Mono untuk metrologi ukuran frame milimeter, indeks bias, dan rincian harga rupiah.',
+      interactions: 'Tab pemilih siluet seketika dengan pembaruan foto dan dimensi teknis, perakit kotak Home Try-On dengan status slot terisi, simulator lapisan lensa dengan kalkulasi biaya glazing, dan drawer keranjang terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-18',
+    livePreviewAvailable: true,
+    accentColor: '#3F72AF',
+    colorPalette: [
+      { hex: '#F9F7F7', rgb: 'rgb(249, 247, 247)', name: 'Crisp Snow White', role: 'Clean Optical Studio Ground, Canvas Tint & Top Ticker Mist' },
+      { hex: '#DBE2EF', rgb: 'rgb(219, 226, 239)', name: 'Powder Slate Frost', role: 'Brushed Titanium Reflections, Try-On Slot Base & Pill Tint' },
+      { hex: '#3F72AF', rgb: 'rgb(63, 114, 175)', name: 'Classic Cadet Blue', role: 'Anti-Reflective AR Lens Coating, Primary Accent & Action Buttons' },
+      { hex: '#112D4E', rgb: 'rgb(17, 45, 78)', name: 'Deep Midnight Navy', role: 'Primary Brand Frame Color, Contrast Typography & Active Status' }
+    ]
   }
 ];
 
