@@ -6,6 +6,7 @@ interface Props {
   children: React.ReactNode;
   aspectRatio?: string;
   className?: string;
+  hasNewBadge?: boolean;
   onRefresh?: () => void;
   onExternal?: () => void;
 }
@@ -16,6 +17,7 @@ export const BrowserFrame: React.FC<Props> = ({
   children,
   aspectRatio = '16/10',
   className = '',
+  hasNewBadge = false,
   onRefresh,
   onExternal
 }) => {
@@ -56,7 +58,11 @@ export const BrowserFrame: React.FC<Props> = ({
               <ExternalLink size={12} />
             </button>
           )}
-          <span className="browser-badge mono">SSL 256-BIT</span>
+          {hasNewBadge ? (
+            <span className="badge-new-template" title="Template baru dirilis dalam 3 hari terakhir">NEW</span>
+          ) : (
+            <span className="browser-badge mono">SSL 256-BIT</span>
+          )}
         </div>
       </div>
 

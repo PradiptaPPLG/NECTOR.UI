@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import type { Template } from '../../types';
 import { BrowserFrame } from './BrowserFrame';
+import { isNewTemplate } from '../../utils/templateDate';
 
 interface Props {
   template: Template;
   showBrowserChrome?: boolean;
+  showNewBadge?: boolean;
 }
 
 const ScaledIframeThumbnail: React.FC<{ htmlPath: string; title: string }> = ({ htmlPath, title }) => {
@@ -64,8 +66,13 @@ const ScaledIframeThumbnail: React.FC<{ htmlPath: string; title: string }> = ({ 
   );
 };
 
-export const TemplateThumbnail: React.FC<Props> = ({ template, showBrowserChrome = true }) => {
-  const { slug, title, htmlPath } = template;
+export const TemplateThumbnail: React.FC<Props> = ({
+  template,
+  showBrowserChrome = true,
+  showNewBadge = true,
+}) => {
+  const { slug, title, htmlPath, publishedAt } = template;
+  const isNew = showNewBadge && isNewTemplate(publishedAt);
 
   const urlMap: Record<string, string> = {
     'savore-cafe': 'https://savore.bandung/cafe',
@@ -113,11 +120,20 @@ export const TemplateThumbnail: React.FC<Props> = ({ template, showBrowserChrome
   );
 
   if (!showBrowserChrome) {
-    return <div className="template-thumb-canvas">{content}</div>;
+    return (
+      <div className="template-thumb-canvas" style={{ position: 'relative' }}>
+        {isNew && (
+          <span className="badge-new-template badge-floating-corner" title="Template baru dirilis dalam 3 hari terakhir">
+            NEW
+          </span>
+        )}
+        {content}
+      </div>
+    );
   }
 
   return (
-    <BrowserFrame url={domainUrl} title={title}>
+    <BrowserFrame url={domainUrl} title={title} hasNewBadge={isNew}>
       {content}
     </BrowserFrame>
   );
