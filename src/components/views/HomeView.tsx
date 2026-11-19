@@ -28,6 +28,7 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
+    templates.find(t => t.slug === 'aurelia-botanical-watercolor') || templates[0],
     templates.find(t => t.slug === 'havn-wooden-boatcraft') || templates[0],
     templates.find(t => t.slug === 'koru-mineral-limewash') || templates[0],
     templates.find(t => t.slug === 'somna-sleep-sanctuary') || templates[0],
@@ -45,6 +46,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'stationery', label: 'Cat Air Madu & Kriya Seni Rupa', count: templates.filter(t => t.category === 'stationery').length, desc: 'Atelier cat air madu botani & pigmen mineral murni: simulator dispersi basah-di-atas-basah Canvas HTML5, kalkulator formulasi madu & racik 12-pan' },
     { id: 'maritime', label: 'Kriya Perahu & Arsitektur Maritim', count: templates.filter(t => t.category === 'maritime').length, desc: 'Galangan kapal kayu kriya Skandinavia & perahu lunas clinker: simulator hidrodinamika gelombang garis air Canvas HTML5, kalkulator uap iga ek & kriya dayung' },
     { id: 'interior', label: 'Cat Limewash & Plaster Dinding', count: templates.filter(t => t.category === 'interior').length, desc: 'Atelier cat mineral kapur tohor & dinding bernapas: simulator tekstur kuas silang Canvas HTML5, kalkulator Sd permeabilitas uap & 3 skenario ruang' },
     { id: 'sleep', label: 'Ergonomi Tidur & Sirkadian', count: templates.filter(t => t.category === 'sleep').length, desc: 'Atelier tidur & sirkadian: simulator spektrum 24-jam Kelvin 1.800K-6.500K, kontur lateks 7-zona & soundscape Delta' },

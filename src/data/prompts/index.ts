@@ -37,8 +37,10 @@ import { AXIS_KEYBOARDS_MASTER_PROMPT } from './keyboardPrompt';
 import { SOMNA_SLEEP_MASTER_PROMPT } from './sleepPrompt';
 import { KORU_LIMEWASH_MASTER_PROMPT } from './interiorPrompt';
 import { HAVN_BOATCRAFT_MASTER_PROMPT } from './maritimePrompt';
+import { AURELIA_WATERCOLOR_MASTER_PROMPT } from './stationeryPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'aurelia-botanical-watercolor': AURELIA_WATERCOLOR_MASTER_PROMPT,
   'havn-wooden-boatcraft': HAVN_BOATCRAFT_MASTER_PROMPT,
   'koru-mineral-limewash': KORU_LIMEWASH_MASTER_PROMPT,
   'somna-sleep-sanctuary': SOMNA_SLEEP_MASTER_PROMPT,
@@ -116,4 +118,5 @@ export {
   SOMNA_SLEEP_MASTER_PROMPT,
   KORU_LIMEWASH_MASTER_PROMPT,
   HAVN_BOATCRAFT_MASTER_PROMPT,
+  AURELIA_WATERCOLOR_MASTER_PROMPT,
 };

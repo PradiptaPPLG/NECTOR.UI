@@ -2788,6 +2788,93 @@ export function TanahLiatStudio() {
       { hex: '#BDCDD6', rgb: 'rgb(189, 205, 214)', name: 'Sea Salt Driftwood Stone', role: 'Kayu Geladak Lapuk, Border Kartu Produk, Garis Pemisah & Slider Track' },
       { hex: '#EEE9DA', rgb: 'rgb(238, 233, 218)', name: 'Bleached Maritime Canvas', role: 'Kanvas Latar Belakang Utama, Meja Gambar Loftsman & Tekstil Layar Katun' }
     ]
+  },
+  {
+    id: 'tpl-38',
+    slug: 'aurelia-botanical-watercolor',
+    title: 'AURELIA (Atelier Cat Air Madu Botani & Pigmen Mineral Semi-Mulia)',
+    tagline: 'Atelier cat air madu botani, simulator dispersi basah-di-atas-basah Canvas HTML5, dan perakit palet saku kayu kenari 12-pan',
+    description: 'Template website atelier cat air madu botani dan pigmen mineral semi-mulia dengan palet warna floral puitis (#FFB6B9, #FAE3D9, #BBDED6, #61C0BF). Dilengkapi simulator interaktif dispersi basah-di-atas-basah (wet-on-wet) berbasis Canvas HTML5 dengan efek capillary feathering, pilihan 4 pigmen batuan murni & kuas air, slider saturasi air (20-90%), dan efek reaksi kristal garam laut (blooming stars), kalkulator formulasi rasio madu liar pegunungan dan larutan gum arabic Kordofan, perakit palet saku kotak kayu kenari 12-half pan porselen magnetik interaktif, soundscape desau kuas Web Audio API, etalase 4 perlengkapan seni rupa kriya teruji (kotak kayu 12-pan, kuas bulu tupai Kolinsky, sketchbook katun 300gsm, muller kaca kristal), formulir pemesanan swatch dot card 12-warna, serta drawer keranjang belanja terintegrasi WhatsApp.',
+    category: 'stationery',
+    tags: ['Botanical Watercolor', 'Mineral Pigments', 'Gum Arabic', 'Wildflower Honey', 'Wet-on-Wet Dispersion', 'Porcelain Half-Pans', 'Cotton Rag Paper', 'Non-Toxic Art', 'Fine Art Atelier'],
+    technologies: ['HTML5 Canvas', 'Vanilla CSS', 'Vanilla JS', 'Capillary Bleed Engine', 'Web Audio Brush Synth', 'Honey Binder Formulator', '12-Pan Palette Builder', 'Direct WhatsApp Checkout'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'stationery-aurelia-watercolor',
+    htmlPath: '/templates/stationery/aurelia-watercolor.html',
+    htmlFolderPath: 'templates/stationery/aurelia-watercolor.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau dependensi eksternal apa pun',
+      'Simulator dispersi cat air basah-di-atas-basah (wet-on-wet) berbasis Canvas HTML5 dengan gradasi pigmen kapiler dinamis (60 FPS)',
+      'Fitur reaksi kristal garam laut instan (Tabur Garam) yang menciptakan efek kelopak bunga mekar bintang (blooming stars)',
+      'Pemilih 4 pigmen batuan murni (Rose Madder, Chrysocolla, Celadon, French Ochre) dan kuas air bersih dengan slider saturasi air',
+      'Kalkulator formulasi binder madu liar pegunungan dan gum arabic Kordofan yang menghitung indeks reaktivitas air dan elastisitas pan',
+      'Perakit kotak kayu kenari magnetik 12-half pan porselen interaktif dengan pemilihan warna pigmen dan kode Colour Index',
+      'Generator suara desau kuas dan tetesan air alami berbasis Web Audio API murni',
+      'Etalase 4 produk seni rupa kriya nyata: Kotak Kayu 12-Pan, Kuas Kolinsky Jerman, Sketchbook Katun 300gsm A5, dan Muller Kaca Kristal 75mm',
+      'Drawer keranjang belanja slide-over dengan kalkulasi total rupiah dan ekspor pemesanan langsung ke WhatsApp atelier',
+      'Formulir pemesanan Swatch Dot Card 12-warna di atas kertas katun asli seharga Rp 45.000 dengan konfirmasi instan',
+      'Standar craft editorial antislop dengan palet warna puitis (#FFB6B9, #FAE3D9, #BBDED6, #61C0BF) dan tipografi Cormorant Garamond'
+    ],
+    usageInstructions: [
+      'Buka templates/stationery/aurelia-watercolor.html di editor kode Anda.',
+      'Sesuaikan katalog pigmen, harga paket pan, dan rincian kuas pada objek JavaScript di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan dan kustomisasi palet dengan nomor kontak resmi atelier Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk etalase atelier cat air langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'aurelia-watercolor.html',
+        language: 'html',
+        content: `<!-- AURELIA (アウレリア) — Botanical Watercolors & Artisanal Mineral Pigments -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>AURELIA — Botanical Honey Watercolors & Semi-Precious Pigments</title>
+  <style>
+    :root {
+      --aurelia-rose: #FFB6B9;
+      --aurelia-bisque: #FAE3D9;
+      --aurelia-celadon: #BBDED6;
+      --aurelia-lagoon: #61C0BF;
+      --aurelia-ink: #182528;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">STATUS: ATELIER PIGMEN AKTIF • RH: 58% • MADU HUTAN: 14% • ASTM I (100+ TAHUN)</div>
+  <header>
+    <div class="brand">AURELIA.</div>
+    <nav>Kanvas Basah · Sains Madu · Racik 12-Pan · Kriya Mineral · Etalase · Swatch Card</nav>
+  </header>
+  <!-- Full Interactive Watercolor Atelier: Wet-on-Wet Canvas Engine, Honey Formulator, 12-Pan Box & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier cat air madu botani dan pigmen mineral semi-mulia AURELIA dengan palet warna Rose Madder Botanical Lake (#FFB6B9), Cold-Pressed Cotton Rag 300gsm (#FAE3D9), Celadon Earth Mineral (#BBDED6), dan Chrysocolla Turquoise Verdigris (#61C0BF). Dilengkapi simulator interaktif dispersi basah-di-atas-basah (wet-on-wet) berbasis Canvas HTML5 dengan efek capillary feathering, pilihan 4 pigmen batuan murni & kuas air, slider saturasi air (20-90%), dan efek reaksi kristal garam laut (blooming stars), kalkulator formulasi rasio madu liar pegunungan dan larutan gum arabic Kordofan, perakit palet saku kotak kayu kenari 12-half pan porselen magnetik interaktif, soundscape desau kuas Web Audio API, etalase 4 perlengkapan seni rupa kriya teruji (kotak kayu 12-pan, kuas bulu tupai Kolinsky, sketchbook katun 300gsm, muller kaca kristal), formulir pemesanan swatch dot card 12-warna, serta drawer keranjang belanja terintegrasi WhatsApp.',
+      designDirection: 'Botanical watercolor & fine-art pigment atelier berstandar antislop: Rose Madder Botanical Lake (#FFB6B9), Cold-Pressed Cotton Rag 300gsm (#FAE3D9), Celadon Earth Mineral (#BBDED6), Chrysocolla Turquoise Verdigris (#61C0BF), dan Deep Charcoal Prussian Blue Ink (#182528). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry bar kelembapan RH dan indeks madu, sticky header dengan brand mark segel porselen A dan navigasi non-wrapping kokoh, hero asimetris 2 kolom dengan kanvas simulator basah-di-atas-basah dinamis, panggung formulasi binder madu & gum arabic 2 kolom, perakit palet saku kotak kayu kenari magnetik 12-pan, grid 4 pilar kriya materialitas botani, etalase 4 perlengkapan seni rupa kriya, dan formulir pemesanan Swatch Dot Card 12-warna.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk kuratorial keanggunan seni rupa klasik, Plus Jakarta Sans untuk teks bodi penjelasan sains binder madu dan granulasi mineral, JetBrains Mono untuk kode pigmen Colour Index (PR83, PG26, PY43), rating lightfastness ASTM, persentase madu humektan, gramatur kertas (300gsm), dan rincian harga rupiah.',
+      interactions: 'Kanvas HTML5 interaktif dengan algoritma procedural capillary bleed dan efek kristalisasi garam laut, kalkulator formulasi binder interaktif dengan perhitungan indeks re-wettability live, perakit kotak kayu 12-half pan dengan penugasan pigmen dinamis, pemutar soundscape desau kuas Web Audio API, serta slide-over drawer keranjang belanja terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural radial capillary bloom rendering Canvas HTML5, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#FFB6B9',
+    colorPalette: [
+      { hex: '#FFB6B9', rgb: 'rgb(255, 182, 185)', name: 'Rose Madder Botanical Lake', role: 'Pigmen Mawar Botani, Tombol Tindakan Utama, Badge Bestseller & Titik Mekar' },
+      { hex: '#FAE3D9', rgb: 'rgb(250, 227, 217)', name: 'Cold-Pressed Cotton Rag 300gsm', role: 'Kanvas Kertas Katun Dingin, Latar Belakang Utama & Kartu Produk Atelier' },
+      { hex: '#BBDED6', rgb: 'rgb(187, 222, 214)', name: 'Celadon Earth Mineral', role: 'Pigmen Mineral Tanah Hijau, Garis Pemisah, Border Kartu & Slider Track' },
+      { hex: '#61C0BF', rgb: 'rgb(97, 192, 191)', name: 'Chrysocolla Turquoise Verdigris', role: 'Pigmen Krisokola Tembaga, Tombol Aksi Sekunder, Monogram & Indikator' }
+    ]
   }
 ];
 

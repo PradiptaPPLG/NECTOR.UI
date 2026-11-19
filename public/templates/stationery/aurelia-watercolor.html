@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURELIA — Atelier Cat Air Madu Botani & Pigmen Mineral Semi-Mulia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------------------------------------------------
+       AURELIA DESIGN TOKENS (PALET RESMI USER: #FFB6B9, #FAE3D9, #BBDED6, #61C0BF)
+       ------------------------------------------------------------- */
+    :root {
+      --aurelia-rose: #FFB6B9;       /* Rose Madder Botanical Lake / Sakura Blush */
+      --aurelia-bisque: #FAE3D9;     /* Cold-Pressed Cotton Rag Paper 300gsm / Porcelain Well */
+      --aurelia-celadon: #BBDED6;    /* Celadon Earth / Soft Glaucous Mineral Wash */
+      --aurelia-lagoon: #61C0BF;     /* Chrysocolla Turquoise / Verdigris Seafoam */
+      --aurelia-ink: #182528;        /* Deep Charcoal Prussian Blue (WCAG AAA 13:1+ Contrast) */
+      --aurelia-ink-soft: #2C3E42;
+      --aurelia-honey: #D4A373;      /* Acacia Wildflower Honey Amber */
+      --aurelia-white: #FFFFFF;
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      --border-fine: 1px solid rgba(24, 37, 40, 0.12);
+      --shadow-subtle: 0 4px 20px -2px rgba(24, 37, 40, 0.06);
+      --shadow-elevation: 0 16px 36px -6px rgba(24, 37, 40, 0.12);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--aurelia-bisque);
+      color: var(--aurelia-ink);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--aurelia-bisque);
+      background-image: 
+        radial-gradient(circle at 100% 0%, rgba(255, 182, 185, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 0% 100%, rgba(97, 192, 191, 0.18) 0%, transparent 45%),
+        linear-gradient(rgba(24, 37, 40, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 37, 40, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, .serif {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--aurelia-ink);
+      letter-spacing: -0.015em;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    /* Top Telemetry Atelier Bar */
+    .telemetry-bar {
+      background-color: var(--aurelia-ink);
+      color: var(--aurelia-bisque);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .telemetry-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .telemetry-inner::-webkit-scrollbar { display: none; }
+
+    .telemetry-items {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .telemetry-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .telemetry-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--aurelia-rose);
+      box-shadow: 0 0 8px var(--aurelia-rose);
+      animation: pulse 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    .telemetry-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .audio-toggle-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--aurelia-bisque);
+      padding: 3px 10px;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+    .audio-toggle-btn:hover {
+      background: var(--aurelia-lagoon);
+      border-color: var(--aurelia-celadon);
+      color: var(--aurelia-ink);
+    }
+
+    /* Main Navigation Header */
+    .site-header {
+      background-color: rgba(250, 227, 217, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(24, 37, 40, 0.1);
+      position: sticky;
+      top: 33px;
+      z-index: 90;
+      transition: var(--transition-smooth);
+    }
+
+    .header-inner {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--aurelia-ink);
+    }
+
+    .brand-logo-seal {
+      width: 38px;
+      height: 38px;
+      border: 1.5px solid var(--aurelia-ink);
+      background-color: var(--aurelia-rose);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--aurelia-ink);
+      position: relative;
+    }
+    .brand-logo-seal::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border: 1px dashed rgba(24, 37, 40, 0.4);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--aurelia-lagoon);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* Single-Line Non-Wrapping Nav */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      white-space: nowrap;
+    }
+    .site-nav::-webkit-scrollbar { display: none; }
+
+    .nav-link {
+      color: var(--aurelia-ink);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      position: relative;
+      padding: 6px 0;
+      transition: var(--transition-smooth);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background-color: var(--aurelia-lagoon);
+      transition: var(--transition-smooth);
+    }
+    .nav-link:hover {
+      color: var(--aurelia-lagoon);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--aurelia-rose);
+      margin-right: 4px;
+    }
+
+    /* Header Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .cart-trigger-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--aurelia-celadon);
+      color: var(--aurelia-ink);
+      padding: 8px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+    .cart-trigger-btn:hover {
+      background: var(--aurelia-ink);
+      color: var(--aurelia-bisque);
+      border-color: var(--aurelia-ink);
+    }
+
+    .cart-count-badge {
+      background-color: var(--aurelia-rose);
+      color: var(--aurelia-ink);
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .btn-commission-cta {
+      background-color: var(--aurelia-ink);
+      color: var(--aurelia-bisque);
+      padding: 9px 18px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: 1px solid var(--aurelia-ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-commission-cta:hover {
+      background-color: var(--aurelia-lagoon);
+      border-color: var(--aurelia-lagoon);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* -------------------------------------------------------------
+       HERO SECTION WITH WATERCOLOR BLEED CANVAS SIMULATOR
+       ------------------------------------------------------------- */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+      border-bottom: 1px solid rgba(24, 37, 40, 0.1);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--aurelia-lagoon);
+    }
+
+    .kicker-line {
+      width: 28px;
+      height: 1px;
+      background-color: var(--aurelia-lagoon);
+    }
+
+    .hero-title {
+      font-size: 46px;
+      line-height: 1.08;
+      font-weight: 400;
+      color: var(--aurelia-ink);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--aurelia-lagoon);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: rgba(24, 37, 40, 0.82);
+      max-width: 540px;
+      line-height: 1.65;
+    }
+
+    .hero-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding: 16px 0;
+      border-top: var(--border-fine);
+      border-bottom: var(--border-fine);
+      margin: 6px 0;
+    }
+
+    .hero-metric-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--aurelia-ink);
+    }
+    .metric-lbl {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--aurelia-lagoon);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: var(--aurelia-lagoon);
+      color: #ffffff;
+      padding: 13px 26px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: 1px solid var(--aurelia-lagoon);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-primary:hover {
+      background-color: var(--aurelia-ink);
+      border-color: var(--aurelia-ink);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(24, 37, 40, 0.15);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--aurelia-ink);
+      padding: 13px 24px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: 1px solid var(--aurelia-ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(24, 37, 40, 0.05);
+      border-color: var(--aurelia-lagoon);
+      color: var(--aurelia-lagoon);
+    }
+
+    /* -------------------------------------------------------------
+       WATERCOLOR WET-ON-WET CANVAS STAGE CARD
+       ------------------------------------------------------------- */
+    .simulator-stage-card {
+      background: #FFFFFF;
+      border: 1px solid var(--aurelia-celadon);
+      box-shadow: var(--shadow-elevation);
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .sim-header-bar {
+      background-color: var(--aurelia-ink);
+      color: var(--aurelia-bisque);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sim-header-title {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sim-view-toggles {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-canvas-action {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--aurelia-bisque);
+      padding: 3px 8px;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-canvas-action:hover {
+      background: var(--aurelia-rose);
+      color: var(--aurelia-ink);
+      border-color: var(--aurelia-rose);
+    }
+
+    .canvas-viewport-wrapper {
+      position: relative;
+      width: 100%;
+      height: 330px;
+      background: #FDFBF7;
+      overflow: hidden;
+      cursor: crosshair;
+    }
+
+    #watercolorCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Paper Grain Fiber Texture Overlay */
+    .paper-texture-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.25;
+      background-image: radial-gradient(#d3c5b5 1px, transparent 1px);
+      background-size: 4px 4px;
+    }
+
+    .canvas-instruction-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      background: rgba(24, 37, 40, 0.85);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      padding: 6px 12px;
+      border-left: 2px solid var(--aurelia-rose);
+      pointer-events: none;
+      line-height: 1.45;
+    }
+
+    /* Pigment Swatch Selector Bar inside Canvas */
+    .sim-controls-panel {
+      padding: 16px 20px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--aurelia-celadon);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brush-pigment-options {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pigment-pick-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+    .pigment-pick-circle.active {
+      transform: scale(1.18);
+      border-color: var(--aurelia-ink);
+    }
+
+    .slider-control-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+
+    .control-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100px;
+      height: 6px;
+      background: var(--aurelia-celadon);
+      outline: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .control-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--aurelia-lagoon);
+      border: 2px solid #ffffff;
+      cursor: pointer;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: THE BOTANICAL WATERCOLOR CRAFT (ANTI-SLOP)
+       ------------------------------------------------------------- */
+    .craft-section {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(24, 37, 40, 0.1);
+      background-color: var(--aurelia-bisque);
+    }
+
+    .section-header-block {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--aurelia-lagoon);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-heading {
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
+    .section-subtext {
+      color: rgba(24, 37, 40, 0.75);
+      font-size: 15.5px;
+    }
+
+    .craft-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .craft-pillar-card {
+      background: #FFFFFF;
+      border: 1px solid var(--aurelia-celadon);
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+    .craft-pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevation);
+      border-color: var(--aurelia-rose);
+    }
+
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--aurelia-rose);
+      border-bottom: 1px dashed var(--aurelia-celadon);
+      padding-bottom: 8px;
+    }
+
+    .pillar-title {
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .pillar-body {
+      font-size: 14px;
+      color: rgba(24, 37, 40, 0.75);
+      line-height: 1.55;
+    }
+
+    .pillar-tag {
+      margin-top: auto;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--aurelia-lagoon);
+      background: rgba(187, 222, 214, 0.35);
+      padding: 4px 8px;
+      border-left: 2px solid var(--aurelia-lagoon);
+      width: fit-content;
+    }
+
+    /* -------------------------------------------------------------
+       INTERACTIVE FEATURE 2: GUM ARABIC & WILDFLOWER HONEY FORMULATOR
+       ------------------------------------------------------------- */
+    .formulator-section {
+      padding: 80px 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid rgba(24, 37, 40, 0.1);
+    }
+
+    .formulator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .calc-explain {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .calc-board-container {
+      background: var(--aurelia-bisque);
+      border: 1px solid var(--aurelia-celadon);
+      padding: 32px;
+      box-shadow: var(--shadow-subtle);
+      border-radius: 2px;
+    }
+
+    .calc-field-group {
+      margin-bottom: 22px;
+    }
+    .calc-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-bottom: 8px;
+      color: var(--aurelia-ink);
+      font-weight: 500;
+    }
+
+    .calc-result-box {
+      background: var(--aurelia-ink);
+      color: var(--aurelia-bisque);
+      padding: 24px;
+      margin-top: 26px;
+      border-left: 4px solid var(--aurelia-rose);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+    }
+    .result-val-highlight {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--aurelia-rose);
+    }
+
+    /* -------------------------------------------------------------
+       INTERACTIVE FEATURE 3: 12-PAN PORCELAIN POCKET PALETTE BUILDER
+       ------------------------------------------------------------- */
+    .palette-builder-section {
+      padding: 88px 0;
+      background-color: var(--aurelia-bisque);
+      border-bottom: 1px solid rgba(24, 37, 40, 0.1);
+    }
+
+    .palette-builder-box {
+      background: #FFFFFF;
+      border: 1px solid var(--aurelia-celadon);
+      box-shadow: var(--shadow-elevation);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+    }
+
+    .palette-box-col {
+      background: linear-gradient(135deg, #F3ECE6 0%, #E8DDD5 100%);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--aurelia-celadon);
+    }
+
+    .walnut-box-stage {
+      background: #503728;
+      border: 6px solid #372317;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 16px 28px rgba(0,0,0,0.2);
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .pans-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+
+    .porcelain-pan {
+      background: #FFFFFF;
+      border: 1.5px solid #d4c5b9;
+      height: 48px;
+      border-radius: 3px;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3px;
+      transition: var(--transition-smooth);
+    }
+    .porcelain-pan:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .pan-cake-color {
+      width: 100%;
+      height: 80%;
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+    .pan-code {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      text-align: center;
+      color: #777;
+    }
+
+    .palette-details-col {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .swatch-color-selector-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .swatch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FAF8F5;
+      border: 1px solid var(--aurelia-celadon);
+      padding: 6px 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .swatch-btn:hover {
+      border-color: var(--aurelia-ink);
+    }
+    .swatch-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+    }
+    .specs-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(24, 37, 40, 0.08);
+    }
+    .specs-table td:last-child {
+      text-align: right;
+      font-weight: 500;
+      color: var(--aurelia-ink);
+    }
+    .specs-table td:first-child {
+      color: rgba(24, 37, 40, 0.65);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: CURATED 4 FINE-ART PRODUCTS CATALOG
+       ------------------------------------------------------------- */
+    .catalog-section {
+      padding: 88px 0;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid rgba(24, 37, 40, 0.1);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+
+    .product-card {
+      background: var(--aurelia-bisque);
+      border: 1px solid var(--aurelia-celadon);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevation);
+      border-color: var(--aurelia-rose);
+    }
+
+    .product-img-box {
+      width: 100%;
+      height: 220px;
+      background: #E8DDD5;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(24, 37, 40, 0.85);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      padding: 3px 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .product-details {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 10px;
+    }
+
+    .product-name {
+      font-size: 19px;
+      line-height: 1.25;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: rgba(24, 37, 40, 0.72);
+      line-height: 1.5;
+    }
+
+    .product-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid rgba(24, 37, 40, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--aurelia-ink);
+    }
+
+    .btn-add-cart {
+      background: transparent;
+      border: 1px solid var(--aurelia-ink);
+      color: var(--aurelia-ink);
+      padding: 6px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-add-cart:hover {
+      background: var(--aurelia-rose);
+      border-color: var(--aurelia-rose);
+      color: var(--aurelia-ink);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: SWATCH DOT CARD 12-COLOR ORDER FORM
+       ------------------------------------------------------------- */
+    .booking-section {
+      padding: 88px 0;
+      background-color: var(--aurelia-bisque);
+      border-bottom: 1px solid rgba(24, 37, 40, 0.1);
+    }
+
+    .booking-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      background: #FFFFFF;
+      border: 1px solid var(--aurelia-celadon);
+      padding: 48px;
+      box-shadow: var(--shadow-elevation);
+    }
+
+    .booking-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .booking-form-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--aurelia-ink);
+    }
+    .form-input, .form-select {
+      background: #FAF8F5;
+      border: 1px solid var(--aurelia-celadon);
+      padding: 11px 14px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      color: var(--aurelia-ink);
+      border-radius: 2px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--aurelia-rose);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 2px rgba(255, 182, 185, 0.3);
+    }
+
+    /* -------------------------------------------------------------
+       SLIDE-OVER CART DRAWER
+       ------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(24, 37, 40, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      z-index: 1001;
+      box-shadow: -8px 0 32px rgba(0,0,0,0.2);
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      background: var(--aurelia-ink);
+      color: var(--aurelia-bisque);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .drawer-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      color: var(--aurelia-celadon);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .drawer-items-list {
+      padding: 24px;
+      flex-grow: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-empty-msg {
+      text-align: center;
+      color: rgba(24, 37, 40, 0.5);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-top: 60px;
+    }
+
+    .drawer-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(24, 37, 40, 0.08);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .drawer-footer {
+      padding: 24px;
+      background: var(--aurelia-bisque);
+      border-top: 1px solid var(--aurelia-celadon);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drawer-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--aurelia-ink);
+    }
+
+    /* -------------------------------------------------------------
+       FOOTER
+       ------------------------------------------------------------- */
+    .site-footer {
+      background-color: var(--aurelia-ink);
+      color: var(--aurelia-bisque);
+      padding: 64px 0 36px;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--aurelia-rose);
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .footer-links-list a {
+      color: var(--aurelia-celadon);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .footer-links-list a:hover {
+      color: #FFFFFF;
+      padding-left: 4px;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       ------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-grid, .formulator-grid, .palette-builder-box, .booking-card-grid {
+        grid-template-columns: 1fr;
+      }
+      .craft-pillars-grid, .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { height: auto; padding: 12px 0; flex-wrap: wrap; }
+      .site-nav { order: 3; width: 100%; padding-bottom: 6px; }
+      .hero-title { font-size: 34px; }
+      .craft-pillars-grid, .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .booking-card-grid {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Telemetry & Atelier Environmental Ticker -->
+  <div class="telemetry-bar">
+    <div class="container telemetry-inner">
+      <div class="telemetry-items">
+        <span class="telemetry-item">
+          <span class="telemetry-pulse"></span>
+          STATUS: ATELIER PIGMEN AKTIF • RH: 58% (PENGERINGAN GUM ARABIC IDEAL)
+        </span>
+        <span class="telemetry-item">MADU HUTAN: 14% BINDER HUMEKTAN</span>
+        <span class="telemetry-item">LIGHTFASTNESS ASTM I: 100+ TAHUN</span>
+        <span class="telemetry-item">KEMURNIAN MINERAL: 100% BEBAS KADM стек</span>
+        <span class="telemetry-item">KERTAS: 300gsm 100% COTTON RAG</span>
+      </div>
+      <div class="telemetry-actions">
+        <button class="audio-toggle-btn" id="audioToggleBtn" title="Aktifkan simulasi desau air kuas Web Audio API">
+          <span>💧</span> <span id="audioBtnText">SUARA KUAS: AKTIF</span>
+        </button>
+        <span id="wibTimeClock" class="mono">WIB 10:24:18</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Atmospheric Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-mark">
+        <div class="brand-logo-seal">A</div>
+        <div class="brand-text">
+          <span class="brand-name">AURELIA</span>
+          <span class="brand-sub">Atelier Cat Air Madu</span>
+        </div>
+      </a>
+
+      <!-- Single-Line Non-Wrapping Navigation -->
+      <nav class="site-nav">
+        <a href="#canvas-stage" class="nav-link"><span class="nav-num">01</span>Kanvas Basah</a>
+        <a href="#binder-science" class="nav-link"><span class="nav-num">02</span>Sains Madu</a>
+        <a href="#palette-builder" class="nav-link"><span class="nav-num">03</span>Racik 12-Pan</a>
+        <a href="#craft-pillars" class="nav-link"><span class="nav-num">04</span>Kriya Mineral</a>
+        <a href="#catalog" class="nav-link"><span class="nav-num">05</span>Etalase</a>
+        <a href="#dot-card" class="nav-link"><span class="nav-num">06</span>Swatch Card</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-trigger-btn" id="cartTriggerBtn">
+          <span>Keranjang</span>
+          <span class="cart-count-badge" id="cartCountBadge">0</span>
+        </button>
+        <a href="#palette-builder" class="btn-commission-cta">Racik Palet</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Watercolor Wet-on-Wet Dispersion Canvas -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      
+      <!-- Text Column -->
+      <div class="hero-content">
+        <div class="hero-kicker">
+          <span class="kicker-line"></span>
+          <span>KRIYA PIGMEN MURNI • ATELIER CAT AIR BOTANI • EST. 2018</span>
+        </div>
+        <h1 class="hero-title">
+          Pendaran Kristal Pigmen Alami Berpadu <em>Madu Liar & Gum Arabic</em> di Kertas Katun.
+        </h1>
+        <p class="hero-desc">
+          Kami menolak cat air industri berperekat akrilik murah yang cepat retak dan kusam. AURELIA menggiling pigmen batuan mineral alami (Rose Madder, Chrysocolla, Celadon Earth) di atas pelat kaca asam menggunakan muller kristal, diramu dengan getah Acacia Senegal dan madu hutan pegunungan yang menjaga pigmen tetap lembut reaktif selamanya.
+        </p>
+
+        <!-- Real Pigment Metrics Strip -->
+        <div class="hero-metrics-strip">
+          <div class="hero-metric-cell">
+            <span class="metric-val">100%</span>
+            <span class="metric-lbl">Batuan & Botani</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="metric-val">14%</span>
+            <span class="metric-lbl">Madu Pegunungan</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="metric-val">ASTM I</span>
+            <span class="metric-lbl">Tahan 100+ Thn</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="metric-val">0%</span>
+            <span class="metric-lbl">Akrilik / Filler</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#canvas-stage" class="btn-primary">Uji Sapuan Kanvas Basah</a>
+          <a href="#palette-builder" class="btn-secondary">Kustomisasi Kotak Kayu 12-Pan</a>
+        </div>
+      </div>
+
+      <!-- Simulator Stage Column -->
+      <div class="simulator-stage-card" id="canvas-stage">
+        <div class="sim-header-bar">
+          <div class="sim-header-title">
+            <span>🎨 SIMULATOR DISPERSI BASAH-DI-ATAS-BASAH (WET-ON-WET)</span>
+          </div>
+          <div class="sim-view-toggles">
+            <button class="btn-canvas-action" id="btnSaltEffect" title="Taburkan kristal garam kasar untuk efek kelopak bunga mekar">✨ Tabur Garam</button>
+            <button class="btn-canvas-action" id="btnClearCanvas" title="Bersihkan kertas katun">Bersihkan</button>
+          </div>
+        </div>
+
+        <div class="canvas-viewport-wrapper">
+          <canvas id="watercolorCanvas"></canvas>
+          <div class="paper-texture-overlay"></div>
+          <div class="canvas-instruction-badge" id="canvasInstructionBadge">
+            PILIH PIGMEN & SENTUH KERTAS UNTUK MENYEBARKAN SAPUAN AIR ALAMI
+          </div>
+        </div>
+
+        <!-- Controls Bar inside Canvas -->
+        <div class="sim-controls-panel">
+          <div class="brush-pigment-options">
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--aurelia-ink); font-weight: 500;">PIGMEN:</span>
+            <div class="pigment-pick-circle active" style="background-color: #FFB6B9;" data-color="#FFB6B9" data-name="Rose Madder Lake" title="Rose Madder Lake"></div>
+            <div class="pigment-pick-circle" style="background-color: #61C0BF;" data-color="#61C0BF" data-name="Chrysocolla Turquoise" title="Chrysocolla Turquoise"></div>
+            <div class="pigment-pick-circle" style="background-color: #BBDED6;" data-color="#BBDED6" data-name="Celadon Mineral" title="Celadon Mineral"></div>
+            <div class="pigment-pick-circle" style="background-color: #D4A373;" data-color="#D4A373" data-name="French Ochre Gold" title="French Ochre Gold"></div>
+            <div class="pigment-pick-circle" style="background: linear-gradient(135deg, #fff 0%, #d8e5ec 100%);" data-color="water" data-name="Air Bersih (Water Glaze)" title="Kuas Air Bersih"></div>
+          </div>
+
+          <div class="slider-control-group">
+            <span>Saturasi Air:</span>
+            <input type="range" class="control-slider" id="waterSatSlider" min="20" max="90" value="65">
+            <span id="waterSatValText" class="mono">65%</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: The Botanical Watercolor Craft (Anti-Slop Standards) -->
+  <section class="craft-section" id="craft-pillars">
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-eyebrow">STANDAR KRIYA MATERIALITAS BOTANI</span>
+        <h2 class="section-heading">Bahan Hayati Murni Tanpa Pewarna Sintetis.</h2>
+        <p class="section-subtext">
+          Di atelier AURELIA, kami menolak pewarna azo sintetis berbasis tar batubara dan pengisi kapur gipsum (*dextrin chalk filler*) yang mematikan transparansi pendaran pigmen.
+        </p>
+      </div>
+
+      <div class="craft-pillars-grid">
+        <div class="craft-pillar-card">
+          <span class="pillar-num">01 / GILINGAN KACA</span>
+          <h3 class="pillar-title">Penggilingan Muller Kristal 4 Jam</h3>
+          <p class="pillar-body">
+            Setiap pigmen batuan digerus perlahan dengan muller kaca berat di atas lempengan kaca buram hingga mencapai ukuran partikel mikron optimal yang tetap mempertahankan karakter granulasi alami.
+          </p>
+          <span class="pillar-tag">PARTIKEL: 4-8 MIKRON</span>
+        </div>
+
+        <div class="craft-pillar-card">
+          <span class="pillar-num">02 / BINDER MADU</span>
+          <h3 class="pillar-title">Madu Liar Pegunungan & Gum Arabic Kordofan</h3>
+          <p class="pillar-body">
+            Madu bertindak sebagai humektan alami yang menyerap kelembapan mikro dari udara, mencegah pan cat mengering keras seperti batu dan memungkinkan reaktivasi instan saat disentuh kuas basah.
+          </p>
+          <span class="pillar-tag">GUM ARABIC KORDOFAN 100%</span>
+        </div>
+
+        <div class="craft-pillar-card">
+          <span class="pillar-num">03 / PIGMEN BATU</span>
+          <h3 class="pillar-title">Mineral Semi-Mulia & Danau Botani</h3>
+          <p class="pillar-body">
+            Chrysocolla murni, Malachite hijau, dan ekstraksi akar tanaman Madder (*Rubia tinctorum*) menghasilkan kedalaman pendaran optik beludru yang tak tertandingi oleh pigmen printer buatan pabrik.
+          </p>
+          <span class="pillar-tag">KEMURNIAN EKSTRAK: TINGGI</span>
+        </div>
+
+        <div class="craft-pillar-card">
+          <span class="pillar-num">04 / KERTAS KATUN</span>
+          <h3 class="pillar-title">Kertas Katun Dingin (Cold-Pressed Rag 300gsm)</h3>
+          <p class="pillar-body">
+            Serat kapas 100% bebas asam dengan gelatin sizing tradisional. Menahan genangan air tebal tanpa melengkung dan mengizinkan teknik mengangkat cat (*lifting*) tanpa merusak serat kertas.
+          </p>
+          <span class="pillar-tag">100% COTTON FIBER</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 2: Gum Arabic & Honey Binder Formulator -->
+  <section class="formulator-section" id="binder-science">
+    <div class="container formulator-grid">
+      
+      <div class="calc-explain">
+        <span class="section-eyebrow">LABORATORIUM FORMULASI ATELIER</span>
+        <h2 class="section-heading">Kalkulator Keseimbangan Madu & Gum Arabic.</h2>
+        <p class="section-subtext">
+          Proporsi madu liar menentukan kelenturan kristal cat di dalam pan porselen. Terlalu sedikit madu akan menyebabkan cat rapuh retak saat cuaca kering; terlalu banyak madu membuat cat lengket berlebih. Temukan rasio ideal untuk iklim studio Anda.
+        </p>
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--aurelia-lagoon); line-height: 1.6; background: var(--aurelia-bisque); padding: 14px 18px; border-left: 3px solid var(--aurelia-lagoon);">
+          CATATAN MASTER COLORIST:<br>
+          "Madu bunga liar mengandung fruktosa dan glukosa alami yang menjaga molekul pigmen mineral terdispersi bebas, menghasilkan efek bloom gradasi yang lembut puitis."
+        </div>
+      </div>
+
+      <!-- Calculator Board -->
+      <div class="calc-board-container">
+        
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>KONSENTRASI MADU LIAR PEGUNUNGAN (%):</span>
+            <span id="honeyValText" class="mono">14% (Standar AURELIA)</span>
+          </div>
+          <input type="range" class="control-slider" style="width: 100%;" id="honeySlider" min="6" max="24" step="1" value="14">
+        </div>
+
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>LARUTAN GUM ARABIC KORDOFAN (%):</span>
+            <span id="gumValText" class="mono">72%</span>
+          </div>
+          <input type="range" class="control-slider" style="width: 100%;" id="gumSlider" min="50" max="85" step="1" value="72">
+        </div>
+
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>MINYAK CENGKEH ANTIMIKROBA (TETES / 100ml):</span>
+            <span id="cloveValText" class="mono">3 Tetes</span>
+          </div>
+          <input type="range" class="control-slider" style="width: 100%;" id="cloveSlider" min="1" max="6" step="1" value="3">
+        </div>
+
+        <!-- Calculated Output Box -->
+        <div class="calc-result-box">
+          <div class="result-row">
+            <span>INDEKS REAKTIVITAS AIR (RE-WETTABILITY):</span>
+            <span class="result-val-highlight" id="rewetOutput">94 / 100 (Instan)</span>
+          </div>
+          <div class="result-row">
+            <span>KETAHANAN RETAK PAN PORSELEN:</span>
+            <span id="crackResistanceOutput">ELASTIS SEMPURNA (BEBAS PECAH)</span>
+          </div>
+          <div class="result-row">
+            <span>KILAU PERMUKAAN CAT KERING:</span>
+            <span id="sheenOutput" style="color: var(--aurelia-rose); font-weight: 600;">SEMI-MATTE BELUDRU ALAMI</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Feature 3: 12-Pan Porcelain Pocket Palette Builder -->
+  <section class="palette-builder-section" id="palette-builder">
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-eyebrow">KONFIGURATOR KOTAK KAYU KENARI</span>
+        <h2 class="section-heading">Rancang Palet Saku 12-Half Pan Anda.</h2>
+        <p class="section-subtext">
+          Klik slot pan di dalam kotak kayu kenari untuk mengisi warna pigmen mineral alami pilihan Anda.
+        </p>
+      </div>
+
+      <div class="palette-builder-box">
+        
+        <!-- Palette Box Stage -->
+        <div class="palette-box-col">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--aurelia-ink); margin-bottom: 14px;">
+            AURELIA WALNUT WOODEN POCKET BOX • MAGNET LOCK
+          </div>
+
+          <div class="walnut-box-stage">
+            <div class="pans-grid" id="pansGrid">
+              <!-- 12 Half-Pans dynamically rendered -->
+            </div>
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 10.5px; color: #666; text-align: center; margin-top: 14px;">
+            *Klik slot pan untuk mengganti pigmen yang dipilih di kolom sebelah kanan
+          </div>
+        </div>
+
+        <!-- Details & Palette Selector Column -->
+        <div class="palette-details-col">
+          <h3 class="serif" style="font-size: 24px;">Pilih Pigmen untuk Slot Terpilih</h3>
+          <p style="font-size: 13px; color: rgba(24, 37, 40, 0.7);">
+            Slot aktif: <strong id="activeSlotText" class="mono" style="color: var(--aurelia-lagoon);">Pan #1</strong>
+          </p>
+
+          <div class="swatch-color-selector-strip" id="swatchSelectorStrip">
+            <!-- Swatches will be generated by JS -->
+          </div>
+
+          <div style="margin-top: 10px;">
+            <table class="specs-table">
+              <tbody>
+                <tr>
+                  <td>Material Wadah</td>
+                  <td>Kayu Kenari Hitam & Porselen Tembikar</td>
+                </tr>
+                <tr>
+                  <td>Total Slot Half-Pan</td>
+                  <td>12 Warna Mineral / Botani</td>
+                </tr>
+                <tr>
+                  <td>Kunci Kotak</td>
+                  <td>Neodymium Magnetik Presisi</td>
+                </tr>
+                <tr>
+                  <td>Estimasi Harga Paket</td>
+                  <td id="paletteCustomPrice" style="font-size: 16px; font-weight: 600; color: var(--aurelia-ink);">Rp 680.000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <button class="btn-primary" id="btnOrderCustomPalette" style="width: 100%; justify-content: center; margin-top: 8px;">
+            Pesan Kotak Palet Ini via WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Curated 4 Fine-Art Products Catalog -->
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-eyebrow">ETALASE KRIYA FINE-ART ATELIER</span>
+        <h2 class="section-heading">Perlengkapan Seni Rupa Terkurasi.</h2>
+        <p class="section-subtext">
+          Dibuat secara terbatas untuk seniman yang menghargai kualitas pigmen murni dan kertas katun abadi.
+        </p>
+      </div>
+
+      <div class="catalog-grid">
+        
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="AURELIA 12-Pan Wooden Box" class="product-img">
+            <span class="product-badge">BESTSELLER</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Kotak Kayu Kenari 12-Half Pan</h3>
+            <p class="product-desc">Kotak kayu kenari berperekat magnet dengan 12 pan porselen berisi cat air pigmen mineral madu murni.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 680.000</span>
+              <button class="btn-add-cart" data-id="p1" data-name="Kotak Kayu Kenari 12-Half Pan" data-price="680000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=800&q=80" alt="Kuas Kolinsky Round No. 6" class="product-img">
+            <span class="product-badge">KRIYA KUAS</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Kuas Bulu Tupai Kolinsky No. 6</h3>
+            <p class="product-desc">Dibuat tangan di Nuremberg Jerman dengan ferrule tembaga nikel dan ujung tajam presisi untuk detail halus.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 385.000</span>
+              <button class="btn-add-cart" data-id="p2" data-name="Kuas Kolinsky No. 6" data-price="385000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Buku Sketsa Katun 300gsm" class="product-img">
+            <span class="product-badge">KERTAS KATUN</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Sketchbook Katun 300gsm A5</h3>
+            <p class="product-desc">Buku sketsa jahit benang dengan 20 lembar kertas katun dingin 100% bebas asam untuk sapuan basah tebal.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 245.000</span>
+              <button class="btn-add-cart" data-id="p3" data-name="Sketchbook Katun 300gsm A5" data-price="245000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?auto=format&fit=crop&w=800&q=80" alt="Glass Muller & Slab" class="product-img">
+            <span class="product-badge">ALAT PENGGILING</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Muller Kaca Kristal 75mm & Pelat Asam</h3>
+            <p class="product-desc">Alat gerus pigmen kaca pejal dengan dasar bertekstur mikro untuk meramu cat air sendiri di rumah.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 420.000</span>
+              <button class="btn-add-cart" data-id="p4" data-name="Muller Kaca Kristal 75mm" data-price="420000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Swatch Dot Card 12-Color Order Form -->
+  <section class="booking-section" id="dot-card">
+    <div class="container">
+      <div class="booking-card-grid">
+        
+        <div class="booking-info-col">
+          <span class="section-eyebrow">PENGUJIAN WARNA MANDIRI</span>
+          <h2 class="section-heading">Coba 12 Warna pada Kertas Katun Asli.</h2>
+          <p class="section-subtext">
+            Ingin merasakan langsung sifat granulasi dan transparansi pigmen AURELIA sebelum membeli set lengkap? Pesan kartu sampel *Swatch Dot Card* berisi 12 bulatan cat tebal di atas kertas katun 300gsm.
+          </p>
+          <div style="margin-top: auto; font-family: var(--font-mono); font-size: 12px; color: var(--aurelia-ink); line-height: 1.8;">
+            BIAYA SWATCH CARD: Rp 45.000 (Termasuk Ongkir Jawa)<br>
+            LOKASI ATELIER: Jl. Ciumbuleuit No. 42, Bandung<br>
+            WHATSAPP PEMESANAN: +62 812-4490-8812
+          </div>
+        </div>
+
+        <form class="booking-form-col" id="dotCardForm">
+          <div class="form-group">
+            <label class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-input" id="dotName" placeholder="Contoh: Seniman Dipta" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nomor WhatsApp</label>
+            <input type="tel" class="form-input" id="dotPhone" placeholder="0812-xxxx-xxxx" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Alamat Pengiriman Lengkap</label>
+            <input type="text" class="form-input" id="dotAddress" placeholder="Nama Jalan, Kota, Kode Pos" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Jumlah Paket Swatch Card</label>
+            <select class="form-select" id="dotQty">
+              <option value="1 Set Swatch Card (Rp 45.000)">1 Set Swatch Card (Rp 45.000)</option>
+              <option value="2 Set Swatch Card (Rp 80.000)">2 Set Swatch Card (Rp 80.000 - Hemat)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary" style="margin-top: 10px; justify-content: center;">
+            Kirim Pemesanan Swatch Card via WhatsApp
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <span class="drawer-title">Pesanan Kriya AURELIA</span>
+      <button class="drawer-close-btn" id="drawerCloseBtn">&times;</button>
+    </div>
+    <div class="drawer-items-list" id="drawerItemsList">
+      <div class="drawer-empty-msg">Keranjang belanja Anda masih kosong.</div>
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-total-row">
+        <span>TOTAL BELANJA:</span>
+        <span id="drawerTotalText">Rp 0</span>
+      </div>
+      <button class="btn-primary" id="btnCheckoutWhatsapp" style="width: 100%; justify-content: center;">
+        Kirim Pesanan ke WhatsApp Atelier
+      </button>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-mark" style="color: #fff; margin-bottom: 16px;">
+            <div class="brand-logo-seal" style="background: var(--aurelia-rose); color: var(--aurelia-ink);">A</div>
+            <div class="brand-text">
+              <span class="brand-name" style="color: #fff;">AURELIA</span>
+              <span class="brand-sub" style="color: var(--aurelia-celadon);">Atelier Cat Air Madu</span>
+            </div>
+          </div>
+          <p style="font-size: 13.5px; color: var(--aurelia-celadon); line-height: 1.6; max-width: 320px;">
+            Atelier seni rupa murni yang mendedikasikan kriya pada pigmen mineral batuan semi-mulia, perekat getah pohon akasia Kordofan, dan madu hutan pegunungan bebas bahan kimia sintetis.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi Arsip</h4>
+          <ul class="footer-links-list">
+            <li><a href="#canvas-stage">Kanvas Basah-di-Atas-Basah</a></li>
+            <li><a href="#binder-science">Sains Formulasi Madu</a></li>
+            <li><a href="#palette-builder">Konfigurator Kotak 12-Pan</a></li>
+            <li><a href="#catalog">Etalase Perlengkapan</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Sains & Bahan</h4>
+          <ul class="footer-links-list">
+            <li><a href="#craft-pillars">Acacia Senegal Gum Arabic</a></li>
+            <li><a href="#craft-pillars">Madu Bunga Liar Humektan</a></li>
+            <li><a href="#craft-pillars">Chrysocolla & Rose Madder</a></li>
+            <li><a href="#craft-pillars">Standar ASTM D4303 Lightfast</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Atelier Studio</h4>
+          <p style="font-size: 13px; color: var(--aurelia-celadon); line-height: 1.6; font-family: var(--font-mono);">
+            Studio Seni Rupa AURELIA<br>
+            Jl. Ciumbuleuit No. 42, Dago, Bandung<br>
+            Jam Operasional: 09:00 - 17:00 WIB<br>
+            WhatsApp: +62 812-4490-8812
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 AURELIA Atelier. Bagian dari Galeri Editorial NECTOR.UI.</span>
+        <span>STANDAR KRIYA BEBAS AI-SLOP • PIGMEN BATUAN MINERAL MURNI</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- -------------------------------------------------------------
+       JAVASCRIPT: WATERCOLOR DISPERSION, FORMULATOR, PALETTE BUILDER
+       ------------------------------------------------------------- -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* 1. Real-time Clock */
+      function updateClock() {
+        const now = new Date();
+        const hrs = String(now.getHours()).padStart(2, '0');
+        const mins = String(now.getMinutes()).padStart(2, '0');
+        const secs = String(now.getSeconds()).padStart(2, '0');
+        const clockEl = document.getElementById('wibTimeClock');
+        if (clockEl) clockEl.textContent = `WIB ${hrs}:${mins}:${secs}`;
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+
+      /* 2. Web Audio API - Relaxing Brush & Water Droplet Ambient */
+      let audioCtx = null;
+      let isAudioPlaying = false;
+      let gainNode = null;
+
+      function initBrushAudio() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          
+          // Filtered noise simulating gentle brush swishing on paper
+          const bufferSize = audioCtx.sampleRate * 2;
+          const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const output = noiseBuffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            output[i] = (Math.random() * 2 - 1) * 0.05;
+          }
+
+          const noiseNode = audioCtx.createBufferSource();
+          noiseNode.buffer = noiseBuffer;
+          noiseNode.loop = true;
+
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'bandpass';
+          filter.frequency.setValueAtTime(650, audioCtx.currentTime);
+          filter.Q.setValueAtTime(1.8, audioCtx.currentTime);
+
+          gainNode = audioCtx.createGain();
+          gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+
+          noiseNode.connect(filter);
+          filter.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+
+          noiseNode.start();
+          isAudioPlaying = true;
+        } else if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+          isAudioPlaying = true;
+        } else if (audioCtx.state === 'running') {
+          audioCtx.suspend();
+          isAudioPlaying = false;
+        }
+        updateAudioButtonUI();
+      }
+
+      function playWaterDropletSound() {
+        if (!audioCtx || audioCtx.state !== 'running') return;
+        const osc = audioCtx.createOscillator();
+        const dropGain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(350, audioCtx.currentTime + 0.12);
+        dropGain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        dropGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+        osc.connect(dropGain);
+        dropGain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.13);
+      }
+
+      function updateAudioButtonUI() {
+        const btnText = document.getElementById('audioBtnText');
+        if (btnText) {
+          btnText.textContent = isAudioPlaying ? 'SUARA KUAS: AKTIF' : 'SUARA KUAS: SENYAP';
+        }
+      }
+
+      const audioToggleBtn = document.getElementById('audioToggleBtn');
+      if (audioToggleBtn) {
+        audioToggleBtn.addEventListener('click', initBrushAudio);
+      }
+
+      /* 3. Canvas HTML5 - Procedural Wet-on-Wet Watercolor Bleed */
+      const canvas = document.getElementById('watercolorCanvas');
+      const ctx = canvas ? canvas.getContext('2d') : null;
+      let activeColor = '#FFB6B9';
+      let waterSaturation = 0.65;
+      let isDrawing = false;
+      let blooms = [];
+
+      function resizeCanvas() {
+        if (!canvas) return;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * window.devicePixelRatio;
+        canvas.height = rect.height * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        drawInitialWash();
+      }
+      window.addEventListener('resize', resizeCanvas);
+
+      function drawInitialWash() {
+        if (!ctx || !canvas) return;
+        const w = canvas.getBoundingClientRect().width;
+        const h = canvas.getBoundingClientRect().height;
+
+        // Paper base tone
+        ctx.fillStyle = '#FDFBF7';
+        ctx.fillRect(0, 0, w, h);
+
+        // Pre-create some soft organic watercolor blooms for aesthetic introduction
+        addBloom(w * 0.35, h * 0.45, '#FFB6B9', 80, 0.45);
+        addBloom(w * 0.62, h * 0.52, '#61C0BF', 95, 0.4);
+        addBloom(w * 0.48, h * 0.68, '#BBDED6', 70, 0.35);
+      }
+
+      function addBloom(x, y, color, baseRadius, opacity) {
+        blooms.push({
+          x,
+          y,
+          color,
+          radius: 8,
+          maxRadius: baseRadius,
+          opacity: opacity,
+          growthRate: 1.8 + Math.random() * 2.2,
+          petals: 7 + Math.floor(Math.random() * 5),
+          seed: Math.random() * 100,
+          isSalt: false
+        });
+      }
+
+      function animateBlooms() {
+        if (!ctx || !canvas) return;
+        const w = canvas.getBoundingClientRect().width;
+        const h = canvas.getBoundingClientRect().height;
+
+        let needsRepaint = false;
+
+        blooms.forEach(b => {
+          if (b.radius < b.maxRadius) {
+            b.radius += b.growthRate;
+            needsRepaint = true;
+
+            // Render soft capillary fractal watercolor wash
+            ctx.save();
+            ctx.translate(b.x, b.y);
+
+            ctx.beginPath();
+            const points = b.petals * 4;
+            for (let i = 0; i <= points; i++) {
+              const angle = (i / points) * Math.PI * 2;
+              const noise = Math.sin(angle * b.petals + b.seed) * 0.22 + Math.cos(angle * 3.5) * 0.15;
+              const r = b.radius * (1 + noise);
+              const px = Math.cos(angle) * r;
+              const py = Math.sin(angle) * r;
+              if (i === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+
+            // Gradient with natural edge pigment pooling (darker rim)
+            const radGrad = ctx.createRadialGradient(0, 0, b.radius * 0.1, 0, 0, b.radius);
+            
+            if (b.color === 'water') {
+              radGrad.addColorStop(0, 'rgba(235, 245, 248, 0.25)');
+              radGrad.addColorStop(0.85, 'rgba(220, 238, 242, 0.4)');
+              radGrad.addColorStop(1, 'rgba(187, 222, 214, 0.15)');
+            } else {
+              radGrad.addColorStop(0, `${b.color}22`);
+              radGrad.addColorStop(0.7, `${b.color}${Math.floor(b.opacity * 180).toString(16).padStart(2, '0')}`);
+              radGrad.addColorStop(0.96, `${b.color}${Math.floor(b.opacity * 255).toString(16).padStart(2, '0')}`); // Pigment rim
+              radGrad.addColorStop(1, 'transparent');
+            }
+
+            ctx.fillStyle = radGrad;
+            ctx.fill();
+            ctx.restore();
+          }
+        });
+
+        requestAnimationFrame(animateBlooms);
+      }
+
+      resizeCanvas();
+      animateBlooms();
+
+      // Canvas Interaction Handlers
+      function handleCanvasPaint(e) {
+        if (!canvas) return;
+        const rect = canvas.getBoundingClientRect();
+        const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+        const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+
+        const maxR = 35 + waterSaturation * 80;
+        addBloom(x, y, activeColor, maxR, 0.48);
+        playWaterDropletSound();
+
+        const badge = document.getElementById('canvasInstructionBadge');
+        if (badge) badge.style.display = 'none';
+      }
+
+      if (canvas) {
+        canvas.addEventListener('mousedown', (e) => {
+          isDrawing = true;
+          handleCanvasPaint(e);
+        });
+        canvas.addEventListener('mousemove', (e) => {
+          if (isDrawing && Math.random() > 0.4) {
+            handleCanvasPaint(e);
+          }
+        });
+        window.addEventListener('mouseup', () => { isDrawing = false; });
+
+        // Touch support for tablets & mobile
+        canvas.addEventListener('touchstart', (e) => {
+          handleCanvasPaint(e);
+        }, { passive: true });
+        canvas.addEventListener('touchmove', (e) => {
+          if (Math.random() > 0.5) handleCanvasPaint(e);
+        }, { passive: true });
+      }
+
+      // Pigment Picker Circles
+      const pigmentCircles = document.querySelectorAll('.pigment-pick-circle');
+      pigmentCircles.forEach(circle => {
+        circle.addEventListener('click', () => {
+          pigmentCircles.forEach(c => c.classList.remove('active'));
+          circle.classList.add('active');
+          activeColor = circle.dataset.color;
+        });
+      });
+
+      // Clear Canvas Button
+      const btnClear = document.getElementById('btnClearCanvas');
+      if (btnClear) {
+        btnClear.addEventListener('click', () => {
+          blooms = [];
+          const w = canvas.getBoundingClientRect().width;
+          const h = canvas.getBoundingClientRect().height;
+          ctx.fillStyle = '#FDFBF7';
+          ctx.fillRect(0, 0, w, h);
+        });
+      }
+
+      // Sea Salt Bloom Button
+      const btnSalt = document.getElementById('btnSaltEffect');
+      if (btnSalt) {
+        btnSalt.addEventListener('click', () => {
+          if (!canvas || !ctx) return;
+          const w = canvas.getBoundingClientRect().width;
+          const h = canvas.getBoundingClientRect().height;
+
+          // Scatter salt grains causing starry white blooms
+          for (let i = 0; i < 18; i++) {
+            const sx = Math.random() * w;
+            const sy = Math.random() * h;
+            
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(sx, sy, 8 + Math.random() * 12, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(253, 251, 247, 0.75)';
+            ctx.fill();
+            ctx.restore();
+          }
+        });
+      }
+
+      // Water Saturation Slider
+      const satSlider = document.getElementById('waterSatSlider');
+      const satText = document.getElementById('waterSatValText');
+      if (satSlider && satText) {
+        satSlider.addEventListener('input', () => {
+          waterSaturation = parseInt(satSlider.value) / 100;
+          satText.textContent = `${satSlider.value}%`;
+        });
+      }
+
+      /* 4. Gum Arabic & Honey Binder Formulator */
+      const honeySlider = document.getElementById('honeySlider');
+      const gumSlider = document.getElementById('gumSlider');
+      const cloveSlider = document.getElementById('cloveSlider');
+
+      const honeyText = document.getElementById('honeyValText');
+      const gumText = document.getElementById('gumValText');
+      const cloveText = document.getElementById('cloveValText');
+
+      const rewetOutput = document.getElementById('rewetOutput');
+      const crackOutput = document.getElementById('crackResistanceOutput');
+      const sheenOutput = document.getElementById('sheenOutput');
+
+      function calculateBinder() {
+        if (!honeySlider || !gumSlider || !cloveSlider) return;
+        const honey = parseInt(honeySlider.value);
+        const gum = parseInt(gumSlider.value);
+        const clove = parseInt(cloveSlider.value);
+
+        honeyText.textContent = `${honey}% ${honey === 14 ? '(Standar AURELIA)' : ''}`;
+        gumText.textContent = `${gum}%`;
+        cloveText.textContent = `${clove} Tetes`;
+
+        // Re-wettability score calculation
+        const rewetScore = Math.min(99, Math.round(55 + (honey * 2.8)));
+        rewetOutput.textContent = `${rewetScore} / 100 (${rewetScore >= 90 ? 'Instan Seketika' : 'Cepat'})`;
+
+        // Crack resistance status
+        if (honey < 10) {
+          crackOutput.textContent = 'RAWAN RETAK DI MUSIM KEMARAU';
+          crackOutput.style.color = '#ff5252';
+        } else if (honey > 20) {
+          crackOutput.textContent = 'TERLALU LENGKET DI DAERAH LEMBAP';
+          crackOutput.style.color = '#ffab00';
+        } else {
+          crackOutput.textContent = 'ELASTIS SEMPURNA (BEBAS PECAH)';
+          crackOutput.style.color = '#64dd17';
+        }
+
+        // Sheen
+        if (honey > 16) {
+          sheenOutput.textContent = 'SATIN KILAU LEMBUT (LUMINOUS GLOW)';
+        } else {
+          sheenOutput.textContent = 'SEMI-MATTE BELUDRU ALAMI';
+        }
+      }
+
+      if (honeySlider) honeySlider.addEventListener('input', calculateBinder);
+      if (gumSlider) gumSlider.addEventListener('input', calculateBinder);
+      if (cloveSlider) cloveSlider.addEventListener('input', calculateBinder);
+      calculateBinder();
+
+      /* 5. 12-Pan Porcelain Pocket Palette Builder */
+      const availablePigments = [
+        { name: 'Rose Madder Lake', hex: '#FFB6B9', code: 'PR83', type: 'Botanical Lake' },
+        { name: 'Chrysocolla Turquoise', hex: '#61C0BF', code: 'PG26', type: 'Pure Mineral' },
+        { name: 'Celadon Earth', hex: '#BBDED6', code: 'PG23', type: 'Green Earth' },
+        { name: 'French Ochre Gold', hex: '#D4A373', code: 'PY43', type: 'Natural Clay' },
+        { name: 'Lapis Lazuli Genuine', hex: '#3A506B', code: 'PB29', type: 'Precious Stone' },
+        { name: 'Burnt Umber Sienna', hex: '#6F4E37', code: 'PBr7', type: 'Iron Oxide' },
+        { name: 'Titanium Buff Porcelain', hex: '#FAE3D9', code: 'PW6:1', type: 'Unbleached' },
+        { name: 'Prussian Indigo Deep', hex: '#182528', code: 'PB27', type: 'Deep Mineral' }
+      ];
+
+      let palettePans = [
+        availablePigments[0], availablePigments[1], availablePigments[2], availablePigments[3],
+        availablePigments[4], availablePigments[5], availablePigments[6], availablePigments[7],
+        availablePigments[0], availablePigments[1], availablePigments[2], availablePigments[3]
+      ];
+
+      let selectedPanIdx = 0;
+      const pansGrid = document.getElementById('pansGrid');
+      const activeSlotText = document.getElementById('activeSlotText');
+      const swatchStrip = document.getElementById('swatchSelectorStrip');
+
+      function renderPans() {
+        if (!pansGrid) return;
+        pansGrid.innerHTML = '';
+        palettePans.forEach((p, idx) => {
+          const panEl = document.createElement('div');
+          panEl.className = 'porcelain-pan';
+          if (idx === selectedPanIdx) {
+            panEl.style.borderColor = '#FFB6B9';
+            panEl.style.boxShadow = '0 0 0 2px #FFB6B9';
+          }
+          panEl.innerHTML = `
+            <div class="pan-cake-color" style="background-color: ${p.hex};"></div>
+            <span class="pan-code">${idx + 1}</span>
+          `;
+          panEl.addEventListener('click', () => {
+            selectedPanIdx = idx;
+            if (activeSlotText) activeSlotText.textContent = `Pan #${idx + 1} (${p.name})`;
+            renderPans();
+          });
+          pansGrid.appendChild(panEl);
+        });
+      }
+
+      function renderSwatchPicker() {
+        if (!swatchStrip) return;
+        swatchStrip.innerHTML = '';
+        availablePigments.forEach(pig => {
+          const btn = document.createElement('button');
+          btn.className = 'swatch-btn';
+          btn.innerHTML = `
+            <span class="swatch-dot" style="background-color: ${pig.hex};"></span>
+            <span>${pig.name}</span>
+          `;
+          btn.addEventListener('click', () => {
+            palettePans[selectedPanIdx] = pig;
+            if (activeSlotText) activeSlotText.textContent = `Pan #${selectedPanIdx + 1} (${pig.name})`;
+            renderPans();
+          });
+          swatchStrip.appendChild(btn);
+        });
+      }
+
+      renderPans();
+      renderSwatchPicker();
+
+      // Custom Palette WhatsApp Order
+      const btnOrderCustomPalette = document.getElementById('btnOrderCustomPalette');
+      if (btnOrderCustomPalette) {
+        btnOrderCustomPalette.addEventListener('click', () => {
+          const panNames = palettePans.map((p, i) => `${i + 1}. ${p.name} (${p.code})`).join('\n');
+          const msg = `Halo Atelier AURELIA, saya ingin mengomisi Kotak Kayu Kenari 12-Pan kustom:
+Rincian Pilihan Warna:
+${panNames}
+
+Harga Paket: Rp 680.000
+Mohon informasi ketersediaan slot pengerjaan. Terima kasih!`;
+          window.open(`https://wa.me/6281244908812?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+      }
+
+      /* 6. Cart Drawer & WhatsApp Checkout */
+      const cartTriggerBtn = document.getElementById('cartTriggerBtn');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartOverlay = document.getElementById('cartOverlay');
+      const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+      const drawerItemsList = document.getElementById('drawerItemsList');
+      const drawerTotalText = document.getElementById('drawerTotalText');
+      const cartCountBadge = document.getElementById('cartCountBadge');
+      const btnCheckoutWhatsapp = document.getElementById('btnCheckoutWhatsapp');
+
+      let cart = [];
+
+      function toggleCart(open) {
+        if (!cartDrawer || !cartOverlay) return;
+        if (open) {
+          cartDrawer.classList.add('open');
+          cartOverlay.classList.add('open');
+        } else {
+          cartDrawer.classList.remove('open');
+          cartOverlay.classList.remove('open');
+        }
+      }
+
+      if (cartTriggerBtn) cartTriggerBtn.addEventListener('click', () => toggleCart(true));
+      if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', () => toggleCart(false));
+      if (cartOverlay) cartOverlay.addEventListener('click', () => toggleCart(false));
+
+      // Add to cart buttons
+      const addCartButtons = document.querySelectorAll('.btn-add-cart');
+      addCartButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const name = btn.dataset.name;
+          const price = parseInt(btn.dataset.price);
+
+          const existing = cart.find(item => item.id === id);
+          if (existing) {
+            existing.qty += 1;
+          } else {
+            cart.push({ id, name, price, qty: 1 });
+          }
+
+          updateCartUI();
+          toggleCart(true);
+        });
+      });
+
+      function updateCartUI() {
+        if (!drawerItemsList || !cartCountBadge || !drawerTotalText) return;
+
+        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCountBadge.textContent = totalItems;
+
+        if (cart.length === 0) {
+          drawerItemsList.innerHTML = '<div class="drawer-empty-msg">Keranjang belanja Anda masih kosong.</div>';
+          drawerTotalText.textContent = 'Rp 0';
+          return;
+        }
+
+        let totalPrice = 0;
+        let html = '';
+
+        cart.forEach((item, idx) => {
+          const subtotal = item.price * item.qty;
+          totalPrice += subtotal;
+          html += `
+            <div class="drawer-item-row">
+              <div>
+                <div style="font-weight: 600; color: var(--aurelia-ink);">${item.name}</div>
+                <div style="color: var(--aurelia-lagoon); font-size: 11px;">Rp ${item.price.toLocaleString('id-ID')} &times; ${item.qty}</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 600;">Rp ${subtotal.toLocaleString('id-ID')}</div>
+                <button class="remove-item-btn" data-idx="${idx}" style="background:none; border:none; color:#ff5252; cursor:pointer; font-size:10px;">Hapus</button>
+              </div>
+            </div>
+          `;
+        });
+
+        drawerItemsList.innerHTML = html;
+        drawerTotalText.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+
+        const removeButtons = drawerItemsList.querySelectorAll('.remove-item-btn');
+        removeButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.dataset.idx);
+            cart.splice(idx, 1);
+            updateCartUI();
+          });
+        });
+      }
+
+      if (btnCheckoutWhatsapp) {
+        btnCheckoutWhatsapp.addEventListener('click', () => {
+          if (cart.length === 0) {
+            alert('Keranjang Anda masih kosong.');
+            return;
+          }
+
+          let itemsText = cart.map(i => `- ${i.name} (${i.qty}x) = Rp ${(i.price * i.qty).toLocaleString('id-ID')}`).join('\n');
+          const totalStr = drawerTotalText.textContent;
+
+          const msg = `Halo Atelier Cat Air AURELIA, saya ingin memesan perlengkapan seni rupa:
+${itemsText}
+
+Total: ${totalStr}
+Mohon informasi ketersediaan stok dan rekening pembayaran. Terima kasih!`;
+
+          window.open(`https://wa.me/6281244908812?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+      }
+
+      /* 7. Swatch Dot Card Form Submission */
+      const dotCardForm = document.getElementById('dotCardForm');
+      if (dotCardForm) {
+        dotCardForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('dotName').value;
+          const phone = document.getElementById('dotPhone').value;
+          const addr = document.getElementById('dotAddress').value;
+          const qty = document.getElementById('dotQty').value;
+
+          const msg = `Halo Atelier AURELIA, saya ingin memesan Swatch Dot Card:
+Nama: ${name}
+No. WA: ${phone}
+Alamat: ${addr}
+Paket: ${qty}
+Mohon konfirmasi pengiriman paket sampel. Terima kasih!`;
+
+          window.open(`https://wa.me/6281244908812?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>

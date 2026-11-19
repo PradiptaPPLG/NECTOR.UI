@@ -112,6 +112,7 @@ export const TemplateThumbnail: React.FC<Props> = ({
     'somna-sleep-sanctuary': 'https://somna.sleep.nector.ui',
     'koru-mineral-limewash': 'https://koru.limewash.nector.ui',
     'havn-wooden-boatcraft': 'https://havn.boatcraft.nector.ui',
+    'aurelia-botanical-watercolor': 'https://aurelia.watercolor.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;
