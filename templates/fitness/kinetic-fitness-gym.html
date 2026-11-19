@@ -1,0 +1,2617 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINETIC — Pusat Kebugaran 24 Jam & Gym Modern</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       KINETIC GYM COLOR PALETTE & DESIGN SYSTEM
+       User Palette:
+       - #212121 : Jet Charcoal Black (Latar Utama & Background Gelap Elegan)
+       - #323232 : Graphite Anthracite (Kartu, Panel Kontainer, Border)
+       - #0D7377 : Deep Teal Mineral (Aksen Kedalaman, Badge, Status Subdued)
+       - #14FFEC : Electric Neon Cyan (Tombol Aksi Utama, Garis Kardio, Highlight)
+       - #FFFFFF : Teks Putih Bersih (Kontras Tinggi WCAG AAA 14:1+)
+       - #B0BEC5 : Teks Sekunder Abu-Abu Terang (Mudah Dibaca)
+       ========================================================================== */
+    :root {
+      --gym-black: #212121;
+      --gym-graphite: #323232;
+      --gym-card: #282828;
+      --gym-teal: #0D7377;
+      --gym-cyan: #14FFEC;
+      --gym-text: #FFFFFF;
+      --gym-muted: #B0BEC5;
+      --gym-border: rgba(20, 255, 236, 0.18);
+      --gym-border-dark: rgba(255, 255, 255, 0.1);
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow-neon: 0 0 20px rgba(20, 255, 236, 0.28);
+      --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--gym-black);
+      color: var(--gym-text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--gym-cyan);
+      color: #000000;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--gym-text);
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--gym-muted);
+      font-size: 0.98rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       TOP STATUS & TELEMETRY BAR
+       ========================================================================== */
+    .top-status-bar {
+      background: #181818;
+      color: var(--gym-text);
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      letter-spacing: 0.04em;
+      padding: 0.55rem 0;
+      position: relative;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .status-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .status-items {
+      display: flex;
+      align-items: center;
+      gap: 1.85rem;
+    }
+
+    .status-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .status-dot-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gym-cyan);
+      box-shadow: 0 0 10px var(--gym-cyan);
+      animation: pulseCyan 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulseCyan {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    .audio-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(20, 255, 236, 0.1);
+      color: var(--gym-cyan);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      transition: var(--transition-fast);
+      border: 1px solid rgba(20, 255, 236, 0.3);
+    }
+
+    .audio-toggle-btn:hover {
+      background: var(--gym-cyan);
+      color: #000000;
+    }
+
+    /* ==========================================================================
+       HEADER
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(33, 33, 33, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 90;
+      transition: var(--transition-smooth);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 1.5rem;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--gym-teal) 0%, #08494b 100%);
+      color: var(--gym-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      font-size: 1.45rem;
+      font-weight: 800;
+      border: 1px solid var(--gym-cyan);
+      box-shadow: var(--shadow-neon);
+    }
+
+    .brand-text h1 {
+      font-size: 1.45rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      font-weight: 800;
+    }
+
+    .brand-text span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--gym-cyan);
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gym-muted);
+      transition: var(--transition-fast);
+      position: relative;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gym-cyan);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--gym-cyan);
+      box-shadow: 0 0 8px var(--gym-cyan);
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .cart-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.52rem 0.95rem;
+      border: 1px solid var(--gym-border);
+      border-radius: 999px;
+      background: var(--gym-graphite);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #FFFFFF;
+      transition: var(--transition-fast);
+    }
+
+    .cart-pill-btn:hover {
+      border-color: var(--gym-cyan);
+      background: rgba(20, 255, 236, 0.1);
+    }
+
+    .cart-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: var(--gym-cyan);
+      color: #000000;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .cta-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.35rem;
+      background: var(--gym-cyan);
+      color: #000000;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      box-shadow: 0 0 16px rgba(20, 255, 236, 0.35);
+    }
+
+    .cta-btn-primary:hover {
+      background: #46ffef;
+      transform: translateY(-1px);
+      box-shadow: 0 0 24px rgba(20, 255, 236, 0.6);
+    }
+
+    /* ==========================================================================
+       HERO SECTION (2-COLUMN ASYMMETRIC)
+       ========================================================================== */
+    .hero-section {
+      padding: 3.8rem 0 4.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: radial-gradient(circle at 85% 20%, rgba(13, 115, 119, 0.35) 0%, transparent 60%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 1.12fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gym-cyan);
+      background: rgba(20, 255, 236, 0.1);
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--gym-cyan);
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-size: clamp(2.35rem, 3.8vw, 3.6rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.12;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--gym-cyan);
+      text-shadow: 0 0 18px rgba(20, 255, 236, 0.45);
+    }
+
+    .hero-lead {
+      font-size: 1.06rem;
+      color: var(--gym-muted);
+      line-height: 1.68;
+    }
+
+    .hero-stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin: 0.5rem 0;
+    }
+
+    .stat-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-family: var(--font-mono);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--gym-cyan);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gym-muted);
+      margin-top: 0.35rem;
+      line-height: 1.3;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .cta-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.35rem;
+      background: var(--gym-graphite);
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: var(--transition-fast);
+    }
+
+    .cta-btn-secondary:hover {
+      border-color: var(--gym-cyan);
+      background: rgba(20, 255, 236, 0.08);
+    }
+
+    /* ==========================================================================
+       CANVAS STAGE: SIMULATOR DENYUT KARDIO & ZONA LATIHAN
+       ========================================================================== */
+    .canvas-stage-card {
+      background: var(--gym-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gym-border);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem;
+      background: #1c1c1c;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stage-title {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gym-cyan);
+    }
+
+    .zone-tabs-list {
+      display: flex;
+      gap: 0.35rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .zone-tab-btn {
+      padding: 0.3rem 0.65rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--gym-muted);
+      transition: var(--transition-fast);
+    }
+
+    .zone-tab-btn.active {
+      background: var(--gym-teal);
+      color: var(--gym-cyan);
+      font-weight: 700;
+    }
+
+    .canvas-viewport {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background: #141414;
+      overflow: hidden;
+    }
+
+    #cardioPulseCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .viewport-overlay-info {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      pointer-events: none;
+    }
+
+    .info-pill {
+      background: rgba(33, 33, 33, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      border: 1px solid rgba(20, 255, 236, 0.2);
+    }
+
+    .info-pill span {
+      color: var(--gym-cyan);
+      font-weight: 700;
+    }
+
+    .stage-controls {
+      padding: 1.15rem 1.25rem;
+      background: var(--gym-graphite);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .control-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .control-item label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .control-item label span {
+      font-family: var(--font-mono);
+      color: var(--gym-cyan);
+    }
+
+    .range-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.15);
+      outline: none;
+    }
+
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gym-cyan);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--gym-cyan);
+    }
+
+    .btn-sync-pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.95rem;
+      background: var(--gym-teal);
+      color: var(--gym-cyan);
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      transition: var(--transition-fast);
+      align-self: flex-end;
+      border: 1px solid var(--gym-cyan);
+    }
+
+    .btn-sync-pulse:hover {
+      background: var(--gym-cyan);
+      color: #000000;
+    }
+
+    /* ==========================================================================
+       SECTION: KALKULATOR BMI & KALORI
+       ========================================================================== */
+    .section-calculator {
+      padding: 5rem 0;
+      background: #1A1A1A;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .section-heading-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.2vw, 2.85rem);
+      margin-top: 0.4rem;
+    }
+
+    .section-desc {
+      margin-top: 0.75rem;
+      font-size: 1.02rem;
+      color: var(--gym-muted);
+    }
+
+    .calc-container-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3rem;
+      background: var(--gym-card);
+      border: 1px solid var(--gym-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .calc-form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .calc-input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .calc-field-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.45rem;
+    }
+
+    .calc-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      background: #1E1E1E;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: #FFFFFF;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .calc-input:focus {
+      border-color: var(--gym-cyan);
+      box-shadow: 0 0 8px rgba(20, 255, 236, 0.3);
+    }
+
+    select.calc-input {
+      cursor: pointer;
+    }
+
+    .btn-calculate-now {
+      margin-top: 0.5rem;
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--gym-cyan);
+      color: #000000;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      box-shadow: 0 0 16px rgba(20, 255, 236, 0.3);
+    }
+
+    .btn-calculate-now:hover {
+      background: #46ffef;
+      transform: translateY(-1px);
+    }
+
+    /* Result Card Right */
+    .calc-result-pane {
+      background: #1E1E1E;
+      border: 1px solid var(--gym-border);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .result-score-box {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .bmi-value-large {
+      font-family: var(--font-mono);
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--gym-cyan);
+      line-height: 1;
+      text-shadow: 0 0 20px rgba(20, 255, 236, 0.4);
+    }
+
+    .bmi-category-badge {
+      display: inline-block;
+      margin-top: 0.65rem;
+      padding: 0.35rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--gym-teal);
+      color: var(--gym-cyan);
+      border: 1px solid var(--gym-cyan);
+    }
+
+    .target-metrics-list {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .metric-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+    }
+
+    .metric-item span:first-child {
+      color: var(--gym-muted);
+    }
+
+    .metric-item span:last-child {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       SECTION: JADWAL KELAS MINGGUAN DENGAN FILTER HARI
+       ========================================================================== */
+    .section-schedule {
+      padding: 5rem 0;
+      background: var(--gym-black);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .schedule-day-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .day-tab-btn {
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      background: var(--gym-graphite);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--gym-muted);
+      transition: var(--transition-fast);
+    }
+
+    .day-tab-btn:hover {
+      border-color: var(--gym-cyan);
+      color: var(--gym-cyan);
+    }
+
+    .day-tab-btn.active {
+      background: var(--gym-cyan);
+      color: #000000;
+      font-weight: 700;
+      border-color: var(--gym-cyan);
+      box-shadow: 0 0 14px rgba(20, 255, 236, 0.4);
+    }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .class-card {
+      background: var(--gym-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-fast);
+    }
+
+    .class-card:hover {
+      border-color: var(--gym-cyan);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-neon);
+    }
+
+    .class-time-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gym-cyan);
+      display: inline-block;
+      margin-bottom: 0.45rem;
+    }
+
+    .class-title {
+      font-size: 1.25rem;
+      color: #FFFFFF;
+      margin-bottom: 0.4rem;
+    }
+
+    .class-desc {
+      font-size: 0.85rem;
+      color: var(--gym-muted);
+      line-height: 1.45;
+      margin-bottom: 1.25rem;
+    }
+
+    .class-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--gym-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-book-class {
+      width: 100%;
+      padding: 0.65rem;
+      background: rgba(20, 255, 236, 0.1);
+      color: var(--gym-cyan);
+      border: 1px solid var(--gym-cyan);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: var(--transition-fast);
+      text-align: center;
+    }
+
+    .btn-book-class:hover {
+      background: var(--gym-cyan);
+      color: #000000;
+    }
+
+    /* ==========================================================================
+       SECTION: PAKET MEMBERSHIP
+       ========================================================================== */
+    .section-pricing {
+      padding: 5rem 0;
+      background: #181818;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+    }
+
+    .pricing-card {
+      background: var(--gym-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 2.25rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition-fast);
+    }
+
+    .pricing-card:hover {
+      border-color: var(--gym-cyan);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-neon);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--gym-cyan);
+      background: linear-gradient(180deg, rgba(13, 115, 119, 0.25) 0%, var(--gym-card) 60%);
+      box-shadow: var(--shadow-neon);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gym-cyan);
+      color: #000000;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+    }
+
+    .plan-name {
+      font-size: 1.3rem;
+      color: #FFFFFF;
+      margin-bottom: 0.35rem;
+    }
+
+    .plan-period {
+      font-size: 0.8rem;
+      color: var(--gym-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .plan-price-wrap {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1.25rem;
+    }
+
+    .plan-nominal {
+      font-family: var(--font-mono);
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--gym-cyan);
+      line-height: 1;
+    }
+
+    .plan-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--gym-muted);
+      margin-bottom: 2rem;
+    }
+
+    .plan-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .plan-features-list li::before {
+      content: '✓';
+      color: var(--gym-cyan);
+      font-weight: 800;
+    }
+
+    .btn-select-plan {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--gym-graphite);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.88rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: var(--transition-fast);
+      text-align: center;
+    }
+
+    .pricing-card.featured .btn-select-plan,
+    .btn-select-plan:hover {
+      background: var(--gym-cyan);
+      color: #000000;
+      border-color: var(--gym-cyan);
+    }
+
+    /* ==========================================================================
+       SECTION: FASILITAS GYM
+       ========================================================================== */
+    .section-facilities {
+      padding: 5rem 0;
+      background: var(--gym-black);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+    }
+
+    .facility-box {
+      background: var(--gym-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.85rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: var(--transition-fast);
+    }
+
+    .facility-box:hover {
+      border-color: var(--gym-teal);
+      transform: translateY(-4px);
+    }
+
+    .facility-icon-wrap {
+      font-size: 1.75rem;
+      color: var(--gym-cyan);
+    }
+
+    .facility-box h3 {
+      font-size: 1.2rem;
+      color: #FFFFFF;
+    }
+
+    .facility-box p {
+      font-size: 0.86rem;
+      color: var(--gym-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       SECTION: FREE TRIAL BOOKING FORM
+       ========================================================================== */
+    .section-trial {
+      padding: 5rem 0;
+      background: #181818;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .trial-card-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--gym-card);
+      border: 1px solid var(--gym-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .trial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.45rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      background: #1B1B1B;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: #FFFFFF;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .form-input:focus {
+      border-color: var(--gym-cyan);
+      box-shadow: 0 0 8px rgba(20, 255, 236, 0.3);
+    }
+
+    .btn-submit-trial {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.95rem;
+      background: var(--gym-cyan);
+      color: #000000;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 0 16px rgba(20, 255, 236, 0.35);
+    }
+
+    .btn-submit-trial:hover {
+      background: #46ffef;
+    }
+
+    /* ==========================================================================
+       SLIDE-OVER CART DRAWER
+       ========================================================================== */
+    .cart-drawer-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 440px;
+      height: 100vh;
+      background: var(--gym-card);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--gym-border);
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1C1C1C;
+    }
+
+    .cart-header h3 {
+      font-size: 1.3rem;
+      color: #FFFFFF;
+    }
+
+    .btn-close-cart {
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--gym-muted);
+      cursor: pointer;
+    }
+
+    .cart-items-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .cart-empty-message {
+      text-align: center;
+      color: var(--gym-muted);
+      padding: 3rem 0;
+      font-style: italic;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1rem;
+      align-items: center;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--gym-cyan);
+      margin-top: 0.2rem;
+      font-weight: 700;
+    }
+
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+    }
+
+    .qty-btn {
+      width: 22px;
+      height: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      border-radius: 2px;
+      cursor: pointer;
+      color: #FFFFFF;
+    }
+
+    .btn-del-item {
+      color: #ff5252;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: #1C1C1C;
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .cart-subtotal-lbl {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gym-muted);
+      text-transform: uppercase;
+    }
+
+    .cart-subtotal-val {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gym-cyan);
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      padding: 0.9rem;
+      background: #16a34a;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      transition: var(--transition-fast);
+    }
+
+    .btn-checkout-wa:hover {
+      background: #15803d;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: #141414;
+      color: #FFFFFF;
+      padding: 4.5rem 0 2.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4 {
+      color: #FFFFFF;
+      font-size: 1.15rem;
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+    }
+
+    .footer-links a {
+      color: var(--gym-muted);
+      transition: var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--gym-cyan);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--gym-muted);
+    }
+
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--gym-graphite);
+      color: #FFFFFF;
+      border: 1px solid var(--gym-cyan);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      box-shadow: var(--shadow-neon);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid,
+      .calc-container-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .classes-grid,
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      .classes-grid,
+      .pricing-grid,
+      .facilities-grid,
+      .trial-grid,
+      .calc-input-row {
+        grid-template-columns: 1fr;
+      }
+      .stage-controls {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Status & Studio Bar -->
+  <aside class="top-status-bar">
+    <div class="container status-inner">
+      <div class="status-items">
+        <div class="status-item">
+          <span class="status-dot-pulse"></span>
+          <span>KINETIC GYM BANDUNG: BUKA 24 JAM</span>
+        </div>
+        <div class="status-item">
+          <span>KAPASITAS SAAT INI: <strong>42% (NYAMAN & LEGA)</strong></span>
+        </div>
+        <div class="status-item">
+          <span>KELAS BERIKUTNYA: <strong>HIIT KARDIO (17:00 WIB)</strong></span>
+        </div>
+        <div class="status-item">
+          <span>PERSONAL TRAINER: <strong>3 PELATIH SIAGA</strong></span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.85rem;">
+        <span id="wibClock" style="font-family: var(--font-mono); color: var(--gym-cyan);">15:30:00 WIB</span>
+        <button id="btnAudioToggle" class="audio-toggle-btn" title="Aktifkan/Bisukan suara detak denyut jantung kardio">
+          <span id="audioIcon">⚡</span>
+          <span id="audioText">AUDIO DETAK: AKTIF</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-group">
+        <div class="brand-mark">K</div>
+        <div class="brand-text">
+          <h1>KINETIC</h1>
+          <span>24-Hour Fitness Gym</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#kardio-pulse" class="nav-link active">01 Denyut Kardio</a></li>
+          <li><a href="#kalkulator-bmi" class="nav-link">02 Kalkulator BMI</a></li>
+          <li><a href="#jadwal-kelas" class="nav-link">03 Jadwal Kelas</a></li>
+          <li><a href="#membership" class="nav-link">04 Membership</a></li>
+          <li><a href="#fasilitas" class="nav-link">05 Fasilitas</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="btnOpenCart" class="cart-pill-btn">
+          <span>Pilihan Paket</span>
+          <span id="cartCountBadge" class="cart-badge">0</span>
+        </button>
+        <a href="#trial" class="cta-btn-primary">Coba Gratis 1 Hari</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="eyebrow-tag">
+          <span>Pusat Kebugaran Modern 24 Jam • Dago, Bandung</span>
+        </div>
+        <h2 class="hero-title">
+          Bentuk Tubuh Lebih Bugar & Berenergi di <em>Gym Modern 24 Jam</em> Tanpa Antre Alat.
+        </h2>
+        <p class="hero-lead">
+          Ruang latihan luas 1.200 meter persegi dengan peralatan angkat beban standar olimpiade, area kardio berpendingin udara sejuk, dan pelatih bersertifikat ramah yang siap memandu gerakan Anda dari pemula hingga mencapai target tubuh ideal.
+        </p>
+
+        <div class="hero-stats-strip">
+          <div class="stat-box">
+            <span class="stat-number">1.200 m²</span>
+            <span class="stat-label">Area Latihan Luas</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">150+</span>
+            <span class="stat-label">Mesin & Beban Bebas</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">24 Jam</span>
+            <span class="stat-label">Akses Kartu Bebas</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Kelas Gratis Tiap Minggu</span>
+          </div>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="#membership" class="cta-btn-primary">Daftar Membership Sekarang</a>
+          <button id="btnTestHeartAudio" class="cta-btn-secondary">
+            <span>Dengarkan Detak Jantung</span>
+            <span>💓</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Interactive Canvas Simulator -->
+      <div id="kardio-pulse" class="canvas-stage-card">
+        <div class="stage-header">
+          <div class="stage-title">
+            <span>⚡</span>
+            <span>SIMULATOR DENYUT JANTUNG & ZONA KARDIO</span>
+          </div>
+          <div class="zone-tabs-list">
+            <button class="zone-tab-btn" data-zone="burn">Fat Burn</button>
+            <button class="zone-tab-btn active" data-zone="cardio">Cardio</button>
+            <button class="zone-tab-btn" data-zone="peak">Peak</button>
+          </div>
+        </div>
+
+        <div class="canvas-viewport">
+          <canvas id="cardioPulseCanvas"></canvas>
+          <div class="viewport-overlay-info">
+            <div class="info-pill">DETAK JANTUNG: <span id="teleBpmText">138 BPM</span></div>
+            <div class="info-pill">ZONA: <span id="teleZoneText">Kardio & Ketahanan (75%)</span></div>
+            <div class="info-pill">BAKAR KALORI: <span id="teleCalText">~520 kkal/jam</span></div>
+          </div>
+        </div>
+
+        <div class="stage-controls">
+          <div class="control-item">
+            <label>Usia Anda <span id="valAge">25 Tahun</span></label>
+            <input type="range" id="sliderAge" class="range-slider" min="18" max="65" value="25" step="1">
+          </div>
+          <div class="control-item">
+            <label>Intensitas Latihan <span id="valIntensity">75%</span></label>
+            <input type="range" id="sliderIntensity" class="range-slider" min="50" max="95" value="75" step="5">
+          </div>
+          <button id="btnSyncPulseAudio" class="btn-sync-pulse">
+            <span>Sinkronkan Nadi</span>
+            <span>💓</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Interactive BMI & Calorie Calculator -->
+  <section id="kalkulator-bmi" class="section-calculator">
+    <div class="container">
+      <div class="section-heading-center">
+        <div class="eyebrow-tag">Kalkulator Kebugaran Akurat</div>
+        <h2 class="section-title">Hitung Indeks Massa Tubuh & Kebutuhan Kalori</h2>
+        <p class="section-desc">
+          Ketahui kondisi tubuh Anda secara ilmiah. Dapatkan rekomendasi kalori harian dan target asupan protein untuk mendukung program latihan Anda.
+        </p>
+      </div>
+
+      <div class="calc-container-grid">
+        <!-- Left: Form Input -->
+        <div class="calc-form-fields">
+          <div class="calc-input-row">
+            <div class="calc-field-group">
+              <label>Berat Badan (kg)</label>
+              <input type="number" id="inputWeight" class="calc-input" value="68" min="35" max="200">
+            </div>
+            <div class="calc-field-group">
+              <label>Tinggi Badan (cm)</label>
+              <input type="number" id="inputHeight" class="calc-input" value="172" min="120" max="230">
+            </div>
+          </div>
+
+          <div class="calc-input-row">
+            <div class="calc-field-group">
+              <label>Usia (Tahun)</label>
+              <input type="number" id="inputAge" class="calc-input" value="26" min="15" max="80">
+            </div>
+            <div class="calc-field-group">
+              <label>Jenis Kelamin</label>
+              <select id="selectGender" class="calc-input">
+                <option value="male" selected>Pria</option>
+                <option value="female">Wanita</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-field-group">
+            <label>Aktivitas Fisik Mingguan</label>
+            <select id="selectActivity" class="calc-input">
+              <option value="1.2">Jarang Olahraga / Bekerja Duduk</option>
+              <option value="1.375" selected>Olahraga Ringan (1-3 Hari/Minggu)</option>
+              <option value="1.55">Olahraga Sedang (3-5 Hari/Minggu)</option>
+              <option value="1.725">Latihan Berat (6-7 Hari/Minggu)</option>
+            </select>
+          </div>
+
+          <button id="btnRunCalculate" class="btn-calculate-now">
+            <span>Hitung Hasil Kebugaran Saya</span>
+            <span>⚡</span>
+          </button>
+        </div>
+
+        <!-- Right: Results Card -->
+        <div class="calc-result-pane">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gym-muted); text-transform: uppercase;">HASIL ANALISIS TUBUH ANDA</span>
+            <div class="result-score-box">
+              <div class="bmi-value-large" id="resBmiVal">23.0</div>
+              <div class="bmi-category-badge" id="resBmiBadge">Berat Badan Ideal / Normal</div>
+            </div>
+
+            <div class="target-metrics-list">
+              <div class="metric-item">
+                <span>Kebutuhan Kalori Harian (TDEE)</span>
+                <span id="resCalories">~2.250 kkal/hari</span>
+              </div>
+              <div class="metric-item">
+                <span>Target Protein Pembentukan Otot</span>
+                <span id="resProtein">~115 - 136 gram/hari</span>
+              </div>
+              <div class="metric-item">
+                <span>Berat Badan Ideal Rekomendasi</span>
+                <span id="resIdealWeight">62 - 73 kg</span>
+              </div>
+              <div class="metric-item">
+                <span>Rekomendasi Program Gym</span>
+                <span id="resProgram" style="color:var(--gym-cyan);">Kombinasi Angkat Beban & Kardio</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#trial" class="btn-book-class" style="background:var(--gym-teal); color:#FFFFFF; border:none; padding:0.8rem;">
+            <span>Daftar Konsultasi Program Gratis</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Schedule with Day Filters -->
+  <section id="jadwal-kelas" class="section-schedule">
+    <div class="container">
+      <div class="section-heading-center">
+        <div class="eyebrow-tag">Kelas Latihan Komunitas</div>
+        <h2 class="section-title">Jadwal Kelas Kebugaran Mingguan</h2>
+        <p class="section-desc">
+          Seluruh kelas dibimbing oleh instruktur ramah dan bersertifikat. Gratis diikuti oleh seluruh anggota membership aktif KINETIC.
+        </p>
+      </div>
+
+      <div class="schedule-day-tabs">
+        <button class="day-tab-btn active" data-day="all">Semua Hari</button>
+        <button class="day-tab-btn" data-day="senin">Senin</button>
+        <button class="day-tab-btn" data-day="selasa">Selasa</button>
+        <button class="day-tab-btn" data-day="rabu">Rabu</button>
+        <button class="day-tab-btn" data-day="kamis">Kamis</button>
+        <button class="day-tab-btn" data-day="jumat">Jumat</button>
+        <button class="day-tab-btn" data-day="sabtu">Sabtu</button>
+      </div>
+
+      <div class="classes-grid" id="classesContainer">
+        <!-- Class 1 -->
+        <div class="class-card" data-day="senin">
+          <div>
+            <span class="class-time-tag">SENIN • 07:00 & 18:30 WIB</span>
+            <h3 class="class-title">HIIT Kardio Pembakar Lemak</h3>
+            <p class="class-desc">Latihan interval berintensitas tinggi untuk memacu metabolisme dan membakar hingga 600 kalori dalam 45 menit.</p>
+          </div>
+          <div>
+            <div class="class-meta-row">
+              <span>Instruktur: Coach Rendy</span>
+              <span>45 Menit • Sisa 4 Slot</span>
+            </div>
+            <button class="btn-book-class" data-classname="HIIT Kardio Pembakar Lemak" data-classday="Senin 18:30 WIB">Booking Slot Kelas</button>
+          </div>
+        </div>
+
+        <!-- Class 2 -->
+        <div class="class-card" data-day="selasa">
+          <div>
+            <span class="class-time-tag">SELASA • 09:00 & 19:00 WIB</span>
+            <h3 class="class-title">Body Pump Angkat Beban</h3>
+            <p class="class-desc">Latihan kekuatan menggunakan barbel beban ringan dengan repetisi tinggi untuk mengencangkan seluruh otot tubuh.</p>
+          </div>
+          <div>
+            <div class="class-meta-row">
+              <span>Instruktur: Coach Maya</span>
+              <span>60 Menit • Sisa 6 Slot</span>
+            </div>
+            <button class="btn-book-class" data-classname="Body Pump Angkat Beban" data-classday="Selasa 19:00 WIB">Booking Slot Kelas</button>
+          </div>
+        </div>
+
+        <!-- Class 3 -->
+        <div class="class-card" data-day="rabu">
+          <div>
+            <span class="class-time-tag">RABU • 08:00 & 17:00 WIB</span>
+            <h3 class="class-title">Pilates & Mat Yoga Lentur</h3>
+            <p class="class-desc">Memperbaiki postur tubuh, melatih kekuatan otot inti perut, dan meregangkan ketegangan sendi setelah beraktivitas.</p>
+          </div>
+          <div>
+            <div class="class-meta-row">
+              <span>Instruktur: Coach Citra</span>
+              <span>50 Menit • Sisa 5 Slot</span>
+            </div>
+            <button class="btn-book-class" data-classname="Pilates & Mat Yoga" data-classday="Rabu 17:00 WIB">Booking Slot Kelas</button>
+          </div>
+        </div>
+
+        <!-- Class 4 -->
+        <div class="class-card" data-day="kamis">
+          <div>
+            <span class="class-time-tag">KAMIS • 16:30 & 19:30 WIB</span>
+            <h3 class="class-title">Muay Thai & Boxing Fit</h3>
+            <p class="class-desc">Kombinasi pukulan dan tendangan pada sandsack untuk melatih ketangkasan, refleks, serta melepas stres kerja seharian.</p>
+          </div>
+          <div>
+            <div class="class-meta-row">
+              <span>Instruktur: Coach Farhan</span>
+              <span>60 Menit • Sisa 3 Slot</span>
+            </div>
+            <button class="btn-book-class" data-classname="Muay Thai & Boxing Fit" data-classday="Kamis 19:30 WIB">Booking Slot Kelas</button>
+          </div>
+        </div>
+
+        <!-- Class 5 -->
+        <div class="class-card" data-day="jumat">
+          <div>
+            <span class="class-time-tag">JUMAT • 07:30 & 18:00 WIB</span>
+            <h3 class="class-title">Indoor Cycling Sepeda Statis</h3>
+            <p class="class-desc">Gowes seru diiringi musik bersemangat dan lampu redup untuk melatih daya tahan kardiovaskular secara maksimal.</p>
+          </div>
+          <div>
+            <div class="class-meta-row">
+              <span>Instruktur: Coach Kevin</span>
+              <span>45 Menit • Sisa 7 Slot</span>
+            </div>
+            <button class="btn-book-class" data-classname="Indoor Cycling Sepeda Statis" data-classday="Jumat 18:00 WIB">Booking Slot Kelas</button>
+          </div>
+        </div>
+
+        <!-- Class 6 -->
+        <div class="class-card" data-day="sabtu">
+          <div>
+            <span class="class-time-tag">SABTU • 10:00 & 16:00 WIB</span>
+            <h3 class="class-title">Bootcamp Akhir Pekan</h3>
+            <p class="class-desc">Latihan sirkuit kelompok penuh keceriaan di area fungsional studio untuk membakar kalori sebelum bersantai di akhir pekan.</p>
+          </div>
+          <div>
+            <div class="class-meta-row">
+              <span>Instruktur: Team KINETIC</span>
+              <span>60 Menit • Sisa 8 Slot</span>
+            </div>
+            <button class="btn-book-class" data-classname="Bootcamp Akhir Pekan" data-classday="Sabtu 10:00 WIB">Booking Slot Kelas</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Membership Pricing -->
+  <section id="membership" class="section-pricing">
+    <div class="container">
+      <div class="section-heading-center">
+        <div class="eyebrow-tag">Pilihan Langganan Jujur</div>
+        <h2 class="section-title">Paket Membership Tanpa Biaya Tersembunyi</h2>
+        <p class="section-desc">
+          Bebas latihan kapan saja selama 24 jam penuh. Semua paket mencakup loker pribadi, shower air panas, dan akses seluruh kelas gratis.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan 1 -->
+        <div class="pricing-card">
+          <div>
+            <h3 class="plan-name">1 Bulan Fleksibel</h3>
+            <p class="plan-period">Cocok untuk mencoba rutinitas baru</p>
+            <div class="plan-price-wrap">
+              <div class="plan-nominal">Rp 375.000</div>
+              <span style="font-size:0.75rem; color:var(--gym-muted);">Per Bulan • Bebas Berhenti</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>Akses Gym Penuh 24 Jam</li>
+              <li>Akses Seluruh Mesin & Beban</li>
+              <li>Loker Harian & Shower Air Panas</li>
+              <li>Bebas Ikuti Semua Kelas Mingguan</li>
+            </ul>
+          </div>
+          <button class="btn-select-plan" data-name="Membership 1 Bulan Fleksibel" data-price="375000">Pilih Paket 1 Bulan</button>
+        </div>
+
+        <!-- Plan 2 -->
+        <div class="pricing-card">
+          <div>
+            <h3 class="plan-name">3 Bulan Berkomitmen</h3>
+            <p class="plan-period">Pilihan tepat membentuk kebiasaan</p>
+            <div class="plan-price-wrap">
+              <div class="plan-nominal">Rp 990.000</div>
+              <span style="font-size:0.75rem; color:var(--gym-cyan);">Setara Rp 330.000 / Bulan (Hemat Rp 135k)</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>Seluruh Fasilitas Paket 1 Bulan</li>
+              <li>1 Sesi Gratis dengan Personal Trainer</li>
+              <li>Analisis Komposisi Tubuh InBody Gratis</li>
+              <li>Akses Aplikasi Pelacak Latihan</li>
+            </ul>
+          </div>
+          <button class="btn-select-plan" data-name="Membership 3 Bulan Berkomitmen" data-price="990000">Pilih Paket 3 Bulan</button>
+        </div>
+
+        <!-- Plan 3 (Featured) -->
+        <div class="pricing-card featured">
+          <span class="popular-tag">PALING DISUKAI</span>
+          <div>
+            <h3 class="plan-name">12 Bulan Tahunan</h3>
+            <p class="plan-period">Transformasi tubuh maksimal 1 tahun</p>
+            <div class="plan-price-wrap">
+              <div class="plan-nominal">Rp 3.200.000</div>
+              <span style="font-size:0.75rem; color:var(--gym-cyan);">Setara Rp 266.000 / Bulan (Hemat Rp 1.3 Juta)</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>Seluruh Fasilitas Paket 3 Bulan</li>
+              <li>3 Sesi Privat Personal Trainer</li>
+              <li>Handuk Gym Eksklusif KINETIC</li>
+              <li>Bebas Cuti / Freeze Membership 30 Hari</li>
+              <li>Prioritas Booking Slot Kelas Ramai</li>
+            </ul>
+          </div>
+          <button class="btn-select-plan" data-name="Membership 12 Bulan Tahunan" data-price="3200000">Pilih Paket Tahunan</button>
+        </div>
+
+        <!-- Plan 4 -->
+        <div class="pricing-card">
+          <div>
+            <h3 class="plan-name">10 Sesi Trainer Privat</h3>
+            <p class="plan-period">Pendampingan 1-on-1 bersama pelatih</p>
+            <div class="plan-price-wrap">
+              <div class="plan-nominal">Rp 1.500.000</div>
+              <span style="font-size:0.75rem; color:var(--gym-muted);">10 Sesi @ 60 Menit Latihan Privat</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>Jadwal Latihan Menyesuaikan Waktu Anda</li>
+              <li>Koreksi Gerakan & Form Angkat Beban</li>
+              <li>Penyusunan Menu & Pola Makan Harian</li>
+              <li>Evaluasi Kemajuan Fisik Tiap Minggu</li>
+            </ul>
+          </div>
+          <button class="btn-select-plan" data-name="Paket 10 Sesi Personal Trainer" data-price="1500000">Pilih Paket Trainer</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Facilities -->
+  <section id="fasilitas" class="section-facilities">
+    <div class="container">
+      <div class="section-heading-center">
+        <div class="eyebrow-tag">Fasilitas Standar Internasional</div>
+        <h2 class="section-title">Kenyamanan Latihan Tanpa Kompromi</h2>
+        <p class="section-desc">
+          Semua detail dirancang agar Anda bisa fokus melatih tubuh dengan aman, bersih, dan bersemangat.
+        </p>
+      </div>
+
+      <div class="facilities-grid">
+        <div class="facility-box">
+          <div class="facility-icon-wrap">🔑</div>
+          <h3>Akses Digital 24 Jam</h3>
+          <p>Bebas masuk kapan saja menggunakan scan sidik jari atau kartu digital ponsel Anda tanpa antre resepsionis.</p>
+        </div>
+
+        <div class="facility-box">
+          <div class="facility-icon-wrap">🏋️</div>
+          <h3>Mesin Beban & Dumbbell Lengkap</h3>
+          <p>Area dumbbell hingga 50 kg, 4 squat rack olimpiade, smith machine, dan deretan mesin kabel fungsional lengkap.</p>
+        </div>
+
+        <div class="facility-box">
+          <div class="facility-icon-wrap">🚿</div>
+          <h3>Kamar Mandi & Sauna Bersih</h3>
+          <p>Shower air panas bertekanan mantap, hair dryer, sabun pembersih berkualitas, dan ruang sauna kering relaksasi.</p>
+        </div>
+
+        <div class="facility-box">
+          <div class="facility-icon-wrap">🥤</div>
+          <h3>Protein Bar & Kopi Sehat</h3>
+          <p>Tersedia pilihan whey protein shake segar, minuman elektrolit dingin, dan kopi hitam penambah energi sebelum latihan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Free Trial Booking -->
+  <section id="trial" class="section-trial">
+    <div class="container">
+      <div class="trial-card-wrap">
+        <div style="text-align: center; max-width: 580px; margin: 0 auto;">
+          <div class="eyebrow-tag">Tanpa Komitmen Langganan</div>
+          <h2 style="font-size: 2.2rem; margin: 0.4rem 0 0.75rem;">Coba Gratis Latihan 1 Hari di KINETIC</h2>
+          <p style="font-size: 0.95rem; color: var(--gym-muted);">
+            Dapatkan pass masuk gratis selama 1 hari penuh. Coba semua mesin latihan, ikuti kelas kebugaran, dan rasakan atmosfer gym kami sebelum memutuskan bergabung.
+          </p>
+        </div>
+
+        <form id="trialForm" class="trial-grid">
+          <div class="form-group">
+            <label>Nama Lengkap Anda</label>
+            <input type="text" class="form-input" required placeholder="Contoh: Dimas Aditya">
+          </div>
+
+          <div class="form-group">
+            <label>Nomor WhatsApp Aktif</label>
+            <input type="tel" class="form-input" required placeholder="Contoh: 081234567890">
+          </div>
+
+          <div class="form-group">
+            <label>Rencana Tanggal Kunjungan</label>
+            <input type="date" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label>Tujuan Utama Kebugaran Anda</label>
+            <select class="form-input" required>
+              <option value="Turunkan Berat Badan">Turunkan Berat Badan / Bakar Lemak</option>
+              <option value="Bentuk Otot & Tubuh Atletis" selected>Bentuk Otot & Tubuh Atletis</option>
+              <option value="Tingkatkan Stamina & Kebugaran">Tingkatkan Stamina & Kebugaran Harian</option>
+              <option value="Rehabilitasi Postur & Sakit Pinggang">Rehabilitasi Postur & Bebas Sakit Punggung</option>
+            </select>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label>Apakah Pernah Latihan di Gym Sebelumnya?</label>
+            <select class="form-input">
+              <option value="Pemula (Belum Pernah Sama Sekali)">Pemula (Belum Pernah Sama Sekali, Butuh Bimbingan)</option>
+              <option value="Pernah Latihan Dulu">Pernah Latihan Dulu, Ingin Mulai Rutin Lagi</option>
+              <option value="Sudah Rutin">Sudah Rutin Latihan Mandiri</option>
+            </select>
+          </div>
+
+          <div class="form-group-full">
+            <button type="submit" class="btn-submit-trial">
+              <span>Ambil Tiket Uji Coba Gratis via WhatsApp</span>
+              <span>⚡</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div id="cartBackdrop" class="cart-drawer-backdrop"></div>
+  <aside id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <div>
+        <h3>Paket Membership Anda</h3>
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--gym-cyan);">KINETIC DIRECT REGISTRATION</span>
+      </div>
+      <button id="btnCloseCart" class="btn-close-cart">&times;</button>
+    </div>
+
+    <div id="cartItemsContainer" class="cart-items-body">
+      <div class="cart-empty-message">Belum ada paket membership yang dipilih.</div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span class="cart-subtotal-lbl">Total Biaya</span>
+        <span id="cartSubtotalAmount" class="cart-subtotal-val">Rp 0</span>
+      </div>
+      <button id="btnWhatsappCheckout" class="btn-checkout-wa">
+        <span>Lanjutkan Pendaftaran via WhatsApp</span>
+        <span>💬</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-group" style="margin-bottom: 1.25rem;">
+            <div class="brand-mark">K</div>
+            <div class="brand-text">
+              <h2 style="font-size:1.35rem; color:#FFFFFF; letter-spacing:0.08em;">KINETIC</h2>
+              <span>24-Hour Fitness Gym</span>
+            </div>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--gym-muted); line-height: 1.6;">
+            Pusat kebugaran modern 24 jam dengan fasilitas terlengkap di Bandung. Mendampingi setiap langkah transformasi fisik Anda dengan suasana latihan yang nyaman dan bersahabat.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Program & Kelas</h4>
+          <ul class="footer-links">
+            <li><a href="#jadwal-kelas">HIIT Kardio Intensif</a></li>
+            <li><a href="#jadwal-kelas">Body Pump Angkat Beban</a></li>
+            <li><a href="#jadwal-kelas">Pilates & Yoga Fleksibilitas</a></li>
+            <li><a href="#jadwal-kelas">Muay Thai & Boxing</a></li>
+            <li><a href="#membership">Personal Trainer Privat</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Alat Bantu Kebugaran</h4>
+          <ul class="footer-links">
+            <li><a href="#kalkulator-bmi">Kalkulator BMI Akurat</a></li>
+            <li><a href="#kalkulator-bmi">Hitung Kebutuhan Kalori Harian</a></li>
+            <li><a href="#kardio-pulse">Panduan Zona Detak Jantung</a></li>
+            <li><a href="#trial">Tiket Coba Gratis 1 Hari</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Lokasi & Operasional</h4>
+          <p style="font-size: 0.88rem; color: var(--gym-muted); margin-bottom: 0.75rem;">
+            Jl. Ir. H. Juanda No. 128, Dago, Bandung 40135, Jawa Barat.
+          </p>
+          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--gym-cyan);">
+            Jam Operasional: Buka 24 Jam Non-Stop (Senin - Minggu)
+          </p>
+          <p style="font-size: 0.82rem; color: var(--gym-muted); margin-top: 0.5rem;">
+            WhatsApp Resepsionis: 0812-3456-7890
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 KINETIC 24-Hour Fitness Gym. Hak cipta dilindungi undang-undang.</div>
+        <div>STANDAR KRIYA BEBAS AI-SLOP • NECTOR.UI ARCHIVE</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-box">
+    <span>⚡</span>
+    <span id="toastMessage">Pilihan berhasil disimpan.</span>
+  </div>
+
+  <!-- JavaScript Engine -->
+  <script>
+    /* ==========================================================================
+       KINETIC FITNESS ENGINE
+       1. Real-time WIB Clock
+       2. Web Audio API Heartbeat Pulse & Interval Beep Synthesizer
+       3. Interactive Canvas HTML5 Cardio Heart Rate Wave & Zone Visualizer
+       4. Interactive BMI & Calorie Calculator
+       5. Schedule Day Filter
+       6. Cart Drawer & WhatsApp Direct Registration
+       ========================================================================== */
+
+    // 1. Clock
+    function updateWibClock() {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Jakarta', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const timeStr = now.toLocaleTimeString('id-ID', options) + ' WIB';
+      const el = document.getElementById('wibClock');
+      if (el) el.textContent = timeStr;
+    }
+    setInterval(updateWibClock, 1000);
+    updateWibClock();
+
+    // 2. Web Audio API Heartbeat Synthesizer
+    let audioCtx = null;
+    let audioActive = true;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playHeartbeatSound(bpm = 120) {
+      if (!audioActive) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        // 1st Beat ("Lub")
+        const osc1 = ctx.createOscillator();
+        const gain1 = ctx.createGain();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(65, now);
+        osc1.frequency.exponentialRampToValueAtTime(35, now + 0.12);
+
+        gain1.gain.setValueAtTime(0.001, now);
+        gain1.gain.exponentialRampToValueAtTime(0.35, now + 0.03);
+        gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+
+        osc1.connect(gain1);
+        gain1.connect(ctx.destination);
+        osc1.start(now);
+        osc1.stop(now + 0.15);
+
+        // 2nd Beat ("Dub" - slightly higher frequency)
+        const osc2 = ctx.createOscillator();
+        const gain2 = ctx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(85, now + 0.16);
+        osc2.frequency.exponentialRampToValueAtTime(40, now + 0.28);
+
+        gain2.gain.setValueAtTime(0.001, now + 0.16);
+        gain2.gain.exponentialRampToValueAtTime(0.28, now + 0.19);
+        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+
+        osc2.connect(gain2);
+        gain2.connect(ctx.destination);
+        osc2.start(now + 0.16);
+        osc2.stop(now + 0.32);
+
+      } catch (e) {
+        console.warn('Audio notice:', e);
+      }
+    }
+
+    const btnAudioToggle = document.getElementById('btnAudioToggle');
+    const audioIcon = document.getElementById('audioIcon');
+    const audioText = document.getElementById('audioText');
+
+    if (btnAudioToggle) {
+      btnAudioToggle.addEventListener('click', () => {
+        audioActive = !audioActive;
+        if (audioActive) {
+          audioIcon.textContent = '⚡';
+          audioText.textContent = 'AUDIO DETAK: AKTIF';
+          playHeartbeatSound(130);
+        } else {
+          audioIcon.textContent = '🔇';
+          audioText.textContent = 'AUDIO DETAK: BISU';
+        }
+      });
+    }
+
+    const btnTestHeartAudio = document.getElementById('btnTestHeartAudio');
+    if (btnTestHeartAudio) {
+      btnTestHeartAudio.addEventListener('click', () => {
+        playHeartbeatSound(138);
+        showToast('Suara denyut detak jantung kardio berbunyi');
+      });
+    }
+
+    // 3. Canvas HTML5: Cardio Pulse Wave & Zone Visualizer
+    const canvas = document.getElementById('cardioPulseCanvas');
+    const ctx = canvas.getContext('2d');
+    let currentAge = 25;
+    let currentIntensity = 75;
+    let currentZone = 'cardio';
+    let waveOffset = 0;
+
+    function resizeCanvas() {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * (window.devicePixelRatio || 1);
+      canvas.height = rect.height * (window.devicePixelRatio || 1);
+      ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const sliderAge = document.getElementById('sliderAge');
+    const valAge = document.getElementById('valAge');
+    const sliderIntensity = document.getElementById('sliderIntensity');
+    const valIntensity = document.getElementById('valIntensity');
+    const teleBpmText = document.getElementById('teleBpmText');
+    const teleZoneText = document.getElementById('teleZoneText');
+    const teleCalText = document.getElementById('teleCalText');
+    const btnSyncPulseAudio = document.getElementById('btnSyncPulseAudio');
+
+    function updateCardioMetrics() {
+      const maxHr = 220 - currentAge;
+      const targetBpm = Math.round(maxHr * (currentIntensity / 100));
+      const caloriesPerHour = Math.round((targetBpm * 3.8) - (currentAge * 1.5));
+
+      let zoneName = 'Kardio & Ketahanan (70-80%)';
+      if (currentIntensity < 65) {
+        zoneName = 'Zona Pembakaran Lemak (60-70%)';
+      } else if (currentIntensity > 82) {
+        zoneName = 'Zona Performa Maksimal (>82%)';
+      }
+
+      if (teleBpmText) teleBpmText.textContent = targetBpm + ' BPM';
+      if (teleZoneText) teleZoneText.textContent = zoneName;
+      if (teleCalText) teleCalText.textContent = `~${caloriesPerHour} kkal/jam`;
+    }
+
+    if (sliderAge) {
+      sliderAge.addEventListener('input', (e) => {
+        currentAge = parseInt(e.target.value, 10);
+        if (valAge) valAge.textContent = currentAge + ' Tahun';
+        updateCardioMetrics();
+      });
+    }
+
+    if (sliderIntensity) {
+      sliderIntensity.addEventListener('input', (e) => {
+        currentIntensity = parseInt(e.target.value, 10);
+        if (valIntensity) valIntensity.textContent = currentIntensity + '%';
+        updateCardioMetrics();
+      });
+    }
+
+    document.querySelectorAll('.zone-tab-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.zone-tab-btn').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        const zone = e.currentTarget.dataset.zone;
+        if (zone === 'burn') {
+          currentIntensity = 65;
+        } else if (zone === 'cardio') {
+          currentIntensity = 75;
+        } else {
+          currentIntensity = 88;
+        }
+        if (sliderIntensity) sliderIntensity.value = currentIntensity;
+        if (valIntensity) valIntensity.textContent = currentIntensity + '%';
+        updateCardioMetrics();
+        playHeartbeatSound(Math.round((220 - currentAge) * (currentIntensity / 100)));
+      });
+    });
+
+    if (btnSyncPulseAudio) {
+      btnSyncPulseAudio.addEventListener('click', () => {
+        const maxHr = 220 - currentAge;
+        const bpm = Math.round(maxHr * (currentIntensity / 100));
+        playHeartbeatSound(bpm);
+        showToast(`Denyut disinkronkan ke ${bpm} BPM`);
+      });
+    }
+
+    function renderCardioCanvas() {
+      const w = canvas.getBoundingClientRect().width;
+      const h = canvas.getBoundingClientRect().height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Dark Tech Grid Background
+      ctx.fillStyle = '#141414';
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx.lineWidth = 1;
+      const gridSize = 25;
+      for (let x = 0; x < w; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // ECG Heartbeat Wave (Continuous dynamic plotting)
+      waveOffset += (currentIntensity / 100) * 3.5;
+      const centerY = h * 0.52;
+
+      ctx.beginPath();
+      for (let x = 0; x < w; x += 2) {
+        const cycle = (x + waveOffset) % 180;
+        let y = centerY;
+
+        if (cycle > 50 && cycle < 65) {
+          // P-wave
+          y -= Math.sin((cycle - 50) / 15 * Math.PI) * 12;
+        } else if (cycle >= 65 && cycle < 72) {
+          // Q-wave (down)
+          y += 18;
+        } else if (cycle >= 72 && cycle < 85) {
+          // R-wave (High Spike)
+          const peak = (currentIntensity / 100) * 85;
+          y -= (1 - Math.abs((cycle - 78) / 7)) * peak;
+        } else if (cycle >= 85 && cycle < 94) {
+          // S-wave (down)
+          y += 26;
+        } else if (cycle >= 105 && cycle < 135) {
+          // T-wave (recovery)
+          y -= Math.sin((cycle - 105) / 30 * Math.PI) * 22;
+        }
+
+        if (x === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+
+      // Wave styling
+      ctx.strokeStyle = '#14FFEC';
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = '#14FFEC';
+      ctx.shadowBlur = 14;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Glow pulse dot at lead edge
+      const leadX = (waveOffset * 1.5) % w;
+      ctx.beginPath();
+      ctx.arc(leadX, centerY, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.shadowColor = '#14FFEC';
+      ctx.shadowBlur = 16;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      requestAnimationFrame(renderCardioCanvas);
+    }
+    renderCardioCanvas();
+    updateCardioMetrics();
+
+    // 4. Interactive BMI & Calorie Calculator
+    const inputWeight = document.getElementById('inputWeight');
+    const inputHeight = document.getElementById('inputHeight');
+    const inputAge = document.getElementById('inputAge');
+    const selectGender = document.getElementById('selectGender');
+    const selectActivity = document.getElementById('selectActivity');
+    const btnRunCalculate = document.getElementById('btnRunCalculate');
+
+    const resBmiVal = document.getElementById('resBmiVal');
+    const resBmiBadge = document.getElementById('resBmiBadge');
+    const resCalories = document.getElementById('resCalories');
+    const resProtein = document.getElementById('resProtein');
+    const resIdealWeight = document.getElementById('resIdealWeight');
+    const resProgram = document.getElementById('resProgram');
+
+    function calculateFitnessProfile() {
+      const weight = parseFloat(inputWeight.value) || 68;
+      const heightCm = parseFloat(inputHeight.value) || 172;
+      const age = parseInt(inputAge.value, 10) || 26;
+      const gender = selectGender.value;
+      const activityFactor = parseFloat(selectActivity.value) || 1.375;
+
+      const heightM = heightCm / 100;
+      const bmi = weight / (heightM * heightM);
+
+      // BMR using Mifflin-St Jeor formula
+      let bmr = 0;
+      if (gender === 'male') {
+        bmr = (10 * weight) + (6.25 * heightCm) - (5 * age) + 5;
+      } else {
+        bmr = (10 * weight) + (6.25 * heightCm) - (5 * age) - 161;
+      }
+
+      const tdee = Math.round(bmr * activityFactor);
+      const minProtein = Math.round(weight * 1.6);
+      const maxProtein = Math.round(weight * 2.0);
+
+      // Ideal weight bounds (BMI 18.5 to 24.9)
+      const minIdeal = Math.round(18.5 * (heightM * heightM));
+      const maxIdeal = Math.round(24.9 * (heightM * heightM));
+
+      let category = 'Berat Badan Ideal / Normal';
+      let badgeBg = 'var(--gym-teal)';
+      let badgeCol = 'var(--gym-cyan)';
+      let programText = 'Kombinasi Angkat Beban & Kardio';
+
+      if (bmi < 18.5) {
+        category = 'Berat Badan Kurang (Underweight)';
+        badgeBg = '#7c2d12';
+        badgeCol = '#fdba74';
+        programText = 'Program Peningkatan Massa Otot (Hypertrophy)';
+      } else if (bmi >= 25 && bmi < 29.9) {
+        category = 'Kelebihan Berat Badan (Overweight)';
+        badgeBg = '#713f12';
+        badgeCol = '#fde047';
+        programText = 'Program Fat Loss & Kardio HIIT';
+      } else if (bmi >= 30) {
+        category = 'Kategori Obesitas (Perlu Penyesuaian)';
+        badgeBg = '#991b1b';
+        badgeCol = '#fca5a5';
+        programText = 'Program Latihan Kardio Aman & Konsultasi Trainer';
+      }
+
+      if (resBmiVal) resBmiVal.textContent = bmi.toFixed(1);
+      if (resBmiBadge) {
+        resBmiBadge.textContent = category;
+        resBmiBadge.style.background = badgeBg;
+        resBmiBadge.style.color = badgeCol;
+      }
+      if (resCalories) resCalories.textContent = `~${tdee.toLocaleString('id-ID')} kkal/hari`;
+      if (resProtein) resProtein.textContent = `~${minProtein} - ${maxProtein} gram/hari`;
+      if (resIdealWeight) resIdealWeight.textContent = `${minIdeal} - ${maxIdeal} kg`;
+      if (resProgram) resProgram.textContent = programText;
+
+      playHeartbeatSound(110);
+      showToast('Kalkulasi kebugaran berhasil diperbarui.');
+    }
+
+    if (btnRunCalculate) {
+      btnRunCalculate.addEventListener('click', calculateFitnessProfile);
+    }
+
+    // 5. Schedule Day Filters
+    const dayTabBtns = document.querySelectorAll('.day-tab-btn');
+    const classCards = document.querySelectorAll('.class-card');
+
+    dayTabBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        dayTabBtns.forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        const day = e.currentTarget.dataset.day;
+
+        classCards.forEach(card => {
+          if (day === 'all' || card.dataset.day === day) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 6. Cart & WhatsApp Direct Registration
+    let cart = [];
+
+    const btnOpenCart = document.getElementById('btnOpenCart');
+    const btnCloseCart = document.getElementById('btnCloseCart');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartCountBadge = document.getElementById('cartCountBadge');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartSubtotalAmount = document.getElementById('cartSubtotalAmount');
+    const btnWhatsappCheckout = document.getElementById('btnWhatsappCheckout');
+
+    function toggleCart(open) {
+      if (!cartDrawer || !cartBackdrop) return;
+      if (open) {
+        cartDrawer.classList.add('active');
+        cartBackdrop.classList.add('active');
+      } else {
+        cartDrawer.classList.remove('active');
+        cartBackdrop.classList.remove('active');
+      }
+    }
+
+    if (btnOpenCart) btnOpenCart.addEventListener('click', () => toggleCart(true));
+    if (btnCloseCart) btnCloseCart.addEventListener('click', () => toggleCart(false));
+    if (cartBackdrop) cartBackdrop.addEventListener('click', () => toggleCart(false));
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    function renderCart() {
+      if (!cartItemsContainer) return;
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div class="cart-empty-message">Belum ada paket membership yang dipilih.</div>';
+        if (cartCountBadge) cartCountBadge.textContent = '0';
+        if (cartSubtotalAmount) cartSubtotalAmount.textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      let count = 0;
+      cartItemsContainer.innerHTML = '';
+
+      cart.forEach((item, idx) => {
+        subtotal += item.price * item.qty;
+        count += item.qty;
+
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+        row.innerHTML = `
+          <div class="cart-item-details">
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-price">${formatRupiah(item.price)}</div>
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+              <span style="font-family:var(--font-mono); font-size:0.8rem; color:#FFFFFF;">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+              <button class="btn-del-item" onclick="deleteCartItem(${idx})">Hapus</button>
+            </div>
+          </div>
+        `;
+        cartItemsContainer.appendChild(row);
+      });
+
+      if (cartCountBadge) cartCountBadge.textContent = count;
+      if (cartSubtotalAmount) cartSubtotalAmount.textContent = formatRupiah(subtotal);
+    }
+
+    window.changeQty = function(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      renderCart();
+    };
+
+    window.deleteCartItem = function(idx) {
+      if (!cart[idx]) return;
+      cart.splice(idx, 1);
+      renderCart();
+    };
+
+    function addToCart(item) {
+      const existing = cart.find(i => i.name === item.name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+      renderCart();
+      toggleCart(true);
+      playHeartbeatSound(130);
+      showToast(`${item.name} ditambahkan ke pilihan.`);
+    }
+
+    // Plan select buttons
+    document.querySelectorAll('.btn-select-plan').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const b = e.currentTarget;
+        addToCart({
+          name: b.dataset.name,
+          price: parseInt(b.dataset.price, 10)
+        });
+      });
+    });
+
+    // Class booking buttons
+    document.querySelectorAll('.btn-book-class').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const b = e.currentTarget;
+        const className = b.dataset.classname;
+        const classDay = b.dataset.classday;
+        const msg = `Halo Admin KINETIC Gym, saya ingin booking slot untuk kelas: ${className} (${classDay}). Mohon konfirmasi ketersediaan tempat. Terima kasih!`;
+        window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`, '_blank');
+      });
+    });
+
+    if (btnWhatsappCheckout) {
+      btnWhatsappCheckout.addEventListener('click', () => {
+        if (cart.length === 0) {
+          alert('Belum ada paket membership yang dipilih.');
+          return;
+        }
+
+        let message = `Halo Admin KINETIC Gym, saya ingin mendaftar paket keanggotaan berikut:\n\n`;
+        let total = 0;
+        cart.forEach((item, index) => {
+          const itemTotal = item.price * item.qty;
+          total += itemTotal;
+          message += `${index + 1}. ${item.name} (${item.qty}x) — ${formatRupiah(itemTotal)}\n`;
+        });
+        message += `\n*TOTAL BIAYA: ${formatRupiah(total)}*\n\nMohon informasi prosedur aktivasi kartu akses 24 jam. Terima kasih!`;
+        window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(message)}`, '_blank');
+      });
+    }
+
+    // Trial Form Submit
+    const trialForm = document.getElementById('trialForm');
+    if (trialForm) {
+      trialForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputs = trialForm.querySelectorAll('.form-input');
+        const name = inputs[0].value;
+        const phone = inputs[1].value;
+        const date = inputs[2].value;
+        const goal = inputs[3].value;
+        const exp = inputs[4].value;
+
+        const msg = `Halo KINETIC Gym, saya ingin klaim Tiket Uji Coba Gratis 1 Hari:\n- Nama: ${name}\n- WhatsApp: ${phone}\n- Tanggal Kunjungan: ${date}\n- Target Kebugaran: ${goal}\n- Pengalaman Gym: ${exp}\n\nMohon konfirmasi tiket masuk saya. Terima kasih!`;
+        window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`, '_blank');
+        showToast('Tiket uji coba gratis terkirim ke WhatsApp.');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3200);
+    }
+  </script>
+</body>
+</html>

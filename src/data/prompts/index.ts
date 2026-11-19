@@ -43,8 +43,10 @@ import { AEROVELO_CYCLING_MASTER_PROMPT } from './cyclingPrompt';
 import { FORJA_CUTLERY_MASTER_PROMPT } from './cutleryPrompt';
 import { LUMEN_GLASSCRAFT_MASTER_PROMPT } from './glasscraftPrompt';
 import { LUMINA_PHOTOGRAPHY_MASTER_PROMPT } from './photographyPrompt';
+import { KINETIC_FITNESS_MASTER_PROMPT } from './fitnessPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'kinetic-fitness-gym': KINETIC_FITNESS_MASTER_PROMPT,
   'lumina-creative-photography': LUMINA_PHOTOGRAPHY_MASTER_PROMPT,
   'lumen-artisan-glasscraft': LUMEN_GLASSCRAFT_MASTER_PROMPT,
   'forja-damascus-cutlery': FORJA_CUTLERY_MASTER_PROMPT,
@@ -134,4 +136,5 @@ export {
   FORJA_CUTLERY_MASTER_PROMPT,
   LUMEN_GLASSCRAFT_MASTER_PROMPT,
   LUMINA_PHOTOGRAPHY_MASTER_PROMPT,
+  KINETIC_FITNESS_MASTER_PROMPT,
 };
