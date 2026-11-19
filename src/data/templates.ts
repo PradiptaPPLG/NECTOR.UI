@@ -2875,6 +2875,93 @@ export function TanahLiatStudio() {
       { hex: '#BBDED6', rgb: 'rgb(187, 222, 214)', name: 'Celadon Earth Mineral', role: 'Pigmen Mineral Tanah Hijau, Garis Pemisah, Border Kartu & Slider Track' },
       { hex: '#61C0BF', rgb: 'rgb(97, 192, 191)', name: 'Chrysocolla Turquoise Verdigris', role: 'Pigmen Krisokola Tembaga, Tombol Aksi Sekunder, Monogram & Indikator' }
     ]
+  },
+  {
+    id: 'tpl-39',
+    slug: 'lignum-acoustic-lutherie',
+    title: 'LIGNUM (Atelier Kriya Gitar Akustik Kayu Solid, Lab Tonewood & Resonansi Chladni)',
+    tagline: 'Atelier kriya gitar akustik kayu solid, simulator pola getar resonansi Chladni Canvas HTML5, dan kalkulator kecepatan suara tonewood E/ρ',
+    description: 'Template website atelier kriya gitar akustik kayu solid dan laboratorium akustik tonewood dengan palet warna kayu hangat (#FFEDDB, #EDCDBB, #E3B7A0, #BF9270). Dilengkapi simulator interaktif pola resonansi Chladni pada papan suara gitar berbasis Canvas HTML5 dengan slider frekuensi getar (82-440 Hz), 3 mode resonansi akustik (Monopole 98Hz, Dipole 185Hz, Tripole 280Hz) dan efek hamburan partikel pasir kuarsa nyata yang merespons ketukan tap-tone Web Audio API, kalkulator kecepatan rambat suara tonewood (c = √(E/ρ)) dan modulus Young dengan pilihan 4 kayu (Adirondack, Sitka, Cedar, Alpine), konfigurator siluet bodi gitar pre-war (OM-18, Parlor 12-Fret, Slope Dreadnought) dengan diagram vektor SVG live, etalase 4 instrumen dan perlengkapan lutherie teruji (gitar OM-18, bilah Adirondack master-grade, strap kulit samak nabati, minyak tonewood), formulir reservasi sesi audisi & voicing workshop 60-menit, serta drawer keranjang belanja terintegrasi WhatsApp.',
+    category: 'lutherie',
+    tags: ['Acoustic Guitar', 'Master Lutherie', 'Solid Tonewood', 'Adirondack Spruce', 'Chladni Resonance', 'Hide Glue', 'Scalloped X-Brace', 'French Polish', 'Pre-War Acoustic'],
+    technologies: ['HTML5 Canvas', 'Vanilla CSS', 'Vanilla JS', 'Chladni Nodal Engine', 'Web Audio Tone Synth', 'Tonewood Modulus Calculator', 'Guitar CAD Configurator', 'Direct WhatsApp Checkout'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'lutherie-lignum-guitar',
+    htmlPath: '/templates/lutherie/lignum-guitar.html',
+    htmlFolderPath: 'templates/lutherie/lignum-guitar.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau dependensi eksternal apa pun',
+      'Simulator pola resonansi Chladni pada papan suara gitar berbasis Canvas HTML5 dengan hamburan partikel pasir kuarsa ke garis simpul nodal (60 FPS)',
+      'Slider frekuensi getar papan (82 Hz nada Low E hingga 440 Hz nada A4 konser) dan tombol ketuk papan (Tap Tone) dengan Web Audio API',
+      'Tiga mode getar akustik papan suara: Monopole (98Hz Main Top Breathing), Dipole (185Hz Cross-Mode), dan Tripole (280Hz Overtones)',
+      'Kalkulator kecepatan suara kayu tonewood (c = √(E/ρ)) dan rasio kekakuan terhadap bobot untuk 4 spesies kayu (Adirondack, Sitka, Cedar, Alpine)',
+      'Konfigurator bodi gitar akustik kustom (LIGNUM OM-18, Parlor 12-Fret, Slope Dreadnought) dengan diagram vektor SVG CAD dinamis',
+      'Generator nada sinus murni Web Audio API untuk mendengar frekuensi tap-tone',
+      'Etalase 4 instrumen dan aksesoris kriya nyata: Gitar OM-18, Bilah Papan Suara Adirondack, Strap Kulit Samak Nabati, dan Minyak Tonewood',
+      'Drawer keranjang belanja slide-over dengan kalkulasi total rupiah dan ekspor pemesanan langsung ke WhatsApp studio',
+      'Formulir pendaftaran sesi audisi instrumen & voicing workshop (60 Menit) di studio Dago Pakar Bandung',
+      'Standar craft editorial antislop dengan palet warna kayu hangat (#FFEDDB, #EDCDBB, #E3B7A0, #BF9270) dan tipografi Cormorant Garamond'
+    ],
+    usageInstructions: [
+      'Buka templates/lutherie/lignum-guitar.html di editor kode Anda.',
+      'Sesuaikan data gitar, pilihan tonewood, dan harga rupiah pada objek JavaScript di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan dan reservasi audisi dengan nomor kontak resmi lutherie Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk etalase atelier gitar langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'lignum-guitar.html',
+        language: 'html',
+        content: `<!-- LIGNUM (リグナム) — Master Acoustic Lutherie & Tonewood Resonance Lab -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>LIGNUM — Solid Tonewood Guitars & Acoustic Resonance Lab</title>
+  <style>
+    :root {
+      --lignum-ivory: #FFEDDB;
+      --lignum-bone: #EDCDBB;
+      --lignum-caramel: #E3B7A0;
+      --lignum-cinnamon: #BF9270;
+      --lignum-ebony: #1E1611;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">STATUS: MEJA KRIYA AKTIF • RH: 46% • TAP-TONE: 196 Hz (G3) • 100% HOT HIDE GLUE</div>
+  <header>
+    <div class="brand">LIGNUM.</div>
+    <nav>Resonansi Chladni · Fisika Tonewood · Konfigurator Bodi · Kriya X-Bracing · Etalase · Konsultasi Voicing</nav>
+  </header>
+  <!-- Full Interactive Acoustic Lutherie: Chladni Resonance Canvas, Tonewood Modulus Calc, Guitar CAD & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier kriya gitar akustik kayu solid dan laboratorium akustik tonewood LIGNUM dengan palet warna Warm Ivory Alabaster (#FFEDDB), Toasted Bone Nut (#EDCDBB), Aged Honduran Mahogany (#E3B7A0), dan Rich Cinnamon Amber Wood (#BF9270). Dilengkapi simulator interaktif pola resonansi Chladni pada papan suara gitar berbasis Canvas HTML5 dengan slider frekuensi getar (82-440 Hz), 3 mode resonansi akustik (Monopole 98Hz, Dipole 185Hz, Tripole 280Hz) dan efek hamburan partikel pasir kuarsa nyata yang merespons ketukan tap-tone Web Audio API, kalkulator kecepatan rambat suara tonewood (c = √(E/ρ)) dan modulus Young dengan pilihan 4 kayu (Adirondack, Sitka, Cedar, Alpine), konfigurator siluet bodi gitar pre-war (OM-18, Parlor 12-Fret, Slope Dreadnought) dengan diagram vektor SVG live, etalase 4 instrumen dan perlengkapan lutherie teruji (gitar OM-18, bilah Adirondack master-grade, strap kulit samak nabati, minyak tonewood), formulir reservasi sesi audisi & voicing workshop 60-menit, serta drawer keranjang belanja terintegrasi WhatsApp.',
+      designDirection: 'Master acoustic guitar lutherie & tonewood resonance lab berstandar antislop: Warm Ivory Alabaster (#FFEDDB), Toasted Bone Nut (#EDCDBB), Aged Honduran Mahogany (#E3B7A0), Rich Cinnamon Amber Wood (#BF9270), dan Deep Roasted Tonewood Ebony Charcoal (#1E1611). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry bar kelembapan RH dan frekuensi tap-tone, sticky header dengan brand mark segel luthier L dan navigasi non-wrapping kokoh, hero asimetris 2 kolom dengan panggung simulator Chladni dinamis, panggung kalkulator modulus elastisitas tonewood 2 kolom, konfigurator bodi gitar akustik pre-war dengan diagram vektor SVG CAD live, grid 4 pilar kriya lutherie pre-war, etalase 4 instrumen dan aksesoris kriya, dan formulir reservasi sesi audisi workshop di Dago Pakar Bandung.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk kuratorial keanggunan instrumen dawai klasik, Plus Jakarta Sans untuk teks bodi penjelasan sains akustik kayu dan panduan voicing, JetBrains Mono untuk frekuensi Hertz, kecepatan suara tonewood (5.420 m/s), modulus Young (GPa), ketebalan bilah (2.65 mm), panjang skala senar, dan rincian harga rupiah.',
+      interactions: 'Simulator partikel Chladni Canvas HTML5 interaktif yang merespons frekuensi getar dan ketukan tap-tone, kalkulator kecepatan suara tonewood dengan penyesuaian kelembapan MC %, konfigurator bodi gitar dengan live SVG diagram dan spesifikasi CAD, pemutar nada sinus murni Web Audio API, serta slide-over drawer keranjang belanja terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural Chladni nodal gradient force physics Canvas HTML5, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#BF9270',
+    colorPalette: [
+      { hex: '#FFEDDB', rgb: 'rgb(255, 237, 219)', name: 'Warm Ivory Alabaster', role: 'Papan Suara Cemara Adirondack, Latar Belakang Meja Kerja & Kanvas Skematik' },
+      { hex: '#EDCDBB', rgb: 'rgb(237, 205, 187)', name: 'Toasted Bone Nut', role: 'Ornamen Tulang Nut, Butiran Pasir Chladni, Tab Pilihan Bodi & Garis Pemisah' },
+      { hex: '#E3B7A0', rgb: 'rgb(227, 183, 160)', name: 'Aged Honduran Mahogany', role: 'Kayu Bodi Mahoni Tua, Aksen Roset Lubang Suara & Badge Telemetri Aktif' },
+      { hex: '#BF9270', rgb: 'rgb(191, 146, 112)', name: 'Rich Cinnamon Amber Wood', role: 'Kayu Kenari Jembatan Senar, Tombol Tindakan Utama CTA, Monogram & Header' }
+    ]
   }
 ];
 

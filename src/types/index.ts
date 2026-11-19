@@ -37,6 +37,7 @@ export type Category =
   | 'interior'
   | 'maritime'
   | 'stationery'
+  | 'lutherie'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

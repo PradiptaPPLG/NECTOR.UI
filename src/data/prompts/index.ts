@@ -38,8 +38,10 @@ import { SOMNA_SLEEP_MASTER_PROMPT } from './sleepPrompt';
 import { KORU_LIMEWASH_MASTER_PROMPT } from './interiorPrompt';
 import { HAVN_BOATCRAFT_MASTER_PROMPT } from './maritimePrompt';
 import { AURELIA_WATERCOLOR_MASTER_PROMPT } from './stationeryPrompt';
+import { LIGNUM_LUTHERIE_MASTER_PROMPT } from './lutheriePrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'lignum-acoustic-lutherie': LIGNUM_LUTHERIE_MASTER_PROMPT,
   'aurelia-botanical-watercolor': AURELIA_WATERCOLOR_MASTER_PROMPT,
   'havn-wooden-boatcraft': HAVN_BOATCRAFT_MASTER_PROMPT,
   'koru-mineral-limewash': KORU_LIMEWASH_MASTER_PROMPT,
@@ -119,4 +121,5 @@ export {
   KORU_LIMEWASH_MASTER_PROMPT,
   HAVN_BOATCRAFT_MASTER_PROMPT,
   AURELIA_WATERCOLOR_MASTER_PROMPT,
+  LIGNUM_LUTHERIE_MASTER_PROMPT,
 };

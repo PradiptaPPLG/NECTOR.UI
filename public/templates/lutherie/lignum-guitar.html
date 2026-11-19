@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIGNUM — Atelier Kriya Gitar Akustik Kayu Solid & Lab Tonewood</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------------------------------------------------
+       LIGNUM DESIGN TOKENS (PALET RESMI USER: #FFEDDB, #EDCDBB, #E3B7A0, #BF9270)
+       ------------------------------------------------------------- */
+    :root {
+      --lignum-ivory: #FFEDDB;       /* Warm Ivory Alabaster / Adirondack Spruce Soundboard */
+      --lignum-bone: #EDCDBB;        /* Toasted Bone Nut / Rosette Wood Ring / Biscuit Maple */
+      --lignum-caramel: #E3B7A0;     /* Aged Honduran Mahogany / Toasted Hazelnut Suede */
+      --lignum-cinnamon: #BF9270;    /* Rich Cinnamon Amber Wood / Roasted Walnut Bridge */
+      --lignum-ebony: #1E1611;       /* Deep Roasted Tonewood Ebony Charcoal (WCAG AAA 14:1+) */
+      --lignum-ebony-soft: #32251D;
+      --lignum-gold: #D4A373;        /* Amber French Polish Shellac / Brass Frets */
+      --lignum-foam: #FFF8F2;        /* Lightest Alabaster Cream */
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      --border-fine: 1px solid rgba(30, 22, 17, 0.12);
+      --shadow-subtle: 0 4px 20px -2px rgba(30, 22, 17, 0.06);
+      --shadow-elevation: 0 16px 36px -6px rgba(30, 22, 17, 0.12);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--lignum-ivory);
+      color: var(--lignum-ebony);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--lignum-ivory);
+      background-image: 
+        radial-gradient(circle at 100% 0%, rgba(227, 183, 160, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 0% 100%, rgba(191, 146, 112, 0.2) 0%, transparent 45%),
+        linear-gradient(rgba(30, 22, 17, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 22, 17, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, .serif {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--lignum-ebony);
+      letter-spacing: -0.015em;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    /* Top Telemetry Luthier Bench Bar */
+    .telemetry-bar {
+      background-color: var(--lignum-ebony);
+      color: var(--lignum-ivory);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .telemetry-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .telemetry-inner::-webkit-scrollbar { display: none; }
+
+    .telemetry-items {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .telemetry-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .telemetry-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--lignum-cinnamon);
+      box-shadow: 0 0 8px var(--lignum-cinnamon);
+      animation: pulse 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    .telemetry-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .audio-toggle-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--lignum-ivory);
+      padding: 3px 10px;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+    .audio-toggle-btn:hover {
+      background: var(--lignum-cinnamon);
+      border-color: var(--lignum-caramel);
+      color: #fff;
+    }
+
+    /* Main Navigation Header */
+    .site-header {
+      background-color: rgba(255, 237, 219, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(30, 22, 17, 0.1);
+      position: sticky;
+      top: 33px;
+      z-index: 90;
+      transition: var(--transition-smooth);
+    }
+
+    .header-inner {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--lignum-ebony);
+    }
+
+    .brand-logo-seal {
+      width: 38px;
+      height: 38px;
+      border: 1.5px solid var(--lignum-ebony);
+      background-color: var(--lignum-cinnamon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: #FFFFFF;
+      position: relative;
+    }
+    .brand-logo-seal::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border: 1px dashed rgba(255, 255, 255, 0.5);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--lignum-cinnamon);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* Single-Line Non-Wrapping Nav */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      white-space: nowrap;
+    }
+    .site-nav::-webkit-scrollbar { display: none; }
+
+    .nav-link {
+      color: var(--lignum-ebony);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      position: relative;
+      padding: 6px 0;
+      transition: var(--transition-smooth);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background-color: var(--lignum-cinnamon);
+      transition: var(--transition-smooth);
+    }
+    .nav-link:hover {
+      color: var(--lignum-cinnamon);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--lignum-caramel);
+      margin-right: 4px;
+    }
+
+    /* Header Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .cart-trigger-btn {
+      background: var(--lignum-foam);
+      border: 1px solid var(--lignum-bone);
+      color: var(--lignum-ebony);
+      padding: 8px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+    .cart-trigger-btn:hover {
+      background: var(--lignum-ebony);
+      color: var(--lignum-ivory);
+      border-color: var(--lignum-ebony);
+    }
+
+    .cart-count-badge {
+      background-color: var(--lignum-cinnamon);
+      color: #fff;
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .btn-commission-cta {
+      background-color: var(--lignum-ebony);
+      color: var(--lignum-ivory);
+      padding: 9px 18px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: 1px solid var(--lignum-ebony);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-commission-cta:hover {
+      background-color: var(--lignum-cinnamon);
+      border-color: var(--lignum-cinnamon);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* -------------------------------------------------------------
+       HERO SECTION WITH CHLADNI PLATE RESONANCE SIMULATOR
+       ------------------------------------------------------------- */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+      border-bottom: 1px solid rgba(30, 22, 17, 0.1);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--lignum-cinnamon);
+    }
+
+    .kicker-line {
+      width: 28px;
+      height: 1px;
+      background-color: var(--lignum-cinnamon);
+    }
+
+    .hero-title {
+      font-size: 46px;
+      line-height: 1.08;
+      font-weight: 400;
+      color: var(--lignum-ebony);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--lignum-cinnamon);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: rgba(30, 22, 17, 0.82);
+      max-width: 540px;
+      line-height: 1.65;
+    }
+
+    .hero-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding: 16px 0;
+      border-top: var(--border-fine);
+      border-bottom: var(--border-fine);
+      margin: 6px 0;
+    }
+
+    .hero-metric-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--lignum-ebony);
+    }
+    .metric-lbl {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--lignum-cinnamon);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: var(--lignum-cinnamon);
+      color: #ffffff;
+      padding: 13px 26px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: 1px solid var(--lignum-cinnamon);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-primary:hover {
+      background-color: var(--lignum-ebony);
+      border-color: var(--lignum-ebony);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(30, 22, 17, 0.15);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--lignum-ebony);
+      padding: 13px 24px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: 1px solid var(--lignum-ebony);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(30, 22, 17, 0.05);
+      border-color: var(--lignum-cinnamon);
+      color: var(--lignum-cinnamon);
+    }
+
+    /* -------------------------------------------------------------
+       CHLADNI PLATE RESONANCE SIMULATOR CARD (CANVAS ENGINE)
+       ------------------------------------------------------------- */
+    .simulator-stage-card {
+      background: #FFFFFF;
+      border: 1px solid var(--lignum-bone);
+      box-shadow: var(--shadow-elevation);
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .sim-header-bar {
+      background-color: var(--lignum-ebony);
+      color: var(--lignum-ivory);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sim-header-title {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sim-mode-toggles {
+      display: flex;
+      gap: 4px;
+    }
+    .sim-mode-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--lignum-bone);
+      padding: 3px 8px;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .sim-mode-btn.active, .sim-mode-btn:hover {
+      background: var(--lignum-cinnamon);
+      color: #fff;
+      border-color: var(--lignum-caramel);
+    }
+
+    .canvas-viewport-wrapper {
+      position: relative;
+      width: 100%;
+      height: 330px;
+      background: radial-gradient(circle at center, #2C1E16 0%, #150E0A 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #chladniCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .canvas-guitar-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.35;
+    }
+
+    .canvas-telemetry-badge {
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      background: rgba(30, 22, 17, 0.88);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      padding: 6px 12px;
+      border-left: 2px solid var(--lignum-caramel);
+      pointer-events: none;
+      line-height: 1.45;
+    }
+
+    /* Controls Panel */
+    .sim-controls-panel {
+      padding: 16px 20px;
+      background: var(--lignum-foam);
+      border-top: 1px solid var(--lignum-bone);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .control-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .control-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--lignum-ebony);
+      font-weight: 500;
+    }
+    .control-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--lignum-bone);
+      outline: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .control-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--lignum-cinnamon);
+      border: 2px solid #ffffff;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .sim-stats-footer {
+      padding: 12px 20px;
+      background: #FFFFFF;
+      border-top: 1px solid rgba(30, 22, 17, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--lignum-cinnamon);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: THE ART OF MASTER LUTHERIE (ANTI-SLOP STANDARDS)
+       ------------------------------------------------------------- */
+    .craft-section {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(30, 22, 17, 0.1);
+      background-color: var(--lignum-ivory);
+    }
+
+    .section-header-block {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--lignum-cinnamon);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-heading {
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
+    .section-subtext {
+      color: rgba(30, 22, 17, 0.75);
+      font-size: 15.5px;
+    }
+
+    .craft-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .craft-pillar-card {
+      background: #FFFFFF;
+      border: 1px solid var(--lignum-bone);
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+    .craft-pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevation);
+      border-color: var(--lignum-cinnamon);
+    }
+
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--lignum-caramel);
+      border-bottom: 1px dashed var(--lignum-bone);
+      padding-bottom: 8px;
+    }
+
+    .pillar-title {
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .pillar-body {
+      font-size: 14px;
+      color: rgba(30, 22, 17, 0.75);
+      line-height: 1.55;
+    }
+
+    .pillar-tag {
+      margin-top: auto;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--lignum-cinnamon);
+      background: var(--lignum-foam);
+      padding: 4px 8px;
+      border-left: 2px solid var(--lignum-cinnamon);
+      width: fit-content;
+    }
+
+    /* -------------------------------------------------------------
+       INTERACTIVE FEATURE 1: TONEWOOD DENSITY & ELASTICITY CALCULATOR
+       ------------------------------------------------------------- */
+    .tonewood-calc-section {
+      padding: 80px 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid rgba(30, 22, 17, 0.1);
+    }
+
+    .tonewood-calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .calc-explain {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .calc-board-container {
+      background: var(--lignum-ivory);
+      border: 1px solid var(--lignum-bone);
+      padding: 32px;
+      box-shadow: var(--shadow-subtle);
+      border-radius: 2px;
+    }
+
+    .calc-field-group {
+      margin-bottom: 22px;
+    }
+    .calc-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-bottom: 8px;
+      color: var(--lignum-ebony);
+      font-weight: 500;
+    }
+
+    .wood-species-pills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .species-pill {
+      background: #FFFFFF;
+      border: 1px solid var(--lignum-bone);
+      padding: 9px 8px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .species-pill.active, .species-pill:hover {
+      background: var(--lignum-cinnamon);
+      color: #fff;
+      border-color: var(--lignum-cinnamon);
+    }
+
+    .calc-result-box {
+      background: var(--lignum-ebony);
+      color: var(--lignum-ivory);
+      padding: 24px;
+      margin-top: 26px;
+      border-left: 4px solid var(--lignum-caramel);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+    }
+    .result-val-highlight {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--lignum-caramel);
+    }
+
+    /* -------------------------------------------------------------
+       INTERACTIVE FEATURE 2: CUSTOM ACOUSTIC GUITAR CONFIGURATOR
+       ------------------------------------------------------------- */
+    .guitar-builder-section {
+      padding: 88px 0;
+      background-color: var(--lignum-ivory);
+      border-bottom: 1px solid rgba(30, 22, 17, 0.1);
+    }
+
+    .guitar-configurator-box {
+      background: #FFFFFF;
+      border: 1px solid var(--lignum-bone);
+      box-shadow: var(--shadow-elevation);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+    }
+
+    .guitar-preview-col {
+      background: linear-gradient(135deg, #F9F2EA 0%, #EFE1D3 100%);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--lignum-bone);
+    }
+
+    .guitar-schematic-wrap {
+      width: 100%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .guitar-svg-stage {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      filter: drop-shadow(0 14px 28px rgba(30, 22, 17, 0.18));
+      transition: var(--transition-smooth);
+    }
+
+    .guitar-controls-col {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .body-shape-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--lignum-bone);
+      padding-bottom: 12px;
+    }
+    .body-tab-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: rgba(30, 22, 17, 0.5);
+      cursor: pointer;
+      padding: 6px 12px;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+    .body-tab-btn.active {
+      color: var(--lignum-ebony);
+      font-weight: 600;
+    }
+    .body-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -13px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--lignum-cinnamon);
+    }
+
+    .guitar-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .guitar-price {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--lignum-ebony);
+    }
+
+    .guitar-specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+    }
+    .guitar-specs-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(30, 22, 17, 0.08);
+    }
+    .guitar-specs-table td:last-child {
+      text-align: right;
+      font-weight: 500;
+      color: var(--lignum-ebony);
+    }
+    .guitar-specs-table td:first-child {
+      color: rgba(30, 22, 17, 0.65);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: CURATED 4 MASTER LUTHERIE INSTRUMENTS & ACCESSORIES
+       ------------------------------------------------------------- */
+    .catalog-section {
+      padding: 88px 0;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid rgba(30, 22, 17, 0.1);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+
+    .product-card {
+      background: var(--lignum-foam);
+      border: 1px solid var(--lignum-bone);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevation);
+      border-color: var(--lignum-cinnamon);
+    }
+
+    .product-img-box {
+      width: 100%;
+      height: 220px;
+      background: #EFE4DA;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(30, 22, 17, 0.88);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      padding: 3px 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .product-details {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 10px;
+    }
+
+    .product-name {
+      font-size: 19px;
+      line-height: 1.25;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: rgba(30, 22, 17, 0.72);
+      line-height: 1.5;
+    }
+
+    .product-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid rgba(30, 22, 17, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--lignum-ebony);
+    }
+
+    .btn-add-cart {
+      background: transparent;
+      border: 1px solid var(--lignum-ebony);
+      color: var(--lignum-ebony);
+      padding: 6px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-add-cart:hover {
+      background: var(--lignum-cinnamon);
+      border-color: var(--lignum-cinnamon);
+      color: #fff;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: LUTHIER BENCH RESIDENCY & VOICING CONSULTATION
+       ------------------------------------------------------------- */
+    .booking-section {
+      padding: 88px 0;
+      background-color: var(--lignum-ivory);
+      border-bottom: 1px solid rgba(30, 22, 17, 0.1);
+    }
+
+    .booking-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      background: #FFFFFF;
+      border: 1px solid var(--lignum-bone);
+      padding: 48px;
+      box-shadow: var(--shadow-elevation);
+    }
+
+    .booking-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .booking-form-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--lignum-ebony);
+    }
+    .form-input, .form-select {
+      background: var(--lignum-foam);
+      border: 1px solid var(--lignum-bone);
+      padding: 11px 14px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      color: var(--lignum-ebony);
+      border-radius: 2px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--lignum-cinnamon);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 2px rgba(191, 146, 112, 0.25);
+    }
+
+    /* -------------------------------------------------------------
+       SLIDE-OVER CART DRAWER
+       ------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 22, 17, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      z-index: 1001;
+      box-shadow: -8px 0 32px rgba(0,0,0,0.2);
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      background: var(--lignum-ebony);
+      color: var(--lignum-ivory);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .drawer-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      color: var(--lignum-bone);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .drawer-items-list {
+      padding: 24px;
+      flex-grow: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-empty-msg {
+      text-align: center;
+      color: rgba(30, 22, 17, 0.5);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-top: 60px;
+    }
+
+    .drawer-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(30, 22, 17, 0.08);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .drawer-footer {
+      padding: 24px;
+      background: var(--lignum-foam);
+      border-top: 1px solid var(--lignum-bone);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drawer-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--lignum-ebony);
+    }
+
+    /* -------------------------------------------------------------
+       FOOTER
+       ------------------------------------------------------------- */
+    .site-footer {
+      background-color: var(--lignum-ebony);
+      color: var(--lignum-ivory);
+      padding: 64px 0 36px;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--lignum-caramel);
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .footer-links-list a {
+      color: var(--lignum-bone);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .footer-links-list a:hover {
+      color: #FFFFFF;
+      padding-left: 4px;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       ------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-grid, .tonewood-calc-grid, .guitar-configurator-box, .booking-card-grid {
+        grid-template-columns: 1fr;
+      }
+      .craft-pillars-grid, .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { height: auto; padding: 12px 0; flex-wrap: wrap; }
+      .site-nav { order: 3; width: 100%; padding-bottom: 6px; }
+      .hero-title { font-size: 34px; }
+      .craft-pillars-grid, .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .booking-card-grid {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Telemetry & Luthier Bench Bar -->
+  <div class="telemetry-bar">
+    <div class="container telemetry-inner">
+      <div class="telemetry-items">
+        <span class="telemetry-item">
+          <span class="telemetry-pulse"></span>
+          STATUS BENCH: MEJA KRIYA BANDUNG AKTIF • RH RUANG: 46% (STABILITAS AKUSTIK OPTIMAL)
+        </span>
+        <span class="telemetry-item">TAP-TONE PAPAN SUARA: 196 Hz (G3 RESONANSI)</span>
+        <span class="telemetry-item">KECEPATAN SUARA SPRUCE: 5.420 m/s</span>
+        <span class="telemetry-item">PEREKAT: 100% PROTEIN HIDE GLUE LARUT PANAS</span>
+        <span class="telemetry-item">KAYU LESTARI: SOLID MASTER GRADE FSC</span>
+      </div>
+      <div class="telemetry-actions">
+        <button class="audio-toggle-btn" id="audioToggleBtn" title="Dengarkan getaran frekuensi nada tap-tone Web Audio API">
+          <span>🎵</span> <span id="audioBtnText">TAP-TONE SINE: AKTIF</span>
+        </button>
+        <span id="wibTimeClock" class="mono">WIB 10:45:18</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Atmospheric Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-mark">
+        <div class="brand-logo-seal">L</div>
+        <div class="brand-text">
+          <span class="brand-name">LIGNUM</span>
+          <span class="brand-sub">Master Acoustic Lutherie</span>
+        </div>
+      </a>
+
+      <!-- Single-Line Non-Wrapping Navigation -->
+      <nav class="site-nav">
+        <a href="#chladni-stage" class="nav-link"><span class="nav-num">01</span>Resonansi Chladni</a>
+        <a href="#tonewood-science" class="nav-link"><span class="nav-num">02</span>Fisika Tonewood</a>
+        <a href="#configurator" class="nav-link"><span class="nav-num">03</span>Konfigurator Bodi</a>
+        <a href="#craft-standards" class="nav-link"><span class="nav-num">04</span>Kriya X-Bracing</a>
+        <a href="#catalog" class="nav-link"><span class="nav-num">05</span>Etalase</a>
+        <a href="#booking" class="nav-link"><span class="nav-num">06</span>Konsultasi Voicing</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-trigger-btn" id="cartTriggerBtn">
+          <span>Keranjang</span>
+          <span class="cart-count-badge" id="cartCountBadge">0</span>
+        </button>
+        <a href="#configurator" class="btn-commission-cta">Komisi Gitar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Chladni Plate Resonance Simulator -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      
+      <!-- Text Column -->
+      <div class="hero-content">
+        <div class="hero-kicker">
+          <span class="kicker-line"></span>
+          <span>RESONANSI TONEWOOD SOLID • MASTER GUITAR LUTHERIE • EST. 2014</span>
+        </div>
+        <h1 class="hero-title">
+          Getaran Murni Papan Adirondack Bertumpu pada <em>Penyekap X-Bracing Tangan</em> & Hide Glue.
+        </h1>
+        <p class="hero-desc">
+          Kami menolak gitar laminasi triplek pabrikan dengan peredam lem kimia tebal yang mematikan dinamika petikan. Setiap instrumen LIGNUM dirakit dari kayu solid pilihan berusia puluhan tahun: papan suara Adirondack Red Spruce yang dibelah serat murni (*quarter-sawn*), rangka X-bracing yang diserut manual mengikuti respon frekuensi Chladni, dan direkatkan dengan kolagen *hot hide glue* alami untuk transfer getaran nada instan.
+        </p>
+
+        <!-- Real Luthier Metrics Strip -->
+        <div class="hero-metrics-strip">
+          <div class="hero-metric-cell">
+            <span class="metric-val">100%</span>
+            <span class="metric-lbl">Kayu Solid Pejal</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="metric-val">5.420</span>
+            <span class="metric-lbl">m/s Cepat Suara</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="metric-val">0.05mm</span>
+            <span class="metric-lbl">Polesan Shellac</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="metric-val">0%</span>
+            <span class="metric-lbl">Lem Kimia PVA</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#chladni-stage" class="btn-primary">Eksplorasi Pola Chladni</a>
+          <a href="#configurator" class="btn-secondary">Konfigurasi Bentuk Bodi</a>
+        </div>
+      </div>
+
+      <!-- Simulator Stage Column -->
+      <div class="simulator-stage-card" id="chladni-stage">
+        <div class="sim-header-bar">
+          <div class="sim-header-title">
+            <span>🎻 SIMULATOR POLA RESONANSI CHLADNI PAPAN SUARA</span>
+          </div>
+          <div class="sim-mode-toggles">
+            <button class="sim-mode-btn active" data-mode="monopole">Monopole (98Hz)</button>
+            <button class="sim-mode-btn" data-mode="dipole">Dipole (185Hz)</button>
+            <button class="sim-mode-btn" data-mode="tripole">Tripole (280Hz)</button>
+          </div>
+        </div>
+
+        <div class="canvas-viewport-wrapper">
+          <canvas id="chladniCanvas"></canvas>
+          <div class="canvas-telemetry-badge" id="canvasTelemetryBadge">
+            FREKUENSI: 196 Hz (NADA G3)<br>
+            EFISIENSI RADIASI NADA: 94.2%<br>
+            MODE RESONANSI: MAIN TOP BREATHING
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="sim-controls-panel">
+          <div class="control-block">
+            <div class="control-label-row">
+              <span>Frekuensi Getar Papan (Hz):</span>
+              <span id="freqValText" class="mono">196 Hz (Nada G3)</span>
+            </div>
+            <input type="range" class="control-slider" id="freqSlider" min="82" max="440" step="1" value="196">
+          </div>
+          <div style="text-align: right;">
+            <button class="btn-primary" id="btnTapPlate" style="padding: 10px 16px; font-size: 11px;">
+              Ketuk Papan Suara (Tap Tone)
+            </button>
+          </div>
+        </div>
+
+        <div class="sim-stats-footer">
+          <span>PAPAN SUARA: ADIRONDACK SPRUCE 2.65mm</span>
+          <span>RANGKA: SCALLOPED X-BRACE 5/16"</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: The Art of Master Lutherie (Anti-Slop Standards) -->
+  <section class="craft-section" id="craft-standards">
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-eyebrow">STANDAR KRIYA ARSITEKTUR AKUSTIK</span>
+        <h2 class="section-heading">Kerapatan Resonansi Tanpa Redaman Sintetis.</h2>
+        <p class="section-subtext">
+          Di atelier LIGNUM, kami mempertahankan metode pembuatan gitar era keemasan pra-perang (pre-war 1930s) yang memuliakan integritas transmisi energi senar ke udara.
+        </p>
+      </div>
+
+      <div class="craft-pillars-grid">
+        <div class="craft-pillar-card">
+          <span class="pillar-num">01 / HIDE GLUE 60°C</span>
+          <h3 class="pillar-title">Perekat Protein Kolagen Hewani Alami</h3>
+          <p class="pillar-body">
+            Berbeda dengan lem putih PVA modern yang bersifat elastis karet dan meredam getaran frekuensi tinggi, *hot hide glue* mengering seperti kristal kaca keras—menyalurkan seluruh energi petikan tanpa hambatan.
+          </p>
+          <span class="pillar-tag">SUHU APLIKASI: 60°C</span>
+        </div>
+
+        <div class="craft-pillar-card">
+          <span class="pillar-num">02 / SCALLOPED X-BRACE</span>
+          <h3 class="pillar-title">Penyekap X-Brace Rangka Depan Diserut Tangan</h3>
+          <p class="pillar-body">
+            Palang penguat cemara Adirondack diserut dengan kape cekung (*scalloped*) secara individual sambil terus diketuk untuk mencari titik frekuensi simpul nada bass yang dalam tanpa kehilangan kestabilan struktural.
+          </p>
+          <span class="pillar-tag">SUDUT X: 102 DERAJAT</span>
+        </div>
+
+        <div class="craft-pillar-card">
+          <span class="pillar-num">03 / QUARTER-SAWN TONEWOOD</span>
+          <h3 class="pillar-title">Kayu Belah Serat Tegak Lurus 90°</h3>
+          <p class="pillar-body">
+            Papan suara dibelah mengikuti alur serat pohon cemara merah alami. Serat tegak vertikal 90° memberikan kecepatan rambat suara tertinggi ($5.400\,\text{m/s}$) dan kekakuan terhadap tarikan tegangan senar baja.
+          </p>
+          <span class="pillar-tag">TEGAK LURUS: 90° SEMPURNA</span>
+        </div>
+
+        <div class="craft-pillar-card">
+          <span class="pillar-num">04 / FRENCH POLISH</span>
+          <h3 class="pillar-title">Polesan Shellac Usapan Tangan 0.05mm</h3>
+          <p class="pillar-body">
+            Penyelesaian akhir menggunakan resin alami kutu lak (*shellac*) yang diusap ratusan lapis dengan bantalan kain katun. Ketebalannya hanya sepertiga cat poliuretan pabrik, membiarkan kayu bernapas bebas.
+          </p>
+          <span class="pillar-tag">KETEBALAN: 0.05mm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 1: Tonewood Density & Elasticity Calculator -->
+  <section class="tonewood-calc-section" id="tonewood-science">
+    <div class="container tonewood-calc-grid">
+      
+      <div class="calc-explain">
+        <span class="section-eyebrow">LABORATORIUM FISIKA TONEWOOD</span>
+        <h2 class="section-heading">Kalkulator Kecepatan Suara & Modulus Elastisitas.</h2>
+        <p class="section-subtext">
+          Kecepatan rambat gelombang suara di dalam kayu ditentukan oleh perbandingan Modulus Young ($E$) terhadap densitas massa ($\rho$): $c = \sqrt{E/\rho}$. Semakin tinggi nilai rasio kekakuan terhadap bobot, semakin jernih dan responsif petikan nada gitar Anda.
+        </p>
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--lignum-cinnamon); line-height: 1.6; background: var(--lignum-ivory); padding: 14px 18px; border-left: 3px solid var(--lignum-cinnamon);">
+          CATATAN MASTER LUTHIER:<br>
+          "Adirondack Spruce memiliki *headroom* tak terbatas—saat dipetik lembut ia berbisik jernih, saat dipukul keras ia meraung megah tanpa pecah suara (*compression distortion*)."
+        </div>
+      </div>
+
+      <!-- Calculator Board -->
+      <div class="calc-board-container">
+        
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>PILIHAN SPESIES KAYU PAPAN SUARA:</span>
+            <span id="selectedWoodText" style="color: var(--lignum-cinnamon);">Adirondack Red Spruce</span>
+          </div>
+          <div class="wood-species-pills">
+            <button class="species-pill active" data-wood="adirondack" data-density="430" data-velocity="5420">Adirondack</button>
+            <button class="species-pill" data-wood="sitka" data-density="450" data-velocity="5150">Sitka Spruce</button>
+            <button class="species-pill" data-wood="cedar" data-density="380" data-velocity="4800">Red Cedar</button>
+            <button class="species-pill" data-wood="alpine" data-density="420" data-velocity="5350">Alpine Spruce</button>
+          </div>
+        </div>
+
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>KETEBALAN PAPAN SUARA (mm):</span>
+            <span id="thicknessValText" class="mono">2.65 mm (Ideal OM)</span>
+          </div>
+          <input type="range" class="control-slider" id="thicknessSlider" min="2.2" max="3.4" step="0.05" value="2.65">
+        </div>
+
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>KADAR KELEMBAPAN SERAT (MC %):</span>
+            <span id="moistureValText" class="mono">7.5% (Standar Pengeringan Udara 10 Thn)</span>
+          </div>
+          <input type="range" class="control-slider" id="moistureSlider" min="5" max="14" step="0.5" value="7.5">
+        </div>
+
+        <!-- Calculated Output Box -->
+        <div class="calc-result-box">
+          <div class="result-row">
+            <span>KECEPATAN RAMBAT AKUSTIK (c):</span>
+            <span class="result-val-highlight" id="velocityOutput">5.420 m/s</span>
+          </div>
+          <div class="result-row">
+            <span>RASIO KEKAKUAN TERHADAP BOBOT (E/ρ):</span>
+            <span id="stiffnessOutput">12.60 GPa / (g/cm³)</span>
+          </div>
+          <div class="result-row">
+            <span>KARAKTER RESONANSI OUTPUT:</span>
+            <span id="tonalCharacterOutput" style="color: var(--lignum-caramel); font-weight: 600;">Dinamika Luas & Pendaran Harmonik Tinggi</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Feature 2: Custom Acoustic Guitar Configurator -->
+  <section class="guitar-builder-section" id="configurator">
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-eyebrow">KONFIGURATOR PESANAN KUSTOM</span>
+        <h2 class="section-heading">Rancang Siluet & Karakter Nada Gitar Anda.</h2>
+        <p class="section-subtext">
+          Pilih geometri bodi legendaris, paduan tonewood langka, serta lebar nut yang disesuaikan dengan anatomi tangan pemain.
+        </p>
+      </div>
+
+      <div class="guitar-configurator-box">
+        
+        <!-- Schematic Preview Column -->
+        <div class="guitar-preview-col">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lignum-cinnamon);">
+            SCHEMATIC BLUEPRINT • LIGNUM BANDUNG ATELIER
+          </div>
+
+          <div class="guitar-schematic-wrap">
+            <!-- Dynamic Vector Guitar SVG Rendering -->
+            <svg class="guitar-svg-stage" id="guitarVectorSvg" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Centerline Reference -->
+              <line x1="200" y1="10" x2="200" y2="290" stroke="#BF9270" stroke-width="1" stroke-dasharray="3 3"/>
+              
+              <!-- Guitar Body Silhouette -->
+              <path id="guitarBodyPath" d="M140,50 C165,45 235,45 260,50 C295,90 280,140 255,160 C290,195 305,250 260,280 C220,295 180,295 140,280 C95,250 110,195 145,160 C120,140 105,90 140,50 Z" fill="#FFEDDB" stroke="#1E1611" stroke-width="2.5"/>
+              
+              <!-- Soundhole & Rosette -->
+              <circle cx="200" cy="140" r="28" fill="#1E1611"/>
+              <circle cx="200" cy="140" r="33" stroke="#BF9270" stroke-width="2" fill="none"/>
+              <circle cx="200" cy="140" r="37" stroke="#E3B7A0" stroke-width="1.5" stroke-dasharray="4 2" fill="none"/>
+
+              <!-- Bridge & Pins -->
+              <rect x="160" y="210" width="80" height="20" rx="3" fill="#32251D"/>
+              <line x1="168" y1="216" x2="232" y2="216" stroke="#EDCDBB" stroke-width="2.5"/>
+              <circle cx="174" cy="223" r="2" fill="#EDCDBB"/>
+              <circle cx="184" cy="223" r="2" fill="#EDCDBB"/>
+              <circle cx="194" cy="223" r="2" fill="#EDCDBB"/>
+              <circle cx="204" cy="223" r="2" fill="#EDCDBB"/>
+              <circle cx="214" cy="223" r="2" fill="#EDCDBB"/>
+              <circle cx="224" cy="223" r="2" fill="#EDCDBB"/>
+
+              <!-- Fretboard Extension -->
+              <polygon points="186,10 214,10 218,112 182,112" fill="#1E1611"/>
+              <!-- Nickel Frets -->
+              <line x1="184" y1="35" x2="216" y2="35" stroke="#D4A373" stroke-width="1"/>
+              <line x1="183" y1="60" x2="217" y2="60" stroke="#D4A373" stroke-width="1"/>
+              <line x1="182" y1="85" x2="218" y2="85" stroke="#D4A373" stroke-width="1"/>
+              <line x1="182" y1="105" x2="218" y2="105" stroke="#D4A373" stroke-width="1"/>
+
+              <!-- Strings -->
+              <line x1="188" y1="10" x2="174" y2="216" stroke="#FFFFFF" stroke-width="1" opacity="0.8"/>
+              <line x1="192" y1="10" x2="184" y2="216" stroke="#FFFFFF" stroke-width="1" opacity="0.8"/>
+              <line x1="196" y1="10" x2="194" y2="216" stroke="#FFFFFF" stroke-width="1" opacity="0.8"/>
+              <line x1="204" y1="10" x2="204" y2="216" stroke="#FFFFFF" stroke-width="1" opacity="0.8"/>
+              <line x1="208" y1="10" x2="214" y2="216" stroke="#FFFFFF" stroke-width="1" opacity="0.8"/>
+              <line x1="212" y1="10" x2="224" y2="216" stroke="#FFFFFF" stroke-width="1" opacity="0.8"/>
+            </svg>
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--lignum-ebony); background: rgba(255, 237, 219, 0.7); padding: 8px 12px; border: 1px solid var(--lignum-bone); width: fit-content;">
+            FINISHING: 100% FRENCH POLISH SHELLAC TANGAN
+          </div>
+        </div>
+
+        <!-- Controls & Specs Column -->
+        <div class="guitar-controls-col">
+          <div class="body-shape-tabs">
+            <button class="body-tab-btn active" data-body="om">LIGNUM OM</button>
+            <button class="body-tab-btn" data-body="parlor">Parlor 12-Fret</button>
+            <button class="body-tab-btn" data-body="dreadnought">Slope Dreadnought</button>
+          </div>
+
+          <div class="guitar-title-row">
+            <div>
+              <h3 class="serif" id="guitarNameHeading" style="font-size: 26px;">LIGNUM Orchestra Model (OM-18)</h3>
+              <p style="font-size: 13px; color: rgba(30, 22, 17, 0.7);" id="guitarSubtitle">Keseimbangan artikulasi fingerstyle & strumming studio</p>
+            </div>
+            <div class="guitar-price" id="guitarPriceText">Rp 38.500.000</div>
+          </div>
+
+          <table class="guitar-specs-table">
+            <tbody>
+              <tr>
+                <td>Papan Suara (Top Wood)</td>
+                <td id="specTopWood">Adirondack Red Spruce Master Grade</td>
+              </tr>
+              <tr>
+                <td>Punggung & Samping (Back/Sides)</td>
+                <td id="specBackWood">Solid Honduran Mahogany 40-Thn</td>
+              </tr>
+              <tr>
+                <td>Panjang Skala Senar</td>
+                <td id="specScaleLen">25.4 Inci (645 mm)</td>
+              </tr>
+              <tr>
+                <td>Lebar Nut Tulang</td>
+                <td id="specNutWidth">44.5 mm (1-3/4 Inci Fingerstyle)</td>
+              </tr>
+              <tr>
+                <td>Konstruksi Rangka</td>
+                <td id="specBracing">Pre-War Forward Scalloped X-Brace</td>
+              </tr>
+              <tr>
+                <td>Waktu Pembuatan Kriya</td>
+                <td id="specLeadTime">14-16 Minggu Pengerjaan</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button class="btn-primary" id="btnOrderConfiguredGuitar" style="width: 100%; justify-content: center;">
+            Pesan Instrumen Ini Melalui WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Curated 4 Master Lutherie Instruments & Accessories -->
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-eyebrow">ETALASE KRIYA INSTRUMEN & AKSESORIS</span>
+        <h2 class="section-heading">Koleksi Gitar & Tonewood Terpilih.</h2>
+        <p class="section-subtext">
+          Instrumen pengerjaan tunggal (*solo luthier*) bersertifikasi identitas kayu dan garansi seumur hidup.
+        </p>
+      </div>
+
+      <div class="catalog-grid">
+        
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80" alt="LIGNUM OM-18 Acoustic Guitar" class="product-img">
+            <span class="product-badge">MASTER BUILT</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">LIGNUM OM-18 Acoustic Guitar</h3>
+            <p class="product-desc">Papan suara Adirondack Spruce, bodi Honduran Mahogany, fretboard Ebony Afrika, dan pelapis French Polish.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 38.500.000</span>
+              <button class="btn-add-cart" data-id="p1" data-name="LIGNUM OM-18 Acoustic Guitar" data-price="38500000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&fit=crop&w=800&q=80" alt="Bilah Papan Suara Adirondack Spruce" class="product-img">
+            <span class="product-badge">RAW TONEWOOD</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Bilah Adirondack Spruce Master Grade</h3>
+            <p class="product-desc">Sepasang bilah belah serat murni (*bookmatched quarter-sawn*) pengeringan alami 12 tahun untuk luthier.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 4.200.000</span>
+              <button class="btn-add-cart" data-id="p2" data-name="Bilah Adirondack Spruce Master Grade" data-price="4200000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80" alt="Strap Kulit Nabati Suede" class="product-img">
+            <span class="product-badge">KRIYA KULIT</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Strap Gitar Kulit Nabati Samak Nabati</h3>
+            <p class="product-desc">Kulit sapi pelana tebal 4mm tanpa gesper logam yang berisiko menggores bodi kayu French Polish.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 1.150.000</span>
+              <button class="btn-add-cart" data-id="p3" data-name="Strap Gitar Kulit Nabati" data-price="1150000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80" alt="Minyak Raw Linseed & Shellac Reviver" class="product-img">
+            <span class="product-badge">PERAWATAN KAYU</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Tonewood Conditioning Oil & Shellac Reviver</h3>
+            <p class="product-desc">Formula minyak mineral organik dan ekstrak lilin lebah murni untuk menjaga kelembapan fretboard eboni.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 280.000</span>
+              <button class="btn-add-cart" data-id="p4" data-name="Tonewood Conditioning Oil" data-price="280000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Luthier Bench Residency & Voicing Consultation -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-card-grid">
+        
+        <div class="booking-info-col">
+          <span class="section-eyebrow">SESI BENCH WORKSHOP & AUDISI PRIBADI</span>
+          <h2 class="section-heading">Sentuh & Rasakan Resonansi Kayu Langsung.</h2>
+          <p class="section-subtext">
+            Kami mengundang musisi dan kolektor untuk mengunjungi atelier kami di Dago Pakar Bandung. Anda dapat mencoba berbagai bentuk bodi gitar di ruang akustik hening berperedam, mendiskusikan ketebalan profil leher (*neck carve*), serta memilih bilah tonewood favorit Anda.
+          </p>
+          <div style="margin-top: auto; font-family: var(--font-mono); font-size: 12px; color: var(--lignum-ebony); line-height: 1.8;">
+            LOKASI ATELIER:<br>
+            LIGNUM Lutherie Studio, Dago Pakar Utara No. 18, Bandung<br>
+            JAM KERJA BENCH: Selasa - Sabtu, 10:00 - 18:00 WIB<br>
+            WHATSAPP STUDIO: +62 812-4490-8812
+          </div>
+        </div>
+
+        <form class="booking-form-col" id="bookingForm">
+          <div class="form-group">
+            <label class="form-label">Nama Lengkap Pemain</label>
+            <input type="text" class="form-input" id="bookName" placeholder="Contoh: Musisi Danendra" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nomor WhatsApp</label>
+            <input type="tel" class="form-input" id="bookPhone" placeholder="0812-xxxx-xxxx" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tujuan Kunjungan Atelier</label>
+            <select class="form-select" id="bookType">
+              <option value="Sesi Audisi & Voicing Gitar 60-Menit">Sesi Audisi Instrumen & Voicing (60 Menit)</option>
+              <option value="Konsultasi Komisi Gitar Kustom Baru">Konsultasi Rancang Bangun Gitar Kustom</option>
+              <option value="Pemilihan Bilah Tonewood & Profil Leher">Pemilihan Bilah Kayu Tonewood & Rangka</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pilihan Tanggal Kunjungan</label>
+            <input type="date" class="form-input" id="bookDate" required>
+          </div>
+          <button type="submit" class="btn-primary" style="margin-top: 10px; justify-content: center;">
+            Konfirmasi Jadwal Sesi Audisi Workshop
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <span class="drawer-title">Pesanan Kriya LIGNUM</span>
+      <button class="drawer-close-btn" id="drawerCloseBtn">&times;</button>
+    </div>
+    <div class="drawer-items-list" id="drawerItemsList">
+      <div class="drawer-empty-msg">Keranjang belanja Anda masih kosong.</div>
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-total-row">
+        <span>TOTAL INVESTASI:</span>
+        <span id="drawerTotalText">Rp 0</span>
+      </div>
+      <button class="btn-primary" id="btnCheckoutWhatsapp" style="width: 100%; justify-content: center;">
+        Kirim Rincian Pesanan ke WhatsApp Studio
+      </button>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-mark" style="color: #fff; margin-bottom: 16px;">
+            <div class="brand-logo-seal" style="background: var(--lignum-cinnamon); color: #fff;">L</div>
+            <div class="brand-text">
+              <span class="brand-name" style="color: #fff;">LIGNUM</span>
+              <span class="brand-sub" style="color: var(--lignum-caramel);">Master Acoustic Lutherie</span>
+            </div>
+          </div>
+          <p style="font-size: 13.5px; color: var(--lignum-bone); line-height: 1.6; max-width: 320px;">
+            Atelier pembuatan gitar akustik kayu solid kelas maestro berakar pada tradisi kriya pre-war. Menggabungkan kayu Adirondack murni, perekat *hot hide glue*, dan polesan tangan *French polish shellac*.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi Arsip</h4>
+          <ul class="footer-links-list">
+            <li><a href="#chladni-stage">Pola Resonansi Chladni</a></li>
+            <li><a href="#tonewood-science">Fisika Cepat Suara Tonewood</a></li>
+            <li><a href="#configurator">Konfigurator Bodi Gitar</a></li>
+            <li><a href="#catalog">Etalase Instrumen</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Kriya & Akustik</h4>
+          <ul class="footer-links-list">
+            <li><a href="#craft-standards">Hot Hide Glue 60°C</a></li>
+            <li><a href="#craft-standards">Scalloped X-Bracing</a></li>
+            <li><a href="#craft-standards">Quarter-Sawn Tonewood</a></li>
+            <li><a href="#craft-standards">French Polish Shellac</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Atelier Studio</h4>
+          <p style="font-size: 13px; color: var(--lignum-bone); line-height: 1.6; font-family: var(--font-mono);">
+            LIGNUM Bench Workshop<br>
+            Dago Pakar Utara No. 18, Bandung<br>
+            Telepon / WA: +62 812-4490-8812<br>
+            Instagram: @lignum.lutherie
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 LIGNUM Lutherie. Bagian dari Galeri Editorial NECTOR.UI.</span>
+        <span>STANDAR KRIYA BEBAS AI-SLOP • 100% KAYU SOLID PEJAL FSC</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- -------------------------------------------------------------
+       JAVASCRIPT: CHLADNI SAND RESONANCE, TONEWOOD CALC, CONFIGURATOR
+       ------------------------------------------------------------- -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* 1. Real-time Clock */
+      function updateClock() {
+        const now = new Date();
+        const hrs = String(now.getHours()).padStart(2, '0');
+        const mins = String(now.getMinutes()).padStart(2, '0');
+        const secs = String(now.getSeconds()).padStart(2, '0');
+        const clockEl = document.getElementById('wibTimeClock');
+        if (clockEl) clockEl.textContent = `WIB ${hrs}:${mins}:${secs}`;
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+
+      /* 2. Web Audio API - Pure Acoustic Sine Tap-Tone Generator */
+      let audioCtx = null;
+      let isAudioPlaying = false;
+      let toneOsc = null;
+      let toneGain = null;
+      let currentFreq = 196;
+
+      function initToneAudio() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          toneOsc = audioCtx.createOscillator();
+          toneGain = audioCtx.createGain();
+
+          toneOsc.type = 'sine';
+          toneOsc.frequency.setValueAtTime(currentFreq, audioCtx.currentTime);
+          toneGain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+
+          toneOsc.connect(toneGain);
+          toneGain.connect(audioCtx.destination);
+          toneOsc.start();
+          isAudioPlaying = true;
+        } else if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+          isAudioPlaying = true;
+        } else if (audioCtx.state === 'running') {
+          audioCtx.suspend();
+          isAudioPlaying = false;
+        }
+        updateAudioButtonUI();
+      }
+
+      function updateAudioButtonUI() {
+        const btnText = document.getElementById('audioBtnText');
+        if (btnText) {
+          btnText.textContent = isAudioPlaying ? 'TAP-TONE SINE: AKTIF' : 'TAP-TONE SINE: SENYAP';
+        }
+      }
+
+      const audioToggleBtn = document.getElementById('audioToggleBtn');
+      if (audioToggleBtn) {
+        audioToggleBtn.addEventListener('click', initToneAudio);
+      }
+
+      function playTapToneBurst() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        const osc = audioCtx.createOscillator();
+        const tapGain = audioCtx.createGain();
+
+        // Acoustic wood fundamental + quick harmonic decay
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(currentFreq, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(currentFreq * 0.98, audioCtx.currentTime + 0.4);
+
+        tapGain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+        tapGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+
+        osc.connect(tapGain);
+        tapGain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.52);
+      }
+
+      const btnTapPlate = document.getElementById('btnTapPlate');
+      if (btnTapPlate) {
+        btnTapPlate.addEventListener('click', () => {
+          playTapToneBurst();
+          scatterSandParticles();
+        });
+      }
+
+      /* 3. Canvas HTML5 - Procedural Chladni Plate Vibration & Sand Patterns */
+      const canvas = document.getElementById('chladniCanvas');
+      const ctx = canvas ? canvas.getContext('2d') : null;
+      let activeMode = 'monopole';
+      let sandParticles = [];
+      const NUM_PARTICLES = 1400;
+
+      function resizeCanvas() {
+        if (!canvas) return;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * window.devicePixelRatio;
+        canvas.height = rect.height * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        initSandParticles();
+      }
+      window.addEventListener('resize', resizeCanvas);
+
+      function initSandParticles() {
+        if (!canvas) return;
+        const w = canvas.getBoundingClientRect().width;
+        const h = canvas.getBoundingClientRect().height;
+        sandParticles = [];
+
+        for (let i = 0; i < NUM_PARTICLES; i++) {
+          sandParticles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 1.5,
+            vy: (Math.random() - 0.5) * 1.5,
+            size: 1.2 + Math.random() * 1.6,
+            color: Math.random() > 0.3 ? '#EDCDBB' : '#E3B7A0'
+          });
+        }
+      }
+
+      function scatterSandParticles() {
+        sandParticles.forEach(p => {
+          p.vx += (Math.random() - 0.5) * 14;
+          p.vy += (Math.random() - 0.5) * 14;
+        });
+      }
+
+      // Mathematical Chladni nodal line formulas
+      function getChladniForce(x, y, w, h) {
+        const nx = (x / w) * 2 - 1;
+        const ny = (y / h) * 2 - 1;
+
+        let val = 0;
+        let gradX = 0;
+        let gradY = 0;
+
+        if (activeMode === 'monopole') {
+          // Circular ring nodal pattern (fundamental breathing mode)
+          const dist = Math.sqrt(nx * nx + ny * ny);
+          const targetR = 0.52 + (currentFreq - 82) * 0.0006;
+          val = Math.abs(dist - targetR);
+          gradX = (nx / (dist + 0.001)) * (dist - targetR);
+          gradY = (ny / (dist + 0.001)) * (dist - targetR);
+        } else if (activeMode === 'dipole') {
+          // Cross / figure-8 pattern (dipole cross-mode)
+          val = Math.abs(nx * ny);
+          gradX = Math.sign(nx) * Math.abs(ny);
+          gradY = Math.sign(ny) * Math.abs(nx);
+        } else if (activeMode === 'tripole') {
+          // Complex harmonic rosette
+          const r = Math.sqrt(nx * nx + ny * ny);
+          const theta = Math.atan2(ny, nx);
+          val = Math.abs(Math.sin(3 * theta) * r - 0.35);
+          gradX = nx * 0.5;
+          gradY = ny * 0.5;
+        }
+
+        return { gradX, gradY };
+      }
+
+      function animateChladni() {
+        if (!ctx || !canvas) return;
+        const w = canvas.getBoundingClientRect().width;
+        const h = canvas.getBoundingClientRect().height;
+
+        // Dark soundboard top plate background
+        ctx.fillStyle = '#1A120D';
+        ctx.fillRect(0, 0, w, h);
+
+        // Guitar waist outline in background
+        ctx.strokeStyle = 'rgba(237, 205, 187, 0.15)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.ellipse(w * 0.5, h * 0.38, w * 0.28, h * 0.24, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(w * 0.5, h * 0.65, w * 0.36, h * 0.28, 0, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Soundhole circle
+        ctx.fillStyle = '#110B07';
+        ctx.beginPath();
+        ctx.arc(w * 0.5, h * 0.44, 28, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#BF9270';
+        ctx.stroke();
+
+        // Update & Render Sand Particles
+        sandParticles.forEach(p => {
+          const { gradX, gradY } = getChladniForce(p.x, p.y, w, h);
+
+          // Force drives sand towards nodal zero-vibration lines
+          p.vx -= gradX * 0.22;
+          p.vy -= gradY * 0.22;
+
+          p.vx *= 0.92; // Friction
+          p.vy *= 0.92;
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Boundary bounce
+          if (p.x < 10) { p.x = 10; p.vx *= -0.5; }
+          if (p.x > w - 10) { p.x = w - 10; p.vx *= -0.5; }
+          if (p.y < 10) { p.y = 10; p.vy *= -0.5; }
+          if (p.y > h - 10) { p.y = h - 10; p.vy *= -0.5; }
+
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        requestAnimationFrame(animateChladni);
+      }
+
+      resizeCanvas();
+      animateChladni();
+
+      // Mode toggles
+      const modeButtons = document.querySelectorAll('.sim-mode-btn');
+      modeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modeButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeMode = btn.dataset.mode;
+          scatterSandParticles();
+
+          if (activeMode === 'monopole') freqSlider.value = 98;
+          else if (activeMode === 'dipole') freqSlider.value = 185;
+          else if (activeMode === 'tripole') freqSlider.value = 280;
+          updateFreqTelemetry();
+        });
+      });
+
+      // Frequency Slider
+      const freqSlider = document.getElementById('freqSlider');
+      const freqText = document.getElementById('freqValText');
+      const badgeText = document.getElementById('canvasTelemetryBadge');
+
+      function getNoteName(freq) {
+        const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+        const semi = Math.round(12 * (Math.log2(freq / 440))) + 69;
+        const note = notes[semi % 12];
+        const octave = Math.floor(semi / 12) - 1;
+        return `${note}${octave}`;
+      }
+
+      function updateFreqTelemetry() {
+        if (!freqSlider) return;
+        currentFreq = parseInt(freqSlider.value);
+        const noteStr = getNoteName(currentFreq);
+
+        if (freqText) freqText.textContent = `${currentFreq} Hz (Nada ${noteStr})`;
+
+        if (toneOsc && audioCtx && isAudioPlaying) {
+          toneOsc.frequency.setValueAtTime(currentFreq, audioCtx.currentTime);
+        }
+
+        const efficiency = (82 + (currentFreq / 440) * 16).toFixed(1);
+        let modeName = 'MAIN TOP BREATHING';
+        if (currentFreq > 220) modeName = 'CROSS-DIPOLE HARMONIC';
+        if (currentFreq > 320) modeName = 'TRIPOLE FLUID OVERTONE';
+
+        if (badgeText) {
+          badgeText.innerHTML = `
+            FREKUENSI: ${currentFreq} Hz (NADA ${noteStr})<br>
+            EFISIENSI RADIASI NADA: ${efficiency}%<br>
+            MODE RESONANSI: ${modeName}
+          `;
+        }
+      }
+
+      if (freqSlider) {
+        freqSlider.addEventListener('input', () => {
+          updateFreqTelemetry();
+          scatterSandParticles();
+        });
+      }
+
+      /* 4. Tonewood Velocity & Elasticity Calculator */
+      const woodPills = document.querySelectorAll('.species-pill');
+      const thicknessSlider = document.getElementById('thicknessSlider');
+      const moistureSlider = document.getElementById('moistureSlider');
+
+      const woodText = document.getElementById('selectedWoodText');
+      const thicknessText = document.getElementById('thicknessValText');
+      const moistureText = document.getElementById('moistureValText');
+
+      const velocityOutput = document.getElementById('velocityOutput');
+      const stiffnessOutput = document.getElementById('stiffnessOutput');
+      const tonalOutput = document.getElementById('tonalCharacterOutput');
+
+      let currentWood = {
+        name: 'Adirondack Red Spruce',
+        density: 430,
+        velocity: 5420
+      };
+
+      woodPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          woodPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          currentWood = {
+            name: pill.textContent,
+            density: parseInt(pill.dataset.density),
+            velocity: parseInt(pill.dataset.velocity)
+          };
+          if (woodText) woodText.textContent = pill.textContent;
+          calculateTonewood();
+        });
+      });
+
+      function calculateTonewood() {
+        if (!thicknessSlider || !moistureSlider) return;
+        const th = parseFloat(thicknessSlider.value);
+        const mc = parseFloat(moistureSlider.value);
+
+        if (thicknessText) thicknessText.textContent = `${th.toFixed(2)} mm ${th <= 2.7 ? '(Ideal OM & Fingerstyle)' : '(Kuat Strumming)'}`;
+        if (moistureText) moistureText.textContent = `${mc.toFixed(1)}% ${mc <= 8 ? '(Standar Suhu Udara Stabil)' : '(Perlu Pengeringan Ruang)'}`;
+
+        // Velocity correction based on moisture content
+        const correctedVelocity = Math.round(currentWood.velocity - (mc - 7) * 45);
+        if (velocityOutput) velocityOutput.textContent = `${correctedVelocity.toLocaleString('id-ID')} m/s`;
+
+        // Young's modulus E = rho * v^2
+        const densityKg = currentWood.density;
+        const E_gpa = ((densityKg * Math.pow(correctedVelocity, 2)) / 1e9).toFixed(2);
+        const ratio = (E_gpa / (densityKg / 1000)).toFixed(2);
+        if (stiffnessOutput) stiffnessOutput.textContent = `${ratio} GPa / (g/cm³) [E: ${E_gpa} GPa]`;
+
+        if (tonalOutput) {
+          if (currentWood.name.includes('Adirondack')) {
+            tonalOutput.textContent = 'Dinamika Luas, Headroom Tinggi & Pendaran Harmonik';
+          } else if (currentWood.name.includes('Cedar')) {
+            tonalOutput.textContent = 'Respon Sentuhan Kilat, Hangat & Lembut untuk Fingerstyle';
+          } else if (currentWood.name.includes('Sitka')) {
+            tonalOutput.textContent = 'Serbaguna Seimbang, Nada Fundamental Tegas & Rata';
+          } else {
+            tonalOutput.textContent = 'Artikulasi Jernih Lonceng, Kaya Frekuensi Menengah';
+          }
+        }
+      }
+
+      if (thicknessSlider) thicknessSlider.addEventListener('input', calculateTonewood);
+      if (moistureSlider) moistureSlider.addEventListener('input', calculateTonewood);
+      calculateTonewood();
+
+      /* 5. Custom Acoustic Guitar Configurator */
+      const bodyData = {
+        om: {
+          name: 'LIGNUM Orchestra Model (OM-18)',
+          subtitle: 'Keseimbangan artikulasi fingerstyle & strumming studio',
+          price: 'Rp 38.500.000',
+          topWood: 'Adirondack Red Spruce Master Grade',
+          backWood: 'Solid Honduran Mahogany 40-Thn',
+          scaleLen: '25.4 Inci (645 mm)',
+          nutWidth: '44.5 mm (1-3/4 Inci Fingerstyle)',
+          bracing: 'Pre-War Forward Scalloped X-Brace',
+          leadTime: '14-16 Minggu Pengerjaan',
+          scaleSvgX: 1,
+          scaleSvgY: 1
+        },
+        parlor: {
+          name: 'LIGNUM Parlor 12-Fret (P-01)',
+          subtitle: 'Ukuran kompak intim, artikulasi vokal fokus ragtime & blues',
+          price: 'Rp 32.000.000',
+          topWood: 'Western Red Cedar Aged 25-Thn',
+          backWood: 'Solid Claro Walnut Pilihan',
+          scaleLen: '24.75 Inci (628 mm Skala Pendek)',
+          nutWidth: '45.0 mm (Sangat Nyaman Petikan)',
+          bracing: 'Lightweight Traditional X-Bracing',
+          leadTime: '10-12 Minggu Pengerjaan',
+          scaleSvgX: 0.88,
+          scaleSvgY: 0.88
+        },
+        dreadnought: {
+          name: 'LIGNUM Slope Shoulder Dreadnought (D-28S)',
+          subtitle: 'Resonansi bass megah bergemuruh, proyeksi akustik bertenaga',
+          price: 'Rp 44.500.000',
+          topWood: 'Adirondack Red Spruce Grade AAAA',
+          backWood: 'Solid East Indian Rosewood Pejal',
+          scaleLen: '25.5 Inci (648 mm)',
+          nutWidth: '43.0 mm (Ramping Cepat)',
+          bracing: 'Heavy-Duty 5/16" Scalloped X-Brace',
+          leadTime: '16-18 Minggu Pengerjaan',
+          scaleSvgX: 1.12,
+          scaleSvgY: 1.14
+        }
+      };
+
+      let activeBody = 'om';
+      const bodyTabs = document.querySelectorAll('.body-tab-btn');
+      bodyTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          bodyTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          activeBody = tab.dataset.body;
+          updateGuitarUI();
+        });
+      });
+
+      function updateGuitarUI() {
+        const d = bodyData[activeBody];
+        if (!d) return;
+
+        document.getElementById('guitarNameHeading').textContent = d.name;
+        document.getElementById('guitarSubtitle').textContent = d.subtitle;
+        document.getElementById('guitarPriceText').textContent = d.price;
+        document.getElementById('specTopWood').textContent = d.topWood;
+        document.getElementById('specBackWood').textContent = d.backWood;
+        document.getElementById('specScaleLen').textContent = d.scaleLen;
+        document.getElementById('specNutWidth').textContent = d.nutWidth;
+        document.getElementById('specBracing').textContent = d.bracing;
+        document.getElementById('specLeadTime').textContent = d.leadTime;
+
+        const svgStage = document.getElementById('guitarVectorSvg');
+        if (svgStage) {
+          svgStage.style.transform = `scale(${d.scaleSvgX}, ${d.scaleSvgY})`;
+        }
+      }
+
+      // Order configured guitar via WhatsApp
+      const btnOrderConfigured = document.getElementById('btnOrderConfiguredGuitar');
+      if (btnOrderConfigured) {
+        btnOrderConfigured.addEventListener('click', () => {
+          const g = bodyData[activeBody];
+          const msg = `Halo Atelier LIGNUM Lutherie, saya berminat memesan gitar akustik kustom:
+Model Bodi: ${g.name}
+Papan Suara: ${g.topWood}
+Punggung: ${g.backWood}
+Lebar Nut: ${g.nutWidth}
+Estimasi Biaya: ${g.price}
+Mohon informasi jadwal antrean bench workshop. Terima kasih!`;
+          window.open(`https://wa.me/6281244908812?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+      }
+
+      /* 6. Cart Drawer & WhatsApp Checkout */
+      const cartTriggerBtn = document.getElementById('cartTriggerBtn');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartOverlay = document.getElementById('cartOverlay');
+      const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+      const drawerItemsList = document.getElementById('drawerItemsList');
+      const drawerTotalText = document.getElementById('drawerTotalText');
+      const cartCountBadge = document.getElementById('cartCountBadge');
+      const btnCheckoutWhatsapp = document.getElementById('btnCheckoutWhatsapp');
+
+      let cart = [];
+
+      function toggleCart(open) {
+        if (!cartDrawer || !cartOverlay) return;
+        if (open) {
+          cartDrawer.classList.add('open');
+          cartOverlay.classList.add('open');
+        } else {
+          cartDrawer.classList.remove('open');
+          cartOverlay.classList.remove('open');
+        }
+      }
+
+      if (cartTriggerBtn) cartTriggerBtn.addEventListener('click', () => toggleCart(true));
+      if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', () => toggleCart(false));
+      if (cartOverlay) cartOverlay.addEventListener('click', () => toggleCart(false));
+
+      // Add to cart buttons
+      const addCartButtons = document.querySelectorAll('.btn-add-cart');
+      addCartButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const name = btn.dataset.name;
+          const price = parseInt(btn.dataset.price);
+
+          const existing = cart.find(item => item.id === id);
+          if (existing) {
+            existing.qty += 1;
+          } else {
+            cart.push({ id, name, price, qty: 1 });
+          }
+
+          updateCartUI();
+          toggleCart(true);
+        });
+      });
+
+      function updateCartUI() {
+        if (!drawerItemsList || !cartCountBadge || !drawerTotalText) return;
+
+        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCountBadge.textContent = totalItems;
+
+        if (cart.length === 0) {
+          drawerItemsList.innerHTML = '<div class="drawer-empty-msg">Keranjang belanja Anda masih kosong.</div>';
+          drawerTotalText.textContent = 'Rp 0';
+          return;
+        }
+
+        let totalPrice = 0;
+        let html = '';
+
+        cart.forEach((item, idx) => {
+          const subtotal = item.price * item.qty;
+          totalPrice += subtotal;
+          html += `
+            <div class="drawer-item-row">
+              <div>
+                <div style="font-weight: 600; color: var(--lignum-ebony);">${item.name}</div>
+                <div style="color: var(--lignum-cinnamon); font-size: 11px;">Rp ${item.price.toLocaleString('id-ID')} &times; ${item.qty}</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 600;">Rp ${subtotal.toLocaleString('id-ID')}</div>
+                <button class="remove-item-btn" data-idx="${idx}" style="background:none; border:none; color:#ff5252; cursor:pointer; font-size:10px;">Hapus</button>
+              </div>
+            </div>
+          `;
+        });
+
+        drawerItemsList.innerHTML = html;
+        drawerTotalText.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+
+        const removeButtons = drawerItemsList.querySelectorAll('.remove-item-btn');
+        removeButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.dataset.idx);
+            cart.splice(idx, 1);
+            updateCartUI();
+          });
+        });
+      }
+
+      if (btnCheckoutWhatsapp) {
+        btnCheckoutWhatsapp.addEventListener('click', () => {
+          if (cart.length === 0) {
+            alert('Keranjang Anda masih kosong.');
+            return;
+          }
+
+          let itemsText = cart.map(i => `- ${i.name} (${i.qty}x) = Rp ${(i.price * i.qty).toLocaleString('id-ID')}`).join('\n');
+          const totalStr = drawerTotalText.textContent;
+
+          const msg = `Halo Atelier LIGNUM Lutherie, saya ingin memesan instrumen & aksesoris kayu:
+${itemsText}
+
+Total: ${totalStr}
+Mohon konfirmasi ketersediaan dan ekspedisi peti kayu hardcase. Terima kasih!`;
+
+          window.open(`https://wa.me/6281244908812?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+      }
+
+      /* 7. Bench Booking Form Submission */
+      const bookingForm = document.getElementById('bookingForm');
+      if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('bookName').value;
+          const phone = document.getElementById('bookPhone').value;
+          const type = document.getElementById('bookType').value;
+          const date = document.getElementById('bookDate').value;
+
+          const msg = `Halo Atelier LIGNUM Lutherie, saya ingin reservasi sesi audisi / voicing:
+Nama: ${name}
+No. WA: ${phone}
+Keperluan: ${type}
+Pilihan Tanggal: ${date}
+Mohon konfirmasi slot jadwal di studio Dago Pakar. Terima kasih!`;
+
+          window.open(`https://wa.me/6281244908812?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
