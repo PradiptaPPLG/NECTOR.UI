@@ -3221,6 +3221,90 @@ export function TanahLiatStudio() {
       { hex: '#C3BEF0', rgb: 'rgb(195, 190, 240)', name: 'Neodymium Iris Lilac', role: 'Kaca Dikroik Neodymium Cahaya Siang 6500K, Tab Seleksi & Bingkai Wadah' },
       { hex: '#CCA8E9', rgb: 'rgb(204, 168, 233)', name: 'Wisteria Amethyst Petal', role: 'Kaca Dikroik Cahaya Malam 2700K, Tombol CTA Utama, Monogram & Harga' }
     ]
+  },
+  {
+    id: 'tpl-43',
+    slug: 'lumina-creative-photography',
+    title: 'LUMINA (Studio Foto Potret, Pre-Wedding & Ruang Kreatif)',
+    tagline: 'Studio foto profesional untuk potret personal, wisuda, keluarga, dan pre-wedding dengan pencahayaan alami & sunset',
+    description: 'Template website studio fotografi kreatif LUMINA dengan palet warna Sunset Coral Rose (#F67280), Dusty Berry Plum (#C06C84), Twilight Slate Lavender (#6C5B7B), dan Deep Ocean Slate Navy (#355C7D). Dilengkapi simulator pencahayaan foto dan nuansa warna (Sunset Golden Hour, Studio Softbox, Pagi Alami, Malam Sinematik) berbasis Canvas HTML5 dengan kontrol exposure dan suhu warna Kelvin, kalkulator interaktif biaya paket foto dan tambahan cetak kanvas/album fisik, galeri portofolio dengan filter kategori instan (Pre-Wedding, Wisuda & Personal, Keluarga, Produk & Brand), synthesizer suara shutter kamera mekanik Web Audio API, serta sistem reservasi tanggal sesi pemotretan terintegrasi WhatsApp.',
+    category: 'photography',
+    tags: ['Photo Studio', 'Photography', 'Portrait', 'Pre-Wedding', 'Graduation', 'Family Photoshoot', 'Golden Hour', 'Pricing Calculator', 'Natural Light'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Canvas HTML5 Lighting Engine', 'Web Audio API Camera Shutter', 'Interactive Pricing Calculator', 'Portfolio Filter Engine', 'Slide-Over Cart Drawer', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'photography-lumina',
+    htmlPath: '/templates/photography/lumina-photo-studio.html',
+    htmlFolderPath: 'templates/photography/lumina-photo-studio.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Simulator pencahayaan & nuansa foto Canvas HTML5 interaktif dengan 4 preset suasana (Sunset Golden Hour, Studio Softbox, Pagi Alami, Malam Sinematik), slider exposure & white balance Kelvin',
+      'Kalkulator biaya paket foto interaktif dengan pemilihan 4 jenis sesi (Wisuda/Personal, Keluarga, Pre-Wedding, Acara) dan checklist tambahan cetak kanvas/album/MUA',
+      'Galeri portofolio interaktif dengan filter kategori instan (Semua, Pre-Wedding, Wisuda, Keluarga, Produk)',
+      'Synthesizer suara shutter kamera mekanik Web Audio API yang realistis dengan sakelar kontrol audio aktif/bisu',
+      'Informasi 4 fasilitas kenyamanan studio (Ruang rias berlampu daylight, lounge kopi gratis, jendela cahaya alami 5 meter, transfer file asli di tempat)',
+      'Drawer keranjang pilihan sesi slide-over dengan kalkulasi subtotal otomatis dan format checkout WhatsApp rapi',
+      'Formulir pendaftaran tanggal dan waktu sesi foto yang terhubung langsung ke WhatsApp studio',
+      'Bahasa Indonesia yang bersahabat, jelas, dan mudah dipahami publik tanpa istilah asing yang membingungkan',
+      'Standar craft editorial antislop dengan palet warna senja (#F67280, #C06C84, #6C5B7B, #355C7D) dan tipografi Playfair Display & Plus Jakarta Sans'
+    ],
+    usageInstructions: [
+      'Buka templates/photography/lumina-photo-studio.html di editor kode Anda.',
+      'Sesuaikan daftar paket foto, harga, dan portofolio pada objek JavaScript di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan dan reservasi dengan nomor kontak resmi studio Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk website studio foto langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'lumina-photo-studio.html',
+        language: 'html',
+        content: `<!-- LUMINA — Studio Fotografi Potret, Pre-Wedding & Ruang Kreatif -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>LUMINA — Creative Photo Studio</title>
+  <style>
+    :root {
+      --lumina-coral: #F67280;
+      --lumina-berry: #C06C84;
+      --lumina-twilight: #6C5B7B;
+      --lumina-ocean: #355C7D;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-status">STUDIO FOTO BANDUNG • JADWAL SESI SORE GOLDEN HOUR TERSEDIA • KAMERA FULL-FRAME</div>
+  <header>
+    <div class="brand">LUMINA</div>
+    <nav>Simulasi Cahaya · Paket & Biaya · Portofolio · Fasilitas Studio · Jadwal & Booking</nav>
+  </header>
+  <!-- Full Interactive Photography Studio: Lighting Canvas, Pricing Calculator, Portfolio & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website studio fotografi kreatif LUMINA dengan palet warna Sunset Coral Rose (#F67280), Dusty Berry Plum (#C06C84), Twilight Slate Lavender (#6C5B7B), dan Deep Ocean Slate Navy (#355C7D). Dilengkapi simulator pencahayaan foto dan nuansa warna (Sunset Golden Hour, Studio Softbox, Pagi Alami, Malam Sinematik) berbasis Canvas HTML5 dengan kontrol exposure dan suhu warna Kelvin, kalkulator interaktif biaya paket foto dan tambahan cetak kanvas/album fisik, galeri portofolio dengan filter kategori instan (Pre-Wedding, Wisuda & Personal, Keluarga, Produk & Brand), synthesizer suara shutter kamera mekanik Web Audio API, serta sistem reservasi tanggal sesi pemotretan terintegrasi WhatsApp.',
+      designDirection: 'Creative photography studio & portrait atelier berstandar antislop: Sunset Coral Rose (#F67280), Dusty Berry Plum (#C06C84), Twilight Slate Lavender (#6C5B7B), Deep Ocean Slate Navy (#355C7D), Warm Studio Porcelain (#FFFDFC), dan Deep Navy Charcoal (#1B263B). Tipografi Playfair Display, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top status bar studio foto dengan status buka dan slot golden hour sore real-time, sticky header dengan brand mark L dan navigasi bersahabat, hero asimetris 2 kolom dengan panggung simulator pencahayaan foto dinamis, kalkulator paket foto interaktif 2 kolom, galeri portofolio dengan filter instan, grid 4 fasilitas studio, dan formulir booking sesi di Dago Pakar Bandung.',
+      typographyAndColor: 'Playfair Display untuk tajuk utama kehangatan momen emosional, Plus Jakarta Sans untuk teks bodi penjelasan paket yang jelas dan ramah publik, JetBrains Mono untuk nilai Kelvin (3.600K), exposure EV (+0.3), durasi sesi, dan rincian harga rupiah.',
+      interactions: 'Simulator pencahayaan foto Canvas HTML5 dengan visualisasi siluet potret yang merespons nuansa warna dan slider exposure/kelvin, kalkulator paket foto interaktif dengan kalkulasi instan, filter portofolio instan, synthesizer audio shutter kamera Web Audio API, serta slide-over drawer pemesanan terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural lighting and shadow rendering Canvas HTML5, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#F67280',
+    colorPalette: [
+      { hex: '#F67280', rgb: 'rgb(246, 114, 128)', name: 'Sunset Coral Rose', role: 'Aksen Utama Hangat, Tombol Tindakan CTA, Slider Pencahayaan & Highlight Harga' },
+      { hex: '#C06C84', rgb: 'rgb(192, 108, 132)', name: 'Dusty Berry Plum', role: 'Label Kategori Portofolio, Teks Sekunder Elegan & Garis Batas Kartu' },
+      { hex: '#6C5B7B', rgb: 'rgb(108, 91, 123)', name: 'Twilight Slate Lavender', role: 'Sub-Heading Lembut, Ikon Fasilitas Studio & Pemisah Konten' },
+      { hex: '#355C7D', rgb: 'rgb(53, 92, 125)', name: 'Deep Ocean Slate Navy', role: 'Bilah Status Atas, Kartu Ringkasan Biaya, Header & Footer Kontras Tinggi' }
+    ]
   }
 ];
 

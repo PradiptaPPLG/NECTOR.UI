@@ -43,6 +43,7 @@ export type Category =
   | 'cycling'
   | 'cutlery'
   | 'glasscraft'
+  | 'photography'
   | 'umkm';
 
 export type WeddingSubcategory =
