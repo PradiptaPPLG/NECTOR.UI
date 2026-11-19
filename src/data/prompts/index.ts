@@ -34,8 +34,10 @@ import { CELESTE_HORLOGERIE_MASTER_PROMPT } from './horologyPrompt';
 import { CYANO_ARCHITECTURE_MASTER_PROMPT } from './architecturePrompt';
 import { RESONANCE_AUDIO_MASTER_PROMPT } from './audioPrompt';
 import { AXIS_KEYBOARDS_MASTER_PROMPT } from './keyboardPrompt';
+import { SOMNA_SLEEP_MASTER_PROMPT } from './sleepPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'somna-sleep-sanctuary': SOMNA_SLEEP_MASTER_PROMPT,
   'axis-mechanical-keyboards': AXIS_KEYBOARDS_MASTER_PROMPT,
   'resonance-analog-audio': RESONANCE_AUDIO_MASTER_PROMPT,
   'cyano-blueprint-architecture': CYANO_ARCHITECTURE_MASTER_PROMPT,

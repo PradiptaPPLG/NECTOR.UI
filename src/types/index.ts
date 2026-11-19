@@ -33,6 +33,7 @@ export type Category =
   | 'architecture'
   | 'audio'
   | 'keyboards'
+  | 'sleep'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

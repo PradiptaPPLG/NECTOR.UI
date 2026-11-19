@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'sleep',
+      title: 'Ergonomi Tidur & Riset Sirkadian',
+      icon: Moon,
+      desc: 'Atelier ergonomi tidur, matras lateks organik 7-zona & riset sirkadian: simulator spektrum cahaya 24-jam Kelvin 1.800K-6.500K, kalkulator postur tulang belakang & kepadatan Dunlop, serta soundscape gelombang otak Delta 2.5Hz.',
+      accent: '#B1B2FF'
+    },
     {
       id: 'keyboards',
       title: 'Keyboard Mekanikal & Lab Switch',

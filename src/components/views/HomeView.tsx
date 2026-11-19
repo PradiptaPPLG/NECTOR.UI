@@ -28,6 +28,7 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
+    templates.find(t => t.slug === 'somna-sleep-sanctuary') || templates[0],
     templates.find(t => t.slug === 'axis-mechanical-keyboards') || templates[0],
     templates.find(t => t.slug === 'resonance-analog-audio') || templates[0],
     templates.find(t => t.slug === 'cyano-blueprint-architecture') || templates[0],
@@ -42,6 +43,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'sleep', label: 'Ergonomi Tidur & Sirkadian', count: templates.filter(t => t.category === 'sleep').length, desc: 'Atelier tidur & sirkadian: simulator spektrum 24-jam Kelvin 1.800K-6.500K, kontur lateks 7-zona & soundscape Delta' },
     { id: 'keyboards', label: 'Keyboard Mekanikal Kustom', count: templates.filter(t => t.category === 'keyboards').length, desc: 'Atelier keyboard mekanikal: tester kurva gaya aktuasi switch, inspektor 6 lapisan gasket mount & sasis CNC 6063' },
     { id: 'audio', label: 'Audio Analog & Akustik Hi-Fi', count: templates.filter(t => t.category === 'audio').length, desc: 'Atelier audio analog & akustik: kalibrator jarum VU meter analog ganda, penguat tabung trioda 300B & reservasi salon dengar privat' },
     { id: 'architecture', label: 'Arsitektur & Cetak Biru Cyanotype', count: templates.filter(t => t.category === 'architecture').length, desc: 'Atelier gambar kerja & cetak biru arsitektur tropis: inspektor multi-layer CAD interaktif, sirkulasi angin 1.8 m/s & tabel material RKS' },

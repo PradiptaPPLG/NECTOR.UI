@@ -2531,6 +2531,91 @@ export function TanahLiatStudio() {
       { hex: '#FF2E63', rgb: 'rgb(255, 46, 99)', name: 'Neon Crimson', role: 'Titik Puncak Aktuasi Taktil, Badge Gasket Mount & Tombol Aksen' },
       { hex: '#EAEAEA', rgb: 'rgb(234, 234, 234)', name: 'Platinum Silver', role: 'Kanvas Latar Utama, Permukaan Bodi Sandblast & Divider Presisi' }
     ]
+  },
+  {
+    id: 'tpl-35',
+    slug: 'somna-sleep-sanctuary',
+    title: 'SOMNA (Ergonomic Sleep Sanctuary & Circadian Chronobiology Lab)',
+    tagline: 'Atelier ergonomi tidur, matras lateks organik 7-zona, simulator spektrum sirkadian 24-jam, dan kurasi akustik gelombang Delta',
+    description: 'Template website atelier ergonomi tidur dan laboratorium kronobiologi sirkadian dengan palet warna dreamy periwinkle & lavender mist (#EEF1FF, #D2DAFF, #AAC4FF, #B1B2FF). Dilengkapi simulator spektrum cahaya sirkadian 24-jam (1.800K lilin hingga 6.500K siang terik) dengan proyeksi kurva melatonin, peta biomekanik keselarasan tulang belakang 3 postur tidur (Side, Back, Stomach) dengan pemilihan densitas lateks Dunlop (65D, 75D, 85D), generator soundscape gelombang otak Delta 2.5Hz dan desiran hujan glasial dengan Web Audio API visualizer, kalkulator gramatur bulu angsa & ketebalan bantal (loft) personal, katalog 4 perlengkapan tidur kriya organik, serta drawer konsultasi dan reservasi bilik tidur privat 90-menit terintegrasi WhatsApp.',
+    category: 'sleep',
+    tags: ['Sleep Sanctuary', 'Circadian Biology', 'Ergonomic Mattress', 'Latex Core', 'Soundscape Delta', 'Silk Bedding', 'Sensory Architecture', 'Sleep Pod', 'Biophilic Design'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', '24h Circadian Spectrum Tuner', 'Spine Biomechanics Matrix', 'Web Audio Delta Synthesizer', 'Pillow Loft Calculator', 'Private Sleep Pod Booking'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'sleep-somna-sanctuary',
+    htmlPath: '/templates/sleep/somna-sleep.html',
+    htmlFolderPath: 'templates/sleep/somna-sleep.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Simulator spektrum cahaya sirkadian 24-jam (1.800K - 5.500K) dengan proyeksi sekresi melatonin dan efek ambient dinamis',
+      'Peta biomekanik keselarasan tulang belakang 3 postur (Side, Back, Stomach) dengan kalkulator tekanan mmHg 4 zona',
+      'Pemilih densitas getah lateks monoblok Dunlop Hevea (Soft 65D, Medium 75D, Firm 85D)',
+      'Generator soundscape relaksasi gelombang otak Delta 2.5Hz dan desiran hujan berbasis Web Audio API murni',
+      'Kalkulator ketebalan bantal servikal (loft cm) dan gramatur bulu angsa berdasarkan lebar bahu dan kekerasan kasur',
+      'Etalase 4 perlengkapan tidur kriya bersertifikat GOLS & OEKO-TEX dengan slide-over keranjang belanja',
+      'Formulir reservasi bilik tidur privat hening 90-menit terintegrasi WhatsApp dengan konfirmasi instan',
+      'Standar craft editorial antislop dengan palet periwinkle lavender (#B1B2FF, #AAC4FF, #D2DAFF, #EEF1FF) dan tipografi Cormorant Garamond'
+    ],
+    usageInstructions: [
+      'Buka templates/sleep/somna-sleep.html di editor kode Anda.',
+      'Sesuaikan data produk tidur, harga rupiah, dan opsi kustomisasi pada objek JavaScript di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan dan reservasi dengan nomor resmi studio Anda.',
+      'Buka file HTML langsung di browser desktop atau mobile untuk etalase sleep sanctuary langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'somna-sleep.html',
+        language: 'html',
+        content: `<!-- SOMNA (ソムナ) — Ergonomic Sleep Sanctuary & Circadian Chronobiology Lab -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SOMNA — Sleep Sanctuary & Chronobiology Lab</title>
+  <style>
+    :root {
+      --somna-whisper: #EEF1FF;
+      --somna-mist: #D2DAFF;
+      --somna-sky: #AAC4FF;
+      --somna-periwinkle: #B1B2FF;
+      --somna-ink: #141624;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">STATUS: BILIK SIRKADIAN AKTIF • SUHU OPTIMAL: 19.8°C • KONTUR 7-ZONA DUNLOP HEVEA</div>
+  <header>
+    <div class="brand">SOMNA.</div>
+    <nav>Simulator Sirkadian · Biomekanik Tulang · Soundscape Delta · Kalkulator Bantal · Koleksi Tidur · Reservasi Bilik</nav>
+  </header>
+  <!-- Full Interactive Sleep Sanctuary: 24h Circadian Chamber, Spine Matrix, WebAudio Delta Synth & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier ergonomi tidur dan laboratorium kronobiologi sirkadian SOMNA dengan palet warna Deep Periwinkle REM (#B1B2FF), Luminous Cornflower Sky (#AAC4FF), Soft Lavender Mist (#D2DAFF), dan Whisper Cloud Porcelain (#EEF1FF). Dilengkapi simulator spektrum pencahayaan sirkadian 24-jam (1.800K lilin hingga 6.500K siang terik) dengan proyeksi kurva melatonin, peta biomekanik keselarasan tulang belakang 3 postur (Side, Back, Stomach) dengan pemilihan densitas lateks Dunlop (65D, 75D, 85D), generator soundscape akustik gelombang otak Delta 2.5Hz berbasis Web Audio API, kalkulator loft bantal dan gramatur bulu angsa personal, katalog 4 perlengkapan tidur kriya organik, serta drawer reservasi bilik tidur privat 90-menit terintegrasi WhatsApp.',
+      designDirection: 'Sleep sanctuary & chronobiology atelier berstandar antislop: Deep Periwinkle REM (#B1B2FF), Luminous Cornflower Sky (#AAC4FF), Soft Lavender Mist (#D2DAFF), Whisper Cloud Porcelain (#EEF1FF), dan Abyssal Nightfall Slate Ink (#141624). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry bar bilik tidur sirkadian, sticky header dengan brand mark monogram S dan navigasi non-wrapping kokoh, hero asimetris 2 kolom dengan bilik simulator sirkadian dinamis 24 jam, panggung biomekanik tulang belakang kurva SVG vektor dengan telemetri tekanan mmHg 4 zona, laboratorium akustik gelombang Delta 2.5Hz Web Audio dengan kanvas visualizer live, kalkulator loft bantal personal, grid katalog 4 produk tidur 4 kolom, dan formulir reservasi bilik hening privat.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk utama keanggunan ketenangan istirahat malam, Plus Jakarta Sans untuk teks bodi penjelasan sains sirkadian dan kontrol tombol interaktif, JetBrains Mono untuk suhu cahaya Kelvin, lux, tekanan mmHg, persentase melatonin, gramatur bantal, dan rincian harga rupiah.',
+      interactions: 'Slider sirkadian 24-jam dengan pembaruan dinamis gradien warna bilik, suhu Kelvin, dan tingkat melatonin, pengubah postur tidur dengan kalkulasi tekanan tulang belakang live, pemutar soundscape Web Audio multi-kanal dengan visualizer gelombang suara, kalkulator ketebalan bantal servikal instan, serta drawer keranjang pemesanan terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#B1B2FF',
+    colorPalette: [
+      { hex: '#B1B2FF', rgb: 'rgb(177, 178, 255)', name: 'Deep Periwinkle REM', role: 'Tombol Aksi Utama, Kurva Proyeksi Melatonin & Titik Tumpu Servikal' },
+      { hex: '#AAC4FF', rgb: 'rgb(170, 196, 255)', name: 'Luminous Cornflower Sky', role: 'Spektrum Siang Sirkadian, Visualizer Gelombang Suara & Pill Status' },
+      { hex: '#D2DAFF', rgb: 'rgb(210, 218, 255)', name: 'Soft Lavender Mist', role: 'Kartu Spesifikasi, Garis Pemisah Halus & Aksen Bilik Hening' },
+      { hex: '#EEF1FF', rgb: 'rgb(238, 241, 255)', name: 'Whisper Cloud Porcelain', role: 'Kanvas Latar Belakang Utama, Tekstil Linen & Atmosfer Kamar Tidur' }
+    ]
   }
 ];
 

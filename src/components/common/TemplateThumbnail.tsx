@@ -109,6 +109,7 @@ export const TemplateThumbnail: React.FC<Props> = ({
     'cyano-blueprint-architecture': 'https://cyano.architecture.nector.ui',
     'resonance-analog-audio': 'https://resonance.audio.nector.ui',
     'axis-mechanical-keyboards': 'https://axis.keyboards.nector.ui',
+    'somna-sleep-sanctuary': 'https://somna.sleep.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

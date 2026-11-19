@@ -1,0 +1,2689 @@
+<!-- SOMNA (ソムナ) — Ergonomic Sleep Sanctuary & Circadian Chronobiology Lab -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOMNA — Ergonomic Sleep Sanctuary & Circadian Chronobiology Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --somna-whisper: #EEF1FF;
+      --somna-mist: #D2DAFF;
+      --somna-sky: #AAC4FF;
+      --somna-periwinkle: #B1B2FF;
+      --somna-ink: #141624;
+      --somna-ink-light: #32354A;
+      --somna-muted: #656985;
+      --somna-border: rgba(177, 178, 255, 0.35);
+      --somna-border-strong: rgba(171, 196, 255, 0.7);
+      --somna-surface: #FFFFFF;
+      --somna-surface-card: rgba(255, 255, 255, 0.85);
+      --somna-surface-tint: rgba(238, 241, 255, 0.6);
+      
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+      
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+      
+      --shadow-soft: 0 4px 20px -2px rgba(20, 22, 36, 0.05);
+      --shadow-hover: 0 12px 30px -4px rgba(177, 178, 255, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--somna-whisper);
+      color: var(--somna-ink);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--somna-whisper);
+      color: var(--somna-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background mesh */
+    .bg-mesh-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background: 
+        radial-gradient(circle at 15% 15%, rgba(177, 178, 255, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 85% 30%, rgba(170, 196, 255, 0.22) 0%, transparent 50%),
+        radial-gradient(circle at 50% 85%, rgba(210, 218, 255, 0.25) 0%, transparent 60%);
+      opacity: 0.9;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-feature-settings: "tnum";
+    }
+
+    /* Top Chronometer Ticker */
+    .top-telemetry-bar {
+      background: rgba(20, 22, 36, 0.96);
+      color: var(--somna-mist);
+      padding: 7px 16px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(177, 178, 255, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 50;
+    }
+
+    .telemetry-items {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .telemetry-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .telemetry-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--somna-periwinkle);
+      box-shadow: 0 0 8px var(--somna-periwinkle);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .telemetry-right {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .telemetry-badge {
+      background: rgba(177, 178, 255, 0.15);
+      border: 1px solid rgba(177, 178, 255, 0.3);
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      font-size: 10px;
+      color: #FFFFFF;
+    }
+
+    /* Main Navigation Header */
+    header.site-header {
+      background: rgba(238, 241, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--somna-border);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 16px 0;
+      transition: all 0.2s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--somna-ink);
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--somna-periwinkle), var(--somna-sky));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--somna-ink);
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 2px 8px rgba(177, 178, 255, 0.4);
+    }
+
+    .brand-text h1 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      color: var(--somna-muted);
+      text-transform: uppercase;
+      display: block;
+      margin-top: 2px;
+    }
+
+    nav.main-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav.main-nav a {
+      text-decoration: none;
+      color: var(--somna-ink-light);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.15s ease;
+      position: relative;
+    }
+
+    nav.main-nav a:hover,
+    nav.main-nav a.active {
+      color: var(--somna-ink);
+    }
+
+    nav.main-nav a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: var(--somna-periwinkle);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-sound-toggle {
+      background: var(--somna-surface);
+      border: 1px solid var(--somna-border);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--somna-ink);
+      transition: all 0.15s ease;
+    }
+
+    .btn-sound-toggle:hover {
+      background: var(--somna-mist);
+      border-color: var(--somna-periwinkle);
+    }
+
+    .btn-sound-toggle.playing {
+      background: var(--somna-periwinkle);
+      color: #FFFFFF;
+      border-color: var(--somna-periwinkle);
+    }
+
+    .btn-book-session {
+      background: var(--somna-ink);
+      color: #FFFFFF;
+      border: none;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-book-session:hover {
+      background: #24273E;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(20, 22, 36, 0.2);
+    }
+
+    /* Cart Button */
+    .btn-cart-toggle {
+      background: transparent;
+      border: 1px solid var(--somna-border);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .cart-count-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--somna-periwinkle);
+      color: #FFFFFF;
+      font-size: 10px;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* Hero Section */
+    section.hero-section {
+      padding: 72px 0 64px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-meta-kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--somna-muted);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .hero-tag-pill {
+      background: rgba(177, 178, 255, 0.22);
+      color: var(--somna-ink);
+      border: 1px solid var(--somna-border-strong);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 10px;
+    }
+
+    h2.hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 4.4vw, 56px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--somna-ink);
+      margin-bottom: 22px;
+    }
+
+    h2.hero-title em {
+      font-style: italic;
+      color: #3B3F63;
+      border-bottom: 1.5px solid var(--somna-periwinkle);
+    }
+
+    p.hero-lead {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--somna-ink-light);
+      max-width: 540px;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .hero-actions-row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary-lead {
+      background: var(--somna-ink);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+    }
+
+    .btn-primary-lead:hover {
+      background: #252840;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(20, 22, 36, 0.2);
+    }
+
+    .btn-secondary-lead {
+      background: var(--somna-surface);
+      color: var(--somna-ink);
+      text-decoration: none;
+      border: 1px solid var(--somna-border);
+      padding: 13px 22px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+    }
+
+    .btn-secondary-lead:hover {
+      background: var(--somna-mist);
+      border-color: var(--somna-periwinkle);
+    }
+
+    .hero-stat-badges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--somna-border);
+    }
+
+    .stat-badge-block span.val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--somna-ink);
+      display: block;
+      line-height: 1.1;
+    }
+
+    .stat-badge-block span.lbl {
+      font-size: 11.5px;
+      color: var(--somna-muted);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* Circadian Chamber Interactive Simulator Card */
+    .circadian-chamber-card {
+      background: var(--somna-surface-card);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-hover);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .card-glass-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--somna-border);
+    }
+
+    .cgh-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--somna-ink);
+    }
+
+    .cgh-badge {
+      background: rgba(177, 178, 255, 0.25);
+      border: 1px solid var(--somna-border-strong);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      color: var(--somna-ink);
+    }
+
+    /* Dynamic Chamber Room Display */
+    .chamber-room-viewport {
+      height: 230px;
+      border-radius: var(--radius-md);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 1px solid rgba(177, 178, 255, 0.3);
+      transition: background 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+    }
+
+    .room-overlay-ambient {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .room-header-telemetry {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .room-spec-chip {
+      background: rgba(20, 22, 36, 0.7);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 10.5px;
+      font-family: var(--font-mono);
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .room-silhouette {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .bed-art-vector {
+      width: 140px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 6px 6px 0 0;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--somna-ink);
+    }
+
+    .melatonin-gauge {
+      background: rgba(20, 22, 36, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      text-align: right;
+      color: #FFFFFF;
+    }
+
+    .melatonin-gauge span.num {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--somna-periwinkle);
+    }
+
+    .melatonin-gauge span.lbl {
+      font-size: 9.5px;
+      display: block;
+      color: var(--somna-mist);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* 24h Slider Control */
+    .circadian-slider-wrap {
+      margin-bottom: 20px;
+    }
+
+    .slider-labels-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--somna-muted);
+      margin-bottom: 8px;
+    }
+
+    .slider-labels-row span.current-time {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--somna-ink);
+      font-size: 12px;
+    }
+
+    input[type=range].somna-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(to right, #B1B2FF 0%, #D2DAFF 25%, #FFF6E0 50%, #FFD6A5 75%, #141624 100%);
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type=range].somna-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--somna-surface);
+      border: 3px solid var(--somna-periwinkle);
+      box-shadow: 0 2px 8px rgba(20, 22, 36, 0.25);
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+
+    input[type=range].somna-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    /* Circadian Phase Details Grid */
+    .circadian-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .c-metric-cell {
+      background: rgba(238, 241, 255, 0.5);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+    }
+
+    .c-metric-cell .label {
+      font-size: 9.5px;
+      color: var(--somna-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .c-metric-cell .val {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--somna-ink);
+    }
+
+    .c-phase-desc-box {
+      background: var(--somna-surface);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--somna-ink-light);
+      line-height: 1.5;
+    }
+
+    /* Section Headings */
+    .section-editorial-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 52px;
+    }
+
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555A7B;
+      display: inline-block;
+      margin-bottom: 12px;
+      background: rgba(177, 178, 255, 0.25);
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+    }
+
+    .section-editorial-title {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 3.2vw, 42px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+
+    .section-editorial-desc {
+      font-size: 15px;
+      color: var(--somna-muted);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       SECTION 2: BIOMECHANICAL 7-ZONE LATEX SPINE EXPLORER
+       ========================================================= */
+    section.spine-biomechanics-section {
+      padding: 64px 0 80px;
+      border-top: 1px solid var(--somna-border);
+      position: relative;
+    }
+
+    .spine-explorer-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 40px;
+      align-items: center;
+      background: var(--somna-surface-card);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .posture-selector-group {
+      margin-bottom: 24px;
+    }
+
+    .posture-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--somna-muted);
+      margin-bottom: 10px;
+      display: block;
+      font-weight: 600;
+    }
+
+    .posture-btn-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .posture-btn {
+      background: var(--somna-surface);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .posture-btn.active {
+      background: var(--somna-periwinkle);
+      color: #FFFFFF;
+      border-color: var(--somna-periwinkle);
+      box-shadow: 0 4px 12px rgba(177, 178, 255, 0.4);
+    }
+
+    .posture-btn span.title {
+      font-size: 12px;
+      font-weight: 700;
+      display: block;
+    }
+
+    .posture-btn span.sub {
+      font-size: 10px;
+      opacity: 0.8;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Latex Core Density Selector */
+    .latex-density-wrap {
+      margin-bottom: 28px;
+    }
+
+    .density-pill-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .density-pill {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--somna-surface);
+      border: 1px solid var(--somna-border);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-size: 11.5px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .density-pill.active {
+      background: var(--somna-sky);
+      border-color: var(--somna-sky);
+      color: #141624;
+      font-weight: 700;
+    }
+
+    /* Spine Vector & Pressure Display Stage */
+    .spine-visual-stage {
+      background: var(--somna-surface);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+    }
+
+    .spine-svg-container {
+      width: 100%;
+      height: 180px;
+      position: relative;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg.spine-canvas {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* 7-Zone Pressure Telemetry Table */
+    .zones-pressure-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .zone-cell {
+      background: var(--somna-whisper);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+    }
+
+    .zone-cell span.name {
+      font-size: 10px;
+      color: var(--somna-muted);
+      display: block;
+    }
+
+    .zone-cell span.pressure {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--somna-ink);
+    }
+
+    .zone-cell span.status {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #2F855A;
+      display: block;
+    }
+
+    /* =========================================================
+       SECTION 3: BINAURAL SOUNDSCAPE & WEBAUDIO DELTA SYNTH
+       ========================================================= */
+    section.soundscape-section {
+      padding: 72px 0 80px;
+      position: relative;
+    }
+
+    .soundscape-card {
+      background: linear-gradient(145deg, #181B2E 0%, #101220 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      border: 1px solid rgba(177, 178, 255, 0.2);
+      box-shadow: 0 16px 40px -10px rgba(16, 18, 32, 0.35);
+    }
+
+    .soundscape-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .soundscape-header h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .soundscape-header p {
+      font-size: 13px;
+      color: var(--somna-mist);
+      margin-top: 3px;
+    }
+
+    .soundscape-controls-main {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-master-audio {
+      background: var(--somna-periwinkle);
+      color: #141624;
+      border: none;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-master-audio:hover {
+      background: #C4C5FF;
+      transform: scale(1.02);
+    }
+
+    .soundwave-visualizer-canvas {
+      width: 100%;
+      height: 80px;
+      border-radius: var(--radius-md);
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(177, 178, 255, 0.15);
+      margin-bottom: 30px;
+    }
+
+    .audio-channels-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .channel-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      transition: all 0.2s ease;
+    }
+
+    .channel-box.active {
+      border-color: var(--somna-sky);
+      background: rgba(170, 196, 255, 0.1);
+    }
+
+    .channel-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .channel-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .channel-freq {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--somna-mist);
+    }
+
+    .channel-toggle-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 11px;
+      transition: all 0.15s ease;
+    }
+
+    .channel-box.active .channel-toggle-btn {
+      background: var(--somna-periwinkle);
+      color: #141624;
+      border-color: var(--somna-periwinkle);
+    }
+
+    .channel-volume-slider {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .channel-volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--somna-sky);
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       SECTION 4: BESPOKE PILLOW LOFT & FILL CALCULATOR
+       ========================================================= */
+    section.pillow-calculator-section {
+      padding: 72px 0 80px;
+      border-top: 1px solid var(--somna-border);
+      position: relative;
+    }
+
+    .calc-card-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      background: var(--somna-surface-card);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .calc-inputs-col {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .calc-input-block label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--somna-ink);
+      margin-bottom: 8px;
+    }
+
+    .calc-input-block label span.cur-val {
+      font-family: var(--font-mono);
+      color: #383D62;
+    }
+
+    .calc-result-box {
+      background: var(--somna-whisper);
+      border: 1px solid var(--somna-border-strong);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .res-heading {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--somna-muted);
+      margin-bottom: 12px;
+    }
+
+    .res-loft-display {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      line-height: 1;
+      color: var(--somna-ink);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .res-loft-display span.unit {
+      font-size: 22px;
+      font-family: var(--font-sans);
+      color: var(--somna-muted);
+    }
+
+    .res-spec-table {
+      margin: 20px 0;
+      border-top: 1px solid var(--somna-border);
+      padding-top: 16px;
+    }
+
+    .res-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      margin-bottom: 8px;
+    }
+
+    .res-row span.k { color: var(--somna-muted); }
+    .res-row span.v { font-weight: 600; color: var(--somna-ink); font-family: var(--font-mono); }
+
+    /* =========================================================
+       SECTION 5: CURATED SLEEP COLLECTION (ETALASE PRODUK)
+       ========================================================= */
+    section.collection-section {
+      padding: 72px 0 88px;
+      border-top: 1px solid var(--somna-border);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--somna-surface);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.22s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--somna-sky);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .product-img-wrap {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #ECEFFB;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .product-tag-chip {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(20, 22, 36, 0.85);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 9.5px;
+      font-family: var(--font-mono);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+    }
+
+    .product-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-category-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--somna-muted);
+      margin-bottom: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .product-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--somna-ink);
+      margin-bottom: 8px;
+    }
+
+    .product-desc {
+      font-size: 12px;
+      color: var(--somna-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .product-specs-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .spec-micro-chip {
+      background: var(--somna-whisper);
+      border: 1px solid var(--somna-border);
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      color: var(--somna-ink-light);
+      font-family: var(--font-mono);
+    }
+
+    .product-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--somna-border);
+      padding-top: 14px;
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--somna-ink);
+    }
+
+    .btn-add-cart {
+      background: var(--somna-whisper);
+      border: 1px solid var(--somna-border-strong);
+      color: var(--somna-ink);
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-add-cart:hover {
+      background: var(--somna-periwinkle);
+      color: #FFFFFF;
+      border-color: var(--somna-periwinkle);
+    }
+
+    /* =========================================================
+       SECTION 6: PRIVATE SLEEP POD & SENSORY BOOKING
+       ========================================================= */
+    section.booking-section {
+      padding: 72px 0 88px;
+      border-top: 1px solid var(--somna-border);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      background: var(--somna-surface-card);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .booking-info-col h3 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 14px;
+    }
+
+    .booking-info-col p {
+      font-size: 14px;
+      color: var(--somna-ink-light);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .booking-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .b-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--somna-ink);
+    }
+
+    .b-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--somna-periwinkle);
+    }
+
+    .booking-form-col {
+      background: var(--somna-surface);
+      border: 1px solid var(--somna-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--somna-ink);
+    }
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--somna-border);
+      background: var(--somna-whisper);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--somna-ink);
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      border-color: var(--somna-periwinkle);
+      background: #FFFFFF;
+    }
+
+    .btn-submit-booking {
+      width: 100%;
+      background: var(--somna-ink);
+      color: #FFFFFF;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      margin-top: 8px;
+    }
+
+    .btn-submit-booking:hover {
+      background: #252840;
+      transform: translateY(-1px);
+    }
+
+    /* Cart Slide-Over Drawer */
+    .cart-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 22, 36, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .cart-drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      background: var(--somna-surface);
+      z-index: 101;
+      box-shadow: -6px 0 24px rgba(0, 0, 0, 0.15);
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer-backdrop.open .cart-drawer-panel {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--somna-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-header h4 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .btn-close-drawer {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--somna-muted);
+    }
+
+    .drawer-items-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--somna-border);
+    }
+
+    .drawer-item-info h5 {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .drawer-item-info span {
+      font-size: 11px;
+      color: var(--somna-muted);
+      font-family: var(--font-mono);
+    }
+
+    .btn-remove-item {
+      background: none;
+      border: none;
+      color: #E53E3E;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--somna-border);
+      background: var(--somna-whisper);
+    }
+
+    .drawer-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      background: #25D366;
+      color: #FFFFFF;
+      border: none;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.15s ease;
+    }
+
+    .btn-checkout-wa:hover {
+      background: #1EBE5D;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background: #141624;
+      color: #FFFFFF;
+      padding: 60px 0 32px;
+      border-top: 1px solid rgba(177, 178, 255, 0.2);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h4 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--somna-mist);
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .footer-col h5 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--somna-periwinkle);
+      margin-bottom: 14px;
+      font-family: var(--font-mono);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col ul a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.15s ease;
+    }
+
+    .footer-col ul a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11.5px;
+      color: var(--somna-mist);
+      font-family: var(--font-mono);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .spine-explorer-layout,
+      .calc-card-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .audio-channels-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav.main-nav { display: none; }
+      .products-grid { grid-template-columns: 1fr; }
+      .audio-channels-grid { grid-template-columns: 1fr; }
+      .hero-stat-badges { grid-template-columns: 1fr; gap: 12px; }
+      .zones-pressure-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom-row { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh-canvas"></div>
+
+  <!-- Top Telemetry & Circadian Ticker -->
+  <div class="top-telemetry-bar mono">
+    <div class="telemetry-items">
+      <div class="telemetry-item">
+        <span class="telemetry-dot"></span>
+        <span>STATUS: BILIK SIRKADIAN AKTIF</span>
+      </div>
+      <div class="telemetry-item">
+        <span>SUHU OPTIMAL: 19.8°C</span>
+      </div>
+      <div class="telemetry-item">
+        <span>KELEMBAPAN: 52% RH</span>
+      </div>
+      <div class="telemetry-item">
+        <span>KONTUR 7-ZONA DUNLOP HEVEA</span>
+      </div>
+    </div>
+    <div class="telemetry-right">
+      <span class="telemetry-badge">ISO 9001 · GOLS CERTIFIED</span>
+      <span id="live-time-display">20:45 WIB</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-logo">
+        <div class="brand-mark">S</div>
+        <div class="brand-text">
+          <h1>SOMNA</h1>
+          <span>Sleep Sanctuary & Chronobiology Lab</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#circadian" class="active">Simulator Sirkadian</a>
+        <a href="#biomekanik">Biomekanik Tulang</a>
+        <a href="#soundscape">Soundscape Delta</a>
+        <a href="#kalkulator">Kalkulator Bantal</a>
+        <a href="#koleksi">Koleksi Tidur</a>
+        <a href="#reservasi">Reservasi Bilik</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-sound-toggle" id="header-sound-btn" onclick="toggleMasterSound()">
+          <span>🔊</span>
+          <span id="header-sound-text">Soundscape Off</span>
+        </button>
+
+        <button class="btn-cart-toggle" onclick="toggleCartDrawer()">
+          <span>Keranjang</span>
+          <span class="cart-count-badge" id="cart-badge-count">0</span>
+        </button>
+
+        <button class="btn-book-session" onclick="document.getElementById('reservasi').scrollIntoView({behavior:'smooth'})">
+          <span>Bilik Privat</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Asymmetric Layout & Circadian Chamber -->
+  <section class="hero-section" id="circadian">
+    <div class="container hero-grid">
+      <!-- Left Column: Philosophy & Bio-Architecture -->
+      <div class="hero-left-col">
+        <div class="hero-meta-kicker mono">
+          <span class="hero-tag-pill">ATELIER ERGONOMI TIDUR</span>
+          <span>EST. 2026 · DAGO ATAS BANDUNG</span>
+        </div>
+
+        <h2 class="hero-title">
+          Kemurnian istirahat dalam <em>keselarasan sirkadian</em> dan topangan anatomis lateks 7-zona.
+        </h2>
+
+        <p class="hero-lead">
+          SOMNA merancang ekosistem tidur terkalibrasi secara saintifik: peredaman gelombang biru 1.800K, distribusi tekanan kapiler di bawah 20 mmHg, dan resonansi akustik hening gelombang Delta 2.5Hz.
+        </p>
+
+        <div class="hero-actions-row">
+          <a href="#biomekanik" class="btn-primary-lead">
+            <span>Uji Biomekanik Tulang Belakang</span>
+            <span>↓</span>
+          </a>
+          <a href="#soundscape" class="btn-secondary-lead">
+            <span>Dengarkan Frekuensi REM</span>
+          </a>
+        </div>
+
+        <div class="hero-stat-badges">
+          <div class="stat-badge-block">
+            <span class="val">18.4 mmHg</span>
+            <span class="lbl">Tekanan Puncak Bahu (Aman &lt;32 mmHg)</span>
+          </div>
+          <div class="stat-badge-block">
+            <span class="val">99.4%</span>
+            <span class="lbl">Zero Motion Isolation</span>
+          </div>
+          <div class="stat-badge-block">
+            <span class="val">100% Organik</span>
+            <span class="lbl">Getah Hevea Brasiliensis</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Circadian Chamber Simulator -->
+      <div class="hero-right-col">
+        <div class="circadian-chamber-card">
+          <div class="card-glass-header">
+            <div class="cgh-title">
+              <span>●</span>
+              <span>Simulator Spektrum Sirkadian 24-Jam</span>
+            </div>
+            <span class="cgh-badge mono" id="spectrum-kelvin-badge">2.000K AMBER</span>
+          </div>
+
+          <!-- Dynamic Room Viewport -->
+          <div class="chamber-room-viewport" id="chamber-viewport" style="background: linear-gradient(135deg, #1C1E34 0%, #2A2D48 100%);">
+            <div class="room-overlay-ambient"></div>
+            
+            <div class="room-header-telemetry">
+              <div class="room-spec-chip">
+                <span>SPEKTRUM:</span>
+                <strong id="ambient-spectrum-name">Melatonin Phase</strong>
+              </div>
+              <div class="room-spec-chip">
+                <span>INTENSITAS:</span>
+                <strong id="ambient-lux-val">12 Lux</strong>
+              </div>
+            </div>
+
+            <div class="room-silhouette">
+              <div class="bed-art-vector">
+                <span>SOMNA BED 7-ZONA</span>
+              </div>
+              <div class="melatonin-gauge">
+                <span class="num" id="melatonin-percent">88%</span>
+                <span class="lbl">Sekresi Melatonin</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slider -->
+          <div class="circadian-slider-wrap">
+            <div class="slider-labels-row">
+              <span>Fajar (06:00)</span>
+              <span>Zenit (12:00)</span>
+              <span>Senja (18:00)</span>
+              <span class="current-time" id="slider-time-label">21:00 WIB</span>
+            </div>
+            <input 
+              type="range" 
+              class="somna-slider" 
+              id="circadian-range" 
+              min="0" 
+              max="24" 
+              step="0.5" 
+              value="21"
+              oninput="updateCircadianChamber(this.value)"
+            >
+          </div>
+
+          <div class="circadian-metrics-grid">
+            <div class="c-metric-cell">
+              <span class="label">Suhu Cahaya</span>
+              <span class="val" id="metric-kelvin">2.000 Kelvin</span>
+            </div>
+            <div class="c-metric-cell">
+              <span class="label">Peredaman Biru</span>
+              <span class="val" id="metric-blue-block">98.5% Blok</span>
+            </div>
+            <div class="c-metric-cell">
+              <span class="label">Gelombang Otak</span>
+              <span class="val" id="metric-brainwave">Theta / Delta</span>
+            </div>
+          </div>
+
+          <div class="c-phase-desc-box" id="phase-desc-text">
+            <strong>Fase Hening Melatonin:</strong> Fotoreseptor ipRGC retina menerima spektrum merah hangat, memicu pelepasan hormon melatonin secara alami dan menurunkan denyut nadi istirahat.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Biomechanical Spine Explorer -->
+  <section class="spine-biomechanics-section" id="biomekanik">
+    <div class="container">
+      <div class="section-editorial-header">
+        <span class="section-kicker">LABORATORIUM ERGONOMI TULANG</span>
+        <h2 class="section-editorial-title">Peta Kontur & Distribusi Tekanan 7-Zona</h2>
+        <p class="section-editorial-desc">
+          Setiap lekuk tubuh manusia memiliki bobot massa yang berbeda. Matras lateks alam SOMNA membagi elastisitas ke dalam 7 zona independen agar tulang belakang tetap horizontal sempurna.
+        </p>
+      </div>
+
+      <div class="spine-explorer-layout">
+        <!-- Controls Column -->
+        <div class="spine-controls-col">
+          <div class="posture-selector-group">
+            <span class="posture-label">Pilih Postur Tidur Utama Anda:</span>
+            <div class="posture-btn-group">
+              <button class="posture-btn active" id="btn-posture-side" onclick="setSleeperPosture('side')">
+                <span class="title">Tidur Miring</span>
+                <span class="sub">Side Sleeper</span>
+              </button>
+              <button class="posture-btn" id="btn-posture-back" onclick="setSleeperPosture('back')">
+                <span class="title">Telentang</span>
+                <span class="sub">Back Sleeper</span>
+              </button>
+              <button class="posture-btn" id="btn-posture-stomach" onclick="setSleeperPosture('stomach')">
+                <span class="title">Tengkurap</span>
+                <span class="sub">Stomach Sleeper</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="latex-density-wrap">
+            <span class="posture-label">Kepadatan Inti Getah Lateks (Dunlop Density):</span>
+            <div class="density-pill-row">
+              <button class="density-pill" onclick="setLatexDensity('65D', this)">Soft 65D (&lt;60 kg)</button>
+              <button class="density-pill active" onclick="setLatexDensity('75D', this)">Medium 75D (60-85 kg)</button>
+              <button class="density-pill" onclick="setLatexDensity('85D', this)">Firm 85D (&gt;85 kg)</button>
+            </div>
+          </div>
+
+          <div class="c-phase-desc-box" id="posture-diagnosis-box">
+            <strong>Analisis Postur Miring:</strong> Zona 2 (Bahu) dan Zona 5 (Panggul) menerima peredaman kontur ekstra lembut 18 mm, menjaga garis tulang leher hingga lumbar tetap sejajar lurus tanpa tekanan saraf terjepit.
+          </div>
+        </div>
+
+        <!-- Visual Stage Column -->
+        <div class="spine-visual-stage">
+          <div class="spine-svg-container">
+            <svg class="spine-canvas" viewBox="0 0 500 120">
+              <!-- Bed Base Line -->
+              <line x1="20" y1="95" x2="480" y2="95" stroke="#D2DAFF" stroke-width="3" stroke-dasharray="4 4" />
+              <!-- Latex Mattress Surface Layer -->
+              <rect x="20" y="70" width="460" height="24" rx="4" fill="#EEF1FF" stroke="#B1B2FF" stroke-width="1.5" />
+              <!-- Spine Curve Path -->
+              <path id="spine-svg-path" d="M 40,55 Q 120,40 200,56 T 340,52 T 460,54" fill="none" stroke="#B1B2FF" stroke-width="4.5" stroke-linecap="round" />
+              
+              <!-- Pressure Indicator Dots -->
+              <circle id="dot-shoulder" cx="130" cy="50" r="7" fill="#B1B2FF" stroke="#FFFFFF" stroke-width="2.5" />
+              <circle id="dot-lumbar" cx="240" cy="54" r="6" fill="#AAC4FF" stroke="#FFFFFF" stroke-width="2.5" />
+              <circle id="dot-pelvis" cx="330" cy="52" r="7" fill="#B1B2FF" stroke="#FFFFFF" stroke-width="2.5" />
+            </svg>
+          </div>
+
+          <!-- 7-Zone Real Pressure Telemetry -->
+          <div class="zones-pressure-grid">
+            <div class="zone-cell">
+              <span class="name">Z1: Kepala & Leher</span>
+              <span class="pressure" id="p-z1">12.4 mmHg</span>
+              <span class="status">Optimal</span>
+            </div>
+            <div class="zone-cell">
+              <span class="name">Z2: Bahu & Belikat</span>
+              <span class="pressure" id="p-z2">17.8 mmHg</span>
+              <span class="status">Lega &lt;20</span>
+            </div>
+            <div class="zone-cell">
+              <span class="name">Z3: Tulang Belakang</span>
+              <span class="pressure" id="p-z3">14.1 mmHg</span>
+              <span class="status">Netral</span>
+            </div>
+            <div class="zone-cell">
+              <span class="name">Z4: Pinggang / Lumbar</span>
+              <span class="pressure" id="p-z4">15.6 mmHg</span>
+              <span class="status">Tertopang</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Web Audio Binaural Delta Synthesizer -->
+  <section class="soundscape-section" id="soundscape">
+    <div class="container">
+      <div class="soundscape-card">
+        <div class="soundscape-header">
+          <div>
+            <h3>Laboratorium Akustik Gelombang Delta 2.5Hz</h3>
+            <p>Frekuensi hening sintesis heksagonal untuk mempercepat transisi fase tidur NREM-3 dan perbaikan jaringan selular.</p>
+          </div>
+          <div class="soundscape-controls-main">
+            <button class="btn-master-audio" id="master-synth-btn" onclick="toggleMasterSound()">
+              <span id="synth-btn-icon">▶</span>
+              <span id="synth-btn-label">Putar Soundscape Tidur</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Real Canvas Visualizer -->
+        <canvas class="soundwave-visualizer-canvas" id="audio-visualizer-canvas" width="1000" height="80"></canvas>
+
+        <!-- 4 Sound Channels -->
+        <div class="audio-channels-grid">
+          <!-- Channel 1 -->
+          <div class="channel-box active" id="chan-box-1">
+            <div class="channel-top-row">
+              <div>
+                <div class="channel-title">🌧️ Hujan Rintik Glasial</div>
+                <div class="channel-freq">Pink Noise · 432 Hz</div>
+              </div>
+              <button class="channel-toggle-btn" onclick="toggleChannel(1)">✓</button>
+            </div>
+            <input type="range" class="channel-volume-slider" min="0" max="1" step="0.05" value="0.6" oninput="setChannelVol(1, this.value)">
+          </div>
+
+          <!-- Channel 2 -->
+          <div class="channel-box active" id="chan-box-2">
+            <div class="channel-top-row">
+              <div>
+                <div class="channel-title">🌲 Angin Hutan Pinus</div>
+                <div class="channel-freq">Low-Pass Filter · 128 Hz</div>
+              </div>
+              <button class="channel-toggle-btn" onclick="toggleChannel(2)">✓</button>
+            </div>
+            <input type="range" class="channel-volume-slider" min="0" max="1" step="0.05" value="0.45" oninput="setChannelVol(2, this.value)">
+          </div>
+
+          <!-- Channel 3 -->
+          <div class="channel-box active" id="chan-box-3">
+            <div class="channel-top-row">
+              <div>
+                <div class="channel-title">🌊 Desir Ombak Tengah Malam</div>
+                <div class="channel-freq">LFO Resonator · 0.1 Hz</div>
+              </div>
+              <button class="channel-toggle-btn" onclick="toggleChannel(3)">✓</button>
+            </div>
+            <input type="range" class="channel-volume-slider" min="0" max="1" step="0.05" value="0.5" oninput="setChannelVol(3, this.value)">
+          </div>
+
+          <!-- Channel 4 -->
+          <div class="channel-box active" id="chan-box-4">
+            <div class="channel-top-row">
+              <div>
+                <div class="channel-title">🧘 Gelombang Delta Murni</div>
+                <div class="channel-freq">Binaural Beat · 2.5 Hz (REM)</div>
+              </div>
+              <button class="channel-toggle-btn" onclick="toggleChannel(4)">✓</button>
+            </div>
+            <input type="range" class="channel-volume-slider" min="0" max="1" step="0.05" value="0.7" oninput="setChannelVol(4, this.value)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Bespoke Pillow Loft & Fill Calculator -->
+  <section class="pillow-calculator-section" id="kalkulator">
+    <div class="container">
+      <div class="section-editorial-header">
+        <span class="section-kicker">PRESISI KETINGGIAN BANTAL</span>
+        <h2 class="section-editorial-title">Kalkulator Ketinggian Bantal (Loft) & Gramatur</h2>
+        <p class="section-editorial-desc">
+          Bantal yang terlalu tinggi menyebabkan hiperfleksi leher; terlalu rendah memicu ketegangan saraf servikal. Masukkan dimensi bahu untuk mendapatkan ukuran sentimeter presisi.
+        </p>
+      </div>
+
+      <div class="calc-card-grid">
+        <div class="calc-inputs-col">
+          <div class="calc-input-block">
+            <label>
+              <span>Lebar Bahu ke Leher (Bi-Acromial):</span>
+              <span class="cur-val" id="lbl-shoulder-val">14 cm</span>
+            </label>
+            <input type="range" class="somna-slider" min="9" max="22" step="0.5" value="14" oninput="recalcPillow(this.value, null, null)">
+          </div>
+
+          <div class="calc-input-block">
+            <label>
+              <span>Tingkat Kelunakan Matras:</span>
+              <span class="cur-val" id="lbl-mat-val">Medium (75D)</span>
+            </label>
+            <input type="range" class="somna-slider" min="1" max="3" step="1" value="2" oninput="recalcPillow(null, this.value, null)">
+          </div>
+
+          <div class="calc-input-block">
+            <label>
+              <span>Preferensi Pengisian Alami:</span>
+              <span class="cur-val" id="lbl-fill-val">Bulu Angsa Putih 90/10</span>
+            </label>
+            <input type="range" class="somna-slider" min="1" max="3" step="1" value="1" oninput="recalcPillow(null, null, this.value)">
+          </div>
+        </div>
+
+        <div class="calc-result-box">
+          <div>
+            <span class="res-heading">Rekomendasi Profil Servikal</span>
+            <div class="res-loft-display">
+              <span id="res-loft-cm">11.2</span>
+              <span class="unit">cm loft</span>
+            </div>
+            <p style="font-size: 13px; color: var(--somna-muted);">Sudut inklinasi servikal tepat 15° relatif terhadap tulang dada.</p>
+          </div>
+
+          <div class="res-spec-table">
+            <div class="res-row">
+              <span class="k">Gramatur Pengisian:</span>
+              <span class="v" id="res-grammage">950 Gram</span>
+            </div>
+            <div class="res-row">
+              <span class="k">Ukuran Sarung Bantal:</span>
+              <span class="v">50 × 75 cm (King)</span>
+            </div>
+            <div class="res-row">
+              <span class="k">Struktur Chamber:</span>
+              <span class="v">3-Tier Internal Core</span>
+            </div>
+          </div>
+
+          <button class="btn-primary-lead" style="width: 100%; justify-content: center;" onclick="addCustomPillowToCart()">
+            <span>Pesan Bantal Sesuai Ukuran Ini</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Curated Sleep Collection -->
+  <section class="collection-section" id="koleksi">
+    <div class="container">
+      <div class="section-editorial-header">
+        <span class="section-kicker">KATALOG PERLENGKAPAN TIDUR</span>
+        <h2 class="section-editorial-title">Koleksi Kriya Organik & Tekstil Dingin</h2>
+        <p class="section-editorial-desc">
+          Seluruh produk diproduksi menggunakan bahan mentah bersertifikat tanpa pestisida, tanpa pemutih kimia sintetis, dan ramah terhadap kulit sensitif.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Matras Lateks Organik SOMNA Horizon">
+            <span class="product-tag-chip">7-ZONA DUNLOP</span>
+          </div>
+          <div class="product-content">
+            <div class="product-category-row">
+              <span>MATRAS INTI</span>
+              <span>180 × 200 CM</span>
+            </div>
+            <h4 class="product-title">SOMNA Horizon Mattress</h4>
+            <p class="product-desc">Inti lateks alam monoblok 22 cm dari perkebunan organik bersertifikat GOLS dengan ventilasi heksagonal mikro.</p>
+            <div class="product-specs-chips">
+              <span class="spec-micro-chip">Hevea 100%</span>
+              <span class="spec-micro-chip">Density 75D</span>
+              <span class="spec-micro-chip">Zero-Motion</span>
+            </div>
+            <div class="product-footer-row">
+              <span class="product-price">Rp 18.500.000</span>
+              <button class="btn-add-cart" onclick="addToCart('SOMNA Horizon Mattress 180x200', 18500000)">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1629949009765-40fc74c9521b?auto=format&fit=crop&w=800&q=80" alt="Sarung Bantal Sutra Murbei SOMNA">
+            <span class="product-tag-chip">22 MOMME SUTRA</span>
+          </div>
+          <div class="product-content">
+            <div class="product-category-row">
+              <span>SARUNG BANTAL</span>
+              <span>WISTERIA ICE</span>
+            </div>
+            <h4 class="product-title">Mulberry Silk Pillowcase</h4>
+            <p class="product-desc">Sutra Murbei murni Grade 6A dengan kerapatan 22 Momme, menjaga kelembapan kulit dan mencegah gesekan rambut saat tidur.</p>
+            <div class="product-specs-chips">
+              <span class="spec-micro-chip">Grade 6A Silk</span>
+              <span class="spec-micro-chip">OEKO-TEX 100</span>
+              <span class="spec-micro-chip">Hypoallergenic</span>
+            </div>
+            <div class="product-footer-row">
+              <span class="product-price">Rp 980.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Mulberry Silk Pillowcase (Pair)', 980000)">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80" alt="Selimut Kaca Mikro Weighted Blanket">
+            <span class="product-tag-chip">7.5 KG CALMING</span>
+          </div>
+          <div class="product-content">
+            <div class="product-category-row">
+              <span>DEEP PRESSURE</span>
+              <span>PERIWINKLE CALM</span>
+            </div>
+            <h4 class="product-title">Gravitas Weighted Quilt</h4>
+            <p class="product-desc">Selimut stimulasi sentuhan tekanan dalam (DTP) dengan butiran kaca mikro kuarsa 0.8mm yang terdistribusi merata dalam 180 saku jahitan.</p>
+            <div class="product-specs-chips">
+              <span class="spec-micro-chip">Kaca Mikro 0.8mm</span>
+              <span class="spec-micro-chip">Katun Bambu</span>
+              <span class="spec-micro-chip">Anti-Gumpal</span>
+            </div>
+            <div class="product-footer-row">
+              <span class="product-price">Rp 2.450.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Gravitas Weighted Quilt 7.5kg', 2450000)">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80" alt="Botanical Sleep Mist Lavender Glasial">
+            <span class="product-tag-crop">APOTHECARY 100ML</span>
+          </div>
+          <div class="product-content">
+            <div class="product-category-row">
+              <span>AROMATERAPI BOTANI</span>
+              <span>100 ML SPRAY</span>
+            </div>
+            <h4 class="product-title">Nox Circadian Sleep Mist</h4>
+            <p class="product-desc">Distilasi hidrosol uap bunga Lavender liar Prancis, kayu cedar Atlas, dan jejak chamomile Romawi untuk induksi ketenangan saraf.</p>
+            <div class="product-specs-chips">
+              <span class="spec-micro-chip">100% Pure Essential</span>
+              <span class="spec-micro-chip">Zero Sintetis</span>
+              <span class="spec-micro-chip">Botol Kaca Violet</span>
+            </div>
+            <div class="product-footer-row">
+              <span class="product-price">Rp 385.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Nox Circadian Sleep Mist 100ml', 385000)">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Private Sleep Pod Booking -->
+  <section class="booking-section" id="reservasi">
+    <div class="container">
+      <div class="booking-grid">
+        <div class="booking-info-col">
+          <span class="section-kicker">STUDIO PENGALAMAN SENSORI</span>
+          <h3>Reservasi Sesi Uji Coba Bilik Tidur Hening 90-Menit</h3>
+          <p>
+            Sebelum memesan matras kustom, rasakan langsung ruang tidur berperedam suara -38dB di studio Bandung kami. Dilengkapi lampu sirkadian adaptif, kasur lateks 7-zona terkonfigurasi, dan teh bunga chamomile segar.
+          </p>
+
+          <div class="booking-features-list">
+            <div class="b-feature-item">
+              <span class="b-dot"></span>
+              <span>Bilik tidur akustik privat bersuhu terkontrol 19.5°C</span>
+            </div>
+            <div class="b-feature-item">
+              <span class="b-dot"></span>
+              <span>Konsultasi postur tulang belakang dengan sensor mat scan</span>
+            </div>
+            <div class="b-feature-item">
+              <span class="b-dot"></span>
+              <span>Penyusunan resep ketinggian bantal kustom gratis</span>
+            </div>
+            <div class="b-feature-item">
+              <span class="b-dot"></span>
+              <span>Pilihan teh herbal induksi GABA & melatonin alami</span>
+            </div>
+          </div>
+
+          <div class="c-phase-desc-box">
+            <strong>Lokasi Studio:</strong> Jl. Dago Pakar Permai No. 18, Ciburial, Bandung. Slot privat dibatasi maksimal 4 sesi per hari untuk menjaga keheningan mutlak.
+          </div>
+        </div>
+
+        <div class="booking-form-col">
+          <form onsubmit="handleBookingSubmit(event)">
+            <div class="form-group">
+              <label>Nama Lengkap:</label>
+              <input type="text" class="form-input" id="book-name" required placeholder="Contoh: Pradipta Hendrawan">
+            </div>
+
+            <div class="form-group">
+              <label>Nomor WhatsApp:</label>
+              <input type="tel" class="form-input" id="book-wa" required placeholder="0812-XXXX-XXXX">
+            </div>
+
+            <div class="form-group">
+              <label>Pilihan Sesi Waktu:</label>
+              <select class="form-select" id="book-slot">
+                <option value="Sesi Siang (11:00 - 12:30 WIB) - Power Nap Circadian">Sesi Siang (11:00 - 12:30 WIB) · Power Nap Circadian</option>
+                <option value="Sesi Sore (15:30 - 17:00 WIB) - Sunset Relaxation">Sesi Sore (15:30 - 17:00 WIB) · Sunset Relaxation</option>
+                <option value="Sesi Malam (18:30 - 20:00 WIB) - Deep REM Pre-Sleep">Sesi Malam (18:30 - 20:00 WIB) · Deep REM Pre-Sleep</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Postur Tidur Utama Anda:</label>
+              <select class="form-select" id="book-posture">
+                <option value="Tidur Miring (Side Sleeper)">Tidur Miring (Side Sleeper)</option>
+                <option value="Telentang (Back Sleeper)">Telentang (Back Sleeper)</option>
+                <option value="Kombinasi / Sering Berputar">Kombinasi / Sering Berputar</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-submit-booking">
+              Konfirmasi Reservasi Bilik Hening via WhatsApp →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div class="cart-drawer-backdrop" id="cart-drawer">
+    <div class="cart-drawer-panel">
+      <div class="drawer-header">
+        <h4>Keranjang Pesanan</h4>
+        <button class="btn-close-drawer" onclick="toggleCartDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-items-list" id="drawer-items-container">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="drawer-total-row">
+          <span>Total Pesanan:</span>
+          <span id="drawer-total-price">Rp 0</span>
+        </div>
+        <button class="btn-checkout-wa" onclick="checkoutCartWhatsApp()">
+          <span>Kirim Pesanan ke WhatsApp SOMNA</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>SOMNA.</h4>
+          <p>
+            Atelier kriya ergonomi tidur, kasur lateks monoblok 7-zona, dan riset kronobiologi sirkadian. Dirancang di Bandung dengan ketenangan alam pegunungan.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Eksplorasi</h5>
+          <ul>
+            <li><a href="#circadian">Simulator Spektrum</a></li>
+            <li><a href="#biomekanik">Biomekanik Tulang</a></li>
+            <li><a href="#soundscape">Soundscape Delta</a></li>
+            <li><a href="#kalkulator">Kalkulator Bantal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Koleksi Produk</h5>
+          <ul>
+            <li><a href="#koleksi">Matras Horizon 7-Zona</a></li>
+            <li><a href="#koleksi">Sutra Murbei 22 Momme</a></li>
+            <li><a href="#koleksi">Gravitas Weighted Quilt</a></li>
+            <li><a href="#koleksi">Nox Sleep Mist</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Kontak & Studio</h5>
+          <ul>
+            <li><a href="#">Jl. Dago Pakar Permai 18</a></li>
+            <li><a href="#">Bandung, Jawa Barat</a></li>
+            <li><a href="#">WhatsApp: +62 812-9988-7711</a></li>
+            <li><a href="#">Buka: 10:00 - 20:00 WIB</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>© 2026 SOMNA SLEEP SANCTUARY. ALL RIGHTS RESERVED.</span>
+        <span>STANDAR KONTROL CRAFT NECTOR.UI · BEBAS AI SLOP</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Circadian Engine, Spine Matrix, WebAudio Synth, Cart -->
+  <script>
+    // Live clock update
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const el = document.getElementById('live-time-display');
+      if (el) el.innerText = `${h}:${m} WIB`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // 1. Circadian Chamber 24h Engine
+    const circadianPhases = [
+      { hour: 6, kelvin: 4000, lux: 350, melatonin: 18, bg: 'linear-gradient(135deg, #A8C0FF 0%, #3F2B96 100%)', name: 'Fajar Biru', desc: 'Hormon kortisol mulai meningkat perlahan, membangunkan sistem metabolisme dengan spektrum sejuk 4.000K.' },
+      { hour: 12, kelvin: 5500, lux: 750, melatonin: 4, bg: 'linear-gradient(135deg, #AAC4FF 0%, #D2DAFF 100%)', name: 'Zenit Terang', desc: 'Puncak kewaspadaan kognitif. Seluruh reseptor sirkadian menekan produksi melatonin demi fokus mental optimal.' },
+      { hour: 18, kelvin: 2700, lux: 140, melatonin: 45, bg: 'linear-gradient(135deg, #FFB88C 0%, #DE6262 100%)', name: 'Senja Amber', desc: 'Matahari terbenam memancarkan spektrum merah jingga hangat 2.700K. Denyut jantung mulai rileks.' },
+      { hour: 21, kelvin: 2000, lux: 14, melatonin: 88, bg: 'linear-gradient(135deg, #1C1E34 0%, #2A2D48 100%)', name: 'Hening Melatonin', desc: 'Fotoreseptor ipRGC retina menerima spektrum malam hangat, memicu pelepasan hormon melatonin secara alami.' },
+      { hour: 24, kelvin: 1800, lux: 2, melatonin: 98, bg: 'linear-gradient(135deg, #0E101D 0%, #171826 100%)', name: 'Deep REM Sleep', desc: 'Keheningan mutlak. Temperatur inti tubuh turun 1°C dan gelombang otak memasuki siklus Delta perbaikan sel.' }
+    ];
+
+    function updateCircadianChamber(val) {
+      const hour = parseFloat(val);
+      const hInt = Math.floor(hour);
+      const mInt = (hour % 1) * 60;
+      const timeStr = `${String(hInt).padStart(2, '0')}:${String(Math.round(mInt)).padStart(2, '0')} WIB`;
+      document.getElementById('slider-time-label').innerText = timeStr;
+
+      // Calculate interpolation
+      let kelvin = 2000;
+      let lux = 20;
+      let mel = 85;
+      let bg = 'linear-gradient(135deg, #1C1E34 0%, #2A2D48 100%)';
+      let phaseName = 'Melatonin Phase';
+      let phaseDesc = '';
+
+      if (hour >= 5 && hour < 10) {
+        kelvin = 3200 + (hour - 5) * 300;
+        lux = 150 + (hour - 5) * 80;
+        mel = Math.max(10, 60 - (hour - 5) * 12);
+        bg = 'linear-gradient(135deg, #8AA9E8 0%, #C4D7FE 100%)';
+        phaseName = 'Fase Bangun Fajar';
+        phaseDesc = 'Cahaya fajar menekan melatonin dan mengaktifkan metabolisme alami tubuh.';
+      } else if (hour >= 10 && hour < 16) {
+        kelvin = 5200;
+        lux = 680;
+        mel = 5;
+        bg = 'linear-gradient(135deg, #AAC4FF 0%, #D2DAFF 100%)';
+        phaseName = 'Puncak Siang Sirkadian';
+        phaseDesc = 'Fase konsentrasi dan produktivitas maksimal dengan spektrum penuh.';
+      } else if (hour >= 16 && hour < 20) {
+        kelvin = 2800 - (hour - 16) * 200;
+        lux = 250 - (hour - 16) * 50;
+        mel = 20 + (hour - 16) * 15;
+        bg = 'linear-gradient(135deg, #B1B2FF 0%, #E8A87C 100%)';
+        phaseName = 'Transisi Senja Relaksasi';
+        phaseDesc = 'Peredupan bertahap mempersiapkan sistem saraf otonom menuju fase hening.';
+      } else {
+        kelvin = 1900;
+        lux = 8;
+        mel = 94;
+        bg = 'linear-gradient(135deg, #121320 0%, #1E2036 100%)';
+        phaseName = 'Siklus Tidur Dalam REM';
+        phaseDesc = 'Gelombang otak Delta 2.5Hz mendominasi; sekresi hormon pertumbuhan puncak untuk restorasi otot.';
+      }
+
+      document.getElementById('chamber-viewport').style.background = bg;
+      document.getElementById('spectrum-kelvin-badge').innerText = `${Math.round(kelvin)}K AMBIENT`;
+      document.getElementById('ambient-spectrum-name').innerText = phaseName;
+      document.getElementById('ambient-lux-val').innerText = `${Math.round(lux)} Lux`;
+      document.getElementById('melatonin-percent').innerText = `${Math.round(mel)}%`;
+      document.getElementById('metric-kelvin').innerText = `${Math.round(kelvin)} Kelvin`;
+      document.getElementById('metric-blue-block').innerText = hour >= 20 || hour < 6 ? '99.2% Blok' : '15% Blok';
+      document.getElementById('metric-brainwave').innerText = hour >= 21 || hour < 6 ? 'Delta (1-3Hz)' : 'Beta / Alpha';
+      document.getElementById('phase-desc-text').innerHTML = `<strong>${phaseName}:</strong> ${phaseDesc}`;
+    }
+
+    // 2. Spine Biomechanics Posture Matrix
+    const postureData = {
+      side: {
+        path: "M 40,55 Q 120,40 200,56 T 340,52 T 460,54",
+        z1: "12.4 mmHg", z2: "17.8 mmHg", z3: "14.1 mmHg", z4: "15.6 mmHg",
+        desc: "<strong>Analisis Postur Miring:</strong> Zona 2 (Bahu) dan Zona 5 (Panggul) menerima peredaman kontur ekstra lembut 18 mm, menjaga garis tulang leher hingga lumbar tetap sejajar lurus tanpa tekanan saraf terjepit."
+      },
+      back: {
+        path: "M 40,54 Q 130,48 220,53 T 330,55 T 460,54",
+        z1: "10.2 mmHg", z2: "14.5 mmHg", z3: "11.8 mmHg", z4: "16.2 mmHg",
+        desc: "<strong>Analisis Postur Telentang:</strong> Penopang lumbar kurva lordotik aktif menyangga lekuk pinggang secara konsisten, menyebarkan 42% massa torso secara merata ke seluruh permukaan lateks 7-zona."
+      },
+      stomach: {
+        path: "M 40,52 Q 130,53 230,51 T 340,53 T 460,52",
+        z1: "11.0 mmHg", z2: "13.2 mmHg", z3: "12.5 mmHg", z4: "14.0 mmHg",
+        desc: "<strong>Analisis Postur Tengkurap:</strong> Inti lateks berkepadatan 85D pada bagian abdomen mencegah panggul amblas terlalu dalam, menjaga sudut leher tidak hiperekstensi saat menggunakan bantal tipis 8 cm."
+      }
+    };
+
+    function setSleeperPosture(mode) {
+      document.querySelectorAll('.posture-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`btn-posture-${mode}`).classList.add('active');
+
+      const d = postureData[mode];
+      document.getElementById('spine-svg-path').setAttribute('d', d.path);
+      document.getElementById('p-z1').innerText = d.z1;
+      document.getElementById('p-z2').innerText = d.z2;
+      document.getElementById('p-z3').innerText = d.z3;
+      document.getElementById('p-z4').innerText = d.z4;
+      document.getElementById('posture-diagnosis-box').innerHTML = d.desc;
+    }
+
+    function setLatexDensity(density, btn) {
+      document.querySelectorAll('.density-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // 3. Web Audio API Delta Synthesizer & Soundscape Generator
+    let audioCtx = null;
+    let isMasterPlaying = false;
+    let rainNode = null;
+    let windNode = null;
+    let deltaOsc1 = null;
+    let deltaOsc2 = null;
+    let masterGain = null;
+    let channelGains = [null, null, null, null];
+    let channelsActive = [true, true, true, true];
+    let animId = null;
+
+    function initAudioContext() {
+      if (audioCtx) return;
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContext();
+
+      masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(0.7, audioCtx.currentTime);
+      masterGain.connect(audioCtx.destination);
+
+      // Rain (White noise with gentle bandpass)
+      const bufferSize = audioCtx.sampleRate * 2;
+      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = Math.random() * 2 - 1;
+      }
+      rainNode = audioCtx.createBufferSource();
+      rainNode.buffer = noiseBuffer;
+      rainNode.loop = true;
+
+      const rainFilter = audioCtx.createBiquadFilter();
+      rainFilter.type = 'lowpass';
+      rainFilter.frequency.setValueAtTime(800, audioCtx.currentTime);
+
+      channelGains[0] = audioCtx.createGain();
+      channelGains[0].gain.setValueAtTime(0.18, audioCtx.currentTime);
+      rainNode.connect(rainFilter);
+      rainFilter.connect(channelGains[0]);
+      channelGains[0].connect(masterGain);
+      rainNode.start(0);
+
+      // Wind (Low-frequency filtered noise)
+      windNode = audioCtx.createBufferSource();
+      windNode.buffer = noiseBuffer;
+      windNode.loop = true;
+      const windFilter = audioCtx.createBiquadFilter();
+      windFilter.type = 'bandpass';
+      windFilter.frequency.setValueAtTime(140, audioCtx.currentTime);
+      windFilter.Q.setValueAtTime(2.5, audioCtx.currentTime);
+
+      channelGains[1] = audioCtx.createGain();
+      channelGains[1].gain.setValueAtTime(0.25, audioCtx.currentTime);
+      windNode.connect(windFilter);
+      windFilter.connect(channelGains[1]);
+      channelGains[1].connect(masterGain);
+      windNode.start(0);
+
+      // Binaural Delta: 150 Hz Left + 152.5 Hz Right = 2.5 Hz Beat
+      deltaOsc1 = audioCtx.createOscillator();
+      deltaOsc1.type = 'sine';
+      deltaOsc1.frequency.setValueAtTime(150, audioCtx.currentTime);
+
+      deltaOsc2 = audioCtx.createOscillator();
+      deltaOsc2.type = 'sine';
+      deltaOsc2.frequency.setValueAtTime(152.5, audioCtx.currentTime);
+
+      channelGains[3] = audioCtx.createGain();
+      channelGains[3].gain.setValueAtTime(0.08, audioCtx.currentTime);
+
+      deltaOsc1.connect(channelGains[3]);
+      deltaOsc2.connect(channelGains[3]);
+      channelGains[3].connect(masterGain);
+
+      deltaOsc1.start();
+      deltaOsc2.start();
+    }
+
+    function toggleMasterSound() {
+      if (!audioCtx) initAudioContext();
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      isMasterPlaying = !isMasterPlaying;
+      const headerBtn = document.getElementById('header-sound-btn');
+      const headerText = document.getElementById('header-sound-text');
+      const synthIcon = document.getElementById('synth-btn-icon');
+      const synthLabel = document.getElementById('synth-btn-label');
+
+      if (isMasterPlaying) {
+        masterGain.gain.setValueAtTime(0.7, audioCtx.currentTime);
+        headerBtn.classList.add('playing');
+        headerText.innerText = 'Soundscape On';
+        synthIcon.innerText = '❚❚';
+        synthLabel.innerText = 'Jeda Soundscape Hening';
+        startVisualizer();
+      } else {
+        masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+        headerBtn.classList.remove('playing');
+        headerText.innerText = 'Soundscape Off';
+        synthIcon.innerText = '▶';
+        synthLabel.innerText = 'Putar Soundscape Tidur';
+        cancelAnimationFrame(animId);
+      }
+    }
+
+    function toggleChannel(idx) {
+      channelsActive[idx - 1] = !channelsActive[idx - 1];
+      const box = document.getElementById(`chan-box-${idx}`);
+      if (channelsActive[idx - 1]) {
+        box.classList.add('active');
+        if (channelGains[idx - 1]) channelGains[idx - 1].gain.setValueAtTime(0.2, audioCtx.currentTime);
+      } else {
+        box.classList.remove('active');
+        if (channelGains[idx - 1]) channelGains[idx - 1].gain.setValueAtTime(0, audioCtx.currentTime);
+      }
+    }
+
+    function setChannelVol(idx, val) {
+      if (channelGains[idx - 1] && audioCtx) {
+        channelGains[idx - 1].gain.setValueAtTime(parseFloat(val) * 0.35, audioCtx.currentTime);
+      }
+    }
+
+    function startVisualizer() {
+      const canvas = document.getElementById('audio-visualizer-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let offset = 0;
+
+      function renderWave() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.lineWidth = 2.5;
+
+        // Wave 1: Delta Beat (Periwinkle)
+        ctx.beginPath();
+        ctx.strokeStyle = '#B1B2FF';
+        for (let x = 0; x < canvas.width; x += 4) {
+          const y = canvas.height / 2 + Math.sin((x + offset) * 0.02) * 16 + Math.cos((x + offset * 0.7) * 0.01) * 8;
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        // Wave 2: Ambient Breeze (Sky)
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(170, 196, 255, 0.4)';
+        for (let x = 0; x < canvas.width; x += 4) {
+          const y = canvas.height / 2 + Math.cos((x - offset * 1.2) * 0.03) * 10;
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        offset += 1.8;
+        if (isMasterPlaying) {
+          animId = requestAnimationFrame(renderWave);
+        }
+      }
+      renderWave();
+    }
+
+    // 4. Pillow Loft Calculator
+    let curShoulder = 14;
+    let curMat = 2; // 1: Soft, 2: Med, 3: Firm
+    let curFill = 1; // 1: Down, 2: Silk, 3: Micro-latex
+
+    function recalcPillow(shoulder, mat, fill) {
+      if (shoulder !== null) curShoulder = parseFloat(shoulder);
+      if (mat !== null) curMat = parseInt(mat);
+      if (fill !== null) curFill = parseInt(fill);
+
+      document.getElementById('lbl-shoulder-val').innerText = `${curShoulder} cm`;
+      const matNames = ['Soft (65D)', 'Medium (75D)', 'Firm (85D)'];
+      document.getElementById('lbl-mat-val').innerText = matNames[curMat - 1];
+      const fillNames = ['Bulu Angsa Putih 90/10', 'Sutra Murbei Murni', 'Lateks Mikro Shredded'];
+      document.getElementById('lbl-fill-val').innerText = fillNames[curFill - 1];
+
+      // Calculation formula: Shoulder width - mattress compression sinkage
+      let sinkage = curMat === 1 ? 4.5 : (curMat === 2 ? 3.0 : 1.8);
+      let loft = Math.max(7, curShoulder - sinkage);
+      let grammage = Math.round(loft * 82);
+
+      document.getElementById('res-loft-cm').innerText = loft.toFixed(1);
+      document.getElementById('res-grammage').innerText = `${grammage} Gram`;
+    }
+
+    function addCustomPillowToCart() {
+      const loft = document.getElementById('res-loft-cm').innerText;
+      const fill = document.getElementById('lbl-fill-val').innerText;
+      addToCart(`Bantal Kustom Servikal (${loft} cm loft · ${fill})`, 1250000);
+    }
+
+    // 5. Cart & Drawer Functionality
+    let cartItems = [];
+
+    function addToCart(title, price) {
+      cartItems.push({ id: Date.now(), title, price });
+      updateCartUI();
+      openCartDrawer();
+    }
+
+    function removeFromCart(id) {
+      cartItems = cartItems.filter(item => item.id !== id);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      document.getElementById('cart-badge-count').innerText = cartItems.length;
+      const container = document.getElementById('drawer-items-container');
+      container.innerHTML = '';
+
+      let total = 0;
+      if (cartItems.length === 0) {
+        container.innerHTML = '<p style="color:var(--somna-muted); text-align:center; margin-top:40px;">Keranjang tidur Anda masih kosong.</p>';
+      } else {
+        cartItems.forEach(item => {
+          total += item.price;
+          const div = document.createElement('div');
+          div.className = 'drawer-item';
+          div.innerHTML = `
+            <div class="drawer-item-info">
+              <h5>${item.title}</h5>
+              <span>Rp ${item.price.toLocaleString('id-ID')}</span>
+            </div>
+            <button class="btn-remove-item" onclick="removeFromCart(${item.id})">Hapus</button>
+          `;
+          container.appendChild(div);
+        });
+      }
+
+      document.getElementById('drawer-total-price').innerText = `Rp ${total.toLocaleString('id-ID')}`;
+    }
+
+    function toggleCartDrawer() {
+      document.getElementById('cart-drawer').classList.toggle('open');
+    }
+
+    function openCartDrawer() {
+      document.getElementById('cart-drawer').classList.add('open');
+    }
+
+    function checkoutCartWhatsApp() {
+      if (cartItems.length === 0) {
+        alert('Keranjang Anda masih kosong. Silakan pilih produk terlebih dahulu.');
+        return;
+      }
+
+      let text = 'Halo Atelier SOMNA Sleep Sanctuary, saya ingin memesan perlengkapan tidur berikut:%0A%0A';
+      let total = 0;
+      cartItems.forEach((it, i) => {
+        text += `${i + 1}. ${it.title} - Rp ${it.price.toLocaleString('id-ID')}%0A`;
+        total += it.price;
+      });
+      text += `%0ATotal: Rp ${total.toLocaleString('id-ID')}%0A%0AMohon info jadwal pengiriman dan opsi kustomisasi lanjutan. Terima kasih!`;
+
+      window.open(`https://wa.me/6281299887711?text=${text}`, '_blank');
+    }
+
+    // 6. Booking Submit via WhatsApp
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('book-name').value;
+      const wa = document.getElementById('book-wa').value;
+      const slot = document.getElementById('book-slot').value;
+      const posture = document.getElementById('book-posture').value;
+
+      const text = `Halo SOMNA Sleep Lab, saya ingin reservasi sesi uji coba bilik hening 90-menit:%0A%0A` +
+        `• Nama: ${name}%0A` +
+        `• WhatsApp: ${wa}%0A` +
+        `• Pilihan Sesi: ${slot}%0A` +
+        `• Postur Tidur: ${posture}%0A%0A` +
+        `Mohon konfirmasi ketersediaan slot hening di studio Dago Pakar. Terima kasih!`;
+
+      window.open(`https://wa.me/6281299887711?text=${text}`, '_blank');
+    }
+  </script>
+</body>
+</html>
