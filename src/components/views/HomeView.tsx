@@ -28,6 +28,7 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
+    templates.find(t => t.slug === 'aerovelo-titanium-bicycles') || templates[0],
     templates.find(t => t.slug === 'lignum-acoustic-lutherie') || templates[0],
     templates.find(t => t.slug === 'aurelia-botanical-watercolor') || templates[0],
     templates.find(t => t.slug === 'havn-wooden-boatcraft') || templates[0],
@@ -47,6 +48,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'cycling', label: 'Sepeda Balap Titanium & Terowongan Angin', count: templates.filter(t => t.category === 'cycling').length, desc: 'Atelier sepeda balap titanium kustom Grade-9 & lab aerodinamika: simulator streamline CdA Canvas HTML5, kalkulator biomekanika stack & reach, konfigurator 3 platform, dan soundscape Web Audio' },
     { id: 'lutherie', label: 'Gitar Akustik Solid & Lutherie', count: templates.filter(t => t.category === 'lutherie').length, desc: 'Atelier kriya gitar akustik kayu solid & laboratorium tonewood: simulator resonansi Chladni Canvas HTML5, kalkulator kecepatan suara & konfigurator bodi pre-war' },
     { id: 'stationery', label: 'Cat Air Madu & Kriya Seni Rupa', count: templates.filter(t => t.category === 'stationery').length, desc: 'Atelier cat air madu botani & pigmen mineral murni: simulator dispersi basah-di-atas-basah Canvas HTML5, kalkulator formulasi madu & racik 12-pan' },
     { id: 'maritime', label: 'Kriya Perahu & Arsitektur Maritim', count: templates.filter(t => t.category === 'maritime').length, desc: 'Galangan kapal kayu kriya Skandinavia & perahu lunas clinker: simulator hidrodinamika gelombang garis air Canvas HTML5, kalkulator uap iga ek & kriya dayung' },

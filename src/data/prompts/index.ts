@@ -39,8 +39,10 @@ import { KORU_LIMEWASH_MASTER_PROMPT } from './interiorPrompt';
 import { HAVN_BOATCRAFT_MASTER_PROMPT } from './maritimePrompt';
 import { AURELIA_WATERCOLOR_MASTER_PROMPT } from './stationeryPrompt';
 import { LIGNUM_LUTHERIE_MASTER_PROMPT } from './lutheriePrompt';
+import { AEROVELO_CYCLING_MASTER_PROMPT } from './cyclingPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'aerovelo-titanium-bicycles': AEROVELO_CYCLING_MASTER_PROMPT,
   'lignum-acoustic-lutherie': LIGNUM_LUTHERIE_MASTER_PROMPT,
   'aurelia-botanical-watercolor': AURELIA_WATERCOLOR_MASTER_PROMPT,
   'havn-wooden-boatcraft': HAVN_BOATCRAFT_MASTER_PROMPT,
@@ -122,4 +124,5 @@ export {
   HAVN_BOATCRAFT_MASTER_PROMPT,
   AURELIA_WATERCOLOR_MASTER_PROMPT,
   LIGNUM_LUTHERIE_MASTER_PROMPT,
+  AEROVELO_CYCLING_MASTER_PROMPT,
 };

@@ -2962,6 +2962,92 @@ export function TanahLiatStudio() {
       { hex: '#E3B7A0', rgb: 'rgb(227, 183, 160)', name: 'Aged Honduran Mahogany', role: 'Kayu Bodi Mahoni Tua, Aksen Roset Lubang Suara & Badge Telemetri Aktif' },
       { hex: '#BF9270', rgb: 'rgb(191, 146, 112)', name: 'Rich Cinnamon Amber Wood', role: 'Kayu Kenari Jembatan Senar, Tombol Tindakan Utama CTA, Monogram & Header' }
     ]
+  },
+  {
+    id: 'tpl-40',
+    slug: 'aerovelo-titanium-bicycles',
+    title: 'AEROVELO (Atelier Sepeda Balap Titanium Kustom & Lab Aerodinamika)',
+    tagline: 'Sepeda balap titanium kustom Grade-9 3Al-2.5V, pengelasan TIG argon ganda, dan simulator hambatan angin terowongan angin',
+    description: 'Template website atelier sepeda balap titanium kustom dan laboratorium aerodinamika AEROVELO dengan palet warna Deep Steel Slate Navy (#364F6B), Electric Aero Cyan (#3FC1C9), Pure Alabaster Snow (#F5F5F5), dan Electric Race Coral Pink (#FC5185). Dilengkapi simulator aerodinamika terowongan angin (Wind Tunnel Streamline CFD) berbasis Canvas HTML5 dengan kontrol kecepatan angin (30-65 km/h), sudut yaw (0°-15°), 3 postur pesepeda (Hoods, Drops, Aero Tuck), serta telemetri hambatan daya watt real-time (P = 0.5 * rho * v^3 * CdA), kalkulator biomekanika stack & reach dan tinggi sadel Lemond, konfigurator 3 platform sepeda titanium (Chrono-Ti Aero Disc, Strada All-Road, Criterium Sprint) dengan live frame finish selector dan diagram vektor CAD dinamis, generator deru angin Web Audio API, etalase 4 instrumen kriya titanium, drawer keranjang belanja terintegrasi WhatsApp, dan reservasi aero fit terowongan angin.',
+    category: 'cycling',
+    tags: ['Titanium Bicycles', 'Custom Road Bike', 'Wind Tunnel', 'Aerodynamics', 'CdA Simulator', 'Framebuilder', 'T47 BB', 'Grade-9 Ti', 'Biomechanics'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Canvas HTML5 Wind Tunnel Engine', 'Web Audio API Wind Synthesizer', 'CAD SVG Bike Configurator', 'Biomechanics Fit Engine', 'Slide-Over Cart Drawer', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'cycling-aerovelo',
+    htmlPath: '/templates/cycling/aerovelo-bicycles.html',
+    htmlFolderPath: 'templates/cycling/aerovelo-bicycles.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Simulator aerodinamika terowongan angin Canvas HTML5 interaktif dengan 45 partikel garis arus asap fluida dinamis, kontrol kecepatan angin (30-65 km/h) & sudut yaw (0°-15°)',
+      'Perhitungan koefisien hambatan aerodinamika CdA dan kebutuhan daya watt (P_aero = 0.5 * rho * v^3 * CdA) untuk 3 postur pesepeda (Hoods 0.280 m², Drops 0.240 m², Aero Tuck 0.210 m²)',
+      'Kalkulator biomekanika ukuran rangka (stack & reach, tinggi sadel rumus Lemond 0.883, panjang crank) berbasis tinggi badan & inseam kaki atlet',
+      'Konfigurator sepeda titanium 3 platform (Chrono-Ti Aero Disc, Strada All-Road, Criterium Sprint) dengan live frame finish selector (Raw Ti, Aero Cyan, Stealth Slate, Coral Race) dan diagram vektor CAD dinamis',
+      'Generator deru angin aerodinamika sintetis Web Audio API dengan kontrol audio hening/aktif',
+      'Etalase 4 produk dan komponen kriya aeronautika nyata: Chrono-Ti Aero Disc, Strada All-Road, Titanium Aero Cockpit, dan Bottom Bracket T47 CeramicSpeed',
+      'Drawer keranjang belanja slide-over dengan kalkulasi total rupiah dan ekspor pemesanan langsung ke WhatsApp studio',
+      'Formulir reservasi konsultasi biomekanika & pengujian terowongan angin (90 Menit) di fasilitas Dago Pakar Bandung',
+      'Standar craft editorial antislop dengan palet warna terowongan angin (#364F6B, #3FC1C9, #F5F5F5, #FC5185) dan tipografi Cormorant Garamond & JetBrains Mono'
+    ],
+    usageInstructions: [
+      'Buka templates/cycling/aerovelo-bicycles.html di editor kode Anda.',
+      'Sesuaikan data platform sepeda, komponen titanium, dan harga rupiah pada objek JavaScript di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan dan reservasi terowongan angin dengan nomor kontak resmi atelier Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk etalase atelier sepeda langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'aerovelo-bicycles.html',
+        language: 'html',
+        content: `<!-- AEROVELO — Atelier Sepeda Balap Titanium Kustom & Lab Aerodinamika -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>AEROVELO — Titanium Bicycles & Aerodynamics Wind Tunnel Lab</title>
+  <style>
+    :root {
+      --aero-navy: #364F6B;
+      --aero-cyan: #3FC1C9;
+      --aero-snow: #F5F5F5;
+      --aero-coral: #FC5185;
+      --aero-charcoal: #1A2634;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">STATUS: TEROWONGAN ANGIN AKTIF • KECEPATAN: 45.0 KM/H • YAW: 7.5° • TITANIUM GRADE-9 3AL-2.5V</div>
+  <header>
+    <div class="brand">AEROVELO</div>
+    <nav>Simulator Terowongan Angin · Kalkulator Biomekanika · Konfigurator Titanium · Rekayasa Kriya · Etalase Sepeda · Reservasi Aero Fit</nav>
+  </header>
+  <!-- Full Interactive Aerodynamics Wind Tunnel: Canvas Streamline Engine, Biomechanical Fit Calc, Titanium CAD & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier sepeda balap titanium kustom dan laboratorium aerodinamika AEROVELO dengan palet warna Deep Steel Slate Navy (#364F6B), Electric Aero Cyan (#3FC1C9), Pure Alabaster Snow (#F5F5F5), dan Electric Race Coral Pink (#FC5185). Dilengkapi simulator aerodinamika terowongan angin (Wind Tunnel Streamline CFD) berbasis Canvas HTML5 dengan kontrol kecepatan angin (30-65 km/h), sudut yaw (0°-15°), 3 postur pesepeda (Hoods, Drops, Aero Tuck), serta telemetri hambatan daya watt real-time (P = 0.5 * rho * v^3 * CdA), kalkulator biomekanika stack & reach dan tinggi sadel Lemond, konfigurator 3 platform sepeda titanium (Chrono-Ti Aero Disc, Strada All-Road, Criterium Sprint) dengan live frame finish selector dan diagram vektor CAD dinamis, generator deru angin Web Audio API, etalase 4 instrumen kriya titanium (Chrono-Ti Aero Disc, Strada All-Road, Titanium Aero Cockpit, T47 BB CeramicSpeed), formulir reservasi aero fit terowongan angin 90-menit, serta drawer keranjang belanja terintegrasi WhatsApp.',
+      designDirection: 'Master bicycle framebuilder & aerodynamics wind tunnel lab berstandar antislop: Deep Steel Slate Navy (#364F6B), Electric Aero Cyan (#3FC1C9), Pure Studio Alabaster Snow White (#F5F5F5), Electric Race Coral Pink (#FC5185), dan Deep Navy Charcoal (#1A2634). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry bar terowongan angin dengan kecepatan angin dan sudut yaw real-time, sticky header dengan brand mark sayap aerodinamika AV dan navigasi non-wrapping kokoh, hero asimetris 2 kolom dengan panggung simulator streamline terowongan angin dinamis, panggung kalkulator biomekanika stack & reach 2 kolom, konfigurator sepeda titanium 3 platform dengan diagram vektor CAD live, grid 4 pilar rekayasa kriya titanium, etalase 4 produk dan komponen aeronautika, dan formulir reservasi sesi konsultasi terowongan angin di Dago Pakar Bandung.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk kuratorial keanggunan instrumen aeronautika, Plus Jakarta Sans untuk teks bodi penjelasan sains hambatan udara dan panduan fitting, JetBrains Mono untuk nilai koefisien CdA (m²), daya watt (W), kecepatan angin (km/h), sudut yaw (°), stack & reach (mm), tinggi sadel (cm), dan rincian harga rupiah.',
+      interactions: 'Simulator garis arus asap fluida Canvas HTML5 interaktif yang merespons kecepatan angin, sudut yaw dan postur pengendara, kalkulator biomekanika ukuran rangka dengan kalkulasi stack/reach dan tinggi sadel instan, konfigurator frame sepeda dengan live SVG diagram dan pemilih finishing anodisasi warna, generator deru angin Web Audio API, serta slide-over drawer keranjang belanja terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural wind tunnel smoke particle streamline physics Canvas HTML5, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#3FC1C9',
+    colorPalette: [
+      { hex: '#364F6B', rgb: 'rgb(54, 79, 107)', name: 'Deep Steel Slate Navy', role: 'Baja Paduan Titanium Gelap, Header Kartu Spesifikasi, Tab Platform Sepeda & Aksen Teknikal' },
+      { hex: '#3FC1C9', rgb: 'rgb(63, 193, 201)', name: 'Electric Aero Cyan', role: 'Garis Arus Asap Terowongan Angin, Badge Status Aktif, Slider Kontrol & Tombol Komisi' },
+      { hex: '#F5F5F5', rgb: 'rgb(245, 245, 245)', name: 'Pure Studio Alabaster Snow White', role: 'Kanvas Utama Website, Kontainer Kartu Produk & Bidang Formulir' },
+      { hex: '#FC5185', rgb: 'rgb(252, 81, 133)', name: 'Electric Race Coral Pink', role: 'Tombol Tindakan Utama CTA, Partikel Pusaran Hambatan, Badge Tercepat & Total Harga' }
+    ]
   }
 ];
 
