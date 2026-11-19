@@ -120,6 +120,7 @@ export const TemplateThumbnail: React.FC<Props> = ({
     'lumina-creative-photography': 'https://lumina.photography.nector.ui',
     'kinetic-fitness-gym': 'https://kinetic.fitness.nector.ui',
     'redline-motoworks': 'https://redline.motoworks.nector.ui',
+    'solara-energy-systems': 'https://solara.energy.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

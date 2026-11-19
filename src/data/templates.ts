@@ -3472,6 +3472,90 @@ export function TanahLiatStudio() {
       { hex: '#950101', rgb: 'rgb(149, 1, 1)', name: 'Crimson Blood Red', role: 'Garis Batas Kartu Unggulan, Badge Status Mesin & Aksen Tabel Spesifikasi' },
       { hex: '#FF0000', rgb: 'rgb(255, 0, 0)', name: 'Electric Racing Scarlet Red', role: 'Indikator RPM Redline, Jarum Tachometer Analog & Tombol Aksi Utama CTA' }
     ]
+  },
+  {
+    id: 'tpl-46',
+    slug: 'solara-energy-systems',
+    title: 'SOLARA (Instalasi Panel Surya Atap, Hemat Listrik & Baterai Rumah)',
+    tagline: 'Solusi instalasi panel surya atap rumah & bisnis: hemat tagihan listrik hingga 70%, bebas mati lampu, dan garansi performa 25 tahun',
+    description: 'Template website penyedia dan kontraktor instalasi panel surya atap (PLTS Atap) SOLARA ECOTECH dengan palet warna Arctic Clean Off-White (#F5F7F8), Solar Amber Gold (#F4CE14), Deep Forest Slate Green (#495E57), dan Charcoal Graphite Slate (#45474B). Dilengkapi simulator interaktif lintasan matahari & produksi daya surya berbasis Canvas HTML5 dengan pengatur waktu hari (06:00 - 18:00 WIB) dan sudut kemiringan atap, kalkulator interaktif penghematan tagihan listrik PLN bulanan dan akumulasi 25 tahun dengan rekomendasi kapasitas kWp, 4 pilihan paket sistem panel surya transparan tanpa biaya tersembunyi, panduan alur pemasangan 4 langkah mudah, 4 jaminan ketenangan konsumen, formulir pengajuan survey lokasi gratis terintegrasi WhatsApp, slide-over keranjang paket sistem, serta synthesizer suara arus murni 50Hz inverter surya Web Audio API.',
+    category: 'solar',
+    tags: ['Solar Energy', 'Rooftop Solar PV', 'PLTS Atap', 'Electricity Savings', 'Clean Energy', 'Battery Storage', 'Sun Tracker Simulator', 'Cost Calculator', 'Eco Friendly'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Canvas HTML5 Solar Sky Engine', 'Web Audio API 50Hz Sine Synthesizer', 'Interactive Electricity Savings Calculator', 'Slide-Over Cart Drawer', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'solar-solara',
+    htmlPath: '/templates/solar/solara-energy-systems.html',
+    htmlFolderPath: 'templates/solar/solara-energy-systems.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau pustaka eksternal',
+      'Simulator lintasan matahari & produksi listrik surya Canvas HTML5 interaktif dengan slider waktu harian (06:00 - 18:00 WIB), slider sudut atap (10-35°), dan kalkulasi radiasi W/m² serta daya kW seketika',
+      'Kalkulator penghematan tagihan listrik PLN interaktif dengan pemilihan 4 golongan daya (1.300 VA s/d 6.600 VA+) dan slider tagihan bulanan menghitung penghematan per bulan, per tahun, dan 25 tahun',
+      'Transparansi 4 paket sistem PLTS atap (Rumah Mandiri 1.5 kWp, Hemat Keluarga 3.3 kWp, Daya Maksimal 5.5 kWp, dan Baterai Cadangan 5 kWh Anti Mati Lampu) tanpa biaya tersembunyi',
+      'Alur pemasangan 4 langkah mudah dari survey gratis, izin PLN, instalasi rapi tanpa bocor atap, hingga aktivasi pantau HP',
+      'Synthesizer frekuensi audio arus murni 50Hz inverter daya surya Web Audio API prosedural dengan tombol sakelar suara aktif/bisu',
+      'Informasi 4 jaminan ketenangan konsumen (Garansi performa panel 25 tahun, garansi bebas bocor atap, izin resmi PLN, monitoring digital 24 jam di smartphone)',
+      'Drawer slide-over keranjang konsultasi paket sistem dengan tombol hapus dan pemesanan WhatsApp otomatis',
+      'Formulir pengajuan survey lokasi dan desain atap gratis dengan pilihan material atap dan data tagihan',
+      'Bahasa Indonesia yang bersahabat, jelas, dan membumi bagi keluarga dan pemilik rumah tanpa istilah rumit yang membingungkan',
+      'Standar craft editorial antislop dengan palet warna ramah energi (#F5F7F8, #F4CE14, #495E57, #45474B) dan rasio kontras WCAG AAA'
+    ],
+    usageInstructions: [
+      'Buka templates/solar/solara-energy-systems.html di editor kode Anda.',
+      'Sesuaikan harga paket PLTS Atap, daya inverter, dan kapasitas panel pada skrip JavaScript.',
+      'Ganti nomor WhatsApp konsultasi dengan nomor kontak resmi tim konsultan energi surya Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk website energi surya langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'solara-energy-systems.html',
+        language: 'html',
+        content: `<!-- SOLARA ECOTECH â€” Instalasi Panel Surya Atap & Energi Rumah -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SOLARA ECOTECH â€” Panel Surya Atap Rumah</title>
+  <style>
+    :root {
+      --bg-canvas: #F5F7F8;
+      --solar-yellow: #F4CE14;
+      --forest-green: #495E57;
+      --charcoal-gray: #45474B;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-telemetry-bar">RADIASI MATAHARI: 5.4 kWh/mÂ² â€¢ SUHU PANEL: 29.5Â°C â€¢ IZIN PLN RESMI</div>
+  <header class="main-header">
+    <div class="brand-title">SOLARA <span>ECOTECH</span></div>
+    <nav>Simulator Matahari Â· Hitung Penghematan Â· Paket PLTS Atap Â· Alur Pemasangan Â· Survey Gratis</nav>
+  </header>
+  <!-- Full Interactive Solar Energy: Sun Path Canvas, PLN Savings Calculator, Packages & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website penyedia dan kontraktor instalasi panel surya atap (PLTS Atap) SOLARA ECOTECH dengan palet warna Arctic Clean Off-White (#F5F7F8), Solar Amber Gold (#F4CE14), Deep Forest Slate Green (#495E57), dan Charcoal Graphite Slate (#45474B). Dilengkapi simulator interaktif lintasan matahari & produksi daya surya berbasis Canvas HTML5 dengan pengatur waktu hari (06:00 - 18:00 WIB) dan sudut kemiringan atap, kalkulator interaktif penghematan tagihan listrik PLN bulanan dan akumulasi 25 tahun dengan rekomendasi kapasitas kWp, 4 pilihan paket sistem panel surya transparan tanpa biaya tersembunyi, panduan alur pemasangan 4 langkah mudah, 4 jaminan ketenangan konsumen, formulir pengajuan survey lokasi gratis terintegrasi WhatsApp, slide-over keranjang paket sistem, serta synthesizer suara arus murni 50Hz inverter surya Web Audio API.',
+      designDirection: 'Clean modern solar energy architecture & renewable residential contractor berstandar antislop: Arctic Clean Off-White (#F5F7F8), Solar Amber Gold (#F4CE14), Deep Forest Slate Green (#495E57), Charcoal Graphite Slate (#45474B), dan Pure White (#FFFFFF). Tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry status bar energi surya dengan status radiasi harian dan jam WIB real-time, sticky header dengan brand mark matahari kuning surya dan navigasi ramah publik, hero dinamis dengan metrik penghematan 70% dan garansi 25 tahun, simulator lintasan matahari Canvas HTML5 dengan radiasi W/m² dan daya kW, kalkulator penghematan tagihan listrik PLN 2 kolom dengan kartu hasil hijau botani tua sticky, grid 4 paket sistem komplit terpadu, 4 langkah alur pemasangan, 4 jaminan ketenangan konsumen, formulir pengajuan survey atap gratis, dan slide-over cart drawer.',
+      typographyAndColor: 'Plus Jakarta Sans (bobot 400-900) untuk tampilan bersih, optimis, dan terpercaya, JetBrains Mono untuk metrik radiasi W/m², produksi daya kW, persentase beban tertutup %, rupiah penghematan tagihan, dan durasi tahun garansi.',
+      interactions: 'Simulator lintasan matahari Canvas HTML5 dengan sinar proyeksi ke atap rumah yang merespons slider jam dan kemiringan atap, kalkulator penghematan tagihan listrik PLN dengan slider nominal tagihan dan kalkulasi 25 tahun instan, synthesizer audio arus murni 50Hz Web Audio API, serta slide-over drawer pesanan sistem PLTS terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural sun path and house rendering Canvas HTML5, fully responsive smartphone hingga layar monitor lebar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#F4CE14',
+    colorPalette: [
+      { hex: '#F5F7F8', rgb: 'rgb(245, 247, 248)', name: 'Arctic Clean Off-White', role: 'Kanvas Latar Belakang Bersih, Terang & Ramah Lingkungan' },
+      { hex: '#F4CE14', rgb: 'rgb(244, 206, 20)', name: 'Solar Amber Gold', role: 'Aksen Energi Surya, Sinar Matahari, Tombol CTA Utama & Ikon Daya' },
+      { hex: '#495E57', rgb: 'rgb(73, 94, 87)', name: 'Deep Forest Slate Green', role: 'Identitas Energi Hijau, Header Bilah Status & Ringkasan Penghematan' },
+      { hex: '#45474B', rgb: 'rgb(69, 71, 75)', name: 'Charcoal Graphite Slate', role: 'Tipografi Tajam Berkarakter, Sasis Panel Surya & Border Halus' }
+    ]
   }
 ];
 

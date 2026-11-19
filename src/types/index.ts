@@ -46,6 +46,7 @@ export type Category =
   | 'photography'
   | 'fitness'
   | 'automotive'
+  | 'solar'
   | 'umkm';
 
 export type WeddingSubcategory =

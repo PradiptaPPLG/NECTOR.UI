@@ -45,8 +45,10 @@ import { LUMEN_GLASSCRAFT_MASTER_PROMPT } from './glasscraftPrompt';
 import { LUMINA_PHOTOGRAPHY_MASTER_PROMPT } from './photographyPrompt';
 import { KINETIC_FITNESS_MASTER_PROMPT } from './fitnessPrompt';
 import { REDLINE_AUTOMOTIVE_MASTER_PROMPT } from './automotivePrompt';
+import { SOLARA_ENERGY_MASTER_PROMPT } from './solarPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'solara-energy-systems': SOLARA_ENERGY_MASTER_PROMPT,
   'redline-motoworks': REDLINE_AUTOMOTIVE_MASTER_PROMPT,
   'kinetic-fitness-gym': KINETIC_FITNESS_MASTER_PROMPT,
   'lumina-creative-photography': LUMINA_PHOTOGRAPHY_MASTER_PROMPT,
@@ -140,4 +142,5 @@ export {
   LUMINA_PHOTOGRAPHY_MASTER_PROMPT,
   KINETIC_FITNESS_MASTER_PROMPT,
   REDLINE_AUTOMOTIVE_MASTER_PROMPT,
+  SOLARA_ENERGY_MASTER_PROMPT,
 };
