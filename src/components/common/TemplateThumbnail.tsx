@@ -110,6 +110,7 @@ export const TemplateThumbnail: React.FC<Props> = ({
     'resonance-analog-audio': 'https://resonance.audio.nector.ui',
     'axis-mechanical-keyboards': 'https://axis.keyboards.nector.ui',
     'somna-sleep-sanctuary': 'https://somna.sleep.nector.ui',
+    'koru-mineral-limewash': 'https://koru.limewash.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'interior',
+      title: 'Plaster Mineral & Limewash Arsitektur',
+      icon: Paintbrush,
+      desc: 'Atelier cat limewash mineral alami & plaster dinding bernapas: simulator teknik sapuan kuas silang (Cross-Hatch) sudut matahari 15°-90°, komparator permeabilitas uap Sd 0.02m vs cat lateks, dan kalkulator luas kaleng cat.',
+      accent: '#967E76'
+    },
     {
       id: 'sleep',
       title: 'Ergonomi Tidur & Riset Sirkadian',

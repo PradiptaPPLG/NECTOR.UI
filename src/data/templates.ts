@@ -2616,6 +2616,92 @@ export function TanahLiatStudio() {
       { hex: '#D2DAFF', rgb: 'rgb(210, 218, 255)', name: 'Soft Lavender Mist', role: 'Kartu Spesifikasi, Garis Pemisah Halus & Aksen Bilik Hening' },
       { hex: '#EEF1FF', rgb: 'rgb(238, 241, 255)', name: 'Whisper Cloud Porcelain', role: 'Kanvas Latar Belakang Utama, Tekstil Linen & Atmosfer Kamar Tidur' }
     ]
+  },
+  {
+    id: 'tpl-36',
+    slug: 'koru-mineral-limewash',
+    title: 'KORU (Atelier Cat Limewash Mineral Alami & Plaster Dinding Bernapas)',
+    tagline: 'Atelier kriya cat kapur tohor mineral alami, simulator sapuan kuas Canvas HTML5 dengan kalkulasi mikro-bayangan matahari, dan sistem dinding bernapas',
+    description: 'Template website atelier cat limewash mineral alami dan plaster dinding bernapas dengan palet warna arsitektural bersahaja (#B7C4CF, #EEE3CB, #D7C0AE, #967E76). Dilengkapi simulator interaktif tekstur kuas kapur berbasis Canvas HTML5 dengan 4 teknik aplikasi (Cross-Hatch, Cloud Wash, Venetian Trowel, Dragged Brush) dan slider sudut sinar matahari (15° fajar hingga 90° zenit) yang menghitung mikro-bayangan kristal kapur tohor secara real-time, komparator fisika permeabilitas uap (Sd 0.02m vs cat lateks sintetis 0.85m, pH 12.5 antijamur alami, zero VOC, penyerapan CO2 0.45 kg/m²), penjelajah 3 ruangan interior (Wabi-Sabi Living, Sanctuary Bedroom, Minimalist Study) dengan pergantian pigmen mineral langsung, kalkulator kebutuhan ember cat 5-liter dan deduksi bukaan dinding otomatis, kurasi 4 produk cat kapur kriya alami & kuas bulu babi Roma, serta drawer keranjang belanja terintegrasi WhatsApp.',
+    category: 'interior',
+    tags: ['Mineral Limewash', 'Slaked Lime', 'Breathable Walls', 'Natural Plaster', 'Tactile Texture', 'Vapor Permeability', 'Wabi-Sabi Interior', 'Zero VOC', 'Sustainable Architecture'],
+    technologies: ['HTML5 Canvas', 'Vanilla CSS', 'Vanilla JS', 'Sun Angle Shadow Engine', 'Vapor Physics Comparator', 'Room Scene Pigment Explorer', 'Wall Area Estimator', 'Direct WhatsApp Checkout'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'interior-koru-limewash',
+    htmlPath: '/templates/interior/koru-limewash.html',
+    htmlFolderPath: 'templates/interior/koru-limewash.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau dependensi eksternal apa pun',
+      'Simulator tekstur kuas kapur interaktif berbasis Canvas HTML5 dengan 4 teknik aplikasi: Cross-Hatch, Cloud Wash, Spatula Venesia, dan Garis Vertikal',
+      'Slider sudut sinar matahari dinamis (15° fajar hingga 90° zenit) yang menghitung kalkulasi mikro-bayangan kristal kapur tohor secara langsung',
+      'Komparator fisika dinding bernapas: Sd value 0.02m (vapor-open) vs lateks sintetis 0.85m, pH 12.5 alkalin antijamur alami, dan zero VOC 0.00 g/L',
+      'Penjelajah 3 ruangan arsitektural (Ruang Tamu Wabi-Sabi, Kamar Tidur Sanctuary, Ruang Baca Minimalis) dengan penggantian pigmen mineral palet live',
+      'Kalkulator kebutuhan ember cat 5-liter KORU dengan deduksi otomatis area pintu (1.8m²) dan jendela (1.2m²)',
+      'Etalase 4 produk mineral alami teruji: Limewash 5L, Roman Marmorino 10kg, Mineral Silica Primer 2.5L, dan Kuas Bulu Babi Roma 6"',
+      'Drawer keranjang belanja slide-over dengan kalkulasi total rupiah dan ekspor pemesanan langsung ke WhatsApp atelier',
+      'Formulir pemesanan Swatch Box (4 lempeng gipsum 15x15cm asli) untuk pengujian warna langsung di bawah pencahayaan ruangan',
+      'Standar craft editorial antislop dengan palet arsitektural (#B7C4CF, #EEE3CB, #D7C0AE, #967E76) dan tipografi Cormorant Garamond'
+    ],
+    usageInstructions: [
+      'Buka templates/interior/koru-limewash.html di editor kode Anda.',
+      'Sesuaikan data produk cat, harga rupiah, dan opsi pigmen pada objek JavaScript di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan dan konsultasi dinding dengan nomor kontak resmi studio Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk etalase atelier cat limewash langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'koru-limewash.html',
+        language: 'html',
+        content: `<!-- KORU — Atelier Cat Limewash Mineral Alami & Plaster Dinding Bernapas -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KORU — Mineral Limewash & Breathable Plaster Atelier</title>
+  <style>
+    :root {
+      --koru-alabaster: #EEE3CB;
+      --koru-clay: #D7C0AE;
+      --koru-fog: #B7C4CF;
+      --koru-umber: #967E76;
+      --koru-charcoal: #1D1917;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">STATUS: ATELIER LIMEWASH AKTIF • pH 12.5 ALKALIN ALAMI • PENYERAPAN CO2: 0.45 kg/m² • Sd 0.02m</div>
+  <header>
+    <div class="brand">KORU.</div>
+    <nav>Simulator Tekstur · Fisika Dinding · Eksplorasi Ruang · Kalkulator Luas · Koleksi Mineral · Paket Sampel</nav>
+  </header>
+  <!-- Full Interactive Mineral Limewash: Canvas Texture Engine, Sun Angle Shadows, Room Explorer, Area Estimator & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier cat limewash mineral alami dan plaster dinding bernapas KORU dengan palet warna Slate Fog Blue (#B7C4CF), Oat Alabaster (#EEE3CB), Muted Clay Biscuit (#D7C0AE), dan Roasted Umber Wood (#967E76). Dilengkapi simulator interaktif tekstur kuas kapur berbasis Canvas HTML5 dengan 4 teknik aplikasi (Cross-Hatch, Cloud Wash, Venetian Trowel, Dragged Brush) dan slider sudut sinar matahari (15° fajar hingga 90° zenit) yang menghitung mikro-bayangan kristal kapur tohor secara real-time, komparator fisika permeabilitas uap (Sd 0.02m vs cat lateks sintetis 0.85m, pH 12.5 antijamur alami, zero VOC, penyerapan CO2 0.45 kg/m²), penjelajah 3 ruangan interior (Wabi-Sabi Living, Sanctuary Bedroom, Minimalist Study) dengan pergantian pigmen mineral langsung, kalkulator kebutuhan ember cat 5-liter dan deduksi bukaan dinding otomatis, kurasi 4 produk cat kapur kriya alami & kuas bulu babi Roma, serta drawer keranjang belanja terintegrasi WhatsApp.',
+      designDirection: 'Mineral limewash & breathable wall atelier berstandar antislop: Slate Fog Blue (#B7C4CF), Oat Alabaster (#EEE3CB), Muted Clay Biscuit (#D7C0AE), Roasted Umber Wood (#967E76), dan Deep Roasted Earth Charcoal (#1D1917). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry bar pemurnian kapur dan nilai Sd, sticky header dengan brand mark stempel kapur KORU dan navigasi non-wrapping kokoh, hero asimetris 2 kolom dengan panggung simulator tekstur kanvas HTML5 dinamis, panggung komparator fisika dinding bernapas 2 kolom, penjelajah 3 ruangan interior interaktif dengan live pigment switching, kalkulator luas dinding dan ember cat KORU dengan deduksi pintu/jendela, grid etalase 4 produk mineral, dan formulir pemesanan Swatch Box 4-warna.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk kuratorial kehangatan materialitas arsitektural kapur padam, Plus Jakarta Sans untuk teks bodi penjelasan sains mineralogi dan kontrol teknis interaktif, JetBrains Mono untuk nilai Sd (m), derajat pH (12.5), gramatur penyerapan CO2, sudut sinar matahari (°), luas bidang dinding (m²), dan rincian harga rupiah.',
+      interactions: 'Simulator tekstur kuas Canvas HTML5 dengan 4 teknik aplikasi dan slider sudut matahari real-time, komparator interaktif dua kolom sifat fisik dinding, penjelajah ruangan 3 scene dengan pergantian warna pigmen live, kalkulator jumlah ember cat dengan penyesuaian dimensi dan deduksi bukaan dinding otomatis, serta slide-over drawer keranjang belanja terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural micro-crystal rendering Canvas HTML5, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#967E76',
+    colorPalette: [
+      { hex: '#B7C4CF', rgb: 'rgb(183, 196, 207)', name: 'Slate Fog Blue', role: 'Pigmen Mineral Silikat Kabut, Aksen Border Tombol & Badge Kalkulator Sd' },
+      { hex: '#EEE3CB', rgb: 'rgb(238, 227, 203)', name: 'Oat Alabaster', role: 'Kanvas Dinding Kapur Alami, Latar Belakang Utama & Kartu Sampel Plester' },
+      { hex: '#D7C0AE', rgb: 'rgb(215, 192, 174)', name: 'Muted Clay Biscuit', role: 'Pigmen Tanah Lempung Terracotta, Border Kartu & Tab Filter Ruangan' },
+      { hex: '#967E76', rgb: 'rgb(150, 126, 118)', name: 'Roasted Umber Wood', role: 'Pigmen Tanah Umber & Kayu, Tombol CTA Primer, Badge Elevasi & Header' }
+    ]
   }
 ];
 

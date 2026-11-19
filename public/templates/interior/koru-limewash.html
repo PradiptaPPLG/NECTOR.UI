@@ -1,0 +1,2377 @@
+<!-- KORU (コル) — Architectural Natural Mineral Limewash & Breathable Plaster Atelier -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KORU — Architectural Mineral Limewash & Breathable Plaster Atelier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --koru-slate: #B7C4CF;
+      --koru-oat: #EEE3CB;
+      --koru-biscuit: #D7C0AE;
+      --koru-umber: #967E76;
+      --koru-ink: #1D1917;
+      --koru-ink-light: #463E3A;
+      --koru-muted: #7A6F68;
+      --koru-border: rgba(150, 126, 118, 0.28);
+      --koru-border-strong: rgba(150, 126, 118, 0.55);
+      --koru-surface: #FFFFFF;
+      --koru-surface-card: rgba(255, 255, 255, 0.9);
+      --koru-canvas: #FAF7F2;
+      
+      --font-serif: "Playfair Display", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+      
+      --radius-sm: 3px;
+      --radius-md: 6px;
+      --radius-lg: 12px;
+      --radius-xl: 18px;
+      
+      --shadow-subtle: 0 4px 18px -2px rgba(29, 25, 23, 0.06);
+      --shadow-hover: 0 10px 28px -4px rgba(150, 126, 118, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--koru-oat);
+      color: var(--koru-ink);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--koru-canvas);
+      color: var(--koru-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Mineral Texture Ground */
+    .bg-mineral-grain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.85;
+      background: 
+        radial-gradient(circle at 12% 18%, rgba(183, 196, 207, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 88% 28%, rgba(238, 227, 203, 0.5) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(215, 192, 174, 0.3) 0%, transparent 55%),
+        radial-gradient(circle at 85% 85%, rgba(150, 126, 118, 0.15) 0%, transparent 50%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-feature-settings: "tnum";
+    }
+
+    /* Top Mineral Telemetry Bar */
+    .top-telemetry-bar {
+      background: var(--koru-ink);
+      color: var(--koru-oat);
+      padding: 7px 18px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(238, 227, 203, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 50;
+    }
+
+    .telemetry-items {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .telemetry-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .telemetry-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--koru-biscuit);
+      box-shadow: 0 0 6px var(--koru-biscuit);
+    }
+
+    .telemetry-badge {
+      background: rgba(238, 227, 203, 0.12);
+      border: 1px solid rgba(238, 227, 203, 0.25);
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      font-size: 10px;
+      color: #FFFFFF;
+    }
+
+    /* Header */
+    header.site-header {
+      background: rgba(250, 247, 242, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--koru-border);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 16px 0;
+      transition: all 0.2s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--koru-ink);
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--koru-umber);
+      color: var(--koru-oat);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 16px;
+      box-shadow: 0 2px 6px rgba(150, 126, 118, 0.3);
+    }
+
+    .brand-text h1 {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      color: var(--koru-muted);
+      text-transform: uppercase;
+      display: block;
+      margin-top: 2px;
+    }
+
+    nav.main-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    nav.main-nav a {
+      text-decoration: none;
+      color: var(--koru-ink-light);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.15s ease;
+      position: relative;
+    }
+
+    nav.main-nav a:hover,
+    nav.main-nav a.active {
+      color: var(--koru-ink);
+    }
+
+    nav.main-nav a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: var(--koru-umber);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-swatch-box-nav {
+      background: var(--koru-surface);
+      border: 1px solid var(--koru-border);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--koru-ink);
+      transition: all 0.15s ease;
+      position: relative;
+    }
+
+    .btn-swatch-box-nav:hover {
+      background: var(--koru-oat);
+      border-color: var(--koru-umber);
+    }
+
+    .cart-pill-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--koru-umber);
+      color: #FFFFFF;
+      font-size: 10px;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .btn-consult-wa {
+      background: var(--koru-ink);
+      color: var(--koru-oat);
+      border: none;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-consult-wa:hover {
+      background: #2D2724;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(29, 25, 23, 0.2);
+    }
+
+    /* Hero Section */
+    section.hero-section {
+      padding: 70px 0 60px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-kicker-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--koru-muted);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .kicker-pill {
+      background: rgba(150, 126, 118, 0.16);
+      color: var(--koru-ink);
+      border: 1px solid var(--koru-border-strong);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 10px;
+    }
+
+    h2.hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 4.3vw, 54px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--koru-ink);
+      margin-bottom: 22px;
+    }
+
+    h2.hero-headline em {
+      font-style: italic;
+      color: var(--koru-umber);
+      border-bottom: 1.5px solid var(--koru-biscuit);
+    }
+
+    p.hero-paragraph {
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--koru-ink-light);
+      max-width: 530px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 38px;
+    }
+
+    .btn-hero-primary {
+      background: var(--koru-ink);
+      color: var(--koru-oat);
+      text-decoration: none;
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+    }
+
+    .btn-hero-primary:hover {
+      background: #2D2724;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(29, 25, 23, 0.2);
+    }
+
+    .btn-hero-secondary {
+      background: var(--koru-surface);
+      color: var(--koru-ink);
+      text-decoration: none;
+      border: 1px solid var(--koru-border);
+      padding: 13px 22px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: var(--koru-oat);
+      border-color: var(--koru-umber);
+    }
+
+    .hero-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--koru-border);
+    }
+
+    .hero-metric-cell span.val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--koru-ink);
+      display: block;
+      line-height: 1.1;
+    }
+
+    .hero-metric-cell span.lbl {
+      font-size: 11.5px;
+      color: var(--koru-muted);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* Interactive Texture & Sun Simulator Card */
+    .texture-simulator-card {
+      background: var(--koru-surface-card);
+      border: 1px solid var(--koru-border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-hover);
+      position: relative;
+    }
+
+    .tsc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--koru-border);
+      margin-bottom: 18px;
+    }
+
+    .tsc-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--koru-ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tsc-badge {
+      background: rgba(183, 196, 207, 0.35);
+      border: 1px solid var(--koru-slate);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      color: var(--koru-ink);
+    }
+
+    /* Live Canvas for Plaster Texture */
+    .texture-canvas-frame {
+      width: 100%;
+      height: 230px;
+      border-radius: var(--radius-md);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+      border: 1px solid var(--koru-border);
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.08);
+      background-color: var(--koru-oat);
+    }
+
+    canvas#plaster-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .canvas-overlay-data {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .canvas-chip {
+      background: rgba(29, 25, 23, 0.75);
+      backdrop-filter: blur(6px);
+      color: var(--koru-oat);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      gap: 6px;
+    }
+
+    /* Technique Selector Buttons */
+    .technique-selector-group {
+      margin-bottom: 16px;
+    }
+
+    .technique-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--koru-muted);
+      margin-bottom: 8px;
+      display: block;
+      font-weight: 600;
+    }
+
+    .technique-buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    .btn-technique {
+      background: var(--koru-surface);
+      border: 1px solid var(--koru-border);
+      border-radius: var(--radius-sm);
+      padding: 8px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--koru-ink);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+
+    .btn-technique.active {
+      background: var(--koru-umber);
+      color: #FFFFFF;
+      border-color: var(--koru-umber);
+      box-shadow: 0 2px 8px rgba(150, 126, 118, 0.35);
+    }
+
+    /* Sun Angle Slider */
+    .sun-angle-slider-wrap {
+      margin-bottom: 18px;
+    }
+
+    .slider-header-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--koru-muted);
+      margin-bottom: 6px;
+    }
+
+    .slider-header-row strong {
+      color: var(--koru-ink);
+      font-family: var(--font-mono);
+    }
+
+    input[type=range].koru-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 7px;
+      background: linear-gradient(to right, #B7C4CF 0%, #D7C0AE 50%, #967E76 100%);
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type=range].koru-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--koru-surface);
+      border: 3px solid var(--koru-umber);
+      box-shadow: 0 2px 6px rgba(29, 25, 23, 0.2);
+      cursor: pointer;
+    }
+
+    .technique-desc-box {
+      background: var(--koru-oat);
+      border: 1px solid var(--koru-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--koru-ink-light);
+      line-height: 1.5;
+    }
+
+    /* Section Headings */
+    .section-editorial-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--koru-umber);
+      display: inline-block;
+      margin-bottom: 12px;
+      background: rgba(150, 126, 118, 0.15);
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+    }
+
+    .section-editorial-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+
+    .section-editorial-desc {
+      font-size: 15px;
+      color: var(--koru-muted);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       SECTION 2: BREATHABLE WALL PHYSICS & VOC COMPARATOR
+       ========================================================= */
+    section.physics-section {
+      padding: 64px 0 80px;
+      border-top: 1px solid var(--koru-border);
+      background: rgba(238, 227, 203, 0.25);
+    }
+
+    .comparator-table-card {
+      background: var(--koru-surface);
+      border: 1px solid var(--koru-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .comp-table th {
+      padding: 18px 24px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      background: var(--koru-oat);
+      border-bottom: 1px solid var(--koru-border);
+    }
+
+    .comp-table th.highlight {
+      background: rgba(150, 126, 118, 0.15);
+      color: var(--koru-ink);
+    }
+
+    .comp-table td {
+      padding: 16px 24px;
+      font-size: 13.5px;
+      border-bottom: 1px solid var(--koru-border);
+      color: var(--koru-ink-light);
+    }
+
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comp-table td.prop-name {
+      font-weight: 600;
+      color: var(--koru-ink);
+      width: 28%;
+    }
+
+    .comp-table td.koru-cell {
+      background: rgba(238, 227, 203, 0.2);
+      font-weight: 600;
+      color: var(--koru-ink);
+      width: 36%;
+    }
+
+    .comp-table td.synthetic-cell {
+      color: var(--koru-muted);
+      width: 36%;
+    }
+
+    .tag-safe {
+      color: #2F855A;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tag-warning {
+      color: #C53030;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+    }
+
+    /* =========================================================
+       SECTION 3: INTERACTIVE ROOM SURFACE & PIGMENT EXPLORER
+       ========================================================= */
+    section.room-explorer-section {
+      padding: 72px 0 80px;
+      position: relative;
+    }
+
+    .room-preview-box {
+      background: var(--koru-surface-card);
+      border: 1px solid var(--koru-border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .scene-selector-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .scene-btn-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-scene {
+      background: var(--koru-surface);
+      border: 1px solid var(--koru-border);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--koru-ink-light);
+      transition: all 0.15s ease;
+    }
+
+    .btn-scene.active {
+      background: var(--koru-ink);
+      color: var(--koru-oat);
+      border-color: var(--koru-ink);
+    }
+
+    .pigment-chips-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pigment-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--koru-muted);
+      font-weight: 600;
+    }
+
+    .swatch-circle-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .swatch-circle-btn.active {
+      transform: scale(1.25);
+      border-color: var(--koru-ink);
+    }
+
+    .room-viewport-display {
+      width: 100%;
+      height: 380px;
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+      border: 1px solid var(--koru-border);
+      transition: background-color 0.5s ease;
+    }
+
+    .room-viewport-display img.scene-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mix-blend-mode: multiply;
+      opacity: 0.88;
+      transition: opacity 0.4s ease;
+    }
+
+    .room-info-card-overlay {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      padding: 18px 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--koru-border);
+      max-width: 440px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .room-info-card-overlay h4 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .room-info-card-overlay p {
+      font-size: 12.5px;
+      color: var(--koru-ink-light);
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       SECTION 4: WALL AREA & LITRE COVERAGE CALCULATOR
+       ========================================================= */
+    section.calculator-section {
+      padding: 72px 0 80px;
+      border-top: 1px solid var(--koru-border);
+      background: var(--koru-canvas);
+    }
+
+    .calc-card-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      background: var(--koru-surface-card);
+      border: 1px solid var(--koru-border);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .calc-inputs-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .calc-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .calc-input-block label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--koru-ink);
+      margin-bottom: 6px;
+    }
+
+    .calc-input-block input.field-number {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--koru-border);
+      background: var(--koru-surface);
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      color: var(--koru-ink);
+      outline: none;
+    }
+
+    .calc-input-block input.field-number:focus {
+      border-color: var(--koru-umber);
+    }
+
+    .coats-btn-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-coat {
+      flex: 1;
+      padding: 9px;
+      border-radius: var(--radius-sm);
+      background: var(--koru-surface);
+      border: 1px solid var(--koru-border);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-coat.active {
+      background: var(--koru-umber);
+      color: #FFFFFF;
+      border-color: var(--koru-umber);
+    }
+
+    /* Calculator Result Panel */
+    .calc-result-panel {
+      background: var(--koru-oat);
+      border: 1px solid var(--koru-border-strong);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .crp-header {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--koru-muted);
+      margin-bottom: 12px;
+    }
+
+    .crp-area-display {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      line-height: 1;
+      color: var(--koru-ink);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .crp-area-display span.unit {
+      font-size: 20px;
+      font-family: var(--font-sans);
+      color: var(--koru-muted);
+    }
+
+    .crp-specs-list {
+      margin: 20px 0;
+      border-top: 1px solid var(--koru-border);
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .crp-spec-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .crp-spec-row span.k { color: var(--koru-muted); }
+    .crp-spec-row span.v { font-weight: 700; color: var(--koru-ink); font-family: var(--font-mono); }
+
+    .btn-add-calc-bundle {
+      width: 100%;
+      background: var(--koru-ink);
+      color: var(--koru-oat);
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-add-calc-bundle:hover {
+      background: #2D2724;
+      transform: translateY(-1px);
+    }
+
+    /* =========================================================
+       SECTION 5: CURATED PIGMENT & ARTISAN TOOLS
+       ========================================================= */
+    section.products-section {
+      padding: 72px 0 88px;
+      border-top: 1px solid var(--koru-border);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--koru-surface);
+      border: 1px solid var(--koru-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-subtle);
+      transition: all 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--koru-umber);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .product-img-wrap {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: var(--koru-oat);
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .product-tag-chip {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(29, 25, 23, 0.85);
+      color: var(--koru-oat);
+      font-size: 9.5px;
+      font-family: var(--font-mono);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+    }
+
+    .product-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-kicker-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--koru-muted);
+      margin-bottom: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--koru-ink);
+      margin-bottom: 8px;
+    }
+
+    .product-desc {
+      font-size: 12px;
+      color: var(--koru-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .product-chips-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .p-micro-chip {
+      background: var(--koru-oat);
+      border: 1px solid var(--koru-border);
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      color: var(--koru-ink-light);
+      font-family: var(--font-mono);
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--koru-border);
+      padding-top: 14px;
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--koru-ink);
+    }
+
+    .btn-add-cart {
+      background: var(--koru-canvas);
+      border: 1px solid var(--koru-border-strong);
+      color: var(--koru-ink);
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-add-cart:hover {
+      background: var(--koru-umber);
+      color: #FFFFFF;
+      border-color: var(--koru-umber);
+    }
+
+    /* =========================================================
+       SECTION 6: CONSULTATION & SWATCH BOX RESERVATION
+       ========================================================= */
+    section.consult-section {
+      padding: 72px 0 88px;
+      border-top: 1px solid var(--koru-border);
+      background: rgba(238, 227, 203, 0.2);
+    }
+
+    .consult-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      background: var(--koru-surface-card);
+      border: 1px solid var(--koru-border);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .consult-info-col h3 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 14px;
+    }
+
+    .consult-info-col p {
+      font-size: 14px;
+      color: var(--koru-ink-light);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .consult-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .c-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--koru-ink);
+    }
+
+    .c-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--koru-umber);
+    }
+
+    .consult-form-col {
+      background: var(--koru-surface);
+      border: 1px solid var(--koru-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--koru-ink);
+    }
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--koru-border);
+      background: var(--koru-canvas);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--koru-ink);
+      outline: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      border-color: var(--koru-umber);
+      background: #FFFFFF;
+    }
+
+    .btn-submit-consult {
+      width: 100%;
+      background: var(--koru-ink);
+      color: var(--koru-oat);
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      margin-top: 8px;
+    }
+
+    .btn-submit-consult:hover {
+      background: #2D2724;
+      transform: translateY(-1px);
+    }
+
+    /* Cart Slide-Over Drawer */
+    .cart-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(29, 25, 23, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .cart-drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      background: var(--koru-surface);
+      z-index: 101;
+      box-shadow: -6px 0 24px rgba(0, 0, 0, 0.15);
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer-backdrop.open .cart-drawer-panel {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--koru-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--koru-oat);
+    }
+
+    .drawer-header h4 {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .btn-close-drawer {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--koru-muted);
+    }
+
+    .drawer-items-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--koru-border);
+    }
+
+    .drawer-item-info h5 {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .drawer-item-info span {
+      font-size: 11px;
+      color: var(--koru-muted);
+      font-family: var(--font-mono);
+    }
+
+    .btn-remove-item {
+      background: none;
+      border: none;
+      color: #C53030;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--koru-border);
+      background: var(--koru-canvas);
+    }
+
+    .drawer-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      background: #25D366;
+      color: #FFFFFF;
+      border: none;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-checkout-wa:hover {
+      background: #1EBE5D;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background: var(--koru-ink);
+      color: var(--koru-oat);
+      padding: 60px 0 32px;
+      border-top: 1px solid rgba(238, 227, 203, 0.15);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h4 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--koru-biscuit);
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .footer-col h5 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--koru-slate);
+      margin-bottom: 14px;
+      font-family: var(--font-mono);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col ul a {
+      color: rgba(238, 227, 203, 0.7);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.15s ease;
+    }
+
+    .footer-col ul a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(238, 227, 203, 0.1);
+      font-size: 11.5px;
+      color: var(--koru-biscuit);
+      font-family: var(--font-mono);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .calc-card-grid,
+      .consult-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav.main-nav { display: none; }
+      .products-grid { grid-template-columns: 1fr; }
+      .hero-metrics-row { grid-template-columns: 1fr; gap: 12px; }
+      .calc-row-2 { grid-template-columns: 1fr; }
+      .technique-buttons-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom-row { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mineral-grain"></div>
+
+  <!-- Top Mineral Telemetry Bar -->
+  <div class="top-telemetry-bar mono">
+    <div class="telemetry-items">
+      <div class="telemetry-item">
+        <span class="telemetry-dot"></span>
+        <span>FORMULA: SLAKED LIME HIDRAT 100%</span>
+      </div>
+      <div class="telemetry-item">
+        <span>ZERO SINTETIS VOC: 0.00 G/L</span>
+      </div>
+      <div class="telemetry-item">
+        <span>PERMEABILITAS UAP: SD 0.02 M</span>
+      </div>
+      <div class="telemetry-item">
+        <span>ALKALINITAS ALAMI: PH 12.5 (ANTI-JAMUR)</span>
+      </div>
+    </div>
+    <div>
+      <span class="telemetry-badge">STANDAR EN 459-1 · RAW EARTH</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-logo">
+        <div class="brand-mark">K</div>
+        <div class="brand-text">
+          <h1>KORU</h1>
+          <span>Mineral Limewash & Plaster Atelier</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#simulator" class="active">Simulator Sapuan</a>
+        <a href="#fisika">Fisika Dinding</a>
+        <a href="#ruang">Eksplorasi Ruang</a>
+        <a href="#kalkulator">Kalkulator Luas</a>
+        <a href="#koleksi">Formula Pigmen</a>
+        <a href="#sampel">Kotak Sampel</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-swatch-box-nav" onclick="toggleCartDrawer()">
+          <span>Kotak Sampel</span>
+          <span class="cart-pill-count" id="cart-counter-pill">0</span>
+        </button>
+
+        <button class="btn-consult-wa" onclick="document.getElementById('sampel').scrollIntoView({behavior:'smooth'})">
+          <span>Konsultasi Palet</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="simulator">
+    <div class="container hero-grid">
+      <!-- Left Column -->
+      <div class="hero-left-col">
+        <div class="hero-kicker-row mono">
+          <span class="kicker-pill">ATELIER FINISHING ARSITEKTURAL</span>
+          <span>EST. 2026 · BANDUNG</span>
+        </div>
+
+        <h2 class="hero-headline">
+          Dinding bernapas yang <em>menua dengan anggun</em> dalam kilau beludru kapur mineral alami.
+        </h2>
+
+        <p class="hero-paragraph">
+          KORU menolak lapisan cat plastik emulsi sintetis yang menyegel kelembapan dan melepaskan racun VOC. Kami meracik kapur tohor hidrolik murni berumur 24 bulan dan pigmen bumi alami yang mengkristal menyatu permanen dengan dinding batu bata.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#kalkulator" class="btn-hero-primary">
+            <span>Hitung Kebutuhan Dinding</span>
+            <span>↓</span>
+          </a>
+          <a href="#sampel" class="btn-hero-secondary">
+            <span>Pesan Kotak Sampel Nyata</span>
+          </a>
+        </div>
+
+        <div class="hero-metrics-row">
+          <div class="hero-metric-cell">
+            <span class="val">0.00 g/L</span>
+            <span class="lbl">Emisi VOC (Zero Odor & Ramah Anak)</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="val">pH 12.5</span>
+            <span class="lbl">Basa Alami Anti Spora Jamur</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="val">Sd 0.02 m</span>
+            <span class="lbl">Transpirasi Uap Udara Bebas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Brush Technique & Sun Angle Simulator -->
+      <div class="hero-right-col">
+        <div class="texture-simulator-card">
+          <div class="tsc-header">
+            <div class="tsc-title">
+              <span>●</span>
+              <span>Simulator Tekstur Sapuan & Sudut Cahaya</span>
+            </div>
+            <span class="tsc-badge mono" id="light-angle-badge">SUDUT CAHAYA 45°</span>
+          </div>
+
+          <!-- Live Plaster Canvas -->
+          <div class="texture-canvas-frame">
+            <canvas id="plaster-canvas" width="600" height="230"></canvas>
+            <div class="canvas-overlay-data">
+              <div class="canvas-chip">
+                <span>TEKNIK:</span>
+                <strong id="active-technique-label">Cross-Hatch (Sapuan Silang)</strong>
+              </div>
+              <div class="canvas-chip">
+                <span>PIGMEN:</span>
+                <strong id="active-pigment-label">Oat Alabaster (#EEE3CB)</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technique Selector -->
+          <div class="technique-selector-group">
+            <span class="technique-label">Pilih Teknik Aplikasi Kuas:</span>
+            <div class="technique-buttons-grid">
+              <button class="btn-technique active" onclick="setTechnique('crosshatch', this)">Cross-Hatch</button>
+              <button class="btn-technique" onclick="setTechnique('cloud', this)">Cloud Wash</button>
+              <button class="btn-technique" onclick="setTechnique('spatula', this)">Roman Spatula</button>
+              <button class="btn-technique" onclick="setTechnique('drag', this)">Drag Brush</button>
+            </div>
+          </div>
+
+          <!-- Sun Angle Slider -->
+          <div class="sun-angle-slider-wrap">
+            <div class="slider-header-row">
+              <span>Sudut Bayangan Matahari:</span>
+              <strong id="sun-angle-text">45° Sore (Tekstur Dalam)</strong>
+            </div>
+            <input 
+              type="range" 
+              class="koru-slider" 
+              id="sun-angle-range" 
+              min="15" 
+              max="90" 
+              step="5" 
+              value="45"
+              oninput="updateSunAngle(this.value)"
+            >
+          </div>
+
+          <div class="technique-desc-box" id="technique-desc-text">
+            <strong>Cross-Hatch (Sapuan Silang):</strong> Menggunakan kuas blok bulu babi lebar 6-inci dengan sapuan menyilang X tidak teratur. Partikel mikrokristalin kapur memantulkan cahaya berbeda sudut, menghasilkan nuansa suede awan berdimensi lembut.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Breathable Wall Physics vs Synthetic Latex -->
+  <section class="physics-section" id="fisika">
+    <div class="container">
+      <div class="section-editorial-header">
+        <span class="section-kicker">SAINS FISIKA BANGUNAN</span>
+        <h2 class="section-editorial-title">Kapur Mineral Alami vs Cat Sintetis Emulsi</h2>
+        <p class="section-editorial-desc">
+          Cat tembok lateks konvensional melapisi dinding dengan lapisan plastik sintetis kedap air yang menjebak uap air dan memicu jamur hitam beracun di balik dinding.
+        </p>
+      </div>
+
+      <div class="comparator-table-card">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Parameter Fisika & Kimia</th>
+              <th class="highlight">KORU Limewash Mineral Alami</th>
+              <th>Cat Lateks / Akrilik Konvensional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="prop-name">Mekanisme Pengeringan</td>
+              <td class="koru-cell">Kristalisasi Karbonasi Udara (Menjadi Batu Kapur Utuh)</td>
+              <td class="synthetic-cell">Penguapan Pelarut Polimer Plastik Sintetis</td>
+            </tr>
+            <tr>
+              <td class="prop-name">Emisi Gas Senyawa VOC</td>
+              <td class="koru-cell"><span class="tag-safe">✓ 0.00 g/L (Mutlak Zero-VOC)</span></td>
+              <td class="synthetic-cell"><span class="tag-warning">35 – 50 g/L (Bau Kimia Sintetis)</span></td>
+            </tr>
+            <tr>
+              <td class="prop-name">Permeabilitas Uap Air (Sd)</td>
+              <td class="koru-cell"><span class="tag-safe">Sd 0.02 m (Sangat Bernapas / Anti-Lembap)</span></td>
+              <td class="synthetic-cell"><span class="tag-warning">Sd 0.85 m (Menjebak Uap di Balik Plester)</span></td>
+            </tr>
+            <tr>
+              <td class="prop-name">Ketahanan Jamur Alami</td>
+              <td class="koru-cell"><span class="tag-safe">pH 12.5 (Basa Kuat Membunuh Spora Alami)</span></td>
+              <td class="synthetic-cell"><span class="tag-warning">pH 7-8 (Butuh Pengawet Biocides Kimiawi)</span></td>
+            </tr>
+            <tr>
+              <td class="prop-name">Penuaan Visual (Aging)</td>
+              <td class="koru-cell">Membentuk Patina Alami Wabi-Sabi yang Makin Anggun</td>
+              <td class="synthetic-cell">Menguning, Menggelembung, & Mengelupas Kasar</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Interactive Room Surface & Pigment Explorer -->
+  <section class="room-explorer-section" id="ruang">
+    <div class="container">
+      <div class="section-editorial-header">
+        <span class="section-kicker">SIMULASI RUANG ARSITEKTURAL</span>
+        <h2 class="section-editorial-title">Harmoni 4 Pigmen Bumi di 3 Ruang Nyata</h2>
+        <p class="section-editorial-desc">
+          Pilih suasana interior dan uji kombinasi 4 formula pigmen alami KORU untuk melihat bagaimana pendar tekstur kapur menyatu dengan perabot kayu dan cahaya matahari.
+        </p>
+      </div>
+
+      <div class="room-preview-box">
+        <div class="scene-selector-row">
+          <div class="scene-btn-group">
+            <button class="btn-scene active" onclick="setScene('living', this)">Ruang Tamu Wabi-Sabi</button>
+            <button class="btn-scene" onclick="setScene('bedroom', this)">Kamar Tidur Santuari</button>
+            <button class="btn-scene" onclick="setScene('study', this)">Ruang Baca Minimalis</button>
+          </div>
+
+          <div class="pigment-chips-group">
+            <span class="pigment-label">Pilih Pigmen:</span>
+            <button class="swatch-circle-btn active" style="background:#EEE3CB;" onclick="setRoomPigment('#EEE3CB', 'Oat Alabaster', this)" title="Oat Alabaster (#EEE3CB)"></button>
+            <button class="swatch-circle-btn" style="background:#B7C4CF;" onclick="setRoomPigment('#B7C4CF', 'Slate Fog Blue', this)" title="Slate Fog Blue (#B7C4CF)"></button>
+            <button class="swatch-circle-btn" style="background:#D7C0AE;" onclick="setRoomPigment('#D7C0AE', 'Muted Clay Biscuit', this)" title="Muted Clay Biscuit (#D7C0AE)"></button>
+            <button class="swatch-circle-btn" style="background:#967E76;" onclick="setRoomPigment('#967E76', 'Roasted Umber Wood', this)" title="Roasted Umber Wood (#967E76)"></button>
+          </div>
+        </div>
+
+        <!-- Room Viewport Canvas Area -->
+        <div class="room-viewport-display" id="room-display-stage" style="background-color: #EEE3CB;">
+          <img 
+            id="room-bg-img" 
+            class="scene-bg-img" 
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" 
+            alt="Interior Wabi Sabi Room"
+          >
+          <div class="room-info-card-overlay">
+            <h4 id="scene-title-display">Ruang Tamu Wabi-Sabi</h4>
+            <p id="scene-desc-display">Aplikasi teknik Cross-Hatch pada dinding utama dengan pigmen Oat Alabaster (#EEE3CB) memantulkan cahaya jendela samping dengan kehangatan mineral tanpa pantulan silau mengkilap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Wall Area & Litre Coverage Calculator -->
+  <section class="calculator-section" id="kalkulator">
+    <div class="container">
+      <div class="section-editorial-header">
+        <span class="section-kicker">ESTIMATOR MATERIAL PRESISI</span>
+        <h2 class="section-editorial-title">Kalkulator Luas Dinding & Kebutuhan Ember Cat</h2>
+        <p class="section-editorial-desc">
+          Masukkan dimensi dinding Anda untuk menghitung luas bersih (m²), jumlah ember cat kapur 5-Liter yang dibutuhkan, serta primer pengikat mineral tanpa sisa limbah.
+        </p>
+      </div>
+
+      <div class="calc-card-grid">
+        <div class="calc-inputs-col">
+          <div class="calc-row-2">
+            <div class="calc-input-block">
+              <label>Panjang Dinding Total (m):</label>
+              <input type="number" class="field-number" id="inp-length" min="1" max="100" step="0.5" value="12" oninput="recalcWallArea()">
+            </div>
+            <div class="calc-input-block">
+              <label>Tinggi Plafon Dinding (m):</label>
+              <input type="number" class="field-number" id="inp-height" min="1.5" max="10" step="0.1" value="3.2" oninput="recalcWallArea()">
+            </div>
+          </div>
+
+          <div class="calc-row-2">
+            <div class="calc-input-block">
+              <label>Kurangi Pintu (Unit @ 2 m²):</label>
+              <input type="number" class="field-number" id="inp-doors" min="0" max="20" step="1" value="2" oninput="recalcWallArea()">
+            </div>
+            <div class="calc-input-block">
+              <label>Kurangi Jendela (Unit @ 1.5 m²):</label>
+              <input type="number" class="field-number" id="inp-windows" min="0" max="20" step="1" value="2" oninput="recalcWallArea()">
+            </div>
+          </div>
+
+          <div class="calc-input-block">
+            <label>Jumlah Lapisan Kuas (Coats):</label>
+            <div class="coats-btn-group">
+              <button class="btn-coat active" id="btn-coat-2" onclick="setCoats(2)">2 Lapisan (Standar Suede)</button>
+              <button class="btn-coat" id="btn-coat-3" onclick="setCoats(3)">3 Lapisan (Patina Tebal)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-result-panel">
+          <div>
+            <div class="crp-header">Hasil Kalkulasi Luas Bersih</div>
+            <div class="crp-area-display">
+              <span id="res-net-area">31.4</span>
+              <span class="unit">m²</span>
+            </div>
+            <p style="font-size: 12.5px; color: var(--koru-muted);">Daya sebar limewash: 12 m² per Liter per lapisan.</p>
+          </div>
+
+          <div class="crp-specs-list">
+            <div class="crp-spec-row">
+              <span class="k">KORU Limewash 5-Liter:</span>
+              <span class="v" id="res-buckets">2 Ember (10 L)</span>
+            </div>
+            <div class="crp-spec-row">
+              <span class="k">Mineral Primer Tembus Uap:</span>
+              <span class="v" id="res-primer">1 Kaleng (2.5 L)</span>
+            </div>
+            <div class="crp-spec-row">
+              <span class="k">Kuas Blok Bulu Babi 6":</span>
+              <span class="v">1 Unit (Termasuk)</span>
+            </div>
+          </div>
+
+          <button class="btn-add-calc-bundle" onclick="addCalculatedBundleToCart()">
+            + Tambahkan Paket Material Lengkap ke Keranjang
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Curated Pigment & Artisan Tools Collection -->
+  <section class="products-section" id="koleksi">
+    <div class="container">
+      <div class="section-editorial-header">
+        <span class="section-kicker">KATALOG FORMULA MINERAL</span>
+        <h2 class="section-editorial-title">Koleksi Cat Kapur & Alat Aplikasi Kriya</h2>
+        <p class="section-editorial-desc">
+          Formula pigmen mineral mentah dan perkakas impor Italia berkualitas tinggi untuk menciptakan permukaan interior tak lekang waktu.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" alt="KORU Limewash Mineral 5L">
+            <span class="product-tag-chip">FORMULA UTAMA 5L</span>
+          </div>
+          <div class="product-body">
+            <div class="product-kicker-line">
+              <span>CAT KAPUR MURNI</span>
+              <span>EMBER 5 LITER</span>
+            </div>
+            <h4 class="product-name">KORU Limewash Paint</h4>
+            <p class="product-desc">Cat kapur tohor hidrolik murni berumur 24 bulan dengan pigmen mineral alami. Menghasilkan tekstur suede berawan tanpa bau cat.</p>
+            <div class="product-chips-row">
+              <span class="p-micro-chip">Zero VOC</span>
+              <span class="p-micro-chip">pH 12.5 Basa</span>
+              <span class="p-micro-chip">Tembus Uap</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 850.000</span>
+              <button class="btn-add-cart" onclick="addToCart('KORU Limewash Paint 5L (Oat Alabaster)', 850000)">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Roman Clay Plaster 10kg">
+            <span class="product-tag-chip">ROMAN CLAY 10KG</span>
+          </div>
+          <div class="product-body">
+            <div class="product-kicker-line">
+              <span>PLESTER SPATULA</span>
+              <span>PASTA SIAP PAKAI</span>
+            </div>
+            <h4 class="product-name">Roman Clay Mineral Plaster</h4>
+            <p class="product-desc">Pasta plester tanah liat mineral halus untuk aplikasi spatula pisau baja, menghasilkan kedalaman marmer matte organik ala Mediterania.</p>
+            <div class="product-chips-row">
+              <span class="p-micro-chip">Tekstur Marmer</span>
+              <span class="p-micro-chip">Tanpa Pasir Kasar</span>
+              <span class="p-micro-chip">100% Organik</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 1.450.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Roman Clay Mineral Plaster 10kg', 1450000)">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="Italian Block Brush 6 Inch">
+            <span class="product-tag-chip">KRIYA ITALIA</span>
+          </div>
+          <div class="product-body">
+            <div class="product-kicker-line">
+              <span>KUAS BLOK BULU BABI</span>
+              <span>LEBAR 6-INCI (15CM)</span>
+            </div>
+            <h4 class="product-name">Artisan Italian Block Brush</h4>
+            <p class="product-desc">Kuas blok bulu alami berkualitas tinggi dengan pegangan kayu beechwood. Menahan volume suspensi kapur secara optimal untuk sapuan silang.</p>
+            <div class="product-chips-row">
+              <span class="p-micro-chip">Natural Bristle</span>
+              <span class="p-micro-chip">Beechwood Grip</span>
+              <span class="p-micro-chip">Tahan Lama</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 320.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Artisan Italian Block Brush 6-Inch', 320000)">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Vapour-Permeable Mineral Primer">
+            <span class="product-tag-chip">PRIMER KHUSUS</span>
+          </div>
+          <div class="product-body">
+            <div class="product-kicker-line">
+              <span>PRIMER MINERAL TEMBUS UAP</span>
+              <span>KALENG 2.5 LITER</span>
+            </div>
+            <h4 class="product-name">Breathable Mineral Primer</h4>
+            <p class="product-desc">Lapisan dasar pengikat silikat berpori mikro yang menyeimbangkan daya hisap dinding bata dan plester tanpa menghalangi aliran uap.</p>
+            <div class="product-chips-row">
+              <span class="p-micro-chip">Silikat Mikro</span>
+              <span class="p-micro-chip">Daya Rekat Tinggi</span>
+              <span class="p-micro-chip">Cepat Kering</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 480.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Breathable Mineral Primer 2.5L', 480000)">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Consultation & Custom Swatch Box -->
+  <section class="consult-section" id="sampel">
+    <div class="container">
+      <div class="consult-grid">
+        <div class="consult-info-col">
+          <span class="section-kicker">KOTAK SAMPEL & KONSULTASI</span>
+          <h3>Pesan Kotak Sampel Warna Nyata di Atas Kertas Seni</h3>
+          <p>
+            Warna cat kapur bereaksi terhadap pencahayaan alami ruangan Anda. Pesan kotak kurasi 4 sampel warna KORU yang disapukan tangan di atas kertas seni katun 300 gsm.
+          </p>
+
+          <div class="consult-list">
+            <div class="c-item">
+              <span class="c-dot"></span>
+              <span>4 Lembar sampel cat kuas asli (15 × 20 cm)</span>
+            </div>
+            <div class="c-item">
+              <span class="c-dot"></span>
+              <span>Buku panduan teknik aplikasi kuas silang & primer</span>
+            </div>
+            <div class="c-item">
+              <span class="c-dot"></span>
+              <span>Voucher cashback senilai Rp 150.000 untuk pembelian ember</span>
+            </div>
+            <div class="c-item">
+              <span class="c-dot"></span>
+              <span>Konsultasi palet warna via WhatsApp dengan spesialis arsitektur</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="consult-form-col">
+          <form onsubmit="handleSampleOrder(event)">
+            <div class="form-group">
+              <label>Nama Pemesan / Arsitek:</label>
+              <input type="text" class="form-input" id="swatch-name" required placeholder="Contoh: Sarah Andira, IAI">
+            </div>
+
+            <div class="form-group">
+              <label>Nomor WhatsApp:</label>
+              <input type="tel" class="form-input" id="swatch-wa" required placeholder="0812-XXXX-XXXX">
+            </div>
+
+            <div class="form-group">
+              <label>Pilihan Seri Warna Sampel:</label>
+              <select class="form-select" id="swatch-selection">
+                <option value="Kurasi Wabi-Sabi (Oat Alabaster, Slate Fog, Clay Biscuit, Umber)">Kurasi Wabi-Sabi (Oat Alabaster, Slate Fog, Clay Biscuit, Umber)</option>
+                <option value="Seri Skandinavia Tenang (Slate Fog & Oat Alabaster)">Seri Skandinavia Tenang (Slate Fog & Oat Alabaster)</option>
+                <option value="Seri Mediterania Hangat (Clay Biscuit & Roasted Umber)">Seri Mediterania Hangat (Clay Biscuit & Roasted Umber)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Alamat Pengiriman Kotak Sampel:</label>
+              <input type="text" class="form-input" id="swatch-address" required placeholder="Kota, Kecamatan, Kode Pos">
+            </div>
+
+            <button type="submit" class="btn-submit-consult">
+              Pesan Kotak Sampel (Rp 150.000) via WhatsApp →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div class="cart-drawer-backdrop" id="cart-drawer">
+    <div class="cart-drawer-panel">
+      <div class="drawer-header">
+        <h4>Keranjang Material KORU</h4>
+        <button class="btn-close-drawer" onclick="toggleCartDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-items-list" id="drawer-items-container">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="drawer-total-row">
+          <span>Total Estimasi:</span>
+          <span id="drawer-total-price">Rp 0</span>
+        </div>
+        <button class="btn-checkout-wa" onclick="checkoutWhatsApp()">
+          <span>Kirim Pesanan ke WhatsApp KORU</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>KORU.</h4>
+          <p>
+            Atelier finishing cat kapur mineral alami, plaster Roman Clay bernapas, dan pigmen bumi arsitektural. Dibuat di Bandung dengan standar keberlanjutan mutlak.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Eksplorasi</h5>
+          <ul>
+            <li><a href="#simulator">Simulator Sapuan Kuas</a></li>
+            <li><a href="#fisika">Fisika Dinding Bernapas</a></li>
+            <li><a href="#ruang">Simulasi 3 Ruang Interior</a></li>
+            <li><a href="#kalkulator">Kalkulator Luas Dinding</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Produk Kriya</h5>
+          <ul>
+            <li><a href="#koleksi">Limewash Mineral 5L</a></li>
+            <li><a href="#koleksi">Roman Clay Plaster 10kg</a></li>
+            <li><a href="#koleksi">Italian Block Brush 6"</a></li>
+            <li><a href="#koleksi">Mineral Primer 2.5L</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Studio & Galeri</h5>
+          <ul>
+            <li><a href="#">Jl. Cigadung Raya Barat No. 24</a></li>
+            <li><a href="#">Bandung, Jawa Barat</a></li>
+            <li><a href="#">WhatsApp: +62 813-8822-1100</a></li>
+            <li><a href="#">Buka: 09:00 - 17:30 WIB</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>© 2026 KORU MINERAL FINISHES. ALL RIGHTS RESERVED.</span>
+        <span>STANDAR KONTROL CRAFT NECTOR.UI · BEBAS AI SLOP</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Canvas Plaster Simulator, Room Scene Switcher, Calculator & Cart -->
+  <script>
+    // 1. Plaster Canvas Texture Generator
+    let curTechnique = 'crosshatch';
+    let curSunAngle = 45;
+    let curPigment = '#EEE3CB';
+    let curPigmentName = 'Oat Alabaster';
+
+    const canvas = document.getElementById('plaster-canvas');
+    const ctx = canvas.getContext('2d');
+
+    const techniqueDescriptions = {
+      crosshatch: "<strong>Cross-Hatch (Sapuan Silang):</strong> Menggunakan kuas blok bulu babi lebar 6-inci dengan sapuan menyilang X tidak teratur. Partikel mikrokristalin kapur memantulkan cahaya berbeda sudut, menghasilkan nuansa suede awan berdimensi lembut.",
+      cloud: "<strong>Cloud Wash (Sapuan Awan):</strong> Diaplikasikan dengan gerakan melingkar spons laut alami. Lapisan kedua yang lebih encer menciptakan transisi pudar semi-transparan mirip kabut pagi pegunungan.",
+      spatula: "<strong>Roman Clay Spatula:</strong> Diaplikasikan dengan pisau spatula baja fleksibel. Tekstur plester padat dipoles tipis-tipis untuk menciptakan efek permukaan batu travertine halus tanpa pori kasar.",
+      drag: "<strong>Drag Brush (Serat Vertikal):</strong> Kuas blok ditarik perlahan searah gravitasi dari plafon ke lantai, menghasilkan guratan serat vertikal halus yang memberi ilusi ketinggian ruang ekstra."
+    };
+
+    function renderPlasterTexture() {
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      // Base coat fill
+      ctx.fillStyle = curPigment;
+      ctx.fillRect(0, 0, w, h);
+
+      // Sun Angle shadow intensity: 90 deg = flat soft light; 15-45 deg = long micro-shadows
+      const shadowFactor = (90 - curSunAngle) / 75; // 0 (flat) to 1 (deep)
+
+      ctx.save();
+      if (curTechnique === 'crosshatch') {
+        // Cross-hatch diagonal strokes
+        for (let i = 0; i < 48; i++) {
+          const x = Math.random() * w;
+          const y = Math.random() * h;
+          const len = 35 + Math.random() * 45;
+          const angle = (Math.PI / 4) + (Math.random() - 0.5) * 0.4;
+
+          ctx.beginPath();
+          ctx.strokeStyle = Math.random() > 0.5 ? `rgba(255, 255, 255, ${0.12 + shadowFactor * 0.1})` : `rgba(150, 126, 118, ${0.1 + shadowFactor * 0.15})`;
+          ctx.lineWidth = 12 + Math.random() * 16;
+          ctx.lineCap = 'round';
+          ctx.moveTo(x - Math.cos(angle) * len, y - Math.sin(angle) * len);
+          ctx.lineTo(x + Math.cos(angle) * len, y + Math.sin(angle) * len);
+          ctx.stroke();
+
+          // Crossing stroke
+          const crossAngle = (-Math.PI / 4) + (Math.random() - 0.5) * 0.4;
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(215, 192, 174, ${0.15 + shadowFactor * 0.12})`;
+          ctx.lineWidth = 10 + Math.random() * 14;
+          ctx.moveTo(x - Math.cos(crossAngle) * (len * 0.8), y - Math.sin(crossAngle) * (len * 0.8));
+          ctx.lineTo(x + Math.cos(crossAngle) * (len * 0.8), y + Math.sin(crossAngle) * (len * 0.8));
+          ctx.stroke();
+        }
+      } else if (curTechnique === 'cloud') {
+        // Soft cloud circular dabs
+        for (let i = 0; i < 60; i++) {
+          const cx = Math.random() * w;
+          const cy = Math.random() * h;
+          const radius = 25 + Math.random() * 55;
+          const grad = ctx.createRadialGradient(cx, cy, 2, cx, cy, radius);
+          grad.addColorStop(0, `rgba(255, 255, 255, ${0.22 + shadowFactor * 0.1})`);
+          grad.addColorStop(0.6, `rgba(183, 196, 207, ${0.12 + shadowFactor * 0.08})`);
+          grad.addColorStop(1, 'transparent');
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      } else if (curTechnique === 'spatula') {
+        // Broad plaster knife trowel marks
+        for (let i = 0; i < 28; i++) {
+          const x = Math.random() * w;
+          const y = Math.random() * h;
+          const rw = 90 + Math.random() * 110;
+          const rh = 28 + Math.random() * 32;
+
+          ctx.fillStyle = Math.random() > 0.5 ? `rgba(255, 255, 255, ${0.18 + shadowFactor * 0.12})` : `rgba(150, 126, 118, ${0.14 + shadowFactor * 0.16})`;
+          ctx.beginPath();
+          ctx.roundRect ? ctx.roundRect(x, y, rw, rh, 6) : ctx.rect(x, y, rw, rh);
+          ctx.fill();
+
+          // Spatula edge scrape line
+          ctx.strokeStyle = `rgba(80, 68, 62, ${0.18 + shadowFactor * 0.22})`;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(x, y + rh);
+          ctx.lineTo(x + rw, y + rh);
+          ctx.stroke();
+        }
+      } else if (curTechnique === 'drag') {
+        // Vertical brush drag lines
+        for (let i = 0; i < 90; i++) {
+          const x = Math.random() * w;
+          ctx.beginPath();
+          ctx.strokeStyle = Math.random() > 0.5 ? `rgba(255, 255, 255, ${0.1 + shadowFactor * 0.1})` : `rgba(150, 126, 118, ${0.12 + shadowFactor * 0.14})`;
+          ctx.lineWidth = 3 + Math.random() * 8;
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x + (Math.random() - 0.5) * 6, h);
+          ctx.stroke();
+        }
+      }
+      ctx.restore();
+    }
+
+    function setTechnique(tech, btn) {
+      curTechnique = tech;
+      document.querySelectorAll('.btn-technique').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const names = {
+        crosshatch: 'Cross-Hatch (Sapuan Silang)',
+        cloud: 'Cloud Wash (Sapuan Awan)',
+        spatula: 'Roman Spatula (Plester Halus)',
+        drag: 'Drag Brush (Serat Vertikal)'
+      };
+
+      document.getElementById('active-technique-label').innerText = names[tech];
+      document.getElementById('technique-desc-text').innerHTML = techniqueDescriptions[tech];
+      renderPlasterTexture();
+    }
+
+    function updateSunAngle(val) {
+      curSunAngle = parseInt(val);
+      document.getElementById('light-angle-badge').innerText = `SUDUT CAHAYA ${curSunAngle}°`;
+      
+      let angleText = `${curSunAngle}° `;
+      if (curSunAngle < 35) angleText += 'Pagi Rendah (Bayangan Panjang)';
+      else if (curSunAngle < 65) angleText += 'Sore (Tekstur Beludru Dalam)';
+      else angleText += 'Zenit Tegak (Pendar Merata)';
+
+      document.getElementById('sun-angle-text').innerText = angleText;
+      renderPlasterTexture();
+    }
+
+    renderPlasterTexture();
+
+    // 2. Room Scene & Pigment Explorer
+    const scenes = {
+      living: {
+        title: "Ruang Tamu Wabi-Sabi",
+        img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+        desc: "Aplikasi teknik Cross-Hatch pada dinding utama memantulkan cahaya jendela samping dengan kehangatan mineral tanpa pantulan silau mengkilap."
+      },
+      bedroom: {
+        title: "Kamar Tidur Santuari Hening",
+        img: "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=1200&q=80",
+        desc: "Permukaan kapur bernapas menyerap kelembapan malam hari, menjaga udara kamar tetap segar bebas dari bau gas sintetis lateks."
+      },
+      study: {
+        title: "Studio Baca & Meja Kerja Minimalis",
+        img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
+        desc: "Tekstur Roman Clay halus pada latar belakang rak buku kayu oak memberikan kontras arsitektural yang menenangkan mata saat membaca."
+      }
+    };
+
+    let curSceneKey = 'living';
+
+    function setScene(key, btn) {
+      curSceneKey = key;
+      document.querySelectorAll('.btn-scene').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const sc = scenes[key];
+      document.getElementById('room-bg-img').src = sc.img;
+      document.getElementById('scene-title-display').innerText = sc.title;
+      document.getElementById('scene-desc-display').innerText = sc.desc;
+    }
+
+    function setRoomPigment(hex, name, btn) {
+      document.querySelectorAll('.swatch-circle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      curPigment = hex;
+      curPigmentName = name;
+      document.getElementById('room-display-stage').style.backgroundColor = hex;
+      document.getElementById('active-pigment-label').innerText = `${name} (${hex})`;
+      renderPlasterTexture();
+    }
+
+    // 3. Wall Area & Material Calculator
+    let coats = 2;
+
+    function setCoats(n) {
+      coats = n;
+      document.getElementById('btn-coat-2').classList.toggle('active', n === 2);
+      document.getElementById('btn-coat-3').classList.toggle('active', n === 3);
+      recalcWallArea();
+    }
+
+    function recalcWallArea() {
+      const len = parseFloat(document.getElementById('inp-length').value) || 0;
+      const hgt = parseFloat(document.getElementById('inp-height').value) || 0;
+      const doors = parseInt(document.getElementById('inp-doors').value) || 0;
+      const windows = parseInt(document.getElementById('inp-windows').value) || 0;
+
+      const gross = len * hgt;
+      const deductions = (doors * 2.0) + (windows * 1.5);
+      const net = Math.max(1, gross - deductions);
+
+      document.getElementById('res-net-area').innerText = net.toFixed(1);
+
+      // Coverage: 1 Liter covers ~12 m2 per coat
+      const litresNeeded = (net * coats) / 12;
+      const buckets5L = Math.max(1, Math.ceil(litresNeeded / 5));
+      document.getElementById('res-buckets').innerText = `${buckets5L} Ember (${buckets5L * 5} L)`;
+
+      // Primer: 1L per 14 m2 (1 coat)
+      const primerL = Math.max(1, Math.ceil(net / 14 / 2.5));
+      document.getElementById('res-primer').innerText = `${primerL} Kaleng (${primerL * 2.5} L)`;
+    }
+
+    recalcWallArea();
+
+    function addCalculatedBundleToCart() {
+      const area = document.getElementById('res-net-area').innerText;
+      const buckets = document.getElementById('res-buckets').innerText;
+      addToCart(`Paket KORU Limewash Dinding (${area} m² · ${buckets} + Primer + Kuas)`, 2180000);
+    }
+
+    // 4. Cart & Slide-Over Drawer
+    let cartItems = [];
+
+    function addToCart(title, price) {
+      cartItems.push({ id: Date.now(), title, price });
+      updateCartUI();
+      openCartDrawer();
+    }
+
+    function removeFromCart(id) {
+      cartItems = cartItems.filter(item => item.id !== id);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      document.getElementById('cart-counter-pill').innerText = cartItems.length;
+      const container = document.getElementById('drawer-items-container');
+      container.innerHTML = '';
+
+      let total = 0;
+      if (cartItems.length === 0) {
+        container.innerHTML = '<p style="color:var(--koru-muted); text-align:center; margin-top:40px;">Kotak pesanan material Anda masih kosong.</p>';
+      } else {
+        cartItems.forEach(item => {
+          total += item.price;
+          const div = document.createElement('div');
+          div.className = 'drawer-item';
+          div.innerHTML = `
+            <div class="drawer-item-info">
+              <h5>${item.title}</h5>
+              <span>Rp ${item.price.toLocaleString('id-ID')}</span>
+            </div>
+            <button class="btn-remove-item" onclick="removeFromCart(${item.id})">Hapus</button>
+          `;
+          container.appendChild(div);
+        });
+      }
+
+      document.getElementById('drawer-total-price').innerText = `Rp ${total.toLocaleString('id-ID')}`;
+    }
+
+    function toggleCartDrawer() {
+      document.getElementById('cart-drawer').classList.toggle('open');
+    }
+
+    function openCartDrawer() {
+      document.getElementById('cart-drawer').classList.add('open');
+    }
+
+    function checkoutWhatsApp() {
+      if (cartItems.length === 0) {
+        alert('Keranjang Anda masih kosong. Silakan pilih formula cat kapur atau paket material terlebih dahulu.');
+        return;
+      }
+
+      let text = 'Halo Atelier KORU Mineral Finishes, saya ingin memesan material cat kapur berikut:%0A%0A';
+      let total = 0;
+      cartItems.forEach((it, i) => {
+        text += `${i + 1}. ${it.title} - Rp ${it.price.toLocaleString('id-ID')}%0A`;
+        total += it.price;
+      });
+      text += `%0ATotal: Rp ${total.toLocaleString('id-ID')}%0A%0AMohon konfirmasi stok kaleng pigmen dan estimasi pengiriman ke proyek kami. Terima kasih!`;
+
+      window.open(`https://wa.me/6281388221100?text=${text}`, '_blank');
+    }
+
+    // 5. Swatch Box Consultation Order via WhatsApp
+    function handleSampleOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById('swatch-name').value;
+      const wa = document.getElementById('swatch-wa').value;
+      const sel = document.getElementById('swatch-selection').value;
+      const addr = document.getElementById('swatch-address').value;
+
+      const text = `Halo KORU Mineral Finishes, saya ingin memesan Kotak Sampel Warna Asli (Rp 150.000):%0A%0A` +
+        `• Nama / Studio: ${name}%0A` +
+        `• WhatsApp: ${wa}%0A` +
+        `• Pilihan Palet: ${sel}%0A` +
+        `• Alamat Pengiriman: ${addr}%0A%0A` +
+        `Mohon info rekening pembayaran dan pengiriman paket sampel. Terima kasih!`;
+
+      window.open(`https://wa.me/6281388221100?text=${text}`, '_blank');
+    }
+  </script>
+</body>
+</html>

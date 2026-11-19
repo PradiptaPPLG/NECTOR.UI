@@ -34,6 +34,7 @@ export type Category =
   | 'audio'
   | 'keyboards'
   | 'sleep'
+  | 'interior'
   | 'restaurant'
   | 'hospitality'
   | 'umkm';

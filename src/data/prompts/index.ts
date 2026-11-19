@@ -35,8 +35,10 @@ import { CYANO_ARCHITECTURE_MASTER_PROMPT } from './architecturePrompt';
 import { RESONANCE_AUDIO_MASTER_PROMPT } from './audioPrompt';
 import { AXIS_KEYBOARDS_MASTER_PROMPT } from './keyboardPrompt';
 import { SOMNA_SLEEP_MASTER_PROMPT } from './sleepPrompt';
+import { KORU_LIMEWASH_MASTER_PROMPT } from './interiorPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'koru-mineral-limewash': KORU_LIMEWASH_MASTER_PROMPT,
   'somna-sleep-sanctuary': SOMNA_SLEEP_MASTER_PROMPT,
   'axis-mechanical-keyboards': AXIS_KEYBOARDS_MASTER_PROMPT,
   'resonance-analog-audio': RESONANCE_AUDIO_MASTER_PROMPT,
@@ -109,4 +111,6 @@ export {
   CYANO_ARCHITECTURE_MASTER_PROMPT,
   RESONANCE_AUDIO_MASTER_PROMPT,
   AXIS_KEYBOARDS_MASTER_PROMPT,
+  SOMNA_SLEEP_MASTER_PROMPT,
+  KORU_LIMEWASH_MASTER_PROMPT,
 };
