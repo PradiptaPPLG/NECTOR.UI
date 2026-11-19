@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer, GlassWater, Camera, Dumbbell, Gauge, Sun } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer, GlassWater, Camera, Dumbbell, Gauge, Sun, Smile } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'dental',
+      title: 'Klinik Dokter Gigi & Estetika Senyum',
+      icon: Smile,
+      desc: 'Klinik dokter gigi keluarga, behel & pemutihan gigi: simulator tingkat kecerahan gigi (Shade Guide) Canvas HTML5, kalkulator biaya perawatan transparan, dan reservasi jadwal periksa bebas antre.',
+      accent: '#30E3CA'
+    },
     {
       id: 'solar',
       title: 'Panel Surya Atap & Energi Rumah',

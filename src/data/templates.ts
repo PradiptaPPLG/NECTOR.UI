@@ -3556,6 +3556,89 @@ export function TanahLiatStudio() {
       { hex: '#495E57', rgb: 'rgb(73, 94, 87)', name: 'Deep Forest Slate Green', role: 'Identitas Energi Hijau, Header Bilah Status & Ringkasan Penghematan' },
       { hex: '#45474B', rgb: 'rgb(69, 71, 75)', name: 'Charcoal Graphite Slate', role: 'Tipografi Tajam Berkarakter, Sasis Panel Surya & Border Halus' }
     ]
+  },
+  {
+    id: 'tpl-47',
+    slug: 'dentia-dental-clinic',
+    title: 'DENTIA (Klinik Dokter Gigi Keluarga, Behel & Estetika Senyum)',
+    tagline: 'Klinik dokter gigi modern & ramah keluarga: scaling gigi, penambalan estetik, pemutihan instan, dan behel dengan bius lembut tanpa rasa takut',
+    description: 'Template website klinik dokter gigi keluarga dan estetika senyum DENTIA SMILE STUDIO dengan palet warna Mint Ice Pale Cyan (#E4F9F5), Vibrant Turquoise Aqua (#30E3CA), Deep Marine Seafoam Teal (#11999E), dan Slate Charcoal Pine (#40514E). Dilengkapi simulator interaktif tingkat kecerahan gigi (Shade Guide VITA) berbasis Canvas HTML5 dengan penggeser tingkat keputihan gigi dan indikator pembersihan noda, kalkulator interaktif estimasi biaya perawatan gigi dengan kategori pasien (Dewasa/Anak) dan durasi pengerjaan, 4 pilihan paket perawatan gigi lengkap transparan tanpa biaya dokter tersembunyi, 4 jaminan kenyamanan pasien tanpa rasa takut, formulir reservasi jadwal periksa bebas antre terintegrasi WhatsApp, slide-over keranjang paket perawatan, serta synthesizer musik relaksasi meditatif 432Hz Web Audio API.',
+    category: 'dental',
+    tags: ['Dental Clinic', 'Dentist', 'Teeth Whitening', 'Dental Braces', 'Teeth Scaling', 'Aesthetic Smile', 'Shade Guide Simulator', 'Pricing Calculator', 'Family Dental'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Canvas HTML5 Teeth Shade Engine', 'Web Audio API 432Hz Meditation Synthesizer', 'Interactive Dental Cost Calculator', 'Slide-Over Cart Drawer', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'dental-dentia',
+    htmlPath: '/templates/dental/dentia-dental-clinic.html',
+    htmlFolderPath: 'templates/dental/dentia-dental-clinic.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau pustaka eksternal',
+      'Simulator tingkat kecerahan gigi (VITA Shade Guide) Canvas HTML5 interaktif dengan slider kecerahan (Level 1-8 / A4-BL1), indikator pembersihan noda kopi/teh, dan efek kilau mutiara sparkle',
+      'Kalkulator estimasi biaya perawatan gigi interaktif dengan kategori pasien (Dewasa/Anak) dan checklist tindakan transparan (Scaling, Tambal, Bleaching, Behel, Cabut Gigi Bungsu, Fluoride)',
+      'Transparansi 4 paket perawatan gigi keluarga (Senyum Segar Rutin, Behel Senyum Rapi, Pemutihan Gigi Glowing, dan Gigi Anak Ceria) tanpa biaya pendaftaran atau biaya dokter tersembunyi',
+      'Informasi 4 jaminan kenyamanan pasien (Bius lembut minim sakit, sterilisasi autoklaf kelas B, ruang privat berlayar TV hiburan, dan konsultasi jujur terbuka)',
+      'Synthesizer musik relaksasi meditatif 432Hz Web Audio API prosedural dengan tombol sakelar suara aktif/bisu',
+      'Drawer slide-over keranjang pesanan paket perawatan gigi dengan tombol hapus dan pemesanan WhatsApp otomatis',
+      'Formulir reservasi jadwal periksa gigi bebas antre dengan pilihan dokter spesialis dan slot waktu',
+      'Bahasa Indonesia yang menenangkan, ramah, dan membumi bagi seluruh keluarga tanpa istilah medis yang menakutkan',
+      'Standar craft editorial antislop dengan palet warna sejuk higienis (#E4F9F5, #30E3CA, #11999E, #40514E) dan rasio kontras WCAG AAA'
+    ],
+    usageInstructions: [
+      'Buka templates/dental/dentia-dental-clinic.html di editor kode Anda.',
+      'Sesuaikan tarif perawatan gigi, nama dokter spesialis, dan paket perawatan pada skrip JavaScript.',
+      'Ganti nomor WhatsApp admin klinik dengan nomor kontak resmi klinik gigi Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk website klinik dokter gigi langsung aktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'dentia-dental-clinic.html',
+        language: 'html',
+        content: `<!-- DENTIA SMILE STUDIO â€” Klinik Dokter Gigi Keluarga, Behel & Estetika -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>DENTIA SMILE STUDIO â€” Klinik Dokter Gigi Keluarga</title>
+  <style>
+    :root {
+      --bg-mint: #E4F9F5;
+      --turquoise-aqua: #30E3CA;
+      --deep-teal: #11999E;
+      --slate-pine: #40514E;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-clinical-bar">KLINIK BUKA: 09:00 - 21:00 WIB â€¢ DOKTER SPESIALIS STANDBY â€¢ AUTOKLAF KELAS B</div>
+  <header class="main-header">
+    <div class="brand-title">DENTIA <span>SMILE STUDIO</span></div>
+    <nav>Simulasi Senyum Â· Kalkulator Biaya Â· Paket Perawatan Â· Kenyamanan Pasien Â· Jadwal Periksa</nav>
+  </header>
+  <!-- Full Interactive Dental Clinic: Teeth Shade Canvas, Cost Calculator, Packages & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website klinik dokter gigi keluarga dan estetika senyum DENTIA SMILE STUDIO dengan palet warna Mint Ice Pale Cyan (#E4F9F5), Vibrant Turquoise Aqua (#30E3CA), Deep Marine Seafoam Teal (#11999E), dan Slate Charcoal Pine (#40514E). Dilengkapi simulator interaktif tingkat kecerahan gigi (Shade Guide VITA) berbasis Canvas HTML5 dengan penggeser tingkat keputihan gigi dan indikator pembersihan noda, kalkulator interaktif estimasi biaya perawatan gigi dengan kategori pasien (Dewasa/Anak) dan durasi pengerjaan, 4 pilihan paket perawatan gigi lengkap transparan tanpa biaya dokter tersembunyi, 4 jaminan kenyamanan pasien tanpa rasa takut, formulir reservasi jadwal periksa bebas antre terintegrasi WhatsApp, slide-over keranjang paket perawatan, serta synthesizer musik relaksasi meditatif 432Hz Web Audio API.',
+      designDirection: 'Clean modern aesthetic dental clinic & family dentistry berstandar antislop: Mint Ice Pale Cyan (#E4F9F5), Vibrant Turquoise Aqua (#30E3CA), Deep Marine Seafoam Teal (#11999E), Slate Charcoal Pine (#40514E), dan Pure White (#FFFFFF). Tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Top clinical status bar klinik dengan status buka, dokter spesialis standby dan jam WIB real-time, sticky header dengan brand mark gigi toska dan navigasi ramah publik, hero dinamis dengan metrik 100% nyaman dan sterilisasi kelas B, simulator kecerahan gigi Canvas HTML5 dengan shade guide dan kilau mutiara sparkle, kalkulator biaya perawatan 2 kolom dengan kartu hasil slate pine sticky, grid 4 paket komplit terpadu, 4 jaminan kenyamanan pasien, formulir reservasi periksa bebas antre, dan slide-over cart drawer.',
+      typographyAndColor: 'Plus Jakarta Sans (bobot 400-900) untuk tampilan hangat, profesional, dan melegakan, JetBrains Mono untuk metrik shade gigi (A3/B1), durasi menit tindakan, persentase kebersihan noda %, dan nominal rupiah biaya perawatan.',
+      interactions: 'Simulator kecerahan gigi Canvas HTML5 dengan visualisasi senyum yang merespons slider tingkat keputihan dan tombol pemutihan instan, kalkulator biaya perawatan gigi dengan kategori pasien dan kalkulasi durasi otomatis, synthesizer audio relaksasi meditatif 432Hz Web Audio API, serta slide-over drawer pesanan perawatan terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural teeth smile and sparkle rendering Canvas HTML5, fully responsive smartphone hingga layar desktop lebar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#30E3CA',
+    colorPalette: [
+      { hex: '#E4F9F5', rgb: 'rgb(228, 249, 245)', name: 'Mint Ice Pale Cyan', role: 'Latar Belakang Kanvas Utama, Higienis, Bersih & Sejuk' },
+      { hex: '#30E3CA', rgb: 'rgb(48, 227, 202)', name: 'Vibrant Turquoise Aqua', role: 'Energi Senyum Cerah, Tombol Simulator Pemutihan & Kilau Mutiara' },
+      { hex: '#11999E', rgb: 'rgb(17, 153, 158)', name: 'Deep Marine Seafoam Teal', role: 'Identitas Medis Profesional, Tombol CTA Utama & Bilah Status' },
+      { hex: '#40514E', rgb: 'rgb(64, 81, 78)', name: 'Slate Charcoal Pine', role: 'Tipografi Tajam Berkarakter, Kartu Ringkasan Kalkulator & Footer' }
+    ]
   }
 ];
 

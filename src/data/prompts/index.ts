@@ -46,8 +46,10 @@ import { LUMINA_PHOTOGRAPHY_MASTER_PROMPT } from './photographyPrompt';
 import { KINETIC_FITNESS_MASTER_PROMPT } from './fitnessPrompt';
 import { REDLINE_AUTOMOTIVE_MASTER_PROMPT } from './automotivePrompt';
 import { SOLARA_ENERGY_MASTER_PROMPT } from './solarPrompt';
+import { DENTIA_DENTAL_MASTER_PROMPT } from './dentalPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'dentia-dental-clinic': DENTIA_DENTAL_MASTER_PROMPT,
   'solara-energy-systems': SOLARA_ENERGY_MASTER_PROMPT,
   'redline-motoworks': REDLINE_AUTOMOTIVE_MASTER_PROMPT,
   'kinetic-fitness-gym': KINETIC_FITNESS_MASTER_PROMPT,
@@ -143,4 +145,5 @@ export {
   KINETIC_FITNESS_MASTER_PROMPT,
   REDLINE_AUTOMOTIVE_MASTER_PROMPT,
   SOLARA_ENERGY_MASTER_PROMPT,
+  DENTIA_DENTAL_MASTER_PROMPT,
 };

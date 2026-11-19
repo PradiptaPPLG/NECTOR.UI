@@ -28,6 +28,7 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
+    templates.find(t => t.slug === 'dentia-dental-clinic') || templates[0],
     templates.find(t => t.slug === 'solara-energy-systems') || templates[0],
     templates.find(t => t.slug === 'redline-motoworks') || templates[0],
     templates.find(t => t.slug === 'kinetic-fitness-gym') || templates[0],
@@ -54,6 +55,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'dental', label: 'Klinik Dokter Gigi & Estetika Senyum', count: templates.filter(t => t.category === 'dental').length, desc: 'Klinik dokter gigi keluarga, behel & pemutihan gigi: simulator shade kecerahan gigi Canvas HTML5, kalkulator biaya transparan, dan reservasi periksa bebas antre' },
     { id: 'solar', label: 'Panel Surya Atap & Energi Rumah', count: templates.filter(t => t.category === 'solar').length, desc: 'Instalasi panel surya atap & baterai: simulator lintasan matahari Canvas HTML5, kalkulator penghematan tagihan PLN hingga 70%, dan survey gratis' },
     { id: 'automotive', label: 'Bengkel Modifikasi Motor & Detailing', count: templates.filter(t => t.category === 'automotive').length, desc: 'Bengkel motor performa, servis rutin & detailing kilap: simulator RPM & dyno Canvas HTML5, kalkulator biaya servis, dan suara knalpot Web Audio API' },
     { id: 'fitness', label: 'Pusat Kebugaran & Gym Modern', count: templates.filter(t => t.category === 'fitness').length, desc: 'Pusat gym 24 jam dengan simulator denyut jantung & kardio Canvas HTML5 neon, kalkulator BMI & kalori, jadwal kelas, dan pass uji coba gratis' },
