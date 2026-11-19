@@ -1,0 +1,2906 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMEN — Atelier Kriya Kaca Tiup Borosilikat & Kristal Optik Neodymium</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       LUMEN PALETTE & DESIGN TOKENS
+       User Palette:
+       - #DEFCF9 : Pale Glacial Aqua / Borosilicate Ice Dew
+       - #CADEFC : Periwinkle Mist / Dawn Sky Optic Glass
+       - #C3BEF0 : Neodymium Dichroic Iris Lilac
+       - #CCA8E9 : Wisteria Petal / Twilight Amethyst Crystal
+       - #1F1A3A : Deep Midnight Nocturne Plum Ink (WCAG AAA 14:1+ Contrast)
+       - #FFFFFF : Pure Crystal Gleam White
+       ========================================================================== */
+    :root {
+      --lumen-aqua: #DEFCF9;
+      --lumen-sky: #CADEFC;
+      --lumen-lilac: #C3BEF0;
+      --lumen-wisteria: #CCA8E9;
+      --lumen-ink: #1F1A3A;
+      --lumen-muted-ink: #3D3759;
+      --lumen-white: #FFFFFF;
+      --lumen-frost: rgba(222, 252, 249, 0.45);
+      --lumen-border: rgba(195, 190, 240, 0.35);
+      --lumen-border-strong: rgba(31, 26, 58, 0.14);
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --shadow-prism: 0 12px 36px rgba(195, 190, 240, 0.28);
+      --shadow-elevation: 0 20px 48px rgba(31, 26, 58, 0.08);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: #FAFAFD;
+      color: var(--lumen-ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(222, 252, 249, 0.5) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(202, 222, 252, 0.4) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(195, 190, 240, 0.25) 0%, transparent 60%);
+      background-attachment: fixed;
+    }
+
+    ::selection {
+      background: var(--lumen-wisteria);
+      color: var(--lumen-ink);
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      color: var(--lumen-ink);
+    }
+
+    p {
+      color: var(--lumen-muted-ink);
+      font-size: 0.98rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       TOP TELEMETRY & GLASSCRAFT STUDIO BAR
+       ========================================================================== */
+    .top-telemetry-bar {
+      background: var(--lumen-ink);
+      color: var(--lumen-aqua);
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(222, 252, 249, 0.18);
+      padding: 0.55rem 0;
+      position: relative;
+      z-index: 100;
+    }
+
+    .telemetry-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .telemetry-items {
+      display: flex;
+      align-items: center;
+      gap: 1.85rem;
+    }
+
+    .telemetry-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .status-dot-prism {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--lumen-aqua);
+      box-shadow: 0 0 10px var(--lumen-aqua), 0 0 16px var(--lumen-wisteria);
+      animation: pulseGleam 2.4s infinite ease-in-out;
+    }
+
+    @keyframes pulseGleam {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    .telemetry-audio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(222, 252, 249, 0.12);
+      color: var(--lumen-aqua);
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      transition: var(--transition-fast);
+      border: 1px solid rgba(222, 252, 249, 0.25);
+    }
+
+    .telemetry-audio-btn:hover {
+      background: var(--lumen-wisteria);
+      color: var(--lumen-ink);
+      border-color: var(--lumen-wisteria);
+    }
+
+    /* ==========================================================================
+       ATMOSPHERIC HEADER
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--lumen-border);
+      z-index: 90;
+      transition: var(--transition-smooth);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 1.5rem;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--lumen-aqua) 0%, var(--lumen-wisteria) 100%);
+      color: var(--lumen-ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 700;
+      border: 1px solid var(--lumen-sky);
+      box-shadow: 0 4px 14px rgba(195, 190, 240, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      transform: rotate(45deg);
+      animation: glassGlint 4s infinite linear;
+    }
+
+    @keyframes glassGlint {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+
+    .brand-text h1 {
+      font-size: 1.45rem;
+      line-height: 1;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--lumen-ink);
+    }
+
+    .brand-text span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--lumen-muted-ink);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--lumen-muted-ink);
+      transition: var(--transition-fast);
+      position: relative;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--lumen-ink);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--lumen-lilac), var(--lumen-wisteria));
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .cart-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.52rem 0.95rem;
+      border: 1px solid var(--lumen-border);
+      border-radius: 999px;
+      background: var(--lumen-white);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--lumen-ink);
+      transition: var(--transition-fast);
+      box-shadow: 0 2px 8px rgba(195, 190, 240, 0.15);
+    }
+
+    .cart-pill-btn:hover {
+      border-color: var(--lumen-wisteria);
+      background: var(--lumen-aqua);
+    }
+
+    .cart-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: var(--lumen-wisteria);
+      color: var(--lumen-ink);
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .cta-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--lumen-ink);
+      color: var(--lumen-aqua);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      border: 1px solid var(--lumen-ink);
+      box-shadow: 0 4px 14px rgba(31, 26, 58, 0.15);
+    }
+
+    .cta-btn-primary:hover {
+      background: linear-gradient(135deg, var(--lumen-lilac), var(--lumen-wisteria));
+      color: var(--lumen-ink);
+      border-color: var(--lumen-wisteria);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       HERO SECTION WITH 2-COLUMN ASYMMETRIC GRID
+       ========================================================================== */
+    .hero-section {
+      padding: 3.5rem 0 4.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--lumen-border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-manifesto {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--lumen-ink);
+      background: rgba(195, 190, 240, 0.35);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--lumen-wisteria);
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-size: clamp(2.35rem, 4vw, 3.65rem);
+      font-weight: 700;
+      color: var(--lumen-ink);
+      line-height: 1.08;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: #7b4eb2;
+      font-family: var(--font-serif);
+      font-weight: 400;
+    }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      color: var(--lumen-muted-ink);
+      line-height: 1.68;
+    }
+
+    .hero-specs-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--lumen-border);
+      border-bottom: 1px solid var(--lumen-border);
+      margin: 0.5rem 0;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spec-val {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--lumen-ink);
+      line-height: 1;
+    }
+
+    .spec-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--lumen-muted-ink);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 0.35rem;
+    }
+
+    .hero-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .cta-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--lumen-white);
+      color: var(--lumen-ink);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--lumen-border);
+      transition: var(--transition-fast);
+      box-shadow: 0 2px 8px rgba(195, 190, 240, 0.15);
+    }
+
+    .cta-btn-secondary:hover {
+      background: var(--lumen-aqua);
+      border-color: var(--lumen-lilac);
+    }
+
+    /* ==========================================================================
+       CANVAS STAGE: PRISMATIC CAUSTIC & DISPERSION SIMULATOR
+       ========================================================================== */
+    .canvas-card {
+      background: var(--lumen-ink);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(222, 252, 249, 0.2);
+      box-shadow: var(--shadow-prism);
+      overflow: hidden;
+      color: var(--lumen-aqua);
+      position: relative;
+    }
+
+    .canvas-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+      background: rgba(18, 14, 34, 0.8);
+      border-bottom: 1px solid rgba(222, 252, 249, 0.12);
+    }
+
+    .canvas-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .canvas-mode-switches {
+      display: flex;
+      gap: 0.4rem;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .mode-tab-btn {
+      padding: 0.3rem 0.75rem;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--lumen-aqua);
+      transition: var(--transition-fast);
+    }
+
+    .mode-tab-btn.active {
+      background: var(--lumen-wisteria);
+      color: var(--lumen-ink);
+      font-weight: 600;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      height: 310px;
+      background: #141126;
+    }
+
+    #prismCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .canvas-overlay-data {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      pointer-events: none;
+    }
+
+    .data-pill {
+      background: rgba(20, 17, 38, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 0.45rem 0.8rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(222, 252, 249, 0.2);
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+    }
+
+    .data-pill span {
+      color: var(--lumen-wisteria);
+      font-weight: 600;
+    }
+
+    .canvas-controls-panel {
+      padding: 1.15rem 1.25rem;
+      background: rgba(26, 22, 48, 0.95);
+      border-top: 1px solid rgba(222, 252, 249, 0.12);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .control-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .control-block label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--lumen-aqua);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .control-block label span {
+      color: var(--lumen-wisteria);
+      font-weight: 600;
+    }
+
+    .slider-input {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(222, 252, 249, 0.2);
+      outline: none;
+    }
+
+    .slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--lumen-wisteria);
+      cursor: pointer;
+      border: 2px solid var(--lumen-ink);
+      transition: transform 0.1s;
+    }
+
+    .slider-input::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .toggle-pill-group {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .toggle-pill {
+      flex: 1;
+      padding: 0.35rem 0.4rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-align: center;
+      background: rgba(195, 190, 240, 0.15);
+      color: var(--lumen-aqua);
+      border: 1px solid rgba(222, 252, 249, 0.15);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .toggle-pill.active {
+      background: var(--lumen-wisteria);
+      color: var(--lumen-ink);
+      border-color: var(--lumen-wisteria);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       SECTION: BESPOKE BLOWN VESSEL CONFIGURATOR
+       ========================================================================== */
+    .section-configurator {
+      padding: 5rem 0;
+      background: var(--lumen-white);
+      border-bottom: 1px solid var(--lumen-border);
+    }
+
+    .section-heading-wrap {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.2vw, 2.85rem);
+      margin-top: 0.4rem;
+    }
+
+    .section-desc {
+      margin-top: 0.75rem;
+      font-size: 1.02rem;
+      color: var(--lumen-muted-ink);
+    }
+
+    .configurator-wrapper {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      background: #FAF9FE;
+      border: 1px solid var(--lumen-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-elevation);
+    }
+
+    .config-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1.85rem;
+    }
+
+    .config-group h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .config-group h4 span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #7b4eb2;
+      font-weight: 500;
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+    }
+
+    .swatch-btn {
+      padding: 0.75rem 0.5rem;
+      border: 1px solid var(--lumen-border);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      transition: var(--transition-fast);
+      background: var(--lumen-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .swatch-btn:hover {
+      border-color: var(--lumen-wisteria);
+    }
+
+    .swatch-btn.active {
+      border-color: var(--lumen-ink);
+      background: var(--lumen-ink);
+      color: var(--lumen-aqua);
+    }
+
+    .color-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .swatch-btn span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .engrave-input {
+      width: 100%;
+      padding: 0.65rem 0.95rem;
+      border: 1px solid var(--lumen-border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background: var(--lumen-white);
+      color: var(--lumen-ink);
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .engrave-input:focus {
+      border-color: var(--lumen-wisteria);
+    }
+
+    /* Live Preview Column */
+    .config-preview-pane {
+      background: var(--lumen-ink);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+      color: var(--lumen-aqua);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(222, 252, 249, 0.2);
+      box-shadow: var(--shadow-prism);
+    }
+
+    .preview-title-bar {
+      border-bottom: 1px solid rgba(222, 252, 249, 0.15);
+      padding-bottom: 0.75rem;
+    }
+
+    .preview-title-bar h3 {
+      color: #FFFFFF;
+      font-size: 1.45rem;
+    }
+
+    .preview-title-bar span {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--lumen-wisteria);
+    }
+
+    .vessel-visualizer-box {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem 0;
+      background: #141126;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(222, 252, 249, 0.1);
+      position: relative;
+    }
+
+    #vesselSvg {
+      width: 90%;
+      height: 85%;
+      filter: drop-shadow(0 8px 16px rgba(195, 190, 240, 0.25));
+    }
+
+    .config-summary-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(222, 252, 249, 0.15);
+    }
+
+    .total-invest-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--lumen-aqua);
+      text-transform: uppercase;
+    }
+
+    .total-invest-val {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+
+    .btn-order-config {
+      margin-top: 1.25rem;
+      width: 100%;
+      padding: 0.85rem;
+      background: linear-gradient(135deg, var(--lumen-lilac), var(--lumen-wisteria));
+      color: var(--lumen-ink);
+      font-weight: 700;
+      font-size: 0.92rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-order-config:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(204, 168, 233, 0.4);
+    }
+
+    /* ==========================================================================
+       SECTION: LEHR ANNEALING & THERMAL STRESS CALCULATOR
+       ========================================================================== */
+    .section-calculator {
+      padding: 5rem 0;
+      background: #FAF9FE;
+      border-bottom: 1px solid var(--lumen-border);
+    }
+
+    .calc-container-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .calc-form-card {
+      background: var(--lumen-white);
+      border: 1px solid var(--lumen-border);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+      box-shadow: 0 4px 16px rgba(195, 190, 240, 0.15);
+    }
+
+    .calc-field-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-field-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--lumen-muted-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .select-custom {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--lumen-border);
+      border-radius: var(--radius-sm);
+      background: var(--lumen-white);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--lumen-ink);
+      outline: none;
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .select-custom:focus {
+      border-color: var(--lumen-wisteria);
+    }
+
+    .calc-result-card {
+      background: var(--lumen-ink);
+      color: var(--lumen-aqua);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      border: 1px solid rgba(222, 252, 249, 0.2);
+      box-shadow: var(--shadow-prism);
+    }
+
+    .calc-result-header {
+      border-bottom: 1px solid rgba(222, 252, 249, 0.15);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-result-header h3 {
+      color: #FFFFFF;
+      font-size: 1.7rem;
+    }
+
+    .anneal-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      margin: 1.75rem 0;
+    }
+
+    .anneal-step {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .anneal-badge {
+      width: 68px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(195, 190, 240, 0.2);
+      color: var(--lumen-aqua);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      border: 1px solid rgba(222, 252, 249, 0.2);
+    }
+
+    .anneal-badge.highlight {
+      background: var(--lumen-wisteria);
+      color: var(--lumen-ink);
+      font-weight: 700;
+    }
+
+    .anneal-desc h5 {
+      color: #FFFFFF;
+      font-size: 1rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .anneal-desc p {
+      color: rgba(222, 252, 249, 0.8);
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+
+    /* ==========================================================================
+       SECTION: THE GLASSCRAFT MANIFESTO (4 PILLARS)
+       ========================================================================== */
+    .section-manifesto {
+      padding: 5rem 0;
+      background: var(--lumen-ink);
+      color: var(--lumen-aqua);
+      border-bottom: 1px solid rgba(222, 252, 249, 0.15);
+    }
+
+    .section-manifesto h2 {
+      color: #FFFFFF;
+    }
+
+    .section-manifesto .section-desc {
+      color: var(--lumen-aqua);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+      margin-top: 3.5rem;
+    }
+
+    .pillar-card {
+      background: rgba(31, 26, 58, 0.7);
+      border: 1px solid rgba(222, 252, 249, 0.15);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.5rem;
+      transition: var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--lumen-wisteria);
+      transform: translateY(-4px);
+      background: rgba(43, 36, 80, 0.85);
+    }
+
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--lumen-wisteria);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.35rem;
+      color: #FFFFFF;
+    }
+
+    .pillar-card p {
+      font-size: 0.88rem;
+      color: #D3CCE8;
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       SECTION: CURATED 4 MASTER GLASSWORKS PIECES (PRODUCT CATALOG)
+       ========================================================================== */
+    .section-catalog {
+      padding: 5rem 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--lumen-border);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+    }
+
+    .product-card {
+      background: #FAFAFD;
+      border: 1px solid var(--lumen-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-fast);
+      box-shadow: 0 4px 18px rgba(195, 190, 240, 0.12);
+    }
+
+    .product-card:hover {
+      border-color: var(--lumen-wisteria);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-prism);
+    }
+
+    .product-thumb-wrap {
+      width: 100%;
+      height: 230px;
+      background: #EDEBF8;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-thumb-wrap img {
+      transform: scale(1.05);
+    }
+
+    .product-badge-glass {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(31, 26, 58, 0.88);
+      backdrop-filter: blur(4px);
+      color: var(--lumen-aqua);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      border: 1px solid rgba(222, 252, 249, 0.2);
+    }
+
+    .product-content {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .product-category-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7b4eb2;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: var(--lumen-ink);
+    }
+
+    .product-excerpt {
+      font-size: 0.83rem;
+      color: var(--lumen-muted-ink);
+      line-height: 1.45;
+      margin-bottom: 1rem;
+    }
+
+    .product-specs-mini {
+      display: flex;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--lumen-muted-ink);
+      border-top: 1px solid var(--lumen-border);
+      padding-top: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--lumen-border);
+      padding-top: 0.85rem;
+    }
+
+    .product-price {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--lumen-ink);
+    }
+
+    .btn-add-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--lumen-ink);
+      color: var(--lumen-aqua);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+    }
+
+    .btn-add-cart:hover {
+      background: var(--lumen-wisteria);
+      color: var(--lumen-ink);
+    }
+
+    /* ==========================================================================
+       SECTION: WORKSHOP RESERVATION
+       ========================================================================== */
+    .section-booking {
+      padding: 5rem 0;
+      background: #FAF9FE;
+      border-bottom: 1px solid var(--lumen-border);
+    }
+
+    .booking-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--lumen-white);
+      border: 1px solid var(--lumen-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-elevation);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--lumen-muted-ink);
+      margin-bottom: 0.45rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--lumen-border);
+      border-radius: var(--radius-sm);
+      background: var(--lumen-white);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--lumen-ink);
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .form-control:focus {
+      border-color: var(--lumen-wisteria);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-submit-booking {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.95rem;
+      background: var(--lumen-ink);
+      color: var(--lumen-aqua);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .btn-submit-booking:hover {
+      background: linear-gradient(135deg, var(--lumen-lilac), var(--lumen-wisteria));
+      color: var(--lumen-ink);
+    }
+
+    /* ==========================================================================
+       SLIDE-OVER CART DRAWER
+       ========================================================================== */
+    .cart-drawer-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(31, 26, 58, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 440px;
+      height: 100vh;
+      background: #FFFFFF;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--lumen-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FAF9FE;
+    }
+
+    .cart-header h3 {
+      font-size: 1.35rem;
+      color: var(--lumen-ink);
+    }
+
+    .btn-close-cart {
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--lumen-muted-ink);
+      cursor: pointer;
+    }
+
+    .cart-items-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .cart-empty-message {
+      text-align: center;
+      color: var(--lumen-muted-ink);
+      padding: 3rem 0;
+      font-style: italic;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 1px solid var(--lumen-border);
+      padding-bottom: 1rem;
+      align-items: center;
+    }
+
+    .cart-item-img {
+      width: 64px;
+      height: 64px;
+      background: #EDEBF8;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--lumen-ink);
+      line-height: 1.2;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #7b4eb2;
+      margin-top: 0.2rem;
+    }
+
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+    }
+
+    .qty-btn {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--lumen-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .btn-del-item {
+      color: #dc2626;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--lumen-border);
+      background: #FAF9FE;
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .cart-subtotal-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--lumen-muted-ink);
+      text-transform: uppercase;
+    }
+
+    .cart-subtotal-val {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--lumen-ink);
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      padding: 0.9rem;
+      background: #16a34a;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      transition: var(--transition-fast);
+    }
+
+    .btn-checkout-wa:hover {
+      background: #15803d;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: var(--lumen-ink);
+      color: var(--lumen-aqua);
+      padding: 4.5rem 0 2.5rem;
+      border-top: 1px solid rgba(222, 252, 249, 0.15);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4 {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+    }
+
+    .footer-links a {
+      color: var(--lumen-aqua);
+      transition: var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--lumen-wisteria);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(222, 252, 249, 0.12);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: rgba(222, 252, 249, 0.65);
+    }
+
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--lumen-ink);
+      color: var(--lumen-aqua);
+      border: 1px solid var(--lumen-wisteria);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid,
+      .configurator-wrapper,
+      .calc-container-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .pillars-grid,
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-specs-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      .pillars-grid,
+      .catalog-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Telemetry & Studio Bar -->
+  <aside class="top-telemetry-bar">
+    <div class="container telemetry-inner">
+      <div class="telemetry-items">
+        <div class="telemetry-item">
+          <span class="status-dot-prism"></span>
+          <span>STUDIO KACA TIUP BANDUNG AKTIF</span>
+        </div>
+        <div class="telemetry-item">
+          <span>TUNGKU LEBUR: <strong>1.180°C</strong></span>
+        </div>
+        <div class="telemetry-item">
+          <span>LEHR ANNEALER: <strong>520°C</strong></span>
+        </div>
+        <div class="telemetry-item">
+          <span>KACA: <strong>BOROSILIKAT NEODYMIUM 3.3</strong></span>
+        </div>
+        <div class="telemetry-item">
+          <span>REFRAKSI: <strong>n = 1.524</strong></span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.85rem;">
+        <span id="wibTime" style="font-family: var(--font-mono);">10:00:00 WIB</span>
+        <button id="btnAudioToggle" class="telemetry-audio-btn" title="Aktifkan/Bisukan efek denting kristal bernyanyi">
+          <span id="audioIcon">🔊</span>
+          <span id="audioText">KRISTAL AUDIO: AKTIF</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Atmospheric Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-group">
+        <div class="brand-mark">L</div>
+        <div class="brand-text">
+          <h1>LUMEN</h1>
+          <span>Borosilicate Glass Atelier</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#prisma" class="nav-link active">01 Prisma Caustic</a></li>
+          <li><a href="#konfigurator" class="nav-link">02 Konfigurator Kaca</a></li>
+          <li><a href="#annealer" class="nav-link">03 Termal Lehr</a></li>
+          <li><a href="#manifesto" class="nav-link">04 Sains Neodymium</a></li>
+          <li><a href="#katalog" class="nav-link">05 Koleksi Master</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="btnOpenCart" class="cart-pill-btn">
+          <span>Koleksi</span>
+          <span id="cartCountBadge" class="cart-badge">0</span>
+        </button>
+        <a href="#booking" class="cta-btn-primary">Reservasi Workshop</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-manifesto">
+        <div class="eyebrow-tag">
+          <span>Atelier Kriya Kaca Tiup Manual • Est. 2019</span>
+        </div>
+        <h2 class="hero-title">
+          Memahat Cahaya & Pembiasan Prisma dalam <em>Kaca Tiup Borosilikat</em> & Neodymium.
+        </h2>
+        <p class="hero-lead">
+          Mematahkan wadah kaca pabrikan bersoda-kapur (*soda-lime*) yang kusam dan rapuh. LUMEN meniup kaca borosilikat murni satu per satu dengan pipa tiup baja nirkarat pada suhu $1.180^\circ\text{C}$, diperkaya oksida tanah jarang Neodymium yang menghasilkan fenomena bunglon optik: ungu lembayung di bawah sinar matahari dan biru langit lembut di bawah lampu pijar.
+        </p>
+
+        <div class="hero-specs-strip">
+          <div class="spec-item">
+            <span class="spec-val">1.180°<small style="font-size:0.9rem">C</small></span>
+            <span class="spec-lbl">Melt Temp</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-val">n=1.524</span>
+            <span class="spec-lbl">Refraction Index</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-val">COE 33</span>
+            <span class="spec-lbl">Low Expansion</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-val">100%</span>
+            <span class="spec-lbl">Lead-Free Crystal</span>
+          </div>
+        </div>
+
+        <div class="hero-btn-group">
+          <a href="#katalog" class="cta-btn-primary">Jelajahi Koleksi Master</a>
+          <button id="btnPlayCrystalChime" class="cta-btn-secondary">
+            <span>Dengarkan Dengkringan Kristal</span>
+            <span>✨</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Canvas Stage Right -->
+      <div id="prisma" class="canvas-card">
+        <div class="canvas-header">
+          <div class="canvas-title">
+            <span style="color:var(--lumen-wisteria)">●</span>
+            <span>SIMULATOR BIAS PRISMA & DISPERSI CAUSTIC</span>
+          </div>
+          <div class="canvas-mode-switches">
+            <button class="mode-tab-btn active" data-light="daylight">Matahari (6500K)</button>
+            <button class="mode-tab-btn" data-light="incandescent">Lampu Pijar (2700K)</button>
+          </div>
+        </div>
+
+        <div class="canvas-container">
+          <canvas id="prismCanvas"></canvas>
+          <div class="canvas-overlay-data">
+            <div class="data-pill">SUDUT BIAS (θ₂): <span id="teleRefract">28.4°</span></div>
+            <div class="data-pill">DISPERSI SPEKTRUM: <span id="teleDispersion">14.2 nm/deg</span></div>
+            <div class="data-pill">WARNA DIKROIK: <span id="teleColorShift">Iris Lilac (#C3BEF0)</span></div>
+          </div>
+        </div>
+
+        <div class="canvas-controls-panel">
+          <div class="control-block">
+            <label>SUDUT DATANG SINAR <span id="valAngle">42°</span></label>
+            <input type="range" id="sliderAngle" class="slider-input" min="15" max="65" value="42" step="1">
+          </div>
+          <div class="control-block">
+            <label>KETEBALAN DINDING <span id="valThickness">5.5 mm</span></label>
+            <input type="range" id="sliderThickness" class="slider-input" min="2" max="12" value="5.5" step="0.5">
+          </div>
+          <div class="control-block">
+            <label>SUMBER CAHAYA</label>
+            <div class="toggle-pill-group">
+              <button class="toggle-pill active" id="btnLightDay">Daylight</button>
+              <button class="toggle-pill" id="btnLightWarm">Warm Bulb</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Bespoke Blown Vessel Configurator -->
+  <section id="konfigurator" class="section-configurator">
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="eyebrow-tag">Kustomisasi Wadah & Tekstur Optik</div>
+        <h2 class="section-title">Konfigurator Wadah Kaca Tiup Kustom</h2>
+        <p class="section-desc">
+          Pilih siluet wadah kaca tiup, formulasi warna dikroik, tekstur sirip optik pemecah cahaya, serta pahatan stensil segel studio Anda.
+        </p>
+      </div>
+
+      <div class="configurator-wrapper">
+        <!-- Left Options -->
+        <div class="config-options">
+          <!-- 1. Siluet Wadah -->
+          <div class="config-group">
+            <h4>SILUET WADAH KACA TIUP <span>Bentuk Tiupan Manual</span></h4>
+            <div class="swatch-grid">
+              <button class="swatch-btn active" data-vessel="decanter" data-vesselname="Murano Fluted Decanter" data-vesselvol="750 ml">
+                <div class="color-circle" style="background:var(--lumen-aqua);"></div>
+                <span>Decanter 750ml</span>
+              </button>
+              <button class="swatch-btn" data-vessel="carafe" data-vesselname="Nordic Ribbed Carafe" data-vesselvol="1.000 ml">
+                <div class="color-circle" style="background:var(--lumen-sky);"></div>
+                <span>Carafe 1000ml</span>
+              </button>
+              <button class="swatch-btn" data-vessel="amphora" data-vesselname="Prismatic Amphora Vase" data-vesselvol="500 ml">
+                <div class="color-circle" style="background:var(--lumen-lilac);"></div>
+                <span>Amphora Vase</span>
+              </button>
+              <button class="swatch-btn" data-vessel="stemware" data-vesselname="Glacial Goblet (Pair)" data-vesselvol="320 ml">
+                <div class="color-circle" style="background:var(--lumen-wisteria);"></div>
+                <span>Goblet Pair</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Formulasi Kaca & Warna Dikroik -->
+          <div class="config-group">
+            <h4>WARNA & FORMULASI OKSIDA <span>Efek Spektrum Cahaya</span></h4>
+            <div class="swatch-grid">
+              <button class="swatch-btn active" data-glasscolor="aqua" data-colorname="Glacial Aqua Clear" data-colorhex="#DEFCF9">
+                <div class="color-circle" style="background:#DEFCF9;"></div>
+                <span>Glacial Aqua</span>
+              </button>
+              <button class="swatch-btn" data-glasscolor="sky" data-colorname="Periwinkle Sky" data-colorhex="#CADEFC">
+                <div class="color-circle" style="background:#CADEFC;"></div>
+                <span>Periwinkle Sky</span>
+              </button>
+              <button class="swatch-btn" data-glasscolor="lilac" data-colorname="Neodymium Lilac" data-colorhex="#C3BEF0">
+                <div class="color-circle" style="background:#C3BEF0;"></div>
+                <span>Neodymium Lilac</span>
+              </button>
+              <button class="swatch-btn" data-glasscolor="wisteria" data-colorname="Wisteria Amethyst" data-colorhex="#CCA8E9">
+                <div class="color-circle" style="background:#CCA8E9;"></div>
+                <span>Wisteria Petal</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Tekstur Sirip Optik -->
+          <div class="config-group">
+            <h4>TEKSTUR CETAKAN OPTIK <span>Pembiasan Caustic</span></h4>
+            <div class="swatch-grid">
+              <button class="swatch-btn active" data-texture="ribbed" data-texturename="Spiral Optic Ribbed">
+                <span>Spiral Ribbed</span>
+              </button>
+              <button class="swatch-btn" data-texture="seeds" data-texturename="Encapsulated Air Seeds">
+                <span>Air Bubbles</span>
+              </button>
+              <button class="swatch-btn" data-texture="smooth" data-texturename="Flame Polished Smooth">
+                <span>Smooth Gloss</span>
+              </button>
+              <button class="swatch-btn" data-texture="satin" data-texturename="Acid Frosted Satin">
+                <span>Frosted Satin</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Ukiran Stensil Segel -->
+          <div class="config-group">
+            <h4>SEGEL STUDIO / INISIAL <span>Grafir Dasar Wadah</span></h4>
+            <input type="text" id="inputEngraveGlass" class="engrave-input" placeholder="Contoh: LUMEN 2026 / ATELIER" maxlength="14" value="LUMEN • 2026">
+          </div>
+        </div>
+
+        <!-- Right Live Preview -->
+        <div class="config-preview-pane">
+          <div class="preview-title-bar">
+            <h3>Visualisasi Wadah Kaca Tiup</h3>
+            <span id="previewGlassSummary">Murano Fluted Decanter • Glacial Aqua • Spiral Ribbed</span>
+          </div>
+
+          <div class="vessel-visualizer-box">
+            <svg id="vesselSvg" viewBox="0 0 320 220">
+              <!-- Rendered via JS -->
+            </svg>
+          </div>
+
+          <div>
+            <div class="config-summary-price">
+              <div>
+                <div class="total-invest-lbl">Estimasi Investasi Kustom</div>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--lumen-aqua);" id="previewGlassEngrave">Grafir dasar 'LUMEN • 2026'</div>
+              </div>
+              <div class="total-invest-val" id="configGlassPrice">Rp 2.850.000</div>
+            </div>
+
+            <button id="btnOrderGlassConfig" class="btn-order-config">
+              <span>Konsultasi & Pesan Karya Ini via WhatsApp</span>
+              <span>💬</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Lehr Annealing & Thermal Stress Calculator -->
+  <section id="annealer" class="section-calculator">
+    <div class="container calc-container-grid">
+      <!-- Left: Form -->
+      <div class="calc-form-card">
+        <div class="eyebrow-tag">Termodinamika Kaca Borosilikat</div>
+        <h3 style="font-size:1.85rem; margin: 0.5rem 0 1.25rem;">Kalkulator Siklus Annealing Lehr</h3>
+        <p style="font-size:0.92rem; color:var(--lumen-muted-ink); margin-bottom: 1.5rem;">
+          Mencegah keretakan getas akibat tegangan termal internal. Setiap milimeter ketebalan dinding kaca membutuhkan waktu rendam (*annealing soak*) yang presisi di dalam oven lehr.
+        </p>
+
+        <div class="calc-field-group">
+          <label>Tipe Komposisi Kaca</label>
+          <select id="selectGlassType" class="select-custom">
+            <option value="boro33" selected>Borosilikat Kristal 3.3 (COE 33 - Tahan Kejut Suhu)</option>
+            <option value="neodymium">Neodymium Rare-Earth Doped Crystal (COE 34)</option>
+            <option value="soda">Soda-Lime Soft Glass (COE 96 - Suhu Rendah)</option>
+          </select>
+        </div>
+
+        <div class="calc-field-group">
+          <label>Ketebalan Dinding Kaca Maksimal</label>
+          <select id="selectWallThickness" class="select-custom">
+            <option value="3">Tipis Halus (2.0 - 3.5 mm) • Gelas Anggur & Flute</option>
+            <option value="6" selected>Sedang (4.0 - 6.5 mm) • Teko Carafe & Decanter</option>
+            <option value="10">Tebal Pejal (7.0 - 10.5 mm) • Vas Amphora & Botol</option>
+            <option value="15">Sangat Tebal (11.0 - 15.0 mm) • Skulptur & Kaca Prisma</option>
+          </select>
+        </div>
+
+        <button id="btnRecalcAnneal" class="cta-btn-primary" style="width: 100%;">
+          <span>Hitung Profil Suhu & Durasi Lehr</span>
+        </button>
+      </div>
+
+      <!-- Right: Result -->
+      <div class="calc-result-card">
+        <div class="calc-result-header">
+          <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--lumen-wisteria); text-transform:uppercase;">JADWAL OVEN LEHR ANNEALER</span>
+          <h3 id="resAnnealTitle">Durasi Total: 8.5 Jam Pendinginan</h3>
+          <p id="resAnnealDesc" style="font-size:0.88rem; color:var(--lumen-aqua); margin-top:0.35rem;">
+            Optimal untuk teko borosilikat 6mm. Menurunkan suhu kisi kristal tanpa menghasilkan retak rambut mikro (*thermal fracture*).
+          </p>
+        </div>
+
+        <h4 style="font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--lumen-aqua);">
+          PROFIL TAHAPAN OVEN LEHR:
+        </h4>
+
+        <div class="anneal-timeline">
+          <div class="anneal-step">
+            <div class="anneal-badge">560°C</div>
+            <div class="anneal-desc">
+              <h5>Titik Rendam Anneal (Soak Stage)</h5>
+              <p>Mempertahankan suhu selama 90 menit untuk merelaksasi seluruh tegangan molekul.</p>
+            </div>
+          </div>
+
+          <div class="anneal-step">
+            <div class="anneal-badge highlight">510°C</div>
+            <div class="anneal-desc">
+              <h5>Titik Regang Kritis (Strain Point)</h5>
+              <p>Pendinginan sangat lambat (0.8°C/menit) melewati jendela elastis kaca cair ke padat.</p>
+            </div>
+          </div>
+
+          <div class="anneal-step">
+            <div class="anneal-badge">25°C</div>
+            <div class="anneal-desc">
+              <h5>Pendinginan Ruang Bebas (Room Release)</h5>
+              <p>Membuka pintu lehr secara bertahap untuk inspeksi polariskop dan polesan api.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--lumen-wisteria); border-top:1px solid rgba(222, 252, 249, 0.15); padding-top:0.75rem;">
+          UJI KUALITAS: Setiap karya diuji polariskop cahaya terpolarisasi 100% bebas cincin tegangan biefringence.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: The 4 Pillars of Glasscraft -->
+  <section id="manifesto" class="section-manifesto">
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="eyebrow-tag" style="background:rgba(222, 252, 249, 0.15); color:var(--lumen-aqua);">Prinsip Metalurgi Kaca</div>
+        <h2 class="section-title">Empat Fondasi Kriya Kaca LUMEN</h2>
+        <p class="section-desc">
+          Bukan sekadar wadah hias, melainkan instrumen refraksi optik yang mempertemukan sains oksida silika, hembusan nafas manusia, dan manipulasi spektrum cahaya alami.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span class="pillar-num">01 / BEBAS TIMBAL</span>
+          <h3>Borosilikat 3.3 Murni</h3>
+          <p>
+            Mengandung 81% silika murni dan 13% boron trioksida dengan koefisien ekspansi sangat rendah (COE 33). Tahan kejut suhu drastis dari freezer -20°C ke air mendidih 100°C tanpa retak.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-num">02 / SPEKTRUM DIKROIK</span>
+          <h3>Oksida Neodymium (Nd₂O₃)</h3>
+          <p>
+            Unsur tanah jarang Neodymium menyerap tajam spektrum cahaya kuning pada panjang gelombang 580 nm, menghasilkan efek bunglon alami: ungu lembayung di siang hari dan biru periwinkle di lampu malam.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-num">03 / TIUPAN TANGAN MURNI</span>
+          <h3>Free-Blown Tanpa Cetakan</h3>
+          <p>
+            Gumpalan kaca cair diambil dari mulut tungku 1.180°C dan diputar di atas bantalan kayu basah (*piassa block*). Setiap kurva wadah dibentuk oleh udara pernapasan pengrajin.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-num">04 / BIBIR POLESAN API</span>
+          <h3>Flame-Polished Rim</h3>
+          <p>
+            Bibir gelas dipotong panas dan dipoles kembali dengan obor gas oksigen berkonsentrasi tinggi (*fire polishing*), menciptakan tepi minum yang membulat halus tanpa tajam pada sentuhan bibir.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Curated 4 Master Glassworks Catalog -->
+  <section id="katalog" class="section-catalog">
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="eyebrow-tag">Koleksi Terbatas Pengrajin Kaca</div>
+        <h2 class="section-title">Katalog Karya Kaca Tiup Master</h2>
+        <p class="section-desc">
+          Setiap instrumen ditiup secara individual, memiliki tanda sidik udara alami pengrajin, dan disertifikasi dengan nomor seri ukir asam di bagian dasar.
+        </p>
+      </div>
+
+      <div class="catalog-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-badge-glass">NEODYMIUM DIKROIK • COE 33</span>
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80" alt="LUMEN Neodymium Carafe Set">
+          </div>
+          <div class="product-content">
+            <div>
+              <div class="product-category-lbl">Dichroic Carafe Set</div>
+              <h3 class="product-title">LUMEN Neodymium Carafe & Tumbler Set</h3>
+              <p class="product-excerpt">Teko air 1.000ml dengan sepasang gelas kristal Neodymium. Berubah warna dari iris lilac ke wisteria pink di bawah sinar lampu malam.</p>
+              <div class="product-specs-mini">
+                <span>Kapasitas: 1.000ml</span>
+                <span>•</span>
+                <span>Bobot: 680g</span>
+                <span>•</span>
+                <span>Bebas Timbal</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">Rp 2.450.000</div>
+              <button class="btn-add-cart" data-id="g1" data-name="LUMEN Neodymium Carafe Set" data-price="2450000" data-img="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=200&q=80">
+                <span>+ Koleksi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-badge-glass">KRISTAL BOTANI • ENKAPSULASI</span>
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=700&q=80" alt="Prismatic Botanical Glass Orb">
+          </div>
+          <div class="product-content">
+            <div>
+              <div class="product-category-lbl">Prismatic Orb / Paperweight</div>
+              <h3 class="product-title">Prismatic Botanical Glass Orb</h3>
+              <p class="product-excerpt">Bola kristal padat pembias prisma yang mengabadikan lumut hutan Dago dan gelembung embun abadi di dalam inti kaca murni.</p>
+              <div class="product-specs-mini">
+                <span>Diameter: 95mm</span>
+                <span>•</span>
+                <span>Bobot: 840g</span>
+                <span>•</span>
+                <span>Prisma n=1.52</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">Rp 1.680.000</div>
+              <button class="btn-add-cart" data-id="g2" data-name="Prismatic Botanical Glass Orb" data-price="1680000" data-img="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=200&q=80">
+                <span>+ Koleksi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-badge-glass">GLACIAL AQUA • SEPASANG</span>
+            <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=700&q=80" alt="Fluted Glacial Aqua Stemware">
+          </div>
+          <div class="product-content">
+            <div>
+              <div class="product-category-lbl">Stemware / Wine Goblet</div>
+              <h3 class="product-title">Fluted Glacial Aqua Stemware (Pair)</h3>
+              <p class="product-excerpt">Sepasang piala berkaki anggun dengan sirip optik berputar warna aqua es mint. Menggemakan dengkringan nada kristal tinggi.</p>
+              <div class="product-specs-mini">
+                <span>Isi: 2 Gelas</span>
+                <span>•</span>
+                <span>Vol: 340ml</span>
+                <span>•</span>
+                <span>Bibir Api</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">Rp 1.150.000</div>
+              <button class="btn-add-cart" data-id="g3" data-name="Fluted Glacial Stemware Pair" data-price="1150000" data-img="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=200&q=80">
+                <span>+ Koleksi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-badge-glass">WISTERIA AMETHYST • EDISI 2026</span>
+            <img src="https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=700&q=80" alt="Wisteria Ribbed Amphora Vase">
+          </div>
+          <div class="product-content">
+            <div>
+              <div class="product-category-lbl">Artisan Vase / Amphora</div>
+              <h3 class="product-title">Wisteria Ribbed Amphora Vase</h3>
+              <p class="product-excerpt">Vas skulptur berpinggang anggun dengan dasar kristal tebal 14mm penangkap bias cahaya sore. Ditiup tangan secara bebas.</p>
+              <div class="product-specs-mini">
+                <span>Tinggi: 320mm</span>
+                <span>•</span>
+                <span>Bobot: 1.450g</span>
+                <span>•</span>
+                <span>Serial Ukir</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">Rp 3.200.000</div>
+              <button class="btn-add-cart" data-id="g4" data-name="Wisteria Ribbed Amphora Vase" data-price="3200000" data-img="https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=200&q=80">
+                <span>+ Koleksi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Workshop Booking -->
+  <section id="booking" class="section-booking">
+    <div class="container">
+      <div class="booking-wrapper">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+          <div class="eyebrow-tag">Sesi Privat Tungku Lebur</div>
+          <h2 style="font-size: 2.2rem; margin: 0.4rem 0 0.75rem;">Workshop Tiup Kaca & Komisi Kustom</h2>
+          <p style="font-size: 0.95rem; color: var(--lumen-muted-ink);">
+            Rasakan langsung panasnya tungku lebur 1.180°C di atelier Dago Pakar Bandung. Meniup gelembung pertama pada pipa tiup dan membentuk wadah kaca unik Anda sendiri.
+          </p>
+        </div>
+
+        <form id="bookingForm" class="booking-grid">
+          <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" class="form-control" required placeholder="Contoh: Raden Ayu Kirana">
+          </div>
+
+          <div class="form-group">
+            <label>Nomor WhatsApp</label>
+            <input type="tel" class="form-control" required placeholder="Contoh: 081234567890">
+          </div>
+
+          <div class="form-group">
+            <label>Jenis Sesi Atelier</label>
+            <select class="form-control" required>
+              <option value="workshop">Workshop Meniup Kaca Hands-on (120 Menit)</option>
+              <option value="commission">Komisi Wadah & Skulptur Khusus (Bespoke Decanter)</option>
+              <option value="pairing">Sesi Kurasi Stemware & Kaca Dikroik Privat</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Rencana Tanggal Kunjungan</label>
+            <input type="date" class="form-control" required>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label>Catatan Khusus / Permintaan Dimensi & Warna</label>
+            <textarea class="form-control" placeholder="Tuliskan ide bentuk kaca yang ingin Anda ciptakan atau preferensi warna dikroik..."></textarea>
+          </div>
+
+          <div class="form-group-full">
+            <button type="submit" class="btn-submit-booking">
+              <span>Kirim Permohonan Reservasi via WhatsApp</span>
+              <span>✨</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div id="cartBackdrop" class="cart-drawer-backdrop"></div>
+  <aside id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <div>
+        <h3>Koleksi Kaca Anda</h3>
+        <span style="font-family:var(--font-mono); font-size:0.72rem; color:var(--lumen-muted-ink);">LUMEN ATELIER DIRECT CHECKOUT</span>
+      </div>
+      <button id="btnCloseCart" class="btn-close-cart">&times;</button>
+    </div>
+
+    <div id="cartItemsContainer" class="cart-items-body">
+      <div class="cart-empty-message">Keranjang belanja Anda masih kosong.</div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span class="cart-subtotal-lbl">Total Investasi</span>
+        <span id="cartSubtotalAmount" class="cart-subtotal-val">Rp 0</span>
+      </div>
+      <button id="btnWhatsappCheckout" class="btn-checkout-wa">
+        <span>Kirim Pesanan ke WhatsApp Atelier</span>
+        <span>💬</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-group" style="margin-bottom: 1.25rem;">
+            <div class="brand-mark">L</div>
+            <div class="brand-text">
+              <h2 style="font-size:1.35rem; color:#FFFFFF; letter-spacing:0.1em;">LUMEN</h2>
+              <span style="color:var(--lumen-wisteria);">Borosilicate Glass Atelier</span>
+            </div>
+          </div>
+          <p style="font-size: 0.86rem; color: #D3CCE8; line-height: 1.6;">
+            Atelier kriya kaca tiup borosilikat dan laboratorium kristal optik Neodymium. Memuliakan keindahan pembiasan cahaya alami lewat ketelitian suhu tungku lebur dan relaksasi anil oven lehr.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigasi Studio</h4>
+          <ul class="footer-links">
+            <li><a href="#prisma">Simulator Refraksi Prisma</a></li>
+            <li><a href="#konfigurator">Konfigurator Kaca Tiup</a></li>
+            <li><a href="#annealer">Termal Lehr Annealer</a></li>
+            <li><a href="#manifesto">Sains Neodymium Dikroik</a></li>
+            <li><a href="#katalog">Koleksi Kristal Master</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Perawatan Kristal</h4>
+          <ul class="footer-links">
+            <li><a href="#manifesto">Pencucian Air Hangat & Cuka</a></li>
+            <li><a href="#manifesto">Pencegahan Kerak Mineral Air</a></li>
+            <li><a href="#manifesto">Stabilitas Kejut Suhu Borosilikat</a></li>
+            <li><a href="#manifesto">Kain Serat Sutra Pengering</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Lokasi & Meja Tiup</h4>
+          <p style="font-size: 0.86rem; color: #D3CCE8; margin-bottom: 0.75rem;">
+            Jl. Pakar Timur No. 18, Dago Pakar, Bandung Utara 40198, Jawa Barat.
+          </p>
+          <p style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--lumen-wisteria);">
+            Sesi Tungku: Rabu – Minggu (10.00 – 18.00 WIB)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 LUMEN Borosilicate Glass & Dichroic Atelier. All rights reserved.</div>
+        <div>STANDAR KRIYA BEBAS AI-SLOP • NECTOR.UI ARCHIVE</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-box">
+    <span>✨</span>
+    <span id="toastMessage">Karya kaca ditambahkan ke koleksi.</span>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    /* ==========================================================================
+       LUMEN ATELIER JAVASCRIPT ENGINE
+       1. Real-time WIB Clock
+       2. Web Audio API Singing Crystal Glass Synthesizer
+       3. Interactive Canvas HTML5 Prism Caustic & Spectral Dispersion
+       4. Bespoke Glass Vessel Configurator (SVG Morph)
+       5. Lehr Annealing & Thermal Stress Calculator
+       6. Cart Management & WhatsApp Direct Checkout
+       ========================================================================== */
+
+    // 1. Real-time Clock
+    function updateWibClock() {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Jakarta', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const timeStr = now.toLocaleTimeString('id-ID', options) + ' WIB';
+      const el = document.getElementById('wibTime');
+      if (el) el.textContent = timeStr;
+    }
+    setInterval(updateWibClock, 1000);
+    updateWibClock();
+
+    // 2. Web Audio API Singing Crystal Glass Synthesizer
+    let audioCtx = null;
+    let audioActive = true;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playSingingGlassChime(baseFreq = 587.33) { // D5 Crystal Glass Tone
+      if (!audioActive) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        // Pure sine fundamental
+        const osc1 = ctx.createOscillator();
+        const gain1 = ctx.createGain();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(baseFreq, now);
+
+        // Overtone 1: Octave + Fifth (3x frequency subtle harmonic)
+        const osc2 = ctx.createOscillator();
+        const gain2 = ctx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(baseFreq * 2.76, now); // Natural rim resonance ratio
+
+        // Vibrato LFO for gentle acoustic shimmer
+        const lfo = ctx.createOscillator();
+        const lfoGain = ctx.createGain();
+        lfo.frequency.setValueAtTime(4.5, now);
+        lfoGain.gain.setValueAtTime(3.2, now);
+        lfo.connect(osc1.frequency);
+
+        // Envelopes
+        gain1.gain.setValueAtTime(0.001, now);
+        gain1.gain.exponentialRampToValueAtTime(0.24, now + 0.12);
+        gain1.gain.exponentialRampToValueAtTime(0.0001, now + 2.2);
+
+        gain2.gain.setValueAtTime(0.001, now);
+        gain2.gain.exponentialRampToValueAtTime(0.06, now + 0.08);
+        gain2.gain.exponentialRampToValueAtTime(0.0001, now + 1.6);
+
+        osc1.connect(gain1);
+        osc2.connect(gain2);
+        gain1.connect(ctx.destination);
+        gain2.connect(ctx.destination);
+
+        lfo.start(now);
+        osc1.start(now);
+        osc2.start(now);
+
+        lfo.stop(now + 2.3);
+        osc1.stop(now + 2.3);
+        osc2.stop(now + 2.3);
+      } catch (e) {
+        console.warn('Audio notice:', e);
+      }
+    }
+
+    const btnAudioToggle = document.getElementById('btnAudioToggle');
+    const audioIcon = document.getElementById('audioIcon');
+    const audioText = document.getElementById('audioText');
+    if (btnAudioToggle) {
+      btnAudioToggle.addEventListener('click', () => {
+        audioActive = !audioActive;
+        if (audioActive) {
+          audioIcon.textContent = '🔊';
+          audioText.textContent = 'KRISTAL AUDIO: AKTIF';
+          playSingingGlassChime(587.33);
+        } else {
+          audioIcon.textContent = '🔇';
+          audioText.textContent = 'KRISTAL AUDIO: BISU';
+        }
+      });
+    }
+
+    const btnPlayCrystalChime = document.getElementById('btnPlayCrystalChime');
+    if (btnPlayCrystalChime) {
+      btnPlayCrystalChime.addEventListener('click', () => {
+        playSingingGlassChime(659.25); // E5 Chime
+        showToast('Resonansi dengkringan kristal ditiup berkumandang');
+      });
+    }
+
+    // 3. Canvas HTML5: Prism Caustic & Spectral Dispersion
+    const canvas = document.getElementById('prismCanvas');
+    const ctx = canvas.getContext('2d');
+    let lightMode = 'daylight'; // 'daylight' or 'incandescent'
+    let currentIncidentAngle = 42;
+    let currentThickness = 5.5;
+    let animTick = 0;
+
+    function resizeCanvas() {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * (window.devicePixelRatio || 1);
+      canvas.height = rect.height * (window.devicePixelRatio || 1);
+      ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const sliderAngle = document.getElementById('sliderAngle');
+    const valAngle = document.getElementById('valAngle');
+    const sliderThickness = document.getElementById('sliderThickness');
+    const valThickness = document.getElementById('valThickness');
+    const btnLightDay = document.getElementById('btnLightDay');
+    const btnLightWarm = document.getElementById('btnLightWarm');
+    const teleRefract = document.getElementById('teleRefract');
+    const teleDispersion = document.getElementById('teleDispersion');
+    const teleColorShift = document.getElementById('teleColorShift');
+
+    function updatePrismMetrics() {
+      // Snell's law: n1 * sin(theta1) = n2 * sin(theta2)
+      // n1 (air) = 1.0, n2 (borosilicate) = 1.524
+      const nGlass = 1.524;
+      const rad1 = (currentIncidentAngle * Math.PI) / 180;
+      const sin2 = Math.sin(rad1) / nGlass;
+      const rad2 = Math.asin(sin2);
+      const deg2 = (rad2 * 180) / Math.PI;
+
+      const dispersion = (currentIncidentAngle * 0.32) + (currentThickness * 0.45);
+
+      if (teleRefract) teleRefract.textContent = deg2.toFixed(1) + '°';
+      if (teleDispersion) teleDispersion.textContent = dispersion.toFixed(1) + ' nm/deg';
+      if (teleColorShift) {
+        if (lightMode === 'daylight') {
+          teleColorShift.textContent = 'Iris Lilac (#C3BEF0) • 6500K';
+        } else {
+          teleColorShift.textContent = 'Wisteria Rose (#CCA8E9) • 2700K';
+        }
+      }
+    }
+
+    if (sliderAngle) {
+      sliderAngle.addEventListener('input', (e) => {
+        currentIncidentAngle = parseFloat(e.target.value);
+        if (valAngle) valAngle.textContent = currentIncidentAngle + '°';
+        updatePrismMetrics();
+      });
+    }
+
+    if (sliderThickness) {
+      sliderThickness.addEventListener('input', (e) => {
+        currentThickness = parseFloat(e.target.value);
+        if (valThickness) valThickness.textContent = currentThickness + ' mm';
+        updatePrismMetrics();
+      });
+    }
+
+    function setLightSource(mode) {
+      lightMode = mode;
+      if (btnLightDay && btnLightWarm) {
+        if (mode === 'daylight') {
+          btnLightDay.classList.add('active');
+          btnLightWarm.classList.remove('active');
+        } else {
+          btnLightWarm.classList.add('active');
+          btnLightDay.classList.remove('active');
+        }
+      }
+      document.querySelectorAll('.mode-tab-btn').forEach(btn => {
+        if (btn.dataset.light === mode) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      updatePrismMetrics();
+      playSingingGlassChime(mode === 'daylight' ? 587.33 : 523.25);
+    }
+
+    if (btnLightDay) btnLightDay.addEventListener('click', () => setLightSource('daylight'));
+    if (btnLightWarm) btnLightWarm.addEventListener('click', () => setLightSource('incandescent'));
+
+    document.querySelectorAll('.mode-tab-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        setLightSource(e.currentTarget.dataset.light);
+      });
+    });
+
+    function renderPrismCanvas() {
+      animTick += 0.02;
+      const w = canvas.getBoundingClientRect().width;
+      const h = canvas.getBoundingClientRect().height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Background ambient glass chamber
+      const bgGrad = ctx.createRadialGradient(w / 2, h / 2, 20, w / 2, h / 2, w * 0.7);
+      bgGrad.addColorStop(0, '#1C1736');
+      bgGrad.addColorStop(1, '#100D22');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Prism Geometry in Center
+      const prismSize = 110 + (currentThickness * 2.5);
+      const px = w * 0.46;
+      const py = h * 0.52;
+
+      // Draw Glass Prism Body
+      ctx.beginPath();
+      ctx.moveTo(px, py - prismSize * 0.65);
+      ctx.lineTo(px + prismSize * 0.75, py + prismSize * 0.55);
+      ctx.lineTo(px - prismSize * 0.75, py + prismSize * 0.55);
+      ctx.closePath();
+
+      // Prism fill based on Neodymium Dichroic mode
+      const prismGrad = ctx.createLinearGradient(px - prismSize, py, px + prismSize, py);
+      if (lightMode === 'daylight') {
+        prismGrad.addColorStop(0, 'rgba(222, 252, 249, 0.45)');
+        prismGrad.addColorStop(0.5, 'rgba(195, 190, 240, 0.55)');
+        prismGrad.addColorStop(1, 'rgba(202, 222, 252, 0.45)');
+      } else {
+        prismGrad.addColorStop(0, 'rgba(204, 168, 233, 0.55)');
+        prismGrad.addColorStop(0.5, 'rgba(235, 185, 225, 0.6)');
+        prismGrad.addColorStop(1, 'rgba(195, 190, 240, 0.45)');
+      }
+      ctx.fillStyle = prismGrad;
+      ctx.fill();
+
+      ctx.strokeStyle = (lightMode === 'daylight') ? '#DEFCF9' : '#CCA8E9';
+      ctx.lineWidth = 1.8;
+      ctx.stroke();
+
+      // Incoming Light Beam
+      const inX = 30;
+      const inY = py - (currentIncidentAngle * 1.5) + Math.sin(animTick) * 3;
+      const hitX = px - prismSize * 0.45;
+      const hitY = py + 10;
+
+      ctx.beginPath();
+      ctx.moveTo(inX, inY);
+      ctx.lineTo(hitX, hitY);
+      ctx.strokeStyle = (lightMode === 'daylight') ? '#FFFFFF' : '#FFEDB3';
+      ctx.lineWidth = 3.5;
+      ctx.shadowColor = (lightMode === 'daylight') ? '#DEFCF9' : '#FFE5A3';
+      ctx.shadowBlur = 14;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Refracted Rainbow Spectral Caustic Rays Exiting Prism
+      const exitX = px + prismSize * 0.5;
+      const exitY = py + 15;
+
+      const spectralColors = [
+        '#FF6B8B', // Red/Pink
+        '#FFA07A', // Orange
+        '#FFF07C', // Yellow
+        '#80FFDB', // Aqua/Cyan
+        '#CADEFC', // Periwinkle Blue
+        '#C3BEF0', // Violet
+        '#CCA8E9'  // Amethyst
+      ];
+
+      spectralColors.forEach((col, idx) => {
+        ctx.beginPath();
+        ctx.moveTo(hitX, hitY);
+        // Internal refracted path
+        const internalY = hitY + (idx * 1.8) - 5;
+        ctx.lineTo(exitX, internalY);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+
+        // Dispersed Exit Fan
+        ctx.beginPath();
+        ctx.moveTo(exitX, internalY);
+        const fanSpread = (idx - 3) * 11 + (currentIncidentAngle * 0.35);
+        const targetX = w - 20;
+        const targetY = exitY + fanSpread + Math.sin(animTick + idx * 0.4) * 4;
+        ctx.lineTo(targetX, targetY);
+
+        ctx.strokeStyle = col;
+        ctx.lineWidth = 2.4;
+        ctx.shadowColor = col;
+        ctx.shadowBlur = 8;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      });
+
+      // Internal seed bubbles
+      for (let b = 0; b < 6; b++) {
+        const bx = px - 25 + (b * 10);
+        const by = py - 10 + Math.sin(animTick * 0.8 + b) * 8;
+        ctx.beginPath();
+        ctx.arc(bx, by, 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.fill();
+      }
+
+      requestAnimationFrame(renderPrismCanvas);
+    }
+    renderPrismCanvas();
+    updatePrismMetrics();
+
+    // 4. Bespoke Vessel Configurator
+    let currentVessel = { name: 'Murano Fluted Decanter', vol: '750 ml', type: 'decanter' };
+    let currentGlassColor = { name: 'Glacial Aqua Clear', hex: '#DEFCF9', id: 'aqua' };
+    let currentTexture = { name: 'Spiral Optic Ribbed', id: 'ribbed' };
+    let currentEngraving = 'LUMEN • 2026';
+
+    const vesselSvgPaths = {
+      decanter: {
+        body: 'M 160,30 L 160,75 C 130,110 90,140 90,180 C 90,205 120,210 160,210 C 200,210 230,205 230,180 C 230,140 190,110 160,75 Z',
+        stopper: 'M 152,15 L 168,15 L 164,30 L 156,30 Z M 160,8 A 10 10 0 1 0 160,28 A 10 10 0 1 0 160,8 Z',
+        lines: 5
+      },
+      carafe: {
+        body: 'M 135,40 L 185,40 L 205,170 C 205,200 185,210 160,210 C 135,210 115,200 115,170 Z',
+        stopper: '',
+        lines: 6
+      },
+      amphora: {
+        body: 'M 140,35 L 180,35 C 180,60 215,95 215,135 C 215,170 185,185 185,210 L 135,210 C 135,185 105,170 105,135 C 105,95 140,60 140,35 Z',
+        stopper: '',
+        lines: 4
+      },
+      stemware: {
+        body: 'M 125,50 C 125,120 155,135 158,145 L 158,195 L 130,205 L 190,205 L 162,195 L 162,145 C 165,135 195,120 195,50 Z',
+        stopper: '',
+        lines: 3
+      }
+    };
+
+    function renderVesselSvg() {
+      const svg = document.getElementById('vesselSvg');
+      if (!svg) return;
+
+      const pathData = vesselSvgPaths[currentVessel.type] || vesselSvgPaths.decanter;
+
+      let ribbingLines = '';
+      if (currentTexture.id === 'ribbed') {
+        ribbingLines = `
+          <path d="M 150,75 Q 140,140 140,195" stroke="rgba(255,255,255,0.45)" stroke-width="1.8" fill="none" />
+          <path d="M 160,75 Q 160,140 160,200" stroke="rgba(255,255,255,0.55)" stroke-width="2" fill="none" />
+          <path d="M 170,75 Q 180,140 180,195" stroke="rgba(255,255,255,0.45)" stroke-width="1.8" fill="none" />
+        `;
+      } else if (currentTexture.id === 'seeds') {
+        ribbingLines = `
+          <circle cx="145" cy="140" r="2.5" fill="rgba(255,255,255,0.7)" />
+          <circle cx="170" cy="160" r="3.2" fill="rgba(255,255,255,0.8)" />
+          <circle cx="155" cy="175" r="2" fill="rgba(255,255,255,0.6)" />
+          <circle cx="135" cy="165" r="1.8" fill="rgba(255,255,255,0.7)" />
+        `;
+      }
+
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="vesselGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${currentGlassColor.hex}" stop-opacity="0.75" />
+            <stop offset="60%" stop-color="#CADEFC" stop-opacity="0.45" />
+            <stop offset="100%" stop-color="#C3BEF0" stop-opacity="0.8" />
+          </linearGradient>
+          <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
+            <stop offset="50%" stop-color="#ffffff" stop-opacity="0.1" />
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.4" />
+          </linearGradient>
+        </defs>
+
+        <!-- Vessel Silhouette -->
+        <path d="${pathData.body}" fill="url(#vesselGrad)" stroke="#FFFFFF" stroke-width="1.5" />
+        <path d="${pathData.body}" fill="url(#shineGrad)" opacity="0.4" />
+
+        ${pathData.stopper ? `<path d="${pathData.stopper}" fill="${currentGlassColor.hex}" stroke="#FFFFFF" stroke-width="1.2" />` : ''}
+
+        <!-- Texture lines -->
+        ${ribbingLines}
+
+        <!-- Studio Engraved Base -->
+        <text x="160" y="200" fill="#1F1A3A" font-family="var(--font-mono)" font-size="8" font-weight="600" text-anchor="middle" opacity="0.85">${currentEngraving}</text>
+      `;
+
+      const summaryText = document.getElementById('previewGlassSummary');
+      if (summaryText) {
+        summaryText.textContent = `${currentVessel.name} • ${currentGlassColor.name} • ${currentTexture.name}`;
+      }
+
+      const engraveLabel = document.getElementById('previewGlassEngrave');
+      if (engraveLabel) {
+        engraveLabel.textContent = `Grafir dasar '${currentEngraving}'`;
+      }
+    }
+
+    // Config Swatches
+    document.querySelectorAll('[data-vessel]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('[data-vessel]').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        currentVessel = {
+          name: e.currentTarget.dataset.vesselname,
+          vol: e.currentTarget.dataset.vesselvol,
+          type: e.currentTarget.dataset.vessel
+        };
+        renderVesselSvg();
+        playSingingGlassChime(620);
+      });
+    });
+
+    document.querySelectorAll('[data-glasscolor]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('[data-glasscolor]').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        currentGlassColor = {
+          name: e.currentTarget.dataset.colorname,
+          hex: e.currentTarget.dataset.colorhex,
+          id: e.currentTarget.dataset.glasscolor
+        };
+        renderVesselSvg();
+        playSingingGlassChime(587.33);
+      });
+    });
+
+    document.querySelectorAll('[data-texture]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('[data-texture]').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        currentTexture = {
+          name: e.currentTarget.dataset.texturename,
+          id: e.currentTarget.dataset.texture
+        };
+        renderVesselSvg();
+        playSingingGlassChime(659.25);
+      });
+    });
+
+    const inputEngraveGlass = document.getElementById('inputEngraveGlass');
+    if (inputEngraveGlass) {
+      inputEngraveGlass.addEventListener('input', (e) => {
+        currentEngraving = e.target.value.trim() || 'LUMEN • 2026';
+        renderVesselSvg();
+      });
+    }
+    renderVesselSvg();
+
+    const btnOrderGlassConfig = document.getElementById('btnOrderGlassConfig');
+    if (btnOrderGlassConfig) {
+      btnOrderGlassConfig.addEventListener('click', () => {
+        const text = `Halo Master Glassblower LUMEN, saya ingin memesan karya kaca tiup kustom:%0A- Bentuk: ${currentVessel.name} (${currentVessel.vol})%0A- Warna Dikroik: ${currentGlassColor.name}%0A- Tekstur Optik: ${currentTexture.name}%0A- Grafir Dasar: "${currentEngraving}"%0A- Estimasi Investasi: Rp 2.850.000%0AMohon info jadwal peniupan tungku lebur. Terima kasih.`;
+        window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+      });
+    }
+
+    // 5. Lehr Annealing Calculator
+    const selectGlassType = document.getElementById('selectGlassType');
+    const selectWallThickness = document.getElementById('selectWallThickness');
+    const btnRecalcAnneal = document.getElementById('btnRecalcAnneal');
+    const resAnnealTitle = document.getElementById('resAnnealTitle');
+    const resAnnealDesc = document.getElementById('resAnnealDesc');
+
+    function calculateAnnealSchedule() {
+      const gType = selectGlassType ? selectGlassType.value : 'boro33';
+      const thick = parseFloat(selectWallThickness ? selectWallThickness.value : '6');
+
+      let hours = (thick * 1.3) + 1.2;
+      let desc = '';
+
+      if (gType === 'boro33') {
+        desc = `Siklus pendinginan anil ${hours.toFixed(1)} jam untuk borosilikat kristal ${thick}mm. Suhu rendam 560°C selama ${Math.round(thick * 15)} menit melepaskan seluruh tegangan kisi kristal internal.`;
+      } else if (gType === 'neodymium') {
+        hours += 1.0;
+        desc = `Kaca Neodymium dopan tanah jarang membutuhkan anil ultra-lambat ${hours.toFixed(1)} jam agar kisi oksida terdistribusi merata tanpa dispersi kabur.`;
+      } else {
+        hours -= 1.5;
+        desc = `Kaca soda-lime biasa memiliki titik anil lebih rendah (510°C). Waktu pendinginan ${hours.toFixed(1)} jam cukup untuk melepaskan tegangan regang.`;
+      }
+
+      if (resAnnealTitle) resAnnealTitle.textContent = `Durasi Total: ${hours.toFixed(1)} Jam Pendinginan Lehr`;
+      if (resAnnealDesc) resAnnealDesc.textContent = desc;
+
+      playSingingGlassChime(523.25);
+      showToast(`Jadwal Lehr diperbarui: ${hours.toFixed(1)} Jam`);
+    }
+
+    if (btnRecalcAnneal) {
+      btnRecalcAnneal.addEventListener('click', calculateAnnealSchedule);
+    }
+
+    // 6. Cart Management & WhatsApp Direct Checkout
+    let cart = [];
+
+    const btnOpenCart = document.getElementById('btnOpenCart');
+    const btnCloseCart = document.getElementById('btnCloseCart');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartCountBadge = document.getElementById('cartCountBadge');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartSubtotalAmount = document.getElementById('cartSubtotalAmount');
+    const btnWhatsappCheckout = document.getElementById('btnWhatsappCheckout');
+
+    function toggleCart(open) {
+      if (!cartDrawer || !cartBackdrop) return;
+      if (open) {
+        cartDrawer.classList.add('active');
+        cartBackdrop.classList.add('active');
+      } else {
+        cartDrawer.classList.remove('active');
+        cartBackdrop.classList.remove('active');
+      }
+    }
+
+    if (btnOpenCart) btnOpenCart.addEventListener('click', () => toggleCart(true));
+    if (btnCloseCart) btnCloseCart.addEventListener('click', () => toggleCart(false));
+    if (cartBackdrop) cartBackdrop.addEventListener('click', () => toggleCart(false));
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    function renderCart() {
+      if (!cartItemsContainer) return;
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div class="cart-empty-message">Keranjang belanja Anda masih kosong.</div>';
+        if (cartCountBadge) cartCountBadge.textContent = '0';
+        if (cartSubtotalAmount) cartSubtotalAmount.textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      let count = 0;
+      cartItemsContainer.innerHTML = '';
+
+      cart.forEach((item, idx) => {
+        subtotal += item.price * item.qty;
+        count += item.qty;
+
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+        row.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+          <div class="cart-item-details">
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-price">${formatRupiah(item.price)}</div>
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+              <span style="font-family:var(--font-mono); font-size:0.8rem;">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+              <button class="btn-del-item" onclick="deleteCartItem(${idx})">Hapus</button>
+            </div>
+          </div>
+        `;
+        cartItemsContainer.appendChild(row);
+      });
+
+      if (cartCountBadge) cartCountBadge.textContent = count;
+      if (cartSubtotalAmount) cartSubtotalAmount.textContent = formatRupiah(subtotal);
+    }
+
+    window.changeQty = function(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      renderCart();
+      playSingingGlassChime(587.33);
+    };
+
+    window.deleteCartItem = function(idx) {
+      if (!cart[idx]) return;
+      cart.splice(idx, 1);
+      renderCart();
+      playSingingGlassChime(493.88);
+    };
+
+    function addToCart(product) {
+      const existing = cart.find(i => i.id === product.id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+      renderCart();
+      toggleCart(true);
+      playSingingGlassChime(659.25);
+      showToast(`${product.name} dimasukkan ke koleksi.`);
+    }
+
+    document.querySelectorAll('.btn-add-cart').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const b = e.currentTarget;
+        addToCart({
+          id: b.dataset.id,
+          name: b.dataset.name,
+          price: parseInt(b.dataset.price, 10),
+          img: b.dataset.img
+        });
+      });
+    });
+
+    if (btnWhatsappCheckout) {
+      btnWhatsappCheckout.addEventListener('click', () => {
+        if (cart.length === 0) {
+          alert('Keranjang belanja Anda masih kosong.');
+          return;
+        }
+
+        let message = `Halo Master Glassblower LUMEN, saya ingin memesan koleksi kaca tiup berikut:%0A%0A`;
+        let total = 0;
+        cart.forEach((item, index) => {
+          const itemTotal = item.price * item.qty;
+          total += itemTotal;
+          message += `${index + 1}. ${item.name} (${item.qty}x) — ${formatRupiah(itemTotal)}%0A`;
+        });
+        message += `%0A*TOTAL INVESTASI: ${formatRupiah(total)}*%0A%0AMohon konfirmasi packing peti kayu khusus dan estimasi pengiriman. Terima kasih.`;
+        window.open(`https://wa.me/6281234567890?text=${message}`, '_blank');
+      });
+    }
+
+    // Booking Form
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputs = bookingForm.querySelectorAll('.form-control');
+        const name = inputs[0].value;
+        const phone = inputs[1].value;
+        const service = inputs[2].value;
+        const date = inputs[3].value;
+        const notes = inputs[4].value;
+
+        const msg = `Halo Atelier LUMEN, saya ingin reservasi sesi privat:%0A- Nama: ${name}%0A- No. HP: ${phone}%0A- Sesi: ${service}%0A- Tanggal: ${date}%0A- Catatan: ${notes || 'Tidak ada'}%0AMohon info ketersediaan slot. Terima kasih.`;
+        window.open(`https://wa.me/6281234567890?text=${msg}`, '_blank');
+        showToast('Formulir reservasi workshop terkirim ke WhatsApp.');
+      });
+    }
+
+    // Toast helper
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3200);
+    }
+  </script>
+</body>
+</html>

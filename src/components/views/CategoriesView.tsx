@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer, GlassWater } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'glasscraft',
+      title: 'Kaca Tiup Borosilikat & Kristal Neodymium',
+      icon: GlassWater,
+      desc: 'Atelier kriya kaca tiup borosilikat manual 1.180°C & kristal optik Neodymium dikroik: simulator refraksi prisma spektral Canvas HTML5, kalkulator anil termal oven lehr, konfigurator wadah SVG, dan Web Audio dengkrik kristal.',
+      accent: '#CCA8E9'
+    },
     {
       id: 'cutlery',
       title: 'Pisau Tempa Damaskus & Asahan Alami',
