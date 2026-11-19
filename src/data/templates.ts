@@ -3388,6 +3388,90 @@ export function TanahLiatStudio() {
       { hex: '#0D7377', rgb: 'rgb(13, 115, 119)', name: 'Deep Petrol Teal', role: 'Aksen Kedalaman, Header Tabel, Tombol Sekunder & Border Kartu Unggulan' },
       { hex: '#14FFEC', rgb: 'rgb(20, 255, 236)', name: 'Electric Cyber Cyan', role: 'Garis Gelombang ECG Neon, Tombol Aksi Utama CTA & Status Gym 24 Jam' }
     ]
+  },
+  {
+    id: 'tpl-45',
+    slug: 'redline-motoworks',
+    title: 'REDLINE (Bengkel Modifikasi Motor, Servis Rutin & Detailing Kilap)',
+    tagline: 'Bengkel motor modern spesialis servis rutin, tune up injeksi, uji dyno test, dan detailing bodi dengan garansi 30 hari',
+    description: 'Template website bengkel modifikasi dan servis performa motor REDLINE MOTOWORKS dengan palet warna Obsidian Pitch Black (#000000), Dark Maroon Charcoal (#3D0000), Crimson Blood Red (#950101), dan Electric Racing Scarlet Red (#FF0000). Dilengkapi simulator putaran mesin (RPM) & dyno test interaktif berbasis Canvas HTML5 dengan penggeser gas throttle, lampu shift light redline, dan pembacaan tenaga kuda (HP) & torsi (Nm), kalkulator interaktif estimasi biaya servis & perawatan motor dengan pengali kategori kendaraan dan estimasi durasi waktu, 4 paket servis transparan tanpa biaya tersembunyi, galeri hasil pengerjaan sebelum & sesudah (Before & After), formulir reservasi kedatangan bebas antre, slide-over keranjang pesanan, serta synthesizer suara deru mesin knalpot balap Web Audio API.',
+    category: 'automotive',
+    tags: ['Automotive', 'Motorcycle Garage', 'Dyno Simulator', 'Tachometer', 'Speed Shop', 'Pricing Calculator', 'Bike Detailing', 'Tune Up', 'Service Booking'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Canvas HTML5 Tachometer Engine', 'Web Audio API Engine Rev Synthesizer', 'Interactive Service Cost Calculator', 'Portfolio Filter Engine', 'Slide-Over Cart Drawer', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'automotive-redline',
+    htmlPath: '/templates/automotive/redline-motoworks.html',
+    htmlFolderPath: 'templates/automotive/redline-motoworks.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Simulator putaran mesin (RPM) & uji dyno Canvas HTML5 interaktif dengan jarum analog mulus, lampu peringatan Redline berkedip, pengatur gas bukaan throttle (0-100%), dan pembacaan HP serta Torsi Nm',
+      'Kalkulator estimasi biaya servis interaktif dengan 4 kategori motor (Matic, Maxi Matic, Bebek, Sport) dan checklist jenis perawatan transparan dengan kalkulasi waktu pengerjaan otomatis',
+      'Transparansi 4 paket servis unggulan (Servis Ringan Rutin, Servis CVT Bebas Gredek, Tune Up Performa & Dyno, Detailing Kilap Full Ceramic 9H) tanpa biaya pendaftaran atau biaya tambahan tersembunyi',
+      'Galeri sebelum & sesudah (Before & After Showcase) dengan filter kategori cepat (Detailing, Performa, Matic)',
+      'Synthesizer suara deru mesin motor dan letupan knalpot Web Audio API prosedural dengan tombol sakelar suara aktif/bisu',
+      'Informasi 4 jaminan kenyamanan bengkel (Garansi servis 30 hari, suku cadang & oli 100% asli dibuka di depan pemilik, alat presisi digital, ruang tunggu dingin ber-AC & kopi gratis)',
+      'Drawer slide-over keranjang belanja paket servis dengan tombol hapus dan pemesanan WhatsApp otomatis',
+      'Formulir reservasi jadwal kedatangan servis bebas antre dengan pilihan tanggal dan slot waktu',
+      'Bahasa Indonesia yang bersahabat, jelas, dan membumi bagi pemilik sepeda motor tanpa istilah asing atau jargon yang membingungkan',
+      'Standar craft editorial antislop dengan palet warna balap bertenaga (#000000, #3D0000, #950101, #FF0000) dan rasio kontras WCAG AAA 21:1'
+    ],
+    usageInstructions: [
+      'Buka templates/automotive/redline-motoworks.html di editor kode Anda.',
+      'Sesuaikan tarif servis, jenis motor, dan paket perawatan pada objek JavaScript di dalam script.',
+      'Ganti nomor WhatsApp admin bengkel dengan nomor kontak resmi bengkel Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk website bengkel langsung aktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'redline-motoworks.html',
+        language: 'html',
+        content: `<!-- REDLINE MOTOWORKS â€” Bengkel Modifikasi Motor, Servis Rutin & Detailing Kilap -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>REDLINE MOTOWORKS â€” Bengkel Performa & Detailing</title>
+  <style>
+    :root {
+      --bg-obsidian: #000000;
+      --card-maroon: #1A0202;
+      --crimson-red: #950101;
+      --scarlet-neon: #FF0000;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-telemetry-bar">BENGKEL BUKA: 08:00 - 20:00 WIB â€¢ LIFT SERVIS 3/4 TERSEDIA â€¢ DYNO 250HP SIAP</div>
+  <header class="main-header">
+    <div class="brand-title">REDLINE <span>MOTOWORKS</span></div>
+    <nav>Simulator Dyno Â· Hitung Biaya Â· Paket Servis Â· Portofolio Â· Reservasi Jadwal</nav>
+  </header>
+  <!-- Full Interactive Motorcycle Garage: Tachometer Canvas, Cost Calculator, Packages & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website bengkel modifikasi dan servis performa motor REDLINE MOTOWORKS dengan palet warna Obsidian Pitch Black (#000000), Dark Maroon Charcoal (#3D0000), Crimson Blood Red (#950101), dan Electric Racing Scarlet Red (#FF0000). Dilengkapi simulator putaran mesin (RPM) & dyno test interaktif berbasis Canvas HTML5 dengan penggeser gas throttle, lampu shift light redline, dan pembacaan tenaga kuda (HP) & torsi (Nm), kalkulator interaktif estimasi biaya servis & perawatan motor dengan pengali kategori kendaraan dan estimasi durasi waktu, 4 paket servis transparan tanpa biaya tersembunyi, galeri hasil pengerjaan sebelum & sesudah (Before & After), formulir reservasi kedatangan bebas antre, slide-over keranjang pesanan, serta synthesizer suara deru mesin knalpot balap Web Audio API.',
+      designDirection: 'Modern automotive performance garage & custom motorcycle workshop berstandar antislop: Obsidian Pitch Black (#000000), Dark Maroon Charcoal (#3D0000), Crimson Blood Red (#950101), Electric Racing Scarlet Red (#FF0000), Crisp White (#FFFFFF), dan Soft Platinum Gray (#E0E0E0). Tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry status bar bengkel dengan status buka, kapasitas meja lift dan jam WIB real-time, sticky header dengan brand mark RL dan navigasi ramah publik, hero dinamis dengan metrik garansi 30 hari & akurasi dyno 0.1 HP, simulator tachometer jarum analog & dyno Canvas HTML5 dengan shift light, kalkulator biaya servis 2 kolom dengan ringkasan sticky, grid 4 paket komplit terpadu, galeri sebelum-sesudah dengan filter tab, 4 jaminan kualitas bengkel, formulir reservasi kedatangan bebas antre, dan slide-over cart drawer.',
+      typographyAndColor: 'Plus Jakarta Sans (bobot 400-900) untuk tampilan modern, agresif, dan mudah dibaca, JetBrains Mono untuk metrik putaran mesin RPM, skor tenaga HP, torsi Nm, estimasi durasi menit, dan tarif biaya servis rupiah.',
+      interactions: 'Simulator putaran mesin Canvas HTML5 dengan jarum tachometer analog mulus yang merespons slider bukaan gas dan tombol geber balap, kalkulator biaya servis dengan pengali kategori motor dan kalkulasi durasi otomatis, filter galeri sebelum-sesudah instan, synthesizer audio knalpot motor Web Audio API, serta slide-over drawer pesanan servis terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural tachometer needle and shift light rendering Canvas HTML5, fully responsive smartphone hingga layar desktop lebar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#FF0000',
+    colorPalette: [
+      { hex: '#000000', rgb: 'rgb(0, 0, 0)', name: 'Obsidian Pitch Black', role: 'Latar Belakang Utama Bengkel Modern, Sasis Karbon & Aspal Balap' },
+      { hex: '#3D0000', rgb: 'rgb(61, 0, 0)', name: 'Dark Maroon Charcoal', role: 'Permukaan Kartu Servis, Bilah Navigasi, Panel Dyno & Kontainer Jadwal' },
+      { hex: '#950101', rgb: 'rgb(149, 1, 1)', name: 'Crimson Blood Red', role: 'Garis Batas Kartu Unggulan, Badge Status Mesin & Aksen Tabel Spesifikasi' },
+      { hex: '#FF0000', rgb: 'rgb(255, 0, 0)', name: 'Electric Racing Scarlet Red', role: 'Indikator RPM Redline, Jarum Tachometer Analog & Tombol Aksi Utama CTA' }
+    ]
   }
 ];
 
