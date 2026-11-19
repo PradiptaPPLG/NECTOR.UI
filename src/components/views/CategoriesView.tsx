@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'cutlery',
+      title: 'Pisau Tempa Damaskus & Asahan Alami',
+      icon: Hammer,
+      desc: 'Atelier pisau dapur tempa tangan 67 lapis damaskus & lab asahan batu alami Kyoto: simulator garis Suminagashi & bevel cembung Hamaguri Canvas HTML5, konfigurator gagang Wa-Handle, diagram vektor CAD 4 geometri bilah, dan Web Audio asahan.',
+      accent: '#A27B5C'
+    },
     {
       id: 'cycling',
       title: 'Sepeda Balap Titanium & Lab Aerodinamika',

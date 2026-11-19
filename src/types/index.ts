@@ -41,6 +41,7 @@ export type Category =
   | 'restaurant'
   | 'hospitality'
   | 'cycling'
+  | 'cutlery'
   | 'umkm';
 
 export type WeddingSubcategory =

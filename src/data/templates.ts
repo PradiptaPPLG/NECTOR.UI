@@ -3048,6 +3048,93 @@ export function TanahLiatStudio() {
       { hex: '#F5F5F5', rgb: 'rgb(245, 245, 245)', name: 'Pure Studio Alabaster Snow White', role: 'Kanvas Utama Website, Kontainer Kartu Produk & Bidang Formulir' },
       { hex: '#FC5185', rgb: 'rgb(252, 81, 133)', name: 'Electric Race Coral Pink', role: 'Tombol Tindakan Utama CTA, Partikel Pusaran Hambatan, Badge Tercepat & Total Harga' }
     ]
+  },
+  {
+    id: 'tpl-41',
+    slug: 'forja-damascus-cutlery',
+    title: 'FORJA (Atelier Pisau Tempa Damaskus & Kriya Bilah Jepang)',
+    tagline: 'Pisau dapur tempa tangan 67 lapis damaskus, inti karbon Shirogami #1, dan lab asahan batu alami Kyoto',
+    description: 'Template website atelier pisau tempa damaskus dan kriya bilah dapur Jepang FORJA dengan palet warna Deep Basalt Charcoal (#2C3639), Natural Slate Waterstone (#3F4E4F), Roasted Chestnut (#A27B5C), dan Raw Linen Ecru (#DCD7C9). Dilengkapi simulator aliran damaskus Suminagashi dan irisan cembung Hamaguri anti-stiction berbasis Canvas HTML5 dengan kalkulasi gaya potong (F_cut), sudut bevel (10°-22°), dan grit asahan (400-8000), mesin morphing diagram CAD vektor 4 siluet bilah klasik Jepang (Gyuto 210mm, Santoku 170mm, Nakiri 165mm, Petty 135mm), konfigurator gagang Wa-Handle segi delapan (Roasted Chestnut, Bog Oak, Spalted Birch, Smoked Walnut) dengan pahatan inisial nama kustom, kalkulator sudut asah dan urutan batu asahan alami Kyoto, generator audio desis batu asah Web Audio API, etalase 4 instrumen kriya master, drawer keranjang belanja terintegrasi WhatsApp, dan reservasi sesi tempa privat.',
+    category: 'cutlery',
+    tags: ['Damascus Knife', 'Japanese Cutlery', 'Shirogami', 'San-Mai', 'Hamaguri Grind', 'Wa-Handle', 'Whetstone Sharpening', 'Bladesmith', 'Artisanal Forging'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Canvas HTML5 Suminagashi Engine', 'Web Audio API Whetstone Synthesizer', 'CAD SVG Knife Morph Engine', 'Wa-Handle Customizer', 'Slide-Over Cart Drawer', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'cutlery-forja',
+    htmlPath: '/templates/cutlery/forja-damascus-cutlery.html',
+    htmlFolderPath: 'templates/cutlery/forja-damascus-cutlery.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Simulator aliran damaskus Suminagashi & penampang cembung Hamaguri Canvas HTML5 interaktif dengan 2 mode visual, kontrol sudut bevel (10°-22°) & grit batu asah (400-8000)',
+      'Kalkulasi telemetri gaya potong (F_cut dalam Newton), retensi ketajaman apex mikroskopis, dan koefisien stiction pelepasan irisan sayur secara real-time',
+      'Diagram vektor CAD SVG interaktif 4 geometri bilah klasik Jepang (Gyuto 210mm, Santoku 170mm, Nakiri 165mm, Petty 135mm) dengan titik keseimbangan pinch-grip choil',
+      'Konfigurator gagang Wa-Handle segi delapan (4 kayu langka, 4 kerah ferrule, 4 finishing tempa) dengan pahatan inisial nama/kanji live render',
+      'Kalkulator rekomendasi sudut asah dan tahapan batu asahan alami Kyoto (Arato #800, Aoto #2000, Nakayama Kiita #6000) berbasis jenis bahan makanan & talenan',
+      'Generator efek audio desis asahan batu alami dan denting logam sintetis Web Audio API dengan kontrol hening/aktif',
+      'Etalase 4 produk bilah master dan perlengkapan asah: Gyuto 210mm Kurouchi, Santoku 170mm Tsuchime, Nakiri 165mm Kasumi, dan Batu Asah Alami Kyoto Aoto #2000',
+      'Drawer keranjang belanja slide-over dengan kalkulasi subtotal rupiah otomatis dan checkout pesanan terstruktur ke WhatsApp atelier',
+      'Formulir pendaftaran konsultasi fitting genggaman tangan, restorasi bilah & workshop asah batu alami di Dago Pakar Bandung',
+      'Standar craft editorial antislop dengan palet warna tempaan alami (#2C3639, #3F4E4F, #A27B5C, #DCD7C9) dan tipografi Cormorant Garamond & JetBrains Mono'
+    ],
+    usageInstructions: [
+      'Buka templates/cutlery/forja-damascus-cutlery.html di editor kode Anda.',
+      'Sesuaikan data siluet bilah, pilihan kayu gagang Wa-Handle, dan harga rupiah pada objek JavaScript di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan dan reservasi atelier dengan nomor kontak resmi pandai besi Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk etalase atelier pisau langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'forja-damascus-cutlery.html',
+        language: 'html',
+        content: `<!-- FORJA — Atelier Pisau Tempa Damaskus & Kriya Bilah Dapur Jepang -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>FORJA — Damascus & Carbon Cutlery Atelier</title>
+  <style>
+    :root {
+      --forja-charcoal: #2C3639;
+      --forja-slate: #3F4E4F;
+      --forja-amber: #A27B5C;
+      --forja-linen: #DCD7C9;
+      --forja-dark: #181F21;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">STATUS: MEJA TEMPA AKTIF • SUHU TUNGKU: 810°C • KEKERASAN: 63.5 HRC • SHIROGAMI #1 (1.3% C)</div>
+  <header>
+    <div class="brand">FORJA</div>
+    <nav>Suminagashi Canvas · Geometri Bilah · Gagang Wa-Handle · Kalkulator Asah · Etalase Master · Pesan Kustom</nav>
+  </header>
+  <!-- Full Interactive Cutlery Atelier: Suminagashi Canvas, Knife CAD Morph, Wa-Handle Config & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier pisau tempa damaskus dan kriya bilah dapur Jepang FORJA dengan palet warna Deep Basalt Charcoal (#2C3639), Natural Slate Waterstone (#3F4E4F), Roasted Chestnut (#A27B5C), dan Raw Linen Ecru (#DCD7C9). Dilengkapi simulator aliran damaskus Suminagashi dan irisan cembung Hamaguri anti-stiction berbasis Canvas HTML5 dengan kontrol sudut bevel (10°-22°), grit batu asah (400-8000), dan telemetri gaya potong Newton real-time, mesin morphing diagram CAD vektor 4 siluet bilah klasik Jepang (Gyuto 210mm, Santoku 170mm, Nakiri 165mm, Petty 135mm), konfigurator gagang Wa-Handle segi delapan (Roasted Chestnut, Bog Oak, Spalted Birch, Smoked Walnut) dengan pahatan inisial nama kustom, kalkulator sudut asah dan urutan batu asahan alami Kyoto, generator audio desis batu asah Web Audio API, etalase 4 instrumen kriya master (Gyuto 210mm Kurouchi, Santoku 170mm Tsuchime, Nakiri 165mm Kasumi, Batu Asah Kyoto Aoto #2000), formulir reservasi sesi tempa privat 90-menit, serta drawer keranjang belanja terintegrasi WhatsApp.',
+      designDirection: 'Master bladesmith & Japanese culinary cutlery atelier berstandar antislop: Deep Basalt Charcoal (#2C3639), Natural Slate Waterstone (#3F4E4F), Roasted Chestnut Wa-Handle (#A27B5C), Raw Linen Ecru (#DCD7C9), dan Deep Forge Carbon (#181F21). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry bar meja tempa dengan temperatur tungku 810°C dan kekerasan Rockwell HRC real-time, sticky header dengan brand mark segel palu tempa F dan navigasi non-wrapping kokoh, hero asimetris 2 kolom dengan panggung simulator Suminagashi & Hamaguri dinamis, panggung CAD vektor 4 siluet bilah klasik Jepang, konfigurator gagang Wa-Handle dengan live SVG rendering, kalkulator sudut asah dan batu asahan Kyoto, grid 4 pilar sains metalurgi tempa, etalase 4 instrumen bilah kriya teruji, dan formulir reservasi workshop di Dago Pakar Bandung.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk kuratorial keanggunan bilah tempa klasik, Plus Jakarta Sans untuk teks bodi penjelasan metalurgi martensit dan panduan perawatan minyak Tsubaki, JetBrains Mono untuk kekerasan HRC, ketebalan apex (0.15 mm), sudut bevel (°), grit batu asah, bobot gram, dan rincian harga rupiah.',
+      interactions: 'Simulator gelombang Suminagashi 67-lapis dan penampang cembung Hamaguri Canvas HTML5 interaktif, morphing diagram vektor CAD bilah dengan kalkulasi titik keseimbangan pinch-grip, konfigurator gagang Wa-Handle dengan pemilih kayu dan pahatan nama kustom, generator audio batu asahan Web Audio API, serta slide-over drawer keranjang belanja terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural damascus wave physics Canvas HTML5, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#A27B5C',
+    colorPalette: [
+      { hex: '#2C3639', rgb: 'rgb(44, 54, 57)', name: 'Deep Basalt Charcoal', role: 'Kerak Tempa Kurouchi Hitam, Panggung Instrumen Gelap, Bilah Karbon & Tombol Aksi' },
+      { hex: '#3F4E4F', rgb: 'rgb(63, 78, 79)', name: 'Natural Slate Waterstone', role: 'Batu Asah Alami Slate Kyoto, Bingkai Kartu, Border Teknikal & Badge Status' },
+      { hex: '#A27B5C', rgb: 'rgb(162, 123, 92)', name: 'Roasted Chestnut Wa-Handle', role: 'Gagang Kayu Kastanye Bakar, Aksen CTA Utama, Sabuk Stropping & Harga Investasi' },
+      { hex: '#DCD7C9', rgb: 'rgb(220, 215, 201)', name: 'Raw Linen Ecru', role: 'Kain Pembungkus Linen, Lumpur Bubuk Asahan Alami, Kotak Kiribako & Teks Lembut' }
+    ]
   }
 ];
 

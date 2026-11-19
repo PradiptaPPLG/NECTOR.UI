@@ -1,0 +1,3242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORJA — Atelier Pisau Tempa Damaskus & Kriya Bilah Dapur Jepang</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       FORJA PALETTE & DESIGN TOKENS
+       User Palette:
+       - #2C3639 : Deep Basalt Charcoal / Kurouchi Carbon Scale
+       - #3F4E4F : Natural Slate Waterstone / Weathered Alpine Pine
+       - #A27B5C : Roasted Chestnut Wa-Handle / Warm Amber Earth
+       - #DCD7C9 : Raw Linen Ecru / Sandstone Slurry Alabaster
+       - #181F21 : Deep Forge Carbon (WCAG AAA Contrast Text)
+       - #FAF9F5 : Warm Studio Porcelain White
+       ========================================================================== */
+    :root {
+      --forja-charcoal: #2C3639;
+      --forja-slate: #3F4E4F;
+      --forja-amber: #A27B5C;
+      --forja-linen: #DCD7C9;
+      --forja-dark: #181F21;
+      --forja-cream: #FAF9F5;
+      --forja-card-bg: #FFFFFF;
+      --forja-border: rgba(44, 54, 57, 0.14);
+      --forja-border-light: rgba(220, 215, 201, 0.45);
+      
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --shadow-subtle: 0 4px 18px rgba(24, 31, 33, 0.05);
+      --shadow-elevation: 0 16px 36px rgba(24, 31, 33, 0.09);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--forja-cream);
+      color: var(--forja-dark);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--forja-amber);
+      color: #FFFFFF;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      color: var(--forja-charcoal);
+    }
+
+    p {
+      color: #384245;
+      font-size: 0.98rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       TOP TELEMETRY & FORGE LAB BAR
+       ========================================================================== */
+    .top-telemetry-bar {
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(220, 215, 201, 0.15);
+      padding: 0.55rem 0;
+      position: relative;
+      z-index: 100;
+    }
+
+    .telemetry-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .telemetry-items {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .telemetry-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      animation: pulseDot 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    .telemetry-audio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(220, 215, 201, 0.12);
+      color: var(--forja-linen);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      transition: var(--transition-fast);
+      border: 1px solid rgba(220, 215, 201, 0.22);
+    }
+
+    .telemetry-audio-btn:hover {
+      background: var(--forja-amber);
+      color: #FFFFFF;
+      border-color: var(--forja-amber);
+    }
+
+    /* ==========================================================================
+       ATMOSPHERIC HEADER
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 249, 245, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--forja-border);
+      z-index: 90;
+      transition: var(--transition-smooth);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+      gap: 1.5rem;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      border: 1px solid var(--forja-slate);
+      box-shadow: 0 2px 8px rgba(44, 54, 57, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 8px;
+      height: 8px;
+      background: var(--forja-amber);
+    }
+
+    .brand-text h1 {
+      font-size: 1.38rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--forja-charcoal);
+    }
+
+    .brand-text span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--forja-slate);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--forja-slate);
+      transition: var(--transition-fast);
+      position: relative;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--forja-charcoal);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--forja-amber);
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .cart-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.52rem 0.95rem;
+      border: 1px solid var(--forja-border);
+      border-radius: 999px;
+      background: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--forja-charcoal);
+      transition: var(--transition-fast);
+    }
+
+    .cart-pill-btn:hover {
+      border-color: var(--forja-amber);
+      background: var(--forja-linen);
+    }
+
+    .cart-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: var(--forja-amber);
+      color: #FFFFFF;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .cta-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      border: 1px solid var(--forja-charcoal);
+    }
+
+    .cta-btn-primary:hover {
+      background: var(--forja-amber);
+      border-color: var(--forja-amber);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       HERO SECTION WITH 2-COLUMN ASYMMETRIC GRID
+       ========================================================================== */
+    .hero-section {
+      padding: 3.5rem 0 4.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--forja-border);
+      background: radial-gradient(ellipse at 80% 20%, rgba(220, 215, 201, 0.42) 0%, rgba(250, 249, 245, 0) 70%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-manifesto {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--forja-slate);
+      background: rgba(63, 78, 79, 0.09);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--forja-amber);
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 700;
+      color: var(--forja-charcoal);
+      line-height: 1.08;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--forja-amber);
+      font-family: var(--font-serif);
+      font-weight: 400;
+    }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      color: #4A5659;
+      line-height: 1.68;
+    }
+
+    .hero-specs-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--forja-border);
+      border-bottom: 1px solid var(--forja-border);
+      margin: 0.5rem 0;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spec-val {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--forja-charcoal);
+      line-height: 1;
+    }
+
+    .spec-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--forja-slate);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 0.35rem;
+    }
+
+    .hero-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .cta-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      background: transparent;
+      color: var(--forja-charcoal);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--forja-border);
+      transition: var(--transition-fast);
+    }
+
+    .cta-btn-secondary:hover {
+      background: var(--forja-linen);
+      border-color: var(--forja-slate);
+    }
+
+    /* ==========================================================================
+       CANVAS STAGE: SUMINAGASHI DAMASCUS FLOW & MICRO-EDGE SIMULATOR
+       ========================================================================== */
+    .canvas-card {
+      background: var(--forja-charcoal);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--forja-slate);
+      box-shadow: var(--shadow-elevation);
+      overflow: hidden;
+      color: var(--forja-linen);
+      position: relative;
+    }
+
+    .canvas-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+      background: rgba(24, 31, 33, 0.7);
+      border-bottom: 1px solid rgba(220, 215, 201, 0.12);
+    }
+
+    .canvas-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .canvas-mode-switches {
+      display: flex;
+      gap: 0.4rem;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .mode-tab-btn {
+      padding: 0.3rem 0.75rem;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--forja-linen);
+      transition: var(--transition-fast);
+    }
+
+    .mode-tab-btn.active {
+      background: var(--forja-amber);
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      height: 310px;
+      background: #1C2325;
+    }
+
+    #damascusCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .canvas-overlay-data {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      pointer-events: none;
+    }
+
+    .data-pill {
+      background: rgba(28, 35, 37, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 0.45rem 0.8rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(220, 215, 201, 0.2);
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+    }
+
+    .data-pill span {
+      color: var(--forja-amber);
+      font-weight: 600;
+    }
+
+    .canvas-controls-panel {
+      padding: 1.15rem 1.25rem;
+      background: rgba(35, 44, 47, 0.95);
+      border-top: 1px solid rgba(220, 215, 201, 0.12);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .control-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .control-block label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--forja-linen);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .control-block label span {
+      color: var(--forja-amber);
+      font-weight: 600;
+    }
+
+    .slider-input {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--forja-slate);
+      outline: none;
+    }
+
+    .slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--forja-amber);
+      cursor: pointer;
+      border: 2px solid #FFFFFF;
+      transition: transform 0.1s;
+    }
+
+    .slider-input::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .toggle-pill-group {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .toggle-pill {
+      flex: 1;
+      padding: 0.35rem 0.4rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-align: center;
+      background: rgba(63, 78, 79, 0.3);
+      color: var(--forja-linen);
+      border: 1px solid rgba(220, 215, 201, 0.15);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .toggle-pill.active {
+      background: var(--forja-amber);
+      color: #FFFFFF;
+      border-color: var(--forja-amber);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       SECTION: BLADE GEOMETRY & CULINARY PROFILES (INTERACTIVE CAD)
+       ========================================================================== */
+    .section-cad {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--forja-border);
+      background: #FFFFFF;
+    }
+
+    .section-heading-wrap {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      margin-top: 0.4rem;
+    }
+
+    .section-desc {
+      margin-top: 0.75rem;
+      font-size: 1.02rem;
+      color: #4F5A5C;
+    }
+
+    .cad-showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .blade-tabs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .blade-tab-card {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      background: var(--forja-cream);
+      border: 1px solid var(--forja-border);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .blade-tab-card:hover {
+      border-color: var(--forja-amber);
+      transform: translateX(4px);
+    }
+
+    .blade-tab-card.active {
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      border-color: var(--forja-charcoal);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .blade-tab-card.active h3 {
+      color: #FFFFFF;
+    }
+
+    .blade-tab-card.active .blade-subtitle {
+      color: var(--forja-linen);
+    }
+
+    .blade-info-col h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .blade-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--forja-slate);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .blade-length-tag {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(162, 123, 92, 0.15);
+      color: var(--forja-amber);
+      font-weight: 600;
+    }
+
+    .blade-tab-card.active .blade-length-tag {
+      background: var(--forja-amber);
+      color: #FFFFFF;
+    }
+
+    /* CAD Stage Right */
+    .cad-vector-stage {
+      background: var(--forja-cream);
+      border: 1px solid var(--forja-border);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+      position: relative;
+    }
+
+    .cad-stage-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--forja-border);
+      padding-bottom: 0.75rem;
+    }
+
+    .cad-model-name {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--forja-charcoal);
+    }
+
+    .cad-svg-container {
+      width: 100%;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFFFFF;
+      border-radius: var(--radius-sm);
+      border: 1px dashed var(--forja-border);
+      position: relative;
+    }
+
+    #knifeSvgDrawing {
+      width: 95%;
+      height: 90%;
+      filter: drop-shadow(0 8px 12px rgba(44, 54, 57, 0.12));
+    }
+
+    .cad-specs-table {
+      width: 100%;
+      margin-top: 1.75rem;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+
+    .cad-specs-table tr {
+      border-bottom: 1px solid var(--forja-border);
+    }
+
+    .cad-specs-table td {
+      padding: 0.6rem 0;
+    }
+
+    .cad-specs-table td:first-child {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--forja-slate);
+      text-transform: uppercase;
+      width: 42%;
+    }
+
+    .cad-specs-table td:last-child {
+      font-weight: 600;
+      color: var(--forja-charcoal);
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       SECTION: CUSTOM WA-HANDLE & FINISH CONFIGURATOR
+       ========================================================================== */
+    .section-configurator {
+      padding: 5rem 0;
+      background: var(--forja-cream);
+      border-bottom: 1px solid var(--forja-border);
+    }
+
+    .configurator-wrapper {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      background: #FFFFFF;
+      border: 1px solid var(--forja-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .config-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1.85rem;
+    }
+
+    .config-group h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .config-group h4 span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--forja-amber);
+      font-weight: 500;
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+    }
+
+    .swatch-btn {
+      padding: 0.75rem 0.5rem;
+      border: 1px solid var(--forja-border);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      transition: var(--transition-fast);
+      background: var(--forja-cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .swatch-btn:hover {
+      border-color: var(--forja-amber);
+    }
+
+    .swatch-btn.active {
+      border-color: var(--forja-charcoal);
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+    }
+
+    .color-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .swatch-btn span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .engraving-box {
+      margin-top: 0.5rem;
+    }
+
+    .engrave-input {
+      width: 100%;
+      padding: 0.65rem 0.95rem;
+      border: 1px solid var(--forja-border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background: var(--forja-cream);
+      color: var(--forja-dark);
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .engrave-input:focus {
+      border-color: var(--forja-amber);
+      background: #FFFFFF;
+    }
+
+    /* Live Preview Column */
+    .config-preview-pane {
+      background: var(--forja-charcoal);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+      color: var(--forja-linen);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--forja-slate);
+      position: relative;
+    }
+
+    .preview-title-bar {
+      border-bottom: 1px solid rgba(220, 215, 201, 0.15);
+      padding-bottom: 0.75rem;
+    }
+
+    .preview-title-bar h3 {
+      color: #FFFFFF;
+      font-size: 1.45rem;
+    }
+
+    .preview-title-bar span {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--forja-amber);
+    }
+
+    .handle-visualizer-box {
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem 0;
+      background: #1C2325;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(220, 215, 201, 0.1);
+      position: relative;
+    }
+
+    #handleSvg {
+      width: 90%;
+      height: 80%;
+    }
+
+    .config-summary-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(220, 215, 201, 0.15);
+    }
+
+    .total-invest-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--forja-linen);
+      text-transform: uppercase;
+    }
+
+    .total-invest-val {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+
+    .btn-order-config {
+      margin-top: 1.25rem;
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--forja-amber);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-order-config:hover {
+      background: #8e684a;
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       SECTION: NATURAL WHETSTONE PROGRESSION & ANGLE CALCULATOR
+       ========================================================================== */
+    .section-calculator {
+      padding: 5rem 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--forja-border);
+    }
+
+    .calc-container-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .calc-form-card {
+      background: var(--forja-cream);
+      border: 1px solid var(--forja-border);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+    }
+
+    .calc-field-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-field-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--forja-slate);
+      margin-bottom: 0.5rem;
+    }
+
+    .select-custom {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--forja-border);
+      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--forja-charcoal);
+      outline: none;
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .select-custom:focus {
+      border-color: var(--forja-amber);
+    }
+
+    .calc-result-card {
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      border: 1px solid var(--forja-slate);
+      box-shadow: var(--shadow-elevation);
+    }
+
+    .calc-result-header {
+      border-bottom: 1px solid rgba(220, 215, 201, 0.15);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-result-header h3 {
+      color: #FFFFFF;
+      font-size: 1.7rem;
+    }
+
+    .grit-progression-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      margin: 1.75rem 0;
+    }
+
+    .grit-step {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      position: relative;
+    }
+
+    .grit-badge {
+      width: 60px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--forja-slate);
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .grit-badge.highlight {
+      background: var(--forja-amber);
+    }
+
+    .grit-desc h5 {
+      color: #FFFFFF;
+      font-size: 1rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .grit-desc p {
+      color: var(--forja-linen);
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+
+    /* ==========================================================================
+       SECTION: THE BLACKSMITH ENGINEERING MANIFESTO (4 PILLARS)
+       ========================================================================== */
+    .section-manifesto {
+      padding: 5rem 0;
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      border-bottom: 1px solid var(--forja-slate);
+    }
+
+    .section-manifesto h2 {
+      color: #FFFFFF;
+    }
+
+    .section-manifesto .section-desc {
+      color: var(--forja-linen);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+      margin-top: 3.5rem;
+    }
+
+    .pillar-card {
+      background: rgba(35, 44, 47, 0.7);
+      border: 1px solid rgba(220, 215, 201, 0.12);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.5rem;
+      transition: var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--forja-amber);
+      transform: translateY(-4px);
+      background: rgba(44, 54, 57, 0.9);
+    }
+
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--forja-amber);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.35rem;
+      color: #FFFFFF;
+    }
+
+    .pillar-card p {
+      font-size: 0.88rem;
+      color: #C3C9CA;
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       SECTION: CURATED 4 MASTER CUTLERY PIECES (PRODUCT CATALOG)
+       ========================================================================== */
+    .section-catalog {
+      padding: 5rem 0;
+      background: var(--forja-cream);
+      border-bottom: 1px solid var(--forja-border);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+    }
+
+    .product-card {
+      background: #FFFFFF;
+      border: 1px solid var(--forja-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-fast);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .product-card:hover {
+      border-color: var(--forja-slate);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevation);
+    }
+
+    .product-thumb-wrap {
+      width: 100%;
+      height: 220px;
+      background: #EFECE6;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-thumb-wrap img {
+      transform: scale(1.04);
+    }
+
+    .product-badge-steel {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(44, 54, 57, 0.9);
+      color: var(--forja-linen);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+    }
+
+    .product-content {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .product-category-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--forja-slate);
+      margin-bottom: 0.25rem;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: var(--forja-charcoal);
+    }
+
+    .product-excerpt {
+      font-size: 0.83rem;
+      color: #556265;
+      line-height: 1.45;
+      margin-bottom: 1rem;
+    }
+
+    .product-specs-mini {
+      display: flex;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--forja-slate);
+      border-top: 1px solid var(--forja-border);
+      padding-top: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--forja-border);
+      padding-top: 0.85rem;
+    }
+
+    .product-price {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--forja-charcoal);
+    }
+
+    .btn-add-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+    }
+
+    .btn-add-cart:hover {
+      background: var(--forja-amber);
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       SECTION: BESPOKE COMMISSION & WORKSHOP BOOKING
+       ========================================================================== */
+    .section-booking {
+      padding: 5rem 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--forja-border);
+    }
+
+    .booking-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--forja-cream);
+      border: 1px solid var(--forja-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--forja-slate);
+      margin-bottom: 0.45rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--forja-border);
+      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--forja-charcoal);
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .form-control:focus {
+      border-color: var(--forja-amber);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-submit-booking {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.95rem;
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .btn-submit-booking:hover {
+      background: var(--forja-amber);
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       SLIDE-OVER CART DRAWER
+       ========================================================================== */
+    .cart-drawer-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(24, 31, 33, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 440px;
+      height: 100vh;
+      background: #FFFFFF;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--forja-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--forja-cream);
+    }
+
+    .cart-header h3 {
+      font-size: 1.35rem;
+      color: var(--forja-charcoal);
+    }
+
+    .btn-close-cart {
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--forja-slate);
+      cursor: pointer;
+    }
+
+    .cart-items-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .cart-empty-message {
+      text-align: center;
+      color: var(--forja-slate);
+      padding: 3rem 0;
+      font-style: italic;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 1px solid var(--forja-border);
+      padding-bottom: 1rem;
+      align-items: center;
+    }
+
+    .cart-item-img {
+      width: 64px;
+      height: 64px;
+      background: var(--forja-cream);
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--forja-charcoal);
+      line-height: 1.2;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--forja-amber);
+      margin-top: 0.2rem;
+    }
+
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+    }
+
+    .qty-btn {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--forja-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .btn-del-item {
+      color: #dc2626;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--forja-border);
+      background: var(--forja-cream);
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .cart-subtotal-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--forja-slate);
+      text-transform: uppercase;
+    }
+
+    .cart-subtotal-val {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--forja-charcoal);
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      padding: 0.9rem;
+      background: #16a34a;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      transition: var(--transition-fast);
+    }
+
+    .btn-checkout-wa:hover {
+      background: #15803d;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      padding: 4.5rem 0 2.5rem;
+      border-top: 1px solid var(--forja-slate);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4 {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+    }
+
+    .footer-links a {
+      color: var(--forja-linen);
+      transition: var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--forja-amber);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(220, 215, 201, 0.12);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: rgba(220, 215, 201, 0.6);
+    }
+
+    /* Toast Notification */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--forja-charcoal);
+      color: var(--forja-linen);
+      border: 1px solid var(--forja-amber);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid,
+      .cad-showcase-grid,
+      .configurator-wrapper,
+      .calc-container-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .pillars-grid,
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-specs-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      .pillars-grid,
+      .catalog-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Telemetry & Forge Lab Bar -->
+  <aside class="top-telemetry-bar">
+    <div class="container telemetry-inner">
+      <div class="telemetry-items">
+        <div class="telemetry-item">
+          <span class="status-dot"></span>
+          <span>STATUS: MEJA TEMPA AKTIF (BANDUNG)</span>
+        </div>
+        <div class="telemetry-item">
+          <span>SUHU TUNGKU: <strong>810°C</strong> (AUSTENITIZING)</span>
+        </div>
+        <div class="telemetry-item">
+          <span>KEKERASAN: <strong>63.5 HRC</strong></span>
+        </div>
+        <div class="telemetry-item">
+          <span>BAJA: <strong>HITACHI SHIROGAMI #1 (1.3% C)</strong></span>
+        </div>
+        <div class="telemetry-item">
+          <span>SUDUT BEVEL: <strong>14° JEPANG</strong></span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.85rem;">
+        <span id="wibTime" style="font-family: var(--font-mono);">10:00:00 WIB</span>
+        <button id="btnAudioToggle" class="telemetry-audio-btn" title="Aktifkan/Bisukan efek suara asah batu alami">
+          <span id="audioIcon">🔊</span>
+          <span id="audioText">ASAHAN AUDIO: AKTIF</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Atmospheric Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-group">
+        <div class="brand-mark">F</div>
+        <div class="brand-text">
+          <h1>FORJA</h1>
+          <span>Damascus & Carbon Atelier</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#suminagashi" class="nav-link active">01 Suminagashi Canvas</a></li>
+          <li><a href="#geometri" class="nav-link">02 Geometri Bilah</a></li>
+          <li><a href="#konfigurator" class="nav-link">03 Gagang Wa-Handle</a></li>
+          <li><a href="#asahan" class="nav-link">04 Kalkulator Asah</a></li>
+          <li><a href="#katalog" class="nav-link">05 Etalase Master</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="btnOpenCart" class="cart-pill-btn">
+          <span>Koleksi</span>
+          <span id="cartCountBadge" class="cart-badge">0</span>
+        </button>
+        <a href="#booking" class="cta-btn-primary">Pesan Tempa</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-manifesto">
+        <div class="eyebrow-tag">
+          <span>Atelier Kriya Bilah & Lab Metalurgi • Est. 2018</span>
+        </div>
+        <h2 class="hero-title">
+          Ketajaman Mutlak dari <em>67 Lapis Damaskus</em> & Inti Karbon Shirogami.
+        </h2>
+        <p class="hero-lead">
+          Mematahkan dominasi pisau pabrikan massal berbahan pelat baja cetak tumpul. FORJA menempa bilah koki secara manual dengan konstruksi San-Mai: inti baja karbon tinggi Shirogami #1 diselimuti 66 lapisan baja damaskus lunak, digerinda asimetris <em>Hamaguri Convex</em> agar irisan lepas seketika tanpa efek lekat vakum.
+        </p>
+
+        <div class="hero-specs-strip">
+          <div class="spec-item">
+            <span class="spec-val">63.5</span>
+            <span class="spec-lbl">Hardness HRC</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-val">0.15<small style="font-size:0.9rem">mm</small></span>
+            <span class="spec-lbl">Apex Thickness</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-val">1.3%</span>
+            <span class="spec-lbl">Carbon Ratio</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-val">67</span>
+            <span class="spec-lbl">Damascus Layers</span>
+          </div>
+        </div>
+
+        <div class="hero-btn-group">
+          <a href="#katalog" class="cta-btn-primary">Jelajahi Bilah Master</a>
+          <button id="btnTestHoneAudio" class="cta-btn-secondary">
+            <span>Dengar Gesekan Batu Asah</span>
+            <span>⚡</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Canvas Stage Right -->
+      <div id="suminagashi" class="canvas-card">
+        <div class="canvas-header">
+          <div class="canvas-title">
+            <span style="color:var(--forja-amber)">●</span>
+            <span>SIMULATOR SUMINAGASHI & IRISAN HAMAGURI</span>
+          </div>
+          <div class="canvas-mode-switches">
+            <button class="mode-tab-btn active" data-mode="flow">Damascus Flow</button>
+            <button class="mode-tab-btn" data-mode="cross">Hamaguri Bevel</button>
+          </div>
+        </div>
+
+        <div class="canvas-container">
+          <canvas id="damascusCanvas"></canvas>
+          <div class="canvas-overlay-data">
+            <div class="data-pill">GAYA IRIS: <span id="teleCutForce">4.2 N</span></div>
+            <div class="data-pill">RETENSI APEX: <span id="teleRetention">98.4%</span></div>
+            <div class="data-pill">STICTION: <span id="teleStiction">0.12 (Bebas Lengket)</span></div>
+          </div>
+        </div>
+
+        <div class="canvas-controls-panel">
+          <div class="control-block">
+            <label>SUDUT ASAH BEVEL <span id="valAngle">14°</span></label>
+            <input type="range" id="sliderAngle" class="slider-input" min="10" max="22" value="14" step="1">
+          </div>
+          <div class="control-block">
+            <label>KEHALUSAN BATU <span id="valGrit">3000 Grit</span></label>
+            <input type="range" id="sliderGrit" class="slider-input" min="400" max="8000" value="3000" step="200">
+          </div>
+          <div class="control-block">
+            <label>PROFIL GERINDA</label>
+            <div class="toggle-pill-group">
+              <button class="toggle-pill active" id="btnGrindHamaguri">Hamaguri</button>
+              <button class="toggle-pill" id="btnGrindFlat">Flat Grind</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Blade Geometry & Culinary Silhouettes -->
+  <section id="geometri" class="section-cad">
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="eyebrow-tag">Anatomi Bilah Tradisional Jepang</div>
+        <h2 class="section-title">Empat Siluet Utama untuk Presisi Kuliner</h2>
+        <p class="section-desc">
+          Setiap geometri pisau dirancang dengan titik keseimbangan jari telunjuk (pinch-grip), kelengkungan perut bilah (*belly*), dan ketebalan punggung (*distal taper*) yang disesuaikan dengan teknik potong spesifik.
+        </p>
+      </div>
+
+      <div class="cad-showcase-grid">
+        <!-- Left: Tabs list -->
+        <div class="blade-tabs-list">
+          <div class="blade-tab-card active" data-knife="gyuto">
+            <div class="blade-info-col">
+              <h3>Gyuto (牛刀)</h3>
+              <div class="blade-subtitle">Pisau Koki Serbaguna Daging & Sayur</div>
+            </div>
+            <span class="blade-length-tag">210 mm</span>
+          </div>
+
+          <div class="blade-tab-card" data-knife="santoku">
+            <div class="blade-info-col">
+              <h3>Santoku (三徳)</h3>
+              <div class="blade-subtitle">Tiga Kebajikan: Daging, Ikan, Sayur</div>
+            </div>
+            <span class="blade-length-tag">170 mm</span>
+          </div>
+
+          <div class="blade-tab-card" data-knife="nakiri">
+            <div class="blade-info-col">
+              <h3>Nakiri (菜切り)</h3>
+              <div class="blade-subtitle">Bilah Persegi Bermata Ganda Sayuran</div>
+            </div>
+            <span class="blade-length-tag">165 mm</span>
+          </div>
+
+          <div class="blade-tab-card" data-knife="petty">
+            <div class="blade-info-col">
+              <h3>Petty (ペティ)</h3>
+              <div class="blade-subtitle">Presisi Mengupas Buah & Tugas Lincah</div>
+            </div>
+            <span class="blade-length-tag">135 mm</span>
+          </div>
+        </div>
+
+        <!-- Right: CAD Vector Stage -->
+        <div class="cad-vector-stage">
+          <div class="cad-stage-header">
+            <div>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--forja-slate); text-transform:uppercase;">DIAGRAM CAD PROFIL VEKTOR</span>
+              <div id="cadKnifeTitle" class="cad-model-name">Gyuto 210mm Shirogami Damaskus</div>
+            </div>
+            <div id="cadKnifePrice" style="font-family:var(--font-serif); font-size:1.45rem; font-weight:700; color:var(--forja-amber);">Rp 3.850.000</div>
+          </div>
+
+          <div class="cad-svg-container">
+            <svg id="knifeSvgDrawing" viewBox="0 0 500 180">
+              <!-- Dynamically rendered via JS -->
+            </svg>
+          </div>
+
+          <table class="cad-specs-table">
+            <tbody>
+              <tr>
+                <td>Panjang Bilah Efektif</td>
+                <td id="specLength">210 mm (Edge Length)</td>
+              </tr>
+              <tr>
+                <td>Tinggi Tumit (Heel Height)</td>
+                <td id="specHeight">48.5 mm</td>
+              </tr>
+              <tr>
+                <td>Ketebalan Punggung (Spine Taper)</td>
+                <td id="specSpine">3.6 mm di tumit → 0.9 mm di pucuk</td>
+              </tr>
+              <tr>
+                <td>Bobot Total & Keseimbangan</td>
+                <td id="specWeight">178 gram (Titik Imbang Pinch Choil)</td>
+              </tr>
+              <tr>
+                <td>Material Inti & Selubung</td>
+                <td id="specSteel">Hitachi Shirogami #1 + 66 Lapis Damaskus</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="margin-top: 1.5rem; display: flex; gap: 0.85rem;">
+            <button id="btnAddCadToCart" class="cta-btn-primary" style="flex:1;">
+              <span>Tambahkan Siluet Ini ke Koleksi</span>
+            </button>
+            <a href="#konfigurator" class="cta-btn-secondary">Kustomisasi Gagang</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Wa-Handle & Wood-Steel Configurator -->
+  <section id="konfigurator" class="section-configurator">
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="eyebrow-tag">Kustomisasi Gagang Kayu & Finishing</div>
+        <h2 class="section-title">Konfigurator Gagang Wa-Handle Tradisional</h2>
+        <p class="section-desc">
+          Pilih kombinasi kayu langka stabil, kerah cincin (*ferrule*), karakter tempa bilah, serta ukiran nama inisial kustom yang dipahat tangan.
+        </p>
+      </div>
+
+      <div class="configurator-wrapper">
+        <!-- Left: Options -->
+        <div class="config-options">
+          <!-- 1. Pilihan Kayu Gagang -->
+          <div class="config-group">
+            <h4>PILIHAN KAYU SEGI DELAPAN <span>Kayu Alami Stabil</span></h4>
+            <div class="swatch-grid">
+              <button class="swatch-btn active" data-wood="chestnut" data-woodname="Roasted Chestnut" data-woodcolor="#A27B5C">
+                <div class="color-circle" style="background:#A27B5C;"></div>
+                <span>Roasted Chestnut</span>
+              </button>
+              <button class="swatch-btn" data-wood="bogoak" data-woodname="Stabilized Bog Oak" data-woodcolor="#2C3639">
+                <div class="color-circle" style="background:#2C3639;"></div>
+                <span>Bog Oak 5000Y</span>
+              </button>
+              <button class="swatch-btn" data-wood="birch" data-woodname="Spalted Birch" data-woodcolor="#DCD7C9">
+                <div class="color-circle" style="background:#DCD7C9;"></div>
+                <span>Spalted Birch</span>
+              </button>
+              <button class="swatch-btn" data-wood="walnut" data-woodname="Smoked Walnut" data-woodcolor="#4a3628">
+                <div class="color-circle" style="background:#4a3628;"></div>
+                <span>Smoked Walnut</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Pilihan Kerah Cincin (Ferrule) -->
+          <div class="config-group">
+            <h4>KERAH CINCIN (FERRULE) <span>Penyambung Bilah</span></h4>
+            <div class="swatch-grid">
+              <button class="swatch-btn active" data-ferrule="horn" data-ferrulename="Black Buffalo Horn" data-ferrulecolor="#1a1c1d">
+                <div class="color-circle" style="background:#1a1c1d;"></div>
+                <span>Buffalo Horn</span>
+              </button>
+              <button class="swatch-btn" data-ferrule="brass" data-ferrulename="Solid Brass Billet" data-ferrulecolor="#d4af37">
+                <div class="color-circle" style="background:#d4af37;"></div>
+                <span>Solid Brass</span>
+              </button>
+              <button class="swatch-btn" data-ferrule="silver" data-ferrulename="Nickel Silver" data-ferrulecolor="#cfd8dc">
+                <div class="color-circle" style="background:#cfd8dc;"></div>
+                <span>Nickel Silver</span>
+              </button>
+              <button class="swatch-btn" data-ferrule="copper" data-ferrulename="Smoked Copper" data-ferrulecolor="#b87333">
+                <div class="color-circle" style="background:#b87333;"></div>
+                <span>Smoked Copper</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Pilihan Finishing Bilah -->
+          <div class="config-group">
+            <h4>FINISHING TEMPA BILAH <span>Karakteristik Visual</span></h4>
+            <div class="swatch-grid">
+              <button class="swatch-btn active" data-finish="kurouchi" data-finishname="Kurouchi Black Scale" data-finishcolor="#2C3639">
+                <div class="color-circle" style="background:#2C3639;"></div>
+                <span>Kurouchi Tempa</span>
+              </button>
+              <button class="swatch-btn" data-finish="kasumi" data-finishname="Kasumi Acid Mist" data-finishcolor="#8a999a">
+                <div class="color-circle" style="background:#8a999a;"></div>
+                <span>Kasumi Damaskus</span>
+              </button>
+              <button class="swatch-btn" data-finish="tsuchime" data-finishname="Tsuchime Hammer Dents" data-finishcolor="#3F4E4F">
+                <div class="color-circle" style="background:#3F4E4F;"></div>
+                <span>Tsuchime Palu</span>
+              </button>
+              <button class="swatch-btn" data-finish="mirror" data-finishname="Honyaki Polished" data-finishcolor="#e2e8f0">
+                <div class="color-circle" style="background:#e2e8f0;"></div>
+                <span>Mirror Polish</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Pahat Inisial / Kanji Engraving -->
+          <div class="config-group engraving-box">
+            <h4>PAHATAN INISIAL / KANJI <span>Laser & Stensil Asam</span></h4>
+            <input type="text" id="inputEngraving" class="engrave-input" placeholder="Contoh: ADI / 鍛冶 / FORJA-01" maxlength="12" value="FORJA 匠">
+          </div>
+        </div>
+
+        <!-- Right: Live Visualizer Pane -->
+        <div class="config-preview-pane">
+          <div class="preview-title-bar">
+            <h3>Visualisasi Gagang & Bilah</h3>
+            <span id="previewSummaryText">Roasted Chestnut • Buffalo Horn • Kurouchi</span>
+          </div>
+
+          <div class="handle-visualizer-box">
+            <svg id="handleSvg" viewBox="0 0 450 140">
+              <!-- Rendered via JS -->
+            </svg>
+          </div>
+
+          <div>
+            <div class="config-summary-price">
+              <div>
+                <div class="total-invest-lbl">Estimasi Investasi Kustom</div>
+                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--forja-linen);" id="previewEngraveLabel">Termasuk pahatan 'FORJA 匠'</div>
+              </div>
+              <div class="total-invest-val" id="configFinalPrice">Rp 4.150.000</div>
+            </div>
+
+            <button id="btnOrderCustomConfig" class="btn-order-config">
+              <span>Konsultasi & Pesan Racikan Ini via WhatsApp</span>
+              <span>💬</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Natural Whetstone Progression & Angle Calc -->
+  <section id="asahan" class="section-calculator">
+    <div class="container calc-container-grid">
+      <!-- Left: Form -->
+      <div class="calc-form-card">
+        <div class="eyebrow-tag">Metrologi Pengasahan Batu Alami</div>
+        <h3 style="font-size:1.85rem; margin: 0.5rem 0 1.25rem;">Kalkulator Sudut Asah & Batu Asahan</h3>
+        <p style="font-size:0.92rem; color:#4E5A5D; margin-bottom: 1.5rem;">
+          Ketajaman mikroskopis ditentukan oleh interaksi antara kekerasan baja (HRC), sudut bevel bilateral, dan jenis permukaan talenan dapur yang digunakan sehari-hari.
+        </p>
+
+        <div class="calc-field-group">
+          <label>Tipe Bahan Makanan Utama</label>
+          <select id="selectIngredient" class="select-custom">
+            <option value="veg">Sayuran Renyah & Umbi (Wortel, Bawang, Kubis)</option>
+            <option value="meat">Daging Sapi Lembut, Unggas & Tulang Rawan</option>
+            <option value="fish" selected>Ikan Segar & Daging Sashimi Berserat Halus</option>
+            <option value="general">Serbaguna Masakan Rumah Tangga</option>
+          </select>
+        </div>
+
+        <div class="calc-field-group">
+          <label>Material Talenan Dapur</label>
+          <select id="selectBoard" class="select-custom">
+            <option value="hinoki" selected>Kayu Hinoki / Cemara Jepang (Lunak Optimal)</option>
+            <option value="maple">End-Grain Kayu Keras (Maple / Jati)</option>
+            <option value="rubber">Karet Sintetis Pro (Asahi / Hasegawa)</option>
+            <option value="bamboo">Bambu Laminasi / Plastik Keras</option>
+          </select>
+        </div>
+
+        <button id="btnRecalculateGrit" class="cta-btn-primary" style="width: 100%;">
+          <span>Hitung Sudut & Tahapan Asah Optimal</span>
+        </button>
+      </div>
+
+      <!-- Right: Results Card -->
+      <div class="calc-result-card">
+        <div class="calc-result-header">
+          <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--forja-amber); text-transform:uppercase;">REKOMENDASI PANDAI BESI</span>
+          <h3 id="resAngleTitle">Sudut Bevel: 13° Per Sisi (Total 26°)</h3>
+          <p id="resAngleDesc" style="font-size:0.88rem; color:var(--forja-linen); margin-top:0.35rem;">
+            Optimal untuk pemotongan sashimi lembut di atas talenan Hinoki. Menghasilkan gaya gesek mikro minimum tanpa risiko gompal (*chipping*).
+          </p>
+        </div>
+
+        <h4 style="font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--forja-linen);">
+          URUTAN BATU ASAH ALAMI (WHETSTONE PROGRESSION):
+        </h4>
+
+        <div class="grit-progression-timeline">
+          <div class="grit-step">
+            <div class="grit-badge">#800</div>
+            <div class="grit-desc">
+              <h5>Batu Arato (Pemberat Bentuk Apex)</h5>
+              <p>Membentuk kembali garis potong dasar dan menghilangkan mikro-deformasi.</p>
+            </div>
+          </div>
+
+          <div class="grit-step">
+            <div class="grit-badge highlight">#2000</div>
+            <div class="grit-desc">
+              <h5>Batu Alami Kyoto Aoto (Penghalus Serat)</h5>
+              <p>Menciptakan mikroskopis 'gigi gergaji' halus yang menggigit kulit tomat dan otot ikan.</p>
+            </div>
+          </div>
+
+          <div class="grit-step">
+            <div class="grit-badge highlight">#6000</div>
+            <div class="grit-desc">
+              <h5>Batu Tambang Nakayama Kiita (Finishing Kasumi)</h5>
+              <p>Menghilangkan burr sepenuhnya dan memunculkan kabut etsa damaskus alami.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--forja-amber); border-top:1px solid rgba(220, 215, 201, 0.15); padding-top:0.75rem;">
+          INTERVAL PERAWATAN: Setiap 4-6 minggu stropping kulit nabati dengan pasta intan 1 mikron.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: The 4 Pillars of Forging Craft -->
+  <section class="section-manifesto">
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="eyebrow-tag" style="background:rgba(220, 215, 201, 0.15); color:var(--forja-linen);">Sains Metalurgi Tempa</div>
+        <h2 class="section-title">Empat Fondasi Kriya Pisau FORJA</h2>
+        <p class="section-desc">
+          Bukan sekadar benda tajam, melainkan instrumen kriya mekanis yang menyatukan sains kristal martensit, penempaan api arang, dan ergonomi tangan manusia.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span class="pillar-num">01 / KARBON MURNI</span>
+          <h3>Baja Shirogami #1</h3>
+          <p>
+            Baja kertas putih Yasuki Jepang dengan kandungan karbon 1.3%. Nyaris tanpa pengotor fosfor atau belerang, menghasilkan struktur butir mikro karbida yang sangat halus dan mudah diasah hingga ketajaman belah rambut.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-num">02 / LIPATAN SAN-MAI</span>
+          <h3>67 Lapis Suminagashi</h3>
+          <p>
+            Inti baja karbon tinggi yang rapuh dilindungi oleh dua belah sayap damaskus lunak bermotif pusaran air (*Suminagashi*), menyerap hentakan energi potong dan mencegah bilah patah saat terkena gaya puntir.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-num">03 / GEOMETRI ANTI-STICTION</span>
+          <h3>Hamaguri Convex Grind</h3>
+          <p>
+            Bilah digerinda tidak rata melainkan cembung halus seperti cangkang kerang. Geometri ini memecah daya hisap vakum cairan sayuran, sehingga irisan timun dan kentang langsung rontok ke talenan.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-num">04 / DISTAL TAPER MANUAL</span>
+          <h3>Keseimbangan Titik Jepit</h3>
+          <p>
+            Punggung pisau ditempa meruncing gradual dari 3.8mm di leher pangkal hingga 0.8mm di ujung tombak. Titik berat jatuh tepat di bawah jari telunjuk (*pinch grip*), membuat bilah 210mm terasa seringan 120 gram.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Curated 4 Master Cutlery Catalog -->
+  <section id="katalog" class="section-catalog">
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="eyebrow-tag">Koleksi Teruji Pandai Besi</div>
+        <h2 class="section-title">Katalog Bilah & Perlengkapan Asah Master</h2>
+        <p class="section-desc">
+          Setiap instrumen ditempa satu per satu, disertifikasi dengan nomor seri ukir, dan diuji potong pada kertas sutra sebelum dikemas dalam kotak kayu paulownia (*kiribako*).
+        </p>
+      </div>
+
+      <div class="catalog-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-badge-steel">SHIROGAMI #1 • 63.5 HRC</span>
+            <img src="https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=700&q=80" alt="FORJA Gyuto 210mm Damascus">
+          </div>
+          <div class="product-content">
+            <div>
+              <div class="product-category-lbl">Chef Knife / Gyuto</div>
+              <h3 class="product-title">FORJA Gyuto 210mm Kurouchi Damascus</h3>
+              <p class="product-excerpt">Pisau koki serbaguna kriya manual. Inti Shirogami #1, 66 lapis damaskus tempa, gagang Roasted Chestnut & cincin tanduk kerbau.</p>
+              <div class="product-specs-mini">
+                <span>Panjang: 210mm</span>
+                <span>•</span>
+                <span>Bobot: 178g</span>
+                <span>•</span>
+                <span>Bevel: 50/50</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">Rp 3.850.000</div>
+              <button class="btn-add-cart" data-id="p1" data-name="FORJA Gyuto 210mm Kurouchi" data-price="3850000" data-img="https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=200&q=80">
+                <span>+ Koleksi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-badge-steel">AOGAMI SUPER • 64 HRC</span>
+            <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=700&q=80" alt="FORJA Santoku 170mm Tsuchime">
+          </div>
+          <div class="product-content">
+            <div>
+              <div class="product-category-lbl">Three Virtues / Santoku</div>
+              <h3 class="product-title">FORJA Santoku 170mm Tsuchime Hammered</h3>
+              <p class="product-excerpt">Kompak, lincah, dengan cekungan palu tangan pencegah lengket. Gagang Smoked Walnut pejal dan cincin kuningan billet.</p>
+              <div class="product-specs-mini">
+                <span>Panjang: 170mm</span>
+                <span>•</span>
+                <span>Bobot: 154g</span>
+                <span>•</span>
+                <span>Bevel: 50/50</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">Rp 3.200.000</div>
+              <button class="btn-add-cart" data-id="p2" data-name="FORJA Santoku 170mm Tsuchime" data-price="3200000" data-img="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=200&q=80">
+                <span>+ Koleksi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-badge-steel">SHIROGAMI #2 • 62.5 HRC</span>
+            <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=700&q=80" alt="FORJA Nakiri 165mm Kasumi">
+          </div>
+          <div class="product-content">
+            <div>
+              <div class="product-category-lbl">Vegetable Cleaver / Nakiri</div>
+              <h3 class="product-title">FORJA Nakiri 165mm Kasumi Mist</h3>
+              <p class="product-excerpt">Bilah lurus persegi pemotong sayur tanpa putus. Asahan tipis laser-edge dengan gagang Bog Oak 5000 tahun & cincin nikel.</p>
+              <div class="product-specs-mini">
+                <span>Panjang: 165mm</span>
+                <span>•</span>
+                <span>Bobot: 168g</span>
+                <span>•</span>
+                <span>Bevel: 50/50</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">Rp 2.950.000</div>
+              <button class="btn-add-cart" data-id="p3" data-name="FORJA Nakiri 165mm Kasumi" data-price="2950000" data-img="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=200&q=80">
+                <span>+ Koleksi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-badge-steel">BATU ALAMI KYOTO • #2000</span>
+            <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=700&q=80" alt="Batu Asah Alami Kyoto Aoto">
+          </div>
+          <div class="product-content">
+            <div>
+              <div class="product-category-lbl">Natural Whetstone / Sharpening</div>
+              <h3 class="product-title">Batu Asah Alami Kyoto Aoto 2000-Grit</h3>
+              <p class="product-excerpt">Batu asah tambang alami pegunungan Kyoto. Menghasilkan lumpur slurry halus yang mengunci serat mikro baja karbon tinggi.</p>
+              <div class="product-specs-mini">
+                <span>Dimensi: 205x75x30mm</span>
+                <span>•</span>
+                <span>Bobot: 920g</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">Rp 1.450.000</div>
+              <button class="btn-add-cart" data-id="p4" data-name="Batu Asah Kyoto Aoto #2000" data-price="1450000" data-img="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=200&q=80">
+                <span>+ Koleksi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Bespoke Commission & Workshop Booking -->
+  <section id="booking" class="section-booking">
+    <div class="container">
+      <div class="booking-wrapper">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+          <div class="eyebrow-tag">Layanan Privat Atelier</div>
+          <h2 style="font-size: 2.2rem; margin: 0.4rem 0 0.75rem;">Konsultasi Tempa Kustom & Workshop Asah</h2>
+          <p style="font-size: 0.95rem; color: #4B5658;">
+            Jadwalkan sesi privat di atelier Dago Pakar Bandung untuk mengukur ukuran genggaman tangan, memilih balok kayu langka, atau merestorasi bilah pusaka keluarga Anda.
+          </p>
+        </div>
+
+        <form id="bookingForm" class="booking-grid">
+          <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" class="form-control" required placeholder="Contoh: Chef Bima Aryasuta">
+          </div>
+
+          <div class="form-group">
+            <label>Nomor WhatsApp Aktif</label>
+            <input type="tel" class="form-control" required placeholder="Contoh: 081234567890">
+          </div>
+
+          <div class="form-group">
+            <label>Jenis Layanan</label>
+            <select class="form-control" required>
+              <option value="custom">Tempa Pisau Kustom Penuh (Bespoke Gyuto/Santoku)</option>
+              <option value="workshop">Workshop Mengasah Batu Alami Privat (90 Menit)</option>
+              <option value="restoration">Restorasi Bilah & Re-Handling Gagang Wa-Handle</option>
+              <option value="fitting">Sesi Konsultasi Fitting Bobot & Genggaman</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Rencana Tanggal Kunjungan</label>
+            <input type="date" class="form-control" required>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label>Catatan Khusus / Preferensi Bahan & Ergonomi</label>
+            <textarea class="form-control" placeholder="Jelaskan kebutuhan dapur Anda, preferensi jenis masakan, atau detail bilah yang ingin ditempa..."></textarea>
+          </div>
+
+          <div class="form-group-full">
+            <button type="submit" class="btn-submit-booking">
+              <span>Kirim Pengajuan Reservasi via WhatsApp</span>
+              <span>🔥</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div id="cartBackdrop" class="cart-drawer-backdrop"></div>
+  <aside id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <div>
+        <h3>Daftar Koleksi Anda</h3>
+        <span style="font-family:var(--font-mono); font-size:0.72rem; color:var(--forja-slate);">FORJA ATELIER DIRECT CHECKOUT</span>
+      </div>
+      <button id="btnCloseCart" class="btn-close-cart">&times;</button>
+    </div>
+
+    <div id="cartItemsContainer" class="cart-items-body">
+      <!-- Dynamic cart items will render here -->
+      <div class="cart-empty-message">Keranjang belanja Anda masih kosong.</div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-subtotal-row">
+        <span class="cart-subtotal-lbl">Total Investasi</span>
+        <span id="cartSubtotalAmount" class="cart-subtotal-val">Rp 0</span>
+      </div>
+      <button id="btnWhatsappCheckout" class="btn-checkout-wa">
+        <span>Kirim Pesanan ke WhatsApp Atelier</span>
+        <span>💬</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-group" style="margin-bottom: 1.25rem;">
+            <div class="brand-mark" style="background:#1C2325; border-color:var(--forja-slate);">F</div>
+            <div class="brand-text">
+              <h2 style="font-size:1.35rem; color:#FFFFFF; letter-spacing:0.08em;">FORJA</h2>
+              <span style="color:var(--forja-amber);">Damascus & Carbon Atelier</span>
+            </div>
+          </div>
+          <p style="font-size: 0.86rem; color: #BAC2C3; line-height: 1.6;">
+            Atelier kriya pisau dapur tempa tangan dan laboratorium asahan batu alami. Didedikasikan untuk melestarikan metode tempa San-Mai tradisional dengan toleransi ketajaman presisi metrologi modern.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigasi Atelier</h4>
+          <ul class="footer-links">
+            <li><a href="#suminagashi">Simulator Suminagashi</a></li>
+            <li><a href="#geometri">Geometri 4 Siluet Bilah</a></li>
+            <li><a href="#konfigurator">Konfigurator Wa-Handle</a></li>
+            <li><a href="#asahan">Kalkulator Sudut Asah</a></li>
+            <li><a href="#katalog">Katalog Pisau Master</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Panduan Bilah Karbon</h4>
+          <ul class="footer-links">
+            <li><a href="#asahan">Perawatan Minyak Camellia (Tsubaki)</a></li>
+            <li><a href="#asahan">Pencegahan Karat & Patina Alami</a></li>
+            <li><a href="#asahan">Etika Talenan Kayu Hinoki</a></li>
+            <li><a href="#asahan">Teknik Stropping Kulit Nabati</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Lokasi & Meja Kriya</h4>
+          <p style="font-size: 0.86rem; color: #BAC2C3; margin-bottom: 0.75rem;">
+            Jl. Pakar Kulon No. 42, Dago Pakar, Bandung Utara 40198, Jawa Barat.
+          </p>
+          <p style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--forja-amber);">
+            Sesi Privat: Selasa – Minggu (09.00 – 17.00 WIB)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 FORJA Master Cutlery & Damascus Atelier. All rights reserved.</div>
+        <div>STANDAR KRIYA BEBAS AI-SLOP • NECTOR.UI ARCHIVE</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-box">
+    <span>✓</span>
+    <span id="toastMessage">Item ditambahkan ke koleksi.</span>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    /* ==========================================================================
+       FORJA ATELIER JAVASCRIPT ENGINE
+       1. Real-time Clock
+       2. Web Audio API Sharpening Sound Synthesizer
+       3. Interactive Canvas HTML5 Suminagashi Damascus Flow & Hamaguri Bevel
+       4. Blade Geometry CAD SVG Morph Engine
+       5. Wa-Handle & Wood-Steel Configurator
+       6. Whetstone Progression & Sharpening Angle Calculator
+       7. Cart Management & WhatsApp Direct Checkout
+       ========================================================================== */
+
+    // 1. Real-time Clock
+    function updateWibClock() {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Jakarta', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const timeStr = now.toLocaleTimeString('id-ID', options) + ' WIB';
+      const el = document.getElementById('wibTime');
+      if (el) el.textContent = timeStr;
+    }
+    setInterval(updateWibClock, 1000);
+    updateWibClock();
+
+    // 2. Web Audio API Sharpening Glide Synthesizer
+    let audioCtx = null;
+    let audioActive = true;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playWhetstoneSound(grit = 2000) {
+      if (!audioActive) return;
+      try {
+        const ctx = getAudioContext();
+        // White noise generator passed through bandpass filter to mimic waterstone stone glide
+        const bufferSize = ctx.sampleRate * 0.45;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+
+        // Bandpass filter centered around whetstone acoustic signature (2000Hz - 4500Hz)
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.value = 1800 + (grit * 0.4);
+        filter.Q.value = 3.5;
+
+        // Envelope gain
+        const gain = ctx.createGain();
+        const now = ctx.currentTime;
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.18, now + 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.42);
+
+        // Metallic overtone bell chime
+        const chime = ctx.createOscillator();
+        const chimeGain = ctx.createGain();
+        chime.type = 'sine';
+        chime.frequency.setValueAtTime(1420, now);
+        chime.frequency.exponentialRampToValueAtTime(1380, now + 0.4);
+        chimeGain.gain.setValueAtTime(0.03, now);
+        chimeGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.38);
+
+        noise.connect(filter);
+        filter.connect(gain);
+        gain.connect(ctx.destination);
+
+        chime.connect(chimeGain);
+        chimeGain.connect(ctx.destination);
+
+        noise.start(now);
+        chime.start(now);
+        chime.stop(now + 0.45);
+        noise.stop(now + 0.45);
+      } catch (err) {
+        console.warn('Audio synthesis notice:', err);
+      }
+    }
+
+    // Audio Toggle Button
+    const btnAudioToggle = document.getElementById('btnAudioToggle');
+    const audioIcon = document.getElementById('audioIcon');
+    const audioText = document.getElementById('audioText');
+    if (btnAudioToggle) {
+      btnAudioToggle.addEventListener('click', () => {
+        audioActive = !audioActive;
+        if (audioActive) {
+          audioIcon.textContent = '🔊';
+          audioText.textContent = 'ASAHAN AUDIO: AKTIF';
+          playWhetstoneSound(3000);
+        } else {
+          audioIcon.textContent = '🔇';
+          audioText.textContent = 'ASAHAN AUDIO: BISU';
+        }
+      });
+    }
+
+    const btnTestHoneAudio = document.getElementById('btnTestHoneAudio');
+    if (btnTestHoneAudio) {
+      btnTestHoneAudio.addEventListener('click', () => {
+        playWhetstoneSound(4000);
+        showToast('Memutar resonansi asah batu alami Nakayama 4000-grit');
+      });
+    }
+
+    // 3. Canvas HTML5: Suminagashi Damascus Flow & Hamaguri Bevel Simulator
+    const canvas = document.getElementById('damascusCanvas');
+    const ctx = canvas.getContext('2d');
+    let canvasMode = 'flow'; // 'flow' or 'cross'
+    let currentAngle = 14;
+    let currentGrit = 3000;
+    let isHamaguri = true;
+    let animId = null;
+    let timeTick = 0;
+
+    function resizeCanvas() {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * (window.devicePixelRatio || 1);
+      canvas.height = rect.height * (window.devicePixelRatio || 1);
+      ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Mode tab buttons
+    const modeTabs = document.querySelectorAll('.mode-tab-btn');
+    modeTabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        modeTabs.forEach(t => t.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        canvasMode = e.currentTarget.dataset.mode;
+        playWhetstoneSound(currentGrit);
+      });
+    });
+
+    // Sliders & controls
+    const sliderAngle = document.getElementById('sliderAngle');
+    const valAngle = document.getElementById('valAngle');
+    const sliderGrit = document.getElementById('sliderGrit');
+    const valGrit = document.getElementById('valGrit');
+    const btnGrindHamaguri = document.getElementById('btnGrindHamaguri');
+    const btnGrindFlat = document.getElementById('btnGrindFlat');
+    const teleCutForce = document.getElementById('teleCutForce');
+    const teleRetention = document.getElementById('teleRetention');
+    const teleStiction = document.getElementById('teleStiction');
+
+    function updatePhysicsMetrics() {
+      // Physics approximations based on angle, grit, and Hamaguri bevel
+      const angle = currentAngle;
+      const grit = currentGrit;
+      // Sharper angle = lower initial cutting force, but thinner edge
+      let force = (angle * 0.28) + (isHamaguri ? 0.3 : 1.1) + ((8000 - grit) / 7000 * 0.6);
+      force = Math.max(1.8, Math.min(8.5, force));
+      
+      // Retention: higher grit + good angle gives clean microscopic apex polish
+      let retention = 94.0 + (angle >= 14 && angle <= 17 ? 4.5 : 2.0) + (grit >= 3000 ? 1.0 : -2.0);
+      retention = Math.min(99.4, retention);
+
+      // Stiction: Hamaguri prevents vacuum suction
+      let stiction = isHamaguri ? (0.10 + (angle * 0.005)) : (0.75 + (angle * 0.01));
+
+      if (teleCutForce) teleCutForce.textContent = force.toFixed(1) + ' N';
+      if (teleRetention) teleRetention.textContent = retention.toFixed(1) + '%';
+      if (teleStiction) teleStiction.textContent = stiction.toFixed(2) + (isHamaguri ? ' (Lepas Instan)' : ' (Menempel)');
+    }
+
+    if (sliderAngle) {
+      sliderAngle.addEventListener('input', (e) => {
+        currentAngle = parseInt(e.target.value, 10);
+        if (valAngle) valAngle.textContent = currentAngle + '°';
+        updatePhysicsMetrics();
+      });
+    }
+
+    if (sliderGrit) {
+      sliderGrit.addEventListener('input', (e) => {
+        currentGrit = parseInt(e.target.value, 10);
+        if (valGrit) valGrit.textContent = currentGrit + ' Grit';
+        updatePhysicsMetrics();
+      });
+    }
+
+    if (btnGrindHamaguri && btnGrindFlat) {
+      btnGrindHamaguri.addEventListener('click', () => {
+        isHamaguri = true;
+        btnGrindHamaguri.classList.add('active');
+        btnGrindFlat.classList.remove('active');
+        updatePhysicsMetrics();
+        playWhetstoneSound(currentGrit);
+      });
+      btnGrindFlat.addEventListener('click', () => {
+        isHamaguri = false;
+        btnGrindFlat.classList.add('active');
+        btnGrindHamaguri.classList.remove('active');
+        updatePhysicsMetrics();
+        playWhetstoneSound(currentGrit);
+      });
+    }
+
+    // Animation Loop
+    function renderCanvas() {
+      timeTick += 0.015;
+      const w = canvas.getBoundingClientRect().width;
+      const h = canvas.getBoundingClientRect().height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      if (canvasMode === 'flow') {
+        // Render 67 folded damascus wave lines (Suminagashi)
+        ctx.fillStyle = '#222A2D';
+        ctx.fillRect(0, 0, w, h);
+
+        const linesCount = 28;
+        for (let i = 0; i < linesCount; i++) {
+          ctx.beginPath();
+          const baseY = (h / (linesCount + 1)) * (i + 1);
+          const freq = 0.008 + (i * 0.0006);
+          const amp = 14 + (Math.sin(timeTick * 0.5 + i) * 6);
+          const phase = timeTick + (i * 0.35);
+
+          ctx.moveTo(0, baseY);
+          for (let x = 0; x <= w; x += 8) {
+            const y = baseY + Math.sin(x * freq + phase) * amp + Math.cos(x * 0.02 - phase * 0.5) * 5;
+            ctx.lineTo(x, y);
+          }
+
+          // Shirogami steel colors alternating
+          const isCoreLayer = (i === Math.floor(linesCount / 2));
+          if (isCoreLayer) {
+            ctx.strokeStyle = '#DCD7C9'; // Shirogami #1 Bright Core
+            ctx.lineWidth = 3.2;
+          } else if (i % 2 === 0) {
+            ctx.strokeStyle = '#3F4E4F'; // Soft iron cladding
+            ctx.lineWidth = 1.4;
+          } else {
+            ctx.strokeStyle = '#A27B5C'; // Carbon alloy tone
+            ctx.lineWidth = 1.0;
+          }
+          ctx.stroke();
+        }
+
+        // Blade edge bevel highlight at bottom
+        ctx.fillStyle = 'rgba(220, 215, 201, 0.07)';
+        ctx.fillRect(0, h - 35, w, 35);
+        ctx.strokeStyle = '#A27B5C';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, h - 35);
+        ctx.lineTo(w, h - 35);
+        ctx.stroke();
+
+        ctx.fillStyle = '#DCD7C9';
+        ctx.font = '10px "JetBrains Mono"';
+        ctx.fillText('INTI SHIROGAMI #1 (1.3% C) • 67 LAPIS SUMINAGASHI', 20, 28);
+      } else {
+        // Cross-Section Hamaguri Bevel View
+        ctx.fillStyle = '#181F21';
+        ctx.fillRect(0, 0, w, h);
+
+        const centerX = w / 2;
+        const topY = 40;
+        const apexY = h - 55;
+        const halfSpine = 32;
+
+        // Draw Blade Cross-Section
+        ctx.beginPath();
+        ctx.moveTo(centerX - halfSpine, topY); // Left Spine
+        ctx.lineTo(centerX + halfSpine, topY); // Right Spine
+
+        if (isHamaguri) {
+          // Convex Curve (Hamaguri)
+          ctx.quadraticCurveTo(centerX + halfSpine * 0.75, (topY + apexY) * 0.55, centerX, apexY);
+          ctx.quadraticCurveTo(centerX - halfSpine * 0.75, (topY + apexY) * 0.55, centerX - halfSpine, topY);
+        } else {
+          // Flat V Grind
+          ctx.lineTo(centerX, apexY);
+          ctx.lineTo(centerX - halfSpine, topY);
+        }
+        ctx.closePath();
+
+        const grad = ctx.createLinearGradient(0, topY, 0, apexY);
+        grad.addColorStop(0, '#2C3639');
+        grad.addColorStop(0.7, '#3F4E4F');
+        grad.addColorStop(1, '#DCD7C9');
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        ctx.strokeStyle = '#A27B5C';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Apex Bevel Indicator
+        ctx.strokeStyle = '#F87171';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(centerX - 8, apexY - 14);
+        ctx.lineTo(centerX, apexY);
+        ctx.lineTo(centerX + 8, apexY - 14);
+        ctx.stroke();
+
+        // Draw Angle Lines
+        ctx.fillStyle = '#DCD7C9';
+        ctx.font = '11px "JetBrains Mono"';
+        ctx.fillText('Punggung 3.6mm', centerX - 42, topY - 10);
+        ctx.fillText(`Sudut Bevel: ${currentAngle}°`, centerX + 18, apexY - 8);
+        ctx.fillText(isHamaguri ? 'PROFIL HAMAGURI (CEMBUNG ANTI-STICTION)' : 'PROFIL FLAT V-GRIND (BERISIKO LENGKET)', 20, 26);
+      }
+
+      animId = requestAnimationFrame(renderCanvas);
+    }
+    renderCanvas();
+    updatePhysicsMetrics();
+
+    // 4. Blade Geometry & CAD Vector Switcher
+    const knifeSpecsData = {
+      gyuto: {
+        title: 'Gyuto 210mm Shirogami Damaskus',
+        price: 'Rp 3.850.000',
+        numericPrice: 3850000,
+        length: '210 mm (Edge Length)',
+        height: '48.5 mm',
+        spine: '3.6 mm di tumit → 0.9 mm di pucuk',
+        weight: '178 gram (Titik Imbang Pinch Choil)',
+        steel: 'Hitachi Shirogami #1 + 66 Lapis Damaskus',
+        svgPath: 'M 40,85 L 120,83 L 135,55 L 430,76 Q 470,82 485,95 Q 380,135 150,130 Q 130,128 120,95 L 40,93 Z'
+      },
+      santoku: {
+        title: 'Santoku 170mm Tsuchime Hammered',
+        price: 'Rp 3.200.000',
+        numericPrice: 3200000,
+        length: '170 mm (Tiga Kebajikan)',
+        height: '46.0 mm',
+        spine: '2.8 mm di tumit → 1.1 mm di pucuk',
+        weight: '154 gram (Keseimbangan Tengah)',
+        steel: 'Aogami Super Core + Stainless Clad',
+        svgPath: 'M 50,85 L 120,83 L 135,55 L 380,68 Q 430,85 440,110 Q 320,126 148,126 Q 132,126 122,95 L 50,93 Z'
+      },
+      nakiri: {
+        title: 'Nakiri 165mm Kasumi Mist',
+        price: 'Rp 2.950.000',
+        numericPrice: 2950000,
+        length: '165 mm (Bilah Persegi Sayuran)',
+        height: '52.0 mm',
+        spine: '2.2 mm seragam (Laser Profile)',
+        weight: '168 gram (Dorong Potong Nyaman)',
+        steel: 'Hitachi Shirogami #2 + Kasumi Finish',
+        svgPath: 'M 50,85 L 120,83 L 135,45 L 390,45 L 405,125 L 145,125 Q 132,125 122,95 L 50,93 Z'
+      },
+      petty: {
+        title: 'Petty 135mm Precision Utility',
+        price: 'Rp 2.150.000',
+        numericPrice: 2150000,
+        length: '135 mm (Pisau Kupas & Irisan Mini)',
+        height: '29.0 mm',
+        spine: '1.9 mm di tumit → 0.6 mm di pucuk',
+        weight: '82 gram (Sangat Ringan & Lincah)',
+        steel: 'Shirogami #1 Monosteel & Horn Handle',
+        svgPath: 'M 60,85 L 120,83 L 130,68 L 360,78 Q 400,86 420,93 Q 320,114 140,112 Q 130,112 122,95 L 60,93 Z'
+      }
+    };
+
+    let selectedKnifeKey = 'gyuto';
+
+    function renderKnifeSvg(key) {
+      const data = knifeSpecsData[key];
+      const svg = document.getElementById('knifeSvgDrawing');
+      if (!svg) return;
+
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#2C3639" />
+            <stop offset="60%" stop-color="#3F4E4F" />
+            <stop offset="100%" stop-color="#DCD7C9" />
+          </linearGradient>
+          <linearGradient id="handleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8e684a" />
+            <stop offset="85%" stop-color="#A27B5C" />
+            <stop offset="100%" stop-color="#1A1C1D" />
+          </linearGradient>
+        </defs>
+
+        <!-- Knife Blade Body -->
+        <path d="${data.svgPath}" fill="url(#bladeGrad)" stroke="#A27B5C" stroke-width="1.5" />
+
+        <!-- Handle Octagonal Preview -->
+        <rect x="25" y="80" width="95" height="20" rx="3" fill="url(#handleGrad)" stroke="#2C3639" stroke-width="1.2" />
+        <rect x="110" y="78" width="12" height="24" rx="2" fill="#1A1C1D" stroke="#DCD7C9" stroke-width="0.8" />
+
+        <!-- Pinch Grip Balance Mark -->
+        <circle cx="140" cy="95" r="5" fill="#FC5185" opacity="0.85" />
+        <circle cx="140" cy="95" r="8" fill="none" stroke="#FC5185" stroke-dasharray="2,2" />
+        <text x="148" y="115" fill="#181F21" font-family="var(--font-mono)" font-size="9" font-weight="600">Balance Point</text>
+
+        <!-- Model Text Label -->
+        <text x="25" y="40" fill="#2C3639" font-family="var(--font-serif)" font-size="16" font-weight="bold">${data.title}</text>
+      `;
+
+      // Update text details
+      document.getElementById('cadKnifeTitle').textContent = data.title;
+      document.getElementById('cadKnifePrice').textContent = data.price;
+      document.getElementById('specLength').textContent = data.length;
+      document.getElementById('specHeight').textContent = data.height;
+      document.getElementById('specSpine').textContent = data.spine;
+      document.getElementById('specWeight').textContent = data.weight;
+      document.getElementById('specSteel').textContent = data.steel;
+    }
+
+    const bladeTabCards = document.querySelectorAll('.blade-tab-card');
+    bladeTabCards.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        bladeTabCards.forEach(c => c.classList.remove('active'));
+        const card = e.currentTarget;
+        card.classList.add('active');
+        selectedKnifeKey = card.dataset.knife;
+        renderKnifeSvg(selectedKnifeKey);
+        playWhetstoneSound(3500);
+      });
+    });
+    renderKnifeSvg('gyuto');
+
+    // Add CAD Knife directly to cart
+    const btnAddCadToCart = document.getElementById('btnAddCadToCart');
+    if (btnAddCadToCart) {
+      btnAddCadToCart.addEventListener('click', () => {
+        const item = knifeSpecsData[selectedKnifeKey];
+        addToCart({
+          id: selectedKnifeKey,
+          name: item.title,
+          price: item.numericPrice,
+          img: 'https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=200&q=80'
+        });
+      });
+    }
+
+    // 5. Wa-Handle & Wood-Steel Configurator
+    let currentWood = { name: 'Roasted Chestnut', color: '#A27B5C' };
+    let currentFerrule = { name: 'Black Buffalo Horn', color: '#1a1c1d' };
+    let currentFinish = { name: 'Kurouchi Black Scale', color: '#2C3639' };
+    let currentEngraving = 'FORJA 匠';
+
+    function renderHandleSvg() {
+      const svg = document.getElementById('handleSvg');
+      if (!svg) return;
+
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="cfgHandleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="${currentWood.color}" />
+            <stop offset="50%" stop-color="#ffffff" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="${currentWood.color}" />
+          </linearGradient>
+          <linearGradient id="cfgBladeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="${currentFinish.color}" />
+            <stop offset="70%" stop-color="#3F4E4F" />
+            <stop offset="100%" stop-color="#DCD7C9" />
+          </linearGradient>
+        </defs>
+
+        <!-- Blade Stub -->
+        <path d="M 230,55 L 430,68 Q 440,85 420,105 L 230,105 Z" fill="url(#cfgBladeGrad)" stroke="#DCD7C9" stroke-width="1.2" />
+
+        <!-- Ferrule Collar -->
+        <rect x="200" y="52" width="30" height="56" rx="3" fill="${currentFerrule.color}" stroke="#DCD7C9" stroke-width="1" />
+
+        <!-- Wa Handle Octagonal Body -->
+        <rect x="30" y="55" width="170" height="50" rx="4" fill="url(#cfgHandleGrad)" stroke="#1C2325" stroke-width="1.5" />
+        <line x1="30" y1="65" x2="200" y2="65" stroke="rgba(255,255,255,0.25)" stroke-width="1" />
+        <line x1="30" y1="95" x2="200" y2="95" stroke="rgba(0,0,0,0.3)" stroke-width="1" />
+
+        <!-- Laser Engraving Text -->
+        <text x="110" y="84" fill="#FFFFFF" font-family="var(--font-mono)" font-size="11" font-weight="bold" letter-spacing="2" text-anchor="middle" opacity="0.9">${currentEngraving}</text>
+      `;
+
+      const summaryText = document.getElementById('previewSummaryText');
+      if (summaryText) {
+        summaryText.textContent = `${currentWood.name} • ${currentFerrule.name} • ${currentFinish.name}`;
+      }
+
+      const engraveLabel = document.getElementById('previewEngraveLabel');
+      if (engraveLabel) {
+        engraveLabel.textContent = `Termasuk pahatan '${currentEngraving}'`;
+      }
+    }
+
+    // Swatches listeners
+    document.querySelectorAll('[data-wood]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('[data-wood]').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        currentWood = {
+          name: e.currentTarget.dataset.woodname,
+          color: e.currentTarget.dataset.woodcolor
+        };
+        renderHandleSvg();
+        playWhetstoneSound(3000);
+      });
+    });
+
+    document.querySelectorAll('[data-ferrule]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('[data-ferrule]').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        currentFerrule = {
+          name: e.currentTarget.dataset.ferrulename,
+          color: e.currentTarget.dataset.ferrulecolor
+        };
+        renderHandleSvg();
+        playWhetstoneSound(3200);
+      });
+    });
+
+    document.querySelectorAll('[data-finish]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('[data-finish]').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        currentFinish = {
+          name: e.currentTarget.dataset.finishname,
+          color: e.currentTarget.dataset.finishcolor
+        };
+        renderHandleSvg();
+        playWhetstoneSound(4200);
+      });
+    });
+
+    const inputEngraving = document.getElementById('inputEngraving');
+    if (inputEngraving) {
+      inputEngraving.addEventListener('input', (e) => {
+        currentEngraving = e.target.value.trim() || 'FORJA 匠';
+        renderHandleSvg();
+      });
+    }
+    renderHandleSvg();
+
+    const btnOrderCustomConfig = document.getElementById('btnOrderCustomConfig');
+    if (btnOrderCustomConfig) {
+      btnOrderCustomConfig.addEventListener('click', () => {
+        const text = `Halo Master Bladesmith FORJA, saya ingin memesan pisau kustom dengan spesifikasi:%0A- Gagang: ${currentWood.name}%0A- Cincin Ferrule: ${currentFerrule.name}%0A- Finishing Bilah: ${currentFinish.name}%0A- Ukiran Nama: "${currentEngraving}"%0A- Estimasi Investasi: Rp 4.150.000%0AMohon info jadwal pembuatan dan proses penempaan. Terima kasih.`;
+        window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+      });
+    }
+
+    // 6. Natural Whetstone Progression & Sharpening Angle Calculator
+    const selectIngredient = document.getElementById('selectIngredient');
+    const selectBoard = document.getElementById('selectBoard');
+    const btnRecalculateGrit = document.getElementById('btnRecalculateGrit');
+    const resAngleTitle = document.getElementById('resAngleTitle');
+    const resAngleDesc = document.getElementById('resAngleDesc');
+
+    function calculateSharpeningAdvice() {
+      const ingredient = selectIngredient ? selectIngredient.value : 'fish';
+      const board = selectBoard ? selectBoard.value : 'hinoki';
+
+      let angle = 14;
+      let desc = '';
+
+      if (ingredient === 'fish') {
+        angle = (board === 'hinoki' || board === 'rubber') ? 12 : 14;
+        desc = `Sudut sangat tajam ${angle}° per sisi ideal untuk mengiris protein sashimi laut tanpa merusak struktur seluler dan tekstur daging. Gunakan talenan lunak Hinoki untuk menjaga apex tetap tahan lama.`;
+      } else if (ingredient === 'veg') {
+        angle = (board === 'bamboo') ? 16 : 14;
+        desc = `Sudut ${angle}° per sisi memberikan daya penetrasi cepat pada serat wortel dan bawang dengan ketahanan apex terhadap benturan talenan berulang.`;
+      } else if (ingredient === 'meat') {
+        angle = 16;
+        desc = `Sudut ${angle}° per sisi memberikan integritas struktural yang kokoh pada otot sapi dan lemak dingin, meminimalkan resiko mikro-chipping saat kontak dengan serat keras.`;
+      } else {
+        angle = 15;
+        desc = `Sudut serbaguna ${angle}° per sisi (total 30°) memberikan keseimbangan prima antara ketajaman bedah dan daya tahan pakai harian.`;
+      }
+
+      if (resAngleTitle) resAngleTitle.textContent = `Sudut Bevel: ${angle}° Per Sisi (Total ${angle * 2}°)`;
+      if (resAngleDesc) resAngleDesc.textContent = desc;
+
+      playWhetstoneSound(4500);
+      showToast(`Kalkulasi diperbarui: Sudut ${angle}° per sisi`);
+    }
+
+    if (btnRecalculateGrit) {
+      btnRecalculateGrit.addEventListener('click', calculateSharpeningAdvice);
+    }
+
+    // 7. Cart & WhatsApp Checkout System
+    let cart = [];
+
+    const btnOpenCart = document.getElementById('btnOpenCart');
+    const btnCloseCart = document.getElementById('btnCloseCart');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartCountBadge = document.getElementById('cartCountBadge');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartSubtotalAmount = document.getElementById('cartSubtotalAmount');
+    const btnWhatsappCheckout = document.getElementById('btnWhatsappCheckout');
+
+    function toggleCart(open) {
+      if (!cartDrawer || !cartBackdrop) return;
+      if (open) {
+        cartDrawer.classList.add('active');
+        cartBackdrop.classList.add('active');
+      } else {
+        cartDrawer.classList.remove('active');
+        cartBackdrop.classList.remove('active');
+      }
+    }
+
+    if (btnOpenCart) btnOpenCart.addEventListener('click', () => toggleCart(true));
+    if (btnCloseCart) btnCloseCart.addEventListener('click', () => toggleCart(false));
+    if (cartBackdrop) cartBackdrop.addEventListener('click', () => toggleCart(false));
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    function renderCart() {
+      if (!cartItemsContainer) return;
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div class="cart-empty-message">Keranjang koleksi Anda masih kosong.</div>';
+        if (cartCountBadge) cartCountBadge.textContent = '0';
+        if (cartSubtotalAmount) cartSubtotalAmount.textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      let count = 0;
+      cartItemsContainer.innerHTML = '';
+
+      cart.forEach((item, idx) => {
+        subtotal += item.price * item.qty;
+        count += item.qty;
+
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+        row.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+          <div class="cart-item-details">
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-price">${formatRupiah(item.price)}</div>
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+              <span style="font-family:var(--font-mono); font-size:0.8rem;">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+              <button class="btn-del-item" onclick="deleteCartItem(${idx})">Hapus</button>
+            </div>
+          </div>
+        `;
+        cartItemsContainer.appendChild(row);
+      });
+
+      if (cartCountBadge) cartCountBadge.textContent = count;
+      if (cartSubtotalAmount) cartSubtotalAmount.textContent = formatRupiah(subtotal);
+    }
+
+    window.changeQty = function(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      renderCart();
+      playWhetstoneSound(2500);
+    };
+
+    window.deleteCartItem = function(idx) {
+      if (!cart[idx]) return;
+      cart.splice(idx, 1);
+      renderCart();
+      playWhetstoneSound(1800);
+    };
+
+    function addToCart(product) {
+      const existing = cart.find(i => i.id === product.id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+      renderCart();
+      toggleCart(true);
+      playWhetstoneSound(3200);
+      showToast(`${product.name} dimasukkan ke koleksi.`);
+    }
+
+    // Catalog add buttons
+    document.querySelectorAll('.btn-add-cart').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const b = e.currentTarget;
+        addToCart({
+          id: b.dataset.id,
+          name: b.dataset.name,
+          price: parseInt(b.dataset.price, 10),
+          img: b.dataset.img
+        });
+      });
+    });
+
+    // WhatsApp Checkout
+    if (btnWhatsappCheckout) {
+      btnWhatsappCheckout.addEventListener('click', () => {
+        if (cart.length === 0) {
+          alert('Keranjang belanja Anda masih kosong.');
+          return;
+        }
+
+        let message = `Halo Master Bladesmith FORJA, saya ingin memesan koleksi instrumen bilah berikut:%0A%0A`;
+        let total = 0;
+        cart.forEach((item, index) => {
+          const itemTotal = item.price * item.qty;
+          total += itemTotal;
+          message += `${index + 1}. ${item.name} (${item.qty}x) — ${formatRupiah(itemTotal)}%0A`;
+        });
+        message += `%0A*TOTAL INVESTASI: ${formatRupiah(total)}*%0A%0AMohon konfirmasi ketersediaan bilah dan prosedur pengiriman kiribako. Terima kasih.`;
+        window.open(`https://wa.me/6281234567890?text=${message}`, '_blank');
+      });
+    }
+
+    // Booking Form
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const inputs = bookingForm.querySelectorAll('.form-control');
+        const name = inputs[0].value;
+        const phone = inputs[1].value;
+        const service = inputs[2].value;
+        const date = inputs[3].value;
+        const notes = inputs[4].value;
+
+        const msg = `Halo Atelier FORJA, saya ingin reservasi sesi privat:%0A- Nama: ${name}%0A- No. HP: ${phone}%0A- Layanan: ${service}%0A- Tanggal: ${date}%0A- Catatan: ${notes || 'Tidak ada'}%0AMohon konfirmasi jadwal. Terima kasih.`;
+        window.open(`https://wa.me/6281234567890?text=${msg}`, '_blank');
+        showToast('Formulir reservasi terkirim ke WhatsApp.');
+      });
+    }
+
+    // Toast helper
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3200);
+    }
+  </script>
+</body>
+</html>
