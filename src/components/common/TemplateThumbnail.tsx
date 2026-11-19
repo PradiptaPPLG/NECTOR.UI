@@ -117,6 +117,8 @@ export const TemplateThumbnail: React.FC<Props> = ({
     'aerovelo-titanium-bicycles': 'https://aerovelo.bicycles.nector.ui',
     'forja-damascus-cutlery': 'https://forja.cutlery.nector.ui',
     'lumen-artisan-glasscraft': 'https://lumen.glasscraft.nector.ui',
+    'forja-damascus-cutlery': 'https://forja.cutlery.nector.ui',
+    'lumen-artisan-glasscraft': 'https://lumen.glasscraft.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;
