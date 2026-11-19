@@ -1,0 +1,2515 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAVN — Atelier Kriya Perahu Kayu Pesisir & Arsitektur Maritim Tradisional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------------------------------------------------
+       HAVN DESIGN TOKENS (PALET RESMI USER: #6096B4, #93BFCF, #BDCDD6, #EEE9DA)
+       ------------------------------------------------------------- */
+    :root {
+      --havn-canvas: #EEE9DA;        /* Warm Sand Linen / Bleached Sailcloth */
+      --havn-mist: #BDCDD6;          /* Weathered Driftwood / Sea Salt Stone */
+      --havn-spray: #93BFCF;         /* Coastal Spray Cerulean / Calm Sea Sky */
+      --havn-fjord: #6096B4;         /* Fjord Slate Blue / Naval Hull Enamel */
+      --havn-abyss: #14212D;         /* Deep Abyssal Navy-Charcoal Ink (WCAG AAA 14:1) */
+      --havn-abyss-soft: #233446;
+      --havn-copper: #B86B3E;        /* Marine Copper Rivet Accent */
+      --havn-tar: #4A3326;           /* Genuine Stockholm Pine Tar Brown */
+      --havn-foam: #F7F5EE;          /* Lightest Seafoam Alabaster */
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      --border-fine: 1px solid rgba(20, 33, 45, 0.12);
+      --border-dashed: 1px dashed rgba(96, 150, 180, 0.4);
+      --shadow-subtle: 0 4px 20px -2px rgba(20, 33, 45, 0.06);
+      --shadow-elevation: 0 16px 36px -6px rgba(20, 33, 45, 0.12);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--havn-canvas);
+      color: var(--havn-abyss);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--havn-canvas);
+      background-image: 
+        radial-gradient(circle at 100% 0%, rgba(147, 191, 207, 0.15) 0%, transparent 45%),
+        linear-gradient(rgba(20, 33, 45, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 33, 45, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, .serif {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--havn-abyss);
+      letter-spacing: -0.015em;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    /* Top Telemetry Station Bar */
+    .telemetry-bar {
+      background-color: var(--havn-abyss);
+      color: var(--havn-canvas);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .telemetry-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .telemetry-inner::-webkit-scrollbar { display: none; }
+
+    .telemetry-items {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .telemetry-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .telemetry-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--havn-spray);
+      box-shadow: 0 0 8px var(--havn-spray);
+      animation: pulse 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    .telemetry-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .audio-toggle-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--havn-canvas);
+      padding: 3px 10px;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+    .audio-toggle-btn:hover {
+      background: var(--havn-fjord);
+      border-color: var(--havn-spray);
+    }
+
+    /* Main Navigation Header */
+    .site-header {
+      background-color: rgba(238, 233, 218, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(20, 33, 45, 0.1);
+      position: sticky;
+      top: 33px;
+      z-index: 90;
+      transition: var(--transition-smooth);
+    }
+
+    .header-inner {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--havn-abyss);
+    }
+
+    .brand-logo-seal {
+      width: 38px;
+      height: 38px;
+      border: 1.5px solid var(--havn-abyss);
+      background-color: var(--havn-spray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--havn-abyss);
+      position: relative;
+    }
+    .brand-logo-seal::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border: 1px dashed rgba(20, 33, 45, 0.4);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--havn-fjord);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* Single-Line Non-Wrapping Nav */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      white-space: nowrap;
+    }
+    .site-nav::-webkit-scrollbar { display: none; }
+
+    .nav-link {
+      color: var(--havn-abyss);
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      position: relative;
+      padding: 6px 0;
+      transition: var(--transition-smooth);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background-color: var(--havn-fjord);
+      transition: var(--transition-smooth);
+    }
+    .nav-link:hover {
+      color: var(--havn-fjord);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--havn-spray);
+      margin-right: 4px;
+    }
+
+    /* Header Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .cart-trigger-btn {
+      background: var(--havn-foam);
+      border: 1px solid var(--havn-mist);
+      color: var(--havn-abyss);
+      padding: 8px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+    .cart-trigger-btn:hover {
+      background: var(--havn-abyss);
+      color: var(--havn-canvas);
+      border-color: var(--havn-abyss);
+    }
+
+    .cart-count-badge {
+      background-color: var(--havn-fjord);
+      color: #fff;
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .btn-commission-cta {
+      background-color: var(--havn-abyss);
+      color: var(--havn-canvas);
+      padding: 9px 18px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: 1px solid var(--havn-abyss);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-commission-cta:hover {
+      background-color: var(--havn-fjord);
+      border-color: var(--havn-fjord);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* -------------------------------------------------------------
+       HERO LOFTING SECTION WITH WAVE HYDRODYNAMICS SIMULATOR
+       ------------------------------------------------------------- */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+      border-bottom: 1px solid rgba(20, 33, 45, 0.1);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--havn-fjord);
+    }
+
+    .kicker-line {
+      width: 28px;
+      height: 1px;
+      background-color: var(--havn-fjord);
+    }
+
+    .hero-title {
+      font-size: 46px;
+      line-height: 1.08;
+      font-weight: 400;
+      color: var(--havn-abyss);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--havn-fjord);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: rgba(20, 33, 45, 0.82);
+      max-width: 540px;
+      line-height: 1.65;
+    }
+
+    .hero-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding: 16px 0;
+      border-top: var(--border-fine);
+      border-bottom: var(--border-fine);
+      margin: 6px 0;
+    }
+
+    .hero-metric-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--havn-abyss);
+    }
+    .metric-lbl {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--havn-fjord);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: var(--havn-fjord);
+      color: #ffffff;
+      padding: 13px 26px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: 1px solid var(--havn-fjord);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-primary:hover {
+      background-color: var(--havn-abyss);
+      border-color: var(--havn-abyss);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(20, 33, 45, 0.15);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--havn-abyss);
+      padding: 13px 24px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: 1px solid var(--havn-abyss);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(20, 33, 45, 0.05);
+      border-color: var(--havn-fjord);
+      color: var(--havn-fjord);
+    }
+
+    /* -------------------------------------------------------------
+       HYDRODYNAMIC WATERLINE SIMULATOR CARD (CANVAS ENGINE)
+       ------------------------------------------------------------- */
+    .simulator-stage-card {
+      background: #FFFFFF;
+      border: 1px solid var(--havn-mist);
+      box-shadow: var(--shadow-elevation);
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .sim-header-bar {
+      background-color: var(--havn-abyss);
+      color: var(--havn-canvas);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sim-header-title {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sim-view-toggles {
+      display: flex;
+      gap: 4px;
+    }
+    .sim-view-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--havn-mist);
+      padding: 3px 8px;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .sim-view-btn.active, .sim-view-btn:hover {
+      background: var(--havn-fjord);
+      color: #fff;
+      border-color: var(--havn-spray);
+    }
+
+    .canvas-viewport-wrapper {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      background: linear-gradient(180deg, #E8EFF2 0%, #D4E3EA 45%, #6096B4 46%, #1D3547 100%);
+      overflow: hidden;
+    }
+
+    #waterlineCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .canvas-grid-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .canvas-telemetry-badge {
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      background: rgba(20, 33, 45, 0.82);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      padding: 6px 12px;
+      border-left: 2px solid var(--havn-spray);
+      pointer-events: none;
+      line-height: 1.45;
+    }
+
+    /* Controls Panel */
+    .sim-controls-panel {
+      padding: 16px 20px;
+      background: var(--havn-foam);
+      border-top: 1px solid var(--havn-mist);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .control-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .control-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--havn-abyss);
+      font-weight: 500;
+    }
+    .control-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--havn-mist);
+      outline: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .control-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--havn-fjord);
+      border: 2px solid #ffffff;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: var(--transition-smooth);
+    }
+    .control-slider::-webkit-slider-thumb:hover {
+      background: var(--havn-abyss);
+      transform: scale(1.15);
+    }
+
+    .sim-stats-footer {
+      padding: 12px 20px;
+      background: #FFFFFF;
+      border-top: 1px solid rgba(20, 33, 45, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--havn-fjord);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: THE ART OF CLINKER JOINERY (ANTI-SLOP PRINCIPLES)
+       ------------------------------------------------------------- */
+    .craft-section {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(20, 33, 45, 0.1);
+      background-color: var(--havn-canvas);
+    }
+
+    .section-header-block {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--havn-fjord);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-heading {
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
+    .section-subtext {
+      color: rgba(20, 33, 45, 0.75);
+      font-size: 15.5px;
+    }
+
+    .craft-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .craft-pillar-card {
+      background: #FFFFFF;
+      border: 1px solid var(--havn-mist);
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+    .craft-pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevation);
+      border-color: var(--havn-fjord);
+    }
+
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--havn-spray);
+      border-bottom: 1px dashed var(--havn-mist);
+      padding-bottom: 8px;
+    }
+
+    .pillar-title {
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .pillar-body {
+      font-size: 14px;
+      color: rgba(20, 33, 45, 0.75);
+      line-height: 1.55;
+    }
+
+    .pillar-tag {
+      margin-top: auto;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--havn-fjord);
+      background: var(--havn-foam);
+      padding: 4px 8px;
+      border-left: 2px solid var(--havn-fjord);
+      width: fit-content;
+    }
+
+    /* -------------------------------------------------------------
+       INTERACTIVE FEATURE 1: STEAM-BENDING TIMBER CALCULATOR
+       ------------------------------------------------------------- */
+    .steam-calc-section {
+      padding: 80px 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid rgba(20, 33, 45, 0.1);
+    }
+
+    .steam-calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .calc-explain {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .calc-board-container {
+      background: var(--havn-canvas);
+      border: 1px solid var(--havn-mist);
+      padding: 32px;
+      box-shadow: var(--shadow-subtle);
+      border-radius: 2px;
+    }
+
+    .calc-field-group {
+      margin-bottom: 22px;
+    }
+    .calc-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-bottom: 8px;
+      color: var(--havn-abyss);
+      font-weight: 500;
+    }
+
+    .wood-species-pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .species-pill {
+      background: #FFFFFF;
+      border: 1px solid var(--havn-mist);
+      padding: 9px 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .species-pill.active, .species-pill:hover {
+      background: var(--havn-fjord);
+      color: #fff;
+      border-color: var(--havn-fjord);
+    }
+
+    .calc-result-box {
+      background: var(--havn-abyss);
+      color: var(--havn-canvas);
+      padding: 24px;
+      margin-top: 26px;
+      border-left: 4px solid var(--havn-spray);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+    }
+    .result-val-highlight {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--havn-spray);
+    }
+
+    /* -------------------------------------------------------------
+       INTERACTIVE FEATURE 2: CUSTOM WOODEN VESSEL CONFIGURATOR
+       ------------------------------------------------------------- */
+    .vessel-builder-section {
+      padding: 88px 0;
+      background-color: var(--havn-canvas);
+      border-bottom: 1px solid rgba(20, 33, 45, 0.1);
+    }
+
+    .vessel-configurator-box {
+      background: #FFFFFF;
+      border: 1px solid var(--havn-mist);
+      box-shadow: var(--shadow-elevation);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+    }
+
+    .vessel-preview-col {
+      background: linear-gradient(135deg, #EAEFEF 0%, #D8E5EC 100%);
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      border-right: 1px solid var(--havn-mist);
+    }
+
+    .vessel-schematic-wrap {
+      width: 100%;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .vessel-svg-stage {
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      filter: drop-shadow(0 12px 24px rgba(20, 33, 45, 0.15));
+      transition: var(--transition-smooth);
+    }
+
+    .vessel-finish-swatches {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 10px 16px;
+      border: 1px solid var(--havn-mist);
+      width: fit-content;
+      border-radius: 2px;
+    }
+    .finish-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--havn-abyss);
+    }
+    .finish-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition-smooth);
+    }
+    .finish-circle.active {
+      transform: scale(1.18);
+      border-color: var(--havn-abyss);
+    }
+
+    .vessel-controls-col {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hull-selector-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--havn-mist);
+      padding-bottom: 12px;
+    }
+    .hull-tab-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: rgba(20, 33, 45, 0.5);
+      cursor: pointer;
+      padding: 6px 12px;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+    .hull-tab-btn.active {
+      color: var(--havn-abyss);
+      font-weight: 600;
+    }
+    .hull-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -13px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--havn-fjord);
+    }
+
+    .vessel-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .vessel-price {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--havn-abyss);
+    }
+
+    .vessel-specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+    }
+    .vessel-specs-table td {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(20, 33, 45, 0.08);
+    }
+    .vessel-specs-table td:last-child {
+      text-align: right;
+      font-weight: 500;
+      color: var(--havn-abyss);
+    }
+    .vessel-specs-table td:first-child {
+      color: rgba(20, 33, 45, 0.65);
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: CURATED 4 SHIPYARD VESSELS & GEAR CATALOG
+       ------------------------------------------------------------- */
+    .catalog-section {
+      padding: 88px 0;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid rgba(20, 33, 45, 0.1);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+
+    .product-card {
+      background: var(--havn-foam);
+      border: 1px solid var(--havn-mist);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevation);
+      border-color: var(--havn-fjord);
+    }
+
+    .product-img-box {
+      width: 100%;
+      height: 220px;
+      background: #D8E4EA;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(20, 33, 45, 0.85);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      padding: 3px 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .product-details {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 10px;
+    }
+
+    .product-name {
+      font-size: 19px;
+      line-height: 1.25;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: rgba(20, 33, 45, 0.72);
+      line-height: 1.5;
+    }
+
+    .product-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid rgba(20, 33, 45, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--havn-abyss);
+    }
+
+    .btn-add-cart {
+      background: transparent;
+      border: 1px solid var(--havn-abyss);
+      color: var(--havn-abyss);
+      padding: 6px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-add-cart:hover {
+      background: var(--havn-fjord);
+      border-color: var(--havn-fjord);
+      color: #fff;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: SLIPWAY & BOATYARD RESIDENCY BOOKING
+       ------------------------------------------------------------- */
+    .booking-section {
+      padding: 88px 0;
+      background-color: var(--havn-canvas);
+      border-bottom: 1px solid rgba(20, 33, 45, 0.1);
+    }
+
+    .booking-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      background: #FFFFFF;
+      border: 1px solid var(--havn-mist);
+      padding: 48px;
+      box-shadow: var(--shadow-elevation);
+    }
+
+    .booking-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .booking-form-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--havn-abyss);
+    }
+    .form-input, .form-select {
+      background: var(--havn-foam);
+      border: 1px solid var(--havn-mist);
+      padding: 11px 14px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      color: var(--havn-abyss);
+      border-radius: 2px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--havn-fjord);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 2px rgba(96, 150, 180, 0.2);
+    }
+
+    /* -------------------------------------------------------------
+       SLIDE-OVER CART DRAWER
+       ------------------------------------------------------------- */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 33, 45, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      z-index: 1001;
+      box-shadow: -8px 0 32px rgba(0,0,0,0.2);
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      background: var(--havn-abyss);
+      color: var(--havn-canvas);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .drawer-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      color: var(--havn-mist);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .drawer-items-list {
+      padding: 24px;
+      flex-grow: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-empty-msg {
+      text-align: center;
+      color: rgba(20, 33, 45, 0.5);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-top: 60px;
+    }
+
+    .drawer-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(20, 33, 45, 0.08);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .drawer-footer {
+      padding: 24px;
+      background: var(--havn-foam);
+      border-top: 1px solid var(--havn-mist);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drawer-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--havn-abyss);
+    }
+
+    /* -------------------------------------------------------------
+       FOOTER
+       ------------------------------------------------------------- */
+    .site-footer {
+      background-color: var(--havn-abyss);
+      color: var(--havn-canvas);
+      padding: 64px 0 36px;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--havn-spray);
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .footer-links-list a {
+      color: var(--havn-mist);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .footer-links-list a:hover {
+      color: #FFFFFF;
+      padding-left: 4px;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       ------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-grid, .steam-calc-grid, .vessel-configurator-box, .booking-card-grid {
+        grid-template-columns: 1fr;
+      }
+      .craft-pillars-grid, .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { height: auto; padding: 12px 0; flex-wrap: wrap; }
+      .site-nav { order: 3; width: 100%; padding-bottom: 6px; }
+      .hero-title { font-size: 34px; }
+      .craft-pillars-grid, .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .booking-card-grid {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Telemetry & Nautical Coordinates Ticker -->
+  <div class="telemetry-bar">
+    <div class="container telemetry-inner">
+      <div class="telemetry-items">
+        <span class="telemetry-item">
+          <span class="telemetry-pulse"></span>
+          POSISI: 60°23′44″ N, 05°19′38″ E • GALANGAN BERGEN
+        </span>
+        <span class="telemetry-item">ANGIN: 14 KNOTS (BEAUFORT 4)</span>
+        <span class="telemetry-item">AIR PASANG: +1.42m</span>
+        <span class="telemetry-item">LUNAS: SIBERIAN LARCH & TEMBAGA SOLID</span>
+        <span class="telemetry-item">RESIN SINTETIS: 0.00%</span>
+      </div>
+      <div class="telemetry-actions">
+        <button class="audio-toggle-btn" id="audioToggleBtn" title="Aktifkan simulasi desau ombak laut dingin Web Audio API">
+          <span>🔊</span> <span id="audioBtnText">SUARA OMBAK: AKTIF</span>
+        </button>
+        <span id="utcTimeClock" class="mono">UTC 02:40:18</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Atmospheric Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-mark">
+        <div class="brand-logo-seal">H</div>
+        <div class="brand-text">
+          <span class="brand-name">HAVN</span>
+          <span class="brand-sub">Båtbyggeri & Maritim</span>
+        </div>
+      </a>
+
+      <!-- Single-Line Non-Wrapping Navigation -->
+      <nav class="site-nav">
+        <a href="#hydrodynamics" class="nav-link"><span class="nav-num">01</span>Garis Air</a>
+        <a href="#steam-calc" class="nav-link"><span class="nav-num">02</span>Kukus Kayu</a>
+        <a href="#configurator" class="nav-link"><span class="nav-num">03</span>Konfigurator</a>
+        <a href="#joinery" class="nav-link"><span class="nav-num">04</span>Kriya Clinker</a>
+        <a href="#catalog" class="nav-link"><span class="nav-num">05</span>Etalase</a>
+        <a href="#booking" class="nav-link"><span class="nav-num">06</span>Slipway</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-trigger-btn" id="cartTriggerBtn">
+          <span>Keranjang</span>
+          <span class="cart-count-badge" id="cartCountBadge">0</span>
+        </button>
+        <a href="#booking" class="btn-commission-cta">Pesan Perahu</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Canvas Hydrodynamic Simulator -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      
+      <!-- Text Column -->
+      <div class="hero-content">
+        <div class="hero-kicker">
+          <span class="kicker-line"></span>
+          <span>ARUS & KRIYA • GALANGAN KAPAL KAYU PESISIR • EST. 1894</span>
+        </div>
+        <h1 class="hero-title">
+          Membelah Ombak Arktik Bertumpu pada <em>Papan Larch Berlapis</em> & Rivet Tembaga.
+        </h1>
+        <p class="hero-desc">
+          Kami menolak lambung plastik poliester sintetis yang rapuh dan mencemari laut. Setiap perahu HAVN dibangun dengan kriya sirip tumpang tindih <em>(lapstrake clinker)</em> berusia seribu tahun: bilah kayu Siberian Larch pilihan, iga kayu ek yang dilipat uap panas 100°C, paku tembaga pasak tangan, serta perlindungan minyak biji rami dan ter pinus murni.
+        </p>
+
+        <!-- Real Shipwright Metrics Strip -->
+        <div class="hero-metrics-strip">
+          <div class="hero-metric-cell">
+            <span class="metric-val">4.35m</span>
+            <span class="metric-lbl">Panjang LWL</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="metric-val">0.28m</span>
+            <span class="metric-lbl">Sarat Air (Draft)</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="metric-val">340kg</span>
+            <span class="metric-lbl">Displacement</span>
+          </div>
+          <div class="hero-metric-cell">
+            <span class="metric-val">80+ Thn</span>
+            <span class="metric-lbl">Daya Usia Kayu</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#hydrodynamics" class="btn-primary">Uji Tangki Hidrodinamika</a>
+          <a href="#configurator" class="btn-secondary">Rancang Perahu Kustom</a>
+        </div>
+      </div>
+
+      <!-- Simulator Stage Column -->
+      <div class="simulator-stage-card" id="hydrodynamics">
+        <div class="sim-header-bar">
+          <div class="sim-header-title">
+            <span>⚓ TANGKI UJI HIDRODINAMIKA GARIS AIR</span>
+          </div>
+          <div class="sim-view-toggles">
+            <button class="sim-view-btn active" data-view="waterline">Profil Samping</button>
+            <button class="sim-view-btn" data-view="sections">Gading Lunas</button>
+            <button class="sim-view-btn" data-view="streamlines">Vektor Aliran</button>
+          </div>
+        </div>
+
+        <div class="canvas-viewport-wrapper">
+          <canvas id="waterlineCanvas"></canvas>
+          <div class="canvas-grid-overlay"></div>
+          <div class="canvas-telemetry-badge" id="canvasTelemetryBadge">
+            KECEPATAN: 4.5 KNOTS • FN: 0.36<br>
+            HAMBATAN GELOMBANG: 142 N<br>
+            SUDUT TRIM HALUAN: +1.8°
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="sim-controls-panel">
+          <div class="control-block">
+            <div class="control-label-row">
+              <span>Kecepatan Berlayar:</span>
+              <span id="speedValText" class="mono">4.5 Knots</span>
+            </div>
+            <input type="range" class="control-slider" id="speedSlider" min="1.0" max="8.5" step="0.5" value="4.5">
+          </div>
+          <div class="control-block">
+            <div class="control-label-row">
+              <span>Skala Angin Beaufort:</span>
+              <span id="beaufortValText" class="mono">Skala 3 (Lembut)</span>
+            </div>
+            <input type="range" class="control-slider" id="beaufortSlider" min="1" max="6" step="1" value="3">
+          </div>
+        </div>
+
+        <div class="sim-stats-footer">
+          <span>MATERIAL LAMBUNG: SIBERIAN LARCH 18mm</span>
+          <span>DISPLACEMENT AIR: 340 LITER</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: The Art of Clinker Joinery (Anti-Slop Standards) -->
+  <section class="craft-section" id="joinery">
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-eyebrow">STANDAR KRIYA ARSITEKTUR PERAHU</span>
+        <h2 class="section-heading">Kekuatan Murni Tanpa Resin Sintetis.</h2>
+        <p class="section-subtext">
+          Di galangan kapal HAVN, kami menjaga warisan pengerjaan kayu maritim Skandinavia. Tidak ada lapisan fiberglass kimiawi atau lem epoksi yang memerangkap kelembapan kayu.
+        </p>
+      </div>
+
+      <div class="craft-pillars-grid">
+        <div class="craft-pillar-card">
+          <span class="pillar-num">01 / BILAH SIRIP</span>
+          <h3 class="pillar-title">Papan Tumpang Tindih (Lapstrake Clinker)</h3>
+          <p class="pillar-body">
+            Setiap bilah papan Siberian Larch tumpang tindih sepanjang 22mm, menciptakan lunas yang fleksibel meredam benturan ombak lepas pantai tanpa mengalami keretakan struktur.
+          </p>
+          <span class="pillar-tag">TEBAL: 16-18mm</span>
+        </div>
+
+        <div class="craft-pillar-card">
+          <span class="pillar-num">02 / RIVET TEMBAGA</span>
+          <h3 class="pillar-title">Paku Keling Tembaga Tempa Tangan</h3>
+          <p class="pillar-body">
+            Ribuan paku tembaga murni dipasak menembus kedua bilah kayu dan ditutup cincin rove tembaga. Logam tembaga tidak akan berkarat oleh air asin selama lebih dari satu abad.
+          </p>
+          <span class="pillar-tag">TEMBAGA MURNI 99.9%</span>
+        </div>
+
+        <div class="craft-pillar-card">
+          <span class="pillar-num">03 / KUKUS IGA EK</span>
+          <h3 class="pillar-title">Iga Kayu Ek Utuh Lentur Panas</h3>
+          <p class="pillar-body">
+            Gading-gading iga dibuat dari kayu English Oak padat yang dikukus pada suhu 100°C di kotak uap, kemudian ditekuk cepat mengikuti kelengkungan lambung tanpa memutus serat alami.
+          </p>
+          <span class="pillar-tag">RADIUS: 180mm</span>
+        </div>
+
+        <div class="craft-pillar-card">
+          <span class="pillar-num">04 / TER PINUS ALAMI</span>
+          <h3 class="pillar-title">Proteksi Stockholm Pine Tar & Minyak Rami</h3>
+          <p class="pillar-body">
+            Sambungan bilah dipasak dengan pintalan benang rami yang diresapi ter getah pohon pinus murni. Menghasilkan aroma khas galangan klasik dan perlindungan abadi dari pembusukan jamur.
+          </p>
+          <span class="pillar-tag">RESIN SINTETIS: 0%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 1: Steam-Bending Timber Calculator -->
+  <section class="steam-calc-section" id="steam-calc">
+    <div class="container steam-calc-grid">
+      
+      <div class="calc-explain">
+        <span class="section-eyebrow">SIMULATOR FISIKA KRIYA</span>
+        <h2 class="section-heading">Kalkulator Waktu Pengukusan Iga Kapal.</h2>
+        <p class="section-subtext">
+          Kayu ek memiliki serat selulosa lignin yang melunak saat dipanaskan uap jenuh $100^\circ\text{C}$. Rumus tradisi galangan mensyaratkan 1 jam pengukusan untuk setiap 25mm ketebalan bilah guna mencapai plastisitas maksimum tanpa merusak kekuatan tarik kayu.
+        </p>
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--havn-fjord); line-height: 1.6; background: var(--havn-canvas); padding: 14px 18px; border-left: 3px solid var(--havn-fjord);">
+          CATATAN SHIPWRIGHT:<br>
+          "Kayu harus segera ditekuk di atas cetakan lunas dalam waktu maksimal 45 detik setelah ditarik dari kotak uap sebelum suhu mendingin di bawah 70°C."
+        </div>
+      </div>
+
+      <!-- Calculator Board -->
+      <div class="calc-board-container">
+        
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>PILIHAN JENIS KAYU IGA:</span>
+            <span id="selectedSpeciesText" style="color: var(--havn-fjord);">English Oak</span>
+          </div>
+          <div class="wood-species-pills">
+            <button class="species-pill active" data-species="oak" data-density="0.75" data-springback="4.2">English Oak</button>
+            <button class="species-pill" data-species="ash" data-density="0.68" data-springback="5.8">Nordic Ash</button>
+            <button class="species-pill" data-species="larch" data-density="0.62" data-springback="6.5">Siberian Larch</button>
+          </div>
+        </div>
+
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>KETEBALAN BILAH IGA (mm):</span>
+            <span id="thicknessValText" class="mono">20 mm</span>
+          </div>
+          <input type="range" class="control-slider" id="thicknessSlider" min="12" max="36" step="1" value="20">
+        </div>
+
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>TARGET RADIUS LENGKUNG LUNAS (mm):</span>
+            <span id="radiusValText" class="mono">240 mm</span>
+          </div>
+          <input type="range" class="control-slider" id="radiusSlider" min="150" max="600" step="10" value="240">
+        </div>
+
+        <div class="calc-field-group">
+          <div class="calc-label">
+            <span>KADAR KELEMBAPAN SERAT (MC %):</span>
+            <span id="moistureValText" class="mono">18 % (Ideal)</span>
+          </div>
+          <input type="range" class="control-slider" id="moistureSlider" min="12" max="26" step="1" value="18">
+        </div>
+
+        <!-- Calculated Output Box -->
+        <div class="calc-result-box">
+          <div class="result-row">
+            <span>DURASI UAP STEAM BOX 100°C:</span>
+            <span class="result-val-highlight" id="steamDurationOutput">48 Menit</span>
+          </div>
+          <div class="result-row">
+            <span>KOMPENSASI KEMBALINYA LENGKUNG (SPRINGBACK):</span>
+            <span id="springbackOutput">+4.2° Sudut</span>
+          </div>
+          <div class="result-row">
+            <span>STATUS PLASTISITAS LIGNIN:</span>
+            <span id="safetyStatusOutput" style="color: #64dd17; font-weight: 600;">SANGAT LENTUR (AMAN)</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Feature 2: Custom Wooden Vessel Builder & Configurator -->
+  <section class="vessel-builder-section" id="configurator">
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-eyebrow">KONFIGURATOR RANCANG BANGUN</span>
+        <h2 class="section-heading">Personalisasi Perahu Kayu Impian Anda.</h2>
+        <p class="section-subtext">
+          Pilih tipe lambung klasik, opsi kayu geladak, serta sapuan pigmen maritim yang diresapi ter pinus alami.
+        </p>
+      </div>
+
+      <div class="vessel-configurator-box">
+        
+        <!-- Schematic Preview Column -->
+        <div class="vessel-preview-col">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--havn-fjord);">
+            SCHEMATIC PROJECTION • DRAFT CAD BERGEN
+          </div>
+
+          <div class="vessel-schematic-wrap">
+            <!-- Dynamic Vector Boat SVG Rendering -->
+            <svg class="vessel-svg-stage" id="boatVectorSvg" viewBox="0 0 500 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Waterline reference -->
+              <line x1="20" y1="170" x2="480" y2="170" stroke="#6096B4" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="30" y="165" font-family="JetBrains Mono" font-size="9" fill="#6096B4">WATERLINE 0.00m</text>
+              <!-- Boat Keel & Planking (dynamically styled) -->
+              <path id="hullPlankTop" d="M40,110 C140,115 360,115 460,95 C410,135 340,165 250,175 C160,165 90,135 40,110 Z" fill="#6096B4" stroke="#14212D" stroke-width="2"/>
+              <path id="hullPlankMid" d="M50,128 C150,133 350,133 440,115 C395,148 330,170 250,178 C170,170 105,148 50,128 Z" fill="#93BFCF" stroke="#14212D" stroke-width="1.5"/>
+              <path id="hullPlankBottom" d="M68,145 C160,150 340,150 420,135 C380,162 320,180 250,182 C180,180 120,162 68,145 Z" fill="#4A3326" stroke="#14212D" stroke-width="1.5"/>
+              <!-- Stem & Stern Posts -->
+              <path d="M40,110 L25,75 L35,75 L48,110 Z" fill="#14212D"/>
+              <path d="M460,95 L475,80 L482,82 L465,100 Z" fill="#14212D"/>
+              <!-- Oars / Rigging -->
+              <line id="oarGraphic1" x1="220" y1="80" x2="160" y2="195" stroke="#B86B3E" stroke-width="3.5" stroke-linecap="round"/>
+              <line id="oarGraphic2" x1="280" y1="80" x2="340" y2="195" stroke="#B86B3E" stroke-width="3.5" stroke-linecap="round"/>
+              <!-- Copper Rivet dots -->
+              <circle cx="100" cy="130" r="1.5" fill="#B86B3E"/>
+              <circle cx="150" cy="133" r="1.5" fill="#B86B3E"/>
+              <circle cx="200" cy="134" r="1.5" fill="#B86B3E"/>
+              <circle cx="250" cy="134" r="1.5" fill="#B86B3E"/>
+              <circle cx="300" cy="133" r="1.5" fill="#B86B3E"/>
+              <circle cx="350" cy="130" r="1.5" fill="#B86B3E"/>
+              <circle cx="400" cy="122" r="1.5" fill="#B86B3E"/>
+            </svg>
+          </div>
+
+          <!-- Color Swatch Picker for Boat Finish -->
+          <div class="vessel-finish-swatches">
+            <span class="finish-label">PIGMEN LAMBUNG:</span>
+            <div class="finish-circle active" style="background-color: #6096B4;" data-color="#6096B4" data-name="Fjord Slate Blue" title="Fjord Slate Blue"></div>
+            <div class="finish-circle" style="background-color: #4A3326;" data-color="#4A3326" data-name="Stockholm Pine Tar" title="Stockholm Pine Tar"></div>
+            <div class="finish-circle" style="background-color: #EEE9DA;" data-color="#EEE9DA" data-name="Oyster Bleached Linen" title="Oyster Bleached Linen"></div>
+            <div class="finish-circle" style="background-color: #14212D;" data-color="#14212D" data-name="Abyssal Navy Enamel" title="Abyssal Navy Enamel"></div>
+          </div>
+        </div>
+
+        <!-- Controls & Specs Column -->
+        <div class="vessel-controls-col">
+          <div class="hull-selector-tabs">
+            <button class="hull-tab-btn active" data-vessel="skiff">HAVN 15 Skiff</button>
+            <button class="hull-tab-btn" data-vessel="dory">HAVN 12 Dory</button>
+            <button class="hull-tab-btn" data-vessel="cutter">HAVN 19 Cutter</button>
+          </div>
+
+          <div class="vessel-title-row">
+            <div>
+              <h3 class="serif" id="vesselNameHeading" style="font-size: 26px;">HAVN 15 Skerry Skiff</h3>
+              <p style="font-size: 13px; color: rgba(20, 33, 45, 0.7);" id="vesselSubtitle">Perahu dualitas dayung & layar pesisir teluk berombak</p>
+            </div>
+            <div class="vessel-price" id="vesselPriceText">Rp 148.000.000</div>
+          </div>
+
+          <table class="vessel-specs-table">
+            <tbody>
+              <tr>
+                <td>Panjang Total (LOA)</td>
+                <td id="specLoa">4.60 Meter (15.1 ft)</td>
+              </tr>
+              <tr>
+                <td>Lebar Maksimum (Beam)</td>
+                <td id="specBeam">1.42 Meter</td>
+              </tr>
+              <tr>
+                <td>Sarat Air (Draft Muatan)</td>
+                <td id="specDraft">0.24 Meter</td>
+              </tr>
+              <tr>
+                <td>Bobot Lambung Kosong</td>
+                <td id="specWeight">82 kg (Sangat Ringan)</td>
+              </tr>
+              <tr>
+                <td>Kapasitas Awak</td>
+                <td id="specCapacity">4 Dewasa + 80kg Kargo</td>
+              </tr>
+              <tr>
+                <td>Waktu Pembuatan Galangan</td>
+                <td id="specBuildTime">10-12 Minggu Kriya</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button class="btn-primary" id="btnOrderConfiguredVessel" style="width: 100%; justify-content: center;">
+            Pesan Lambung Ini Melalui WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Curated 4 Shipyard Vessels & Gear Catalog -->
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <div class="section-header-block">
+        <span class="section-eyebrow">ETALASE KRIYA MARITIM BERGEN</span>
+        <h2 class="section-heading">Koleksi Perahu & Perlengkapan Terpilih.</h2>
+        <p class="section-subtext">
+          Seluruh produk dikerjakan secara individual di workshop kami dengan sertifikasi kayu lestari FSC.
+        </p>
+      </div>
+
+      <div class="catalog-grid">
+        
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="HAVN 15 Skerry Skiff" class="product-img">
+            <span class="product-badge">PERAHU UTUH</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">HAVN 15 Skerry Skiff</h3>
+            <p class="product-desc">Perahu kayu Larch clinker lengkap dengan sepasang dayung spruce, lunas ek tempa, dan pasak tembaga solid.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 148.000.000</span>
+              <button class="btn-add-cart" data-id="p1" data-name="HAVN 15 Skerry Skiff" data-price="148000000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1510525009512-ad7fc3378317?auto=format&fit=crop&w=800&q=80" alt="Sepasang Dayung Sitka Spruce" class="product-img">
+            <span class="product-badge">KRIYA DAYUNG</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Sepasang Dayung Spruce Ukir 2.4m</h3>
+            <p class="product-desc">Kayu Sitka Spruce pilihan berbobot ringan dengan bilah sendok dan selongsong kulit sapi samak nabati.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 7.800.000</span>
+              <button class="btn-add-cart" data-id="p2" data-name="Sepasang Dayung Spruce 2.4m" data-price="7800000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986b88?auto=format&fit=crop&w=800&q=80" alt="Stockholm Pine Tar Kit" class="product-img">
+            <span class="product-badge">PERAWATAN MARITIM</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Stockholm Pine Tar & Linseed Oil Kit</h3>
+            <p class="product-desc">Dua kaleng 1-liter minyak rami mentah Swedia dan ter getah pinus murni untuk perlindungan kayu bebas jamur.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 1.450.000</span>
+              <button class="btn-add-cart" data-id="p3" data-name="Pine Tar & Linseed Oil Kit" data-price="1450000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80" alt="Waxed Canvas Duffel" class="product-img">
+            <span class="product-badge">KANVAS GELADAK</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-name">Waxed Sailcloth Deck Duffel 50L</h3>
+            <p class="product-desc">Tas kanvas katun layar 18oz kedap air laut dengan gesper kuningan tempa dan resleting maritim YKK tembaga.</p>
+            <div class="product-footer">
+              <span class="product-price">Rp 2.850.000</span>
+              <button class="btn-add-cart" data-id="p4" data-name="Waxed Sailcloth Duffel 50L" data-price="2850000">+ Keranjang</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Slipway & Residency Booking Form -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-card-grid">
+        
+        <div class="booking-info-col">
+          <span class="section-eyebrow">KUNJUNGAN WORKSHOP & SEA TRIAL</span>
+          <h2 class="section-heading">Rasakan Keseimbangan Alami di Atas Air.</h2>
+          <p class="section-subtext">
+            Kami menyambut calon pemilik kapal dan penggemar kriya kayu untuk mengunjungi slipway galangan kami di pelabuhan. Anda dapat melihat proses pengukusan iga secara langsung atau menjadwalkan pelayaran uji coba <em>(sea trial)</em> selama 60 menit.
+          </p>
+          <div style="margin-top: auto; font-family: var(--font-mono); font-size: 12px; color: var(--havn-abyss); line-height: 1.8;">
+            LOKASI GALANGAN:<br>
+            Dermaga Kayu Slipway No. 4, Pelabuhan Fjord Bergen<br>
+            JAM KERJA: Senin - Sabtu, 08:00 - 17:00 UTC<br>
+            TELEPON / WHATSAPP: +62 812-4490-8812
+          </div>
+        </div>
+
+        <form class="booking-form-col" id="bookingForm">
+          <div class="form-group">
+            <label class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-input" id="bookName" placeholder="Contoh: Arsitek Pradipta" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nomor WhatsApp</label>
+            <input type="tel" class="form-input" id="bookPhone" placeholder="0812-xxxx-xxxx" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tujuan Kunjungan</label>
+            <select class="form-select" id="bookType">
+              <option value="Sea Trial Perahu 60-Menit">Uji Coba Berlayar (Sea Trial 60 Menit)</option>
+              <option value="Konsultasi Komisi Perahu Kustom">Konsultasi Rancang Bangun Perahu Baru</option>
+              <option value="Tur Kriya Galangan & Uji Coba Kukus">Tur Workshop & Kriya Kayu Tradisional</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pilihan Tanggal</label>
+            <input type="date" class="form-input" id="bookDate" required>
+          </div>
+          <button type="submit" class="btn-primary" style="margin-top: 10px; justify-content: center;">
+            Konfirmasi Jadwal Kunjungan Slipway
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <span class="drawer-title">Pesanan Maritim HAVN</span>
+      <button class="drawer-close-btn" id="drawerCloseBtn">&times;</button>
+    </div>
+    <div class="drawer-items-list" id="drawerItemsList">
+      <div class="drawer-empty-msg">Keranjang belanja Anda masih kosong.</div>
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-total-row">
+        <span>TOTAL ESTIMASI:</span>
+        <span id="drawerTotalText">Rp 0</span>
+      </div>
+      <button class="btn-primary" id="btnCheckoutWhatsapp" style="width: 100%; justify-content: center;">
+        Kirim Rincian ke WhatsApp Galangan
+      </button>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-mark" style="color: #fff; margin-bottom: 16px;">
+            <div class="brand-logo-seal" style="background: var(--havn-fjord); color: #fff;">H</div>
+            <div class="brand-text">
+              <span class="brand-name" style="color: #fff;">HAVN</span>
+              <span class="brand-sub" style="color: var(--havn-spray);">Båtbyggeri Tradisjonell</span>
+            </div>
+          </div>
+          <p style="font-size: 13.5px; color: var(--havn-mist); line-height: 1.6; max-width: 320px;">
+            Galangan perahu kayu kriya murni berbasis tradisi maritim pesisir Skandinavia. Menghidupkan kembali perahu dayung dan layar berbahan Siberian Larch, paku tembaga, dan ter pinus alami.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi Arsip</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hydrodynamics">Hidrodinamika Garis Air</a></li>
+            <li><a href="#steam-calc">Kalkulator Uap Iga Kayu</a></li>
+            <li><a href="#configurator">Konfigurator Lambung</a></li>
+            <li><a href="#catalog">Etalase Produk</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Kriya & Material</h4>
+          <ul class="footer-links-list">
+            <li><a href="#joinery">Lapstrake Clinker Joinery</a></li>
+            <li><a href="#joinery">Paku Keling Tembaga Solid</a></li>
+            <li><a href="#joinery">Stockholm Pine Tar Swedia</a></li>
+            <li><a href="#joinery">Sertifikasi Kayu FSC</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Atelier Slipway</h4>
+          <p style="font-size: 13px; color: var(--havn-mist); line-height: 1.6; font-family: var(--font-mono);">
+            Slipway No. 4, Pelabuhan Fjord<br>
+            Bergen, Pesisir Utara<br>
+            VHF Kanal Maritim: CH 16 / 72<br>
+            WhatsApp: +62 812-4490-8812
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; 2026 HAVN Båtbyggeri. Bagian dari Galeri Editorial NECTOR.UI.</span>
+        <span>STANDAR KRIYA BEBAS AI-SLOP • SIBERIAN LARCH MURNI</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- -------------------------------------------------------------
+       JAVASCRIPT: WAVE HYDRODYNAMICS, STEAM CALC, CONFIGURATOR, AUDIO
+       ------------------------------------------------------------- -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* 1. Real-time Clock */
+      function updateClock() {
+        const now = new Date();
+        const utcStr = 'UTC ' + now.toUTCString().slice(17, 25);
+        const clockEl = document.getElementById('utcTimeClock');
+        if (clockEl) clockEl.textContent = utcStr;
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+
+      /* 2. Web Audio API - Ocean Wind & Wave Ambient Generator */
+      let audioCtx = null;
+      let isAudioPlaying = false;
+      let noiseNode = null;
+      let filterNode = null;
+      let gainNode = null;
+      let lfoNode = null;
+
+      function initOceanAudio() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          
+          // Generate Pink Noise buffer for realistic wave roar
+          const bufferSize = audioCtx.sampleRate * 2;
+          const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const output = noiseBuffer.getChannelData(0);
+          let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+          for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99886 * b0 + white * 0.0555179;
+            b1 = 0.99332 * b1 + white * 0.0750759;
+            b2 = 0.96900 * b2 + white * 0.1538520;
+            b3 = 0.86650 * b3 + white * 0.3104856;
+            b4 = 0.55000 * b4 + white * 0.5329522;
+            b5 = -0.7616 * b5 - white * 0.0168980;
+            output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.04;
+            b6 = white * 0.115926;
+          }
+
+          noiseNode = audioCtx.createBufferSource();
+          noiseNode.buffer = noiseBuffer;
+          noiseNode.loop = true;
+
+          // Bandpass filter to simulate wave swells
+          filterNode = audioCtx.createBiquadFilter();
+          filterNode.type = 'lowpass';
+          filterNode.frequency.setValueAtTime(320, audioCtx.currentTime);
+
+          // LFO for periodic wave swell motion
+          lfoNode = audioCtx.createOscillator();
+          lfoNode.frequency.setValueAtTime(0.12, audioCtx.currentTime); // ~8 second wave swells
+          const lfoGain = audioCtx.createGain();
+          lfoGain.gain.setValueAtTime(180, audioCtx.currentTime);
+          lfoNode.connect(lfoGain);
+          lfoGain.connect(filterNode.frequency);
+
+          gainNode = audioCtx.createGain();
+          gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+
+          noiseNode.connect(filterNode);
+          filterNode.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+
+          noiseNode.start();
+          lfoNode.start();
+          isAudioPlaying = true;
+        } else if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+          isAudioPlaying = true;
+        } else if (audioCtx.state === 'running') {
+          audioCtx.suspend();
+          isAudioPlaying = false;
+        }
+        updateAudioButtonUI();
+      }
+
+      function updateAudioButtonUI() {
+        const btnText = document.getElementById('audioBtnText');
+        if (btnText) {
+          btnText.textContent = isAudioPlaying ? 'SUARA OMBAK: AKTIF' : 'SUARA OMBAK: SENYAP';
+        }
+      }
+
+      const audioToggleBtn = document.getElementById('audioToggleBtn');
+      if (audioToggleBtn) {
+        audioToggleBtn.addEventListener('click', () => {
+          initOceanAudio();
+        });
+      }
+
+      /* 3. Canvas HTML5 - Hydrodynamic Wave & Hull Simulator */
+      const canvas = document.getElementById('waterlineCanvas');
+      const ctx = canvas ? canvas.getContext('2d') : null;
+      let currentView = 'waterline';
+      let speedKnots = 4.5;
+      let beaufortScale = 3;
+      let animFrameId = null;
+      let waveOffset = 0;
+
+      function resizeCanvas() {
+        if (!canvas) return;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * window.devicePixelRatio;
+        canvas.height = rect.height * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      function drawHydrodynamics() {
+        if (!ctx || !canvas) return;
+        const w = canvas.getBoundingClientRect().width;
+        const h = canvas.getBoundingClientRect().height;
+
+        ctx.clearRect(0, 0, w, h);
+
+        waveOffset += (speedKnots * 0.012) + (beaufortScale * 0.008);
+
+        const waterLevel = h * 0.52;
+        const waveAmp = 6 + beaufortScale * 4.5;
+        const waveFreq = 0.018 - (speedKnots * 0.001);
+
+        // Calculate Boat Pitch/Roll dynamics
+        const boatCenterPitch = Math.sin(waveOffset * 2.2) * (1.2 + beaufortScale * 0.6);
+        const boatHeave = Math.sin(waveOffset * 3.1) * (3 + beaufortScale * 2);
+
+        // 1. Draw Background Water Wave Swell
+        ctx.beginPath();
+        ctx.moveTo(0, h);
+        for (let x = 0; x <= w; x += 10) {
+          const y = waterLevel + Math.sin(x * waveFreq + waveOffset * 2.5) * waveAmp;
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(w, h);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(96, 150, 180, 0.45)';
+        ctx.fill();
+
+        // 2. Draw Boat Clinker Hull
+        ctx.save();
+        ctx.translate(w * 0.5, waterLevel - 8 + boatHeave);
+        ctx.rotate((boatCenterPitch * Math.PI) / 180);
+
+        const boatLen = w * 0.54;
+        const halfLen = boatLen / 2;
+
+        if (currentView === 'waterline' || currentView === 'streamlines') {
+          // Clinker Hull Strakes
+          ctx.beginPath();
+          ctx.moveTo(-halfLen, -25);
+          ctx.bezierCurveTo(-halfLen * 0.5, 30, halfLen * 0.6, 26, halfLen, -35);
+          ctx.bezierCurveTo(halfLen * 0.7, 45, -halfLen * 0.7, 45, -halfLen, -25);
+          ctx.closePath();
+          ctx.fillStyle = '#6096B4';
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = '#14212D';
+          ctx.stroke();
+
+          // Strake lines
+          ctx.beginPath();
+          ctx.moveTo(-halfLen * 0.9, -6);
+          ctx.quadraticCurveTo(0, 22, halfLen * 0.9, -15);
+          ctx.strokeStyle = 'rgba(20, 33, 45, 0.5)';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+
+          // Stem and stern posts
+          ctx.fillStyle = '#4A3326';
+          ctx.fillRect(-halfLen - 4, -42, 6, 35);
+          ctx.fillRect(halfLen - 2, -48, 6, 38);
+
+          // Gunwale top
+          ctx.strokeStyle = '#EEE9DA';
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(-halfLen - 4, -25);
+          ctx.quadraticCurveTo(0, -12, halfLen + 4, -35);
+          ctx.stroke();
+
+        } else if (currentView === 'sections') {
+          // Body Plan / Cross section stations
+          const numStations = 7;
+          for (let i = 0; i < numStations; i++) {
+            const sx = (i - 3) * (boatLen / 7.5);
+            const sWidth = Math.sin((i / numStations) * Math.PI) * 55;
+            ctx.beginPath();
+            ctx.ellipse(sx, 5, sWidth * 0.35, 35, 0, 0, Math.PI);
+            ctx.strokeStyle = (i === 3) ? '#B86B3E' : 'rgba(255, 255, 255, 0.7)';
+            ctx.lineWidth = (i === 3) ? 2.5 : 1.2;
+            ctx.stroke();
+          }
+          // Central Keel Backbone
+          ctx.fillStyle = '#4A3326';
+          ctx.fillRect(-halfLen, 38, boatLen, 6);
+        }
+
+        ctx.restore();
+
+        // 3. Draw Foreground Water with Bow Wave Crest
+        ctx.beginPath();
+        ctx.moveTo(0, h);
+        for (let x = 0; x <= w; x += 8) {
+          // Bow wave deformation around boat stem (approx x = w * 0.75)
+          const distToBow = Math.abs(x - (w * 0.76));
+          const bowSwell = Math.exp(-distToBow / 45) * (speedKnots * 3.2);
+          const y = waterLevel + Math.sin(x * waveFreq * 1.4 + waveOffset * 3.5) * (waveAmp * 0.8) - bowSwell;
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(w, h);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(29, 53, 71, 0.88)';
+        ctx.fill();
+
+        // 4. White Water Foam particles on crests
+        if (beaufortScale >= 3) {
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
+          for (let i = 0; i < 28; i++) {
+            const fx = (Math.sin(i * 99 + waveOffset * 2) * 0.5 + 0.5) * w;
+            const fy = waterLevel + Math.sin(fx * waveFreq + waveOffset) * waveAmp + (Math.random() * 4 - 2);
+            ctx.fillRect(fx, fy, 2.5, 2.5);
+          }
+        }
+
+        // 5. Draw Streamline Vectors if in that view
+        if (currentView === 'streamlines') {
+          ctx.strokeStyle = '#93BFCF';
+          ctx.lineWidth = 1;
+          for (let row = 0; row < 4; row++) {
+            ctx.beginPath();
+            const sy = waterLevel + 18 + row * 16;
+            ctx.moveTo(w, sy);
+            for (let x = w; x >= 0; x -= 20) {
+              const def = Math.sin((x + waveOffset * 40) * 0.02) * 5;
+              ctx.lineTo(x, sy + def);
+            }
+            ctx.stroke();
+          }
+        }
+
+        animFrameId = requestAnimationFrame(drawHydrodynamics);
+      }
+      drawHydrodynamics();
+
+      // View toggle buttons
+      const viewButtons = document.querySelectorAll('.sim-view-btn');
+      viewButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          viewButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentView = btn.dataset.view;
+        });
+      });
+
+      // Speed & Beaufort sliders
+      const speedSlider = document.getElementById('speedSlider');
+      const speedText = document.getElementById('speedValText');
+      const beaufortSlider = document.getElementById('beaufortSlider');
+      const beaufortText = document.getElementById('beaufortValText');
+      const badgeText = document.getElementById('canvasTelemetryBadge');
+
+      const beaufortNames = [
+        '',
+        'Skala 1 (Tenang)',
+        'Skala 2 (Sepoi Lemah)',
+        'Skala 3 (Lembut)',
+        'Skala 4 (Sedang Berombak)',
+        'Skala 5 (Kencang Segar)',
+        'Skala 6 (Angin Kuat Pesisir)'
+      ];
+
+      function updateSimTelemetry() {
+        if (!speedSlider || !beaufortSlider) return;
+        speedKnots = parseFloat(speedSlider.value);
+        beaufortScale = parseInt(beaufortSlider.value);
+
+        if (speedText) speedText.textContent = `${speedKnots.toFixed(1)} Knots`;
+        if (beaufortText) beaufortText.textContent = beaufortNames[beaufortScale] || `Skala ${beaufortScale}`;
+
+        // Hydrodynamic calculations
+        const g = 9.81;
+        const lwl = 4.35;
+        const vMps = speedKnots * 0.514444;
+        const froude = (vMps / Math.sqrt(g * lwl)).toFixed(2);
+        const waveResistance = Math.round(18 * Math.pow(speedKnots, 1.45) + (beaufortScale * 14));
+        const trimAngle = (0.4 * speedKnots).toFixed(1);
+
+        if (badgeText) {
+          badgeText.innerHTML = `
+            KECEPATAN: ${speedKnots.toFixed(1)} KNOTS • FN: ${froude}<br>
+            HAMBATAN GELOMBANG: ${waveResistance} N<br>
+            SUDUT TRIM HALUAN: +${trimAngle}°
+          `;
+        }
+      }
+
+      if (speedSlider) speedSlider.addEventListener('input', updateSimTelemetry);
+      if (beaufortSlider) beaufortSlider.addEventListener('input', updateSimTelemetry);
+
+      /* 4. Steam-Bending Timber Calculator */
+      let currentSpecies = 'oak';
+      const speciesPills = document.querySelectorAll('.species-pill');
+      const thicknessSlider = document.getElementById('thicknessSlider');
+      const radiusSlider = document.getElementById('radiusSlider');
+      const moistureSlider = document.getElementById('moistureSlider');
+
+      const thicknessText = document.getElementById('thicknessValText');
+      const radiusText = document.getElementById('radiusValText');
+      const moistureText = document.getElementById('moistureValText');
+      const speciesText = document.getElementById('selectedSpeciesText');
+
+      const steamDurationOutput = document.getElementById('steamDurationOutput');
+      const springbackOutput = document.getElementById('springbackOutput');
+      const safetyStatusOutput = document.getElementById('safetyStatusOutput');
+
+      speciesPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          speciesPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          currentSpecies = pill.dataset.species;
+          if (speciesText) speciesText.textContent = pill.textContent;
+          calculateSteamBending();
+        });
+      });
+
+      function calculateSteamBending() {
+        if (!thicknessSlider || !radiusSlider || !moistureSlider) return;
+        const th = parseInt(thicknessSlider.value);
+        const rad = parseInt(radiusSlider.value);
+        const mc = parseInt(moistureSlider.value);
+
+        if (thicknessText) thicknessText.textContent = `${th} mm`;
+        if (radiusText) radiusText.textContent = `${rad} mm`;
+        if (moistureText) moistureText.textContent = `${mc} % ${mc >= 16 && mc <= 20 ? '(Ideal)' : '(Cukup)'}`;
+
+        // Calculation: 1 hour per 25mm thickness at 100°C steam
+        let durationMinutes = Math.round((th / 25) * 60);
+        if (currentSpecies === 'oak') durationMinutes += 5;
+        if (currentSpecies === 'larch') durationMinutes -= 4;
+
+        if (steamDurationOutput) steamDurationOutput.textContent = `${durationMinutes} Menit`;
+
+        // Springback calculation
+        let springbackDeg = (th / rad) * 58;
+        if (currentSpecies === 'oak') springbackDeg *= 0.85;
+        if (currentSpecies === 'larch') springbackDeg *= 1.25;
+        if (springbackOutput) springbackOutput.textContent = `+${springbackDeg.toFixed(1)}° Sudut`;
+
+        // Safety Status
+        const strainRatio = th / (2 * rad);
+        if (safetyStatusOutput) {
+          if (strainRatio > 0.08) {
+            safetyStatusOutput.textContent = 'RAWAN RETAK (PERBESAR RADIUS)';
+            safetyStatusOutput.style.color = '#ff5252';
+          } else if (strainRatio > 0.055) {
+            safetyStatusOutput.textContent = 'LENTUR DENGAN DUKUNGAN STRAP BAJA';
+            safetyStatusOutput.style.color = '#ffab00';
+          } else {
+            safetyStatusOutput.textContent = 'SANGAT LENTUR (AMAN MAKSIMAL)';
+            safetyStatusOutput.style.color = '#64dd17';
+          }
+        }
+      }
+
+      if (thicknessSlider) thicknessSlider.addEventListener('input', calculateSteamBending);
+      if (radiusSlider) radiusSlider.addEventListener('input', calculateSteamBending);
+      if (moistureSlider) moistureSlider.addEventListener('input', calculateSteamBending);
+      calculateSteamBending();
+
+      /* 5. Custom Wooden Vessel Configurator */
+      const vesselData = {
+        skiff: {
+          name: 'HAVN 15 Skerry Skiff',
+          subtitle: 'Perahu dualitas dayung & layar pesisir teluk berombak',
+          price: 'Rp 148.000.000',
+          loa: '4.60 Meter (15.1 ft)',
+          beam: '1.42 Meter',
+          draft: '0.24 Meter',
+          weight: '82 kg (Sangat Ringan)',
+          capacity: '4 Dewasa + 80kg Kargo',
+          buildTime: '10-12 Minggu Kriya',
+          scaleX: 1,
+          scaleY: 1
+        },
+        dory: {
+          name: 'HAVN 12 Fjord Dory',
+          subtitle: 'Perahu dayung ringan untuk teluk tenang & tender kapal',
+          price: 'Rp 88.000.000',
+          loa: '3.65 Meter (12.0 ft)',
+          beam: '1.25 Meter',
+          draft: '0.18 Meter',
+          weight: '54 kg (Dapat Diangkat 2 Orang)',
+          capacity: '2-3 Dewasa',
+          buildTime: '6-8 Minggu Kriya',
+          scaleX: 0.85,
+          scaleY: 0.88
+        },
+        cutter: {
+          name: 'HAVN 19 Baltic Cutter',
+          subtitle: 'Kapal layar saku berlambung dalam dengan geladak depan',
+          price: 'Rp 285.000.000',
+          loa: '5.80 Meter (19.0 ft)',
+          beam: '1.85 Meter',
+          draft: '0.45 Meter',
+          weight: '320 kg (Stabilitas Tinggi)',
+          capacity: '6 Dewasa + Muatan Ekspedisi',
+          buildTime: '16-20 Minggu Kriya',
+          scaleX: 1.15,
+          scaleY: 1.15
+        }
+      };
+
+      let activeVessel = 'skiff';
+      const hullTabs = document.querySelectorAll('.hull-tab-btn');
+      hullTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          hullTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          activeVessel = tab.dataset.vessel;
+          updateVesselUI();
+        });
+      });
+
+      function updateVesselUI() {
+        const d = vesselData[activeVessel];
+        if (!d) return;
+
+        document.getElementById('vesselNameHeading').textContent = d.name;
+        document.getElementById('vesselSubtitle').textContent = d.subtitle;
+        document.getElementById('vesselPriceText').textContent = d.price;
+        document.getElementById('specLoa').textContent = d.loa;
+        document.getElementById('specBeam').textContent = d.beam;
+        document.getElementById('specDraft').textContent = d.draft;
+        document.getElementById('specWeight').textContent = d.weight;
+        document.getElementById('specCapacity').textContent = d.capacity;
+        document.getElementById('specBuildTime').textContent = d.buildTime;
+
+        const svgStage = document.getElementById('boatVectorSvg');
+        if (svgStage) {
+          svgStage.style.transform = `scale(${d.scaleX}, ${d.scaleY})`;
+        }
+      }
+
+      // Finish swatch picker
+      const finishCircles = document.querySelectorAll('.finish-circle');
+      const hullPlankTop = document.getElementById('hullPlankTop');
+
+      finishCircles.forEach(circle => {
+        circle.addEventListener('click', () => {
+          finishCircles.forEach(c => c.classList.remove('active'));
+          circle.classList.add('active');
+          const color = circle.dataset.color;
+          if (hullPlankTop) {
+            hullPlankTop.setAttribute('fill', color);
+          }
+        });
+      });
+
+      // Order configured vessel direct button
+      const btnOrderConfiguredVessel = document.getElementById('btnOrderConfiguredVessel');
+      if (btnOrderConfiguredVessel) {
+        btnOrderConfiguredVessel.addEventListener('click', () => {
+          const v = vesselData[activeVessel];
+          const activeFinish = document.querySelector('.finish-circle.active')?.dataset.name || 'Fjord Slate Blue';
+          const msg = `Halo Atelier HAVN Båtbyggeri, saya tertarik mengomisi perahu kustom:
+Model: ${v.name}
+Estimasi: ${v.price}
+Pigmen Lambung: ${activeFinish}
+Panjang LOA: ${v.loa}
+Mohon informasi jadwal kriya slipway.`;
+          window.open(`https://wa.me/6281244908812?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+      }
+
+      /* 6. Cart Drawer & WhatsApp Checkout */
+      const cartTriggerBtn = document.getElementById('cartTriggerBtn');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartOverlay = document.getElementById('cartOverlay');
+      const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+      const drawerItemsList = document.getElementById('drawerItemsList');
+      const drawerTotalText = document.getElementById('drawerTotalText');
+      const cartCountBadge = document.getElementById('cartCountBadge');
+      const btnCheckoutWhatsapp = document.getElementById('btnCheckoutWhatsapp');
+
+      let cart = [];
+
+      function toggleCart(open) {
+        if (!cartDrawer || !cartOverlay) return;
+        if (open) {
+          cartDrawer.classList.add('open');
+          cartOverlay.classList.add('open');
+        } else {
+          cartDrawer.classList.remove('open');
+          cartOverlay.classList.remove('open');
+        }
+      }
+
+      if (cartTriggerBtn) cartTriggerBtn.addEventListener('click', () => toggleCart(true));
+      if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', () => toggleCart(false));
+      if (cartOverlay) cartOverlay.addEventListener('click', () => toggleCart(false));
+
+      // Add to cart buttons
+      const addCartButtons = document.querySelectorAll('.btn-add-cart');
+      addCartButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const name = btn.dataset.name;
+          const price = parseInt(btn.dataset.price);
+
+          const existing = cart.find(item => item.id === id);
+          if (existing) {
+            existing.qty += 1;
+          } else {
+            cart.push({ id, name, price, qty: 1 });
+          }
+
+          updateCartUI();
+          toggleCart(true);
+        });
+      });
+
+      function updateCartUI() {
+        if (!drawerItemsList || !cartCountBadge || !drawerTotalText) return;
+
+        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCountBadge.textContent = totalItems;
+
+        if (cart.length === 0) {
+          drawerItemsList.innerHTML = '<div class="drawer-empty-msg">Keranjang belanja Anda masih kosong.</div>';
+          drawerTotalText.textContent = 'Rp 0';
+          return;
+        }
+
+        let totalPrice = 0;
+        let html = '';
+
+        cart.forEach((item, idx) => {
+          const subtotal = item.price * item.qty;
+          totalPrice += subtotal;
+          html += `
+            <div class="drawer-item-row">
+              <div>
+                <div style="font-weight: 600; color: var(--havn-abyss);">${item.name}</div>
+                <div style="color: var(--havn-fjord); font-size: 11px;">Rp ${item.price.toLocaleString('id-ID')} &times; ${item.qty}</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 600;">Rp ${subtotal.toLocaleString('id-ID')}</div>
+                <button class="remove-item-btn" data-idx="${idx}" style="background:none; border:none; color:#ff5252; cursor:pointer; font-size:10px;">Hapus</button>
+              </div>
+            </div>
+          `;
+        });
+
+        drawerItemsList.innerHTML = html;
+        drawerTotalText.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+
+        // Bind remove item buttons
+        const removeButtons = drawerItemsList.querySelectorAll('.remove-item-btn');
+        removeButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.dataset.idx);
+            cart.splice(idx, 1);
+            updateCartUI();
+          });
+        });
+      }
+
+      if (btnCheckoutWhatsapp) {
+        btnCheckoutWhatsapp.addEventListener('click', () => {
+          if (cart.length === 0) {
+            alert('Keranjang Anda masih kosong.');
+            return;
+          }
+
+          let itemsText = cart.map(i => `- ${i.name} (${i.qty}x) = Rp ${(i.price * i.qty).toLocaleString('id-ID')}`).join('\n');
+          const totalStr = drawerTotalText.textContent;
+
+          const msg = `Halo Galangan Kapal HAVN Båtbyggeri, saya ingin memesan perlengkapan maritim:
+${itemsText}
+
+Total: ${totalStr}
+Mohon konfirmasi ketersediaan dan ekspedisi peti kayu laut. Terima kasih!`;
+
+          window.open(`https://wa.me/6281244908812?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+      }
+
+      /* 7. Slipway Booking Form Submission */
+      const bookingForm = document.getElementById('bookingForm');
+      if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('bookName').value;
+          const phone = document.getElementById('bookPhone').value;
+          const type = document.getElementById('bookType').value;
+          const date = document.getElementById('bookDate').value;
+
+          const msg = `Halo Galangan HAVN, saya ingin reservasi kunjungan slipway:
+Nama: ${name}
+No. WA: ${phone}
+Keperluan: ${type}
+Pilihan Tanggal: ${date}
+Mohon konfirmasi slot jadwal dermaga.`;
+
+          window.open(`https://wa.me/6281244908812?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>

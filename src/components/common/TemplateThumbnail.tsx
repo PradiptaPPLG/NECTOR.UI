@@ -111,6 +111,7 @@ export const TemplateThumbnail: React.FC<Props> = ({
     'axis-mechanical-keyboards': 'https://axis.keyboards.nector.ui',
     'somna-sleep-sanctuary': 'https://somna.sleep.nector.ui',
     'koru-mineral-limewash': 'https://koru.limewash.nector.ui',
+    'havn-wooden-boatcraft': 'https://havn.boatcraft.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

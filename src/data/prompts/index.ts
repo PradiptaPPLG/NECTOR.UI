@@ -36,8 +36,10 @@ import { RESONANCE_AUDIO_MASTER_PROMPT } from './audioPrompt';
 import { AXIS_KEYBOARDS_MASTER_PROMPT } from './keyboardPrompt';
 import { SOMNA_SLEEP_MASTER_PROMPT } from './sleepPrompt';
 import { KORU_LIMEWASH_MASTER_PROMPT } from './interiorPrompt';
+import { HAVN_BOATCRAFT_MASTER_PROMPT } from './maritimePrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'havn-wooden-boatcraft': HAVN_BOATCRAFT_MASTER_PROMPT,
   'koru-mineral-limewash': KORU_LIMEWASH_MASTER_PROMPT,
   'somna-sleep-sanctuary': SOMNA_SLEEP_MASTER_PROMPT,
   'axis-mechanical-keyboards': AXIS_KEYBOARDS_MASTER_PROMPT,
@@ -113,4 +115,5 @@ export {
   AXIS_KEYBOARDS_MASTER_PROMPT,
   SOMNA_SLEEP_MASTER_PROMPT,
   KORU_LIMEWASH_MASTER_PROMPT,
+  HAVN_BOATCRAFT_MASTER_PROMPT,
 };

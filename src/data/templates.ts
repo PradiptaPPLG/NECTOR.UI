@@ -2702,6 +2702,92 @@ export function TanahLiatStudio() {
       { hex: '#D7C0AE', rgb: 'rgb(215, 192, 174)', name: 'Muted Clay Biscuit', role: 'Pigmen Tanah Lempung Terracotta, Border Kartu & Tab Filter Ruangan' },
       { hex: '#967E76', rgb: 'rgb(150, 126, 118)', name: 'Roasted Umber Wood', role: 'Pigmen Tanah Umber & Kayu, Tombol CTA Primer, Badge Elevasi & Header' }
     ]
+  },
+  {
+    id: 'tpl-37',
+    slug: 'havn-wooden-boatcraft',
+    title: 'HAVN (Atelier Kriya Perahu Kayu Pesisir, Layar Kanvas Katun & Arsitektur Maritim Klasik)',
+    tagline: 'Galangan perahu kayu kriya Skandinavia, simulator hidrodinamika gelombang garis air Canvas HTML5, dan kalkulator pengukusan iga ek',
+    description: 'Template website atelier kriya perahu kayu pesisir dan arsitektur maritim klasik dengan palet warna fjord arktik (#6096B4, #93BFCF, #BDCDD6, #EEE9DA). Dilengkapi simulator hidrodinamika garis air dan gelombang laut berbasis Canvas HTML5 dengan slider kecepatan berlayar (1.0-8.5 knots) dan skala kekuatan angin Beaufort (1-6) yang menghitung Froude number serta hambatan gelombang secara real-time, kalkulator waktu pengukusan iga kapal (steam box 100°C) berdasarkan ketebalan bilah dan elastisitas lignin serat kayu, konfigurator lambung perahu kustom (HAVN 15 Skiff, HAVN 12 Dory, HAVN 19 Cutter) dengan live pigment switching dan diagram vektor SVG, soundscape desau ombak Web Audio API, etalase 4 perlengkapan maritim kriya teruji (perahu Larch, dayung Sitka Spruce ukir tangan, kit pine tar Swedia, tas waxed canvas), formulir reservasi sea trial 60-menit, serta drawer keranjang belanja terintegrasi WhatsApp.',
+    category: 'maritime',
+    tags: ['Wooden Boatcraft', 'Nordic Shipyard', 'Lapstrake Clinker', 'Naval Architecture', 'Hydrodynamics', 'Steam Bending', 'Sitka Spruce Oars', 'Stockholm Pine Tar', 'Zero Composite Plastic'],
+    technologies: ['HTML5 Canvas', 'Vanilla CSS', 'Vanilla JS', 'Web Audio Ocean Synth', 'Wave Hydrodynamics Engine', 'Steam Box Timber Calculator', 'Vessel CAD Configurator', 'Direct WhatsApp Checkout'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'maritime-havn-boatcraft',
+    htmlPath: '/templates/maritime/havn-boatcraft.html',
+    htmlFolderPath: 'templates/maritime/havn-boatcraft.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau dependensi eksternal apa pun',
+      'Tangki uji hidrodinamika garis air berbasis Canvas HTML5 dengan fisika pitch & roll lambung perahu, slider kecepatan knots (1.0 - 8.5) dan skala angin Beaufort (1 - 6)',
+      'Tiga mode inspeksi hidrodinamika: Profil Samping Garis Air, Body Plan Gading Lunas, dan Vektor Aliran Tekanan',
+      'Kalkulator durasi pemanasan uap iga kapal (steam box 100°C) dengan 3 jenis kayu (Oak, Ash, Larch), kompensasi springback angle (°), dan deteksi keamanan retak serat',
+      'Konfigurator lambung perahu kustom (HAVN 15 Skiff, HAVN 12 Dory, HAVN 19 Cutter) dengan live pigment switching (#6096B4, #4A3326, #EEE9DA, #14212D) dan spesifikasi CAD',
+      'Generator suara desau ombak laut dingin berbasis Web Audio API murni (Pink Noise terfilter + LFO swell)',
+      'Etalase 4 produk maritim kriya nyata: Perahu Skiff 15, Dayung Spruce Ukir Tangan 2.4m, Kit Pine Tar & Minyak Rami Swedia, dan Tas Geladak Waxed Sailcloth 50L',
+      'Drawer keranjang belanja slide-over dengan kalkulasi total rupiah dan ekspor pemesanan langsung ke WhatsApp galangan',
+      'Formulir pendaftaran uji coba berlayar (Sea Trial 60 Menit) di Dermaga Slipway No. 4 Pelabuhan Bergen',
+      'Standar craft editorial antislop dengan palet maritim arktik (#6096B4, #93BFCF, #BDCDD6, #EEE9DA) dan tipografi Cormorant Garamond'
+    ],
+    usageInstructions: [
+      'Buka templates/maritime/havn-boatcraft.html di editor kode Anda.',
+      'Sesuaikan data perahu, spesifikasi dimensi, dan harga rupiah pada objek JavaScript di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan dan reservasi slipway dengan nomor kontak resmi galangan Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk etalase galangan kapal langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'havn-boatcraft.html',
+        language: 'html',
+        content: `<!-- HAVN (ハーヴン) — Nordic Wooden Boatcraft & Maritime Architecture -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>HAVN — Coastal Wooden Boatyard & Maritime Joinery</title>
+  <style>
+    :root {
+      --havn-canvas: #EEE9DA;
+      --havn-mist: #BDCDD6;
+      --havn-spray: #93BFCF;
+      --havn-fjord: #6096B4;
+      --havn-abyss: #14212D;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">POSISI: 60°23′44″ N, 05°19′38″ E • ANGIN: 14 KNOTS (BEAUFORT 4) • SIBERIAN LARCH & TEMBAGA SOLID</div>
+  <header>
+    <div class="brand">HAVN.</div>
+    <nav>Garis Air · Kukus Kayu · Konfigurator · Kriya Clinker · Etalase · Slipway</nav>
+  </header>
+  <!-- Full Interactive Wooden Boatyard: Wave Hydrodynamics Canvas, Steam Bending Engine, Vessel Builder & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier kriya perahu kayu pesisir dan arsitektur maritim klasik HAVN dengan palet warna Fjord Slate Blue (#6096B4), Coastal Mist Cerulean (#93BFCF), Sea Salt Driftwood Stone (#BDCDD6), dan Bleached Maritime Canvas (#EEE9DA). Dilengkapi simulator hidrodinamika garis air dan gelombang laut berbasis Canvas HTML5 dengan slider kecepatan berlayar (1.0-8.5 knots) dan skala kekuatan angin Beaufort (1-6) yang menghitung Froude number serta hambatan gelombang secara real-time, kalkulator waktu pengukusan iga kapal (steam box 100°C) berdasarkan ketebalan bilah dan elastisitas lignin serat kayu, konfigurator lambung perahu kustom (HAVN 15 Skiff, HAVN 12 Dory, HAVN 19 Cutter) dengan live pigment switching dan diagram vektor SVG, soundscape desau ombak Web Audio API, etalase 4 perlengkapan maritim kriya teruji (perahu Larch, dayung Sitka Spruce ukir tangan, kit pine tar Swedia, tas waxed canvas), formulir reservasi sea trial 60-menit, serta drawer keranjang belanja terintegrasi WhatsApp.',
+      designDirection: 'Nordic coastal boatyard & maritime joinery atelier berstandar antislop: Fjord Slate Blue (#6096B4), Coastal Mist Cerulean (#93BFCF), Sea Salt Driftwood Stone (#BDCDD6), Bleached Maritime Canvas (#EEE9DA), dan Deep Abyssal Navy-Charcoal (#14212D). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry bar koordinat lintang bujur dan pasang surut air, sticky header dengan brand mark segel jangkar H dan navigasi non-wrapping kokoh, hero asimetris 2 kolom dengan tangki uji hidrodinamika garis air Canvas HTML5 dinamis, panggung kalkulator pengukusan iga kayu ek 2 kolom, konfigurator perahu kustom dengan preview vektor SVG CAD live, grid 4 pilar kriya clinker joinery, etalase 4 perlengkapan maritim, dan formulir pendaftaran Sea Trial di dermaga slipway.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk kuratorial keanggunan arsitektur kapal klasik, Plus Jakarta Sans untuk teks bodi penjelasan hidrodinamika fluida dan kriya kayu, JetBrains Mono untuk koordinat lintang/bujur, kecepatan knots, skala Beaufort, dimensi LWL/Beam/Draft, Froude number, dan rincian harga rupiah.',
+      interactions: 'Tangki hidrodinamika Canvas HTML5 interaktif dengan respons pitch & roll lambung perahu terhadap kecepatan dan angin, kalkulator uap kayu interaktif dengan visualisasi status serat, konfigurator lambung perahu kustom dengan live pigment dan diagram vektor SVG, pemutar soundscape desau ombak Web Audio API, serta slide-over drawer keranjang belanja terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural wave & hull motion rendering Canvas HTML5, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#6096B4',
+    colorPalette: [
+      { hex: '#6096B4', rgb: 'rgb(96, 150, 180)', name: 'Fjord Slate Blue', role: 'Warna Primer Lambung Kapal, Tombol Aksi Utama, Border Tangki & Indikator' },
+      { hex: '#93BFCF', rgb: 'rgb(147, 191, 207)', name: 'Coastal Mist Cerulean', role: 'Kabut Pesisir, Vektor Aliran Fluida, Gelombang Air & Badge Telemetri' },
+      { hex: '#BDCDD6', rgb: 'rgb(189, 205, 214)', name: 'Sea Salt Driftwood Stone', role: 'Kayu Geladak Lapuk, Border Kartu Produk, Garis Pemisah & Slider Track' },
+      { hex: '#EEE9DA', rgb: 'rgb(238, 233, 218)', name: 'Bleached Maritime Canvas', role: 'Kanvas Latar Belakang Utama, Meja Gambar Loftsman & Tekstil Layar Katun' }
+    ]
   }
 ];
 

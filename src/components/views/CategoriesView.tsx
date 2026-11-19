@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'maritime',
+      title: 'Kriya Perahu & Arsitektur Maritim',
+      icon: Anchor,
+      desc: 'Galangan perahu kayu kriya Skandinavia & arsitektur maritim pesisir: simulator hidrodinamika gelombang garis air Canvas HTML5, kalkulator waktu kukus iga ek 100°C, konfigurator perahu lunas clinker, dan etalase kriya dayung Sitka Spruce.',
+      accent: '#6096B4'
+    },
     {
       id: 'interior',
       title: 'Plaster Mineral & Limewash Arsitektur',
