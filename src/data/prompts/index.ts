@@ -41,8 +41,10 @@ import { AURELIA_WATERCOLOR_MASTER_PROMPT } from './stationeryPrompt';
 import { LIGNUM_LUTHERIE_MASTER_PROMPT } from './lutheriePrompt';
 import { AEROVELO_CYCLING_MASTER_PROMPT } from './cyclingPrompt';
 import { FORJA_CUTLERY_MASTER_PROMPT } from './cutleryPrompt';
+import { LUMEN_GLASSCRAFT_MASTER_PROMPT } from './glasscraftPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'lumen-artisan-glasscraft': LUMEN_GLASSCRAFT_MASTER_PROMPT,
   'forja-damascus-cutlery': FORJA_CUTLERY_MASTER_PROMPT,
   'aerovelo-titanium-bicycles': AEROVELO_CYCLING_MASTER_PROMPT,
   'lignum-acoustic-lutherie': LIGNUM_LUTHERIE_MASTER_PROMPT,
@@ -128,4 +130,5 @@ export {
   LIGNUM_LUTHERIE_MASTER_PROMPT,
   AEROVELO_CYCLING_MASTER_PROMPT,
   FORJA_CUTLERY_MASTER_PROMPT,
+  LUMEN_GLASSCRAFT_MASTER_PROMPT,
 };

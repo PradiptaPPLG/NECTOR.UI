@@ -3135,6 +3135,92 @@ export function TanahLiatStudio() {
       { hex: '#A27B5C', rgb: 'rgb(162, 123, 92)', name: 'Roasted Chestnut Wa-Handle', role: 'Gagang Kayu Kastanye Bakar, Aksen CTA Utama, Sabuk Stropping & Harga Investasi' },
       { hex: '#DCD7C9', rgb: 'rgb(220, 215, 201)', name: 'Raw Linen Ecru', role: 'Kain Pembungkus Linen, Lumpur Bubuk Asahan Alami, Kotak Kiribako & Teks Lembut' }
     ]
+  },
+  {
+    id: 'tpl-42',
+    slug: 'lumen-artisan-glasscraft',
+    title: 'LUMEN (Atelier Kriya Kaca Tiup Borosilikat & Kristal Optik)',
+    tagline: 'Kaca tiup borosilikat manual 1.180°C, kristal Neodymium dikroik, dan simulator refraksi prisma caustics',
+    description: 'Template website atelier kriya kaca tiup borosilikat dan kristal optik LUMEN dengan palet warna Pale Glacial Aqua (#DEFCF9), Periwinkle Mist (#CADEFC), Neodymium Iris Lilac (#C3BEF0), dan Wisteria Amethyst (#CCA8E9). Dilengkapi simulator refraksi prisma optik dan dispersi kaustik spektral pelangi berbasis Canvas HTML5 dengan kontrol sudut datang sinar (15°-65°), ketebalan dinding kaca (2-12 mm), serta pergeseran warna dikroik Neodymium (Daylight 6500K vs Incandescent 2700K), konfigurator wadah kaca tiup kustom (Murano Decanter, Nordic Carafe, Prismatic Amphora, Glacial Goblet) dengan live SVG render dan grafir segel studio, kalkulator anil termal oven lehr (560°C - 510°C) berdasarkan ketebalan kaca, generator audio dengkringan kristal bernyanyi Web Audio API, etalase 4 karya kaca tiup master, drawer keranjang belanja terintegrasi WhatsApp, dan reservasi workshop tiup kaca privat.',
+    category: 'glasscraft',
+    tags: ['Glassblowing', 'Borosilicate Glass', 'Dichroic Glass', 'Neodymium Crystal', 'Hot Glass', 'Optic Ribbed', 'Lehr Annealing', 'Artisan Glassware', 'Prismatic Refraction'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Canvas HTML5 Prism Engine', 'Web Audio API Crystal Synthesizer', 'Bespoke Vessel SVG Configurator', 'Anneal Curve Calculator', 'Slide-Over Cart Drawer', 'WhatsApp Concierge'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'glasscraft-lumen',
+    htmlPath: '/templates/glasscraft/lumen-glasscraft.html',
+    htmlFolderPath: 'templates/glasscraft/lumen-glasscraft.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step, node_modules, atau framework pihak ketiga',
+      'Simulator refraksi prisma optik & dispersi kaustik spektral pelangi Canvas HTML5 interaktif dengan Hukum Snellius (n=1.524), kontrol sudut datang (15°-65°) & ketebalan kaca (2-12 mm)',
+      'Simulasi fenomena bunglon dikroik Neodymium interaktif yang berubah dari Iris Lilac (#C3BEF0) di siang hari menjadi Wisteria Amethyst (#CCA8E9) di bawah lampu pijar',
+      'Konfigurator wadah kaca tiup 4 siluet (Murano Decanter, Nordic Carafe, Amphora Vase, Goblet Pair) dengan 4 warna kaca, 4 tekstur optik, dan grafir segel studio live SVG',
+      'Kalkulator termodinamika siklus pendinginan anil oven lehr untuk melepaskan tegangan kisi kristal internal berdasarkan ketebalan dinding kaca',
+      'Generator efek audio dengkringan nada kristal bernyanyi murni (587.33 Hz / D5) Web Audio API dengan LFO vibrato lembut dan kontrol hening/aktif',
+      'Etalase 4 karya kaca tiup master: Neodymium Carafe Set, Prismatic Botanical Glass Orb, Fluted Glacial Stemware, dan Wisteria Ribbed Amphora Vase',
+      'Drawer keranjang belanja slide-over dengan penyesuaian kuantitas, kalkulasi subtotal otomatis, dan ekspor pesanan rapi ke WhatsApp studio',
+      'Formulir pendaftaran sesi privat workshop tiup kaca hands-on (120 Menit) bersama master glassblower di Dago Pakar Bandung',
+      'Standar craft editorial antislop dengan palet warna kristal pastel (#DEFCF9, #CADEFC, #C3BEF0, #CCA8E9) dan tipografi Cormorant Garamond & JetBrains Mono'
+    ],
+    usageInstructions: [
+      'Buka templates/glasscraft/lumen-glasscraft.html di editor kode Anda.',
+      'Sesuaikan data wadah kaca, tekstur optik, dan harga rupiah pada objek JavaScript di dalam tag <script>.',
+      'Ganti nomor WhatsApp pemesanan dan reservasi workshop dengan nomor kontak resmi atelier kaca Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk etalase atelier kaca tiup langsung beroperasi.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'lumen-glasscraft.html',
+        language: 'html',
+        content: `<!-- LUMEN — Atelier Kriya Kaca Tiup Borosilikat & Kristal Optik Neodymium -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>LUMEN — Borosilicate Glass & Dichroic Atelier</title>
+  <style>
+    :root {
+      --lumen-aqua: #DEFCF9;
+      --lumen-sky: #CADEFC;
+      --lumen-lilac: #C3BEF0;
+      --lumen-wisteria: #CCA8E9;
+      --lumen-ink: #1F1A3A;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">STATUS: STUDIO KACA TIUP AKTIF • TUNGKU: 1.180°C • LEHR: 520°C • BOROSILIKAT 3.3 (COE 33)</div>
+  <header>
+    <div class="brand">LUMEN</div>
+    <nav>Prisma Caustic · Konfigurator Kaca · Termal Lehr · Sains Neodymium · Koleksi Master · Workshop Tiup</nav>
+  </header>
+  <!-- Full Interactive Glasscraft Atelier: Prism Caustic Canvas, Vessel SVG Config, Lehr Calc & Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website atelier kriya kaca tiup borosilikat dan kristal optik LUMEN dengan palet warna Pale Glacial Aqua (#DEFCF9), Periwinkle Mist (#CADEFC), Neodymium Iris Lilac (#C3BEF0), dan Wisteria Amethyst (#CCA8E9). Dilengkapi simulator refraksi prisma optik dan dispersi kaustik spektral pelangi berbasis Canvas HTML5 dengan Hukum Snellius (n=1.524), kontrol sudut datang sinar (15°-65°), ketebalan dinding kaca (2-12 mm), serta pergeseran warna dikroik Neodymium (Daylight 6500K vs Incandescent 2700K), konfigurator wadah kaca tiup kustom (Murano Decanter, Nordic Carafe, Prismatic Amphora, Glacial Goblet) dengan live SVG render dan grafir segel studio, kalkulator anil termal oven lehr (560°C - 510°C) berdasarkan ketebalan kaca, generator audio dengkringan kristal bernyanyi Web Audio API, etalase 4 karya kaca tiup master (Neodymium Carafe Set, Prismatic Botanical Orb, Fluted Glacial Stemware, Wisteria Ribbed Amphora), formulir reservasi workshop tiup kaca privat 120-menit, serta drawer keranjang belanja terintegrasi WhatsApp.',
+      designDirection: 'Master glassblower & optical glasscraft atelier berstandar antislop: Pale Glacial Aqua (#DEFCF9), Periwinkle Mist Sky (#CADEFC), Neodymium Iris Lilac (#C3BEF0), Wisteria Amethyst Petal (#CCA8E9), dan Deep Midnight Nocturne Plum Ink (#1F1A3A). Tipografi Cormorant Garamond, Plus Jakarta Sans, dan JetBrains Mono.',
+      layoutAndGrid: 'Top telemetry bar studio kaca dengan suhu tungku 1.180°C dan indeks refraksi n=1.524 real-time, sticky header dengan brand mark kristal prisma L dan navigasi non-wrapping kokoh, hero asimetris 2 kolom dengan panggung simulator prisma kaustik dinamis, konfigurator wadah kaca tiup 4 siluet dengan live SVG rendering, kalkulator siklus anil lehr 2 kolom, grid 4 pilar sains kaca borosilikat, etalase 4 karya kristal tiup master teruji, dan formulir reservasi workshop di Dago Pakar Bandung.',
+      typographyAndColor: 'Cormorant Garamond untuk tajuk kuratorial keanggunan seni kaca tiup, Plus Jakarta Sans untuk teks bodi penjelasan termodinamika anil dan sifat serapan Neodymium 580nm, JetBrains Mono untuk indeks refraksi optik (n=1.524), koefisien ekspansi (COE 33), sudut datang (°), durasi jam lehr, mililiter volume, dan rincian harga rupiah.',
+      interactions: 'Simulator berkas prisma dan dispersi pelangi spektral Canvas HTML5 interaktif dengan pengalih siang/malam, konfigurator wadah kaca tiup dengan live SVG visualizer dan grafir studio, kalkulator durasi anil lehr oven, synthesizer audio dengkringan kristal Web Audio API, serta slide-over drawer keranjang belanja terintegrasi WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, procedural optical Snell refraction raytracing physics Canvas HTML5, fully responsive smartphone hingga layar desktop besar.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-19',
+    livePreviewAvailable: true,
+    accentColor: '#CCA8E9',
+    colorPalette: [
+      { hex: '#DEFCF9', rgb: 'rgb(222, 252, 249)', name: 'Pale Glacial Aqua', role: 'Kaca Kristal Es Mint, Latar Refraksi, Highlight Kilau Prisma & Aksen Goblet' },
+      { hex: '#CADEFC', rgb: 'rgb(202, 222, 252)', name: 'Periwinkle Mist Sky', role: 'Langit Fajar, Kaca Optik Bersirip, Border Kartu Spesifikasi & Garis Refraksi' },
+      { hex: '#C3BEF0', rgb: 'rgb(195, 190, 240)', name: 'Neodymium Iris Lilac', role: 'Kaca Dikroik Neodymium Cahaya Siang 6500K, Tab Seleksi & Bingkai Wadah' },
+      { hex: '#CCA8E9', rgb: 'rgb(204, 168, 233)', name: 'Wisteria Amethyst Petal', role: 'Kaca Dikroik Cahaya Malam 2700K, Tombol CTA Utama, Monogram & Harga' }
+    ]
   }
 ];
 

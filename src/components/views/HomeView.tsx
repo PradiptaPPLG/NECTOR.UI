@@ -28,6 +28,7 @@ export const HomeView: React.FC<Props> = ({
 
   // Prominent hero showcase plates across real templates
   const heroShowcaseList = [
+    templates.find(t => t.slug === 'lumen-artisan-glasscraft') || templates[0],
     templates.find(t => t.slug === 'forja-damascus-cutlery') || templates[0],
     templates.find(t => t.slug === 'aerovelo-titanium-bicycles') || templates[0],
     templates.find(t => t.slug === 'lignum-acoustic-lutherie') || templates[0],
@@ -49,6 +50,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'glasscraft', label: 'Kaca Tiup Borosilikat & Kristal Neodymium', count: templates.filter(t => t.category === 'glasscraft').length, desc: 'Atelier kriya kaca tiup 1.180°C & kristal optik Neodymium dikroik: simulator refraksi prisma spektral Canvas HTML5, kalkulator anil oven lehr, dan konfigurator wadah SVG' },
     { id: 'cutlery', label: 'Pisau Tempa Damaskus & Asahan Alami', count: templates.filter(t => t.category === 'cutlery').length, desc: 'Atelier pisau dapur tempa tangan 67 lapis damaskus & lab asahan batu alami: simulator Suminagashi & Hamaguri Canvas HTML5, konfigurator Wa-Handle & CAD 4 geometri bilah' },
     { id: 'cycling', label: 'Sepeda Balap Titanium & Terowongan Angin', count: templates.filter(t => t.category === 'cycling').length, desc: 'Atelier sepeda balap titanium kustom Grade-9 & lab aerodinamika: simulator streamline CdA Canvas HTML5, kalkulator biomekanika stack & reach, konfigurator 3 platform, dan soundscape Web Audio' },
     { id: 'lutherie', label: 'Gitar Akustik Solid & Lutherie', count: templates.filter(t => t.category === 'lutherie').length, desc: 'Atelier kriya gitar akustik kayu solid & laboratorium tonewood: simulator resonansi Chladni Canvas HTML5, kalkulator kecepatan suara & konfigurator bodi pre-war' },
