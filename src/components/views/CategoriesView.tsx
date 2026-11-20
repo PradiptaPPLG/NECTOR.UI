@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'terrarium',
+      title: 'Terrarium Kaca & Lumut Meja',
+      icon: Leaf,
+      desc: 'Atelier ekosistem mikro terrarium kaca tertutup minim siram, sukulen geometris meja kerja, studio perakit terrarium 2D kustom, kalkulator jadwal siram, dan pemesanan WhatsApp instan.',
+      accent: '#AACB73'
+    },
+    {
       id: 'tumbler',
       title: 'Botol Termos & Tumbler Grafir',
       icon: GlassWater,

@@ -61,8 +61,10 @@ import { puddingMasterPrompt } from './puddingPrompt';
 import { popsicleMasterPrompt } from './popsiclePrompt';
 import { scarfMasterPrompt } from './scarfPrompt';
 import { tumblerMasterPrompt } from './tumblerPrompt';
+import { terrariumMasterPrompt } from './terrariumPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'kebun-kaca-terrarium-lumut': terrariumMasterPrompt,
   'tirta-kelana-botol-termos': tumblerMasterPrompt,
   'kirana-scarf-hijab-voal': scarfMasterPrompt,
   'sejuk-ria-es-stik-buah': popsicleMasterPrompt,

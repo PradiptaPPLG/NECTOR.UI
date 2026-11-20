@@ -3,6 +3,83 @@ import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
+    id: 'tpl-62',
+    slug: 'kebun-kaca-terrarium-lumut',
+    title: 'KEBUN KACA',
+    tagline: 'Atelier terrarium kaca lumut hidup, sukulen meja kerja & ekosistem hutan Nusantara',
+    description: 'Template website atelier terrarium kaca lumut hutan hidup (cushion moss) dan miniatur ekosistem tanaman hias meja kerja (KEBUN KACA). Dirancang dengan standar anti-slop tinggi yang berfokus murni pada produk fisik nyata: studio perakit terrarium 2D kustom interaktif (kubah bell jar, toples silinder gabus, atau geometris piramida), kalkulator frekuensi semprot air dan intensitas cahaya ruangan, swatch palet warna resmi atelier klik-salin hex instan, panduan strata lapisan media tanam sehat, katalog toples kaca siap kirim bergaransi utuh sampai tujuan, serta drawer tas belanja terhubung langsung ke WhatsApp Admin.',
+    category: 'terrarium',
+    tags: ['Terrarium Kaca', 'Lumut Hutan Hidup', 'Closed Terrarium', 'Sukulen Meja', 'Kokedama', 'Kado Ramah Lingkungan', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Terrarium Studio 2D', 'Watering Calculator', 'Layer Inspector', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'terrarium',
+    previewComponentKey: 'terrarium-kebun-kaca',
+    htmlPath: '/templates/terrarium/kebun-kaca-terrarium-lumut.html',
+    htmlFolderPath: 'templates/terrarium/kebun-kaca-terrarium-lumut.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
+      'Palet warna harmoni botani resmi: sakura rose quartz (#FFD4D4), pale jasmine ivory (#FFFFE8), sprout spring green (#CDE990), dan earthy sage olive (#AACB73)',
+      'Latar kanvas bertekstur micro-pattern dot grid botanikal halus yang asri, hangat, dan tidak monoton',
+      'Studio perakit terrarium 2D interaktif dengan pemilihan wadah kaca, tipe ekosistem hutan vs gurun, dan batu kristal aksen',
+      'Kalkulator kebutuhan cahaya & jadwal semprot air ruangan (ruang AC vs dekat jendela)',
+      'Swatch bar palet warna resmi atelier dengan fitur salin kode hex dan nilai RGB sekali klik ke clipboard',
+      'Katalog lengkap terrarium tertutup, geometris terbuka, kokedama lumut, hingga DIY kit merakit lengkap',
+      'Drawer keranjang belanja slide-over dengan generator format pesan pesanan WhatsApp otomatis'
+    ],
+    usageInstructions: [
+      'Buka berkas public/templates/terrarium/kebun-kaca-terrarium-lumut.html di text editor pilihan Anda.',
+      'Ubah daftar model toples kaca, ukuran diameter/tinggi, dan harga produk sesuai katalog atelier Anda.',
+      'Sesuaikan nomor WhatsApp admin pada fungsi checkout untuk menerima pesanan langsung dari pelanggan.',
+      'Buka langsung di browser atau uji responsivitasnya melalui etalase NECTOR.UI.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'kebun-kaca-terrarium-lumut.html',
+        language: 'html',
+        content: `<!-- KEBUN KACA — NECTOR.UI Urban Terrarium & Moss Atelier Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KEBUN KACA — Atelier Terrarium Kaca Lumut Hidup & Ekosistem Meja Kerja Nusantara</title>
+  <style>
+    :root {
+      --color-rose: #FFD4D4;
+      --color-ivory: #FFFFE8;
+      --color-sprout: #CDE990;
+      --color-olive: #AACB73;
+      --color-ink: #1E2D1A;
+    }
+  </style>
+</head>
+<body>
+  <h1>KEBUN KACA</h1>
+  <p>Atelier ekosistem mikro terrarium kaca lumut hidup dan sukulen meja kerja.</p>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS lengkap dengan terrarium studio, watering calculator, dan checkout WhatsApp.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt untuk website e-commerce atelier terrarium kaca lumut hidup KEBUN KACA berkonsep closed terrarium minim perawatan, sukulen meja kerja, kokedama & kado hijau.',
+      designDirection: 'Dominasi warna asri dan teduh: sakura rose quartz (#FFD4D4), pale jasmine ivory (#FFFFE8), sprout spring green (#CDE990), dan earthy sage olive (#AACB73). Latar kanvas bermotif mikro dot grid botani halus dengan kontras teks arang lumut gelap (#1E2D1A) berstandar AAA (> 12:1).',
+      layoutAndGrid: 'Asymmetric editorial hero grid dengan fotografi terrarium nyata, swatch bar warna klik-salin hex, studio perakit terrarium 2D kustom, kalkulator jadwal siram ruangan, dan katalog filter model.',
+      typographyAndColor: 'Headings dalam Plus Jakarta Sans bold yang bersahabat dan segar, body teks dalam Plus Jakarta Sans yang bersih, spesifikasi dimensi cm dan harga dalam JetBrains Mono.',
+      interactions: 'Studio perakit terrarium 2D dengan pilihan toples kaca dan kristal aksen live, kalkulator siram otomatis, swatch bar klik-salin hex, dan drawer keranjang WhatsApp.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, zero dependencies, valid W3C markup.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#AACB73',
+    colorPalette: [
+      { hex: '#FFD4D4', rgb: 'rgb(255, 212, 212)', name: 'Sakura Rose Quartz', role: 'Warna Aksen Batu Kristal Mawar Alami & Badge Sorotan' },
+      { hex: '#FFFFE8', rgb: 'rgb(255, 255, 232)', name: 'Pale Jasmine Ivory', role: 'Warna Latar Kanvas Hangat & Pasir Silika Putih' },
+      { hex: '#CDE990', rgb: 'rgb(205, 233, 144)', name: 'Sprout Spring Green', role: 'Warna Lumut Muda Segar & Daun Fittonia Tropis' },
+      { hex: '#AACB73', rgb: 'rgb(170, 203, 115)', name: 'Earthy Sage Olive', role: 'Warna Utama Lumut Hutan, Border & Tombol Aksi' },
+    ],
+  },
+  {
     id: 'tpl-61',
     slug: 'tirta-kelana-botol-termos',
     title: 'TIRTA KELANA',

@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KEBUN KACA — Atelier Terrarium Kaca Lumut Hidup & Ekosistem Meja Kerja Nusantara</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET & BASE */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* PALET UTAMA SESUAI FOTO REFERENSI */
+      --color-rose: #FFD4D4;       /* rgb(255, 212, 212) - Sakura Rose Quartz */
+      --color-ivory: #FFFFE8;      /* rgb(255, 255, 232) - Pale Jasmine Ivory */
+      --color-sprout: #CDE990;     /* rgb(205, 233, 144) - Sprout Spring Green */
+      --color-olive: #AACB73;      /* rgb(170, 203, 115) - Earthy Sage Olive */
+
+      /* TEKS, BORDER & KONTRAS TINGGI AAA */
+      --color-ink: #1E2D1A;        /* rgb(30, 45, 26) - Deep Forest Moss Charcoal (AAA > 12:1) */
+      --color-ink-muted: #4B6344;
+      --color-ink-faint: #789470;
+      --color-olive-darker: #5B7B2B;
+      --color-border: #DCE8C8;
+      --color-border-light: #EEF5E4;
+      --color-white: #FFFFFF;
+      --color-card-bg: #FFFFFF;
+
+      /* FONTS */
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* RADIUS & SHADOWS */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 2px 8px rgba(30, 45, 26, 0.04);
+      --shadow-md: 0 8px 24px rgba(30, 45, 26, 0.08);
+      --shadow-lg: 0 16px 40px rgba(30, 45, 26, 0.12);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-ivory);
+      /* Inovasi background motif dot-grid botanikal halus agar tidak monoton */
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(170, 203, 115, 0.18) 1.5px, transparent 1.5px),
+        linear-gradient(to right, rgba(205, 233, 144, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(205, 233, 144, 0.12) 1px, transparent 1px);
+      background-size: 32px 32px, 64px 64px, 64px 64px;
+      color: var(--color-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* TOP ANNOUNCEMENT */
+    .top-bar {
+      background-color: var(--color-ink);
+      color: var(--color-ivory);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 9px 16px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .top-bar strong {
+      color: var(--color-sprout);
+      font-weight: 700;
+    }
+
+    /* NAVIGATION */
+    .site-header {
+      background: rgba(255, 255, 232, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 76px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--color-ink);
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-olive-darker);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--color-olive-darker);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-cart-trigger {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-ink);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .btn-cart-trigger:hover {
+      border-color: var(--color-olive);
+      color: var(--color-olive-darker);
+      transform: translateY(-1px);
+    }
+
+    .cart-count-badge {
+      background: var(--color-olive);
+      color: var(--color-ink);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-pretitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-olive-darker);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-title {
+      font-size: 44px;
+      line-height: 1.18;
+      font-weight: 800;
+      color: var(--color-ink);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--color-olive-darker);
+      background: linear-gradient(120deg, var(--color-olive-darker) 0%, #355320 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--color-ink-muted);
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background: var(--color-olive);
+      color: var(--color-ink);
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(170, 203, 115, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-olive-darker);
+      color: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(91, 123, 43, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      color: var(--color-ink);
+      padding: 14px 26px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-olive);
+      color: var(--color-olive-darker);
+      transform: translateY(-2px);
+    }
+
+    .hero-guarantees {
+      display: flex;
+      gap: 28px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+    }
+
+    .guarantee-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .guarantee-val {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .guarantee-lbl {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+      font-weight: 600;
+    }
+
+    /* HERO VISUAL CARD */
+    .hero-visual-card {
+      position: relative;
+      background: var(--color-white);
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--color-ivory);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-visual-card:hover .hero-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hbf-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .hbf-sub {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+      font-weight: 500;
+    }
+
+    .hbf-tag {
+      background: var(--color-sprout);
+      border: 1px solid var(--color-olive);
+      color: var(--color-ink);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    /* PALETTE SWATCH BANNER (SESUAI GAMBAR FOTO) */
+    .palette-banner-section {
+      padding: 24px 0 48px;
+    }
+
+    .palette-card-box {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .palette-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .pch-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .pch-sub {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+    }
+
+    .pch-tip {
+      font-size: 12px;
+      color: var(--color-olive-darker);
+      font-weight: 700;
+    }
+
+    .palette-stacked-strip {
+      display: flex;
+      height: 72px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .palette-strip-col {
+      flex: 1;
+      height: 100%;
+      transition: flex 0.3s ease;
+      cursor: pointer;
+    }
+
+    .palette-strip-col:hover {
+      flex: 1.4;
+    }
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .swatch-item-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--color-ivory);
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .swatch-item-card:hover {
+      border-color: var(--color-olive);
+      background: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .swatch-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--color-white);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+
+    .swatch-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .swatch-hex {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-ink);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch-rgb {
+      font-size: 11px;
+      color: var(--color-ink-faint);
+    }
+
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* INTERACTIVE TERRARIUM STUDIO (CLEAN 2D - NO 3D GIMMICK) */
+    .studio-section {
+      padding: 56px 0;
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--color-olive-darker);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--color-ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--color-ink-muted);
+    }
+
+    .terrarium-studio-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 40px;
+    }
+
+    .studio-controls-pane {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .ctrl-group-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+      margin-bottom: 10px;
+    }
+
+    .glass-shape-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .shape-btn {
+      padding: 12px 10px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-ivory);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .shape-btn:hover {
+      border-color: var(--color-olive);
+      background: var(--color-white);
+    }
+
+    .shape-btn.active {
+      border-color: var(--color-olive-darker);
+      background: var(--color-white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sb-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .sb-sub {
+      font-size: 11px;
+      color: var(--color-ink-muted);
+    }
+
+    .plant-type-selection {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .plant-opt-card {
+      padding: 14px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-ivory);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .plant-opt-card.active {
+      border-color: var(--color-olive);
+      background: var(--color-white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .poc-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .poc-desc {
+      font-size: 11px;
+      color: var(--color-ink-muted);
+      margin-top: 4px;
+    }
+
+    .accent-crystals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .crystal-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      background: var(--color-white);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-ink);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .crystal-btn.active {
+      border-color: var(--color-olive);
+      background: var(--color-ivory);
+    }
+
+    .cb-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    /* 2D VISUAL STAGE */
+    .terrarium-preview-stage {
+      background: var(--color-ivory);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tps-header {
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tps-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .tps-price {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-olive-darker);
+    }
+
+    .tps-visual-box {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 220px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .tps-visual-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tps-layer-indicator {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(30, 45, 26, 0.85);
+      color: var(--color-ivory);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+    }
+
+    .tps-specs-table {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tps-spec-cell {
+      background: var(--color-white);
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border-light);
+    }
+
+    .tps-spec-lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-ink-faint);
+    }
+
+    .tps-spec-val {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .btn-add-studio-terrarium {
+      width: 100%;
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      padding: 14px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-studio-terrarium:hover {
+      background: var(--color-olive-darker);
+      color: var(--color-white);
+    }
+
+    /* WATERING & LIGHT CALCULATOR */
+    .calc-section {
+      padding: 56px 0;
+    }
+
+    .calc-card-box {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .calc-form-pane {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .calc-select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-family: inherit;
+      background: var(--color-ivory);
+      color: var(--color-ink);
+      outline: none;
+    }
+
+    .calc-result-pane {
+      background: var(--color-ivory);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+
+    .crp-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--color-olive-darker);
+      background: var(--color-sprout);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+    }
+
+    .crp-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-ink);
+      margin-bottom: 8px;
+    }
+
+    .crp-frequency {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--color-olive-darker);
+      margin-bottom: 12px;
+    }
+
+    .crp-instruction {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.6;
+    }
+
+    /* CATALOG SECTION */
+    .catalog-section {
+      padding: 56px 0;
+    }
+
+    .catalog-filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      color: var(--color-ink-muted);
+      transition: all 0.2s ease;
+    }
+
+    .filter-tab-btn:hover {
+      border-color: var(--color-olive);
+      color: var(--color-olive-darker);
+    }
+
+    .filter-tab-btn.active {
+      background: var(--color-olive);
+      border-color: var(--color-olive);
+      color: var(--color-ink);
+      box-shadow: 0 3px 10px rgba(170, 203, 115, 0.35);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-olive);
+    }
+
+    .pc-img-wrap {
+      position: relative;
+      aspect-ratio: 1/1;
+      background: var(--color-ivory);
+      overflow: hidden;
+    }
+
+    .pc-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .pc-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .pc-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--color-white);
+      color: var(--color-olive-darker);
+      border: 1px solid var(--color-sprout);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pc-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .pc-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-ink);
+      margin-bottom: 6px;
+    }
+
+    .pc-desc {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .pc-specs {
+      display: flex;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--color-ink-faint);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border-light);
+      font-weight: 600;
+    }
+
+    .pc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pc-price {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .btn-add-cart-sm {
+      background: var(--color-ivory);
+      border: 1px solid var(--color-border);
+      color: var(--color-ink);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-cart-sm:hover {
+      background: var(--color-olive);
+      border-color: var(--color-olive);
+      color: var(--color-ink);
+    }
+
+    /* CARE GUIDE SECTION */
+    .care-section {
+      padding: 56px 0;
+    }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .care-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .care-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .care-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-ink);
+      margin-bottom: 8px;
+    }
+
+    .care-desc {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      padding: 64px 0 32px;
+      margin-top: 64px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: var(--color-sprout);
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    .footer-col-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-olive);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--color-ivory);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-sprout);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--color-ink-faint);
+    }
+
+    /* SHOPPING CART DRAWER */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(30, 45, 26, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -460px;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background: var(--color-white);
+      box-shadow: -8px 0 32px rgba(30, 45, 26, 0.15);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease;
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dh-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .btn-close-drawer {
+      font-size: 22px;
+      color: var(--color-ink-muted);
+      padding: 4px;
+      cursor: pointer;
+    }
+
+    .drawer-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .cir-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--color-ivory);
+    }
+
+    .cir-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cir-details {
+      flex-grow: 1;
+    }
+
+    .cir-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .cir-meta {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+    }
+
+    .cir-price {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--color-olive-darker);
+      margin-top: 4px;
+    }
+
+    .cir-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .btn-qty {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .cir-qty-val {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-ivory);
+    }
+
+    .drawer-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .dtr-lbl {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--color-ink);
+    }
+
+    .dtr-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-olive-darker);
+    }
+
+    .form-buyer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .form-buyer-info input {
+      padding: 9px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    .btn-whatsapp-checkout {
+      width: 100%;
+      background: #25D366;
+      color: #FFFFFF;
+      padding: 14px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-whatsapp-checkout:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+    }
+
+    /* TOAST */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--color-ink);
+      color: var(--color-ivory);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      z-index: 2000;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-grid, .terrarium-studio-card, .calc-card-box {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .swatches-grid, .care-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 32px;
+      }
+      .swatches-grid, .glass-shape-grid, .plant-type-selection, .accent-crystals-grid, .product-grid, .care-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement -->
+  <div class="top-bar">
+    <span>Garansi Kaca Utuh <strong>100% Sampai Tujuan</strong> • Gratis Pipet Penyiram & Pinset Logam • Pengiriman Seluruh Indonesia</span>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="brand-wrap">
+        <a href="#" class="brand-name">KEBUN KACA</a>
+        <span class="brand-sub">Atelier Terrarium Lumut & Sukulen Meja</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#koleksi" class="nav-link">Koleksi Terrarium</a></li>
+        <li><a href="#studio-kustom" class="nav-link">Studio Perakit Kustom</a></li>
+        <li><a href="#kalkulator-siram" class="nav-link">Kalkulator Siram</a></li>
+        <li><a href="#perawatan" class="nav-link">Panduan Ekosistem</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-cart-trigger" onclick="toggleCart()">
+          <span>Tas Belanja</span>
+          <span class="cart-count-badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-text-col">
+        <div class="hero-pretitle">
+          <span>🌿</span>
+          <span>Miniatur Ekosistem Hutan Mandiri</span>
+        </div>
+        <h1 class="hero-title">
+          Hadirkan Sejuknya Hutan Lumut Alami di Meja Kerja <em>Tanpa Repot Menyiram</em> Setiap Hari
+        </h1>
+        <p class="hero-desc">
+          Terrarium kaca tertutup yang membentuk siklus embun alami mandiri: lumut cushion moss segar dan fittonia tropis hidup subur hanya dengan semprotan air satu bulan sekali. Diperkaya batu kristal kuarsa mawar pink alami sebagai penyeimbang energi meja kerja.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#studio-kustom" class="btn-primary">
+            <span>Rakit Terrarium Meja</span>
+            <span>→</span>
+          </a>
+          <a href="#koleksi" class="btn-secondary">
+            <span>Lihat Koleksi Siap Kirim</span>
+          </a>
+        </div>
+
+        <div class="hero-guarantees">
+          <div class="guarantee-item">
+            <span class="guarantee-val mono">1 Bulan</span>
+            <span class="guarantee-lbl">Frekuensi Siram Minimal</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-val mono">100%</span>
+            <span class="guarantee-lbl">Lumut Hutan Asli Hidup</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-val mono">Aman</span>
+            <span class="guarantee-lbl">Garansi Pengiriman Kaca</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-col">
+        <div class="hero-visual-card">
+          <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1200&q=80" alt="Terrarium Kaca Lumut Meja Kerja Kebun Kaca" loading="lazy" referrerpolicy="no-referrer">
+          </div>
+          <div class="hero-badge-float">
+            <div>
+              <div class="hbf-title">Kubah Lumut Bell Jar Signature</div>
+              <div class="hbf-sub">Diameter 14 cm • Kaca Borosilikat Bening</div>
+            </div>
+            <span class="hbf-tag">Siap Kirim</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Palette Swatch Banner (Sesuai Foto Unggahan) -->
+  <section class="palette-banner-section">
+    <div class="container">
+      <div class="palette-card-box">
+        <div class="palette-card-header">
+          <div>
+            <h2 class="pch-title">Palet Harmoni Warna Koleksi Botani Kebun Kaca</h2>
+            <p class="pch-sub">Kombinasi warna sakura pink, krem melati, hijau lumut muda, dan sage olive yang menenangkan mata dan pikiran.</p>
+          </div>
+          <span class="pch-tip">Klik buletan atau kode warna untuk menyalin HEX instan</span>
+        </div>
+
+        <!-- The stacked strip resembling the uploaded screenshot -->
+        <div class="palette-stacked-strip">
+          <div class="palette-strip-col" style="background-color: #FFD4D4;" onclick="copyHex('#FFD4D4')" title="Sakura Rose Quartz (#FFD4D4)"></div>
+          <div class="palette-strip-col" style="background-color: #FFFFE8;" onclick="copyHex('#FFFFE8')" title="Pale Jasmine Ivory (#FFFFE8)"></div>
+          <div class="palette-strip-col" style="background-color: #CDE990;" onclick="copyHex('#CDE990')" title="Sprout Spring Green (#CDE990)"></div>
+          <div class="palette-strip-col" style="background-color: #AACB73;" onclick="copyHex('#AACB73')" title="Earthy Sage Olive (#AACB73)"></div>
+        </div>
+
+        <!-- Swatches Grid -->
+        <div class="swatches-grid">
+          <div class="swatch-item-card" onclick="copyHex('#FFD4D4')">
+            <div class="swatch-circle" style="background-color: #FFD4D4;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#FFD4D4 ⧉</span>
+              <span class="swatch-rgb mono">rgb(255, 212, 212)</span>
+              <span class="swatch-name">Sakura Rose Quartz</span>
+            </div>
+          </div>
+
+          <div class="swatch-item-card" onclick="copyHex('#FFFFE8')">
+            <div class="swatch-circle" style="background-color: #FFFFE8;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#FFFFE8 ⧉</span>
+              <span class="swatch-rgb mono">rgb(255, 255, 232)</span>
+              <span class="swatch-name">Pale Jasmine Ivory</span>
+            </div>
+          </div>
+
+          <div class="swatch-item-card" onclick="copyHex('#CDE990')">
+            <div class="swatch-circle" style="background-color: #CDE990;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#CDE990 ⧉</span>
+              <span class="swatch-rgb mono">rgb(205, 233, 144)</span>
+              <span class="swatch-name">Sprout Spring Green</span>
+            </div>
+          </div>
+
+          <div class="swatch-item-card" onclick="copyHex('#AACB73')">
+            <div class="swatch-circle" style="background-color: #AACB73;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#AACB73 ⧉</span>
+              <span class="swatch-rgb mono">rgb(170, 203, 115)</span>
+              <span class="swatch-name">Earthy Sage Olive</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Terrarium Studio (Clean 2D, No 3D Gimmick) -->
+  <section class="studio-section" id="studio-kustom">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">STUDIO PERAKIT TERRARIUM MEJA</span>
+        <h2 class="section-title">Rancang Terrarium Impian Anda Sendiri</h2>
+        <p class="section-subtitle">Pilih model toples kaca, jenis ekosistem tanaman yang Anda sukai, dan aksen batu kristal alam penyeimbang energi.</p>
+      </div>
+
+      <div class="terrarium-studio-card">
+        <!-- Controls Pane -->
+        <div class="studio-controls-pane">
+          <div>
+            <div class="ctrl-group-title">1. Pilih Wadah Kaca Borosilikat</div>
+            <div class="glass-shape-grid">
+              <button class="shape-btn active" onclick="setGlassShape('bell', 'Kubah Bell Jar Kaca', 185000, 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=800&q=80')">
+                <div class="sb-name">Kubah Bell Jar</div>
+                <div class="sb-sub">D: 14cm • Estetik</div>
+              </button>
+              <button class="shape-btn" onclick="setGlassShape('cork', 'Toples Tutup Gabus', 165000, 'https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=800&q=80')">
+                <div class="sb-name">Toples Silinder</div>
+                <div class="sb-sub">D: 11cm • Kayu Gabus</div>
+              </button>
+              <button class="shape-btn" onclick="setGlassShape('geom', 'Geometris Kuningan', 245000, 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=800&q=80')">
+                <div class="sb-name">Geometris Terbuka</div>
+                <div class="sb-sub">16x16cm • Bingkai Emas</div>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div class="ctrl-group-title">2. Pilih Tipe Ekosistem Tanaman</div>
+            <div class="plant-type-selection">
+              <div class="plant-opt-card active" onclick="setPlantType('Hutan Lumut Tropis', 'Lumut cushion moss hidup + fittonia merah mini (lembab & adem)', this)">
+                <div class="poc-title">🌲 Hutan Lumut Tropis</div>
+                <div class="poc-desc">Ekosistem lembap mandiri, minim siram (1x sebulan)</div>
+              </div>
+              <div class="plant-opt-card" onclick="setPlantType('Gurun Sukulen Haworthia', 'Sukulen zebra mini + echeveria pastel (kering & terang)', this)">
+                <div class="poc-title">🌵 Sukulen & Kaktus Mini</div>
+                <div class="poc-desc">Ekosistem kering terbuka, siram 2 minggu sekali</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="ctrl-group-title">3. Pilih Aksen Kristal Alam</div>
+            <div class="accent-crystals-grid">
+              <button class="crystal-btn active" onclick="setCrystal('Rose Quartz Pink', '#FFD4D4', this)">
+                <span class="cb-dot" style="background-color: #FFD4D4;"></span>
+                <span>Rose Quartz</span>
+              </button>
+              <button class="crystal-btn" onclick="setCrystal('Pasir Silika Putih', '#FFFFE8', this)">
+                <span class="cb-dot" style="background-color: #FFFFE8;"></span>
+                <span>Silika Putih</span>
+              </button>
+              <button class="crystal-btn" onclick="setCrystal('Batu Giok Hijau', '#AACB73', this)">
+                <span class="cb-dot" style="background-color: #AACB73;"></span>
+                <span>Giok Hijau</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2D Visual Preview Stage -->
+        <div class="terrarium-preview-stage">
+          <div>
+            <div class="tps-header">
+              <div class="tps-title" id="displayStageTitle">Kubah Bell Jar Kaca</div>
+              <div class="tps-price mono" id="displayStagePrice">Rp 185.000</div>
+            </div>
+
+            <div class="tps-visual-box">
+              <img id="displayStageImg" src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=800&q=80" alt="Visual Terrarium Kustom" loading="lazy" referrerpolicy="no-referrer">
+              <span class="tps-layer-indicator" id="displayLayerBadge">Aksen: Rose Quartz Pink</span>
+            </div>
+
+            <div class="tps-specs-table">
+              <div class="tps-spec-cell">
+                <div class="tps-spec-lbl">Ekosistem</div>
+                <div class="tps-spec-val" id="specEco">Hutan Lumut</div>
+              </div>
+              <div class="tps-spec-cell">
+                <div class="tps-spec-lbl">Frekuensi Siram</div>
+                <div class="tps-spec-val" id="specWater">1x Sebulan</div>
+              </div>
+              <div class="tps-spec-cell">
+                <div class="tps-spec-lbl">Kebutuhan Cahaya</div>
+                <div class="tps-spec-val">Lampu / Teduh</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-add-studio-terrarium" onclick="addCustomTerrariumToCart()">
+            + Masukkan Racikan Terrarium Ini ke Tas
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Watering & Light Calculator -->
+  <section class="calc-section" id="kalkulator-siram">
+    <div class="container">
+      <div class="calc-card-box">
+        <div class="calc-form-pane">
+          <div>
+            <span class="section-tag">KALKULATOR PERAWATAN BOTANI</span>
+            <h2 class="section-title" style="font-size: 28px;">Berapa Sering Terrarium Anda Perlu Disiram?</h2>
+            <p class="section-subtitle">Masukkan kondisi ruangan Anda untuk mendapatkan jadwal semprot air yang akurat.</p>
+          </div>
+
+          <div>
+            <label class="ctrl-group-title" style="display:block;">Tipe Wadah Terrarium</label>
+            <select id="calcType" class="calc-select" onchange="calculateWatering()">
+              <option value="closed">Terrarium Tertutup (Closed Bell Jar / Cork)</option>
+              <option value="open">Terrarium Terbuka (Open Geometric / Sukulen)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="ctrl-group-title" style="display:block;">Posisi Peletakan & Suhu Ruangan</label>
+            <select id="calcRoom" class="calc-select" onchange="calculateWatering()">
+              <option value="ac">Ruang Kerja Ber-AC (Suhu 20-24°C, Lampu LED)</option>
+              <option value="window">Dekat Jendela Terang (Cahaya Pagi Tidak Langsung)</option>
+              <option value="warm">Ruang Kamar Alami (Suhu 26-29°C Tanpa AC)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-result-pane">
+          <span class="crp-badge mono">JADWAL PERAWATAN OPTIMAL</span>
+          <h3 class="crp-title">Frekuensi Semprotan Air</h3>
+          <div class="crp-frequency mono" id="calcFreqResult">Setiap 25 - 30 Hari Sekali</div>
+          <p class="crp-instruction" id="calcInstResult">
+            Terrarium tertutup menjaga kelembapan sendiri. Cukup gunakan pipet halus untuk menyemprot 3-4 kali semprotan air mineral jika lumut mulai tampak pudar, lalu tutup kembali.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog Section -->
+  <section class="catalog-section" id="koleksi">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">KATALOG PRODUK SIAP KIRIM</span>
+        <h2 class="section-title">Koleksi Terrarium & Kokedama Asri</h2>
+        <p class="section-subtitle">Dirangkai satu per satu dengan ketelitian tinggi oleh pengrajin botani kami, dikemas aman dengan garansi anti pecah.</p>
+      </div>
+
+      <div class="catalog-filter-tabs">
+        <button class="filter-tab-btn active" onclick="filterCatalog('all', this)">Semua Koleksi</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('closed', this)">Terrarium Tertutup</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('open', this)">Geometris Terbuka</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('kokedama', this)">Kokedama Lumut</button>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Item 1 -->
+        <div class="product-card" data-cat="closed">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=800&q=80" alt="Kubah Lumut Bell Jar Meja" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Best Seller</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Kubah Lumut Bell Jar Hutan</h3>
+              <p class="pc-desc">Wadah kubah kaca borosilikat dengan lumut cushion moss segar dan aksen kristal rose quartz alami.</p>
+              <div class="pc-specs mono">
+                <span>D: 14 cm</span>
+                <span>•</span>
+                <span>T: 20 cm</span>
+                <span>•</span>
+                <span>Siram 1x Sebulan</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 185.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Kubah Lumut Bell Jar Hutan', 185000, 'Bell Jar (D:14cm)', 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="product-card" data-cat="open">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=800&q=80" alt="Terrarium Geometris Dodecahedron" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Favorit Meja</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Geometris Piramida Sukulen</h3>
+              <p class="pc-desc">Kaca segi banyak berbingkai kuningan emas berisi sukulen haworthia zebra dan pasir putih bertingkat.</p>
+              <div class="pc-specs mono">
+                <span>16 x 16 cm</span>
+                <span>•</span>
+                <span>Sukulen Mini</span>
+                <span>•</span>
+                <span>Mudah Rawat</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 245.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Geometris Piramida Sukulen', 245000, 'Geometris (16x16cm)', 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="product-card" data-cat="closed">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=800&q=80" alt="Silinder Kaca Tutup Gabus" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Minimalis</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Silinder Hutan Tutup Gabus</h3>
+              <p class="pc-desc">Toples silinder ramping dengan tutup kayu gabus kedap udara, sangat pas untuk sudut monitor komputer Anda.</p>
+              <div class="pc-specs mono">
+                <span>D: 10 cm</span>
+                <span>•</span>
+                <span>T: 18 cm</span>
+                <span>•</span>
+                <span>Fittonia Tropis</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 165.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Silinder Hutan Tutup Gabus', 165000, 'Silinder Gabus (D:10cm)', 'https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="product-card" data-cat="kokedama">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80" alt="Kokedama Bola Lumut Sukulen" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Kokedama</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Kokedama Lumut Bola Japandi</h3>
+              <p class="pc-desc">Tanaman sukulen segar yang dibungkus bola lumut hijau hidup dan lilitan tali rami dengan piring keramik putih.</p>
+              <div class="pc-specs mono">
+                <span>D: 12 cm</span>
+                <span>•</span>
+                <span>Tali Rami</span>
+                <span>•</span>
+                <span>Piring Keramik</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 135.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Kokedama Lumut Bola Japandi', 135000, 'Kokedama (D:12cm)', 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="product-card" data-cat="closed">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=800&q=80" alt="Greenhouse Kaca Miniatur" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Masterpiece</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Mini Greenhouse Hutan Tropis</h3>
+              <p class="pc-desc">Replika rumah kaca mini dengan atap yang dapat dibuka, memadukan 3 varietas pakis kerdil dan lumut beludru.</p>
+              <div class="pc-specs mono">
+                <span>22 x 15 cm</span>
+                <span>•</span>
+                <span>Atap Geser</span>
+                <span>•</span>
+                <span>Lengkap Lampu LED</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 275.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Mini Greenhouse Hutan Tropis', 275000, 'Greenhouse (22x15cm)', 'https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="product-card" data-cat="open">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=800&q=80" alt="DIY Kit Merakit Terrarium Sendiri" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">DIY Merakit</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">DIY Terrarium Kit Merakit Lengkap</h3>
+              <p class="pc-desc">Paket lengkap toples kaca, batu drainase, karbon aktif, pasir silika, lumut hidup, pinset panjang, dan kartu panduan.</p>
+              <div class="pc-specs mono">
+                <span>Kit Komplit</span>
+                <span>•</span>
+                <span>Pinset Logam</span>
+                <span>•</span>
+                <span>Cocok Buat Kado</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 155.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('DIY Terrarium Kit Merakit Lengkap', 155000, 'DIY Kit Box Lengkap', 'https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Care Guide Section -->
+  <section class="care-section" id="perawatan">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">PANDUAN PERAWATAN BOTANIKAL</span>
+        <h2 class="section-title">Merawat Terrarium Agar Tetap Hijau Segar</h2>
+        <p class="section-subtitle">Empat prinsip utama menjaga ekosistem mini Anda tetap sehat dan bebas dari jamur.</p>
+      </div>
+
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-icon">☀️</div>
+          <h3 class="care-title">Cahaya Tidak Langsung</h3>
+          <p class="care-desc">Letakkan di tempat yang cukup terang namun terhindar dari sinar matahari langsung agar suhu kaca tidak panas seperti oven.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon">💧</div>
+          <h3 class="care-title">Gunakan Air Bersih</h3>
+          <p class="care-desc">Gunakan air minum kemasan atau air sulasi tanpa kaporit saat menyemprot agar tidak meninggalkan kerak kapur putih pada kaca.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon">🪟</div>
+          <h3 class="care-title">Sirkulasi Embun Alami</h3>
+          <p class="care-desc">Embun tipis di pagi hari adalah tanda sehat. Jika kaca terlalu basah dan menetes deras, buka tutupnya selama 15 menit.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon">✂️</div>
+          <h3 class="care-title">Pangkas Ranting Tua</h3>
+          <p class="care-desc">Gunakan gunting kecil untuk merapikan daun yang mulai menyentuh dinding kaca agar tetap tertata rapi dan tidak membusuk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">KEBUN KACA</div>
+          <p class="footer-desc">
+            Atelier ekosistem mikro terrarium kaca dan kriya botani meja kerja lokal yang menghadirkan ketenangan alam bebas repot ke dalam rutinitas kerja urban Anda.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Kategori Terrarium</h4>
+          <ul class="footer-links">
+            <li><a href="#koleksi">Terrarium Bell Jar</a></li>
+            <li><a href="#koleksi">Geometris Terbuka</a></li>
+            <li><a href="#koleksi">Kokedama Bola Lumut</a></li>
+            <li><a href="#studio-kustom">Studio Racik Kustom</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Layanan & Garansi</h4>
+          <ul class="footer-links">
+            <li><a href="#studio-kustom">Kado Pernikahan & Souvenir</a></li>
+            <li><a href="#">Garansi Kaca Utuh 100%</a></li>
+            <li><a href="#">Pengiriman Khusus Tanaman</a></li>
+            <li><a href="#perawatan">Konsultasi Tanaman Gratis</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Atelier & Workshop</h4>
+          <p class="footer-desc">
+            Greenhouse Studio: Jl. Gandaria Asri No. 24, Jakarta Selatan.<br>
+            WhatsApp Admin: 0813-9911-2244<br>
+            Buka: Setiap Hari (09.00 - 18.00 WIB)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 KEBUN KACA Atelier. Hak Cipta Dilindungi Undang-Undang.</div>
+        <div class="mono">Template NECTOR.UI • Anti-Slop Craft Standard</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3 class="dh-title">Tas Belanja Terrarium</h3>
+      <button class="btn-close-drawer" onclick="toggleCart()">&times;</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="cart-items-list" id="cartItemsContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="drawer-total-row">
+        <span class="dtr-lbl">Subtotal Pesanan</span>
+        <span class="dtr-val mono" id="drawerSubtotal">Rp 0</span>
+      </div>
+
+      <div class="form-buyer-info">
+        <input type="text" id="buyerName" placeholder="Nama Lengkap Anda" value="Alia Wardhana">
+        <input type="text" id="buyerCity" placeholder="Kota Pengiriman (contoh: Tangerang Selatan)" value="Tangerang Selatan">
+      </div>
+
+      <button class="btn-whatsapp-checkout" onclick="checkoutWhatsApp()">
+        <span>Pesan Langsung via WhatsApp</span>
+        <span>→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg">Kode warna berhasil disalin!</div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Shopping Cart State
+    let cart = [
+      {
+        name: 'Kubah Lumut Bell Jar Hutan',
+        price: 185000,
+        variant: 'Bell Jar (D:14cm) • Kristal Rose Quartz',
+        img: 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=200&q=80',
+        qty: 1
+      }
+    ];
+
+    // Studio State
+    let currentShape = 'Kubah Bell Jar Kaca';
+    let currentPrice = 185000;
+    let currentImg = 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=800&q=80';
+    let currentEco = 'Hutan Lumut Tropis';
+    let currentCrystal = 'Rose Quartz Pink';
+
+    function setGlassShape(key, name, price, img) {
+      currentShape = name;
+      currentPrice = price;
+      currentImg = img;
+      document.getElementById('displayStageTitle').innerText = name;
+      document.getElementById('displayStagePrice').innerText = 'Rp ' + price.toLocaleString('id-ID');
+      document.getElementById('displayStageImg').src = img;
+
+      const buttons = document.querySelectorAll('.shape-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    }
+
+    function setPlantType(ecoName, desc, el) {
+      currentEco = ecoName;
+      document.getElementById('specEco').innerText = ecoName.includes('Lumut') ? 'Hutan Lumut' : 'Sukulen';
+      document.getElementById('specWater').innerText = ecoName.includes('Lumut') ? '1x Sebulan' : '2x Sebulan';
+
+      const cards = document.querySelectorAll('.plant-opt-card');
+      cards.forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function setCrystal(crystalName, hex, btn) {
+      currentCrystal = crystalName;
+      document.getElementById('displayLayerBadge').innerText = 'Aksen: ' + crystalName;
+
+      const buttons = document.querySelectorAll('.crystal-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function addCustomTerrariumToCart() {
+      const variantDesc = `${currentShape} • ${currentEco} • Aksen: ${currentCrystal}`;
+      addToCart('Terrarium Racikan Meja Kustom', currentPrice, variantDesc, currentImg);
+      showToast('✓ Terrarium kustom Anda berhasil ditambahkan ke tas!');
+    }
+
+    // Calculator Logic
+    function calculateWatering() {
+      const type = document.getElementById('calcType').value;
+      const room = document.getElementById('calcRoom').value;
+      const freqEl = document.getElementById('calcFreqResult');
+      const instEl = document.getElementById('calcInstResult');
+
+      if (type === 'closed') {
+        if (room === 'ac') {
+          freqEl.innerText = 'Setiap 25 - 30 Hari Sekali';
+          instEl.innerText = 'Ruangan AC yang sejuk menjaga kelembapan toples tetap stabil. Cukup berikan 3-4 semprotan halus saat lumut terasa mulai mengering.';
+        } else if (room === 'window') {
+          freqEl.innerText = 'Setiap 18 - 22 Hari Sekali';
+          instEl.innerText = 'Cahaya jendela merangsang fotosintesis lumut. Bila dinding toples terlalu banyak berembun, buka tutup toples selama 15 menit agar sirkulasi udara lancar.';
+        } else {
+          freqEl.innerText = 'Setiap 20 - 25 Hari Sekali';
+          instEl.innerText = 'Di ruangan suhu kamar normal, pantau kelembapan arang aktif. Semprotkan sedikit air bersih setiap 3-4 minggu sekali.';
+        }
+      } else {
+        // Open
+        if (room === 'ac') {
+          freqEl.innerText = 'Setiap 14 Hari Sekali';
+          instEl.innerText = 'Terrarium terbuka di ruang AC mengalami penguapan sedang. Teteskan 2 sendok makan air langsung ke akar sukulen mini.';
+        } else if (room === 'window') {
+          freqEl.innerText = 'Setiap 10 - 12 Hari Sekali';
+          instEl.innerText = 'Dekat jendela dengan sinar matahari terang memerlukan hidrasi lebih sering. Siram saat permukaan pasir silika terasa kering saat disentuh.';
+        } else {
+          freqEl.innerText = 'Setiap 12 - 14 Hari Sekali';
+          instEl.innerText = 'Gunakan pipet untuk menyiram perlahan di sekitar pangkal tanaman sukulen, hindari menyiram langsung ke atas daun sukulen.';
+        }
+      }
+    }
+
+    // Filter Catalog
+    function filterCatalog(category, btn) {
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.cat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Cart Operations
+    function addToCart(name, price, variant, img) {
+      const existing = cart.find(i => i.name === name && i.variant === variant);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, variant, img, qty: 1 });
+      }
+      renderCart();
+      showToast('✓ ' + name + ' ditambahkan ke tas!');
+    }
+
+    function changeQty(idx, delta) {
+      if (cart[idx]) {
+        cart[idx].qty += delta;
+        if (cart[idx].qty <= 0) {
+          cart.splice(idx, 1);
+        }
+        renderCart();
+      }
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      const badge = document.getElementById('cartCount');
+      const subtotalEl = document.getElementById('drawerSubtotal');
+
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge.innerText = totalCount;
+
+      let subtotal = 0;
+      if (cart.length === 0) {
+        container.innerHTML = '<div style="text-align:center; padding: 40px 0; color: #789470;">Tas belanja Anda masih kosong.<br>Silakan pilih terrarium idaman Anda.</div>';
+        subtotalEl.innerText = 'Rp 0';
+        return;
+      }
+
+      let html = '';
+      cart.forEach((item, idx) => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        html += `
+          <div class="cart-item-row">
+            <div class="cir-thumb">
+              <img src="${item.img}" alt="${item.name}">
+            </div>
+            <div class="cir-details">
+              <div class="cir-name">${item.name}</div>
+              <div class="cir-meta">${item.variant}</div>
+              <div class="cir-price mono">Rp ${item.price.toLocaleString('id-ID')}</div>
+              <div class="cir-qty-ctrl">
+                <button class="btn-qty" onclick="changeQty(${idx}, -1)">−</button>
+                <span class="cir-qty-val mono">${item.qty}</span>
+                <button class="btn-qty" onclick="changeQty(${idx}, 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      subtotalEl.innerText = 'Rp ' + subtotal.toLocaleString('id-ID');
+    }
+
+    function toggleCart() {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      drawer.classList.toggle('open');
+      overlay.classList.toggle('open');
+    }
+
+    // Checkout via WhatsApp
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Tas belanja Anda masih kosong!');
+        return;
+      }
+
+      const buyer = document.getElementById('buyerName').value.trim() || 'Pelanggan Kebun Kaca';
+      const city = document.getElementById('buyerCity').value.trim() || 'Jakarta';
+      
+      let total = 0;
+      let itemsList = '';
+      cart.forEach((item, i) => {
+        const lineTotal = item.price * item.qty;
+        total += lineTotal;
+        itemsList += `${i + 1}. ${item.name} (${item.variant}) x${item.qty} = Rp ${lineTotal.toLocaleString('id-ID')}\n`;
+      });
+
+      const message = 
+`Halo Admin KEBUN KACA, saya ingin memesan terrarium berikut:
+
+Nama Pemesan: ${buyer}
+Kota Tujuan: ${city}
+
+Daftar Pesanan:
+${itemsList}
+Total Pesanan: Rp ${total.toLocaleString('id-ID')}
+
+Mohon informasi packing kayu pelindung dan estimasi waktu pengiriman ke alamat saya. Terima kasih!`;
+
+      const encoded = encodeURIComponent(message);
+      window.open(`https://api.whatsapp.com/send?phone=6281399112244&text=${encoded}`, '_blank');
+    }
+
+    // Copy Hex to Clipboard
+    function copyHex(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        showToast('Kode ' + hex + ' berhasil disalin!');
+      }).catch(() => {
+        showToast('Warna ' + hex + ' dipilih');
+      });
+    }
+
+    // Toast message display
+    function showToast(text) {
+      const toast = document.getElementById('toastMsg');
+      toast.innerText = text;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+    });
+  </script>
+</body>
+</html>
