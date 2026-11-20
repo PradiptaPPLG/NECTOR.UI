@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIRANA SCARF — Atelier Hijab Voal Ultrafine, Scarf Sutra Satin & Pashmina Silk Nusantara</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET & BASE */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* PALET UTAMA SESUAI REFERENSI */
+      --color-almond: #F5EEE6;
+      --color-butter: #FFF8E3;
+      --color-peach: #F3D7CA;
+      --color-rose: #E6A4B4;
+      
+      /* TEKS, AKSEN & KONTRAS TINGGI AAA */
+      --color-ink: #2C1E23;
+      --color-ink-muted: #644E55;
+      --color-ink-faint: #9A8088;
+      --color-rose-deep: #A2485E;
+      --color-rose-darker: #7E3144;
+      --color-border: #E8D8CF;
+      --color-border-light: #F2E8E1;
+      --color-white: #FFFFFF;
+      --color-card-bg: #FFFFFF;
+      
+      /* FONTS */
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* RADIUS & SHADOWS */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 2px 8px rgba(44, 30, 35, 0.04);
+      --shadow-md: 0 8px 24px rgba(44, 30, 35, 0.07);
+      --shadow-lg: 0 16px 40px rgba(44, 30, 35, 0.1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-almond);
+      /* Subtle geometric woven linen micro-pattern background */
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(230, 164, 180, 0.08) 1px, transparent 1px),
+        linear-gradient(to right, rgba(243, 215, 202, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(243, 215, 202, 0.12) 1px, transparent 1px);
+      background-size: 24px 24px, 48px 48px, 48px 48px;
+      color: var(--color-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* TOP ANNOUNCEMENT */
+    .top-bar {
+      background-color: var(--color-ink);
+      color: var(--color-butter);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 9px 16px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .top-bar strong {
+      color: var(--color-rose);
+      font-weight: 600;
+    }
+
+    /* NAVIGATION */
+    .site-header {
+      background: rgba(245, 238, 230, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 76px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--color-ink);
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-ink-muted);
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--color-rose-deep);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-cart-trigger {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-ink);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .btn-cart-trigger:hover {
+      border-color: var(--color-rose-deep);
+      color: var(--color-rose-deep);
+      transform: translateY(-1px);
+    }
+
+    .cart-count-badge {
+      background: var(--color-rose-deep);
+      color: var(--color-white);
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-pretitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-butter);
+      border: 1px solid var(--color-peach);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-rose-deep);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 46px;
+      line-height: 1.18;
+      font-weight: 700;
+      color: var(--color-ink);
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--color-rose-deep);
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--color-ink-muted);
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background: var(--color-rose-deep);
+      color: var(--color-white);
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(162, 72, 94, 0.25);
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-rose-darker);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(162, 72, 94, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      color: var(--color-ink);
+      padding: 14px 26px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-rose);
+      color: var(--color-rose-deep);
+      transform: translateY(-2px);
+    }
+
+    .hero-guarantees {
+      display: flex;
+      gap: 28px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+    }
+
+    .guarantee-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .guarantee-val {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .guarantee-lbl {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+      font-weight: 500;
+    }
+
+    /* HERO VISUAL CARD */
+    .hero-visual-card {
+      position: relative;
+      background: var(--color-white);
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--color-butter);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-visual-card:hover .hero-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hbf-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .hbf-sub {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+    }
+
+    .hbf-tag {
+      background: var(--color-butter);
+      border: 1px solid var(--color-peach);
+      color: var(--color-rose-deep);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    /* PALETTE SWATCH BAR (SESUAI GAMBAR FOTO) */
+    .palette-banner-section {
+      padding: 24px 0 48px;
+    }
+
+    .palette-card-box {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .palette-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .pch-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .pch-sub {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+    }
+
+    .pch-tip {
+      font-size: 12px;
+      color: var(--color-rose-deep);
+      font-weight: 600;
+    }
+
+    .palette-stacked-strip {
+      display: flex;
+      height: 72px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .palette-strip-col {
+      flex: 1;
+      height: 100%;
+      transition: flex 0.3s ease;
+      cursor: pointer;
+    }
+
+    .palette-strip-col:hover {
+      flex: 1.4;
+    }
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .swatch-item-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--color-almond);
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .swatch-item-card:hover {
+      border-color: var(--color-rose);
+      background: var(--color-butter);
+      transform: translateY(-2px);
+    }
+
+    .swatch-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--color-white);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+
+    .swatch-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .swatch-hex {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-ink);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch-rgb {
+      font-size: 11px;
+      color: var(--color-ink-faint);
+    }
+
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-ink-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* INTERACTIVE DRAPING & FINISHING VIEWER */
+    .studio-section {
+      padding: 56px 0;
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-rose-deep);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--color-ink);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--color-ink-muted);
+    }
+
+    .drape-viewer-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .drape-controls-pane {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .ctrl-group-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+      margin-bottom: 12px;
+    }
+
+    .fabric-toggle-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fabric-pill-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      background: var(--color-almond);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .fabric-pill-btn:hover {
+      border-color: var(--color-rose);
+      background: var(--color-butter);
+    }
+
+    .fabric-pill-btn.active {
+      background: var(--color-white);
+      border: 2px solid var(--color-rose-deep);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .fpb-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .fpb-feature {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+    }
+
+    .fpb-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--color-peach);
+      color: var(--color-ink);
+    }
+
+    .finishing-edge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .edge-btn {
+      padding: 12px 10px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-white);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-ink);
+      transition: all 0.2s ease;
+    }
+
+    .edge-btn:hover {
+      border-color: var(--color-rose);
+      background: var(--color-butter);
+    }
+
+    .edge-btn.active {
+      background: var(--color-ink);
+      border-color: var(--color-ink);
+      color: var(--color-butter);
+    }
+
+    .drape-visual-pane {
+      background: var(--color-almond);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--color-border-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .dv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .dv-fabric-title {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .dv-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-rose-deep);
+    }
+
+    .dv-visual-showcase {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 220px;
+      background: var(--color-white);
+      margin-bottom: 20px;
+      border: 1px solid var(--color-border);
+    }
+
+    .dv-visual-showcase img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .dv-edge-indicator {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(44, 30, 35, 0.85);
+      color: var(--color-butter);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+    }
+
+    .dv-specs-table {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .spec-box {
+      background: var(--color-white);
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border-light);
+    }
+
+    .spec-lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-ink-faint);
+    }
+
+    .spec-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .btn-add-studio {
+      width: 100%;
+      background: var(--color-ink);
+      color: var(--color-butter);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-studio:hover {
+      background: var(--color-rose-deep);
+      color: var(--color-white);
+    }
+
+    /* SCARF GIFT BOX BUILDER (HAMPERS KADO) */
+    .hampers-section {
+      padding: 56px 0;
+    }
+
+    .builder-card-container {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .builder-steps-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+    }
+
+    .step-block {
+      margin-bottom: 28px;
+    }
+
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--color-rose-deep);
+      color: var(--color-white);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .box-tier-selection {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .box-tier-card {
+      padding: 16px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      background: var(--color-almond);
+      transition: all 0.2s ease;
+    }
+
+    .box-tier-card.selected {
+      border-color: var(--color-rose-deep);
+      background: var(--color-white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btc-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .btc-desc {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+      margin: 4px 0 8px;
+    }
+
+    .btc-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-rose-deep);
+    }
+
+    .color-picker-slots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .color-select-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      background: var(--color-white);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-ink);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .color-select-btn.active {
+      border-color: var(--color-rose-deep);
+      background: var(--color-butter);
+    }
+
+    .csb-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .message-input-area {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .builder-input, .builder-textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      background: var(--color-almond);
+      color: var(--color-ink);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .builder-input:focus, .builder-textarea:focus {
+      border-color: var(--color-rose-deep);
+      background: var(--color-white);
+    }
+
+    .builder-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* PREVIEW BOX PANE */
+    .hampers-preview-pane {
+      background: var(--color-almond);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hp-header {
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+
+    .hp-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .hp-sub {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+    }
+
+    .hp-visual-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 200px;
+      margin-bottom: 20px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+    }
+
+    .hp-visual-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hp-summary-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .hp-summary-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--color-ink-muted);
+    }
+
+    .hp-summary-item strong {
+      color: var(--color-ink);
+    }
+
+    .hp-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--color-border);
+      padding-top: 16px;
+      margin-bottom: 20px;
+    }
+
+    .hp-total-lbl {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .hp-total-val {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-rose-deep);
+    }
+
+    .btn-add-hampers {
+      width: 100%;
+      background: var(--color-rose-deep);
+      color: var(--color-white);
+      padding: 15px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(162, 72, 94, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-hampers:hover {
+      background: var(--color-rose-darker);
+      transform: translateY(-2px);
+    }
+
+    /* CATALOG SECTION */
+    .catalog-section {
+      padding: 56px 0;
+    }
+
+    .catalog-filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      color: var(--color-ink-muted);
+      transition: all 0.2s ease;
+    }
+
+    .filter-tab-btn:hover {
+      border-color: var(--color-rose);
+      color: var(--color-rose-deep);
+    }
+
+    .filter-tab-btn.active {
+      background: var(--color-rose-deep);
+      border-color: var(--color-rose-deep);
+      color: var(--color-white);
+      box-shadow: 0 3px 10px rgba(162, 72, 94, 0.25);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-rose);
+    }
+
+    .pc-img-wrap {
+      position: relative;
+      aspect-ratio: 1/1;
+      background: var(--color-butter);
+      overflow: hidden;
+    }
+
+    .pc-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .pc-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .pc-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--color-white);
+      color: var(--color-rose-deep);
+      border: 1px solid var(--color-peach);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pc-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .pc-title {
+      font-family: var(--font-heading);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--color-ink);
+      margin-bottom: 6px;
+    }
+
+    .pc-desc {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .pc-specs {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--color-ink-faint);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .pc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pc-price {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .btn-add-cart-sm {
+      background: var(--color-almond);
+      border: 1px solid var(--color-border);
+      color: var(--color-ink);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-cart-sm:hover {
+      background: var(--color-rose-deep);
+      border-color: var(--color-rose-deep);
+      color: var(--color-white);
+    }
+
+    /* HIJAB CARE GUIDE */
+    .care-section {
+      padding: 56px 0;
+    }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .care-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .care-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .care-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-ink);
+      margin-bottom: 8px;
+    }
+
+    .care-desc {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--color-ink);
+      color: var(--color-butter);
+      padding: 64px 0 32px;
+      margin-top: 64px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: var(--color-peach);
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-rose);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--color-almond);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-rose);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--color-ink-faint);
+    }
+
+    /* SHOPPING CART DRAWER */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(44, 30, 35, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -460px;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background: var(--color-white);
+      box-shadow: -8px 0 32px rgba(44, 30, 35, 0.15);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease;
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dh-title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .btn-close-drawer {
+      font-size: 22px;
+      color: var(--color-ink-muted);
+      padding: 4px;
+      cursor: pointer;
+    }
+
+    .drawer-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .cir-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--color-butter);
+    }
+
+    .cir-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cir-details {
+      flex-grow: 1;
+    }
+
+    .cir-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .cir-meta {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+    }
+
+    .cir-price {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-rose-deep);
+      margin-top: 4px;
+    }
+
+    .cir-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .btn-qty {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .cir-qty-val {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-almond);
+    }
+
+    .drawer-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .dtr-lbl {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+
+    .dtr-val {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-rose-deep);
+    }
+
+    .form-buyer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .form-buyer-info input {
+      padding: 9px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    .btn-whatsapp-checkout {
+      width: 100%;
+      background: #25D366;
+      color: #FFFFFF;
+      padding: 14px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-whatsapp-checkout:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+    }
+
+    /* TOAST */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--color-ink);
+      color: var(--color-butter);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 2000;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-grid, .drape-viewer-card, .builder-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .swatches-grid, .care-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 32px;
+      }
+      .swatches-grid, .product-grid, .care-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .finishing-edge-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement -->
+  <div class="top-bar">
+    <span>Gratis <strong>Hardbox Kado Eksklusif</strong> & Kartu Ucapan untuk Pembelian Minimal 2 Scarf • Pengiriman Aman Seluruh Indonesia</span>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="brand-wrap">
+        <a href="#" class="brand-name">KIRANA SCARF</a>
+        <span class="brand-sub">Atelier Hijab & Sutra Nusantara</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#koleksi" class="nav-link">Koleksi Scarf</a></li>
+        <li><a href="#studio-kain" class="nav-link">Studio Jatuh Kain</a></li>
+        <li><a href="#rakit-hampers" class="nav-link">Perakit Hampers</a></li>
+        <li><a href="#perawatan" class="nav-link">Panduan Perawatan</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-cart-trigger" onclick="toggleCart()">
+          <span>Tas Belanja</span>
+          <span class="cart-count-badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-text-col">
+        <div class="hero-pretitle">
+          <span>✧</span>
+          <span>Atelier Voal Ultrafine & Sutra Nusantara</span>
+        </div>
+        <h1 class="hero-title">
+          Kelembutan Serat Voal Ultrafine & Kemilau Sutra yang <em>Tegak Sempurna</em> di Dahi
+        </h1>
+        <p class="hero-desc">
+          Setiap helai hijab Kirana dirancang dengan gramasi serat presisi: tegak mandiri tanpa perlu semprotan pengaku, sirkulasi udara sejuk sepanjang hari, dan tidak kedap suara di telinga. Dilengkapi tepian laser cut presisi tinggi dan kemasan hardbox kado eksklusif.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#koleksi" class="btn-primary">
+            <span>Jelajahi Koleksi Scarf</span>
+            <span>→</span>
+          </a>
+          <a href="#rakit-hampers" class="btn-secondary">
+            <span>Rakit Hampers Kado</span>
+          </a>
+        </div>
+
+        <div class="hero-guarantees">
+          <div class="guarantee-item">
+            <span class="guarantee-val">60s</span>
+            <span class="guarantee-lbl">Serat Voal Ultrafine</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-val">100%</span>
+            <span class="guarantee-lbl">Tegak Tanpa Kusut</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-val">Laser Cut</span>
+            <span class="guarantee-lbl">Ultrasonic Finishing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-col">
+        <div class="hero-visual-card">
+          <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1200&q=80" alt="Hijab Voal Ultrafine Kirana Scarf" loading="lazy" referrerpolicy="no-referrer">
+          </div>
+          <div class="hero-badge-float">
+            <div>
+              <div class="hbf-title">Voal Ultrafine Kirana Signature</div>
+              <div class="hbf-sub">Ukuran 115x115 cm • Finishing Scallop Petal</div>
+            </div>
+            <span class="hbf-tag">Siap Kirim</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Palette Swatch Banner (Sesuai Foto Referensi) -->
+  <section class="palette-banner-section">
+    <div class="container">
+      <div class="palette-card-box">
+        <div class="palette-card-header">
+          <div>
+            <h2 class="pch-title">Palet Harmoni Warna Koleksi Atelier</h2>
+            <p class="pch-sub">Harmoni warna hangat netral & sentuhan dusty peony yang anggun untuk busana harian maupun acara resmi.</p>
+          </div>
+          <span class="pch-tip">Klik buletan atau kode warna untuk menyalin HEX instan</span>
+        </div>
+
+        <!-- The stacked strip resembling the uploaded screenshot -->
+        <div class="palette-stacked-strip">
+          <div class="palette-strip-col" style="background-color: #F5EEE6;" onclick="copyHex('#F5EEE6')" title="Almond Linen (#F5EEE6)"></div>
+          <div class="palette-strip-col" style="background-color: #FFF8E3;" onclick="copyHex('#FFF8E3')" title="Butter Milk Chiffon (#FFF8E3)"></div>
+          <div class="palette-strip-col" style="background-color: #F3D7CA;" onclick="copyHex('#F3D7CA')" title="Peach Powder (#F3D7CA)"></div>
+          <div class="palette-strip-col" style="background-color: #E6A4B4;" onclick="copyHex('#E6A4B4')" title="Dusty Rose Peony (#E6A4B4)"></div>
+        </div>
+
+        <!-- Swatch Items Grid -->
+        <div class="swatches-grid">
+          <div class="swatch-item-card" onclick="copyHex('#F5EEE6')">
+            <div class="swatch-circle" style="background-color: #F5EEE6;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#F5EEE6 ⧉</span>
+              <span class="swatch-rgb mono">rgb(245, 238, 230)</span>
+              <span class="swatch-name">Almond Linen Cream</span>
+            </div>
+          </div>
+
+          <div class="swatch-item-card" onclick="copyHex('#FFF8E3')">
+            <div class="swatch-circle" style="background-color: #FFF8E3;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#FFF8E3 ⧉</span>
+              <span class="swatch-rgb mono">rgb(255, 248, 227)</span>
+              <span class="swatch-name">Butter Milk Chiffon</span>
+            </div>
+          </div>
+
+          <div class="swatch-item-card" onclick="copyHex('#F3D7CA')">
+            <div class="swatch-circle" style="background-color: #F3D7CA;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#F3D7CA ⧉</span>
+              <span class="swatch-rgb mono">rgb(243, 215, 202)</span>
+              <span class="swatch-name">Peach Powder Blush</span>
+            </div>
+          </div>
+
+          <div class="swatch-item-card" onclick="copyHex('#E6A4B4')">
+            <div class="swatch-circle" style="background-color: #E6A4B4;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#E6A4B4 ⧉</span>
+              <span class="swatch-rgb mono">rgb(230, 164, 180)</span>
+              <span class="swatch-name">Dusty Peony Rose</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Drape & Edge Finishing Viewer -->
+  <section class="studio-section" id="studio-kain">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">STUDIO INSPEKSI JATUH KAIN</span>
+        <h2 class="section-title">Kenali Karakteristik Bahan Sebelum Memilih</h2>
+        <p class="section-subtitle">Pilih jenis bahan dan model potongan tepian untuk melihat tampilan drape kain, tingkat opasitas, dan rekomendasi acara.</p>
+      </div>
+
+      <div class="drape-viewer-card">
+        <!-- Controls Pane -->
+        <div class="drape-controls-pane">
+          <div>
+            <div class="ctrl-group-title">1. Pilih Jenis Bahan Hijab</div>
+            <div class="fabric-toggle-pills">
+              <button class="fabric-pill-btn active" onclick="selectFabric('voal')">
+                <div>
+                  <div class="fpb-name">Voal Ultrafine 60s Premium</div>
+                  <div class="fpb-feature">Tegak kokoh di dahi, tidak berdengung di telinga</div>
+                </div>
+                <span class="fpb-badge">Best Seller</span>
+              </button>
+
+              <button class="fabric-pill-btn" onclick="selectFabric('satin')">
+                <div>
+                  <div class="fpb-name">Sutra Satin Silk Eksklusif</div>
+                  <div class="fpb-feature">Kilau anggun mewah, jatuh melangsai untuk pesta</div>
+                </div>
+                <span class="fpb-badge">Formal</span>
+              </button>
+
+              <button class="fabric-pill-btn" onclick="selectFabric('pashmina')">
+                <div>
+                  <div class="fpb-name">Pashmina Crinkle Silk Shawl</div>
+                  <div class="fpb-feature">Tekstur lipit alami, ironless tanpa perlu disetrika</div>
+                </div>
+                <span class="fpb-badge">Daily Easy</span>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div class="ctrl-group-title">2. Pilih Finishing Tepian Kain</div>
+            <div class="finishing-edge-grid">
+              <button class="edge-btn active" onclick="selectEdge('Scallop Petal')">Scallop Petal</button>
+              <button class="edge-btn" onclick="selectEdge('Wave Minimalist')">Wave Minimalist</button>
+              <button class="edge-btn" onclick="selectEdge('Jahit Tepi Halus')">Jahit Tepi Halus</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Display Pane -->
+        <div class="drape-visual-pane">
+          <div>
+            <div class="dv-header">
+              <div class="dv-fabric-title" id="displayFabricTitle">Voal Ultrafine 60s</div>
+              <div class="dv-price mono" id="displayFabricPrice">Rp 89.000</div>
+            </div>
+
+            <div class="dv-visual-showcase">
+              <img id="displayFabricImg" src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80" alt="Serat Bahan Hijab" loading="lazy" referrerpolicy="no-referrer">
+              <span class="dv-edge-indicator" id="displayEdgeBadge">Tepian: Scallop Petal</span>
+            </div>
+
+            <div class="dv-specs-table">
+              <div class="spec-box">
+                <div class="spec-lbl">Opasitas</div>
+                <div class="spec-val" id="specOpacity">95% (Tidak Terawang)</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-lbl">Tegak Dahi</div>
+                <div class="spec-val" id="specStiff">Sangat Tegak</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-lbl">Kenyamanan</div>
+                <div class="spec-val" id="specBreeze">Adem Seharian</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-add-studio" onclick="addStudioItemToCart()">
+            + Tambahkan Pilihan Bahan Ini ke Tas
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hampers Gift Box Builder -->
+  <section class="hampers-section" id="rakit-hampers">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">STUDIO PERAKIT KADO</span>
+        <h2 class="section-title">Rakit Hampers Scarf & Hardbox Kado Sendiri</h2>
+        <p class="section-subtitle">Pilih ukuran box, tentukan variasi warna hijab idaman, dan tuliskan kartu ucapan personal untuk sahabat atau orang tercinta.</p>
+      </div>
+
+      <div class="builder-card-container">
+        <div class="builder-steps-grid">
+          <div class="builder-form-col">
+            <!-- Step 1 -->
+            <div class="step-block">
+              <div class="step-head">
+                <span class="step-number">1</span>
+                <span class="step-title">Pilih Ukuran Hardbox Kado</span>
+              </div>
+              <div class="box-tier-selection">
+                <div class="box-tier-card selected" onclick="setBoxTier('duo', 195000, 2)">
+                  <div class="btc-name">Duo Box (Isi 2 Scarf)</div>
+                  <div class="btc-desc">Hardbox magnetik, pita satin & kartu ucapan emas</div>
+                  <div class="btc-price mono">Rp 195.000</div>
+                </div>
+
+                <div class="box-tier-card" onclick="setBoxTier('trio', 280000, 3)">
+                  <div class="btc-name">Trio Box (Isi 3 Scarf)</div>
+                  <div class="btc-desc">Hardbox premium besar, pita velvet & kartu kado</div>
+                  <div class="btc-price mono">Rp 280.000</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-block">
+              <div class="step-head">
+                <span class="step-number">2</span>
+                <span class="step-title">Pilih Varian Warna (<span id="colorPickedCount">2</span>/ <span id="colorMaxCount">2</span> dipilih)</span>
+              </div>
+              <div class="color-picker-slots">
+                <button class="color-select-btn active" onclick="toggleBoxColor(this, 'Almond Linen Voal')">
+                  <span class="csb-dot" style="background-color: #F5EEE6;"></span>
+                  <span>Almond Linen</span>
+                </button>
+                <button class="color-select-btn active" onclick="toggleBoxColor(this, 'Dusty Peony Voal')">
+                  <span class="csb-dot" style="background-color: #E6A4B4;"></span>
+                  <span>Dusty Peony</span>
+                </button>
+                <button class="color-select-btn" onclick="toggleBoxColor(this, 'Butter Milk Chiffon')">
+                  <span class="csb-dot" style="background-color: #FFF8E3;"></span>
+                  <span>Butter Milk</span>
+                </button>
+                <button class="color-select-btn" onclick="toggleBoxColor(this, 'Peach Sand Satin')">
+                  <span class="csb-dot" style="background-color: #F3D7CA;"></span>
+                  <span>Peach Powder</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-block">
+              <div class="step-head">
+                <span class="step-number">3</span>
+                <span class="step-title">Tulis Kartu Ucapan Personal</span>
+              </div>
+              <div class="message-input-area">
+                <input type="text" id="giftTo" class="builder-input" placeholder="Nama Penerima (contoh: Nabila Safira)" value="Nabila Safira">
+                <input type="text" id="giftFrom" class="builder-input" placeholder="Dari Pengirim (contoh: Dara & Tim)" value="Dara & Sahabat">
+                <textarea id="giftMessage" class="builder-textarea" placeholder="Tuliskan pesan ucapan hangat...">Selamat hari wisuda Nabila tersayang! Semoga langkah baru membawa keberkahan dan kebahagiaan selalu.</textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preview Hampers Box -->
+          <div class="hampers-preview-pane">
+            <div>
+              <div class="hp-header">
+                <h3 class="hp-title" id="hpBoxTitle">Paket Duo Scarf Gift Box</h3>
+                <span class="hp-sub">Kemasan hardbox kado mewah berpita satin</span>
+              </div>
+
+              <div class="hp-visual-box">
+                <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=800&q=80" alt="Kemasan Hardbox Kado Kirana Scarf" loading="lazy" referrerpolicy="no-referrer">
+              </div>
+
+              <ul class="hp-summary-list">
+                <li class="hp-summary-item">
+                  <span>Warna Scarf Terpilih:</span>
+                  <strong id="hpChosenColors">Almond Linen, Dusty Peony</strong>
+                </li>
+                <li class="hp-summary-item">
+                  <span>Kartu Ucapan:</span>
+                  <strong id="hpCardStatus">Tersedia (Gratis)</strong>
+                </li>
+                <li class="hp-summary-item">
+                  <span>Finishing:</span>
+                  <strong>Pita Satin & Segel Wax Seal</strong>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="hp-total-row">
+                <span class="hp-total-lbl">Total Paket Kado</span>
+                <span class="hp-total-val mono" id="hpTotalPrice">Rp 195.000</span>
+              </div>
+              <button class="btn-add-hampers" onclick="addHampersToCart()">
+                + Masukkan Paket Hampers ke Tas
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog Section -->
+  <section class="catalog-section" id="koleksi">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">KATALOG PILIHAN ATELIER</span>
+        <h2 class="section-title">Koleksi Scarf Siap Kirim</h2>
+        <p class="section-subtitle">Dibuat dari bahan bersertifikasi kualitas terbaik dengan jahitan tepi rapi berstandar butik.</p>
+      </div>
+
+      <div class="catalog-filter-tabs">
+        <button class="filter-tab-btn active" onclick="filterCatalog('all', this)">Semua Koleksi</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('voal', this)">Voal Ultrafine</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('satin', this)">Sutra Satin Silk</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('pashmina', this)">Pashmina Crinkle</button>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Item 1 -->
+        <div class="product-card" data-cat="voal">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80" alt="Hijab Segiempat Almond Linen" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Best Seller</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Voal Ultrafine Almond Linen</h3>
+              <p class="pc-desc">Warna oat hangat yang sangat netral dan serasi dipadukan dengan berbagai warna busana harian.</p>
+              <div class="pc-specs mono">
+                <span>115x115 cm</span>
+                <span>•</span>
+                <span>Scallop Petal</span>
+                <span>•</span>
+                <span>Voal 60s</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 89.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Voal Ultrafine Almond Linen', 89000, 'Almond Linen', 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="product-card" data-cat="voal">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80" alt="Hijab Segiempat Dusty Peony" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Favorit</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Voal Ultrafine Dusty Peony</h3>
+              <p class="pc-desc">Sentuhan warna dusty pink mauve yang anggun, memberi rona cerah alami pada wajah saat dikenakan.</p>
+              <div class="pc-specs mono">
+                <span>115x115 cm</span>
+                <span>•</span>
+                <span>Wave Minimalist</span>
+                <span>•</span>
+                <span>Voal 60s</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 89.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Voal Ultrafine Dusty Peony', 89000, 'Dusty Peony', 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="product-card" data-cat="satin">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1574634534894-89d7576c8259?auto=format&fit=crop&w=800&q=80" alt="Scarf Sutra Satin Peach Nude" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Eksklusif</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Sutra Satin Peach Powder</h3>
+              <p class="pc-desc">Kilau satin halus yang tidak berlebihan, jatuh mewah melangsai sempurna untuk resepsi dan pesta resmi.</p>
+              <div class="pc-specs mono">
+                <span>115x115 cm</span>
+                <span>•</span>
+                <span>Jahit Tepi Halus</span>
+                <span>•</span>
+                <span>Satin Silk</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 125.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Sutra Satin Peach Powder', 125000, 'Peach Powder', 'https://images.unsplash.com/photo-1574634534894-89d7576c8259?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="product-card" data-cat="pashmina">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80" alt="Pashmina Crinkle Butter Milk" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Ironless</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Pashmina Crinkle Butter Milk</h3>
+              <p class="pc-desc">Selendang panjang bertekstur lipit alami, sangat ringan, elastis, dan dapat langsung dikenakan tanpa disetrika.</p>
+              <div class="pc-specs mono">
+                <span>180x75 cm</span>
+                <span>•</span>
+                <span>Jahit Tepi Butik</span>
+                <span>•</span>
+                <span>Crinkle Silk</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 95.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Pashmina Crinkle Butter Milk', 95000, 'Butter Milk', 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="product-card" data-cat="voal">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&w=800&q=80" alt="Voal Ultrafine Soft Truffle" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Signature</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Voal Ultrafine Soft Truffle</h3>
+              <p class="pc-desc">Warna cokelat plum lembut yang menawan untuk melengkapi penampilan profesional saat rapat dan bekerja.</p>
+              <div class="pc-specs mono">
+                <span>115x115 cm</span>
+                <span>•</span>
+                <span>Scallop Petal</span>
+                <span>•</span>
+                <span>Voal 60s</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 89.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Voal Ultrafine Soft Truffle', 89000, 'Soft Truffle', 'https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="product-card" data-cat="satin">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80" alt="Sutra Satin Motif Bunga Tropis" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Motif Lembut</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Sutra Satin Motif Peony Soft</h3>
+              <p class="pc-desc">Motif botanical halus terinspirasi dari taman bunga nusantara yang dicetak dengan tinta ramah lingkungan.</p>
+              <div class="pc-specs mono">
+                <span>115x115 cm</span>
+                <span>•</span>
+                <span>Laser Cut Neat</span>
+                <span>•</span>
+                <span>Satin Silk</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 135.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Sutra Satin Motif Peony Soft', 135000, 'Peony Motif', 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hijab Care & Longevity Guide -->
+  <section class="care-section" id="perawatan">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">PANDUAN PERAWATAN ATELIER</span>
+        <h2 class="section-title">Merawat Keindahan Serat Hijab Anda</h2>
+        <p class="section-subtitle">Ikuti langkah sederhana ini agar hijab voal dan sutra satin kesayangan tetap halus, tidak berbulu, dan awet bertahun-tahun.</p>
+      </div>
+
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-icon">🫧</div>
+          <h3 class="care-title">Cuci Manual dengan Tangan</h3>
+          <p class="care-desc">Gunakan air dingin dan deterjen cair lembut atau sampo bayi. Hindari mesin cuci agar serat kain tidak meregang.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon">🌬️</div>
+          <h3 class="care-title">Keringkan di Tempat Teduh</h3>
+          <p class="care-desc">Cukup diperas perlahan tanpa dipelintir kencang, lalu gantung di area teduh tanpa terpapar terik matahari langsung.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon">🪡</div>
+          <h3 class="care-title">Setrika Suhu Rendah</h3>
+          <p class="care-desc">Gunakan temperatur rendah (Silk / Wool mode). Untuk bahan satin sutra, setrika dari bagian dalam kain atau gunakan kain pelapis.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon">🧲</div>
+          <h3 class="care-title">Gunakan Klip Magnet</h3>
+          <p class="care-desc">Gunakan peniti magnet hijab untuk menghindari bekas lubang jarum pentul tajam yang dapat merusak benang ultrafine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">KIRANA SCARF</div>
+          <p class="footer-desc">
+            Atelier hijab dan scarf sutra lokal yang mengutamakan kenyamanan serat alami, keanggunan drape kain, dan kepuasan berpakaian modest yang percaya diri.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi Cepat</h4>
+          <ul class="footer-links">
+            <li><a href="#koleksi">Koleksi Voal Ultrafine</a></li>
+            <li><a href="#studio-kain">Studio Jatuh Kain</a></li>
+            <li><a href="#rakit-hampers">Perakit Hampers Kado</a></li>
+            <li><a href="#perawatan">Panduan Perawatan</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Layanan Pelanggan</h4>
+          <ul class="footer-links">
+            <li><a href="#rakit-hampers">Pemesanan Kado & Hampers</a></li>
+            <li><a href="#">Garansi Tukar Produk Baru</a></li>
+            <li><a href="#">Pengiriman Reguler & Same-day</a></li>
+            <li><a href="#">Panduan Ukuran Scarf</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Atelier & Pengiriman</h4>
+          <p class="footer-desc">
+            Workshop & Butik: Jl. Senopati Asri No. 18, Jakarta Selatan.<br>
+            CS WhatsApp: 0812-8899-7722<br>
+            Buka: Setiap Hari (08.00 - 20.00 WIB)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 KIRANA SCARF Atelier. Hak Cipta Dilindungi Undang-Undang.</div>
+        <div class="mono">Template NECTOR.UI • Anti-Slop Craft Standard</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3 class="dh-title">Tas Belanja Anda</h3>
+      <button class="btn-close-drawer" onclick="toggleCart()">&times;</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="cart-items-list" id="cartItemsContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="drawer-total-row">
+        <span class="dtr-lbl">Subtotal Pesanan</span>
+        <span class="dtr-val mono" id="drawerSubtotal">Rp 0</span>
+      </div>
+
+      <div class="form-buyer-info">
+        <input type="text" id="buyerName" placeholder="Nama Lengkap Anda" value="Sarah Annisa">
+        <input type="text" id="buyerCity" placeholder="Kota Pengiriman (contoh: Jakarta Selatan)" value="Jakarta Selatan">
+      </div>
+
+      <button class="btn-whatsapp-checkout" onclick="checkoutWhatsApp()">
+        <span>Pesan Langsung via WhatsApp</span>
+        <span>→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg">Kode warna berhasil disalin!</div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Shopping Cart State
+    let cart = [
+      {
+        name: 'Voal Ultrafine Almond Linen',
+        price: 89000,
+        variant: 'Almond Linen (115x115 cm)',
+        img: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=200&q=80',
+        qty: 1
+      }
+    ];
+
+    // Drape Studio State
+    let currentFabric = 'voal';
+    let currentEdge = 'Scallop Petal';
+
+    const fabricData = {
+      voal: {
+        title: 'Voal Ultrafine 60s',
+        price: 'Rp 89.000',
+        img: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80',
+        opacity: '95% (Tidak Terawang)',
+        stiff: 'Sangat Tegak Mandiri',
+        breeze: 'Adem Seharian'
+      },
+      satin: {
+        title: 'Sutra Satin Silk Eksklusif',
+        price: 'Rp 125.000',
+        img: 'https://images.unsplash.com/photo-1574634534894-89d7576c8259?auto=format&fit=crop&w=800&q=80',
+        opacity: '100% (Pekat Mewah)',
+        stiff: 'Jatuh Melangsai',
+        breeze: 'Kilau Elegan Pesta'
+      },
+      pashmina: {
+        title: 'Pashmina Crinkle Silk Shawl',
+        price: 'Rp 95.000',
+        img: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80',
+        opacity: '90% (Ringan Melayang)',
+        stiff: 'Mudah Dibentuk',
+        breeze: 'Ironless Tanpa Setrika'
+      }
+    };
+
+    // Hampers Builder State
+    let boxTier = 'duo';
+    let boxPrice = 195000;
+    let maxColors = 2;
+    let chosenColors = ['Almond Linen Voal', 'Dusty Peony Voal'];
+
+    // Select Fabric in Studio
+    function selectFabric(type) {
+      currentFabric = type;
+      const data = fabricData[type];
+      document.getElementById('displayFabricTitle').innerText = data.title;
+      document.getElementById('displayFabricPrice').innerText = data.price;
+      document.getElementById('displayFabricImg').src = data.img;
+      document.getElementById('specOpacity').innerText = data.opacity;
+      document.getElementById('specStiff').innerText = data.stiff;
+      document.getElementById('specBreeze').innerText = data.breeze;
+
+      const buttons = document.querySelectorAll('.fabric-pill-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    }
+
+    // Select Edge in Studio
+    function selectEdge(edge) {
+      currentEdge = edge;
+      document.getElementById('displayEdgeBadge').innerText = 'Tepian: ' + edge;
+      const buttons = document.querySelectorAll('.edge-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    }
+
+    function addStudioItemToCart() {
+      const data = fabricData[currentFabric];
+      const numericPrice = parseInt(data.price.replace(/[^0-9]/g, ''));
+      addToCart(data.title, numericPrice, 'Finishing: ' + currentEdge, data.img);
+      showToast('Pilihan dari Studio Kain berhasil ditambahkan ke tas!');
+    }
+
+    // Hampers Box Builder Logic
+    function setBoxTier(tier, price, max) {
+      boxTier = tier;
+      boxPrice = price;
+      maxColors = max;
+      document.getElementById('colorMaxCount').innerText = max;
+      document.getElementById('hpTotalPrice').innerText = 'Rp ' + price.toLocaleString('id-ID');
+      document.getElementById('hpBoxTitle').innerText = tier === 'duo' ? 'Paket Duo Scarf Gift Box' : 'Paket Trio Scarf Gift Box';
+
+      const cards = document.querySelectorAll('.box-tier-card');
+      cards.forEach(c => c.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+      updateHampersUI();
+    }
+
+    function toggleBoxColor(btn, colorName) {
+      const idx = chosenColors.indexOf(colorName);
+      if (idx > -1) {
+        if (chosenColors.length > 1) {
+          chosenColors.splice(idx, 1);
+          btn.classList.remove('active');
+        } else {
+          showToast('Paling sedikit harus memilih 1 varian warna');
+        }
+      } else {
+        if (chosenColors.length < maxColors) {
+          chosenColors.push(colorName);
+          btn.classList.add('active');
+        } else {
+          showToast('Maksimal ' + maxColors + ' varian warna untuk paket ini');
+        }
+      }
+      updateHampersUI();
+    }
+
+    function updateHampersUI() {
+      document.getElementById('colorPickedCount').innerText = chosenColors.length;
+      document.getElementById('hpChosenColors').innerText = chosenColors.join(', ') || 'Belum dipilih';
+    }
+
+    function addHampersToCart() {
+      const to = document.getElementById('giftTo').value.trim() || 'Sahabat';
+      const from = document.getElementById('giftFrom').value.trim() || 'Teman';
+      const variantStr = (boxTier === 'duo' ? 'Duo Box' : 'Trio Box') + ' (' + chosenColors.join(' + ') + ') • Untuk: ' + to;
+      
+      addToCart('Hampers Kado Kirana Scarf', boxPrice, variantStr, 'https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=200&q=80');
+      showToast('Paket hampers kado berhasil masuk ke tas belanja!');
+    }
+
+    // Filter Catalog
+    function filterCatalog(category, btn) {
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.cat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Cart Operations
+    function addToCart(name, price, variant, img) {
+      const existing = cart.find(i => i.name === name && i.variant === variant);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, variant, img, qty: 1 });
+      }
+      renderCart();
+      showToast('✓ ' + name + ' ditambahkan ke tas!');
+    }
+
+    function changeQty(idx, delta) {
+      if (cart[idx]) {
+        cart[idx].qty += delta;
+        if (cart[idx].qty <= 0) {
+          cart.splice(idx, 1);
+        }
+        renderCart();
+      }
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      const badge = document.getElementById('cartCount');
+      const subtotalEl = document.getElementById('drawerSubtotal');
+
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge.innerText = totalCount;
+
+      let subtotal = 0;
+      if (cart.length === 0) {
+        container.innerHTML = '<div style="text-align:center; padding: 40px 0; color: #9A8088;">Tas belanja Anda masih kosong.<br>Silakan pilih scarf idaman Anda.</div>';
+        subtotalEl.innerText = 'Rp 0';
+        return;
+      }
+
+      let html = '';
+      cart.forEach((item, idx) => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        html += `
+          <div class="cart-item-row">
+            <div class="cir-thumb">
+              <img src="${item.img}" alt="${item.name}">
+            </div>
+            <div class="cir-details">
+              <div class="cir-name">${item.name}</div>
+              <div class="cir-meta">${item.variant}</div>
+              <div class="cir-price mono">Rp ${item.price.toLocaleString('id-ID')}</div>
+              <div class="cir-qty-ctrl">
+                <button class="btn-qty" onclick="changeQty(${idx}, -1)">−</button>
+                <span class="cir-qty-val mono">${item.qty}</span>
+                <button class="btn-qty" onclick="changeQty(${idx}, 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      subtotalEl.innerText = 'Rp ' + subtotal.toLocaleString('id-ID');
+    }
+
+    function toggleCart() {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      drawer.classList.toggle('open');
+      overlay.classList.toggle('open');
+    }
+
+    // Checkout via WhatsApp
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Tas belanja Anda masih kosong!');
+        return;
+      }
+
+      const buyer = document.getElementById('buyerName').value.trim() || 'Pelanggan Kirana';
+      const city = document.getElementById('buyerCity').value.trim() || 'Jakarta';
+      
+      let total = 0;
+      let itemsList = '';
+      cart.forEach((item, i) => {
+        const lineTotal = item.price * item.qty;
+        total += lineTotal;
+        itemsList += `${i + 1}. ${item.name} (${item.variant}) x${item.qty} = Rp ${lineTotal.toLocaleString('id-ID')}\n`;
+      });
+
+      const message = 
+`Halo Admin KIRANA SCARF, saya ingin melakukan pemesanan scarf berikut:
+
+Nama: ${buyer}
+Kota Tujuan: ${city}
+
+Daftar Pesanan:
+${itemsList}
+Total Pesanan: Rp ${total.toLocaleString('id-ID')}
+
+Mohon informasi ketersediaan stok dan total ongkos kirim ke alamat saya. Terima kasih!`;
+
+      const encoded = encodeURIComponent(message);
+      window.open(`https://api.whatsapp.com/send?phone=6281288997722&text=${encoded}`, '_blank');
+    }
+
+    // Copy Hex to Clipboard
+    function copyHex(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        showToast('Kode ' + hex + ' berhasil disalin!');
+      }).catch(() => {
+        showToast('Berhasil memilih warna ' + hex);
+      });
+    }
+
+    // Toast message display
+    function showToast(text) {
+      const toast = document.getElementById('toastMsg');
+      toast.innerText = text;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+      updateHampersUI();
+    });
+  </script>
+</body>
+</html>

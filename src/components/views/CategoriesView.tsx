@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'scarf',
+      title: 'Scarf & Hijab Voal Ultrafine',
+      icon: Sparkles,
+      desc: 'Atelier hijab voal ultrafine 60s, scarf sutra satin motif lembut, dan pashmina crinkle silk: tegak di dahi, adem non-bising, studio jatuh kain interaktif, perakit hardbox hampers kado, dan pemesanan WhatsApp instan.',
+      accent: '#A2485E'
+    },
+    {
       id: 'popsicle',
       title: 'Es Stik Buah Asli & Cooler Box Pesta',
       icon: Popsicle,

@@ -59,8 +59,10 @@ import { soapMasterPrompt } from './soapPrompt';
 import { flowerMasterPrompt } from './flowerPrompt';
 import { puddingMasterPrompt } from './puddingPrompt';
 import { popsicleMasterPrompt } from './popsiclePrompt';
+import { scarfMasterPrompt } from './scarfPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'kirana-scarf-hijab-voal': scarfMasterPrompt,
   'sejuk-ria-es-stik-buah': popsicleMasterPrompt,
   'sutra-manis-puding-artisan': puddingMasterPrompt,
   'mekar-abadi-bunga-kering': flowerMasterPrompt,
