@@ -51,6 +51,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'aquascape', label: 'Akuaskap & Ikan Hias Tropis', count: templates.filter(t => t.category === 'aquascape').length, desc: 'Akuarium kaca rimless optic-clear, tanaman air hidup steril bebas alga, dan ikan hias sehat dengan garansi hidup 100% sampai tujuan (DOA)' },
     { id: 'beauty', label: 'Kosmetik Bibir & Perawatan Alami', count: templates.filter(t => t.category === 'beauty').length, desc: 'Kosmetik lip velvet tekstur awan ringan, lip tint tahan lama bersertifikasi BPOM & Halal, dan paket kado 3 shade kustom dengan ukir nama gratis' },
     { id: 'baby', label: 'Pakaian Bayi & Hampers Lahiran', count: templates.filter(t => t.category === 'baby').length, desc: 'Pakaian bayi katun bambu organik bersertifikat SNI & OEKO-TEX, adem anti-alergi, dan paket hampers kado lahiran dengan kartu ucapan kustom live-preview' },
     { id: 'cookies', label: 'Kue Kering & Hampers Hari Raya', count: templates.filter(t => t.category === 'cookies').length, desc: 'Kue kering mentega Wijsman asli, nastar selai nanas madu lumer, kastengel keju edam tua, dan hampers hari raya elegan tanpa bahan pengawet' },

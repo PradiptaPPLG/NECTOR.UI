@@ -4058,6 +4058,89 @@ export function TanahLiatStudio() {
       { hex: '#522546', rgb: 'rgb(82, 37, 70)', name: 'Dark Boysenberry Velvet', role: 'Warna Pouch Velvet, Latar Bilah Atas & Kartu Bundle Eksklusif' },
       { hex: '#311D3F', rgb: 'rgb(49, 29, 63)', name: 'Deep Midnight Aubergine', role: 'Warna Brand Mark Utama, Footer Mewah & Teks Penegasan Brand' }
     ]
+  },
+  {
+    id: 'tpl-53',
+    slug: 'akuaskap-ikan-hias-tropis',
+    title: 'AQUA NUSANTARA (Atelier Akuaskap, Tanaman Air Tropis & Ikan Hias)',
+    tagline: 'Akuarium kaca optic clear rimless, tanaman air tropis bebas alga, dan ikan hias sehat dengan garansi hidup sampai tujuan (DOA)',
+    description: 'Template website etalase toko akuaskap dan ikan hias air tawar tropis AQUA NUSANTARA dengan palet warna Deep Midnight Navy (#0A2647), Nautical Royal Indigo (#144272), Pacific Azure Blue (#205295), dan Bright Cerulean Ocean (#2C74B3). Menghadirkan fotografi ekosistem bawah air berkualitas tinggi tanpa model 3D membingungkan, bahasa Indonesia yang ramah dan bersahabat bagi hobiis pemula maupun mahir, fitur Aquarium Sizer & Volume Calculator interaktif, pemilih 3 gaya ekosistem (Iwagumi, Dutch, Biotop), etalase 6 produk akuaskap esensial dengan pemilih dimensi kaca dan hardscape, Custom Starter Kit Builder dengan live bundle summary, 4 komitmen keamanan packing ikan bergaransi hidup (DOA 100%), serta slide-over keranjang belanja terhubung langsung ke checkout WhatsApp.',
+    category: 'aquascape',
+    tags: ['Akuaskap', 'Ikan Hias', 'Tanaman Air', 'Aquarium Rimless', 'Batu Seiryu', 'Cardinal Tetra', 'Hobi Air Tawar', 'Filter Canister', 'Dekorasi Rumah'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Web Audio API Water Bubbling Synthesizer', 'Aquarium Sizer & Volume Calculator', 'Aquascape Style Matcher', 'Custom Starter Kit Builder', 'Slide-Over Cart Drawer', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'maritime',
+    previewComponentKey: 'aquascape-aqua',
+    htmlPath: '/templates/aquascape/akuaskap-ikan-hias-tropis.html',
+    htmlFolderPath: 'templates/aquascape/akuaskap-ikan-hias-tropis.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa dependensi eksternal atau build step',
+      'Kalkulator dimensi akuarium interaktif (Aquarium Sizer & Volume Calculator) menghitung liter air bersih, daya lampu LED, debit filter canister, dan batas populasi ikan',
+      'Inspirasi 3 gaya ekosistem populer: Iwagumi Minimalis, Dutch Planted Rimbun, dan Nature Biotop Sungai Tropis',
+      'Katalog 6 produk fisik akuaskap esensial dengan harga rupiah transparan dan tombol tambah instan',
+      'Perakit paket starter kit lengkap (Custom Starter Kit Builder) dengan diskon bundle hemat otomatis',
+      'Synthesizer suara gemericik air akuarium santai (Soothing Water Stream) dengan Web Audio API',
+      'Slide-over keranjang belanja dengan kupon promo AQUASEGAR dan checkout otomatis rapi ke WhatsApp'
+    ],
+    usageInstructions: [
+      'Buka folder templates/aquascape/akuaskap-ikan-hias-tropis.html di editor kode Anda.',
+      'Ubah nomor WhatsApp admin pada fungsi checkoutViaWhatsApp.',
+      'Ganti foto produk, daftar tanaman, atau harga sesuai stok toko Anda.',
+      'Buka file HTML langsung di browser untuk menguji seluruh fitur interaktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'akuaskap-ikan-hias-tropis.html',
+        language: 'html',
+        content: `<!-- AQUA NUSANTARA — NECTOR.UI Akuaskap & Ikan Hias Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>AQUA NUSANTARA — Atelier Akuaskap, Tanaman Air Tropis & Ikan Hias</title>
+  <style>
+    :root {
+      --color-navy-dark: #0A2647;
+      --color-navy-royal: #144272;
+      --color-blue-azure: #205295;
+      --color-blue-cerulean: #2C74B3;
+      --color-bg: #F6F9FC;
+      --color-surface: #FFFFFF;
+      --color-text-main: #0B1B2B;
+      --color-text-muted: #475E75;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-notice-bar">GARANSI 100% IKAN HIDUP SAMPAI TUJUAN (DOA REFUND) · KACA RIMLESS OPTIC CLEAR</div>
+  <header class="site-header">
+    <div class="brand-name">AQUA NUSANTARA <span>ATELIER AKUASKAP & IKAN HIAS</span></div>
+    <nav>Produk Pilihan · Kalkulator Air · Gaya Ekosistem · Starter Kit · Garansi Ikan</nav>
+  </header>
+  <!-- Full Interactive Aquascape E-Commerce: Water Calculator, Style Matcher, Starter Kit, Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website toko akuaskap dan ikan hias air tawar tropis AQUA NUSANTARA dengan palet warna Deep Midnight Navy (#0A2647), Nautical Royal Indigo (#144272), Pacific Azure Blue (#205295), Bright Cerulean Ocean (#2C74B3), Crystal Clear Aquatic White (#F6F9FC), dan Deep Navy Charcoal (#0B1B2B). Dilengkapi Aquarium Sizer & Volume Calculator interaktif, pemilih 3 gaya ekosistem, etalase 6 produk fisik akuaskap, Custom Starter Kit Builder dengan bundle discount live, synthesizer audio gemericik air akuarium Web Audio API, serta slide-over keranjang belanja terhubung ke pemesanan WhatsApp.',
+      designDirection: 'Clean editorial professional aquatic nature & freshwater tropical aquascaping atelier UMKM berstandar antislop: Deep Midnight Navy (#0A2647), Nautical Royal Indigo (#144272), Pacific Azure Blue (#205295), Bright Cerulean Ocean (#2C74B3), dan Deep Navy Charcoal (#0B1B2B). Tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Bilah pengumuman garansi ikan hidup atas dengan audio switch air mengalir Web Audio API, sticky header dengan brand mark dan counter keranjang live, hero berdampak visual kuat dengan foto produk akuarium rimless nyata dan metrik terverifikasi, Aquarium Sizer & Volume Calculator 3 input angka interaktif, panduan 3 gaya ekosistem akuaskap, katalog 6 produk dengan detail teknis, perakit starter kit lengkap 3 langkah, 4 komitmen garansi packing aman, testimoni hobiis terverifikasi, dan slide-over cart drawer WhatsApp.',
+      typographyAndColor: 'Plus Jakarta Sans (bobot 400-800) untuk kejelasan, ketenangan, dan rasa percaya hobiis akuaskap, JetBrains Mono untuk volume liter (L), watt lampu (W), debit pompa filter (L/h), dimensi centimeter (cm), dan harga rupiah (Rp).',
+      interactions: 'Kalkulator volume liter dan kapasitas ikan dinamis yang merespons perubahan angka panjang/lebar/tinggi akuarium, selector ukuran tank dan hardscape, perakit starter kit dengan kalkulasi harga bundle otomatis, pengubah kuantitas keranjang belanja, kupon diskon AQUASEGAR, dan checkout otomatis terhubung ke WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, responsive smartphone hingga layar desktop lebar, Web Audio API prosedural, foto produk asli Unsplash akuarium dan ikan tropis berkualitas tinggi.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#2C74B3',
+    colorPalette: [
+      { hex: '#0A2647', rgb: 'rgb(10, 38, 71)', name: 'Deep Midnight Navy', role: 'Latar Bilah Pengumuman Atas, Footer Kedalaman Air & Teks Penegasan' },
+      { hex: '#144272', rgb: 'rgb(20, 66, 114)', name: 'Nautical Royal Indigo', role: 'Border Aktif Kartu Ekosistem, Panel Spesifikasi Teknis & Subjudul' },
+      { hex: '#205295', rgb: 'rgb(32, 82, 149)', name: 'Pacific Azure Blue', role: 'Aksen Filter Air, Sorotan Fitur Ekosistem & Latar Avatar Ulasan' },
+      { hex: '#2C74B3', rgb: 'rgb(44, 116, 179)', name: 'Bright Cerulean Ocean', role: 'Tombol Aksi Utama (CTA), Badge Produk Terlaris & Sorotan Harga' }
+    ]
   }
 ];
 

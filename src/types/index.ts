@@ -53,6 +53,7 @@ export type Category =
   | 'cookies'
   | 'baby'
   | 'beauty'
+  | 'aquascape'
   | 'umkm';
 
 export type WeddingSubcategory =

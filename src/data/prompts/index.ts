@@ -52,8 +52,10 @@ import { RUMAH_ANYAM_MASTER_PROMPT } from './craftPrompt';
 import { RUMAH_NASTAR_MASTER_PROMPT } from './cookiesPrompt';
 import { NARA_BABY_MASTER_PROMPT } from './babyPrompt';
 import { RUMAH_VELVET_MASTER_PROMPT } from './beautyPrompt';
+import { AQUA_NUSANTARA_MASTER_PROMPT } from './aquascapePrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'akuaskap-ikan-hias-tropis': AQUA_NUSANTARA_MASTER_PROMPT,
   'lip-velvet-kosmetik-lokal': RUMAH_VELVET_MASTER_PROMPT,
   'baju-bayi-hampers-organik': NARA_BABY_MASTER_PROMPT,
   'dapur-nastar-kue-kering': RUMAH_NASTAR_MASTER_PROMPT,
@@ -158,4 +160,5 @@ export {
   DENTIA_DENTAL_MASTER_PROMPT,
   NARA_BABY_MASTER_PROMPT,
   RUMAH_VELVET_MASTER_PROMPT,
+  AQUA_NUSANTARA_MASTER_PROMPT,
 };

@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'aquascape',
+      title: 'Akuaskap & Ikan Hias Tropis',
+      icon: Waves,
+      desc: 'Atelier akuaskap dan ekosistem air tawar tropis Indonesia: set akuarium kaca rimless optic-clear, tanaman air steril bebas alga, kalkulator volume liter air & kapasitas ikan, serta garansi 100% ikan hidup sampai tujuan.',
+      accent: '#2C74B3'
+    },
+    {
       id: 'beauty',
       title: 'Kosmetik Bibir & Perawatan Alami',
       icon: Sparkles,
