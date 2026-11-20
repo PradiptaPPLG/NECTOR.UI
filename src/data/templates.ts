@@ -3975,6 +3975,89 @@ export function TanahLiatStudio() {
       { hex: '#9CB4CC', rgb: 'rgb(156, 180, 204)', name: 'Calming Dusty Steel Blue', role: 'Warna Katun Jumper Langit, Garis Pembatas Halus & Sorotan Spesifikasi' },
       { hex: '#748DA6', rgb: 'rgb(116, 141, 166)', name: 'Slate Denim Blue', role: 'Tombol Aksi Utama (CTA), Brand Mark Penegasan, Harga Rupiah & Icon Utama' }
     ]
+  },
+  {
+    id: 'tpl-52',
+    slug: 'lip-velvet-kosmetik-lokal',
+    title: 'RUMAH VELVET (Kosmetik Lip Velvet, Tint Bibir & Perawatan Alami)',
+    tagline: 'Lip velvet matte ringan, lip tint berry tahan lama bersertifikasi BPOM & Halal, diperkaya minyak jojoba dan vitamin E alami',
+    description: 'Template website etalase toko kosmetik bibir dan perawatan alami lokal RUMAH VELVET dengan palet warna Vibrant Crimson Berry (#E23E57), Deep Mulberry Wine (#88304E), Dark Boysenberry Velvet (#522546), dan Deep Midnight Aubergine (#311D3F). Menghadirkan fotografi kosmetik asli berkualitas tinggi tanpa elemen 3D membingungkan, bahasa Indonesia yang elegan dan ramah bagi publik serta pecinta kecantikan lokal, fitur Undertone & Shade Matcher interaktif, etalase 6 produk kosmetik bibir esensial dengan pemilih shade dan hasil akhir (Velvet Matte vs Satin Glaze), Custom Lip Kit Bundle Builder dengan live tube engraving visualizer dan pouch velvet gratis, penjelasan sains formula pelembab alami, serta slide-over keranjang belanja terhubung langsung ke checkout WhatsApp.',
+    category: 'beauty',
+    tags: ['Kosmetik Lokal', 'Lip Velvet', 'Lip Tint', 'Lipstik Halal', 'BPOM Resmi', 'Skincare Bibir', 'Kado Make Up', 'Vegan Cosmetics', 'Berry Lipstick'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Web Audio API ASMR Magnetic Click', 'Undertone & Shade Matcher', 'Custom Lip Kit Bundle Builder', 'Live Tube Engraving Visualizer', 'Slide-Over Cart Drawer', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'perfumery',
+    previewComponentKey: 'beauty-velvet',
+    htmlPath: '/templates/beauty/lip-velvet-kosmetik-lokal.html',
+    htmlFolderPath: 'templates/beauty/lip-velvet-kosmetik-lokal.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa dependensi eksternal atau build step',
+      'Penemu warna bibir interaktif (Undertone & Shade Matcher) menyesuaikan undertone kulit (Cool, Neutral, Warm) dan suasana acara (Harian, Kantor, Pesta)',
+      'Katalog 6 produk kosmetik bibir unggulan dengan pemilih shade interaktif dan formula keunggulan',
+      'Perakit paket 3 shade hemat (Custom Lip Kit Bundle Builder) dengan pilihan pouch velvet gratis dan visualizer grafir nama tube live',
+      'Sains formula pelembab alami: perpaduan pigmen tahan transfer dengan minyak jojoba dan vitamin E anti-bibir gelap',
+      'Efek suara kosmetik ASMR tutup magnetik kemasan (Magnetic Click Sound) dengan Web Audio API',
+      'Slide-over keranjang belanja dengan kupon promo BERRYGLOW dan checkout otomatis rapi ke WhatsApp'
+    ],
+    usageInstructions: [
+      'Buka folder templates/beauty/lip-velvet-kosmetik-lokal.html di editor kode Anda.',
+      'Ubah nomor WhatsApp admin pada fungsi checkoutViaWhatsApp.',
+      'Ganti foto produk, daftar shade, atau harga sesuai katalog brand kosmetik Anda.',
+      'Buka file HTML langsung di browser untuk menguji seluruh fitur interaktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'lip-velvet-kosmetik-lokal.html',
+        language: 'html',
+        content: `<!-- RUMAH VELVET — NECTOR.UI Kosmetik Bibir & Perawatan Alami Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>RUMAH VELVET — Kosmetik Lip Velvet, Tint Bibir & Perawatan Alami</title>
+  <style>
+    :root {
+      --color-crimson: #E23E57;
+      --color-mulberry: #88304E;
+      --color-boysenberry: #522546;
+      --color-aubergine: #311D3F;
+      --color-bg: #FAF7F9;
+      --color-surface: #FFFFFF;
+      --color-text-main: #201222;
+      --color-text-muted: #68556A;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-announcement-bar">PROMO PELUNCURAN: GRATIS POUCH VELVET & UKIR NAMA TUBE · BPOM & HALAL RESMI</div>
+  <header class="site-header">
+    <div class="brand-name">RUMAH VELVET <span>KOSMETIK BIBIR & PERAWATAN ALAMI</span></div>
+    <nav>Koleksi Shade · Penemu Warna · Paket 3 Shade · Uji Formula · Ulasan</nav>
+  </header>
+  <!-- Full Interactive Beauty E-Commerce: Shade Matcher, Bundle Builder, Tube Engraving, Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website toko kosmetik bibir dan perawatan alami lokal RUMAH VELVET dengan palet warna Vibrant Crimson Berry (#E23E57), Deep Mulberry Wine (#88304E), Dark Boysenberry Velvet (#522546), Deep Midnight Aubergine (#311D3F), Soft Berry Milk Canvas (#FAF7F9), dan Charcoal Aubergine (#201222). Dilengkapi Undertone & Shade Matcher interaktif, katalog 6 produk dengan pemilih shade live, Custom Lip Kit Bundle Builder dengan live tube engraving visualizer dan pouch velvet gratis, sains formula pelembab alami, synthesizer suara klik kemasan kosmetik Web Audio API, serta slide-over keranjang belanja terhubung ke pemesanan WhatsApp.',
+      designDirection: 'Clean editorial modern luxurious local clean beauty atelier UMKM berstandar antislop: Vibrant Crimson Berry (#E23E57), Deep Mulberry Wine (#88304E), Dark Boysenberry Velvet (#522546), Deep Midnight Aubergine (#311D3F), dan Charcoal Aubergine (#201222). Tipografi Plus Jakarta Sans, Playfair Display, dan JetBrains Mono.',
+      layoutAndGrid: 'Bilah pengumuman promo atas dengan audio switch ASMR magnetik Web Audio API, sticky header dengan brand mark dan counter keranjang live, hero berdampak visual kuat dengan foto produk lip velvet nyata dan metrik terverifikasi, Undertone & Shade Matcher interaktif 2 kolom, katalog 6 produk dengan swatch warna, perakit bundle 3 shade dengan live tube engraving preview pada tube velvet, 3 kartu sains formula alami, 4 pilar standar keamanan BPOM/Halal, testimoni pembeli terverifikasi, dan slide-over cart drawer WhatsApp.',
+      typographyAndColor: 'Plus Jakarta Sans (bobot 400-800) untuk kejelasan, keramahan, dan keterbacaan modern, Playfair Display untuk sentuhan kosmetik mewah ala majalah kecantikan, JetBrains Mono untuk nomor izin BPOM, harga rupiah (Rp), gramasi netto (ml), dan kode promo.',
+      interactions: 'Undertone & Shade Matcher dinamis yang merekomendasikan shade pas berdasarkan warna kulit dan suasana acara, selector shade dan finish produk, perakit bundle dengan formulir grafir nama live tube visualizer, pengubah kuantitas keranjang belanja, kupon diskon BERRYGLOW, dan checkout otomatis terhubung ke WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, responsive smartphone hingga layar desktop lebar, Web Audio API prosedural, foto produk asli Unsplash kosmetik berkualitas tinggi.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#E23E57',
+    colorPalette: [
+      { hex: '#E23E57', rgb: 'rgb(226, 62, 87)', name: 'Vibrant Crimson Berry', role: 'Tombol Aksi Utama (CTA), Shade Lip Velvet Terlaris & Badge Diskon' },
+      { hex: '#88304E', rgb: 'rgb(136, 48, 78)', name: 'Deep Mulberry Wine', role: 'Warna Aksen Mewah, Border Aktif Shade Gelap & Subjudul Penegasan' },
+      { hex: '#522546', rgb: 'rgb(82, 37, 70)', name: 'Dark Boysenberry Velvet', role: 'Warna Pouch Velvet, Latar Bilah Atas & Kartu Bundle Eksklusif' },
+      { hex: '#311D3F', rgb: 'rgb(49, 29, 63)', name: 'Deep Midnight Aubergine', role: 'Warna Brand Mark Utama, Footer Mewah & Teks Penegasan Brand' }
+    ]
   }
 ];
 

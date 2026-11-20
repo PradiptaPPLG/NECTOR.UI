@@ -51,8 +51,10 @@ import { KANDELA_CANDLERY_MASTER_PROMPT } from './candleryPrompt';
 import { RUMAH_ANYAM_MASTER_PROMPT } from './craftPrompt';
 import { RUMAH_NASTAR_MASTER_PROMPT } from './cookiesPrompt';
 import { NARA_BABY_MASTER_PROMPT } from './babyPrompt';
+import { RUMAH_VELVET_MASTER_PROMPT } from './beautyPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'lip-velvet-kosmetik-lokal': RUMAH_VELVET_MASTER_PROMPT,
   'baju-bayi-hampers-organik': NARA_BABY_MASTER_PROMPT,
   'dapur-nastar-kue-kering': RUMAH_NASTAR_MASTER_PROMPT,
   'anyam-kriya-rotan': RUMAH_ANYAM_MASTER_PROMPT,
@@ -155,4 +157,5 @@ export {
   SOLARA_ENERGY_MASTER_PROMPT,
   DENTIA_DENTAL_MASTER_PROMPT,
   NARA_BABY_MASTER_PROMPT,
+  RUMAH_VELVET_MASTER_PROMPT,
 };

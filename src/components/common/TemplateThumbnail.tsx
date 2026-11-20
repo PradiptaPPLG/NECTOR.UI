@@ -126,6 +126,7 @@ export const TemplateThumbnail: React.FC<Props> = ({
     'anyam-kriya-rotan': 'https://anyam.craft.nector.ui',
     'dapur-nastar-kue-kering': 'https://nastar.cookies.nector.ui',
     'baju-bayi-hampers-organik': 'https://narababy.baby.nector.ui',
+    'lip-velvet-kosmetik-lokal': 'https://rumahvelvet.beauty.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

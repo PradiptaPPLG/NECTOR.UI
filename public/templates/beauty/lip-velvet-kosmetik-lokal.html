@@ -1,0 +1,2681 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUMAH VELVET — Kosmetik Lip Velvet, Tint Bibir & Perawatan Alami</title>
+  <meta name="description" content="Toko kosmetik bibir lokal alami bersertifikasi BPOM & Halal. Lip velvet tekstur awan ringan, lip tint tahan lama anti-transfer, dan paket kado kustom gratis ukir nama.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-crimson: #E23E57;
+      --color-crimson-deep: #C72A42;
+      --color-mulberry: #88304E;
+      --color-boysenberry: #522546;
+      --color-aubergine: #311D3F;
+      --color-bg: #FAF7F9;
+      --color-surface: #FFFFFF;
+      --color-surface-soft: #F5EDF3;
+      --color-surface-tint: #ECE0EA;
+      --color-text-main: #201222;
+      --color-text-muted: #68556A;
+      --color-border: #E8DEE5;
+      --color-border-dark: #88304E;
+      --color-green: #2E7D32;
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --shadow-sm: 0 2px 8px rgba(49, 29, 63, 0.04);
+      --shadow-md: 0 8px 24px rgba(49, 29, 63, 0.08);
+      --shadow-lg: 0 16px 36px rgba(49, 29, 63, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-main);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: all 0.2s ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Announcement Notice Bar */
+    .top-announcement-bar {
+      background: var(--color-aubergine);
+      color: #FFFFFF;
+      font-size: 13px;
+      padding: 10px 0;
+      position: relative;
+      z-index: 100;
+    }
+
+    .top-announcement-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .top-announcement-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    .top-live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--color-crimson);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(226, 62, 87, 0.35);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .asmr-audio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .asmr-audio-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Sticky Brand Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 247, 249, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 90;
+      padding: 16px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-mark {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--color-aubergine);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-dot {
+      color: var(--color-crimson);
+    }
+
+    .brand-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--color-mulberry);
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-crimson);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-pill-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-crimson);
+      color: #FFFFFF;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 4px 14px rgba(226, 62, 87, 0.35);
+    }
+
+    .cart-pill-btn:hover {
+      background: var(--color-crimson-deep);
+      transform: translateY(-1px);
+    }
+
+    .cart-count-badge {
+      background: #FFFFFF;
+      color: var(--color-crimson);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 64px 0 72px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-surface-soft);
+      color: var(--color-mulberry);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      width: fit-content;
+      border: 1px solid var(--color-border);
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 4.2vw, 52px);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--color-text-main);
+    }
+
+    .hero-title em {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--color-crimson);
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--color-text-muted);
+      max-width: 580px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .btn-primary {
+      background: var(--color-crimson);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 26px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(226, 62, 87, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-crimson-deep);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-aubergine);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 24px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-soft);
+      border-color: var(--color-mulberry);
+    }
+
+    .hero-trust-bar {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .trust-icon {
+      color: var(--color-crimson);
+      display: flex;
+      align-items: center;
+    }
+
+    /* Hero Product Showcase Card */
+    .hero-showcase-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .showcase-badge-top {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--color-aubergine);
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    .showcase-image-wrap {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/3.4;
+      background: var(--color-surface-soft);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .showcase-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .showcase-details {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .showcase-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .showcase-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .showcase-price {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-crimson);
+      white-space: nowrap;
+    }
+
+    .showcase-meta {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .color-swatches-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .color-swatches-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+    }
+
+    .color-swatches-list {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .color-swatch-circle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .color-swatch-circle.active {
+      transform: scale(1.18);
+      box-shadow: 0 0 0 2px var(--color-crimson);
+    }
+
+    .finish-selector-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .finish-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+    }
+
+    .finish-btn.active {
+      background: var(--color-mulberry);
+      color: #FFFFFF;
+      border-color: var(--color-mulberry);
+    }
+
+    .btn-add-hero {
+      width: 100%;
+      background: var(--color-crimson);
+      color: #FFFFFF;
+      padding: 13px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 4px;
+      box-shadow: 0 4px 14px rgba(226, 62, 87, 0.3);
+    }
+
+    .btn-add-hero:hover {
+      background: var(--color-crimson-deep);
+    }
+
+    /* Undertone & Shade Matcher Section */
+    .matcher-section {
+      padding: 64px 0;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+
+    .section-pill {
+      display: inline-block;
+      background: var(--color-surface-soft);
+      color: var(--color-mulberry);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+      border: 1px solid var(--color-border);
+    }
+
+    .section-title {
+      font-size: clamp(26px, 3.2vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      color: var(--color-text-main);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--color-text-muted);
+    }
+
+    .matcher-container {
+      background: var(--color-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 36px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .matcher-inputs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .matcher-step-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-aubergine);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .matcher-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-crimson);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pill-select-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .pill-option {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: all 0.2s ease;
+    }
+
+    .pill-option small {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    .pill-option:hover {
+      border-color: var(--color-crimson);
+    }
+
+    .pill-option.active {
+      background: var(--color-surface-soft);
+      border-color: var(--color-crimson);
+      box-shadow: 0 0 0 2px var(--color-crimson);
+    }
+
+    .matcher-result-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--color-mulberry);
+      padding: 26px 30px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .result-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: var(--color-mulberry);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .result-shade-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+    }
+
+    .result-desc {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .result-specs-box {
+      background: var(--color-bg);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      border: 1px solid var(--color-border);
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 4px 0;
+    }
+
+    .spec-label {
+      color: var(--color-text-muted);
+    }
+
+    .spec-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    /* Catalog Section */
+    .catalog-section {
+      padding: 72px 0;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-crimson);
+    }
+
+    .product-thumb-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      background: var(--color-surface-soft);
+      overflow: hidden;
+    }
+
+    .product-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .product-card:hover .product-thumb-wrap img {
+      transform: scale(1.05);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(4px);
+      color: var(--color-aubergine);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+    }
+
+    .product-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 12px;
+    }
+
+    .product-category-meta {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--color-mulberry);
+    }
+
+    .product-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      line-height: 1.35;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .product-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--color-border);
+      margin-top: auto;
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-crimson);
+    }
+
+    .btn-add-cart {
+      background: var(--color-surface-soft);
+      color: var(--color-aubergine);
+      border: 1px solid var(--color-border);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-add-cart:hover {
+      background: var(--color-crimson);
+      color: #FFFFFF;
+      border-color: var(--color-crimson);
+    }
+
+    /* Custom Lip Kit Bundle Builder Section */
+    .builder-section {
+      padding: 72px 0;
+      background: var(--color-surface-soft);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .builder-controls {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .builder-step-header {
+      margin-bottom: 12px;
+    }
+
+    .builder-step-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--color-mulberry);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .builder-step-heading {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .bundle-pouch-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .pouch-tier-btn {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 16px 12px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pouch-tier-btn.active {
+      background: var(--color-surface);
+      border-color: var(--color-crimson);
+      box-shadow: 0 0 0 2px var(--color-crimson);
+    }
+
+    .pouch-tier-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .pouch-tier-slots {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .pouch-tier-free {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-green);
+    }
+
+    .shades-checkbox-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .shade-checkbox-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .shade-checkbox-row:hover {
+      border-color: var(--color-mulberry);
+    }
+
+    .shade-checkbox-row.checked {
+      background: var(--color-surface);
+      border-color: var(--color-crimson);
+    }
+
+    .shade-check-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .shade-color-pip {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .shade-check-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .shade-check-status {
+      font-size: 12px;
+      color: var(--color-crimson);
+      font-weight: 800;
+    }
+
+    .form-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .form-input-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    .form-input-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      font-family: inherit;
+      font-size: 14px;
+      background: var(--color-bg);
+      color: var(--color-text-main);
+    }
+
+    .form-input-group input:focus {
+      outline: none;
+      border-color: var(--color-crimson);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(226, 62, 87, 0.2);
+    }
+
+    /* Live Tube Engraving Visualizer Box */
+    .builder-preview-sticky {
+      position: sticky;
+      top: 100px;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .preview-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .preview-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .preview-pouch-tag {
+      background: var(--color-boysenberry);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    /* Tube Mockup */
+    .tube-mockup-frame {
+      background: #25162B;
+      border-radius: var(--radius-md);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 20px;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .tube-graphic {
+      width: 220px;
+      height: 48px;
+      background: linear-gradient(135deg, #E23E57 0%, #88304E 100%);
+      border-radius: 8px;
+      border: 1px solid #FF8E9E;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      box-shadow: 0 8px 24px rgba(226, 62, 87, 0.35);
+    }
+
+    .tube-brand-logo {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+    }
+
+    .tube-engraved-text {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFE6EA;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255, 230, 234, 0.6);
+      padding-bottom: 2px;
+    }
+
+    .tube-helper-text {
+      font-size: 11px;
+      color: #B59FB9;
+      margin-top: 12px;
+    }
+
+    .selected-shades-summary {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+      padding: 12px;
+      background: var(--color-bg);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+    }
+
+    .bundle-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--color-text-main);
+    }
+
+    .bundle-total-price {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      color: var(--color-crimson);
+    }
+
+    .bundle-strike-price {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+      margin-right: 8px;
+    }
+
+    .btn-checkout-bundle {
+      width: 100%;
+      background: var(--color-crimson);
+      color: #FFFFFF;
+      padding: 14px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(226, 62, 87, 0.35);
+    }
+
+    .btn-checkout-bundle:hover {
+      background: var(--color-crimson-deep);
+    }
+
+    /* Formula & Hydration Section */
+    .formula-section {
+      padding: 72px 0;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .formula-card {
+      background: var(--color-bg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .formula-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-mulberry);
+      background: var(--color-surface-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      width: fit-content;
+    }
+
+    .formula-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .formula-desc {
+      font-size: 13.5px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Trust & Commitments Section */
+    .commitments-section {
+      padding: 72px 0;
+    }
+
+    .commitments-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .commitment-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .commitment-card:hover {
+      border-color: var(--color-crimson);
+      transform: translateY(-2px);
+    }
+
+    .commitment-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--color-surface-soft);
+      color: var(--color-crimson);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      border: 1px solid var(--color-border);
+    }
+
+    .commitment-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .commitment-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 72px 0;
+      background: var(--color-surface-soft);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-stars {
+      color: var(--color-crimson);
+      font-size: 14px;
+      display: flex;
+      gap: 2px;
+    }
+
+    .review-quote {
+      font-size: 14px;
+      color: var(--color-text-main);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 12px;
+    }
+
+    .author-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--color-boysenberry);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .author-meta {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: 60px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-top: 12px;
+      max-width: 320px;
+    }
+
+    .footer-heading {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--color-aubergine);
+      margin-bottom: 16px;
+    }
+
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .footer-list a:hover {
+      color: var(--color-crimson);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    /* Cart Slide-Over Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(49, 29, 63, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 420px;
+      max-width: 90vw;
+      height: 100%;
+      background: #FFFFFF;
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer-overlay.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .drawer-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--color-text-muted);
+    }
+
+    .drawer-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .empty-cart-notice {
+      text-align: center;
+      color: var(--color-text-muted);
+      padding: 48px 0;
+      font-size: 14px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .cart-item-img {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background: var(--color-surface-soft);
+    }
+
+    .cart-item-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cart-item-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .cart-item-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-crimson);
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qty-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .qty-display {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 16px;
+      text-align: center;
+    }
+
+    .drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-bg);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .voucher-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .voucher-row input {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    .btn-apply-voucher {
+      background: var(--color-crimson);
+      color: #FFFFFF;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      padding-top: 6px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .cart-total-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      color: var(--color-crimson);
+    }
+
+    .btn-wa-checkout {
+      width: 100%;
+      background: #25D366;
+      color: #FFFFFF;
+      padding: 13px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-wa-checkout:hover {
+      background: #1EBE5D;
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-aubergine);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .toast-container.show {
+      opacity: 1;
+      transform: translate(-50%, -8px);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+      .builder-preview-sticky {
+        position: static;
+      }
+      .matcher-inputs-grid {
+        grid-template-columns: 1fr;
+      }
+      .matcher-result-card {
+        grid-template-columns: 1fr;
+      }
+      .formula-grid {
+        grid-template-columns: 1fr;
+      }
+      .commitments-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .commitments-grid {
+        grid-template-columns: 1fr;
+      }
+      .shades-checkbox-list {
+        grid-template-columns: 1fr;
+      }
+      .bundle-pouch-cards {
+        grid-template-columns: 1fr;
+      }
+      .pill-select-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .matcher-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Notice Bar -->
+  <div class="top-announcement-bar">
+    <div class="container top-announcement-content">
+      <div class="top-announcement-text">
+        <span class="top-live-dot"></span>
+        <span>PROMO PELUNCURAN: Gratis Pouch Velvet Eksklusif & Ukir Nama Tube · BPOM & Halal Resmi</span>
+      </div>
+      <button class="asmr-audio-btn" id="asmrToggleBtn" onclick="triggerMagneticClickSound()">
+        <span>💄 Dengar Suara Tutup Magnetik (ASMR)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sticky Brand Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-mark">
+        <a href="#" class="brand-name">RUMAH VELVET<span class="brand-dot">.</span></a>
+        <span class="brand-badge">Kosmetik Bibir & Perawatan Alami</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#koleksi-shade">Koleksi Shade</a>
+        <a href="#penemu-warna">Penemu Warna Bibir</a>
+        <a href="#rakit-bundle">Paket 3 Shade</a>
+        <a href="#formula-ketahanan">Uji Formula</a>
+        <a href="#ulasan-pelanggan">Ulasan</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-pill-btn" onclick="openCartDrawer()">
+          <span>Keranjang</span>
+          <span class="cart-count-badge" id="cartHeaderCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span>🍓 Ekstrak Biji Anggur & Minyak Jojoba</span>
+        </div>
+        <h1 class="hero-title">
+          Warna Mewah Tahan 12 Jam, Ringan Selembut Awan <em>Tanpa Bikin Bibir Kering.</em>
+        </h1>
+        <p class="hero-desc">
+          Perpaduan pigmen buah berry murni dengan formula transferproof bersertifikat BPOM & Halal. Tidak menempel di masker atau sedotan, tetap lembap ternutrisi sepanjang hari.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#koleksi-shade" class="btn-primary">
+            <span>Pilih Shade Favorit</span>
+            <span>↓</span>
+          </a>
+          <a href="#rakit-bundle" class="btn-secondary">
+            <span>🎁 Rakit Paket 3 Shade Hemat</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-bar">
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>Resmi BPOM RI NA18241300921</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>Sertifikat Halal MUI</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>100% Vegan & Cruelty-Free</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Product Showcase Card -->
+      <div class="hero-showcase-card">
+        <div class="showcase-badge-top">⭐ Terlaris Bulan Ini</div>
+        <div class="showcase-image-wrap">
+          <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80" alt="Lip Velvet Matte Rumah Velvet" id="heroProductImg">
+        </div>
+        <div class="showcase-details">
+          <div class="showcase-title-row">
+            <div>
+              <div class="showcase-title" id="heroProductTitle">Velvet Cloud Lip Cream</div>
+              <div class="showcase-meta">Hasil velvet matte halus menyamarkan garis bibir</div>
+            </div>
+            <div class="showcase-price" id="heroProductPrice">Rp 79.000</div>
+          </div>
+
+          <div class="color-swatches-group">
+            <span class="color-swatches-label">Shade:</span>
+            <div class="color-swatches-list">
+              <button class="color-swatch-circle active" style="background:#E23E57;" title="01 Crimson Berry" onclick="selectHeroShade(this, '01 Crimson Berry', '#E23E57')"></button>
+              <button class="color-swatch-circle" style="background:#88304E;" title="02 Mulberry Wine" onclick="selectHeroShade(this, '02 Mulberry Wine', '#88304E')"></button>
+              <button class="color-swatch-circle" style="background:#522546;" title="03 Boysenberry Plum" onclick="selectHeroShade(this, '03 Boysenberry Plum', '#522546')"></button>
+              <button class="color-swatch-circle" style="background:#311D3F;" title="04 Midnight Plum" onclick="selectHeroShade(this, '04 Midnight Plum', '#311D3F')"></button>
+            </div>
+          </div>
+
+          <div class="finish-selector-row">
+            <button class="finish-btn active" onclick="selectHeroFinish(this, 'Velvet Matte')">Velvet Matte</button>
+            <button class="finish-btn" onclick="selectHeroFinish(this, 'Satin Glaze')">Satin Glaze</button>
+          </div>
+
+          <button class="btn-add-hero" onclick="addHeroToCart()">
+            <span>🛍️ Tambah ke Keranjang • Rp 79.000</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Undertone & Shade Matcher Section -->
+  <section class="matcher-section" id="penemu-warna">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Panduan Warna Interaktif</span>
+        <h2 class="section-title">Temukan Warna Shade yang Pas untuk Kulitmu</h2>
+        <p class="section-subtitle">Pilih undertone kulit dan suasana acaramu untuk mendapatkan rekomendasi warna lip velvet yang membuat wajah tampak segar bercahaya seketika.</p>
+      </div>
+
+      <div class="matcher-container">
+        <div class="matcher-inputs-grid">
+          <div>
+            <div class="matcher-step-title">
+              <span class="matcher-step-num">1</span>
+              <span>Pilih Undertone Kulit:</span>
+            </div>
+            <div class="pill-select-grid">
+              <button class="pill-option active" onclick="updateMatcherTone(this, 'cool')">
+                <strong>Cool Tone</strong>
+                <small>Urat nadi kebiruan, kulit cerah merona</small>
+              </button>
+              <button class="pill-option" onclick="updateMatcherTone(this, 'neutral')">
+                <strong>Neutral Tone</strong>
+                <small>Urat nadi biru kehijauan, kuning langsat</small>
+              </button>
+              <button class="pill-option" onclick="updateMatcherTone(this, 'warm')">
+                <strong>Warm Tone</strong>
+                <small>Urat nadi kehijauan, sawo matang eksotis</small>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div class="matcher-step-title">
+              <span class="matcher-step-num">2</span>
+              <span>Pilih Suasana Acara:</span>
+            </div>
+            <div class="pill-select-grid">
+              <button class="pill-option active" onclick="updateMatcherOccasion(this, 'daily')">
+                <strong>Harian Santai</strong>
+                <small>Kuliah, belanja & hangout kasual</small>
+              </button>
+              <button class="pill-option" onclick="updateMatcherOccasion(this, 'office')">
+                <strong>Kerja Kantor</strong>
+                <small>Rapat formal & tampil segar profesional</small>
+              </button>
+              <button class="pill-option" onclick="updateMatcherOccasion(this, 'glam')">
+                <strong>Pesta Malam</strong>
+                <small>Pernikahan, dinner romantis & glamor</small>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="matcher-result-card">
+          <div>
+            <span class="result-badge" id="matcherResultBadge">Rekomendasi Terbaik</span>
+            <div class="result-shade-title" id="matcherResultTitle">Shade: 01 Crimson Berry</div>
+            <p class="result-desc" id="matcherResultDesc">Memberikan semburat merah buah berry segar alami yang mencerahkan seluruh kompleksi wajah tanpa terlihat menor untuk kegiatan sehari-hari.</p>
+          </div>
+          <div class="result-specs-box">
+            <div class="spec-item">
+              <span class="spec-label">Ketahanan:</span>
+              <span class="spec-val" id="matcherSpecWear">Hingga 12 Jam</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Efek Bibir:</span>
+              <span class="spec-val" id="matcherSpecFinish">Soft Blurring Velvet</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Saran Ombre:</span>
+              <span class="spec-val" id="matcherSpecOmbre">Base Nude + Crimson Inner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physical Catalog Section -->
+  <section class="catalog-section" id="koleksi-shade">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Koleksi Pilihan</span>
+        <h2 class="section-title">Katalog Kosmetik Bibir Alami</h2>
+        <p class="section-subtitle">Diformulasikan dari bahan baku botanical alami berkualitas tinggi tanpa paraben, aman untuk pemakaian harian.</p>
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Products populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Lip Kit Bundle Builder Section -->
+  <section class="builder-section" id="rakit-bundle">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Paket Kado Hemat</span>
+        <h2 class="section-title">Rakit Paket 3 Shade Pilihanmu</h2>
+        <p class="section-subtitle">Pilih 3 warna shade favorit, dapatkan pouch velvet mewah gratis serta layanan ukir nama kustom pada tube lipstik tanpa biaya tambahan.</p>
+      </div>
+
+      <div class="builder-grid">
+        <!-- Controls -->
+        <div class="builder-controls">
+          <div>
+            <div class="builder-step-header">
+              <span class="builder-step-label">Langkah 1 dari 3</span>
+              <h3 class="builder-step-heading">Pilih 3 Shade Favorit (Tepat 3 Warna)</h3>
+            </div>
+            <div class="shades-checkbox-list" id="bundleShadesList">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <div>
+            <div class="builder-step-header">
+              <span class="builder-step-label">Langkah 2 dari 3</span>
+              <h3 class="builder-step-heading">Pilih Warna Pouch Velvet (Gratis)</h3>
+            </div>
+            <div class="bundle-pouch-cards">
+              <button class="pouch-tier-btn active" onclick="selectPouch(this, 'Crimson Velvet')">
+                <div class="pouch-tier-name">Crimson Velvet</div>
+                <div class="pouch-tier-slots">Kancing Magnetik Emas</div>
+                <div class="pouch-tier-free">GRATIS</div>
+              </button>
+              <button class="pouch-tier-btn" onclick="selectPouch(this, 'Plum Velvet')">
+                <div class="pouch-tier-name">Plum Velvet</div>
+                <div class="pouch-tier-slots">Kancing Magnetik Emas</div>
+                <div class="pouch-tier-free">GRATIS</div>
+              </button>
+              <button class="pouch-tier-btn" onclick="selectPouch(this, 'Midnight Rose')">
+                <div class="pouch-tier-name">Midnight Rose</div>
+                <div class="pouch-tier-slots">Kancing Magnetik Emas</div>
+                <div class="pouch-tier-free">GRATIS</div>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div class="builder-step-header">
+              <span class="builder-step-label">Langkah 3 dari 3</span>
+              <h3 class="builder-step-heading">Ukir Nama pada Tube Lipstik (Gratis)</h3>
+            </div>
+            <div class="form-input-group">
+              <label for="inputEngravedName">Nama / Inisial Pemilik (Maks. 12 Karakter):</label>
+              <input type="text" id="inputEngravedName" maxlength="12" placeholder="Contoh: NADIA S. / AYU" oninput="updateTubeEngraving()">
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Live Visualizer Box -->
+        <div class="builder-preview-sticky">
+          <div class="preview-header-row">
+            <span class="preview-title">Pratinjau Paket Bundle</span>
+            <span class="preview-pouch-tag" id="previewPouchTag">Pouch: Crimson Velvet</span>
+          </div>
+
+          <!-- Tube Mockup Visualizer -->
+          <div class="tube-mockup-frame">
+            <div class="tube-graphic">
+              <span class="tube-brand-logo">RUMAH VELVET</span>
+              <span class="tube-engraved-text" id="liveTubeName">NADIA S.</span>
+            </div>
+            <div class="tube-helper-text">Grafir ukir laser elegan warna emas pada badan tube</div>
+          </div>
+
+          <div class="selected-shades-summary" id="selectedShadesSummary">
+            Shade Terpilih (3/3): 01 Crimson Berry, 02 Mulberry Wine, 03 Boysenberry Plum
+          </div>
+
+          <div class="bundle-total-row">
+            <span>Harga Paket Bundle:</span>
+            <div>
+              <span class="bundle-strike-price">Rp 237.000</span>
+              <span class="bundle-total-price">Rp 195.000</span>
+            </div>
+          </div>
+
+          <button class="btn-checkout-bundle" onclick="addBundleToCart()">
+            <span>🎁 Masukkan Paket Bundle ke Keranjang</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formula & Hydration Section -->
+  <section class="formula-section" id="formula-ketahanan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Sains & Bahan Alami</span>
+        <h2 class="section-title">Kombinasi Pigmen Tahan Lama & Nutrisi Alami</h2>
+        <p class="section-subtitle">Diformulasikan secara khusus agar tidak membuat bibir hitam atau mengelupas saat dipakai setiap hari.</p>
+      </div>
+
+      <div class="formula-grid">
+        <div class="formula-card">
+          <span class="formula-badge">Nutrisi Alami</span>
+          <h3 class="formula-title">Minyak Jojoba Murni</h3>
+          <p class="formula-desc">Meresap ke dalam lapisan bibir terdalam untuk mengunci kelembapan alami, menjaga bibir tetap kenyal tanpa rasa lengket berminyak.</p>
+        </div>
+
+        <div class="formula-card">
+          <span class="formula-badge">Antioksidan Kuat</span>
+          <h3 class="formula-title">Ekstrak Biji Anggur & Vitamin E</h3>
+          <p class="formula-desc">Menangkal radikal bebas dan paparan sinar matahari yang menyebabkan warna bibir menjadi gelap dan kusam.</p>
+        </div>
+
+        <div class="formula-card">
+          <span class="formula-badge">Teknologi Korea</span>
+          <h3 class="formula-title">Micro-Coated Pigment</h3>
+          <p class="formula-desc">Partikel pigmen warna ultra halus yang menempel rata di bibir dalam sekali oles, tahan transfer hingga 12 jam pemakaian.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Commitments Section -->
+  <section class="commitments-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Komitmen Kualitas</span>
+        <h2 class="section-title">4 Standar Keamanan RUMAH VELVET</h2>
+      </div>
+
+      <div class="commitments-grid">
+        <div class="commitment-card">
+          <div class="commitment-icon-box">🛡️</div>
+          <div class="commitment-title">Izin Edar Resmi BPOM RI</div>
+          <div class="commitment-desc">Seluruh produk telah melalui uji klinis laboratorium dan memiliki nomor notifikasi BPOM resmi yang dapat dicek secara publik.</div>
+        </div>
+
+        <div class="commitment-card">
+          <div class="commitment-icon-box">✨</div>
+          <div class="commitment-title">Sertifikat Halal MUI</div>
+          <div class="commitment-desc">Menggunakan bahan baku alami yang suci dan higienis, aman digunakan untuk wudhu dan aktivitas beribadah sehari-hari.</div>
+        </div>
+
+        <div class="commitment-card">
+          <div class="commitment-icon-box">🐰</div>
+          <div class="commitment-title">100% Vegan & Cruelty-Free</div>
+          <div class="commitment-desc">Tidak mengandung unsur hewani dan tidak pernah diuji pada hewan dalam seluruh tahapan riset serta produksi.</div>
+        </div>
+
+        <div class="commitment-card">
+          <div class="commitment-icon-box">🔄</div>
+          <div class="commitment-title">Garansi Shade Cocok 7 Hari</div>
+          <div class="commitment-desc">Jika shade yang dipesan tidak sesuai dengan undertone kulitmu, kamu berhak menukarkannya secara gratis dalam 7 hari.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="ulasan-pelanggan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Ulasan Pengguna</span>
+        <h2 class="section-title">Kisah Nyata Para Pecinta Lip Velvet</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Warnanya cakep banget di kulit sawo matang! Aku pakai shade 02 Mulberry Wine buat ke kantor, dari pagi sampai sore masih stay tanpa bikin bibir pecah-pecah."</p>
+          <div class="review-author">
+            <div class="author-avatar">AL</div>
+            <div class="author-info">
+              <span class="author-name">Anindya Larasati</span>
+              <span class="author-meta">Brand Strategist, Jakarta Selatan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Puas banget sama paket 3 shade-nya! Pouch velvetnya mewah dan ukir nama di tubenya rapi banget. Pas banget buat kado wisuda sahabatku."</p>
+          <div class="review-author">
+            <div class="author-avatar">SK</div>
+            <div class="author-info">
+              <span class="author-name">Sarah Kirana</span>
+              <span class="author-meta">Dokter Gigi, Bandung</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Teksturnya beneran selembut awan, nggak lengket sama sekali. Pas minum es kopi juga nggak nempel di sedotan. Wajib punya shade 01 Crimson Berry!"</p>
+          <div class="review-author">
+            <div class="author-avatar">PR</div>
+            <div class="author-info">
+              <span class="author-name">Priscilla Regina</span>
+              <span class="author-meta">Content Creator, Surabaya</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-name">RUMAH VELVET<span class="brand-dot">.</span></div>
+          <p class="footer-brand-desc">
+            Atelier kosmetik bibir dan perawatan alami lokal berstandar BPOM & Halal. Menghadirkan warna berry mewah yang tahan lama sekaligus merawat kelembutan alami bibirmu.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Navigasi Produk</div>
+          <ul class="footer-list">
+            <li><a href="#koleksi-shade">Velvet Lip Cream</a></li>
+            <li><a href="#koleksi-shade">Dewy Lip Tint</a></li>
+            <li><a href="#koleksi-shade">Hydrating Lip Oil</a></li>
+            <li><a href="#rakit-bundle">Paket 3 Shade Kustom</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Layanan & Bantuan</div>
+          <ul class="footer-list">
+            <li><a href="#">Garansi Tukar Shade</a></li>
+            <li><a href="#">Panduan Ombre Bibir</a></li>
+            <li><a href="#">Pemesanan Reseller & Hampers</a></li>
+            <li><a href="#">Cek Nomor BPOM Resmi</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Studio & Layanan Pelanggan</div>
+          <ul class="footer-list">
+            <li>Jl. Kemang Raya No. 42, Jakarta Selatan</li>
+            <li>Buka Setiap Hari: 09.00 - 20.00 WIB</li>
+            <li>WhatsApp: 0812-9876-5432</li>
+            <li>Instagram: @rumahvelvet.id</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 RUMAH VELVET. Seluruh Hak Cipta Dilindungi.</div>
+        <div>Desain Berstandar Anti AI-Slop · Dibuat dengan Kasih untuk Perempuan Indonesia</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartDrawer(event)">
+    <div class="cart-drawer" onclick="event.stopPropagation()">
+      <div class="drawer-header">
+        <div class="drawer-title">Keranjang Belanja</div>
+        <button class="drawer-close-btn" onclick="closeCartDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-body" id="cartItemsContainer">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="voucher-row">
+          <input type="text" id="voucherInput" placeholder="Kode Promo (Cth: BERRYGLOW)">
+          <button class="btn-apply-voucher" onclick="applyVoucher()">Gunakan</button>
+        </div>
+
+        <div class="cart-subtotal-row">
+          <span>Subtotal Produk:</span>
+          <span id="cartSubtotalText">Rp 0</span>
+        </div>
+        <div class="cart-subtotal-row" id="discountRow" style="display:none; color: var(--color-green);">
+          <span>Diskon Promo (10%):</span>
+          <span id="cartDiscountText">- Rp 0</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Total Pembayaran:</span>
+          <span class="cart-total-val" id="cartTotalText">Rp 0</span>
+        </div>
+
+        <button class="btn-wa-checkout" onclick="checkoutViaWhatsApp()">
+          <span>Pesan via WhatsApp Sekarang</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastBox">Produk berhasil ditambahkan ke keranjang!</div>
+
+  <!-- Audio and Interactive Script -->
+  <script>
+    // State
+    const state = {
+      heroShade: '01 Crimson Berry',
+      heroShadeColor: '#E23E57',
+      heroFinish: 'Velvet Matte',
+      matcherTone: 'cool',
+      matcherOccasion: 'daily',
+      selectedPouch: 'Crimson Velvet',
+      bundleShades: [
+        { id: 'b-01', name: '01 Crimson Berry', color: '#E23E57', checked: true },
+        { id: 'b-02', name: '02 Mulberry Wine', color: '#88304E', checked: true },
+        { id: 'b-03', name: '03 Boysenberry Plum', color: '#522546', checked: true },
+        { id: 'b-04', name: '04 Plum Rose', color: '#9B4160', checked: false },
+        { id: 'b-05', name: '05 Nude Peachy', color: '#C86D74', checked: false },
+        { id: 'b-06', name: '06 Midnight Berry', color: '#311D3F', checked: false }
+      ],
+      cart: [],
+      discountPercent: 0,
+      audioCtx: null
+    };
+
+    // Product Database
+    const PRODUCTS = [
+      {
+        id: 'p1',
+        name: 'Velvet Cloud Lip Cream Matte',
+        category: 'Lip Velvet',
+        price: 79000,
+        desc: 'Formula awan ringan menyamarkan garis bibir tanpa rasa kering, diperkaya minyak jojoba dan vitamin E.',
+        image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80',
+        tag: 'Paling Laris'
+      },
+      {
+        id: 'p2',
+        name: 'Water Berry Dewy Lip Tint',
+        category: 'Lip Tint',
+        price: 68000,
+        desc: 'Pigmen buah berry murni dengan stain tahan lama hingga 12 jam, tidak mudah pudar saat makan dan minum.',
+        image: 'https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?auto=format&fit=crop&w=600&q=80',
+        tag: 'Tahan 12 Jam'
+      },
+      {
+        id: 'p3',
+        name: 'Glaze Jojoba Hydrating Lip Oil',
+        category: 'Perawatan Bibir',
+        price: 75000,
+        desc: 'Minyak pelembab bibir beraroma berry segar dengan kilau kaca sehat tanpa rasa lengket sama sekali.',
+        image: 'https://images.unsplash.com/photo-1627384113743-6bd5a479fffd?auto=format&fit=crop&w=600&q=80',
+        tag: 'Bibir Plump'
+      },
+      {
+        id: 'p4',
+        name: 'Tinted Butter Balm SPF 20',
+        category: 'Lip Balm',
+        price: 62000,
+        desc: 'Pelembab bibir harian dengan perlindungan sinar UV SPF 20 dan semburat warna merah alami buah segar.',
+        image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=80',
+        tag: 'Ada SPF 20'
+      },
+      {
+        id: 'p5',
+        name: 'Multi-Use Velvet Lip & Cheek Clay',
+        category: 'Multifungsi',
+        price: 84000,
+        desc: 'Dapat digunakan sebagai lip cream sekaligus perona pipi (blush) dengan tekstur clay yang mudah dibaurkan.',
+        image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80',
+        tag: 'Bibir & Pipi'
+      },
+      {
+        id: 'p6',
+        name: 'Paket Kado 3 Shade Berry Romance',
+        category: 'Paket Hadiah',
+        price: 195000,
+        desc: 'Box kado velvet berisi 3 shade pilihan dengan pouch eksklusif dan layanan grafir ukir nama gratis.',
+        image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80',
+        tag: 'Hemat 42rb'
+      }
+    ];
+
+    // Format Currency Helper
+    function formatRp(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    // Toast Notice
+    function showToast(msg) {
+      const toast = document.getElementById('toastBox');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // Render Catalog
+    function renderCatalog() {
+      const grid = document.getElementById('catalogGrid');
+      grid.innerHTML = PRODUCTS.map(p => `
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-tag">${p.tag}</span>
+            <img src="${p.image}" alt="${p.name}" loading="lazy">
+          </div>
+          <div class="product-body">
+            <span class="product-category-meta">${p.category}</span>
+            <h3 class="product-name">${p.name}</h3>
+            <p class="product-desc">${p.desc}</p>
+            <div class="product-controls-row">
+              <span class="product-price">${formatRp(p.price)}</span>
+              <button class="btn-add-cart" onclick="addToCart('${p.id}', '${p.name}', ${p.price}, '${p.image}')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Hero Selection Handlers
+    function selectHeroShade(btn, shadeName, hex) {
+      document.querySelectorAll('.color-swatch-circle').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.heroShade = shadeName;
+      state.heroShadeColor = hex;
+      triggerMagneticClickSound();
+      showToast(`Shade terpilih: ${shadeName}`);
+    }
+
+    function selectHeroFinish(btn, finishName) {
+      document.querySelectorAll('.finish-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.heroFinish = finishName;
+      triggerMagneticClickSound();
+      showToast(`Finish terpilih: ${finishName}`);
+    }
+
+    function addHeroToCart() {
+      const item = {
+        id: 'hero-lip-' + Date.now(),
+        name: `Velvet Cloud Lip Cream (${state.heroShade}, ${state.heroFinish})`,
+        price: 79000,
+        qty: 1,
+        image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80'
+      };
+      state.cart.push(item);
+      updateCartDisplay();
+      triggerMagneticClickSound();
+      showToast('Lip Velvet berhasil dimasukkan ke keranjang!');
+      openCartDrawer();
+    }
+
+    // Undertone Matcher Handlers
+    function updateMatcherTone(btn, toneKey) {
+      btn.parentElement.querySelectorAll('.pill-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.matcherTone = toneKey;
+      recalculateMatcher();
+    }
+
+    function updateMatcherOccasion(btn, occasionKey) {
+      btn.parentElement.querySelectorAll('.pill-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.matcherOccasion = occasionKey;
+      recalculateMatcher();
+    }
+
+    function recalculateMatcher() {
+      const title = document.getElementById('matcherResultTitle');
+      const desc = document.getElementById('matcherResultDesc');
+      const wear = document.getElementById('matcherSpecWear');
+      const finish = document.getElementById('matcherSpecFinish');
+      const ombre = document.getElementById('matcherSpecOmbre');
+
+      if (state.matcherTone === 'cool') {
+        if (state.matcherOccasion === 'daily') {
+          title.textContent = 'Shade: 01 Crimson Berry';
+          desc.textContent = 'Merah berry cerah segar yang memberi rona alami instan pada wajah tanpa terlihat menor untuk kegiatan harian.';
+          wear.textContent = 'Hingga 12 Jam';
+          finish.textContent = 'Soft Cloud Velvet';
+          ombre.textContent = 'Base Nude + Crimson Inner';
+        } else if (state.matcherOccasion === 'office') {
+          title.textContent = 'Shade: 04 Plum Rose';
+          desc.textContent = 'Perpaduan mawar lembut dan sedikit sentuhan plum yang terlihat sangat elegan, berkelas, dan profesional di ruang rapat.';
+          wear.textContent = 'Hingga 10 Jam';
+          finish.textContent = 'Velvet Matte Halus';
+          ombre.textContent = 'Full Lips 1 Oles';
+        } else {
+          title.textContent = 'Shade: 03 Boysenberry Plum';
+          desc.textContent = 'Warna plum bold dramatis dengan undertone ungu dingin yang menciptakan senyum memukau di bawah cahaya pesta malam.';
+          wear.textContent = 'Tahan 14 Jam';
+          finish.textContent = 'Velvet Bold Intense';
+          ombre.textContent = 'Ombre Lip Gloss Top Coat';
+        }
+      } else if (state.matcherTone === 'neutral') {
+        if (state.matcherOccasion === 'daily') {
+          title.textContent = 'Shade: 05 Nude Peachy';
+          desc.textContent = 'Warna peach lembut bernuansa hangat yang serasi dengan warna bibir asli perempuan Indonesia, sempurna untuk no-makeup makeup look.';
+          wear.textContent = 'Hingga 8 Jam';
+          finish.textContent = 'Soft Satin Balm';
+          ombre.textContent = 'Sempurna Sebagai Base Ombre';
+        } else if (state.matcherOccasion === 'office') {
+          title.textContent = 'Shade: 02 Mulberry Wine';
+          desc.textContent = 'Merah anggur anggun yang memberikan kesan berwibawa, segar, dan percaya diri sepanjang jam kerja.';
+          wear.textContent = 'Hingga 12 Jam';
+          finish.textContent = 'Blurring Matte';
+          ombre.textContent = 'Garis Bibir Terlihat Halus';
+        } else {
+          title.textContent = 'Shade: 01 Crimson Berry';
+          desc.textContent = 'Merah ceri klasik dengan rona berry yang glamor dan membuat warna gigi terlihat lebih putih cerah.';
+          wear.textContent = 'Tahan 12 Jam';
+          finish.textContent = 'Velvet Intense Red';
+          ombre.textContent = 'Full Coverage 2 Oles';
+        }
+      } else {
+        // Warm tone
+        if (state.matcherOccasion === 'daily') {
+          title.textContent = 'Shade: 02 Mulberry Wine';
+          desc.textContent = 'Sangat flattering di kulit sawo matang, menyatu sempurna dengan kehangatan kulit tropis eksotis.';
+          wear.textContent = 'Hingga 12 Jam';
+          finish.textContent = 'Velvet Cloud Matte';
+          ombre.textContent = 'Bibir Penuh Bervolume';
+        } else if (state.matcherOccasion === 'office') {
+          title.textContent = 'Shade: 01 Crimson Berry';
+          desc.textContent = 'Memberikan semburat percaya diri yang profesional tanpa terlihat berlebihan di bawah lampu ruangan.';
+          wear.textContent = 'Hingga 10 Jam';
+          finish.textContent = 'Satin Matte Halus';
+          ombre.textContent = 'Tepuk Ringan Jari';
+        } else {
+          title.textContent = 'Shade: 06 Midnight Berry';
+          desc.textContent = 'Warna berry gelap eksklusif yang memancarkan aura kemewahan tak tertandingi untuk malam istimewa.';
+          wear.textContent = 'Tahan 14 Jam';
+          finish.textContent = 'Deep Velvet Drama';
+          ombre.textContent = 'Dipadu Lip Liner Gelap';
+        }
+      }
+      triggerMagneticClickSound();
+    }
+
+    // Custom Bundle Builder Handlers
+    function renderBundleShades() {
+      const container = document.getElementById('bundleShadesList');
+      container.innerHTML = state.bundleShades.map(s => `
+        <div class="shade-checkbox-row ${s.checked ? 'checked' : ''}" onclick="toggleBundleShade('${s.id}')">
+          <div class="shade-check-left">
+            <span class="shade-color-pip" style="background:${s.color};"></span>
+            <span class="shade-check-name">${s.name}</span>
+          </div>
+          <span class="shade-check-status">${s.checked ? '✓' : ''}</span>
+        </div>
+      `).join('');
+      updateBundleSummary();
+    }
+
+    function toggleBundleShade(shadeId) {
+      const shade = state.bundleShades.find(s => s.id === shadeId);
+      if (shade) {
+        const currentlyChecked = state.bundleShades.filter(s => s.checked).length;
+        if (!shade.checked && currentlyChecked >= 3) {
+          showToast('Maksimal 3 shade untuk paket bundle hemat.');
+          return;
+        }
+        if (shade.checked && currentlyChecked <= 1) {
+          showToast('Pilih minimal 1 shade.');
+          return;
+        }
+        shade.checked = !shade.checked;
+        triggerMagneticClickSound();
+        renderBundleShades();
+      }
+    }
+
+    function selectPouch(btn, pouchName) {
+      btn.parentElement.querySelectorAll('.pouch-tier-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.selectedPouch = pouchName;
+      document.getElementById('previewPouchTag').textContent = `Pouch: ${pouchName}`;
+      triggerMagneticClickSound();
+      showToast(`Pouch terpilih: ${pouchName}`);
+    }
+
+    function updateTubeEngraving() {
+      const input = document.getElementById('inputEngravedName');
+      const val = input.value.trim().toUpperCase() || 'NADIA S.';
+      document.getElementById('liveTubeName').textContent = val;
+    }
+
+    function updateBundleSummary() {
+      const checkedShades = state.bundleShades.filter(s => s.checked);
+      const names = checkedShades.map(s => s.name).join(', ');
+      document.getElementById('selectedShadesSummary').textContent = 
+        `Shade Terpilih (${checkedShades.length}/3): ${names || 'Belum ada shade terpilih'}`;
+    }
+
+    function addBundleToCart() {
+      const checkedShades = state.bundleShades.filter(s => s.checked);
+      if (checkedShades.length !== 3) {
+        showToast('Silakan pilih tepat 3 shade untuk melengkapi bundle.');
+        return;
+      }
+      const engraved = document.getElementById('inputEngravedName').value.trim().toUpperCase() || 'NADIA S.';
+
+      const item = {
+        id: 'bundle-' + Date.now(),
+        name: `Paket 3 Shade (${state.selectedPouch}, Grafir: "${engraved}")`,
+        price: 195000,
+        qty: 1,
+        image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80'
+      };
+      state.cart.push(item);
+      updateCartDisplay();
+      triggerMagneticClickSound();
+      showToast('Paket 3 Shade berhasil dimasukkan ke keranjang!');
+      openCartDrawer();
+    }
+
+    // Cart Management
+    function addToCart(id, name, price, image) {
+      const existing = state.cart.find(i => i.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        state.cart.push({ id, name, price, qty: 1, image });
+      }
+      updateCartDisplay();
+      triggerMagneticClickSound();
+      showToast(`${name} ditambahkan ke keranjang!`);
+    }
+
+    function updateCartQty(id, delta) {
+      const item = state.cart.find(i => i.id === id);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+          state.cart = state.cart.filter(i => i.id !== id);
+        }
+        updateCartDisplay();
+      }
+    }
+
+    function updateCartDisplay() {
+      const countEl = document.getElementById('cartHeaderCount');
+      const container = document.getElementById('cartItemsContainer');
+      const subtotalEl = document.getElementById('cartSubtotalText');
+      const totalEl = document.getElementById('cartTotalText');
+      const discountRow = document.getElementById('discountRow');
+      const discountEl = document.getElementById('cartDiscountText');
+
+      const totalItems = state.cart.reduce((sum, i) => sum + i.qty, 0);
+      countEl.textContent = totalItems;
+
+      if (state.cart.length === 0) {
+        container.innerHTML = `<div class="empty-cart-notice">Keranjang belanja Anda masih kosong.<br>Pilih shade lip velvet favorit Anda di atas.</div>`;
+        subtotalEl.textContent = 'Rp 0';
+        totalEl.textContent = 'Rp 0';
+        discountRow.style.display = 'none';
+        return;
+      }
+
+      container.innerHTML = state.cart.map(item => `
+        <div class="cart-item-row">
+          <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+          <div class="cart-item-info">
+            <span class="cart-item-name">${item.name}</span>
+            <div class="cart-item-bottom">
+              <span class="cart-item-price">${formatRp(item.price * item.qty)}</span>
+              <div class="cart-qty-ctrl">
+                <button class="qty-btn" onclick="updateCartQty('${item.id}', -1)">-</button>
+                <span class="qty-display">${item.qty}</span>
+                <button class="qty-btn" onclick="updateCartQty('${item.id}', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      const subtotal = state.cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      subtotalEl.textContent = formatRp(subtotal);
+
+      if (state.discountPercent > 0) {
+        const discountVal = Math.round(subtotal * (state.discountPercent / 100));
+        discountRow.style.display = 'flex';
+        discountEl.textContent = '- ' + formatRp(discountVal);
+        totalEl.textContent = formatRp(subtotal - discountVal);
+      } else {
+        discountRow.style.display = 'none';
+        totalEl.textContent = formatRp(subtotal);
+      }
+    }
+
+    function applyVoucher() {
+      const code = document.getElementById('voucherInput').value.trim().toUpperCase();
+      if (code === 'BERRYGLOW') {
+        state.discountPercent = 10;
+        showToast('Kupon diskon 10% berhasil dipasang!');
+        updateCartDisplay();
+      } else if (code === '') {
+        showToast('Masukkan kode kupon.');
+      } else {
+        showToast('Kode voucher tidak valid.');
+      }
+    }
+
+    function openCartDrawer() {
+      document.getElementById('cartOverlay').classList.add('open');
+    }
+
+    function closeCartDrawer(e) {
+      if (!e || e.target.id === 'cartOverlay' || e.target.classList.contains('drawer-close-btn')) {
+        document.getElementById('cartOverlay').classList.remove('open');
+      }
+    }
+
+    // Checkout via WhatsApp
+    function checkoutViaWhatsApp() {
+      if (state.cart.length === 0) {
+        showToast('Keranjang masih kosong!');
+        return;
+      }
+
+      const subtotal = state.cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const discount = Math.round(subtotal * (state.discountPercent / 100));
+      const grandTotal = subtotal - discount;
+
+      let msg = `Halo Admin RUMAH VELVET, saya ingin memesan produk kosmetik berikut:\n\n`;
+      state.cart.forEach((item, idx) => {
+        msg += `${idx + 1}. ${item.name} (${item.qty} pcs) - ${formatRp(item.price * item.qty)}\n`;
+      });
+
+      msg += `\nSubtotal: ${formatRp(subtotal)}`;
+      if (discount > 0) {
+        msg += `\nDiskon Promo (BERRYGLOW): - ${formatRp(discount)}`;
+      }
+      msg += `\n*Total Tagihan: ${formatRp(grandTotal)}*\n\n`;
+      msg += `Mohon info ongkos kirim dan nomor rekening pembayaran ya. Terima kasih!`;
+
+      const waUrl = `https://wa.me/6281298765432?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // Procedural ASMR Magnetic Cap Click Synthesizer (Web Audio API)
+    function triggerMagneticClickSound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!state.audioCtx) {
+          state.audioCtx = new AudioContext();
+        }
+        if (state.audioCtx.state === 'suspended') {
+          state.audioCtx.resume();
+        }
+
+        const now = state.audioCtx.currentTime;
+
+        // Click thud (short frequency sweep)
+        const osc = state.audioCtx.createOscillator();
+        const gain = state.audioCtx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(320, now);
+        osc.frequency.exponentialRampToValueAtTime(60, now + 0.04);
+
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+
+        osc.connect(gain);
+        gain.connect(state.audioCtx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.055);
+
+        // Subtle metallic high chime
+        const chime = state.audioCtx.createOscillator();
+        const chimeGain = state.audioCtx.createGain();
+
+        chime.type = 'sine';
+        chime.frequency.setValueAtTime(1400, now + 0.01);
+        chimeGain.gain.setValueAtTime(0.08, now + 0.01);
+        chimeGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
+
+        chime.connect(chimeGain);
+        chimeGain.connect(state.audioCtx.destination);
+
+        chime.start(now + 0.01);
+        chime.stop(now + 0.13);
+
+      } catch (err) {
+        console.warn('Audio not supported:', err);
+      }
+    }
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCatalog();
+      renderBundleShades();
+      updateTubeEngraving();
+      updateCartDisplay();
+    });
+  </script>
+</body>
+</html>

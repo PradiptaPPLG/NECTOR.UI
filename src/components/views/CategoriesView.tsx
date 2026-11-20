@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'beauty',
+      title: 'Kosmetik Bibir & Perawatan Alami',
+      icon: Sparkles,
+      desc: 'Toko kosmetik bibir lokal alami bersertifikasi BPOM & Halal MUI: lip velvet tekstur awan ringan, lip tint biji anggur transferproof, penemu warna undertone kulit, dan perakit paket kado 3 shade dengan layanan ukir nama tube gratis.',
+      accent: '#E23E57'
+    },
+    {
       id: 'baby',
       title: 'Pakaian Bayi Katun Bambu & Hampers Lahiran',
       icon: Heart,
