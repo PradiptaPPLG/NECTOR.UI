@@ -3892,6 +3892,89 @@ export function TanahLiatStudio() {
       { hex: '#F0997D', rgb: 'rgb(240, 153, 125)', name: 'Warm Salmon Peach', role: 'Aksen Keju Panggang, Garis Pembatas Halus & Tab Kategori' },
       { hex: '#FFC3A1', rgb: 'rgb(255, 195, 161)', name: 'Cantaloupe Butter Cream', role: 'Panel Lembut Adonan Mentega, Tag Pilihan Aktif & Latar Notifikasi' }
     ]
+  },
+  {
+    id: 'tpl-51',
+    slug: 'baju-bayi-hampers-organik',
+    title: 'NARA BABY (Pakaian Bayi Katun Bambu Organik & Hampers Kado Lahiran)',
+    tagline: 'Pakaian bayi katun bambu bersertifikat SNI & OEKO-TEX, adem anti-alergi, dan paket hampers kado lahiran dengan kartu ucapan kustom',
+    description: 'Template website etalase toko pakaian bayi katun bambu organik dan kado hampers lahiran NARA BABY dengan palet warna Soft Rose Powder (#F2D7D9), Whispering Wisteria Lavender (#D3CEDF), Calming Dusty Steel Blue (#9CB4CC), dan Slate Denim Blue (#748DA6). Menghadirkan fotografi produk asli berkualitas tinggi tanpa elemen 3D membingungkan, bahasa Indonesia yang hangat dan ramah bagi orang tua baru dan pembeli kado, fitur Milestone & Baby Size Finder interaktif, etalase 6 perlengkapan esensial bayi dengan pemilih warna dan ukuran, Newborn Hamper Builder dengan live greeting card visualizer berpita satin, kalkulator ceklist perlengkapan bayi baru lahir, 4 standar keamanan kulit sensitif, serta slide-over keranjang belanja terhubung langsung ke checkout WhatsApp.',
+    category: 'baby',
+    tags: ['Baby Clothes', 'Organic Bamboo Cotton', 'Newborn Hamper', 'Kado Melahirkan', 'Baby Swaddle', 'Baju Bayi SNI', 'Hypoallergenic', 'Baby Sleepsuit', 'Gift Box'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Web Audio API Lullaby Synthesizer', 'Milestone & Baby Size Finder', 'Custom Newborn Hamper Builder', 'Newborn Essentials Checklist', 'Slide-Over Cart Drawer', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'fashion',
+    previewComponentKey: 'baby-nara',
+    htmlPath: '/templates/baby/baju-bayi-hampers-organik.html',
+    htmlFolderPath: 'templates/baby/baju-bayi-hampers-organik.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa dependensi eksternal atau build step',
+      'Panduan ukuran bayi interaktif (Milestone & Baby Size Finder) menyesuaikan rentang usia (0-3 bln hingga 12-18 bln) dan berat badan bayi',
+      'Katalog 6 perlengkapan bayi esensial dengan pemilih varian warna pastel dan ukuran baju',
+      'Perakit kado hampers melahirkan (Newborn Hamper Builder) dengan pilihan box kustom, seleksi isi perlengkapan, dan pratinjau kartu ucapan live',
+      'Tabel ceklist perlengkapan bayi baru lahir agar belanja orang tua cermat tanpa mubazir',
+      'Synthesizer musik tidur kotak musik bayi (Lullaby Chime) dengan Web Audio API',
+      'Slide-over keranjang belanja dengan kupon promo BAYIBARU dan checkout otomatis rapi ke WhatsApp'
+    ],
+    usageInstructions: [
+      'Buka folder templates/baby/baju-bayi-hampers-organik.html di editor kode Anda.',
+      'Ubah nomor WhatsApp admin pada fungsi checkoutViaWhatsApp.',
+      'Ganti foto produk, daftar harga, atau varian warna sesuai katalog toko Anda.',
+      'Buka file HTML langsung di browser untuk menguji seluruh fitur interaktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'baju-bayi-hampers-organik.html',
+        language: 'html',
+        content: `<!-- NARA BABY — NECTOR.UI Pakaian Bayi & Hampers Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>NARA BABY — Pakaian Bayi Katun Bambu Organik & Hampers Kado Lahiran</title>
+  <style>
+    :root {
+      --color-rose: #F2D7D9;
+      --color-lavender: #D3CEDF;
+      --color-powder: #9CB4CC;
+      --color-slate: #748DA6;
+      --color-bg: #FAF8F9;
+      --color-surface: #FFFFFF;
+      --color-text-main: #222B38;
+      --color-text-muted: #5B6B7C;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-status-bar">PENGIRIMAN HARI INI: PESAN SEBELUM 15.00 WIB DIKIRIM HARI INI · 100% KATUN BAMBU SNI</div>
+  <header class="site-header">
+    <div class="brand-name">NARA BABY <span>PAKAIAN BAYI & KADO LAHIRAN</span></div>
+    <nav>Koleksi Baju · Panduan Ukuran · Rakit Hampers · Ceklist Perlengkapan · Ulasan Bunda</nav>
+  </header>
+  <!-- Full Interactive Baby E-Commerce: Size Finder, Hamper Builder, Checklist, Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website toko pakaian bayi katun bambu organik dan kado hampers lahiran NARA BABY dengan palet warna Soft Rose Powder (#F2D7D9), Whispering Wisteria Lavender (#D3CEDF), Calming Dusty Steel Blue (#9CB4CC), Slate Denim Blue (#748DA6), Clean Milk White Canvas (#FAF8F9), dan Deep Midnight Slate Charcoal (#222B38). Dilengkapi Milestone & Baby Size Finder interaktif, katalog 6 produk dengan pemilih varian warna/ukuran, Custom Newborn Hamper Builder dengan live greeting card visualizer berpita satin, Newborn Essentials Checklist, synthesizer audio musik tidur bayi Web Audio API, serta slide-over keranjang belanja terhubung ke pemesanan WhatsApp.',
+      designDirection: 'Clean editorial gentle organic baby care & newborn gift atelier UMKM berstandar antislop: Soft Rose Powder (#F2D7D9), Whispering Wisteria Lavender (#D3CEDF), Calming Dusty Steel Blue (#9CB4CC), Slate Denim Blue (#748DA6), dan Deep Midnight Slate Charcoal (#222B38). Tipografi Plus Jakarta Sans, JetBrains Mono, dan Playfair Display.',
+      layoutAndGrid: 'Bilah status pengiriman atas dengan audio switch lullaby Web Audio API, sticky header dengan brand mark dan counter keranjang live, hero berdampak visual kuat dengan foto produk jumper katun nyata dan metrik terverifikasi, Milestone & Baby Size Finder interaktif 2 kolom, katalog 6 produk dengan toggle varian, perakit hampers kelahiran dengan live greeting card preview berpita satin, tabel ceklist perlengkapan bayi baru lahir, 4 kartu komitmen keamanan kulit bayi, testimoni pembeli terverifikasi, dan slide-over cart drawer WhatsApp.',
+      typographyAndColor: 'Plus Jakarta Sans (bobot 400-800) untuk kehangatan, kelembutan, dan rasa aman para ibu dan calon orang tua, JetBrains Mono untuk harga rupiah (Rp), gramasi berat badan bayi (kg), panjang centimeter (cm), dan kode kupon.',
+      interactions: 'Milestone & Baby Size Finder dinamis yang menyaring ukuran pas berdasarkan usia dan berat badan bayi, selector warna dan ukuran produk, perakit hampers dengan formulir ucapan kustom dan live card visualizer, checklist perlengkapan bayi rasional, pengubah kuantitas keranjang belanja, kupon diskon BAYIBARU, dan checkout otomatis terhubung ke WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, responsive smartphone hingga layar desktop lebar, Web Audio API prosedural, foto produk asli Unsplash perlengkapan bayi berkualitas tinggi.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#748DA6',
+    colorPalette: [
+      { hex: '#F2D7D9', rgb: 'rgb(242, 215, 217)', name: 'Soft Rose Powder', role: 'Sentuhan Lembut Bedong, Pita Box Kado Melahirkan & Panel Aksen Hangat' },
+      { hex: '#D3CEDF', rgb: 'rgb(211, 206, 223)', name: 'Whispering Wisteria Lavender', role: 'Panel Motif Awan Pastel, Kartu Fitur Ramah Alergi & Latar Badge' },
+      { hex: '#9CB4CC', rgb: 'rgb(156, 180, 204)', name: 'Calming Dusty Steel Blue', role: 'Warna Katun Jumper Langit, Garis Pembatas Halus & Sorotan Spesifikasi' },
+      { hex: '#748DA6', rgb: 'rgb(116, 141, 166)', name: 'Slate Denim Blue', role: 'Tombol Aksi Utama (CTA), Brand Mark Penegasan, Harga Rupiah & Icon Utama' }
+    ]
   }
 ];
 

@@ -1,0 +1,2706 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NARA BABY — Pakaian Bayi Katun Bambu Organik & Hampers Kado Lahiran</title>
+  <meta name="description" content="Toko pakaian bayi katun bambu bersertifikat SNI & OEKO-TEX, adem anti-alergi, dan paket hampers kado lahiran dengan kartu ucapan kustom live-preview.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-rose: #F2D7D9;
+      --color-rose-deep: #E4BDC0;
+      --color-lavender: #D3CEDF;
+      --color-lavender-deep: #BCB4CE;
+      --color-powder: #9CB4CC;
+      --color-slate: #748DA6;
+      --color-slate-dark: #4F6880;
+      --color-bg: #FAF8F9;
+      --color-surface: #FFFFFF;
+      --color-surface-soft: #F5EFF2;
+      --color-surface-tint: #EDEEF5;
+      --color-text-main: #222B38;
+      --color-text-muted: #5B6B7C;
+      --color-border: #E5DEE6;
+      --color-border-dark: #748DA6;
+      --color-green: #2E7D32;
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --shadow-sm: 0 2px 8px rgba(34, 43, 56, 0.04);
+      --shadow-md: 0 8px 24px rgba(34, 43, 56, 0.08);
+      --shadow-lg: 0 16px 36px rgba(34, 43, 56, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-main);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: all 0.2s ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Workshop Status Bar */
+    .top-status-bar {
+      background: var(--color-slate-dark);
+      color: #FFFFFF;
+      font-size: 13px;
+      padding: 10px 0;
+      position: relative;
+      z-index: 100;
+    }
+
+    .top-status-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .top-status-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    .top-status-pulse {
+      width: 8px;
+      height: 8px;
+      background: #7BE495;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(123, 228, 149, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .lullaby-audio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .lullaby-audio-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Sticky Brand Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 248, 249, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 90;
+      padding: 16px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-mark {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--color-slate-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-dot {
+      color: var(--color-slate);
+    }
+
+    .brand-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--color-slate);
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-slate-dark);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-pill-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-slate);
+      color: #FFFFFF;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(116, 141, 166, 0.3);
+    }
+
+    .cart-pill-btn:hover {
+      background: var(--color-slate-dark);
+      transform: translateY(-1px);
+    }
+
+    .cart-count-badge {
+      background: #FFFFFF;
+      color: var(--color-slate-dark);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 64px 0 72px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-rose);
+      color: #6C3B40;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      width: fit-content;
+      border: 1px solid rgba(228, 189, 192, 0.8);
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 4.2vw, 52px);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--color-text-main);
+    }
+
+    .hero-title em {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--color-slate-dark);
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--color-text-muted);
+      max-width: 580px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .btn-primary {
+      background: var(--color-slate);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 26px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(116, 141, 166, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-slate-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-slate-dark);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 24px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-soft);
+      border-color: var(--color-lavender-deep);
+    }
+
+    .hero-trust-bar {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .trust-icon {
+      color: var(--color-slate);
+      display: flex;
+      align-items: center;
+    }
+
+    /* Hero Showcase Card */
+    .hero-showcase-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .showcase-badge-top {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--color-lavender);
+      color: #4A435A;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    .showcase-image-wrap {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/3.4;
+      background: var(--color-surface-soft);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .showcase-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .showcase-details {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .showcase-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .showcase-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .showcase-price {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-slate-dark);
+      white-space: nowrap;
+    }
+
+    .showcase-meta {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .color-swatches-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .color-swatches-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+    }
+
+    .color-swatches-list {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .color-swatch-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .color-swatch-circle.active {
+      transform: scale(1.18);
+      box-shadow: 0 0 0 2px var(--color-slate-dark);
+    }
+
+    .size-selector-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .size-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+    }
+
+    .size-btn.active {
+      background: var(--color-slate);
+      color: #FFFFFF;
+      border-color: var(--color-slate);
+    }
+
+    .btn-add-hero {
+      width: 100%;
+      background: var(--color-slate);
+      color: #FFFFFF;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .btn-add-hero:hover {
+      background: var(--color-slate-dark);
+    }
+
+    /* Milestone & Baby Size Finder Section */
+    .finder-section {
+      padding: 60px 0;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+
+    .section-pill {
+      display: inline-block;
+      background: var(--color-lavender);
+      color: #4A435A;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 3.2vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      color: var(--color-text-main);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--color-text-muted);
+    }
+
+    .finder-container {
+      background: var(--color-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 36px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .finder-inputs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .finder-step-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-slate-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .finder-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-slate);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pill-select-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .pill-option {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: all 0.2s ease;
+    }
+
+    .pill-option small {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    .pill-option:hover {
+      border-color: var(--color-slate);
+    }
+
+    .pill-option.active {
+      background: var(--color-surface-soft);
+      border-color: var(--color-slate);
+      box-shadow: 0 0 0 2px var(--color-slate);
+    }
+
+    .finder-result-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--color-powder);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .result-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-slate-dark);
+      background: var(--color-powder);
+      color: #1A344A;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .result-size-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+    }
+
+    .result-desc {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .result-specs-box {
+      background: var(--color-bg);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      border: 1px solid var(--color-border);
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 4px 0;
+    }
+
+    .spec-label {
+      color: var(--color-text-muted);
+    }
+
+    .spec-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    /* Catalog Section */
+    .catalog-section {
+      padding: 72px 0;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-powder);
+    }
+
+    .product-thumb-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      background: var(--color-surface-soft);
+      overflow: hidden;
+    }
+
+    .product-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .product-card:hover .product-thumb-wrap img {
+      transform: scale(1.05);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      color: var(--color-slate-dark);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+    }
+
+    .product-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 12px;
+    }
+
+    .product-category-meta {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--color-slate);
+    }
+
+    .product-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      line-height: 1.35;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .product-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--color-border);
+      margin-top: auto;
+    }
+
+    .product-price {
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--color-slate-dark);
+    }
+
+    .btn-add-cart {
+      background: var(--color-surface-soft);
+      color: var(--color-slate-dark);
+      border: 1px solid var(--color-border);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-add-cart:hover {
+      background: var(--color-slate);
+      color: #FFFFFF;
+      border-color: var(--color-slate);
+    }
+
+    /* Hampers Builder Section */
+    .builder-section {
+      padding: 72px 0;
+      background: var(--color-surface-soft);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .builder-controls {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .builder-step-header {
+      margin-bottom: 12px;
+    }
+
+    .builder-step-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--color-slate);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .builder-step-heading {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .box-tier-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .box-tier-btn {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 16px 12px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .box-tier-btn.active {
+      background: var(--color-surface);
+      border-color: var(--color-slate);
+      box-shadow: 0 0 0 2px var(--color-slate);
+    }
+
+    .box-tier-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .box-tier-slots {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .box-tier-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-slate-dark);
+    }
+
+    .items-checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .item-checkbox-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .item-checkbox-row:hover {
+      border-color: var(--color-powder);
+    }
+
+    .item-checkbox-row.checked {
+      background: var(--color-surface);
+      border-color: var(--color-slate);
+    }
+
+    .item-check-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .custom-check-box {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 1.5px solid var(--color-border);
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #FFFFFF;
+      transition: all 0.2s ease;
+    }
+
+    .item-checkbox-row.checked .custom-check-box {
+      background: var(--color-slate);
+      border-color: var(--color-slate);
+    }
+
+    .item-check-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    .item-check-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-slate-dark);
+    }
+
+    .form-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .form-input-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+
+    .form-input-group input,
+    .form-input-group textarea,
+    .form-input-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      font-family: inherit;
+      font-size: 14px;
+      background: var(--color-bg);
+      color: var(--color-text-main);
+    }
+
+    .form-input-group input:focus,
+    .form-input-group textarea:focus,
+    .form-input-group select:focus {
+      outline: none;
+      border-color: var(--color-slate);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(116, 141, 166, 0.2);
+    }
+
+    /* Live Hamper Visualizer Box */
+    .builder-preview-sticky {
+      position: sticky;
+      top: 100px;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .preview-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .preview-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .preview-ribbon-tag {
+      background: var(--color-rose);
+      color: #6C3B40;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    /* Greeting Card Mockup */
+    .greeting-card-mockup {
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      position: relative;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .card-satin-ribbon {
+      position: absolute;
+      top: 0;
+      right: 28px;
+      width: 24px;
+      height: 38px;
+      background: var(--color-rose);
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-inner-frame {
+      border: 1px dashed var(--color-powder);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .card-to {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-slate-dark);
+      margin-bottom: 8px;
+    }
+
+    .card-message {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-style: italic;
+      color: var(--color-text-main);
+      line-height: 1.5;
+      margin-bottom: 12px;
+      min-height: 48px;
+    }
+
+    .card-from {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .selected-items-summary {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+      padding: 12px;
+      background: var(--color-bg);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+    }
+
+    .hamper-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--color-text-main);
+    }
+
+    .hamper-total-price {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      color: var(--color-slate-dark);
+    }
+
+    .btn-checkout-hamper {
+      width: 100%;
+      background: var(--color-slate);
+      color: #FFFFFF;
+      padding: 14px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(116, 141, 166, 0.35);
+    }
+
+    .btn-checkout-hamper:hover {
+      background: var(--color-slate-dark);
+    }
+
+    /* Essentials Checklist Calculator Section */
+    .checklist-section {
+      padding: 72px 0;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .checklist-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      background: var(--color-bg);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+
+    .checklist-table th {
+      background: var(--color-surface-soft);
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-slate-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .checklist-table td {
+      padding: 14px 20px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-main);
+    }
+
+    .checklist-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .checklist-qty-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--color-lavender);
+      color: #4A435A;
+      font-size: 12px;
+    }
+
+    /* Trust & Commitments Section */
+    .commitments-section {
+      padding: 72px 0;
+    }
+
+    .commitments-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .commitment-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .commitment-card:hover {
+      border-color: var(--color-slate);
+      transform: translateY(-2px);
+    }
+
+    .commitment-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--color-surface-soft);
+      color: var(--color-slate-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      border: 1px solid var(--color-border);
+    }
+
+    .commitment-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .commitment-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 72px 0;
+      background: var(--color-surface-soft);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-stars {
+      color: #E29578;
+      font-size: 14px;
+      display: flex;
+      gap: 2px;
+    }
+
+    .review-quote {
+      font-size: 14px;
+      color: var(--color-text-main);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 12px;
+    }
+
+    .author-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--color-powder);
+      color: #1A344A;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .author-meta {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: 60px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-top: 12px;
+      max-width: 320px;
+    }
+
+    .footer-heading {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--color-slate-dark);
+      margin-bottom: 16px;
+    }
+
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .footer-list a:hover {
+      color: var(--color-slate-dark);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    /* Cart Slide-Over Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(34, 43, 56, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 420px;
+      max-width: 90vw;
+      height: 100%;
+      background: #FFFFFF;
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer-overlay.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text-main);
+    }
+
+    .drawer-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--color-text-muted);
+    }
+
+    .drawer-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .empty-cart-notice {
+      text-align: center;
+      color: var(--color-text-muted);
+      padding: 48px 0;
+      font-size: 14px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .cart-item-img {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background: var(--color-surface-soft);
+    }
+
+    .cart-item-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cart-item-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .cart-item-variant {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .cart-item-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-slate-dark);
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qty-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .qty-display {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 16px;
+      text-align: center;
+    }
+
+    .drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-bg);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .voucher-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .voucher-row input {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    .btn-apply-voucher {
+      background: var(--color-slate);
+      color: #FFFFFF;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      padding-top: 6px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .cart-total-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      color: var(--color-slate-dark);
+    }
+
+    .btn-wa-checkout {
+      width: 100%;
+      background: #25D366;
+      color: #FFFFFF;
+      padding: 13px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-wa-checkout:hover {
+      background: #1EBE5D;
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-slate-dark);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .toast-container.show {
+      opacity: 1;
+      transform: translate(-50%, -8px);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+      .builder-preview-sticky {
+        position: static;
+      }
+      .finder-inputs-grid {
+        grid-template-columns: 1fr;
+      }
+      .finder-result-card {
+        grid-template-columns: 1fr;
+      }
+      .commitments-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .commitments-grid {
+        grid-template-columns: 1fr;
+      }
+      .box-tier-cards {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .finder-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Status Bar -->
+  <div class="top-status-bar">
+    <div class="container top-status-content">
+      <div class="top-status-text">
+        <span class="top-status-pulse"></span>
+        <span>PENGIRIMAN HARI INI: Pesan sebelum 15.00 WIB dikirim hari ini · 100% Katun Bambu SNI & OEKO-TEX</span>
+      </div>
+      <button class="lullaby-audio-btn" id="lullabyToggleBtn" onclick="toggleLullabyMusic()">
+        <span>🎵 Putar Musik Tidur Bayi</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sticky Brand Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-mark">
+        <a href="#" class="brand-name">NARA BABY<span class="brand-dot">.</span></a>
+        <span class="brand-badge">Pakaian Bayi & Kado Lahiran</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#koleksi-baju">Koleksi Baju</a>
+        <a href="#panduan-ukuran">Panduan Ukuran</a>
+        <a href="#rakit-hampers">Rakit Hampers</a>
+        <a href="#ceklist-perlengkapan">Ceklist Perlengkapan</a>
+        <a href="#ulasan-bunda">Ulasan Bunda</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-pill-btn" onclick="openCartDrawer()">
+          <span>Keranjang</span>
+          <span class="cart-count-badge" id="cartHeaderCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span>🌸 Lembut Sejak Hari Pertama Buah Hati</span>
+        </div>
+        <h1 class="hero-title">
+          Sentuhan Selembut Kasih Ibu, Aman untuk <em>Kulit Bayi Paling Sensitif.</em>
+        </h1>
+        <p class="hero-desc">
+          Ditenun dari 100% serat katun bambu organik bersertifikat SNI & OEKO-TEX Standard 100. Pori mikro alami membuat baju tetap sejuk di iklim tropis, bebas kancing beracun, dan tidak memicu ruam kemerahan.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#koleksi-baju" class="btn-primary">
+            <span>Lihat Koleksi Baju Bayi</span>
+            <span>↓</span>
+          </a>
+          <a href="#rakit-hampers" class="btn-secondary">
+            <span>🎁 Rakit Kado Lahiran Kustom</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-bar">
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>Standar SNI 7617:2013</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>OEKO-TEX Standard 100</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <span>Garansi Tukar Ukuran 7 Hari</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Product Showcase Card -->
+      <div class="hero-showcase-card">
+        <div class="showcase-badge-top">⭐ Terlaris Newborn</div>
+        <div class="showcase-image-wrap">
+          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Jumper Bayi Katun Bambu Lembut Nara Baby" id="heroProductImg">
+        </div>
+        <div class="showcase-details">
+          <div class="showcase-title-row">
+            <div>
+              <div class="showcase-title" id="heroProductTitle">Jumper Sleepsuit Katun Bambu</div>
+              <div class="showcase-meta">Kancing jepret bebas nikel di bagian depan & selangkangan</div>
+            </div>
+            <div class="showcase-price" id="heroProductPrice">Rp 89.000</div>
+          </div>
+
+          <div class="color-swatches-group">
+            <span class="color-swatches-label">Warna:</span>
+            <div class="color-swatches-list">
+              <button class="color-swatch-circle active" style="background:#F2D7D9;" title="Rose Blush" onclick="selectHeroColor(this, 'Rose Blush')"></button>
+              <button class="color-swatch-circle" style="background:#D3CEDF;" title="Lavender Cloud" onclick="selectHeroColor(this, 'Lavender Cloud')"></button>
+              <button class="color-swatch-circle" style="background:#9CB4CC;" title="Powder Sky" onclick="selectHeroColor(this, 'Powder Sky')"></button>
+              <button class="color-swatch-circle" style="background:#748DA6;" title="Muted Denim" onclick="selectHeroColor(this, 'Muted Denim')"></button>
+            </div>
+          </div>
+
+          <div class="size-selector-row">
+            <button class="size-btn active" onclick="selectHeroSize(this, '0-3 Bulan (Newborn)')">0-3 Bulan</button>
+            <button class="size-btn" onclick="selectHeroSize(this, '3-6 Bulan')">3-6 Bulan</button>
+            <button class="size-btn" onclick="selectHeroSize(this, '6-12 Bulan')">6-12 Bulan</button>
+          </div>
+
+          <button class="btn-add-hero" onclick="addHeroToCart()">
+            <span>🛒 Tambah ke Keranjang • Rp 89.000</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Milestone & Baby Size Finder -->
+  <section class="finder-section" id="panduan-ukuran">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Panduan Ukuran Interaktif</span>
+        <h2 class="section-title">Temukan Ukuran Baju yang Pas untuk Buah Hati</h2>
+        <p class="section-subtitle">Bayi bertumbuh sangat cepat di tahun pertama. Pilih usia dan perkiraan berat badan untuk mendapatkan rekomendasi ukuran baju yang tidak sempit dan nyaman bergerak.</p>
+      </div>
+
+      <div class="finder-container">
+        <div class="finder-inputs-grid">
+          <div>
+            <div class="finder-step-title">
+              <span class="finder-step-num">1</span>
+              <span>Pilih Rentang Usia Bayi:</span>
+            </div>
+            <div class="pill-select-grid">
+              <button class="pill-option active" onclick="updateFinderAge(this, '0-3')">
+                <strong>0 - 3 Bulan</strong>
+                <small>Fase Newborn / Bedong</small>
+              </button>
+              <button class="pill-option" onclick="updateFinderAge(this, '3-6')">
+                <strong>3 - 6 Bulan</strong>
+                <small>Mulai Tengkurap</small>
+              </button>
+              <button class="pill-option" onclick="updateFinderAge(this, '6-12')">
+                <strong>6 - 12 Bulan</strong>
+                <small>Fase Duduk & Merangkak</small>
+              </button>
+              <button class="pill-option" onclick="updateFinderAge(this, '12-18')">
+                <strong>12 - 18 Bulan</strong>
+                <small>Mulai Belajar Berjalan</small>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div class="finder-step-title">
+              <span class="finder-step-num">2</span>
+              <span>Perkiraan Berat Badan:</span>
+            </div>
+            <div class="pill-select-grid">
+              <button class="pill-option active" onclick="updateFinderWeight(this, '3-5')">
+                <strong>3,0 - 5,0 kg</strong>
+                <small>Berat Standar Lahir</small>
+              </button>
+              <button class="pill-option" onclick="updateFinderWeight(this, '5-7')">
+                <strong>5,0 - 7,5 kg</strong>
+                <small>Pertumbuhan Bulan 2-4</small>
+              </button>
+              <button class="pill-option" onclick="updateFinderWeight(this, '7-9')">
+                <strong>7,5 - 9,5 kg</strong>
+                <small>Fase MPASI Awal</small>
+              </button>
+              <button class="pill-option" onclick="updateFinderWeight(this, '9-12')">
+                <strong>9,5 - 12,0 kg</strong>
+                <small>Balita Aktif Bergerak</small>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="finder-result-card">
+          <div>
+            <span class="result-badge" id="finderResultBadge">Rekomendasi Teruji</span>
+            <div class="result-size-title" id="finderResultTitle">Ukuran: Newborn (0-3 Bulan)</div>
+            <p class="result-desc" id="finderResultDesc">Sangat disarankan memilih jumper bukaan kancing depan penuh agar tidak menekan area pusar bayi yang masih dalam proses pemulihan setelah lahir.</p>
+          </div>
+          <div class="result-specs-box">
+            <div class="spec-item">
+              <span class="spec-label">Panjang Badan:</span>
+              <span class="spec-val" id="finderSpecLength">50 - 58 cm</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Lebar Dada:</span>
+              <span class="spec-val" id="finderSpecChest">23 cm (Melar 3cm)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Model Bukaan:</span>
+              <span class="spec-val" id="finderSpecSnap">Kancing Depan Penuh</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physical Catalog Section -->
+  <section class="catalog-section" id="koleksi-baju">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Koleksi Pilihan</span>
+        <h2 class="section-title">Pakaian & Perlengkapan Bayi Esensial</h2>
+        <p class="section-subtitle">Setiap helai pakaian diproduksi dari serat katun bambu yang telah lolos uji laboratorium bebas zat pewarna karsinogenik.</p>
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Products populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Newborn Hamper Builder Section -->
+  <section class="builder-section" id="rakit-hampers">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Hadiah Melahirkan Kustom</span>
+        <h2 class="section-title">Perakit Paket Hampers Kado Lahiran</h2>
+        <p class="section-subtitle">Kirim kado elegan untuk menyambut kelahiran buah hati sahabat atau keluarga. Pilih box eksklusif, isi perlengkapan bayi yang bermanfaat, dan sertakan kartu ucapan dengan pratinjau langsung.</p>
+      </div>
+
+      <div class="builder-grid">
+        <!-- Controls -->
+        <div class="builder-controls">
+          <div>
+            <div class="builder-step-header">
+              <span class="builder-step-label">Langkah 1 dari 3</span>
+              <h3 class="builder-step-heading">Pilih Warna Hardbox Eksklusif</h3>
+            </div>
+            <div class="box-tier-cards">
+              <button class="box-tier-btn active" onclick="selectBoxTier(this, 'Rose Blush', 45000)">
+                <div class="box-tier-name">Rose Blush Box</div>
+                <div class="box-tier-slots">Pita Satin Dusty Rose</div>
+                <div class="box-tier-price">+ Rp 45.000</div>
+              </button>
+              <button class="box-tier-btn" onclick="selectBoxTier(this, 'Lavender Cloud', 45000)">
+                <div class="box-tier-name">Lavender Box</div>
+                <div class="box-tier-slots">Pita Satin Soft Lilac</div>
+                <div class="box-tier-price">+ Rp 45.000</div>
+              </button>
+              <button class="box-tier-btn" onclick="selectBoxTier(this, 'Powder Sky', 45000)">
+                <div class="box-tier-name">Powder Sky Box</div>
+                <div class="box-tier-slots">Pita Satin Baby Blue</div>
+                <div class="box-tier-price">+ Rp 45.000</div>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div class="builder-step-header">
+              <span class="builder-step-label">Langkah 2 dari 3</span>
+              <h3 class="builder-step-heading">Pilih Isi Perlengkapan Bayi (Pilih 2 - 4 Item)</h3>
+            </div>
+            <div class="items-checkbox-list" id="hamperItemsList">
+              <!-- Item Checkboxes rendered by JS -->
+            </div>
+          </div>
+
+          <div>
+            <div class="builder-step-header">
+              <span class="builder-step-label">Langkah 3 dari 3</span>
+              <h3 class="builder-step-heading">Tulis Kartu Ucapan Kelahiran (Gratis)</h3>
+            </div>
+            <div class="form-input-group">
+              <label for="inputBabyName">Nama Bayi / Panggilan:</label>
+              <input type="text" id="inputBabyName" placeholder="Contoh: Baby Alana / Putri Kecil Tercinta" oninput="updateLiveCard()">
+            </div>
+            <div class="form-input-group">
+              <label for="inputCardMessage">Ucapan Doa & Harapan:</label>
+              <textarea id="inputCardMessage" rows="3" placeholder="Contoh: Selamat atas kelahiran putri tercinta! Semoga tumbuh menjadi anak yang sehat, pintar, dan membawa kebahagiaan bagi keluarga." oninput="updateLiveCard()"></textarea>
+            </div>
+            <div class="form-input-group">
+              <label for="inputSenderName">Nama Pengirim:</label>
+              <input type="text" id="inputSenderName" placeholder="Contoh: Om Budi & Tante Sarah" oninput="updateLiveCard()">
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Live Visualizer Box -->
+        <div class="builder-preview-sticky">
+          <div class="preview-header-row">
+            <span class="preview-title">Pratinjau Kado Hampers</span>
+            <span class="preview-ribbon-tag" id="previewRibbonTag">Pita Rose Blush</span>
+          </div>
+
+          <!-- Greeting Card Mockup -->
+          <div class="greeting-card-mockup">
+            <div class="card-satin-ribbon" id="cardRibbonMockup"></div>
+            <div class="card-inner-frame">
+              <div class="card-to" id="liveCardTo">Untuk: Baby Alana Tercinta</div>
+              <p class="card-message" id="liveCardMsg">"Selamat atas kelahiran putri tercinta! Semoga tumbuh menjadi anak yang sehat, pintar, dan membawa kebahagiaan bagi seluruh keluarga."</p>
+              <div class="card-from" id="liveCardFrom">Penuh Kasih, Om Budi & Tante Sarah</div>
+            </div>
+          </div>
+
+          <div class="selected-items-summary" id="selectedItemsSummary">
+            Isi Hampers: 3 Item terpilih (Jumper Katun, Selimut Bedong, Topi & Kaos Kaki)
+          </div>
+
+          <div class="hamper-total-row">
+            <span>Total Kado Hampers:</span>
+            <span class="hamper-total-price" id="hamperTotalPrice">Rp 244.000</span>
+          </div>
+
+          <button class="btn-checkout-hamper" onclick="addHamperToCart()">
+            <span>🎁 Masukkan Hampers ke Keranjang</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Essentials Checklist Calculator Section -->
+  <section class="checklist-section" id="ceklist-perlengkapan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Belanja Cermat Tanpa Mubazir</span>
+        <h2 class="section-title">Ceklist Perlengkapan Esensial Bayi Baru Lahir</h2>
+        <p class="section-subtitle">Panduan jumlah pakaian yang benar-benar dibutuhkan di bulan pertama kelahiran agar orang tua tidak boros membeli baju yang cepat kekecilan.</p>
+      </div>
+
+      <div style="max-width: 900px; margin: 0 auto;">
+        <table class="checklist-table">
+          <thead>
+            <tr>
+              <th>Nama Perlengkapan</th>
+              <th>Kebutuhan Ideal</th>
+              <th>Alasan & Rekomendasi Pemakaian</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Jumper / Sleepsuit Kancing Depan</strong></td>
+              <td><span class="checklist-qty-badge">6 Pcs</span></td>
+              <td>Bayi ganti baju 2-3 kali sehari karena gumoh. Kancing depan memudahkan ganti popok di malam hari.</td>
+            </tr>
+            <tr>
+              <td><strong>Selimut Bedong Katun Bambu (Swaddle)</strong></td>
+              <td><span class="checklist-qty-badge">4 - 5 Pcs</span></td>
+              <td>Membantu menenangkan refleks moro (kejut) pada bayi, sekaligus dapat difungsikan sebagai alas tidur dan selimut stroller.</td>
+            </tr>
+            <tr>
+              <td><strong>Sarung Tangan & Kaos Kaki Anti-Cakar</strong></td>
+              <td><span class="checklist-qty-badge">4 Pasang</span></td>
+              <td>Melindungi wajah bayi dari cakaran kuku lembutnya sendiri dan menjaga telapak kaki tetap hangat.</td>
+            </tr>
+            <tr>
+              <td><strong>Topi Beanie Rajut Katun Lembut</strong></td>
+              <td><span class="checklist-qty-badge">2 Pcs</span></td>
+              <td>Menjaga kehangatan ubun-ubun kepala bayi setelah mandi dan saat bepergian kontrol dokter.</td>
+            </tr>
+            <tr>
+              <td><strong>Waslap Mandi Serat Bambu Lembut</strong></td>
+              <td><span class="checklist-qty-badge">3 Pcs</span></td>
+              <td>Daya serap tinggi dan cepat kering, aman mengusap lipatan leher dan ketiak bayi tanpa iritasi.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Commitments Section -->
+  <section class="commitments-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Kualitas Tanpa Kompromi</span>
+        <h2 class="section-title">4 Standar Keamanan Produk NARA BABY</h2>
+      </div>
+
+      <div class="commitments-grid">
+        <div class="commitment-card">
+          <div class="commitment-icon-box">🌿</div>
+          <div class="commitment-title">100% Katun Serat Bambu</div>
+          <div class="commitment-desc">Struktur mikroskopis serat berongga menjaga suhu kulit bayi tetap sejuk, menyerap keringat 3x lebih cepat dari katun biasa.</div>
+        </div>
+
+        <div class="commitment-card">
+          <div class="commitment-icon-box">🛡️</div>
+          <div class="commitment-title">Bebas Bahan Kimia Keras</div>
+          <div class="commitment-desc">Bebas klorin, pemutih optik (OBA), dan formaldehida. Aman jika tidak sengaja tersentuh atau diemut oleh bayi saat bermain.</div>
+        </div>
+
+        <div class="commitment-card">
+          <div class="commitment-icon-box">🔘</div>
+          <div class="commitment-title">Kancing Bebas Nikel</div>
+          <div class="commitment-desc">Kancing jepret (snap button) impor Jepang bersertifikasi bebas nikel agar tidak menimbulkan reaksi alergi dan karat saat dicuci.</div>
+        </div>
+
+        <div class="commitment-card">
+          <div class="commitment-icon-box">🔄</div>
+          <div class="commitment-title">Garansi Tukar Ukuran 7 Hari</div>
+          <div class="commitment-desc">Jika baju yang dibeli untuk kado kekecilan atau kebesaran, penerima hadiah dapat menukarkannya secara gratis dalam 7 hari.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="ulasan-bunda">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pill">Cerita Pengalaman</span>
+        <h2 class="section-title">Dipercaya Ribuan Orang Tua & Pengirim Kado</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Bahannya beneran halus banget, adem dipegang! Anakku gampang biang keringat kalau pakai baju katun biasa, pas ganti jumper bambu Nara Baby tidurnya jauh lebih nyenyak."</p>
+          <div class="review-author">
+            <div class="author-avatar">DN</div>
+            <div class="author-info">
+              <span class="author-name">dr. Dian Novita</span>
+              <span class="author-meta">Ibu dari Baby Arka (3 bulan), Jakarta Selatan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Pesan hampers kado lahiran buat teman sekantor. Pengemasannya rapi banget, hardboxnya kokoh dan kartu ucapannya dicetak cantik. Teman kantor terharu banget pas nerima."</p>
+          <div class="review-author">
+            <div class="author-avatar">RS</div>
+            <div class="author-info">
+              <span class="author-name">Rian & Stefani</span>
+              <span class="author-meta">Pengirim Hampers Rekan Kantor, Surabaya</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Bedong swaddle-nya elastis dan pas di badan bayi. Nggak gampang lepas walau bayinya aktif ngulet. Warna pastel dusty rose-nya elegan banget, nggak pasaran."</p>
+          <div class="review-author">
+            <div class="author-avatar">MA</div>
+            <div class="author-info">
+              <span class="author-name">Maya Anggraini</span>
+              <span class="author-meta">Ibu dari Baby Clarissa (1 bulan), Bandung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-name">NARA BABY<span class="brand-dot">.</span></div>
+          <p class="footer-brand-desc">
+            Atelier perlengkapan pakaian bayi katun serat bambu organik bersertifikat SNI & OEKO-TEX Standard 100. Menemani kenyamanan awal kehidupan sang buah hati dengan kelembutan alami.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Navigasi Cepat</div>
+          <ul class="footer-list">
+            <li><a href="#koleksi-baju">Koleksi Baju Bayi</a></li>
+            <li><a href="#panduan-ukuran">Panduan Ukuran Bayi</a></li>
+            <li><a href="#rakit-hampers">Rakit Kado Hampers</a></li>
+            <li><a href="#ceklist-perlengkapan">Ceklist Perlengkapan</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Layanan Pelanggan</div>
+          <ul class="footer-list">
+            <li><a href="#">Garansi Tukar Ukuran</a></li>
+            <li><a href="#">Panduan Pencucian Katun</a></li>
+            <li><a href="#">Pemesanan Grosir & Souvenir</a></li>
+            <li><a href="#">Lacak Resi Pengiriman</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Studio & Workshop</div>
+          <ul class="footer-list">
+            <li>Jl. Anggrek Cendana No. 18, Bandung</li>
+            <li>Buka Setiap Hari: 08.00 - 18.00 WIB</li>
+            <li>WhatsApp: 0812-3456-7890</li>
+            <li>Instagram: @narababy.id</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 NARA BABY. Seluruh Hak Cipta Dilindungi.</div>
+        <div>Desain Berstandar Anti AI-Slop · Ditenun untuk Kenyamanan Buah Hati</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartDrawer(event)">
+    <div class="cart-drawer" onclick="event.stopPropagation()">
+      <div class="drawer-header">
+        <div class="drawer-title">Keranjang Belanja</div>
+        <button class="drawer-close-btn" onclick="closeCartDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-body" id="cartItemsContainer">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="voucher-row">
+          <input type="text" id="voucherInput" placeholder="Kode Promo (Cth: BAYIBARU)">
+          <button class="btn-apply-voucher" onclick="applyVoucher()">Gunakan</button>
+        </div>
+
+        <div class="cart-subtotal-row">
+          <span>Subtotal Produk:</span>
+          <span id="cartSubtotalText">Rp 0</span>
+        </div>
+        <div class="cart-subtotal-row" id="discountRow" style="display:none; color: var(--color-green);">
+          <span>Diskon Promo (10%):</span>
+          <span id="cartDiscountText">- Rp 0</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Total Pembayaran:</span>
+          <span class="cart-total-val" id="cartTotalText">Rp 0</span>
+        </div>
+
+        <button class="btn-wa-checkout" onclick="checkoutViaWhatsApp()">
+          <span>Pesan via WhatsApp Sekarang</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastBox">Produk berhasil ditambahkan ke keranjang!</div>
+
+  <!-- Audio and Interactive Script -->
+  <script>
+    // State
+    const state = {
+      heroColor: 'Rose Blush',
+      heroSize: '0-3 Bulan (Newborn)',
+      finderAge: '0-3',
+      finderWeight: '3-5',
+      selectedBoxTier: { name: 'Rose Blush Box', price: 45000, ribbon: 'Pita Rose Blush' },
+      hamperItems: [
+        { id: 'h-jumper', name: 'Jumper Sleepsuit Katun Bambu', price: 89000, checked: true },
+        { id: 'h-bedong', name: 'Selimut Bedong Swaddle 4-in-1', price: 65000, checked: true },
+        { id: 'h-topi', name: 'Set Topi & Kaos Kaki Anti-Cakar', price: 45000, checked: true },
+        { id: 'h-teether', name: 'Teether Kayu Beech Alami', price: 48000, checked: false },
+        { id: 'h-piyama', name: 'Set Piyama Bayi Celana Panjang', price: 95000, checked: false }
+      ],
+      cart: [],
+      discountPercent: 0,
+      isAudioPlaying: false,
+      audioCtx: null,
+      audioInterval: null
+    };
+
+    // Product Database
+    const PRODUCTS = [
+      {
+        id: 'p1',
+        name: 'Jumper Sleepsuit Katun Bambu',
+        category: 'Pakaian Harian',
+        price: 89000,
+        desc: 'Katun bambu organik bersertifikat SNI dengan bukaan kancing jepret depan penuh yang tidak menekan perut bayi.',
+        image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=600&q=80',
+        tag: 'Terlaris'
+      },
+      {
+        id: 'p2',
+        name: 'Selimut Bedong Swaddle 4-in-1',
+        category: 'Tidur & Istirahat',
+        price: 65000,
+        desc: 'Kain bedong elastis lembut ukuran 110x110 cm, multifungsi sebagai selimut tidur, alas stroller, dan penutup menyusui.',
+        image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80',
+        tag: 'Bahan Adem'
+      },
+      {
+        id: 'p3',
+        name: 'Set Piyama Bayi Celana Panjang',
+        category: 'Pakaian Tidur',
+        price: 95000,
+        desc: 'Setelan baju dan celana panjang dengan karet pinggang super lembut yang tidak berbekas merah di pinggang buah hati.',
+        image: 'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=600&q=80',
+        tag: 'Anti Nyamuk'
+      },
+      {
+        id: 'p4',
+        name: 'Set Topi Beanie & Kaos Kaki Anti-Cakar',
+        category: 'Aksesoris Pelindung',
+        price: 45000,
+        desc: 'Melindungi ubun-ubun kepala dari angin sejuk dan mencegah kuku tangan menggores pipi sensitif bayi baru lahir.',
+        image: 'https://images.unsplash.com/photo-1505377059067-e285a7bac49b?auto=format&fit=crop&w=600&q=80',
+        tag: 'Wajib Newborn'
+      },
+      {
+        id: 'p5',
+        name: 'Teether Kayu Beech & Silikon BPA-Free',
+        category: 'Tumbuh Gigi & Sensori',
+        price: 48000,
+        desc: 'Mainan gigitan kayu beechwood alami berserat halus dipadu cincin silikon food-grade untuk menenangkan gusi gatal.',
+        image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=600&q=80',
+        tag: '100% Food Grade'
+      },
+      {
+        id: 'p6',
+        name: 'Paket Kado Lahiran Welcome World',
+        category: 'Hampers Spesial',
+        price: 265000,
+        desc: 'Box kado eksklusif berisi Jumper Sleepsuit, Selimut Bedong, Set Topi, Teether, dan kartu ucapan kustom berpita satin.',
+        image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=600&q=80',
+        tag: 'Kado Siap Kirim'
+      }
+    ];
+
+    // Format Currency Helper
+    function formatRp(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    // Toast Notice
+    function showToast(msg) {
+      const toast = document.getElementById('toastBox');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // Render Catalog
+    function renderCatalog() {
+      const grid = document.getElementById('catalogGrid');
+      grid.innerHTML = PRODUCTS.map(p => `
+        <div class="product-card">
+          <div class="product-thumb-wrap">
+            <span class="product-tag">${p.tag}</span>
+            <img src="${p.image}" alt="${p.name}" loading="lazy">
+          </div>
+          <div class="product-body">
+            <span class="product-category-meta">${p.category}</span>
+            <h3 class="product-name">${p.name}</h3>
+            <p class="product-desc">${p.desc}</p>
+            <div class="product-controls-row">
+              <span class="product-price">${formatRp(p.price)}</span>
+              <button class="btn-add-cart" onclick="addToCart('${p.id}', '${p.name}', ${p.price}, '${p.image}')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Hero Selection Handlers
+    function selectHeroColor(btn, colorName) {
+      document.querySelectorAll('.color-swatch-circle').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.heroColor = colorName;
+      showToast(`Warna terpilih: ${colorName}`);
+    }
+
+    function selectHeroSize(btn, sizeName) {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.heroSize = sizeName;
+      showToast(`Ukuran terpilih: ${sizeName}`);
+    }
+
+    function addHeroToCart() {
+      const item = {
+        id: 'hero-jumper-' + Date.now(),
+        name: `Jumper Sleepsuit (${state.heroColor}, ${state.heroSize})`,
+        price: 89000,
+        qty: 1,
+        image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=600&q=80'
+      };
+      state.cart.push(item);
+      updateCartDisplay();
+      showToast('Jumper berhasil ditambahkan ke keranjang!');
+      openCartDrawer();
+    }
+
+    // Milestone Finder Handlers
+    function updateFinderAge(btn, ageKey) {
+      btn.parentElement.querySelectorAll('.pill-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.finderAge = ageKey;
+      recalculateFinder();
+    }
+
+    function updateFinderWeight(btn, weightKey) {
+      btn.parentElement.querySelectorAll('.pill-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.finderWeight = weightKey;
+      recalculateFinder();
+    }
+
+    function recalculateFinder() {
+      const title = document.getElementById('finderResultTitle');
+      const desc = document.getElementById('finderResultDesc');
+      const length = document.getElementById('finderSpecLength');
+      const chest = document.getElementById('finderSpecChest');
+      const snap = document.getElementById('finderSpecSnap');
+
+      if (state.finderAge === '0-3') {
+        title.textContent = 'Ukuran: Newborn / 0-3 Bulan';
+        desc.textContent = 'Sangat disarankan memilih jumper bukaan kancing depan penuh agar tidak menekan area pusar bayi yang masih dalam proses pemulihan setelah lahir.';
+        length.textContent = '50 - 58 cm';
+        chest.textContent = '23 cm (Melar 3cm)';
+        snap.textContent = 'Kancing Depan Penuh';
+      } else if (state.finderAge === '3-6') {
+        title.textContent = 'Ukuran: Size S / 3-6 Bulan';
+        desc.textContent = 'Bayi mulai aktif tengkurap dan menggerakkan leher. Pilih bahan katun bambu yang lentur di ketiak dan pangkal paha.';
+        length.textContent = '59 - 66 cm';
+        chest.textContent = '25 cm (Melar 3cm)';
+        snap.textContent = 'Kancing Bahu & Selangkangan';
+      } else if (state.finderAge === '6-12') {
+        title.textContent = 'Ukuran: Size M / 6-12 Bulan';
+        desc.textContent = 'Fase aktif merangkak dan duduk mandiri. Pakaian dilengkapi pelindung lutut lembut dan celana berpinggang elastis anti-terjepit.';
+        length.textContent = '67 - 76 cm';
+        chest.textContent = '27 cm (Melar 3cm)';
+        snap.textContent = 'Kancing Leher & Selangkangan';
+      } else {
+        title.textContent = 'Ukuran: Size L / 12-18 Bulan';
+        desc.textContent = 'Anak mulai belajar berdiri dan melangkah. Bahan breathable mencegah gerah saat bereksplorasi di dalam maupun luar ruangan.';
+        length.textContent = '77 - 86 cm';
+        chest.textContent = '29 cm (Melar 4cm)';
+        snap.textContent = 'Setelan 2-Pieces (Baju & Celana)';
+      }
+    }
+
+    // Hamper Builder Handlers
+    function renderHamperItems() {
+      const container = document.getElementById('hamperItemsList');
+      container.innerHTML = state.hamperItems.map(item => `
+        <div class="item-checkbox-row ${item.checked ? 'checked' : ''}" onclick="toggleHamperItem('${item.id}')">
+          <div class="item-check-left">
+            <div class="custom-check-box">${item.checked ? '✓' : ''}</div>
+            <span class="item-check-name">${item.name}</span>
+          </div>
+          <span class="item-check-price">+ ${formatRp(item.price)}</span>
+        </div>
+      `).join('');
+      recalculateHamper();
+    }
+
+    function toggleHamperItem(itemId) {
+      const item = state.hamperItems.find(i => i.id === itemId);
+      if (item) {
+        // Minimum 1 item check
+        const activeCount = state.hamperItems.filter(i => i.checked).length;
+        if (item.checked && activeCount <= 1) {
+          showToast('Pilih minimal 1 item untuk isi kado hampers.');
+          return;
+        }
+        item.checked = !item.checked;
+        renderHamperItems();
+      }
+    }
+
+    function selectBoxTier(btn, tierName, price) {
+      btn.parentElement.querySelectorAll('.box-tier-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.selectedBoxTier = {
+        name: tierName,
+        price: price,
+        ribbon: `Pita ${tierName}`
+      };
+      document.getElementById('previewRibbonTag').textContent = `Pita ${tierName}`;
+      
+      const ribbonMock = document.getElementById('cardRibbonMockup');
+      if (tierName === 'Rose Blush') ribbonMock.style.background = '#F2D7D9';
+      else if (tierName === 'Lavender Cloud') ribbonMock.style.background = '#D3CEDF';
+      else ribbonMock.style.background = '#9CB4CC';
+
+      recalculateHamper();
+    }
+
+    function updateLiveCard() {
+      const baby = document.getElementById('inputBabyName').value.trim() || 'Baby Alana';
+      const msg = document.getElementById('inputCardMessage').value.trim() || 'Selamat atas kelahiran putri tercinta! Semoga tumbuh sehat, pintar, dan membawa kebahagiaan.';
+      const sender = document.getElementById('inputSenderName').value.trim() || 'Om Budi & Tante Sarah';
+
+      document.getElementById('liveCardTo').textContent = 'Untuk: ' + baby;
+      document.getElementById('liveCardMsg').textContent = `"${msg}"`;
+      document.getElementById('liveCardFrom').textContent = 'Penuh Kasih, ' + sender;
+    }
+
+    function recalculateHamper() {
+      const activeItems = state.hamperItems.filter(i => i.checked);
+      const itemsTotal = activeItems.reduce((acc, curr) => acc + curr.price, 0);
+      const total = state.selectedBoxTier.price + itemsTotal;
+
+      document.getElementById('selectedItemsSummary').textContent = 
+        `Isi Box: ${state.selectedBoxTier.name} + ${activeItems.length} Perlengkapan Bayi`;
+      document.getElementById('hamperTotalPrice').textContent = formatRp(total);
+    }
+
+    function addHamperToCart() {
+      const activeItems = state.hamperItems.filter(i => i.checked);
+      const itemsTotal = activeItems.reduce((acc, curr) => acc + curr.price, 0);
+      const total = state.selectedBoxTier.price + itemsTotal;
+      const baby = document.getElementById('inputBabyName').value.trim() || 'Baby';
+
+      const item = {
+        id: 'hamper-' + Date.now(),
+        name: `Hampers Kelahiran Custom (${state.selectedBoxTier.name}) - Untuk ${baby}`,
+        price: total,
+        qty: 1,
+        image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=600&q=80'
+      };
+      state.cart.push(item);
+      updateCartDisplay();
+      showToast('Hampers kado kustom berhasil dimasukkan ke keranjang!');
+      openCartDrawer();
+    }
+
+    // Cart Management
+    function addToCart(id, name, price, image) {
+      const existing = state.cart.find(i => i.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        state.cart.push({ id, name, price, qty: 1, image });
+      }
+      updateCartDisplay();
+      showToast(`${name} ditambahkan ke keranjang!`);
+    }
+
+    function updateCartQty(id, delta) {
+      const item = state.cart.find(i => i.id === id);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+          state.cart = state.cart.filter(i => i.id !== id);
+        }
+        updateCartDisplay();
+      }
+    }
+
+    function updateCartDisplay() {
+      const countEl = document.getElementById('cartHeaderCount');
+      const container = document.getElementById('cartItemsContainer');
+      const subtotalEl = document.getElementById('cartSubtotalText');
+      const totalEl = document.getElementById('cartTotalText');
+      const discountRow = document.getElementById('discountRow');
+      const discountEl = document.getElementById('cartDiscountText');
+
+      const totalItems = state.cart.reduce((sum, i) => sum + i.qty, 0);
+      countEl.textContent = totalItems;
+
+      if (state.cart.length === 0) {
+        container.innerHTML = `<div class="empty-cart-notice">Keranjang belanja Anda masih kosong.<br>Silakan pilih baju bayi atau kado hampers di atas.</div>`;
+        subtotalEl.textContent = 'Rp 0';
+        totalEl.textContent = 'Rp 0';
+        discountRow.style.display = 'none';
+        return;
+      }
+
+      container.innerHTML = state.cart.map(item => `
+        <div class="cart-item-row">
+          <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+          <div class="cart-item-info">
+            <span class="cart-item-name">${item.name}</span>
+            <div class="cart-item-bottom">
+              <span class="cart-item-price">${formatRp(item.price * item.qty)}</span>
+              <div class="cart-qty-ctrl">
+                <button class="qty-btn" onclick="updateCartQty('${item.id}', -1)">-</button>
+                <span class="qty-display">${item.qty}</span>
+                <button class="qty-btn" onclick="updateCartQty('${item.id}', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      const subtotal = state.cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      subtotalEl.textContent = formatRp(subtotal);
+
+      if (state.discountPercent > 0) {
+        const discountVal = Math.round(subtotal * (state.discountPercent / 100));
+        discountRow.style.display = 'flex';
+        discountEl.textContent = '- ' + formatRp(discountVal);
+        totalEl.textContent = formatRp(subtotal - discountVal);
+      } else {
+        discountRow.style.display = 'none';
+        totalEl.textContent = formatRp(subtotal);
+      }
+    }
+
+    function applyVoucher() {
+      const code = document.getElementById('voucherInput').value.trim().toUpperCase();
+      if (code === 'BAYIBARU') {
+        state.discountPercent = 10;
+        showToast('Kupon diskon 10% berhasil dipasang!');
+        updateCartDisplay();
+      } else if (code === '') {
+        showToast('Masukkan kode kupon.');
+      } else {
+        showToast('Kode voucher tidak valid.');
+      }
+    }
+
+    function openCartDrawer() {
+      document.getElementById('cartOverlay').classList.add('open');
+    }
+
+    function closeCartDrawer(e) {
+      if (!e || e.target.id === 'cartOverlay' || e.target.classList.contains('drawer-close-btn')) {
+        document.getElementById('cartOverlay').classList.remove('open');
+      }
+    }
+
+    // Checkout via WhatsApp
+    function checkoutViaWhatsApp() {
+      if (state.cart.length === 0) {
+        showToast('Keranjang masih kosong!');
+        return;
+      }
+
+      const subtotal = state.cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const discount = Math.round(subtotal * (state.discountPercent / 100));
+      const grandTotal = subtotal - discount;
+
+      let msg = `Halo Admin NARA BABY, saya ingin memesan perlengkapan bayi berikut:\n\n`;
+      state.cart.forEach((item, idx) => {
+        msg += `${idx + 1}. ${item.name} (${item.qty} pcs) - ${formatRp(item.price * item.qty)}\n`;
+      });
+
+      msg += `\nSubtotal: ${formatRp(subtotal)}`;
+      if (discount > 0) {
+        msg += `\nDiskon Promo (BAYIBARU): - ${formatRp(discount)}`;
+      }
+      msg += `\n*Total Tagihan: ${formatRp(grandTotal)}*\n\n`;
+      msg += `Mohon info ongkir dan nomor rekening pembayaran ya. Terima kasih!`;
+
+      const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // Procedural Lullaby Music Box Synthesizer (Web Audio API)
+    function toggleLullabyMusic() {
+      const btn = document.getElementById('lullabyToggleBtn');
+
+      if (state.isAudioPlaying) {
+        state.isAudioPlaying = false;
+        clearInterval(state.audioInterval);
+        btn.innerHTML = `<span>🎵 Putar Musik Tidur Bayi</span>`;
+        showToast('Musik tidur dihentikan.');
+        return;
+      }
+
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!state.audioCtx) {
+          state.audioCtx = new AudioContext();
+        }
+        if (state.audioCtx.state === 'suspended') {
+          state.audioCtx.resume();
+        }
+
+        // Pentatonic gentle music box notes: C5, D5, E5, G5, A5, C6
+        const notes = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50];
+        let noteIndex = 0;
+
+        function playChimeNote(freq) {
+          if (!state.audioCtx || !state.isAudioPlaying) return;
+          const osc = state.audioCtx.createOscillator();
+          const gain = state.audioCtx.createGain();
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, state.audioCtx.currentTime);
+
+          // Gentle chime envelope
+          gain.gain.setValueAtTime(0.001, state.audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.18, state.audioCtx.currentTime + 0.05);
+          gain.gain.exponentialRampToValueAtTime(0.0001, state.audioCtx.currentTime + 1.4);
+
+          osc.connect(gain);
+          gain.connect(state.audioCtx.destination);
+
+          osc.start();
+          osc.stop(state.audioCtx.currentTime + 1.45);
+        }
+
+        state.isAudioPlaying = true;
+        btn.innerHTML = `<span>⏸️ Hentikan Musik Tidur</span>`;
+        showToast('Memutar musik kotak tidur bayi santai...');
+
+        // Play pattern
+        playChimeNote(notes[0]);
+        state.audioInterval = setInterval(() => {
+          noteIndex = (noteIndex + 1) % notes.length;
+          playChimeNote(notes[noteIndex]);
+        }, 850);
+
+      } catch (err) {
+        console.warn('Audio not supported:', err);
+        showToast('Browser tidak mendukung Web Audio API.');
+      }
+    }
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCatalog();
+      renderHamperItems();
+      updateLiveCard();
+      updateCartDisplay();
+    });
+  </script>
+</body>
+</html>

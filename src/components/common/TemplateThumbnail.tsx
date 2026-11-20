@@ -125,6 +125,7 @@ export const TemplateThumbnail: React.FC<Props> = ({
     'kandela-aroma-candlery': 'https://kandela.candlery.nector.ui',
     'anyam-kriya-rotan': 'https://anyam.craft.nector.ui',
     'dapur-nastar-kue-kering': 'https://nastar.cookies.nector.ui',
+    'baju-bayi-hampers-organik': 'https://narababy.baby.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

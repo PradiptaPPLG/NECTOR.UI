@@ -30,6 +30,7 @@ export const TemplatesGalleryView: React.FC<Props> = ({
 
   const categories = [
     { id: 'all', label: 'Semua Etalase' },
+    { id: 'baby', label: 'Pakaian Bayi & Hampers' },
     { id: 'cookies', label: 'Kue Kering & Hampers' },
     { id: 'craft', label: 'Kriya Anyaman' },
     { id: 'candlery', label: 'Lilin & Hampers' },

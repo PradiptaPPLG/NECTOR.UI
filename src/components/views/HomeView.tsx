@@ -51,6 +51,7 @@ export const HomeView: React.FC<Props> = ({
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
   const categories = [
+    { id: 'baby', label: 'Pakaian Bayi & Hampers Lahiran', count: templates.filter(t => t.category === 'baby').length, desc: 'Pakaian bayi katun bambu organik bersertifikat SNI & OEKO-TEX, adem anti-alergi, dan paket hampers kado lahiran dengan kartu ucapan kustom live-preview' },
     { id: 'cookies', label: 'Kue Kering & Hampers Hari Raya', count: templates.filter(t => t.category === 'cookies').length, desc: 'Kue kering mentega Wijsman asli, nastar selai nanas madu lumer, kastengel keju edam tua, dan hampers hari raya elegan tanpa bahan pengawet' },
     { id: 'craft', label: 'Kriya Anyaman Rotan & Bambu', count: templates.filter(t => t.category === 'craft').length, desc: 'Kriya anyaman rotan alam & bambu ramah lingkungan: simulator ukuran ruangan interaktif, perakit kado pindahan rumah dengan tag ukir kayu gratis, dan tudung saji anti-lalat' },
     { id: 'candlery', label: 'Lilin Aromaterapi & Hampers Rumah', count: templates.filter(t => t.category === 'candlery').length, desc: 'Lilin aromaterapi kedelai alami, reed diffuser & hampers kado kustom: kuis 2 langkah penemu aroma, perakit hampers dengan kartu ucapan gratis, dan kalkulator durasi nyala 55 jam' },

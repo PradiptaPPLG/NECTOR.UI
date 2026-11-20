@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'baby',
+      title: 'Pakaian Bayi Katun Bambu & Hampers Lahiran',
+      icon: Heart,
+      desc: 'Toko pakaian bayi katun serat bambu organik bersertifikat SNI & OEKO-TEX, adem anti-alergi, bebas kancing beracun, serta studio hampers kado melahirkan eksklusif dengan kartu ucapan kustom live-preview dan panduan ukuran bayi.',
+      accent: '#748DA6'
+    },
+    {
       id: 'cookies',
       title: 'Kue Kering Mentega & Hampers Hari Raya',
       icon: Cookie,
