@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer, GlassWater, Camera, Dumbbell, Gauge, Sun, Smile, Flame, Leaf, Cake, Droplets } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer, GlassWater, Camera, Dumbbell, Gauge, Sun, Smile, Flame, Leaf, Cake, Droplets, Popsicle } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'popsicle',
+      title: 'Es Loli Buah Asli & Cooler Box Pesta',
+      icon: Popsicle,
+      desc: 'Atelier es loli buah potong asli 100% segar & sorbet bar pastel: bebas pewarna buatan, 65 kkal rendah kalori, paket cooler box pesta isi 10 atau 20 batang berinsulasi dry ice, dan pemesanan WhatsApp instan.',
+      accent: '#1F7A70'
+    },
     {
       id: 'pudding',
       title: 'Puding Sutra Buah Asli & Hampers',

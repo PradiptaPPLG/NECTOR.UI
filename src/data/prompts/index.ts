@@ -58,8 +58,10 @@ import { cakeMasterPrompt } from './cakePrompt';
 import { soapMasterPrompt } from './soapPrompt';
 import { flowerMasterPrompt } from './flowerPrompt';
 import { puddingMasterPrompt } from './puddingPrompt';
+import { popsicleMasterPrompt } from './popsiclePrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'loli-ria-es-buah-artisan': popsicleMasterPrompt,
   'sutra-manis-puding-artisan': puddingMasterPrompt,
   'mekar-abadi-bunga-kering': flowerMasterPrompt,
   'embun-mandi-sabun-alami': soapMasterPrompt,
@@ -173,4 +175,5 @@ export {
   AQUA_NUSANTARA_MASTER_PROMPT,
   flowerMasterPrompt,
   puddingMasterPrompt,
+  popsicleMasterPrompt,
 };
