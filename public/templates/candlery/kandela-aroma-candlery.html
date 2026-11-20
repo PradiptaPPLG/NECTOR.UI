@@ -1,0 +1,3040 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KANDELA — Lilin Aromaterapi Kedelai Alami & Hampers Wewangian Rumah</title>
+  <meta name="description" content="Toko lilin aromaterapi kedelai alami (100% natural soy wax), reed diffuser, dan paket hampers kado kustom untuk relaksasi rumah yang menenangkan dan bebas asap hitam.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #F6F6F6;
+      --color-surface: #FFFFFF;
+      --color-surface-soft: #FFE2E2;
+      --color-accent: #FFC7C7;
+      --color-accent-dark: #E29F9F;
+      --color-metal: #AAAAAA;
+      --color-metal-light: #EBEBEB;
+      --color-text-main: #222222;
+      --color-text-muted: #555555;
+      --color-badge-bg: #FFEBEB;
+      --color-badge-text: #B24646;
+      --color-green: #2E7D32;
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-main);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Promo Bar */
+    .promo-bar {
+      background-color: #222222;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 50;
+    }
+
+    .promo-ticker {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .promo-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .promo-item span.dot {
+      color: var(--color-accent);
+    }
+
+    .audio-switch-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .audio-switch-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .flame-icon {
+      font-size: 12px;
+      transition: transform 0.2s;
+    }
+
+    .flame-icon.active {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 4px #FFA726);
+    }
+
+    /* Main Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(246, 246, 246, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-metal-light);
+      z-index: 40;
+      transition: all 0.2s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-surface-soft);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--color-text-main);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      font-weight: 500;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--color-text-main);
+      font-size: 14px;
+      transition: color 0.15s;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover {
+      color: var(--color-accent-dark);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-btn {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-metal);
+      color: var(--color-text-main);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .cart-btn:hover {
+      background-color: var(--color-surface-soft);
+      border-color: var(--color-accent-dark);
+    }
+
+    .cart-count {
+      background-color: #222222;
+      color: #FFFFFF;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-surface-soft);
+      border: 1px solid var(--color-accent);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-badge-text);
+      margin-bottom: 20px;
+    }
+
+    .hero-heading {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--color-text-main);
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background-color: var(--color-accent);
+      color: #222222;
+      border: 1.5px solid #222222;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 3px 3px 0 #222222;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 #222222;
+      background-color: #FFB3B3;
+    }
+
+    .btn-secondary {
+      background-color: var(--color-surface);
+      color: var(--color-text-main);
+      border: 1.5px solid var(--color-metal);
+      padding: 14px 26px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-text-main);
+      background-color: #FAFAFA;
+    }
+
+    .hero-features-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-metal-light);
+    }
+
+    .h-feat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .h-feat-title {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .h-feat-desc {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    /* Hero Visual Card */
+    .hero-card {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-metal-light);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .hero-card-img-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4 / 3.2;
+      background-color: #EFEFEF;
+    }
+
+    .hero-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-card:hover .hero-card-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 800;
+      color: #222222;
+      border: 1px solid var(--color-metal-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-card-body {
+      padding: 18px 6px 6px;
+    }
+
+    .hero-rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .stars-group {
+      color: #FFB300;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .review-count {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .hero-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .hero-card-scent-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .scent-chip {
+      background-color: var(--color-surface-soft);
+      color: var(--color-badge-text);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .hero-card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--color-metal-light);
+      padding-top: 14px;
+    }
+
+    .hero-price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-price-label {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .hero-price-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 800;
+      color: #222222;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-badge-text);
+      background-color: var(--color-surface-soft);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+      border: 1px solid var(--color-accent);
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Interactive Feature 1: Fragrance Finder Quiz */
+    .quiz-section {
+      padding: 64px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--color-metal-light);
+      border-bottom: 1px solid var(--color-metal-light);
+    }
+
+    .quiz-card-box {
+      background: var(--color-bg);
+      border: 1.5px solid var(--color-metal-light);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .quiz-step-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-num {
+      background-color: #222222;
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quiz-options-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .quiz-opt-btn {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-metal-light);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .quiz-opt-btn:hover {
+      border-color: var(--color-accent-dark);
+      background-color: #FFFDFD;
+    }
+
+    .quiz-opt-btn.active {
+      border-color: #222222;
+      background-color: var(--color-surface-soft);
+      box-shadow: 2px 2px 0 #222222;
+    }
+
+    .opt-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--color-text-main);
+    }
+
+    .opt-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Quiz Recommendation Result Box */
+    .quiz-result-box {
+      background-color: #FFFFFF;
+      border: 1.5px solid #222222;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: 4px 4px 0 #222222;
+    }
+
+    .quiz-res-img {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: #FAFAFA;
+    }
+
+    .quiz-res-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .quiz-res-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-badge-text);
+      background: var(--color-surface-soft);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .quiz-res-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .quiz-res-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .quiz-res-price {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: #222222;
+      margin-bottom: 8px;
+    }
+
+    /* Product Catalog Section */
+    .catalog-section {
+      padding: 72px 0;
+    }
+
+    .filter-tabs-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .filter-tab-btn {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-metal-light);
+      color: var(--color-text-main);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-tab-btn:hover {
+      border-color: var(--color-accent-dark);
+    }
+
+    .filter-tab-btn.active {
+      background-color: #222222;
+      border-color: #222222;
+      color: #FFFFFF;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-metal-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-metal);
+    }
+
+    .product-thumb-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      background-color: #F0F0F0;
+      overflow: hidden;
+    }
+
+    .product-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-thumb-wrap img {
+      transform: scale(1.05);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
+      font-size: 11px;
+      font-weight: 700;
+      color: #222222;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-metal-light);
+    }
+
+    .product-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .p-category {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-badge-text);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .p-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .p-notes {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
+    /* Size Selector */
+    .size-selector-wrap {
+      margin-bottom: 16px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--color-metal-light);
+    }
+
+    .size-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--color-text-muted);
+    }
+
+    .size-buttons-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .size-btn {
+      flex: 1;
+      background: var(--color-bg);
+      border: 1px solid var(--color-metal-light);
+      padding: 6px 4px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.1s;
+    }
+
+    .size-btn.active {
+      background-color: #222222;
+      color: #FFFFFF;
+      border-color: #222222;
+    }
+
+    .card-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--color-metal-light);
+    }
+
+    .p-price {
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 800;
+      color: #222222;
+    }
+
+    .btn-add-cart {
+      background-color: var(--color-surface-soft);
+      color: #222222;
+      border: 1px solid var(--color-accent-dark);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-add-cart:hover {
+      background-color: var(--color-accent);
+      border-color: #222222;
+    }
+
+    /* Interactive Feature 3: Hampers Gift Box Builder */
+    .builder-section {
+      padding: 72px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--color-metal-light);
+      border-bottom: 1px solid var(--color-metal-light);
+    }
+
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .builder-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .builder-step-card {
+      background-color: var(--color-bg);
+      border: 1.5px solid var(--color-metal-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .b-step-head {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .box-types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .box-type-card {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-metal-light);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+    }
+
+    .box-type-card.active {
+      border-color: #222222;
+      background-color: var(--color-surface-soft);
+      box-shadow: 2px 2px 0 #222222;
+    }
+
+    .b-box-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .b-box-name {
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .b-box-cap {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .b-box-price {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: #222222;
+    }
+
+    /* Candle Choice Grid */
+    .candle-pick-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .candle-check-item {
+      background: #FFFFFF;
+      border: 1px solid var(--color-metal-light);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+    }
+
+    .candle-check-item:hover {
+      border-color: var(--color-accent-dark);
+    }
+
+    .candle-check-item.selected {
+      border-color: #222222;
+      background-color: #FFF8F8;
+    }
+
+    .candle-check-box {
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid var(--color-metal);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .candle-check-item.selected .candle-check-box {
+      background-color: #222222;
+      border-color: #222222;
+    }
+
+    .candle-check-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .candle-check-price {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Card Message Form */
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-control label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .form-control input, .form-control select, .form-control textarea {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-metal);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--color-text-main);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-control input:focus, .form-control select:focus, .form-control textarea:focus {
+      border-color: #222222;
+      box-shadow: 0 0 0 2px var(--color-surface-soft);
+    }
+
+    /* Live Hampers Summary Preview (Sticky) */
+    .builder-summary-sticky {
+      position: sticky;
+      top: 96px;
+      background-color: var(--color-bg);
+      border: 1.5px solid #222222;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: 6px 6px 0 #222222;
+    }
+
+    .summary-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-metal-light);
+    }
+
+    /* Live Card Greeting Box */
+    .live-card-preview {
+      background-color: #FFFFFF;
+      border: 1px dashed var(--color-accent-dark);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .card-preview-ribbon {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-badge-text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .card-to {
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .card-msg {
+      font-size: 13px;
+      font-style: italic;
+      color: #444444;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      min-height: 40px;
+    }
+
+    .card-from {
+      font-size: 12px;
+      font-weight: 700;
+      text-align: right;
+      color: var(--color-text-muted);
+    }
+
+    .summary-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    .s-item-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-text-muted);
+    }
+
+    .s-item-row.strong {
+      color: var(--color-text-main);
+      font-weight: 700;
+    }
+
+    .summary-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1.5px solid #222222;
+      margin-bottom: 20px;
+    }
+
+    .total-label {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .total-val {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 800;
+      color: #222222;
+    }
+
+    .btn-checkout-hampers {
+      width: 100%;
+      background-color: var(--color-accent);
+      color: #222222;
+      border: 1.5px solid #222222;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 3px 3px 0 #222222;
+      transition: all 0.15s;
+    }
+
+    .btn-checkout-hampers:hover {
+      background-color: #FFB3B3;
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 #222222;
+    }
+
+    /* Interactive Feature 4: Burn Duration Calculator */
+    .calc-section {
+      padding: 64px 0;
+    }
+
+    .calc-box {
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-metal-light);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calc-slider-wrap {
+      margin-bottom: 32px;
+    }
+
+    .calc-slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .slider-gram-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      color: var(--color-badge-text);
+      background-color: var(--color-surface-soft);
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .calc-range-input {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--color-metal-light);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .calc-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #222222;
+      border: 3px solid var(--color-accent);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .calc-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .calc-metric-card {
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-metal-light);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .c-metric-val {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 800;
+      color: #222222;
+      margin-bottom: 4px;
+    }
+
+    .c-metric-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .c-metric-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Candle Care Guide */
+    .care-section {
+      padding: 64px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--color-metal-light);
+      border-bottom: 1px solid var(--color-metal-light);
+    }
+
+    .care-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .care-card {
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-metal-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .care-card-icon {
+      font-size: 28px;
+      background-color: #FFFFFF;
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-metal-light);
+    }
+
+    .care-card-title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .care-card-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* Testimonials Section */
+    .reviews-section {
+      padding: 64px 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-metal-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .r-stars {
+      color: #FFB300;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .r-quote {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333333;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .r-author-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--color-metal-light);
+      padding-top: 12px;
+    }
+
+    .r-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: var(--color-surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--color-badge-text);
+      border: 1px solid var(--color-accent);
+    }
+
+    .r-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .r-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .r-item {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Slide-over Cart Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      z-index: 101;
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer-overlay.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-metal-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-drawer-title {
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cart-close-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      padding: 4px;
+    }
+
+    .cart-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-empty-state {
+      text-align: center;
+      padding: 48px 12px;
+      color: var(--color-text-muted);
+    }
+
+    .cart-item-card {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-metal-light);
+    }
+
+    .cart-item-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #F4F4F4;
+    }
+
+    .cart-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cart-item-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cart-item-size {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #222222;
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-metal-light);
+      border-radius: var(--radius-sm);
+      padding: 2px 4px;
+    }
+
+    .qty-btn {
+      background: none;
+      border: none;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      color: #222222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .cart-drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--color-metal-light);
+      background-color: var(--color-bg);
+    }
+
+    .coupon-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .coupon-input {
+      flex: 1;
+      background: #FFFFFF;
+      border: 1px solid var(--color-metal);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .btn-apply-coupon {
+      background: #222222;
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cart-price-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .c-sum-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-text-muted);
+    }
+
+    .c-sum-row.total {
+      font-size: 16px;
+      font-weight: 800;
+      color: #222222;
+      padding-top: 8px;
+      border-top: 1.5px solid #222222;
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      background-color: #25D366;
+      color: #FFFFFF;
+      border: none;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+      transition: all 0.15s;
+    }
+
+    .btn-checkout-wa:hover {
+      background-color: #20BD5A;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #222222;
+      color: #F6F6F6;
+      padding: 64px 0 32px;
+      border-top: 1px solid #333333;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: #AAAAAA;
+    }
+
+    .footer-links-list a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333333;
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #888888;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+      .builder-summary-sticky {
+        position: static;
+      }
+      .care-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .promo-bar {
+        font-size: 11px;
+        padding: 6px 12px;
+      }
+      .header-inner {
+        height: 64px;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .hero-heading {
+        font-size: 28px;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .quiz-steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .quiz-result-box {
+        grid-template-columns: 1fr;
+      }
+      .box-types-grid {
+        grid-template-columns: 1fr;
+      }
+      .candle-pick-grid {
+        grid-template-columns: 1fr;
+      }
+      .calc-metrics-grid {
+        grid-template-columns: 1fr;
+      }
+      .care-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-features-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Promo Bar -->
+  <div class="promo-bar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0;">
+      <div class="promo-ticker">
+        <div class="promo-item">
+          <span>🌿 100% Lilin Kedelai Alami (Soy Wax) Bebas Asap Hitam</span>
+          <span class="dot">·</span>
+          <span>📦 Garansi Botol Kaca Aman Tidak Pecah</span>
+          <span class="dot">·</span>
+          <span>🎁 Gratis Kartu Ucapan Kustom untuk Pembelian Hampers</span>
+        </div>
+      </div>
+      <button class="audio-switch-btn" id="audioToggleBtn" title="Aktifkan Suara Perapian Lilin Relaksasi">
+        <span class="flame-icon" id="flameIcon">🔥</span>
+        <span id="audioStatusText">Suara Lilin: Mati</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-group">
+        <div class="brand-mark">🕯️</div>
+        <div>
+          <h1 class="brand-title">KANDELA</h1>
+          <p class="brand-sub">LILIN AROMATERAPI & WEWANGIAN RUMAH</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#koleksi" class="nav-link">Koleksi Produk</a></li>
+          <li><a href="#kuis" class="nav-link">Temukan Aromamu</a></li>
+          <li><a href="#hampers" class="nav-link">Rakit Hampers Kado</a></li>
+          <li><a href="#kalkulator" class="nav-link">Durasi Nyala</a></li>
+          <li><a href="#panduan" class="nav-link">Panduan Lilin</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-btn" id="openCartBtn">
+          <span>🛍️ Keranjang</span>
+          <span class="cart-count" id="cartCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-text-col">
+        <div class="hero-badge-row">
+          <span>🌿 KERAJINAN TANGAN UMKM INDONESIA</span>
+          <span>·</span>
+          <span>100% SOY WAX</span>
+        </div>
+        <h2 class="hero-heading">
+          Ciptakan Suasana Rumah yang Tenang, Hangat, dan Nyaman.
+        </h2>
+        <p class="hero-sub">
+          Lilin aromaterapi kedelai alami dengan sumbu katun murni tanpa timbal. Meleleh bersih tanpa jelaga hitam, harum menenangkan pikiran, dan aman bagi pernapasan anak serta hewan peliharaan tersayang.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#koleksi" class="btn-primary">
+            <span>Jelajahi Koleksi Lilin</span>
+            <span>→</span>
+          </a>
+          <a href="#hampers" class="btn-secondary">
+            <span>🎁 Rakit Hampers Kado</span>
+          </a>
+        </div>
+
+        <div class="hero-features-list">
+          <div class="h-feat-item">
+            <span class="h-feat-title">55 Jam Nyala</span>
+            <span class="h-feat-desc">Awet hingga 1 bulan lebih</span>
+          </div>
+          <div class="h-feat-item">
+            <span class="h-feat-title">Bebas Racun</span>
+            <span class="h-feat-desc">Parafin 0%, 100% kedelai</span>
+          </div>
+          <div class="h-feat-item">
+            <span class="h-feat-title">Garansi Pecah</span>
+            <span class="h-feat-desc">Ganti baru jika pecah</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card -->
+      <div class="hero-card">
+        <div class="hero-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1200&q=80" alt="Lilin Aromaterapi Kandela Rose Velvet" loading="eager">
+          <div class="hero-floating-badge">⭐ PILIHAN FAVORIT #1</div>
+        </div>
+        <div class="hero-card-body">
+          <div class="hero-rating-row">
+            <div class="stars-group">★★★★★</div>
+            <span class="review-count">3.420+ Ulasan Terverifikasi</span>
+          </div>
+          <h3 class="hero-card-title">Kandela Rose Velvet & Vanilla Cream</h3>
+          <div class="hero-card-scent-chips">
+            <span class="scent-chip">🌸 Kelopak Mawar Merah</span>
+            <span class="scent-chip">🍦 Krim Vanila Hangat</span>
+            <span class="scent-chip">🍂 Kayu Cendana Lembut</span>
+          </div>
+          <div class="hero-card-foot">
+            <div class="hero-price-wrap">
+              <span class="hero-price-label">Harga Spesial (180g)</span>
+              <span class="hero-price-val">Rp 125.000</span>
+            </div>
+            <button class="btn-primary" style="padding: 10px 18px; font-size: 13px;" onclick="addToCart('p1', 'Kandela Rose Velvet & Vanilla Cream', 125000, 'Standar 180g', 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=400&q=80')">
+              <span>+ Pesan Ini</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 1: Fragrance Finder Quiz -->
+  <section class="quiz-section" id="kuis">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">KUIS 2 LANGKAH</span>
+        <h2 class="section-title">Temukan Aroma yang Tepat untuk Ruanganmu</h2>
+        <p class="section-desc">
+          Setiap sudut ruangan memiliki kebutuhan wangi yang berbeda. Pilih ruangan dan suasana hati yang kamu cari, kami akan merekomendasikan aroma terbaik untukmu.
+        </p>
+      </div>
+
+      <div class="quiz-card-box">
+        <div class="quiz-steps-grid">
+          <!-- Step 1: Ruangan -->
+          <div>
+            <h3 class="quiz-step-title">
+              <span class="step-num">1</span>
+              <span>Mau diletakkan di ruangan mana?</span>
+            </h3>
+            <div class="quiz-options-list" id="roomOptions">
+              <button class="quiz-opt-btn active" data-room="bedroom">
+                <span class="opt-name">🛏️ Kamar Tidur</span>
+                <span class="opt-sub">Menenangkan & intim</span>
+              </button>
+              <button class="quiz-opt-btn" data-room="workspace">
+                <span class="opt-name">💼 Meja Kerja</span>
+                <span class="opt-sub">Fokus & konsentrasi</span>
+              </button>
+              <button class="quiz-opt-btn" data-room="living">
+                <span class="opt-name">🛋️ Ruang Tamu</span>
+                <span class="opt-sub">Hangat & menyambut</span>
+              </button>
+              <button class="quiz-opt-btn" data-room="bathroom">
+                <span class="opt-name">🛁 Kamar Mandi</span>
+                <span class="opt-sub">Segar & bersih ala spa</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Suasana Hati -->
+          <div>
+            <h3 class="quiz-step-title">
+              <span class="step-num">2</span>
+              <span>Suasana seperti apa yang kamu inginkan?</span>
+            </h3>
+            <div class="quiz-options-list" id="moodOptions">
+              <button class="quiz-opt-btn active" data-mood="relax">
+                <span class="opt-name">🌙 Tidur Nyenyak</span>
+                <span class="opt-sub">Redakan cemas & lelah</span>
+              </button>
+              <button class="quiz-opt-btn" data-mood="focus">
+                <span class="opt-name">☕ Tambah Semangat</span>
+                <span class="opt-sub">Segar tidak mengantuk</span>
+              </button>
+              <button class="quiz-opt-btn" data-mood="romantic">
+                <span class="opt-name">🌸 Manis & Romantis</span>
+                <span class="opt-sub">Wangi bunga lembut</span>
+              </button>
+              <button class="quiz-opt-btn" data-mood="fresh">
+                <span class="opt-name">🌿 Segar Alami</span>
+                <span class="opt-sub">Udara bersih & adem</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Recommendation Result Card -->
+        <div class="quiz-result-box" id="quizResultBox">
+          <div class="quiz-res-img">
+            <img id="resImg" src="https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&w=400&q=80" alt="Rekomendasi Lilin">
+          </div>
+          <div>
+            <span class="quiz-res-badge" id="resBadge">REKOMENDASI TERBAIK UNTUK KAMAR TIDUR</span>
+            <h4 class="quiz-res-title" id="resTitle">Kandela Calming Lavender & Chamomile</h4>
+            <p class="quiz-res-desc" id="resDesc">
+              Aroma herba lavender Prancis dan bunga kamomil alami yang membantu melepas ketegangan otot setelah seharian bekerja dan mengantar tidur nyenyak bebas gelisah.
+            </p>
+            <div style="font-size: 12px; color: var(--color-text-muted);">
+              <strong>Karakter Wangi:</strong> <span id="resNotes">Lavender Lembut, Daun Mint Dingin, Teh Herbal Hangat</span>
+            </div>
+          </div>
+          <div style="text-align: right; display: flex; flex-direction: column; justify-content: center; align-items: flex-end;">
+            <div class="quiz-res-price" id="resPrice">Rp 125.000</div>
+            <button class="btn-primary" id="resAddBtn" style="white-space: nowrap;">
+              <span>+ Tambah ke Keranjang</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section class="catalog-section" id="koleksi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">KATALOG PRODUK</span>
+        <h2 class="section-title">Koleksi Wewangian Rumah Pilihan</h2>
+        <p class="section-desc">
+          Semua produk dibuat dengan tangan (handmade), menggunakan ekstrak minyak aroma murni tanpa paraben, ftalat, atau pengawet kimia berbahaya.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs-row" id="catalogFilters">
+        <button class="filter-tab-btn active" data-filter="all">Semua Produk</button>
+        <button class="filter-tab-btn" data-filter="candle">Lilin Kedelai Alami</button>
+        <button class="filter-tab-btn" data-filter="diffuser">Reed Diffuser Ruangan</button>
+        <button class="filter-tab-btn" data-filter="hampers">Paket Hampers Kado</button>
+        <button class="filter-tab-btn" data-filter="spray">Linen Room Spray</button>
+      </div>
+
+      <!-- Product Cards Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Product 1 -->
+        <div class="product-card" data-cat="candle">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80" alt="Rose Velvet & Vanilla">
+            <span class="card-badge">Paling Laris</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Lilin Kedelai Alami</span>
+            <h3 class="p-title">Kandela Rose Velvet & Vanilla Cream</h3>
+            <p class="p-notes">Sentuhan kelopak mawar merah yang mekar segar berpadu dengan kelembutan krim vanila yang manis dan hangat.</p>
+            
+            <div class="size-selector-wrap">
+              <div class="size-label-row">
+                <span>Pilih Ukuran:</span>
+                <span class="size-burn-time" id="burn-p1">~45 Jam Nyala</span>
+              </div>
+              <div class="size-buttons-group">
+                <button class="size-btn" onclick="selectSize('p1', 'mini', 55000, '~18 Jam Nyala', this)">60g</button>
+                <button class="size-btn active" onclick="selectSize('p1', 'standard', 125000, '~45 Jam Nyala', this)">180g</button>
+                <button class="size-btn" onclick="selectSize('p1', 'large', 175000, '~65 Jam Nyala', this)">250g</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p1">Rp 125.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p1', 'Kandela Rose Velvet & Vanilla Cream', getPrice('p1', 125000), getSize('p1', 'Standar 180g'), 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-cat="candle">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&w=600&q=80" alt="Calming Lavender & Chamomile">
+            <span class="card-badge">Relaksasi Tidur</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Lilin Kedelai Alami</span>
+            <h3 class="p-title">Kandela Calming Lavender & Chamomile</h3>
+            <p class="p-notes">Aroma bunga lavender Prancis dan teh kamomil yang menenangkan syaraf tegang, cocok dinyalakan sebelum tidur.</p>
+            
+            <div class="size-selector-wrap">
+              <div class="size-label-row">
+                <span>Pilih Ukuran:</span>
+                <span class="size-burn-time" id="burn-p2">~45 Jam Nyala</span>
+              </div>
+              <div class="size-buttons-group">
+                <button class="size-btn" onclick="selectSize('p2', 'mini', 55000, '~18 Jam Nyala', this)">60g</button>
+                <button class="size-btn active" onclick="selectSize('p2', 'standard', 125000, '~45 Jam Nyala', this)">180g</button>
+                <button class="size-btn" onclick="selectSize('p2', 'large', 175000, '~65 Jam Nyala', this)">250g</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p2">Rp 125.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p2', 'Kandela Calming Lavender & Chamomile', getPrice('p2', 125000), getSize('p2', 'Standar 180g'), 'https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-cat="candle">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=600&q=80" alt="Hazelnut Morning Brew">
+            <span class="card-badge">Fokus Kerja</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Lilin Kedelai Alami</span>
+            <h3 class="p-title">Kandela Morning Brew & Hazelnut Coffee</h3>
+            <p class="p-notes">Aroma seduhan biji kopi Arabika hangat dengan balutan sirup hazelnut panggang. Meningkatkan fokus bekerja dan semangat pagi.</p>
+            
+            <div class="size-selector-wrap">
+              <div class="size-label-row">
+                <span>Pilih Ukuran:</span>
+                <span class="size-burn-time" id="burn-p3">~45 Jam Nyala</span>
+              </div>
+              <div class="size-buttons-group">
+                <button class="size-btn" onclick="selectSize('p3', 'mini', 58000, '~18 Jam Nyala', this)">60g</button>
+                <button class="size-btn active" onclick="selectSize('p3', 'standard', 135000, '~45 Jam Nyala', this)">180g</button>
+                <button class="size-btn" onclick="selectSize('p3', 'large', 185000, '~65 Jam Nyala', this)">250g</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p3">Rp 135.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p3', 'Kandela Morning Brew & Hazelnut Coffee', getPrice('p3', 135000), getSize('p3', 'Standar 180g'), 'https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-cat="diffuser">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80" alt="Jasmine & White Tea Reed Diffuser">
+            <span class="card-badge">Tanpa Api</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Reed Diffuser Ruangan</span>
+            <h3 class="p-title">Kandela Jasmine & White Tea Diffuser</h3>
+            <p class="p-notes">Penyegar ruangan dengan botol kaca minimalis dan 6 stik rotan alami. Menebarkan keharuman melati putih dan teh segar hingga 60 hari.</p>
+            
+            <div class="size-selector-wrap">
+              <div class="size-label-row">
+                <span>Paket Termasuk:</span>
+                <span>Botol Kaca + 6 Stik</span>
+              </div>
+              <div style="font-size: 12px; color: var(--color-green); font-weight: 600;">
+                ✓ Tahan 60 hari tanpa listrik & tanpa api
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price">Rp 145.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p4', 'Kandela Jasmine & White Tea Diffuser (100ml)', 145000, 'Botol 100ml', 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-cat="spray">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=600&q=80" alt="Citrus Blossom Linen Spray">
+            <span class="card-badge">Anti-Bakteri</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Linen Room Spray</span>
+            <h3 class="p-title">Kandela Citrus Blossom & Mint Spray</h3>
+            <p class="p-notes">Semprotan kain wangi segar untuk bantal, sprei, tirai, dan sofa. Menghilangkan bau apek dan meninggalkan aroma jeruk mint yang segar.</p>
+            
+            <div class="size-selector-wrap">
+              <div class="size-label-row">
+                <span>Volume Bersih:</span>
+                <span>250 ml Spray Botol</span>
+              </div>
+              <div style="font-size: 12px; color: var(--color-green); font-weight: 600;">
+                ✓ Aman untuk pakaian bayi & bahan katun
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price">Rp 85.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p5', 'Kandela Citrus Blossom & Mint Spray (250ml)', 85000, 'Spray 250ml', 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-cat="hampers">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Hampers Kado Serenity Box">
+            <span class="card-badge">Kado Spesial</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Paket Hampers Kado</span>
+            <h3 class="p-title">Kandela Serenity Gift Box (Isi 2 Lilin)</h3>
+            <p class="p-notes">Kotak kado kaku dengan pita satin mawar, berisi 2 lilin 180g (bebas pilih aroma), botol korek api kayu estetik, dan kartu ucapan kustom.</p>
+            
+            <div class="size-selector-wrap">
+              <div class="size-label-row">
+                <span>Kemasan:</span>
+                <span>Hardbox Eksklusif + Pita</span>
+              </div>
+              <div style="font-size: 12px; color: var(--color-badge-text); font-weight: 600;">
+                ✓ Termasuk cetak kartu ucapan gratis
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price">Rp 265.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p6', 'Kandela Serenity Gift Box (Isi 2 Lilin)', 265000, 'Box 2 Lilin', 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 3: Hampers Gift Box Builder -->
+  <section class="builder-section" id="hampers">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">KREASI KADO KUSTOM</span>
+        <h2 class="section-title">Rakit Paket Hampers Hadiah Sesukamu</h2>
+        <p class="section-desc">
+          Buat kado yang berkesan untuk sahabat, pasangan, wisuda, atau hari raya. Pilih kotak kado, tentukan varian lilin favorit, dan tulis pesan personal di kartu ucapan gratis.
+        </p>
+      </div>
+
+      <div class="builder-grid">
+        <div class="builder-controls">
+          <!-- Step 1: Kotak Kado -->
+          <div class="builder-step-card">
+            <div class="b-step-head">
+              <span class="step-num">1</span>
+              <span>Pilih Ukuran Kotak Kado</span>
+            </div>
+            <div class="box-types-grid" id="boxTypeGrid">
+              <div class="box-type-card active" data-box="reguler" data-price="25000" data-max="2" onclick="selectBoxType('reguler', 25000, 2, 'Kotak Regular (Isi 2 Produk)', this)">
+                <div class="b-box-icon">📦</div>
+                <div class="b-box-name">Kotak Regular</div>
+                <div class="b-box-cap">Kapasitas 2 Produk</div>
+                <div class="b-box-price">+ Rp 25.000</div>
+              </div>
+              <div class="box-type-card" data-box="eksklusif" data-price="35000" data-max="3" onclick="selectBoxType('eksklusif', 35000, 3, 'Kotak Eksklusif (Isi 3 Produk + Pita Emas)', this)">
+                <div class="b-box-icon">🎀</div>
+                <div class="b-box-name">Kotak Eksklusif</div>
+                <div class="b-box-cap">Kapasitas 3 Produk</div>
+                <div class="b-box-price">+ Rp 35.000</div>
+              </div>
+              <div class="box-type-card" data-box="mewah" data-price="55000" data-max="4" onclick="selectBoxType('mewah', 55000, 4, 'Kotak Hampers Mewah (Isi 4 Produk + Bunga Kering)', this)">
+                <div class="b-box-icon">✨</div>
+                <div class="b-box-name">Kotak Mewah</div>
+                <div class="b-box-cap">Kapasitas 4 Produk</div>
+                <div class="b-box-price">+ Rp 55.000</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Pilih Lilin / Diffuser -->
+          <div class="builder-step-card">
+            <div class="b-step-head">
+              <span class="step-num">2</span>
+              <span>Pilih Produk yang Ingin Dimasukkan (<span id="pickedCountText">0</span>/<span id="maxBoxCountText">2</span> Terpilih)</span>
+            </div>
+            <div class="candle-pick-grid">
+              <div class="candle-check-item selected" onclick="toggleCandlePick(this, 'Rose Velvet 180g', 125000)">
+                <div class="candle-check-box">✓</div>
+                <div>
+                  <div class="candle-check-title">Rose Velvet & Vanilla (180g)</div>
+                  <div class="candle-check-price">Rp 125.000</div>
+                </div>
+              </div>
+              <div class="candle-check-item selected" onclick="toggleCandlePick(this, 'Calming Lavender 180g', 125000)">
+                <div class="candle-check-box">✓</div>
+                <div>
+                  <div class="candle-check-title">Calming Lavender (180g)</div>
+                  <div class="candle-check-price">Rp 125.000</div>
+                </div>
+              </div>
+              <div class="candle-check-item" onclick="toggleCandlePick(this, 'Morning Brew Hazelnut 180g', 135000)">
+                <div class="candle-check-box"></div>
+                <div>
+                  <div class="candle-check-title">Hazelnut Coffee (180g)</div>
+                  <div class="candle-check-price">Rp 135.000</div>
+                </div>
+              </div>
+              <div class="candle-check-item" onclick="toggleCandlePick(this, 'Jasmine Reed Diffuser', 145000)">
+                <div class="candle-check-box"></div>
+                <div>
+                  <div class="candle-check-title">Jasmine Reed Diffuser (100ml)</div>
+                  <div class="candle-check-price">Rp 145.000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Kartu Ucapan Kustom -->
+          <div class="builder-step-card">
+            <div class="b-step-head">
+              <span class="step-num">3</span>
+              <span>Kartu Ucapan Kustom (Gratis Dicetak)</span>
+            </div>
+            <div class="form-group-row">
+              <div class="form-control">
+                <label for="cardTheme">Pilih Tema Kartu:</label>
+                <select id="cardTheme" onchange="updateCardPreview()">
+                  <option value="Selamat Ulang Tahun (Happy Birthday)">🎂 Selamat Ulang Tahun (Happy Birthday)</option>
+                  <option value="Selamat Hari Bahagia / Pernikahan">💍 Pernikahan & Hari Bahagia (Happy Wedding)</option>
+                  <option value="Selamat & Sukses (Congratulations)">🎓 Selamat Kelulusan / Wisuda (Congratulations)</option>
+                  <option value="Terima Kasih Banyak (Thank You)">💐 Terima Kasih Spesial (Thank You)</option>
+                </select>
+              </div>
+              <div class="form-control">
+                <label for="cardTo">Nama Penerima (Untuk):</label>
+                <input type="text" id="cardTo" placeholder="Contoh: Sahabatku Sarah" value="Sarah Almira" oninput="updateCardPreview()">
+              </div>
+            </div>
+            <div class="form-control" style="margin-bottom: 12px;">
+              <label for="cardMessage">Pesan Ucapan:</label>
+              <textarea id="cardMessage" rows="3" placeholder="Tuliskan ucapan hangatmu di sini..." oninput="updateCardPreview()">Semoga lilin aromaterapi ini menemani malam-malam istirahatmu dengan damai dan bahagia selalu!</textarea>
+            </div>
+            <div class="form-control">
+              <label for="cardFrom">Nama Pengirim (Dari):</label>
+              <input type="text" id="cardFrom" placeholder="Contoh: Nadia & Dimas" value="Nadia Puspita" oninput="updateCardPreview()">
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Live Preview of Hampers & Card -->
+        <div class="builder-summary-sticky">
+          <h3 class="summary-title">Pratinjau Paket Hampers Kamu</h3>
+          
+          <!-- Live Greeting Card -->
+          <div class="live-card-preview">
+            <div class="card-preview-ribbon" id="prevRibbon">🎂 SELAMAT ULANG TAHUN (HAPPY BIRTHDAY)</div>
+            <div class="card-to" id="prevTo">Untuk: Sarah Almira</div>
+            <div class="card-msg" id="prevMsg">"Semoga lilin aromaterapi ini menemani malam-malam istirahatmu dengan damai dan bahagia selalu!"</div>
+            <div class="card-from" id="prevFrom">Dari: Nadia Puspita</div>
+          </div>
+
+          <!-- Item list breakdown -->
+          <div class="summary-items-list" id="builderItemsList">
+            <div class="s-item-row strong">
+              <span id="prevBoxName">Kotak Regular (Isi 2 Produk)</span>
+              <span id="prevBoxPrice">Rp 25.000</span>
+            </div>
+            <div id="prevItemsList">
+              <div class="s-item-row">
+                <span>• Rose Velvet 180g</span>
+                <span>Rp 125.000</span>
+              </div>
+              <div class="s-item-row">
+                <span>• Calming Lavender 180g</span>
+                <span>Rp 125.000</span>
+              </div>
+            </div>
+            <div class="s-item-row">
+              <span>• Kartu Ucapan Kustom + Pita</span>
+              <span style="color: var(--color-green); font-weight: bold;">GRATIS</span>
+            </div>
+          </div>
+
+          <div class="summary-total-row">
+            <span class="total-label">Total Paket:</span>
+            <span class="total-val" id="builderTotalPrice">Rp 275.000</span>
+          </div>
+
+          <button class="btn-checkout-hampers" onclick="checkoutHampersWhatsApp()">
+            <span>💬 Pesan Paket Hampers Ini via WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 4: Burn Duration Calculator -->
+  <section class="calc-section" id="kalkulator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">KALKULATOR PENGGUNAAN</span>
+        <h2 class="section-title">Berapa Lama Lilin Kandela Bertahan?</h2>
+        <p class="section-desc">
+          Geser penggeser di bawah ini untuk melihat estimasi jam nyala lilin kedelai murni dan jangkauan ruangan yang ideal.
+        </p>
+      </div>
+
+      <div class="calc-box">
+        <div class="calc-slider-wrap">
+          <div class="calc-slider-label">
+            <span>Ukuran Lilin:</span>
+            <span class="slider-gram-val" id="sliderGramText">180 Gram</span>
+          </div>
+          <input type="range" class="calc-range-input" id="calcGramSlider" min="60" max="250" step="10" value="180" oninput="updateBurnCalculator(this.value)">
+        </div>
+
+        <div class="calc-metrics-grid">
+          <div class="calc-metric-card">
+            <div class="c-metric-val" id="metricHours">~45 Jam</div>
+            <div class="c-metric-title">Total Waktu Nyala</div>
+            <div class="c-metric-sub">Pembakaran optimal sumbu katun</div>
+          </div>
+          <div class="calc-metric-card">
+            <div class="c-metric-val" id="metricDays">22 Hari</div>
+            <div class="c-metric-title">Masa Pakai Pemakaian Rutin</div>
+            <div class="c-metric-sub">Jika dinyalakan 2 jam setiap malam</div>
+          </div>
+          <div class="calc-metric-card">
+            <div class="c-metric-val" id="metricRoom">3 × 4 Meter</div>
+            <div class="c-metric-title">Luas Ruangan Ideal</div>
+            <div class="c-metric-sub">Sempurna untuk kamar tidur & ruang santai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Candle Care Guide Section -->
+  <section class="care-section" id="panduan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">PANDUAN PERAWATAN</span>
+        <h2 class="section-title">4 Cara Menikmati Lilin Agar Harum Awet</h2>
+        <p class="section-desc">
+          Tips sederhana agar lilin aromaterapi kedelaimu menyala bersih, tidak berlubang di tengah, dan harumnya merata di seluruh ruangan.
+        </p>
+      </div>
+
+      <div class="care-cards-grid">
+        <div class="care-card">
+          <div class="care-card-icon">✂️</div>
+          <h3 class="care-card-title">1. Potong Sumbu 5 mm</h3>
+          <p class="care-card-desc">Sebelum dinyalakan, potong ujung sumbu katun sekitar 5 mm agar nyala api tetap stabil dan bebas asap jelaga hitam.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-card-icon">⏳</div>
+          <h3 class="care-card-title">2. Pembakaran Pertama</h3>
+          <p class="care-card-desc">Biarkan seluruh lapisan atas lilin mencair merata sampai ke tepi gelas (sekitar 2 jam) untuk mencegah lilin berlubang (*tunneling*).</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-card-icon">⏰</div>
+          <h3 class="care-card-title">3. Maksimal 4 Jam</h3>
+          <p class="care-card-desc">Jangan membakar lilin lebih dari 4 jam sekaligus agar wadah gelas tidak terlalu panas dan kualitas minyak aroma tetap harum terjaga.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-card-icon">🛡️</div>
+          <h3 class="care-card-title">4. Padamkan Pakai Tutup</h3>
+          <p class="care-card-desc">Gunakan tutup kayu atau pemadam lilin untuk mematikan api, jangan ditiup agar asap tidak menyebar kembali ke dalam ruangan kamar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ULASAN PEMBELI</span>
+        <h2 class="section-title">Cerita Mereka yang Menikmati Kandela</h2>
+        <p class="section-desc">Ulasan nyata dari pelanggan setia kami di seluruh Indonesia.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-quote">
+              "Beli varian Rose Velvet & Vanilla buat hadiah ulang tahun sahabat. Packaging-nya super rapi dan pita kotaknya cantik banget! Kartu ucapannya juga dicetak sesuai yang aku minta. Sahabatku suka banget wanginya manis lembut nggak bikin enek."
+            </p>
+          </div>
+          <div class="r-author-row">
+            <div class="r-avatar">AM</div>
+            <div class="r-meta">
+              <span class="r-name">Anindya Maheswari</span>
+              <span class="r-item">Pembeli Hampers Gift Box · Jakarta Selatan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-quote">
+              "Lilin lavender-nya beneran ngebantu banget buat relaksasi setelah seharian menatap laptop. Biasanya susah tidur, sekarang nyalain lilin ini 1 jam sebelum tidur kamar langsung harum tenang dan tidur jadi pulas banget. Nggak ada asap hitam sama sekali!"
+            </p>
+          </div>
+          <div class="r-author-row">
+            <div class="r-avatar">BP</div>
+            <div class="r-meta">
+              <span class="r-name">Bintang Pratama</span>
+              <span class="r-item">Pengguna Lilin Calming Lavender · Bandung</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-quote">
+              "Reed diffuser Jasmine-nya awet banget udah mau 2 bulan ditaruh di ruang tamu wanginya masih semerbak pas pintu dibuka. Tamu-tamu yang datang sering nanya beli di mana. Pengiriman juga aman kardusnya tebel nggak takut pecah."
+            </p>
+          </div>
+          <div class="r-author-row">
+            <div class="r-avatar">DW</div>
+            <div class="r-meta">
+              <span class="r-name">Dewi Wulandari</span>
+              <span class="r-item">Pengguna Jasmine Reed Diffuser · Surabaya</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay">
+    <div class="cart-drawer">
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+          <span>🛍️ Keranjang Belanja</span>
+          <span class="cart-count" id="drawerCountBadge">0</span>
+        </div>
+        <button class="cart-close-btn" id="closeCartBtn">✕</button>
+      </div>
+
+      <div class="cart-drawer-body" id="cartItemsContainer">
+        <!-- Rendered via JS -->
+      </div>
+
+      <div class="cart-drawer-footer">
+        <div class="coupon-row">
+          <input type="text" class="coupon-input" id="couponInput" placeholder="KODE DISKON (KANDELABARU)">
+          <button class="btn-apply-coupon" onclick="applyCoupon()">Gunakan</button>
+        </div>
+
+        <div class="cart-price-summary">
+          <div class="c-sum-row">
+            <span>Subtotal Produk:</span>
+            <span id="cartSubtotalText">Rp 0</span>
+          </div>
+          <div class="c-sum-row" id="discountRow" style="display: none; color: var(--color-badge-text);">
+            <span>Diskon Promo:</span>
+            <span id="cartDiscountText">- Rp 0</span>
+          </div>
+          <div class="c-sum-row">
+            <span>Estimasi Ongkir:</span>
+            <span style="color: var(--color-green); font-weight: 700;">Gratis Ongkir</span>
+          </div>
+          <div class="c-sum-row total">
+            <span>Total Pembayaran:</span>
+            <span id="cartTotalText">Rp 0</span>
+          </div>
+        </div>
+
+        <button class="btn-checkout-wa" onclick="checkoutCartWhatsApp()">
+          <span>💬 Kirim Pesanan ke WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-group" style="margin-bottom: 16px;">
+            <div class="brand-mark">🕯️</div>
+            <div>
+              <h2 class="brand-title" style="color: #FFFFFF;">KANDELA</h2>
+              <p class="brand-sub" style="color: #AAAAAA;">LILIN AROMATERAPI ALAMI & HAMPERS</p>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: #AAAAAA; line-height: 1.6; max-width: 380px;">
+            Atelier lilin aromaterapi kedelai alami, reed diffuser, dan paket hampers kado kustom. Dibuat dengan cinta untuk memberikan kehangatan dan ketenangan di setiap sudut rumahmu.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#koleksi">Koleksi Produk</a></li>
+            <li><a href="#kuis">Kuis Temukan Aroma</a></li>
+            <li><a href="#hampers">Rakit Hampers Kado</a></li>
+            <li><a href="#kalkulator">Kalkulator Durasi Nyala</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Jaminan Kualitas</h4>
+          <ul class="footer-links-list">
+            <li>100% Lilin Kedelai Alami</li>
+            <li>Bebas Asap Hitam (No Soot)</li>
+            <li>Sumbu Katun Tanpa Timbal</li>
+            <li>Garansi Botol Kaca Anti Pecah</li>
+            <li>Bebas Paraben & Ftalat</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Hubungi Kami</h4>
+          <ul class="footer-links-list">
+            <li>WhatsApp: +62 821-4567-8900</li>
+            <li>Jam Buka: Senin - Minggu (08.00 - 20.00 WIB)</li>
+            <li>Studio: Sleman, D.I. Yogyakarta</li>
+            <li>Pengiriman: J&T, SiCepat, Paxel, Instant GoSend</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 KANDELA Aroma Candlery. Hak Cipta Dilindungi Undang-Undang.</div>
+        <div>Dibuat dengan dedikasi untuk rumah yang harum, tenang, dan bersahaja.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Implementation -->
+  <script>
+    // State Management
+    let cart = [];
+    let discountAmount = 0;
+    let selectedBox = {
+      type: 'reguler',
+      price: 25000,
+      name: 'Kotak Regular (Isi 2 Produk)',
+      max: 2
+    };
+    let pickedHampersCandles = [
+      { name: 'Rose Velvet 180g', price: 125000 },
+      { name: 'Calming Lavender 180g', price: 125000 }
+    ];
+
+    // Helper format Rupiah
+    function formatRupiah(num) {
+      return 'Rp ' + Number(num).toLocaleString('id-ID');
+    }
+
+    // 1. Audio Fireplace Synthesizer via Web Audio API
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let noiseNode = null;
+    let gainNode = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+    }
+
+    function toggleCandleAudio() {
+      initAudio();
+      const btn = document.getElementById('audioToggleBtn');
+      const flame = document.getElementById('flameIcon');
+      const statusText = document.getElementById('audioStatusText');
+
+      if (isAudioPlaying) {
+        if (gainNode) {
+          gainNode.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+          setTimeout(() => {
+            if (noiseNode) noiseNode.stop();
+            isAudioPlaying = false;
+          }, 500);
+        }
+        flame.classList.remove('active');
+        statusText.textContent = 'Suara Lilin: Mati';
+      } else {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        playFireCrackling();
+        isAudioPlaying = true;
+        flame.classList.add('active');
+        statusText.textContent = 'Suara Lilin: Nyala';
+      }
+    }
+
+    function playFireCrackling() {
+      // Procedural soft pink noise with random crackle pops
+      const bufferSize = audioCtx.sampleRate * 2;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      
+      let b0 = 0, b1 = 0, b2 = 0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.96900 * b2 + white * 0.1538520;
+        let pink = b0 + b1 + b2 + white * 0.1;
+        
+        // Random micro pop crackles
+        if (Math.random() < 0.001) {
+          pink += (Math.random() * 1.5 - 0.75);
+        }
+        data[i] = pink * 0.15;
+      }
+
+      noiseNode = audioCtx.createBufferSource();
+      noiseNode.buffer = buffer;
+      noiseNode.loop = true;
+
+      // Low pass filter to simulate warm candle/fire ambiance
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(800, audioCtx.currentTime);
+
+      gainNode = audioCtx.createGain();
+      gainNode.gain.setValueAtTime(0.01, audioCtx.currentTime);
+      gainNode.gain.linearRampToValueAtTime(0.3, audioCtx.currentTime + 1);
+
+      noiseNode.connect(filter);
+      filter.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+
+      noiseNode.start();
+    }
+
+    document.getElementById('audioToggleBtn').addEventListener('click', toggleCandleAudio);
+
+    // 2. Interactive Feature 1: Fragrance Finder Quiz
+    const quizDatabase = {
+      'bedroom-relax': {
+        title: 'Kandela Calming Lavender & Chamomile',
+        desc: 'Aroma herba lavender Prancis dan bunga kamomil alami yang membantu melepas ketegangan otot setelah seharian bekerja dan mengantar tidur nyenyak bebas gelisah.',
+        notes: 'Lavender Lembut, Daun Mint Dingin, Teh Herbal Hangat',
+        price: 125000,
+        badge: 'REKOMENDASI TERBAIK UNTUK KAMAR TIDUR',
+        img: 'https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&w=400&q=80'
+      },
+      'bedroom-romantic': {
+        title: 'Kandela Rose Velvet & Vanilla Cream',
+        desc: 'Paduan kelopak mawar mekar dan krim vanila yang menciptakan suasana kamar tidur yang manis, intim, elegan, dan menenangkan.',
+        notes: 'Mawar Merah, Vanila Madagaskar, Sentuhan Cendana',
+        price: 125000,
+        badge: 'SUASANA MANIS & HANGAT',
+        img: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=400&q=80'
+      },
+      'workspace-focus': {
+        title: 'Kandela Morning Brew & Hazelnut Coffee',
+        desc: 'Aroma biji kopi Arabika sangrai berpadu sirup hazelnut hangat. Mengaktifkan konsentrasi otak dan menjaga fokus belajar atau lembur kerja.',
+        notes: 'Kopi Espresso, Kacang Hazelnut Panggang, Karamel Gurih',
+        price: 135000,
+        badge: 'TEMAN FOKUS MEJA KERJA',
+        img: 'https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=400&q=80'
+      },
+      'living-fresh': {
+        title: 'Kandela Jasmine & White Tea Reed Diffuser',
+        desc: 'Keharuman teh putih botani dan melati segar yang menyebar stabil hingga 60 hari tanpa perlu api. Ruang tamu selalu harum menyambut keluarga dan kerabat.',
+        notes: 'Melati Putih, Teh Daun Segar, Embun Pagi',
+        price: 145000,
+        badge: 'PENYEGAR RUANG TAMU',
+        img: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=400&q=80'
+      },
+      'bathroom-fresh': {
+        title: 'Kandela Citrus Blossom & Mint Linen Spray',
+        desc: 'Semprotan pembersih aroma kain dengan wangi jeruk mekar dan daun mint segar. Membantu menghilangkan kelembapan bau apek secara instan.',
+        notes: 'Jeruk Mandarin, Daun Mint Segar, Bunga Jeruk',
+        price: 85000,
+        badge: 'SEGAR BERSIH HIGIENIS',
+        img: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=400&q=80'
+      }
+    };
+
+    let selectedRoom = 'bedroom';
+    let selectedMood = 'relax';
+
+    function updateQuizResult() {
+      const key = `${selectedRoom}-${selectedMood}`;
+      const data = quizDatabase[key] || quizDatabase['bedroom-relax'];
+
+      document.getElementById('resTitle').textContent = data.title;
+      document.getElementById('resDesc').textContent = data.desc;
+      document.getElementById('resNotes').textContent = data.notes;
+      document.getElementById('resPrice').textContent = formatRupiah(data.price);
+      document.getElementById('resBadge').textContent = data.badge;
+      document.getElementById('resImg').src = data.img;
+
+      document.getElementById('resAddBtn').onclick = function() {
+        addToCart('quiz-res', data.title, data.price, 'Standar Pilihan Kuis', data.img);
+      };
+    }
+
+    document.querySelectorAll('#roomOptions .quiz-opt-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#roomOptions .quiz-opt-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        selectedRoom = this.dataset.room;
+        updateQuizResult();
+      });
+    });
+
+    document.querySelectorAll('#moodOptions .quiz-opt-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#moodOptions .quiz-opt-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        selectedMood = this.dataset.mood;
+        updateQuizResult();
+      });
+    });
+
+    updateQuizResult();
+
+    // 3. Catalog Filter Tabs
+    document.querySelectorAll('#catalogFilters .filter-tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#catalogFilters .filter-tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.dataset.filter;
+
+        document.querySelectorAll('#productsGrid .product-card').forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Product Size Selector helpers
+    const productSizes = {};
+
+    function selectSize(productId, sizeKey, price, burnTime, btnElement) {
+      const parent = btnElement.closest('.product-card-body');
+      parent.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      const sizeLabels = { mini: 'Mini 60g', standard: 'Standar 180g', large: 'Besar 250g' };
+      productSizes[productId] = {
+        price: price,
+        sizeName: sizeLabels[sizeKey] || sizeKey
+      };
+
+      document.getElementById(`price-${productId}`).textContent = formatRupiah(price);
+      document.getElementById(`burn-${productId}`).textContent = burnTime;
+    }
+
+    function getPrice(productId, fallback) {
+      return productSizes[productId] ? productSizes[productId].price : fallback;
+    }
+
+    function getSize(productId, fallback) {
+      return productSizes[productId] ? productSizes[productId].sizeName : fallback;
+    }
+
+    // 4. Hampers Gift Box Builder Logic
+    function selectBoxType(type, price, maxCount, name, element) {
+      document.querySelectorAll('#boxTypeGrid .box-type-card').forEach(c => c.classList.remove('active'));
+      element.classList.add('active');
+
+      selectedBox = {
+        type: type,
+        price: price,
+        max: maxCount,
+        name: name
+      };
+
+      document.getElementById('maxBoxCountText').textContent = maxCount;
+      document.getElementById('prevBoxName').textContent = name;
+      document.getElementById('prevBoxPrice').textContent = formatRupiah(price);
+
+      updateHampersBuilderSummary();
+    }
+
+    function toggleCandlePick(element, candleName, candlePrice) {
+      const isSelected = element.classList.contains('selected');
+      const box = element.querySelector('.candle-check-box');
+
+      if (isSelected) {
+        element.classList.remove('selected');
+        box.textContent = '';
+        pickedHampersCandles = pickedHampersCandles.filter(c => c.name !== candleName);
+      } else {
+        if (pickedHampersCandles.length >= selectedBox.max) {
+          alert(`Maksimal kotak ini hanya dapat memuat ${selectedBox.max} produk. Kamu bisa memilih 'Kotak Eksklusif' atau 'Kotak Mewah' jika ingin menambah produk lebih banyak.`);
+          return;
+        }
+        element.classList.add('selected');
+        box.textContent = '✓';
+        pickedHampersCandles.push({ name: candleName, price: candlePrice });
+      }
+
+      updateHampersBuilderSummary();
+    }
+
+    function updateHampersBuilderSummary() {
+      document.getElementById('pickedCountText').textContent = pickedHampersCandles.length;
+
+      const container = document.getElementById('prevItemsList');
+      container.innerHTML = '';
+
+      let itemsTotal = selectedBox.price;
+
+      if (pickedHampersCandles.length === 0) {
+        container.innerHTML = '<div style="color:#888; font-style:italic;">Belum ada produk yang dipilih</div>';
+      } else {
+        pickedHampersCandles.forEach(item => {
+          itemsTotal += item.price;
+          const row = document.createElement('div');
+          row.className = 's-item-row';
+          row.innerHTML = `<span>• ${item.name}</span><span>${formatRupiah(item.price)}</span>`;
+          container.appendChild(row);
+        });
+      }
+
+      document.getElementById('builderTotalPrice').textContent = formatRupiah(itemsTotal);
+    }
+
+    function updateCardPreview() {
+      const theme = document.getElementById('cardTheme').value;
+      const to = document.getElementById('cardTo').value.trim() || 'Sahabatku';
+      const msg = document.getElementById('cardMessage').value.trim() || 'Semoga hari-harimu selalu harum dan damai!';
+      const from = document.getElementById('cardFrom').value.trim() || 'Sahabatmu';
+
+      document.getElementById('prevRibbon').textContent = theme.toUpperCase();
+      document.getElementById('prevTo').textContent = `Untuk: ${to}`;
+      document.getElementById('prevMsg').textContent = `"${msg}"`;
+      document.getElementById('prevFrom').textContent = `Dari: ${from}`;
+    }
+
+    function checkoutHampersWhatsApp() {
+      if (pickedHampersCandles.length === 0) {
+        alert('Silakan pilih minimal 1 produk untuk dimasukkan ke dalam kotak hampers.');
+        return;
+      }
+
+      const to = document.getElementById('cardTo').value.trim();
+      const msg = document.getElementById('cardMessage').value.trim();
+      const from = document.getElementById('cardFrom').value.trim();
+      const theme = document.getElementById('cardTheme').value;
+      const total = document.getElementById('builderTotalPrice').textContent;
+
+      let candleListText = pickedHampersCandles.map((c, i) => `${i + 1}. ${c.name} (${formatRupiah(c.price)})`).join('%0A');
+
+      const text = `Halo Admin KANDELA! Saya ingin memesan Paket Hampers Kado Kustom:%0A%0A` +
+        `📦 *Pilihan Kotak:* ${selectedBox.name}%0A` +
+        `🕯️ *Isi Lilin/Diffuser:*%0A${candleListText}%0A%0A` +
+        `💌 *Tema Kartu Ucapan:* ${theme}%0A` +
+        `• *Untuk:* ${to}%0A` +
+        `• *Pesan:* "${msg}"%0A` +
+        `• *Dari:* ${from}%0A%0A` +
+        `💰 *Total Biaya:* ${total}%0A%0A` +
+        `Mohon info ketersediaan stok dan nomor rekening untuk transfer ya. Terima kasih!`;
+
+      window.open(`https://wa.me/6282145678900?text=${text}`, '_blank');
+    }
+
+    // 5. Interactive Feature 4: Burn Duration Calculator
+    function updateBurnCalculator(grams) {
+      document.getElementById('sliderGramText').textContent = grams + ' Gram';
+      
+      const g = parseInt(grams);
+      const hours = Math.round(g * 0.25);
+      const days = Math.round(hours / 2);
+      
+      let room = '2 × 3 Meter (Meja Kerja / Kamar Kecil)';
+      if (g >= 120 && g < 200) {
+        room = '3 × 4 Meter (Kamar Tidur Utama)';
+      } else if (g >= 200) {
+        room = '4 × 6 Meter (Ruang Tamu / Keluarga)';
+      }
+
+      document.getElementById('metricHours').textContent = `~${hours} Jam`;
+      document.getElementById('metricDays').textContent = `${days} Hari`;
+      document.getElementById('metricRoom').textContent = room;
+    }
+
+    // 6. Cart System & WhatsApp Checkout
+    function addToCart(id, name, price, size, img) {
+      const existing = cart.find(item => item.id === id && item.size === size);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, name, price, size, img, qty: 1 });
+      }
+      renderCart();
+      openCartDrawer();
+    }
+
+    function changeQty(index, delta) {
+      if (!cart[index]) return;
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      const badge1 = document.getElementById('cartCountBadge');
+      const badge2 = document.getElementById('drawerCountBadge');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge1.textContent = totalItems;
+      badge2.textContent = totalItems;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="cart-empty-state">
+            <div style="font-size: 36px; margin-bottom: 12px;">🕯️</div>
+            <p><strong>Keranjang belanjamu masih kosong.</strong></p>
+            <p style="font-size: 13px; margin-top: 4px;">Pilih lilin aromaterapi favoritmu dan tambahkan ke sini.</p>
+          </div>
+        `;
+        document.getElementById('cartSubtotalText').textContent = 'Rp 0';
+        document.getElementById('cartTotalText').textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      container.innerHTML = '';
+
+      cart.forEach((item, index) => {
+        subtotal += item.price * item.qty;
+        const div = document.createElement('div');
+        div.className = 'cart-item-card';
+        div.innerHTML = `
+          <div class="cart-item-thumb">
+            <img src="${item.img}" alt="${item.name}">
+          </div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-size">Varian: ${item.size}</div>
+            <div class="cart-item-price">${formatRupiah(item.price)}</div>
+          </div>
+          <div class="cart-qty-ctrl">
+            <button class="qty-btn" onclick="changeQty(${index}, -1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      const total = Math.max(0, subtotal - discountAmount);
+      document.getElementById('cartSubtotalText').textContent = formatRupiah(subtotal);
+      document.getElementById('cartTotalText').textContent = formatRupiah(total);
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('couponInput').value.trim().toUpperCase();
+      if (code === 'KANDELABARU') {
+        discountAmount = 15000;
+        document.getElementById('discountRow').style.display = 'flex';
+        document.getElementById('cartDiscountText').textContent = '- Rp 15.000';
+        alert('Kupon berhasil diterapkan! Anda mendapatkan potongan Rp 15.000.');
+        renderCart();
+      } else if (!code) {
+        alert('Silakan ketik kode kupon diskon.');
+      } else {
+        alert('Kode kupon tidak valid. Gunakan kode "KANDELABARU" untuk diskon perdana!');
+      }
+    }
+
+    function checkoutCartWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang belanjamu masih kosong.');
+        return;
+      }
+
+      let subtotal = 0;
+      let itemsText = cart.map((item, i) => {
+        subtotal += item.price * item.qty;
+        return `${i + 1}. ${item.name} (${item.size}) × ${item.qty} = ${formatRupiah(item.price * item.qty)}`;
+      }).join('%0A');
+
+      const total = Math.max(0, subtotal - discountAmount);
+
+      const text = `Halo Admin KANDELA! Saya ingin memesan produk berikut:%0A%0A` +
+        `🛍️ *DAFTAR PESANAN:*%0A${itemsText}%0A%0A` +
+        (discountAmount > 0 ? `🎟️ *Diskon Kupon:* - ${formatRupiah(discountAmount)}%0A` : '') +
+        `📦 *Ongkir:* Gratis Ongkir%0A` +
+        `💰 *TOTAL PEMBAYARAN:* ${formatRupiah(total)}%0A%0A` +
+        `Mohon diproses pesanannya ya kak. Terima kasih!`;
+
+      window.open(`https://wa.me/6282145678900?text=${text}`, '_blank');
+    }
+
+    // Drawer Open / Close
+    const cartOverlay = document.getElementById('cartOverlay');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+
+    function openCartDrawer() {
+      cartOverlay.classList.add('open');
+    }
+
+    function closeCartDrawer() {
+      cartOverlay.classList.remove('open');
+    }
+
+    openCartBtn.addEventListener('click', openCartDrawer);
+    closeCartBtn.addEventListener('click', closeCartDrawer);
+    cartOverlay.addEventListener('click', function(e) {
+      if (e.target === cartOverlay) {
+        closeCartDrawer();
+      }
+    });
+
+    // Initialize calculator
+    updateBurnCalculator(180);
+  </script>
+</body>
+</html>

@@ -3639,6 +3639,91 @@ export function TanahLiatStudio() {
       { hex: '#11999E', rgb: 'rgb(17, 153, 158)', name: 'Deep Marine Seafoam Teal', role: 'Identitas Medis Profesional, Tombol CTA Utama & Bilah Status' },
       { hex: '#40514E', rgb: 'rgb(64, 81, 78)', name: 'Slate Charcoal Pine', role: 'Tipografi Tajam Berkarakter, Kartu Ringkasan Kalkulator & Footer' }
     ]
+  },
+  {
+    id: 'tpl-48',
+    slug: 'kandela-aroma-candlery',
+    title: 'KANDELA (Lilin Aromaterapi Kedelai Alami & Hampers Wewangian Rumah)',
+    tagline: 'Lilin aromaterapi kedelai alami, reed diffuser, dan paket hampers kado kustom untuk relaksasi rumah yang menenangkan dan bebas asap hitam',
+    description: 'Template website etalase dan toko online produk lilin aromaterapi kedelai alami (100% natural soy wax), reed diffuser, dan paket hampers kado kustom untuk UMKM dan brand lifestyle modern. Dirancang dengan standar anti-slop tinggi yang berfokus langsung pada produk fisik nyata: foto berkualitas tinggi bebas desain 3D membingungkan, penjelas aroma familiar (Mawar Merah Muda & Vanila, Lavender Menenangkan, Kopi Karamel, Melati & Teh Putih), kuis interaktif 2 langkah penemu aroma ruangan, perakit paket hampers kado kustom dengan pilihan kartu ucapan gratis dan kalkulasi harga instan, panduan perawatan lilin agar awet menyala hingga 55 jam, serta sistem keranjang belanja langsung terhubung ke pesanan WhatsApp.',
+    category: 'candlery',
+    tags: ['Scented Candle', 'Aromatherapy', 'Soy Wax Candle', 'Reed Diffuser', 'Gift Hampers', 'Home Fragrance', 'Linen Spray', 'Natural Wax', 'Lifestyle Shop'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Web Audio API Ambient Flame Synthesizer', 'Interactive Fragrance Finder', 'Custom Gift Box Builder', 'Burn Duration Calculator', 'Slide-Over Cart Drawer', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'candlery-kandela',
+    htmlPath: '/templates/candlery/kandela-aroma-candlery.html',
+    htmlFolderPath: 'templates/candlery/kandela-aroma-candlery.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa dependensi eksternal atau build step',
+      'Kuis interaktif 2 langkah "Temukan Aromamu" berdasarkan pilihan ruangan dan suasana hati dengan rekomendasi produk instan',
+      'Katalog produk terstruktur dengan filter kategori (Lilin Kedelai, Reed Diffuser, Hampers Kado, Linen Spray) dan pengubah gramatur ukuran',
+      'Perakit paket hampers kado kustom (Custom Gift Box Builder) interaktif dengan pilihan 3 ukuran kotak, pemilihan produk bebas, dan pratinjau langsung kartu ucapan kustom',
+      'Kalkulator durasi jam nyala lilin (60g - 250g) interaktif yang menghitung estimasi hari pemakaian dan luas ruangan ideal',
+      'Panduan perawatan lilin bergambar 4 langkah praktis (Potong sumbu 5mm, pembakaran pertama rata, batas 4 jam, padamkan dengan tutup)',
+      'Synthesizer audio perapian lilin relaksasi Web Audio API prosedural dengan tombol sakelar aktif/bisu',
+      'Drawer slide-over keranjang belanja dengan sistem kupon diskon (KANDELABARU) dan tombol pemesanan WhatsApp otomatis',
+      'Bahasa Indonesia yang ramah, hangat, dan membumi untuk UMKM produk fisik tanpa istilah asing yang membingungkan',
+      'Palet warna lembut dan menenangkan (#F6F6F6, #FFE2E2, #FFC7C7, #AAAAAA) dengan kontras teks tajam berstandar WCAG AA'
+    ],
+    usageInstructions: [
+      'Buka templates/candlery/kandela-aroma-candlery.html di editor kode Anda.',
+      'Sesuaikan daftar produk, harga, varian aroma, dan foto pada array produk di skrip JavaScript.',
+      'Ganti nomor WhatsApp pemesanan (+62 821-4567-8900) dengan nomor resmi toko atau UMKM Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk mulai berjualan.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'kandela-aroma-candlery.html',
+        language: 'html',
+        content: `<!-- KANDELA AROMA CANDLERY — Lilin Aromaterapi Alami & Hampers -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KANDELA — Lilin Aromaterapi Kedelai Alami & Hampers</title>
+  <style>
+    :root {
+      --color-bg: #F6F6F6;
+      --color-surface: #FFFFFF;
+      --color-surface-soft: #FFE2E2;
+      --color-accent: #FFC7C7;
+      --color-metal: #AAAAAA;
+      --color-text-main: #222222;
+      --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="promo-bar">100% LILIN KEDELAI ALAMI · GARANSI ANTI PECAH · GRATIS KARTU UCAPAN</div>
+  <header class="site-header">
+    <div class="brand-title">KANDELA <span>AROMA CANDLERY</span></div>
+    <nav>Koleksi Lilin · Temukan Aroma · Rakit Hampers · Durasi Nyala · Panduan Lilin</nav>
+  </header>
+  <!-- Full Interactive Candlery E-Commerce: Quiz, Hampers Builder, Calculator, Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website toko online lilin aromaterapi kedelai alami, reed diffuser, dan perakit paket hampers kado kustom KANDELA AROMA CANDLERY dengan palet warna Soft Pale Alabaster (#F6F6F6), Petal Blush Mist (#FFE2E2), Rose Quartz Accent (#FFC7C7), Cool Zinc Silver (#AAAAAA), dan Deep Slate (#222222). Dilengkapi kuis 2 langkah penemu aroma ruangan, perakit paket kado kustom dengan kartu ucapan gratis dan pratinjau live, katalog produk dengan pemilih gramatur, kalkulator jam nyala lilin, panduan perawatan lilin anti-tunneling, synthesizer audio perapian relaksasi Web Audio API, serta slide-over keranjang belanja terhubung ke pemesanan WhatsApp.',
+      designDirection: 'Clean aesthetic botanical candlery & lifestyle UMKM berstandar antislop: Soft Pale Alabaster (#F6F6F6), Petal Blush Mist (#FFE2E2), Rose Quartz Accent (#FFC7C7), Cool Zinc Silver (#AAAAAA), dan High-Contrast Deep Slate (#222222). Tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Bilah promo atas dengan switch audio perapian lilin Web Audio API, sticky header dengan brand mark mawar dan badge keranjang, hero berdampak visual kuat dengan foto produk nyata berkualitas tinggi dan metrik terverifikasi, kuis penemu aroma 2 kolom dengan kartu rekomendasi dinamis, katalog 6 produk dengan filter tabs dan switcher gramatur ukuran, perakit hampers kado 2 kolom dengan sticky live greeting card preview, kalkulator jam nyala dengan range slider interaktif, panduan perawatan 4 kartu, testimoni pelanggan nyata, dan slide-over cart drawer WhatsApp.',
+      typographyAndColor: 'Plus Jakarta Sans (bobot 400-800) untuk kehangatan, keramahan, dan kepercayaan pembeli produk fisik, JetBrains Mono untuk harga rupiah (Rp), gramatur lilin (g), jam nyala, dan kode kupon.',
+      interactions: 'Kuis interaktif penemu aroma ruangan, perakit hampers kado kustom dengan checkbox produk dinamis dan formulir pesan live-preview, kalkulator penggeser gramatur durasi nyala lilin, synthesizer audio perapian Web Audio API, pengubah kuantitas keranjang belanja, kupon diskon KANDELABARU, dan checkout otomatis terhubung ke WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, responsive smartphone hingga layar lebar, Web Audio API prosedural, foto produk asli Unsplash berkualitas tinggi.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#FFC7C7',
+    colorPalette: [
+      { hex: '#F6F6F6', rgb: 'rgb(246, 246, 246)', name: 'Soft Pale Alabaster', role: 'Latar Belakang Kanvas Utama, Bersih, Lembut & Menenangkan' },
+      { hex: '#FFE2E2', rgb: 'rgb(255, 226, 226)', name: 'Petal Blush Mist', role: 'Panel Kartu Produk, Latar Belakang Kuis Aroma & Latar Form Custom' },
+      { hex: '#FFC7C7', rgb: 'rgb(255, 199, 199)', name: 'Rose Quartz Accent', role: 'Tombol Aksi Utama (CTA), Tagline Sorotan & Indikator Aktif' },
+      { hex: '#AAAAAA', rgb: 'rgb(170, 170, 170)', name: 'Cool Zinc Silver', role: 'Garis Pembatas Halus, Tutup Wadah Lilin Logam & Teks Sekunder' }
+    ]
   }
 ];
 
