@@ -3,6 +3,82 @@ import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
+    id: 'tpl-61',
+    slug: 'tirta-kelana-botol-termos',
+    title: 'TIRTA KELANA',
+    tagline: 'Atelier botol termos stainless insulasi dingin 24 jam & custom grafir laser nama',
+    description: 'Template website atelier botol termos stainless steel 304 food-grade dan tumbler kopi insulasi vakum ganda (TIRTA KELANA). Dirancang dengan standar anti-slop tinggi yang berfokus murni pada performa produk fisik: simulator grafir laser nama/logo kustom interaktif 2D langsung di bodi botol (tanpa gimmick 3D aneh), timeline uji laboratorium ketahanan suhu es 24 jam, swatch palet warna resmi atelier klik-salin hex instan, paket bundling petualang lengkap (sedotan + sikat + pouch), katalog model siap kirim, panduan perawatan baja, serta drawer tas belanja terhubung langsung ke WhatsApp Admin.',
+    category: 'tumbler',
+    tags: ['Botol Termos Stainless', 'Tumbler Kopi', 'Dingin 24 Jam', 'Grafir Laser Nama', 'Stainless 304', 'Bebas BPA', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Laser Engraving Studio', 'Temperature Timeline', 'Bundling Selector', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'tumbler',
+    previewComponentKey: 'tumbler-tirta-kelana',
+    htmlPath: '/templates/tumbler/tirta-kelana-botol-termos.html',
+    htmlFolderPath: 'templates/tumbler/tirta-kelana-botol-termos.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
+      'Palet harmoni atelier resmi: dark slate charcoal (#2C3333), deep oceanic teal (#395B64), glacial frost mint (#A5C9CA), dan alabaster mint foam (#E7F6F2)',
+      'Latar kanvas bertekstur micro-pattern cross (+ + + +) geometris halus yang kokoh, modern, dan tidak monoton',
+      'Studio grafir laser nama kustom 2D interaktif dengan input teks langsung, pilihan warna botol, gaya font, dan posisi ukir',
+      'Timeline uji ketahanan suhu laboratorium (0 Jam 4°C hingga 24 Jam 10°C dengan es batu padat tersisa)',
+      'Swatch bar palet warna interaktif dengan fitur salin kode hex dan nilai RGB sekali klik ke clipboard',
+      'Katalog botol termos lengkap (Tumbler Kopi 500ml, Botol Petualang 750ml, Ekspedisi 1000ml, Mug Kantor 400ml)',
+      'Drawer keranjang belanja slide-over dengan generator format pesan pesanan WhatsApp otomatis'
+    ],
+    usageInstructions: [
+      'Buka berkas public/templates/tumbler/tirta-kelana-botol-termos.html di text editor pilihan Anda.',
+      'Ubah daftar varian kapasitas (500ml, 750ml, 1000ml) dan harga botol sesuai katalog produk UMKM Anda.',
+      'Sesuaikan nomor WhatsApp admin pada fungsi checkout untuk menerima pesanan langsung dari pelanggan.',
+      'Buka langsung di browser atau uji responsivitasnya melalui etalase NECTOR.UI.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'tirta-kelana-botol-termos.html',
+        language: 'html',
+        content: `<!-- TIRTA KELANA — NECTOR.UI Insulated Bottle & Tumbler Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>TIRTA KELANA — Atelier Botol Termos Insulasi Dingin 24 Jam & Tumbler Kustom Grafir Laser</title>
+  <style>
+    :root {
+      --color-slate: #2C3333;
+      --color-teal: #395B64;
+      --color-mint: #A5C9CA;
+      --color-foam: #E7F6F2;
+    }
+  </style>
+</head>
+<body>
+  <h1>TIRTA KELANA</h1>
+  <p>Atelier botol termos stainless insulasi dingin 24 jam dan grafir laser nama kustom.</p>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS lengkap dengan engraving studio, temp timeline, dan checkout WhatsApp.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt untuk website e-commerce atelier botol termos insulasi stainless steel TIRTA KELANA berkonsep tumbler kopi, botol petualang dingin 24 jam & studio grafir laser nama.',
+      designDirection: 'Dominasi warna kokoh dan sejuk: dark slate charcoal (#2C3333), deep oceanic teal (#395B64), glacial frost mint (#A5C9CA), dan alabaster mint foam (#E7F6F2). Latar kanvas bermotif mikro plus (+ + + +) halus dengan kontras teks arang gelap pekat (#2C3333) berstandar AAA (> 11:1).',
+      layoutAndGrid: 'Asymmetric editorial hero grid dengan fotografi produk botol nyata, swatch bar warna klik-salin hex, studio grafir laser nama 2D interaktif, timeline suhu 24 jam, dan katalog filter model.',
+      typographyAndColor: 'Headings dalam Plus Jakarta Sans bold yang tegas dan kokoh, body teks dalam Plus Jakarta Sans yang bersih, spesifikasi volume ml dan harga dalam JetBrains Mono.',
+      interactions: 'Studio grafir laser 2D dengan pilihan font dan posisi live di badan botol, timeline suhu interaktif, swatch bar klik-salin hex, dan drawer keranjang WhatsApp.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, zero dependencies, valid W3C markup.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#395B64',
+    colorPalette: [
+      { hex: '#2C3333', rgb: 'rgb(44, 51, 51)', name: 'Dark Slate Charcoal', role: 'Warna Tutup Botol, Heading Teks & Kontras AAA' },
+      { hex: '#395B64', rgb: 'rgb(57, 91, 100)', name: 'Deep Oceanic Teal', role: 'Warna Utama Botol Pine Teal & Tombol Aksi' },
+      { hex: '#A5C9CA', rgb: 'rgb(165, 201, 202)', name: 'Glacial Frost Mint', role: 'Warna Aksen Sejuk, Varian Botol Mint & Border' },
+      { hex: '#E7F6F2', rgb: 'rgb(231, 246, 242)', name: 'Alabaster Mint Foam', role: 'Warna Latar Kanvas Segar & Varian Ice White' },
+    ],
+  },
+  {
     id: 'tpl-60',
     slug: 'kirana-scarf-hijab-voal',
     title: 'KIRANA SCARF',

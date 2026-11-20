@@ -60,8 +60,10 @@ import { flowerMasterPrompt } from './flowerPrompt';
 import { puddingMasterPrompt } from './puddingPrompt';
 import { popsicleMasterPrompt } from './popsiclePrompt';
 import { scarfMasterPrompt } from './scarfPrompt';
+import { tumblerMasterPrompt } from './tumblerPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'tirta-kelana-botol-termos': tumblerMasterPrompt,
   'kirana-scarf-hijab-voal': scarfMasterPrompt,
   'sejuk-ria-es-stik-buah': popsicleMasterPrompt,
   'sutra-manis-puding-artisan': puddingMasterPrompt,

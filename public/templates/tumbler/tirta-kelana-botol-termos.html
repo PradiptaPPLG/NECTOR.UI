@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIRTA KELANA — Atelier Botol Termos Insulasi Dingin 24 Jam & Tumbler Kustom Grafir Laser</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET & BASE */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* PALET UTAMA SESUAI FOTO REFERENSI */
+      --color-slate: #2C3333;       /* rgb(44, 51, 51) - Dark Slate Charcoal */
+      --color-teal: #395B64;        /* rgb(57, 91, 100) - Deep Oceanic Teal */
+      --color-mint: #A5C9CA;        /* rgb(165, 201, 202) - Glacial Frost Mint */
+      --color-foam: #E7F6F2;        /* rgb(231, 246, 242) - Alabaster Mint Foam */
+
+      /* TEKS, BORDER & KONTRAS AAA */
+      --color-ink: #2C3333;
+      --color-ink-muted: #495C5E;
+      --color-ink-faint: #738A8C;
+      --color-border: #C8DDDC;
+      --color-border-light: #DEECE9;
+      --color-white: #FFFFFF;
+      --color-teal-darker: #203A40;
+      --color-teal-light: #527A84;
+
+      /* FONTS */
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* RADIUS & SHADOWS */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 2px 8px rgba(44, 51, 51, 0.05);
+      --shadow-md: 0 8px 24px rgba(44, 51, 51, 0.08);
+      --shadow-lg: 0 16px 40px rgba(44, 51, 51, 0.12);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-foam);
+      /* Inovasi background motif + + + + (cross grid) bersih & halus agar tidak monoton */
+      background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23 18h2v5h5v2h-5v5h-2v-5h-5v-2h5v-5z' fill='%23395B64' fill-opacity='0.05'/%3E%3C/svg%3E");
+      color: var(--color-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* TOP ANNOUNCEMENT */
+    .top-bar {
+      background-color: var(--color-slate);
+      color: var(--color-foam);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 9px 16px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .top-bar strong {
+      color: var(--color-mint);
+      font-weight: 700;
+    }
+
+    /* NAVIGATION */
+    .site-header {
+      background: rgba(231, 246, 242, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 76px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--color-slate);
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--color-teal);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-cart-trigger {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-slate);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .btn-cart-trigger:hover {
+      border-color: var(--color-teal);
+      color: var(--color-teal);
+      transform: translateY(-1px);
+    }
+
+    .cart-count-badge {
+      background: var(--color-teal);
+      color: var(--color-white);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-pretitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-teal);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-title {
+      font-size: 44px;
+      line-height: 1.18;
+      font-weight: 800;
+      color: var(--color-slate);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--color-teal);
+      background: linear-gradient(120deg, var(--color-teal) 0%, #1F424A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--color-ink-muted);
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background: var(--color-teal);
+      color: var(--color-white);
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(57, 91, 100, 0.25);
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-teal-darker);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(57, 91, 100, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      color: var(--color-slate);
+      padding: 14px 26px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-teal);
+      color: var(--color-teal);
+      transform: translateY(-2px);
+    }
+
+    .hero-guarantees {
+      display: flex;
+      gap: 28px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+    }
+
+    .guarantee-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .guarantee-val {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-slate);
+    }
+
+    .guarantee-lbl {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+      font-weight: 600;
+    }
+
+    /* HERO VISUAL CARD */
+    .hero-visual-card {
+      position: relative;
+      background: var(--color-white);
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--color-foam);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-visual-card:hover .hero-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hbf-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--color-slate);
+    }
+
+    .hbf-sub {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+      font-weight: 500;
+    }
+
+    .hbf-tag {
+      background: var(--color-foam);
+      border: 1px solid var(--color-mint);
+      color: var(--color-teal);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    /* PALETTE SWATCH BANNER (SESUAI GAMBAR FOTO) */
+    .palette-banner-section {
+      padding: 24px 0 48px;
+    }
+
+    .palette-card-box {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .palette-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .pch-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-slate);
+    }
+
+    .pch-sub {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+    }
+
+    .pch-tip {
+      font-size: 12px;
+      color: var(--color-teal);
+      font-weight: 700;
+    }
+
+    .palette-stacked-strip {
+      display: flex;
+      height: 72px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .palette-strip-col {
+      flex: 1;
+      height: 100%;
+      transition: flex 0.3s ease;
+      cursor: pointer;
+    }
+
+    .palette-strip-col:hover {
+      flex: 1.4;
+    }
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .swatch-item-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--color-foam);
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .swatch-item-card:hover {
+      border-color: var(--color-mint);
+      background: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .swatch-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--color-white);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+
+    .swatch-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .swatch-hex {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-slate);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch-rgb {
+      font-size: 11px;
+      color: var(--color-ink-faint);
+    }
+
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* INTERACTIVE LASER ENGRAVING STUDIO (NO 3D GIMMICK - PRODUCT FOCUSED) */
+    .studio-section {
+      padding: 56px 0;
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--color-teal);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--color-slate);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--color-ink-muted);
+    }
+
+    .engraving-studio-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .engraving-controls-pane {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .ctrl-group-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+      margin-bottom: 10px;
+    }
+
+    .color-select-pills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .color-pill-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: var(--color-foam);
+      border: 2px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-slate);
+    }
+
+    .color-pill-btn.active {
+      border-color: var(--color-teal);
+      background: var(--color-white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cpb-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    .text-engraving-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-slate);
+      background: var(--color-foam);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .text-engraving-input:focus {
+      border-color: var(--color-teal);
+      background: var(--color-white);
+    }
+
+    .font-select-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .font-opt-btn {
+      padding: 10px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-white);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      color: var(--color-ink-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .font-opt-btn.active {
+      background: var(--color-slate);
+      border-color: var(--color-slate);
+      color: var(--color-foam);
+    }
+
+    .position-select-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .pos-opt-btn {
+      padding: 10px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-white);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      color: var(--color-ink-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pos-opt-btn.active {
+      background: var(--color-teal);
+      border-color: var(--color-teal);
+      color: var(--color-white);
+    }
+
+    /* 2D BOTTLE VISUAL PREVIEW */
+    .bottle-preview-stage {
+      background: var(--color-foam);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .bottle-render-canvas {
+      width: 140px;
+      height: 320px;
+      border-radius: 20px 20px 12px 12px;
+      position: relative;
+      background-color: var(--color-teal);
+      box-shadow: 0 16px 36px rgba(44, 51, 51, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.2), inset 0 -6px 12px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      margin-bottom: 24px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .bottle-cap {
+      width: 76px;
+      height: 40px;
+      background: var(--color-slate);
+      border-radius: 8px 8px 2px 2px;
+      position: absolute;
+      top: -36px;
+      border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .bottle-cap-strap {
+      width: 44px;
+      height: 12px;
+      background: #1A2020;
+      border-radius: 4px;
+      position: absolute;
+      top: -46px;
+    }
+
+    .bottle-body-engraving-area {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      padding: 20px 10px;
+    }
+
+    .engraved-text-preview {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .engraved-text-preview.pos-vertical {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      letter-spacing: 0.25em;
+    }
+
+    .engraved-text-preview.pos-bottom {
+      align-self: flex-end;
+      margin-bottom: 24px;
+      font-size: 12px;
+    }
+
+    .engraved-text-preview.pos-monogram {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bps-specs-summary {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--color-border);
+      padding-top: 16px;
+      font-size: 12px;
+      color: var(--color-ink-muted);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .btn-add-engraved {
+      width: 100%;
+      background: var(--color-slate);
+      color: var(--color-foam);
+      padding: 14px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-engraved:hover {
+      background: var(--color-teal);
+      transform: translateY(-2px);
+    }
+
+    /* TIMELINE UJI SUHU 24 JAM */
+    .timeline-section {
+      padding: 56px 0;
+    }
+
+    .timeline-card-box {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .temp-timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .temp-step-card {
+      background: var(--color-foam);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .temp-step-card:hover {
+      border-color: var(--color-teal);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tsc-hour-badge {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--color-teal);
+      background: var(--color-white);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 12px;
+      border: 1px solid var(--color-border);
+    }
+
+    .tsc-temp-val {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-slate);
+      margin-bottom: 6px;
+    }
+
+    .tsc-state {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-teal);
+      margin-bottom: 6px;
+    }
+
+    .tsc-desc {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+    }
+
+    /* CATALOG SECTION */
+    .catalog-section {
+      padding: 56px 0;
+    }
+
+    .catalog-filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      color: var(--color-ink-muted);
+      transition: all 0.2s ease;
+    }
+
+    .filter-tab-btn:hover {
+      border-color: var(--color-teal);
+      color: var(--color-teal);
+    }
+
+    .filter-tab-btn.active {
+      background: var(--color-teal);
+      border-color: var(--color-teal);
+      color: var(--color-white);
+      box-shadow: 0 3px 10px rgba(57, 91, 100, 0.25);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-teal);
+    }
+
+    .pc-img-wrap {
+      position: relative;
+      aspect-ratio: 1/1;
+      background: var(--color-foam);
+      overflow: hidden;
+    }
+
+    .pc-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .pc-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .pc-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--color-white);
+      color: var(--color-teal);
+      border: 1px solid var(--color-mint);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pc-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .pc-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-slate);
+      margin-bottom: 6px;
+    }
+
+    .pc-desc {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .pc-specs {
+      display: flex;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--color-ink-faint);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border-light);
+      font-weight: 600;
+    }
+
+    .pc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pc-price {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--color-slate);
+    }
+
+    .btn-add-cart-sm {
+      background: var(--color-foam);
+      border: 1px solid var(--color-border);
+      color: var(--color-slate);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-cart-sm:hover {
+      background: var(--color-teal);
+      border-color: var(--color-teal);
+      color: var(--color-white);
+    }
+
+    /* BUNDLING SET SECTION */
+    .bundling-section {
+      padding: 56px 0;
+    }
+
+    .bundling-box {
+      background: var(--color-slate);
+      color: var(--color-foam);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .bb-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--color-white);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .bb-desc {
+      font-size: 15px;
+      color: var(--color-mint);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .bb-included-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+
+    .bb-included-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bb-check {
+      color: var(--color-mint);
+      font-weight: 800;
+    }
+
+    .btn-bundling {
+      background: var(--color-mint);
+      color: var(--color-slate);
+      padding: 15px 32px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .btn-bundling:hover {
+      background: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    .bb-visual-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--color-teal);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .bb-visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* CARE GUIDE SECTION */
+    .care-section {
+      padding: 56px 0;
+    }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .care-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .care-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .care-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-slate);
+      margin-bottom: 8px;
+    }
+
+    .care-desc {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--color-slate);
+      color: var(--color-foam);
+      padding: 64px 0 32px;
+      margin-top: 64px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: var(--color-mint);
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    .footer-col-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-mint);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--color-foam);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-mint);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--color-ink-faint);
+    }
+
+    /* SHOPPING CART DRAWER */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(44, 51, 51, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -460px;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background: var(--color-white);
+      box-shadow: -8px 0 32px rgba(44, 51, 51, 0.15);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease;
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dh-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--color-slate);
+    }
+
+    .btn-close-drawer {
+      font-size: 22px;
+      color: var(--color-ink-muted);
+      padding: 4px;
+      cursor: pointer;
+    }
+
+    .drawer-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .cir-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--color-foam);
+    }
+
+    .cir-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cir-details {
+      flex-grow: 1;
+    }
+
+    .cir-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--color-slate);
+    }
+
+    .cir-meta {
+      font-size: 12px;
+      color: var(--color-ink-muted);
+    }
+
+    .cir-price {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--color-teal);
+      margin-top: 4px;
+    }
+
+    .cir-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .btn-qty {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .cir-qty-val {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-foam);
+    }
+
+    .drawer-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .dtr-lbl {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--color-slate);
+    }
+
+    .dtr-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-teal);
+    }
+
+    .form-buyer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .form-buyer-info input {
+      padding: 9px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    .btn-whatsapp-checkout {
+      width: 100%;
+      background: #25D366;
+      color: #FFFFFF;
+      padding: 14px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-whatsapp-checkout:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+    }
+
+    /* TOAST */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--color-slate);
+      color: var(--color-foam);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      z-index: 2000;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-grid, .engraving-studio-card, .bundling-box {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .swatches-grid, .temp-timeline-grid, .care-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 32px;
+      }
+      .swatches-grid, .temp-timeline-grid, .product-grid, .care-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .color-select-pills {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement -->
+  <div class="top-bar">
+    <span>Garansi Dingin <strong>24 Jam</strong> & Gratis <strong>Grafir Laser Nama Permanen</strong> • Stainless 304 Food Grade Bebas BPA</span>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="brand-wrap">
+        <a href="#" class="brand-name">TIRTA KELANA</a>
+        <span class="brand-sub">Insulated Bottle & Tumbler Atelier</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#koleksi" class="nav-link">Koleksi Botol</a></li>
+        <li><a href="#studio-grafir" class="nav-link">Studio Grafir Laser</a></li>
+        <li><a href="#uji-suhu" class="nav-link">Uji Dingin 24 Jam</a></li>
+        <li><a href="#bundling" class="nav-link">Paket Lengkap</a></li>
+        <li><a href="#perawatan" class="nav-link">Perawatan Baja</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-cart-trigger" onclick="toggleCart()">
+          <span>Tas Belanja</span>
+          <span class="cart-count-badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-text-col">
+        <div class="hero-pretitle">
+          <span>❄</span>
+          <span>Double-Wall Vacuum Insulation</span>
+        </div>
+        <h1 class="hero-title">
+          Insulasi Vakum Ganda Menjaga Minuman Es <em>Dingin 24 Jam</em> Tanpa Keringat di Dinding Luar
+        </h1>
+        <p class="hero-desc">
+          Dibuat dari baja tahan karat Stainless Steel 304 food-grade bebas BPA. Menjaga kopi es tetap beku saat commute mobil terik dan air hangat tahan 12 jam di meja kantor. Dilengkapi grafir laser nama kustom permanen anti luntur seumur hidup.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#studio-grafir" class="btn-primary">
+            <span>Rancang Grafir Nama</span>
+            <span>→</span>
+          </a>
+          <a href="#koleksi" class="btn-secondary">
+            <span>Lihat Koleksi Botol</span>
+          </a>
+        </div>
+
+        <div class="hero-guarantees">
+          <div class="guarantee-item">
+            <span class="guarantee-val mono">24 Jam</span>
+            <span class="guarantee-lbl">Es Dingin Terjaga</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-val mono">SS 304</span>
+            <span class="guarantee-lbl">Food-Grade Bebas BPA</span>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-val mono">100%</span>
+            <span class="guarantee-lbl">Anti Tumpah & Bocor</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-col">
+        <div class="hero-visual-card">
+          <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1200&q=80" alt="Botol Termos Tirta Kelana Outdoor" loading="lazy" referrerpolicy="no-referrer">
+          </div>
+          <div class="hero-badge-float">
+            <div>
+              <div class="hbf-title">Kelana Flask 750ml Pine Teal</div>
+              <div class="hbf-sub">Stainless Steel 304 • Handle Ergonomis</div>
+            </div>
+            <span class="hbf-tag">Siap Kirim</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Palette Swatch Banner (Sesuai Foto Unggahan) -->
+  <section class="palette-banner-section">
+    <div class="container">
+      <div class="palette-card-box">
+        <div class="palette-card-header">
+          <div>
+            <h2 class="pch-title">Palet Warna Resmi Koleksi Tirta Kelana</h2>
+            <p class="pch-sub">Harmoni warna slate charcoal, oceanic teal, glacial mint, dan mint foam yang kokoh, segar, dan maskulin.</p>
+          </div>
+          <span class="pch-tip">Klik buletan atau kode warna untuk menyalin HEX instan</span>
+        </div>
+
+        <!-- The stacked strip resembling the uploaded screenshot -->
+        <div class="palette-stacked-strip">
+          <div class="palette-strip-col" style="background-color: #2C3333;" onclick="copyHex('#2C3333')" title="Dark Slate Charcoal (#2C3333)"></div>
+          <div class="palette-strip-col" style="background-color: #395B64;" onclick="copyHex('#395B64')" title="Deep Oceanic Teal (#395B64)"></div>
+          <div class="palette-strip-col" style="background-color: #A5C9CA;" onclick="copyHex('#A5C9CA')" title="Glacial Frost Mint (#A5C9CA)"></div>
+          <div class="palette-strip-col" style="background-color: #E7F6F2;" onclick="copyHex('#E7F6F2')" title="Alabaster Mint Foam (#E7F6F2)"></div>
+        </div>
+
+        <!-- Swatches Grid -->
+        <div class="swatches-grid">
+          <div class="swatch-item-card" onclick="copyHex('#2C3333')">
+            <div class="swatch-circle" style="background-color: #2C3333;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#2C3333 ⧉</span>
+              <span class="swatch-rgb mono">rgb(44, 51, 51)</span>
+              <span class="swatch-name">Dark Slate Charcoal</span>
+            </div>
+          </div>
+
+          <div class="swatch-item-card" onclick="copyHex('#395B64')">
+            <div class="swatch-circle" style="background-color: #395B64;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#395B64 ⧉</span>
+              <span class="swatch-rgb mono">rgb(57, 91, 100)</span>
+              <span class="swatch-name">Deep Oceanic Teal</span>
+            </div>
+          </div>
+
+          <div class="swatch-item-card" onclick="copyHex('#A5C9CA')">
+            <div class="swatch-circle" style="background-color: #A5C9CA;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#A5C9CA ⧉</span>
+              <span class="swatch-rgb mono">rgb(165, 201, 202)</span>
+              <span class="swatch-name">Glacial Frost Mint</span>
+            </div>
+          </div>
+
+          <div class="swatch-item-card" onclick="copyHex('#E7F6F2')">
+            <div class="swatch-circle" style="background-color: #E7F6F2;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex mono">#E7F6F2 ⧉</span>
+              <span class="swatch-rgb mono">rgb(231, 246, 242)</span>
+              <span class="swatch-name">Alabaster Mint Foam</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Laser Engraving Studio (Clean 2D, No 3D Gimmick) -->
+  <section class="studio-section" id="studio-grafir">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">STUDIO GRAFIR LASER PERSONAL</span>
+        <h2 class="section-title">Ukir Nama Anda Secara Permanen</h2>
+        <p class="section-subtitle">Ketik nama, inisial, atau quotes favorit Anda. Mesin laser serat optik kami akan mengukirnya secara presisi tanpa risiko mengelupas seumur hidup.</p>
+      </div>
+
+      <div class="engraving-studio-card">
+        <!-- Controls Pane -->
+        <div class="engraving-controls-pane">
+          <div>
+            <div class="ctrl-group-title">1. Pilih Warna Dasar Tumbler</div>
+            <div class="color-select-pills">
+              <button class="color-pill-btn active" onclick="setStudioColor('#395B64', 'Oceanic Pine Teal')">
+                <span class="cpb-dot" style="background-color: #395B64;"></span>
+                <span>Oceanic Pine Teal</span>
+              </button>
+              <button class="color-pill-btn" onclick="setStudioColor('#2C3333', 'Dark Slate Noir')">
+                <span class="cpb-dot" style="background-color: #2C3333;"></span>
+                <span>Dark Slate Noir</span>
+              </button>
+              <button class="color-pill-btn" onclick="setStudioColor('#A5C9CA', 'Glacial Frost Mint')">
+                <span class="cpb-dot" style="background-color: #A5C9CA;"></span>
+                <span>Glacial Frost Mint</span>
+              </button>
+              <button class="color-pill-btn" onclick="setStudioColor('#E7F6F2', 'Alabaster Ice White')">
+                <span class="cpb-dot" style="background-color: #E7F6F2;"></span>
+                <span>Alabaster Ice White</span>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div class="ctrl-group-title">2. Ketik Teks / Nama Grafir (Maks 18 Karakter)</div>
+            <input type="text" id="engravingTextInput" class="text-engraving-input" maxlength="18" value="ARGA PRATAMA" oninput="updateEngravingText(this.value)" placeholder="Nama Anda...">
+          </div>
+
+          <div>
+            <div class="ctrl-group-title">3. Pilih Gaya Huruf (Font)</div>
+            <div class="font-select-grid">
+              <button class="font-opt-btn active" onclick="setFontStyle('sans', this)">Modern Sans</button>
+              <button class="font-opt-btn" onclick="setFontStyle('serif', this)">Classic Serif</button>
+              <button class="font-opt-btn" onclick="setFontStyle('mono', this)">Bold Mono</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="ctrl-group-title">4. Pilih Posisi Grafir</div>
+            <div class="position-select-grid">
+              <button class="pos-opt-btn active" onclick="setPosition('vertical', this)">Vertikal</button>
+              <button class="pos-opt-btn" onclick="setPosition('bottom', this)">Horizontal Bawah</button>
+              <button class="pos-opt-btn" onclick="setPosition('monogram', this)">Monogram Inisial</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2D Product Stage -->
+        <div class="bottle-preview-stage">
+          <div class="bottle-cap-strap"></div>
+          <div class="bottle-render-canvas" id="canvasBottleBody">
+            <div class="bottle-cap"></div>
+            <div class="bottle-body-engraving-area">
+              <div id="liveEngravedText" class="engraved-text-preview pos-vertical">ARGA PRATAMA</div>
+            </div>
+          </div>
+
+          <div class="bps-specs-summary mono">
+            <span>Kapasitas: 500ml</span>
+            <span>•</span>
+            <span>Tahan Es: 24 Jam</span>
+            <span>•</span>
+            <span>Grafir: Gratis</span>
+          </div>
+
+          <button class="btn-add-engraved" onclick="addEngravedBottleToCart()">
+            + Pesan Botol dengan Grafir Ini (Rp 159.000)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Uji Ketahanan Suhu 24 Jam -->
+  <section class="timeline-section" id="uji-suhu">
+    <div class="container">
+      <div class="timeline-card-box">
+        <div class="section-header-center" style="margin-bottom: 20px;">
+          <span class="section-tag">HASIL UJI LABORATORIUM</span>
+          <h2 class="section-title">Timeline Ketahanan Suhu Es 24 Jam</h2>
+          <p class="section-subtitle">Dinding vakum ganda mencegah transfer panas radiasi dan konduksi, menjaga suhu dalam botol tetap stabil tanpa embun luar.</p>
+        </div>
+
+        <div class="temp-timeline-grid">
+          <div class="temp-step-card">
+            <span class="tsc-hour-badge mono">0 JAM (AWAL)</span>
+            <div class="tsc-temp-val mono">4°C</div>
+            <div class="tsc-state">Es Batu Penuh Padat</div>
+            <p class="tsc-desc">Es batu dan air dingin dimasukkan. Dinding luar botol tetap kering dan nyaman digenggam.</p>
+          </div>
+
+          <div class="temp-step-card">
+            <span class="tsc-hour-badge mono">6 JAM (SIANG TERIK)</span>
+            <div class="tsc-temp-val mono">5°C</div>
+            <div class="tsc-state">Kopi Es Masih Beku</div>
+            <p class="tsc-desc">Meskipun ditinggal di dalam mobil yang terparkir di bawah terik matahari, es di dalam botol tetap utuh.</p>
+          </div>
+
+          <div class="temp-step-card">
+            <span class="tsc-hour-badge mono">12 JAM (SORE HARI)</span>
+            <div class="tsc-temp-val mono">7°C</div>
+            <div class="tsc-state">Sangat Dingin Menyegarkan</div>
+            <p class="tsc-desc">Suhu air tetap sedingin air baru keluar dari kulkas. Ideal untuk pulang kantor atau berolahraga.</p>
+          </div>
+
+          <div class="temp-step-card">
+            <span class="tsc-hour-badge mono">24 JAM (SEHARI PENUH)</span>
+            <div class="tsc-temp-val mono">10°C</div>
+            <div class="tsc-state">Masih Tersisa Es Batu</div>
+            <p class="tsc-desc">Masih terdapat pecahan es batu padat mengapung di permukaan. Bukti nyata kualitas insulasi vakum kami.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog Section -->
+  <section class="catalog-section" id="koleksi">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">KATALOG PRODUK SIAP KIRIM</span>
+        <h2 class="section-title">Pilihan Model Botol & Tumbler</h2>
+        <p class="section-subtitle">Semua model terbuat dari Stainless Steel 304 food-grade dan sudah termasuk layanan grafir laser nama kustom gratis.</p>
+      </div>
+
+      <div class="catalog-filter-tabs">
+        <button class="filter-tab-btn active" onclick="filterCatalog('all', this)">Semua Model</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('tumbler', this)">Tumbler Kopi 500ml</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('flask', this)">Botol Petualang 750ml</button>
+        <button class="filter-tab-btn" onclick="filterCatalog('jumbo', this)">Termos Jumbo 1000ml</button>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Item 1 -->
+        <div class="product-card" data-cat="tumbler">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1570784332176-fdd73da66f03?auto=format&fit=crop&w=800&q=80" alt="Tumbler Kopi Daily 500ml" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Best Seller</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Tumbler Kopi Daily 500ml</h3>
+              <p class="pc-desc">Bentuk ramping yang pas di cup holder mobil standar, tutup flip anti-tumpah, ideal untuk es americano harian.</p>
+              <div class="pc-specs mono">
+                <span>500ml</span>
+                <span>•</span>
+                <span>D: 7.2 cm</span>
+                <span>•</span>
+                <span>Anti Bocor</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 139.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Tumbler Kopi Daily 500ml', 139000, 'Oceanic Teal (500ml)', 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="product-card" data-cat="flask">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80" alt="Botol Termos Petualang 750ml" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Petualang</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Botol Termos Petualang 750ml</h3>
+              <p class="pc-desc">Kapasitas pas untuk hidrasi pendakian gunung atau bersepeda, dilengkapi pegangan handle kokoh anti licin.</p>
+              <div class="pc-specs mono">
+                <span>750ml</span>
+                <span>•</span>
+                <span>Baja 304</span>
+                <span>•</span>
+                <span>Dingin 24 Jam</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 175.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Botol Termos Petualang 750ml', 175000, 'Pine Slate (750ml)', 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="product-card" data-cat="jumbo">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80" alt="Termos Jumbo Ekspedisi 1000ml" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Ekspedisi</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Termos Jumbo Ekspedisi 1000ml</h3>
+              <p class="pc-desc">Volume 1 liter penuh untuk kebutuhan air minum seharian tanpa perlu isi ulang bolak-balik di gym atau perjalanan jauh.</p>
+              <div class="pc-specs mono">
+                <span>1000ml</span>
+                <span>•</span>
+                <span>Handle Kokoh</span>
+                <span>•</span>
+                <span>Heavy Duty</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 219.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Termos Jumbo Ekspedisi 1000ml', 219000, 'Glacial Mint (1000ml)', 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="product-card" data-cat="tumbler">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1589365278144-c9e705f843ba?auto=format&fit=crop&w=800&q=80" alt="Mug Termos Meja Kantor 400ml" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Meja Kerja</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Mug Termos Meja Kantor 400ml</h3>
+              <p class="pc-desc">Dilengkapi gagang pegangan nyaman dan tutup geser transparan, menjaga kopi seduh tetap panas hingga 6 jam.</p>
+              <div class="pc-specs mono">
+                <span>400ml</span>
+                <span>•</span>
+                <span>Gagang Ergonomis</span>
+                <span>•</span>
+                <span>Panas 6 Jam</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 129.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Mug Termos Meja Kantor 400ml', 129000, 'Slate Noir (400ml)', 'https://images.unsplash.com/photo-1589365278144-c9e705f843ba?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="product-card" data-cat="tumbler">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80" alt="Travel Flask Infuser Teh 500ml" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Dengan Infuser</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Travel Flask Infuser Teh 500ml</h3>
+              <p class="pc-desc">Dilengkapi saringan baja 304 lepas-pasang untuk menyeduh teh daun atau infused water buah tanpa ampas.</p>
+              <div class="pc-specs mono">
+                <span>500ml</span>
+                <span>•</span>
+                <span>Filter Baja 304</span>
+                <span>•</span>
+                <span>Infuser Set</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 159.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Travel Flask Infuser Teh 500ml', 159000, 'Alabaster White (500ml)', 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="product-card" data-cat="flask">
+          <div class="pc-img-wrap">
+            <img src="https://images.unsplash.com/photo-1536939459926-301728717817?auto=format&fit=crop&w=800&q=80" alt="Botol Olahraga Slim 600ml" loading="lazy" referrerpolicy="no-referrer">
+            <span class="pc-badge">Gym & Lari</span>
+          </div>
+          <div class="pc-content">
+            <div>
+              <h3 class="pc-title">Botol Olahraga Slim 600ml</h3>
+              <p class="pc-desc">Bodi slim yang mudah digenggam satu tangan, dilengkapi tutup sedotan silikon lembut untuk minum cepat saat olahraga.</p>
+              <div class="pc-specs mono">
+                <span>600ml</span>
+                <span>•</span>
+                <span>Tutup Sedotan</span>
+                <span>•</span>
+                <span>Bebas Bocor</span>
+              </div>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-price mono">Rp 149.000</span>
+              <button class="btn-add-cart-sm" onclick="addToCart('Botol Olahraga Slim 600ml', 149000, 'Frost Mint (600ml)', 'https://images.unsplash.com/photo-1536939459926-301728717817?auto=format&fit=crop&w=200&q=80')">+ Beli</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bundling Set Section -->
+  <section class="bundling-section" id="bundling">
+    <div class="container">
+      <div class="bundling-box">
+        <div>
+          <h2 class="bb-title">Paket Lengkap Kelana Pro Explorer Set</h2>
+          <p class="bb-desc">Solusi lengkap untuk menjaga kebersihan dan kepraktisan botol termos Anda saat bepergian ke kantor maupun pendakian luar ruangan.</p>
+          <ul class="bb-included-list">
+            <li><span class="bb-check">✓</span> 1x Botol Termos 750ml (Warna & Grafir Bebas Pilih)</li>
+            <li><span class="bb-check">✓</span> 1x Sedotan Stainless Steel 304 Reusable</li>
+            <li><span class="bb-check">✓</span> 1x Sikat Pembersih Panjang Anti Gores</li>
+            <li><span class="bb-check">✓</span> 1x Tas Pouch Neoprene Pelindung Benturan</li>
+          </ul>
+          <button class="btn-bundling" onclick="addBundlingToCart()">
+            <span>Pesan Paket Lengkap (Rp 225.000)</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <div class="bb-visual-card">
+          <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" alt="Paket Bundling Botol Termos dan Aksesoris" loading="lazy" referrerpolicy="no-referrer">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Care Guide Section -->
+  <section class="care-section" id="perawatan">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">PANDUAN PERAWATAN ATELIER</span>
+        <h2 class="section-title">Merawat Botol Stainless Steel Anda</h2>
+        <p class="section-subtitle">Langkah mudah untuk menjaga performa insulasi vakum dan kebersihan botol agar tetap awet bertahun-tahun.</p>
+      </div>
+
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-icon">🫧</div>
+          <h3 class="care-title">Cuci dengan Spons Lembut</h3>
+          <p class="care-desc">Gunakan sabun cuci piring lembut dan spons halus. Hindari serabut kawat agar lapisan coating luar tidak tergores.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon">🍋</div>
+          <h3 class="care-title">Hilangkan Noda Kopi</h3>
+          <p class="care-desc">Campurkan 1 sendok teh baking soda dengan air hangat, diamkan 30 menit, lalu bilas bersih untuk menghilangkan sisa aroma kopi pekat.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon">🛡️</div>
+          <h3 class="care-title">Rawat Karet Silikon</h3>
+          <p class="care-desc">Lepas karet seal penutup secara berkala untuk dibersihkan dan dikeringkan agar tetap elastis dan kedap udara 100%.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon">🚫</div>
+          <h3 class="care-title">Jangan Masuk Freezer</h3>
+          <p class="care-desc">Dinding vakum tidak memerlukan pembekuan di freezer kulkas. Cukup masukkan potongan es batu langsung ke dalam botol.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">TIRTA KELANA</div>
+          <p class="footer-desc">
+            Atelier perlengkapan minum insulasi stainless steel lokal yang mengutamakan ketahanan suhu es 24 jam, bebas tumpah, dan personalisasi grafir laser nama permanen.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi Produk</h4>
+          <ul class="footer-links">
+            <li><a href="#koleksi">Tumbler Kopi 500ml</a></li>
+            <li><a href="#koleksi">Botol Petualang 750ml</a></li>
+            <li><a href="#studio-grafir">Studio Grafir Laser</a></li>
+            <li><a href="#uji-suhu">Uji Ketahanan Suhu</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Layanan Pelanggan</h4>
+          <ul class="footer-links">
+            <li><a href="#studio-grafir">Pesanan Korporat & Souvenir</a></li>
+            <li><a href="#">Garansi Kebocoran 1 Tahun</a></li>
+            <li><a href="#">Pengiriman Seluruh Nusantara</a></li>
+            <li><a href="#perawatan">Panduan Pembersihan</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Workshop & Pengiriman</h4>
+          <p class="footer-desc">
+            Studio Workshop: Kawasan Industri Kreatif No. 12, Bandung, Jawa Barat.<br>
+            WhatsApp CS: 0812-7788-9900<br>
+            Jam Operasional: Senin - Sabtu (08.00 - 18.00 WIB)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 TIRTA KELANA Atelier. Hak Cipta Dilindungi.</div>
+        <div class="mono">Template NECTOR.UI • Anti-Slop Craft Standard</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3 class="dh-title">Tas Belanja Anda</h3>
+      <button class="btn-close-drawer" onclick="toggleCart()">&times;</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="cart-items-list" id="cartItemsContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="drawer-total-row">
+        <span class="dtr-lbl">Subtotal Pesanan</span>
+        <span class="dtr-val mono" id="drawerSubtotal">Rp 0</span>
+      </div>
+
+      <div class="form-buyer-info">
+        <input type="text" id="buyerName" placeholder="Nama Lengkap Pemesan" value="Dimas Prasetyo">
+        <input type="text" id="buyerCity" placeholder="Kota Pengiriman (contoh: Jakarta Pusat)" value="Jakarta Pusat">
+      </div>
+
+      <button class="btn-whatsapp-checkout" onclick="checkoutWhatsApp()">
+        <span>Pesan Langsung via WhatsApp</span>
+        <span>→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg">Kode warna berhasil disalin!</div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Shopping Cart State
+    let cart = [
+      {
+        name: 'Tumbler Kopi Daily 500ml',
+        price: 139000,
+        variant: 'Oceanic Teal (500ml) • Grafir: DIMAS',
+        img: 'https://images.unsplash.com/photo-1570784332176-fdd73da66f03?auto=format&fit=crop&w=200&q=80',
+        qty: 1
+      }
+    ];
+
+    // Studio State
+    let studioColor = '#395B64';
+    let studioColorName = 'Oceanic Pine Teal';
+    let studioFont = 'sans';
+    let studioPos = 'vertical';
+    let studioText = 'ARGA PRATAMA';
+
+    function setStudioColor(hex, name) {
+      studioColor = hex;
+      studioColorName = name;
+      const canvas = document.getElementById('canvasBottleBody');
+      canvas.style.backgroundColor = hex;
+
+      // Adjust text shadow or contrast for light color
+      const text = document.getElementById('liveEngravedText');
+      if (hex === '#E7F6F2' || hex === '#A5C9CA') {
+        text.style.color = '#2C3333';
+        text.style.textShadow = 'none';
+        if (text.classList.contains('pos-monogram')) {
+          text.style.borderColor = '#2C3333';
+        }
+      } else {
+        text.style.color = 'rgba(255, 255, 255, 0.85)';
+        text.style.textShadow = '0 1px 2px rgba(0, 0, 0, 0.4)';
+        if (text.classList.contains('pos-monogram')) {
+          text.style.borderColor = 'rgba(255, 255, 255, 0.8)';
+        }
+      }
+
+      const buttons = document.querySelectorAll('.color-pill-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    }
+
+    function updateEngravingText(val) {
+      studioText = val.toUpperCase().trim() || 'NAMA ANDA';
+      const textEl = document.getElementById('liveEngravedText');
+      if (studioPos === 'monogram') {
+        textEl.innerText = studioText.charAt(0) || 'A';
+      } else {
+        textEl.innerText = studioText;
+      }
+    }
+
+    function setFontStyle(font, btn) {
+      studioFont = font;
+      const textEl = document.getElementById('liveEngravedText');
+      if (font === 'sans') {
+        textEl.style.fontFamily = 'var(--font-body)';
+      } else if (font === 'serif') {
+        textEl.style.fontFamily = 'Georgia, serif';
+      } else if (font === 'mono') {
+        textEl.style.fontFamily = 'var(--font-mono)';
+      }
+
+      document.querySelectorAll('.font-opt-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function setPosition(pos, btn) {
+      studioPos = pos;
+      const textEl = document.getElementById('liveEngravedText');
+      textEl.className = 'engraved-text-preview';
+
+      if (pos === 'vertical') {
+        textEl.classList.add('pos-vertical');
+        textEl.innerText = studioText;
+      } else if (pos === 'bottom') {
+        textEl.classList.add('pos-bottom');
+        textEl.innerText = studioText;
+      } else if (pos === 'monogram') {
+        textEl.classList.add('pos-monogram');
+        textEl.innerText = studioText.charAt(0) || 'A';
+      }
+
+      document.querySelectorAll('.pos-opt-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function addEngravedBottleToCart() {
+      const posLabel = studioPos === 'vertical' ? 'Vertikal' : (studioPos === 'bottom' ? 'Bawah' : 'Monogram');
+      const variantDesc = `${studioColorName} • Grafir: "${studioText}" (${posLabel})`;
+      addToCart('Botol Termos Custom Grafir 500ml', 159000, variantDesc, 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=200&q=80');
+      showToast('✓ Botol kustom grafir berhasil ditambahkan ke tas!');
+    }
+
+    function addBundlingToCart() {
+      addToCart('Paket Lengkap Kelana Pro Explorer Set', 225000, 'Botol 750ml + Sedotan + Sikat + Pouch', 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=200&q=80');
+      showToast('✓ Paket Bundling berhasil ditambahkan ke tas!');
+    }
+
+    // Filter Catalog
+    function filterCatalog(category, btn) {
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.cat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Cart Operations
+    function addToCart(name, price, variant, img) {
+      const existing = cart.find(i => i.name === name && i.variant === variant);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, variant, img, qty: 1 });
+      }
+      renderCart();
+      showToast('✓ ' + name + ' ditambahkan ke tas!');
+    }
+
+    function changeQty(idx, delta) {
+      if (cart[idx]) {
+        cart[idx].qty += delta;
+        if (cart[idx].qty <= 0) {
+          cart.splice(idx, 1);
+        }
+        renderCart();
+      }
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      const badge = document.getElementById('cartCount');
+      const subtotalEl = document.getElementById('drawerSubtotal');
+
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge.innerText = totalCount;
+
+      let subtotal = 0;
+      if (cart.length === 0) {
+        container.innerHTML = '<div style="text-align:center; padding: 40px 0; color: #738A8C;">Tas belanja Anda masih kosong.<br>Silakan pilih botol idaman Anda.</div>';
+        subtotalEl.innerText = 'Rp 0';
+        return;
+      }
+
+      let html = '';
+      cart.forEach((item, idx) => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        html += `
+          <div class="cart-item-row">
+            <div class="cir-thumb">
+              <img src="${item.img}" alt="${item.name}">
+            </div>
+            <div class="cir-details">
+              <div class="cir-name">${item.name}</div>
+              <div class="cir-meta">${item.variant}</div>
+              <div class="cir-price mono">Rp ${item.price.toLocaleString('id-ID')}</div>
+              <div class="cir-qty-ctrl">
+                <button class="btn-qty" onclick="changeQty(${idx}, -1)">−</button>
+                <span class="cir-qty-val mono">${item.qty}</span>
+                <button class="btn-qty" onclick="changeQty(${idx}, 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      subtotalEl.innerText = 'Rp ' + subtotal.toLocaleString('id-ID');
+    }
+
+    function toggleCart() {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      drawer.classList.toggle('open');
+      overlay.classList.toggle('open');
+    }
+
+    // Checkout via WhatsApp
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Tas belanja Anda masih kosong!');
+        return;
+      }
+
+      const buyer = document.getElementById('buyerName').value.trim() || 'Pelanggan Tirta Kelana';
+      const city = document.getElementById('buyerCity').value.trim() || 'Jakarta';
+      
+      let total = 0;
+      let itemsList = '';
+      cart.forEach((item, i) => {
+        const lineTotal = item.price * item.qty;
+        total += lineTotal;
+        itemsList += `${i + 1}. ${item.name} (${item.variant}) x${item.qty} = Rp ${lineTotal.toLocaleString('id-ID')}\n`;
+      });
+
+      const message = 
+`Halo Admin TIRTA KELANA, saya ingin memesan botol termos insulasi berikut:
+
+Nama Pemesan: ${buyer}
+Kota Tujuan: ${city}
+
+Daftar Pesanan:
+${itemsList}
+Total Nilai Pesanan: Rp ${total.toLocaleString('id-ID')}
+
+Mohon konfirmasi ketersediaan stok botol dan instruksi pembayaran. Terima kasih!`;
+
+      const encoded = encodeURIComponent(message);
+      window.open(`https://api.whatsapp.com/send?phone=6281277889900&text=${encoded}`, '_blank');
+    }
+
+    // Copy Hex to Clipboard
+    function copyHex(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        showToast('Kode ' + hex + ' berhasil disalin!');
+      }).catch(() => {
+        showToast('Warna ' + hex + ' dipilih');
+      });
+    }
+
+    // Toast message display
+    function showToast(text) {
+      const toast = document.getElementById('toastMsg');
+      toast.innerText = text;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+    });
+  </script>
+</body>
+</html>

@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'tumbler',
+      title: 'Botol Termos & Tumbler Grafir',
+      icon: GlassWater,
+      desc: 'Atelier botol termos stainless steel 304 insulasi vakum dingin 24 jam, tumbler kopi anti tumpah, simulator grafir laser nama kustom live, uji ketahanan suhu, dan pemesanan WhatsApp instan.',
+      accent: '#395B64'
+    },
+    {
       id: 'scarf',
       title: 'Scarf & Hijab Voal Ultrafine',
       icon: Sparkles,
