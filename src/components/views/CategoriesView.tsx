@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'flower',
+      title: 'Bunga Abadi (Preserved) & Buket Wisuda',
+      icon: Flower2,
+      desc: 'Atelier bunga abadi mawar preserved asli tahan 3-5 tahun tanpa air, kubah kaca cloche lampu LED fairy lights, buket bunga kering wisuda, box akrilik seserahan kustom, dan pemesanan WhatsApp instan.',
+      accent: '#8675A9'
+    },
+    {
       id: 'soap',
       title: 'Sabun Mandi Alami & Kulit Sensitif',
       icon: Droplets,

@@ -3,6 +3,84 @@ import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
+    id: 'tpl-57',
+    slug: 'mekar-abadi-bunga-kering',
+    title: 'MEKAR ABADI',
+    tagline: 'Atelier bunga abadi mawar preserved tahan 3-5 tahun, buket wisuda & kubah kaca LED',
+    description: 'Template website atelier bunga abadi (preserved flowers) dan dried flower bouquet Nusantara yang menghadirkan rangkaian mawar potong segar yang diawetkan menggunakan cairan gliserin nabati alami sehingga tetap lentur, lembut, dan mekar sempurna selama 3 hingga 5 tahun tanpa perlu disiram. Dirancang dengan standar anti-slop tinggi yang berfokus langsung pada produk fisik nyata: preview kubah kaca cloche dengan switch interaktif Mode Siang / Mode Malam berlampu LED fairy lights, perakit hadiah kado kustom (Custom Gift & Cloche Builder) 4 langkah dengan kalkulator harga dinamis, swatch palet warna dengan tombol klik salin heksadesimal instan, katalog buket wisuda dan box akrilik cincin seserahan, serta drawer keranjang terhubung ke WhatsApp Admin.',
+    category: 'flower',
+    tags: ['Bunga Abadi', 'Preserved Flowers', 'Buket Wisuda', 'Kubah Kaca LED', 'Dried Flowers', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Interactive Cloche Switch', 'Custom Flower Builder', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'flower',
+    previewComponentKey: 'flower-mekar-abadi',
+    htmlPath: '/templates/flower/mekar-abadi-bunga-kering.html',
+    htmlFolderPath: 'templates/flower/mekar-abadi-bunga-kering.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
+      'Palet harmoni peach blossom & amethyst: soft peach (#FFD5CD), sakura pink (#EFBBCF), lavender lilac (#C3AED6), royal amethyst (#8675A9)',
+      'Preview interaktif kubah kaca lampu LED dengan toggle Mode Siang (cahaya alami) vs Mode Malam (lampu LED menyala hangat)',
+      'Perakit kado kustom (Custom Flower Gift Builder) 4 langkah dengan kalkulator harga instan dan formulir pesan kartu wax seal',
+      'Swatch warna koleksi interaktif dengan fitur salin kode hex sekali klik ke clipboard',
+      'Katalog koleksi siap kirim dengan filter momen wisuda, kubah kaca, seserahan nikah, dan dekorasi ruangan',
+      'Drawer keranjang belanja slide-over dengan formulir kota tujuan dan pembuatan format pesan checkout WhatsApp instan'
+    ],
+    usageInstructions: [
+      'Buka berkas public/templates/flower/mekar-abadi-bunga-kering.html di text editor pilihan Anda.',
+      'Sesuaikan daftar harga, varian warna mawar preserved, dan pilihan bunga filler sesuai katalog florist Anda.',
+      'Ubah nomor WhatsApp admin pada fungsi checkout untuk menerima pesanan langsung dari pelanggan.',
+      'Jalankan langsung di browser atau uji responsivitasnya melalui etalase NECTOR.UI.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'mekar-abadi-bunga-kering.html',
+        language: 'html',
+        content: `<!-- MEKAR ABADI — NECTOR.UI Preserved & Dried Flower Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>MEKAR ABADI — Atelier Bunga Abadi (Preserved) & Buket Wisuda Nusantara</title>
+  <style>
+    :root {
+      --color-peach: #FFD5CD;
+      --color-pink: #EFBBCF;
+      --color-lilac: #C3AED6;
+      --color-amethyst: #8675A9;
+      --bg-canvas: #FBF9F7;
+      --text-ink: #241B2D;
+      --text-muted: #5C4E6B;
+    }
+  </style>
+</head>
+<body>
+  <h1>MEKAR ABADI</h1>
+  <p>Keindahan bunga asli yang mekar abadi 3–5 tahun tanpa perlu disiram.</p>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS lengkap dengan cloche switch, custom gift builder, dan checkout WhatsApp.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt untuk website e-commerce atelier bunga abadi MEKAR ABADI berkonsep preserved flowers, buket bunga kering wisuda & kubah kaca lampu LED.',
+      designDirection: 'Dominasi warna soft peach (#FFD5CD), sakura pink (#EFBBCF), lavender lilac (#C3AED6), dan deep amethyst plum (#8675A9). Latar belakang ivori hangat bertekstur dot grid lembut dengan kontras teks arang aubergine (#241B2D) berstandar AAA.',
+      layoutAndGrid: 'Asymmetric editorial hero grid dengan interactive cloche preview, bar palet warna klik-salin hex, custom gift builder 4 langkah, dan katalog filter momen.',
+      typographyAndColor: 'Headings dalam serif klasik Cormorant Garamond, body teks dalam Plus Jakarta Sans, dimensi ukuran kubah dan harga dalam JetBrains Mono.',
+      interactions: 'Toggle Mode Siang/Malam kubah kaca LED, copy-to-clipboard hex warna sekali klik, custom gift builder dengan kalkulasi harga langsung, dan drawer keranjang WhatsApp.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, zero dependencies, valid W3C markup.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#8675A9',
+    colorPalette: [
+      { hex: '#FFD5CD', rgb: 'rgb(255, 213, 205)', name: 'Soft Peach Blossom', role: 'Warna Kelopak Mawar Peach, Aksen Hangat & Highlight' },
+      { hex: '#EFBBCF', rgb: 'rgb(239, 187, 207)', name: 'Sakura Rose Pink', role: 'Warna Baby\'s Breath, Aksen Kado & Pita Halus' },
+      { hex: '#C3AED6', rgb: 'rgb(195, 174, 214)', name: 'Soft Lavender Lilac', role: 'Warna Bunga Statice & French Lavender Kering' },
+      { hex: '#8675A9', rgb: 'rgb(134, 117, 169)', name: 'Deep Amethyst Plum', role: 'Warna Aksen Utama, Tombol Kontras & Pita Beludru' }
+    ]
+  },
+  {
     id: 'tpl-56',
     slug: 'embun-mandi-sabun-alami',
     title: 'EMBUN MANDI',

@@ -1,0 +1,2259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEKAR ABADI — Atelier Bunga Abadi (Preserved) & Buket Wisuda Nusantara</title>
+  <meta name="description" content="Atelier bunga mawar asli preserved tahan 3-5 tahun tanpa air, kubah kaca cloche lampu LED fairy lights, buket bunga kering wisuda, dan box akrilik seserahan pernikahan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Palette dari Foto Referensi */
+      --color-peach: #FFD5CD;
+      --color-pink: #EFBBCF;
+      --color-lilac: #C3AED6;
+      --color-amethyst: #8675A9;
+      --color-amethyst-dark: #6C5A91;
+
+      /* UI & Kanvas */
+      --bg-canvas: #FBF9F7;
+      --bg-surface: #FFFFFF;
+      --bg-surface-elevated: #FFFFFF;
+      --bg-peach-soft: #FFF2EF;
+      --bg-lilac-soft: #F4EFF9;
+
+      /* Teks Kontras Tinggi (AAA 12:1) */
+      --text-ink: #241B2D;
+      --text-muted: #5C4E6B;
+      --text-subtle: #847693;
+
+      /* Border & Hairline */
+      --border-hairline: #E8E0F0;
+      --border-focus: #8675A9;
+
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(134, 117, 169, 0.08);
+      --shadow-md: 0 8px 24px rgba(134, 117, 169, 0.12);
+      --shadow-lg: 0 16px 40px rgba(134, 117, 169, 0.16);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-canvas);
+      /* Subtle micro dot grid pattern untuk variasi tekstur */
+      background-image: radial-gradient(rgba(134, 117, 169, 0.14) 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      color: var(--text-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-ink);
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Notice Bar */
+    .announcement-bar {
+      background: linear-gradient(90deg, #8675A9, #6C5A91);
+      color: #FFFFFF;
+      font-size: 13px;
+      padding: 9px 16px;
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .announcement-bar strong {
+      color: var(--color-peach);
+      font-weight: 700;
+    }
+
+    /* Header & Navigation */
+    header.site-header {
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .brand-logo .brand-name {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-ink);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .brand-logo .brand-tagline {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-amethyst);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 3px;
+    }
+
+    nav.nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    nav.nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 14.5px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    nav.nav-links a:hover {
+      color: var(--color-amethyst);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-cart-toggle {
+      background-color: var(--bg-lilac-soft);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-ink);
+      padding: 9px 16px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-cart-toggle:hover {
+      background-color: #EBDFF3;
+      border-color: var(--color-amethyst);
+    }
+    .cart-badge {
+      background-color: var(--color-amethyst);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+    }
+
+    .btn-primary {
+      background-color: var(--color-amethyst);
+      color: #FFFFFF;
+      padding: 11px 22px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(134, 117, 169, 0.3);
+      transition: all 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: var(--color-amethyst-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(134, 117, 169, 0.4);
+    }
+
+    .btn-outline {
+      background-color: #FFFFFF;
+      color: var(--text-ink);
+      border: 1.5px solid var(--border-hairline);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-outline:hover {
+      border-color: var(--color-amethyst);
+      color: var(--color-amethyst);
+      background-color: var(--bg-lilac-soft);
+    }
+
+    /* Hero Section */
+    section.hero-section {
+      padding: 56px 0 48px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-lilac-soft);
+      border: 1px solid var(--border-hairline);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--color-amethyst);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-kicker .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--color-amethyst);
+    }
+    .hero-title {
+      font-size: 52px;
+      line-height: 1.08;
+      margin-bottom: 22px;
+      color: var(--text-ink);
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 38px;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .metric-item .metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-amethyst);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .metric-item .metric-label {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* Interactive Cloche Dome Stage */
+    .hero-cloche-stage {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      transition: all 0.4s ease;
+    }
+    .cloche-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .cloche-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-ink);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    /* Mode Switch Controls */
+    .mode-switch-bar {
+      display: flex;
+      background-color: var(--bg-canvas);
+      padding: 3px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-hairline);
+    }
+    .mode-btn {
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+    .mode-btn.active {
+      background-color: var(--color-amethyst);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(134, 117, 169, 0.3);
+    }
+
+    /* Cloche Dome Visual Display */
+    .cloche-display {
+      height: 380px;
+      border-radius: var(--radius-md);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      background: linear-gradient(180deg, #FDFCFB 0%, #F5F0F8 100%);
+      border: 1px solid var(--border-hairline);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Night Mode Styling */
+    .hero-cloche-stage.night-mode .cloche-display {
+      background: linear-gradient(180deg, #1A1324 0%, #291E38 100%);
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+    }
+    .hero-cloche-stage.night-mode .cloche-dome-glow {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .hero-cloche-stage.night-mode .led-fairy-sparkle {
+      opacity: 1;
+    }
+
+    .cloche-dome-glow {
+      position: absolute;
+      width: 240px;
+      height: 310px;
+      background: radial-gradient(circle, rgba(255, 213, 205, 0.45) 0%, rgba(239, 187, 207, 0.25) 50%, transparent 75%);
+      filter: blur(20px);
+      top: 30px;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.6s ease;
+      pointer-events: none;
+    }
+
+    .cloche-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .cloche-caption {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .hero-cloche-stage.night-mode .cloche-caption {
+      background: rgba(36, 27, 45, 0.88);
+      border-top-color: rgba(195, 174, 214, 0.2);
+      color: #FFFFFF;
+    }
+    .cloche-caption-text h4 {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    .hero-cloche-stage.night-mode .cloche-caption-text h4 {
+      color: #FFFFFF;
+    }
+    .cloche-caption-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .hero-cloche-stage.night-mode .cloche-caption-text p {
+      color: var(--color-peach);
+    }
+    .cloche-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-amethyst);
+    }
+    .hero-cloche-stage.night-mode .cloche-price {
+      color: var(--color-peach);
+    }
+
+    /* Color Swatch Bar (Permintaan User: Ada buletan warnanya lalu bisa di salin) */
+    section.palette-strip-section {
+      padding: 24px 0 36px;
+    }
+    .palette-container-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 22px 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .palette-info h4 {
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+    .palette-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .palette-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .color-swatch-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .color-swatch-chip:hover {
+      border-color: var(--color-amethyst);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .swatch-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+    .swatch-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-ink);
+    }
+    .swatch-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      background-color: rgba(0, 0, 0, 0.04);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .swatch-copy-icon {
+      font-size: 12px;
+      color: var(--color-amethyst);
+    }
+
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+    .section-subtitle {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--color-amethyst);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .section-title {
+      font-size: 38px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 15.5px;
+      color: var(--text-muted);
+    }
+
+    /* Trust Pillars / Edukasi Preserved */
+    section.pillars-section {
+      padding: 48px 0;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .pillar-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-amethyst);
+    }
+    .pillar-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+      background-color: var(--bg-lilac-soft);
+      color: var(--color-amethyst);
+    }
+    .pillar-title {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .pillar-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Custom Gift Builder Section */
+    section.builder-section {
+      padding: 64px 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 36px;
+      align-items: flex-start;
+    }
+    .builder-step-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--color-amethyst);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .step-title {
+      font-size: 20px;
+    }
+
+    /* Option Grid Items */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .option-radio-card {
+      border: 1.5px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background-color: var(--bg-canvas);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .option-radio-card:hover {
+      border-color: var(--color-lilac);
+      background-color: #FFFFFF;
+    }
+    .option-radio-card.selected {
+      border-color: var(--color-amethyst);
+      background-color: var(--bg-lilac-soft);
+      box-shadow: 0 0 0 1px var(--color-amethyst);
+    }
+    .option-label {
+      font-weight: 700;
+      font-size: 14.5px;
+      color: var(--text-ink);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .option-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .option-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--color-amethyst);
+    }
+
+    /* Builder Sticky Receipt Sidebar */
+    .builder-receipt-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 96px;
+    }
+    .receipt-title {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    .receipt-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--border-hairline);
+    }
+    .receipt-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 13.5px;
+    }
+    .receipt-item .item-label {
+      color: var(--text-muted);
+    }
+    .receipt-item .item-val {
+      font-weight: 600;
+      color: var(--text-ink);
+      text-align: right;
+    }
+    .receipt-divider {
+      height: 1px;
+      background-color: var(--border-hairline);
+      margin: 18px 0;
+    }
+    .receipt-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+    .receipt-total .total-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .receipt-total .total-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-amethyst);
+    }
+
+    /* Catalog Section */
+    section.catalog-section {
+      padding: 64px 0;
+    }
+    .catalog-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .filter-btn {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      border-color: var(--color-amethyst);
+      color: var(--color-amethyst);
+    }
+    .filter-btn.active {
+      background-color: var(--color-amethyst);
+      border-color: var(--color-amethyst);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(134, 117, 169, 0.25);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-lilac);
+    }
+    .product-image-wrap {
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-canvas);
+    }
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-image-wrap img {
+      transform: scale(1.05);
+    }
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--color-amethyst);
+      border: 1px solid var(--border-hairline);
+    }
+    .product-duration-tag {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background-color: rgba(36, 27, 45, 0.82);
+      color: #FFFFFF;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .product-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .product-category {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-amethyst);
+      margin-bottom: 6px;
+    }
+    .product-name {
+      font-size: 21px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .product-specs {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .product-specs span {
+      display: block;
+      color: var(--text-subtle);
+      font-size: 11.5px;
+      margin-top: 4px;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .product-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-amethyst);
+    }
+    .btn-add-cart {
+      background-color: var(--bg-lilac-soft);
+      color: var(--text-ink);
+      border: 1px solid var(--border-hairline);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-add-cart:hover {
+      background-color: var(--color-amethyst);
+      color: #FFFFFF;
+      border-color: var(--color-amethyst);
+    }
+
+    /* Care & Delivery Guide */
+    section.care-section {
+      padding: 64px 0;
+      background-color: var(--bg-lilac-soft);
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .care-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+    .care-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .care-card h4 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+    .care-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* FAQ Section */
+    section.faq-section {
+      padding: 64px 0;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 18px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-question:hover {
+      color: var(--color-amethyst);
+    }
+    .faq-answer {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      display: none;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faq-toggle-icon {
+      font-size: 18px;
+      color: var(--color-amethyst);
+      transition: transform 0.2s ease;
+    }
+    .faq-item.active .faq-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background-color: #241B2D;
+      color: #E8E0F0;
+      padding: 56px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer-brand h3 {
+      font-size: 28px;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .footer-brand p {
+      font-size: 13.5px;
+      color: #B9AEC9;
+      line-height: 1.6;
+      max-width: 320px;
+      margin-bottom: 18px;
+    }
+    .footer-col h5 {
+      font-size: 14px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 9px;
+    }
+    .footer-col ul li a {
+      color: #B9AEC9;
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: color 0.2s ease;
+    }
+    .footer-col ul li a:hover {
+      color: var(--color-peach);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      color: #8D819F;
+    }
+
+    /* Slide-over Cart Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(36, 27, 45, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 440px;
+      height: 100vh;
+      background-color: var(--bg-surface);
+      z-index: 1000;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-drawer-header h3 {
+      font-size: 20px;
+    }
+    .btn-close-drawer {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    .cart-items-body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+    }
+    .cart-empty-state {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text-muted);
+    }
+    .cart-item-row {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .cart-item-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background-color: var(--bg-canvas);
+    }
+    .cart-item-info {
+      flex-grow: 1;
+    }
+    .cart-item-title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .cart-item-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--color-amethyst);
+      font-weight: 600;
+    }
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-canvas);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qty-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+    .btn-remove-item {
+      background: none;
+      border: none;
+      color: #D9534F;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    .cart-drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-hairline);
+      background-color: var(--bg-canvas);
+    }
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .cart-subtotal-row .subtotal-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-amethyst);
+    }
+    .input-recipient {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      margin-bottom: 10px;
+      font-family: inherit;
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: #241B2D;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      z-index: 2000;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #25D366;
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 90;
+      transition: all 0.2s ease;
+    }
+    .floating-wa-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .care-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      nav.nav-links {
+        display: none;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 38px;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+      .palette-container-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-metrics {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    🌸 <strong>MEKAR ABADI:</strong> 100% Bunga Asli Awet 3–5 Tahun Tanpa Air • Gratis Kartu Ucapan Lilin Wax Seal • Garansi Pengiriman Anti-Pecah se-Indonesia
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-logo">
+        <span class="brand-name">MEKAR ABADI</span>
+        <span class="brand-tagline">Atelier Bunga Abadi & Buket Wisuda</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#katalog">Koleksi Siap Kirim</a>
+        <a href="#cloche">Kubah Kaca LED</a>
+        <a href="#builder">Perakit Kado Kustom</a>
+        <a href="#keunggulan">Mengapa Preserved?</a>
+        <a href="#perawatan">Perawatan</a>
+        <a href="#faq">Tanya Jawab</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-cart-toggle" onclick="toggleCartDrawer()">
+          🛒 Keranjang
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <a href="https://wa.me/6281234567890?text=Halo%20Mekar%20Abadi,%20saya%20ingin%20konsultasi%20pesanan%20bunga" target="_blank" class="btn-primary">
+          Konsultasi Buket
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-kicker">
+          <span class="dot"></span>
+          Preserved & Dried Floral Studio
+        </div>
+        <h1 class="hero-title">
+          Keindahan Bunga Asli yang Mekar Abadi 3–5 Tahun Tanpa Perlu Disiram.
+        </h1>
+        <p class="hero-desc">
+          Mawar potong segar pilihan diolah melalui proses dehidrasi gliserin nabati alami. Kelopak tetap lembut, lentur, dan merekah indah bertahun-tahun. Hadiah bermakna untuk momen wisuda, ulang tahun, seserahan pernikahan, dan dekorasi ruangan.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#katalog" class="btn-primary">Lihat Koleksi Siap Kirim</a>
+          <a href="#builder" class="btn-outline">Rancang Kado Kustom</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Bunga & Dedaunan Asli</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">3–5 Thn</div>
+            <div class="metric-label">Masa Simpan Tanpa Layu</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">0 Air</div>
+            <div class="metric-label">Bebas Perawatan Harian</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Cloche Stage with Day/Night Switch -->
+      <div class="hero-cloche-stage" id="clocheStage">
+        <div class="cloche-header">
+          <span class="cloche-title">✨ Kubah Kaca LED Interaktif</span>
+          <div class="mode-switch-bar">
+            <button class="mode-btn active" id="btnDayMode" onclick="setClocheMode('day')">
+              ☀️ Siang
+            </button>
+            <button class="mode-btn" id="btnNightMode" onclick="setClocheMode('night')">
+              🌙 Malam (LED On)
+            </button>
+          </div>
+        </div>
+
+        <div class="cloche-display" id="clocheDisplay">
+          <div class="cloche-dome-glow"></div>
+          <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=800&q=80" alt="Kubah Kaca Mawar Abadi dengan Lampu Fairy Lights" class="cloche-image" id="clocheImg">
+          
+          <div class="cloche-caption">
+            <div class="cloche-caption-text">
+              <h4>Kubah Kaca Mawar Peach & Fairy Lights</h4>
+              <p id="clocheModeDesc">Mode Siang: Cahaya natural lembut di ruang tamu</p>
+            </div>
+            <div class="cloche-price">Rp 385.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color Swatch Strip (Permintaan User: Ada buletan warnanya lalu bisa di salin) -->
+  <section class="palette-strip-section">
+    <div class="container">
+      <div class="palette-container-box">
+        <div class="palette-info">
+          <h4>🎨 Palet Harmoni Warna Koleksi</h4>
+          <p>Klik lingkaran warna di bawah untuk menyalin kode heksadesimal ke clipboard Anda:</p>
+        </div>
+        <div class="palette-swatches">
+          <div class="color-swatch-chip" onclick="copyColorHex('#FFD5CD', 'Peach Blossom')">
+            <div class="swatch-circle" style="background-color: #FFD5CD;"></div>
+            <span class="swatch-label">Peach Blossom</span>
+            <span class="swatch-hex">#FFD5CD</span>
+            <span class="swatch-copy-icon">📋</span>
+          </div>
+
+          <div class="color-swatch-chip" onclick="copyColorHex('#EFBBCF', 'Sakura Pink')">
+            <div class="swatch-circle" style="background-color: #EFBBCF;"></div>
+            <span class="swatch-label">Sakura Pink</span>
+            <span class="swatch-hex">#EFBBCF</span>
+            <span class="swatch-copy-icon">📋</span>
+          </div>
+
+          <div class="color-swatch-chip" onclick="copyColorHex('#C3AED6', 'Lavender Lilac')">
+            <div class="swatch-circle" style="background-color: #C3AED6;"></div>
+            <span class="swatch-label">Lavender Lilac</span>
+            <span class="swatch-hex">#C3AED6</span>
+            <span class="swatch-copy-icon">📋</span>
+          </div>
+
+          <div class="color-swatch-chip" onclick="copyColorHex('#8675A9', 'Amethyst Plum')">
+            <div class="swatch-circle" style="background-color: #8675A9;"></div>
+            <span class="swatch-label">Amethyst Plum</span>
+            <span class="swatch-hex">#8675A9</span>
+            <span class="swatch-copy-icon">📋</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mengapa Memilih Bunga Abadi (Pillars) -->
+  <section class="pillars-section" id="keunggulan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Teknologi Preservasi Ramah Lingkungan</span>
+        <h2 class="section-title">Mengapa Bunga Preserved Mekar Abadi?</h2>
+        <p class="section-desc">Bukan bunga plastik tiruan atau bunga kering biasa yang mudah rontok. Kenali keunggulan bunga mawar preserved asli.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🌹</div>
+          <h3 class="pillar-title">100% Bunga Mawar Asli</h3>
+          <p class="pillar-text">Bukan kain atau plastik. Dipetik langsung dari kebun dataran tinggi saat kuncup mekar sempurna dan diawetkan dengan gliserin tumbuhan alami.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">⏳</div>
+          <h3 class="pillar-title">Mekar 3 Hingga 5 Tahun</h3>
+          <p class="pillar-text">Tekstur kelopak tetap lembut, elastis, dan lentur disentuh. Tidak mengering kaku, tidak rontok berserakan, dan tidak akan membusuk.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🌿</div>
+          <h3 class="pillar-title">Hipoalergenik Bebas Serbuk</h3>
+          <p class="pillar-text">Proses preservasi menonaktifkan serbuk sari (pollen-free), sehingga aman ditempatkan di kamar tidur, aman bagi penderita asma dan bayi.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">💧</div>
+          <h3 class="pillar-title">Nol Perawatan Rutin</h3>
+          <p class="pillar-text">Tidak perlu repot memotong tangkai, tidak perlu mengganti air vas tiap hari, dan tidak butuh sinar matahari. Cukup nikmati keindahannya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Custom Gift Builder -->
+  <section class="builder-section" id="builder">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Studio Kreasi Kustom</span>
+        <h2 class="section-title">Rakit Hadiah Bunga Impian Anda</h2>
+        <p class="section-desc">Sesuaikan bentuk wadah, warna mawar abadi, filler bunga kering, serta kartu ucapan lilin stempel wax seal.</p>
+      </div>
+
+      <div class="builder-grid">
+        <!-- Builder Interactive Steps -->
+        <div class="builder-steps-col">
+          <!-- Step 1: Wadah / Format -->
+          <div class="builder-step-card" style="margin-bottom: 24px;">
+            <div class="step-header">
+              <span class="step-number">1</span>
+              <h3 class="step-title">Pilih Format & Wadah Rangkaian</h3>
+            </div>
+            <div class="options-grid">
+              <div class="option-radio-card selected" onclick="selectBuilderOption('format', 'cloche', 385000, 'Kubah Kaca Lampu LED (14x22cm)', this)">
+                <div class="option-label">
+                  <span>Kubah Kaca LED</span>
+                  <span>✨ Populer</span>
+                </div>
+                <div class="option-desc">Tutup kaca dome tebal dengan tatakan kayu pinus & lampu fairy lights baterai.</div>
+                <div class="option-price">Rp 385.000</div>
+              </div>
+
+              <div class="option-radio-card" onclick="selectBuilderOption('format', 'bouquet', 265000, 'Buket Wisuda Wrapping Rami', this)">
+                <div class="option-label">
+                  <span>Buket Wisuda Rami</span>
+                  <span>🎓 Wisuda</span>
+                </div>
+                <div class="option-desc">Buket genggam elegan dibalut kain rami premium, pita satin & boneka wisuda opsional.</div>
+                <div class="option-price">Rp 265.000</div>
+              </div>
+
+              <div class="option-radio-card" onclick="selectBuilderOption('format', 'acrylic', 340000, 'Box Akrilik Ring Seserahan', this)">
+                <div class="option-label">
+                  <span>Box Akrilik Seserahan</span>
+                  <span>💍 Nikah</span>
+                </div>
+                <div class="option-desc">Kotak akrilik bening kristal dengan bantalan beludru amethyst untuk sepasang cincin.</div>
+                <div class="option-price">Rp 340.000</div>
+              </div>
+
+              <div class="option-radio-card" onclick="selectBuilderOption('format', 'minidome', 195000, 'Mini Dome Meja Belajar', this)">
+                <div class="option-label">
+                  <span>Mini Cloche Meja</span>
+                  <span>🪴 Meja</span>
+                </div>
+                <div class="option-desc">Kubah mini berdiameter 9cm x tinggi 15cm, manis untuk kado sahabat dan hiasan meja.</div>
+                <div class="option-price">Rp 195.000</div>
+              </div>
+            </div>
+
+            <!-- Step 2: Warna Utama Mawar Preserved -->
+            <div class="step-header">
+              <span class="step-number">2</span>
+              <h3 class="step-title">Pilih Warna Mawar Preserved Grade A</h3>
+            </div>
+            <div class="options-grid">
+              <div class="option-radio-card selected" onclick="selectBuilderOption('color', 'peach', 0, 'Peach Blossom (#FFD5CD)', this)">
+                <div class="option-label">
+                  <span>Peach Blossom</span>
+                  <div class="swatch-circle" style="background-color: #FFD5CD;"></div>
+                </div>
+                <div class="option-desc">Nuansa hangat aprikot muda, memberi kesan tenang, anggun, dan tulus.</div>
+                <div class="option-price">Termasuk</div>
+              </div>
+
+              <div class="option-radio-card" onclick="selectBuilderOption('color', 'pink', 0, 'Sakura Pink (#EFBBCF)', this)">
+                <div class="option-label">
+                  <span>Sakura Pink</span>
+                  <div class="swatch-circle" style="background-color: #EFBBCF;"></div>
+                </div>
+                <div class="option-desc">Merah muda pastel feminin nan lembut untuk kado hari kasih sayang & wisuda.</div>
+                <div class="option-price">Termasuk</div>
+              </div>
+
+              <div class="option-radio-card" onclick="selectBuilderOption('color', 'lilac', 0, 'Soft Lavender (#C3AED6)', this)">
+                <div class="option-label">
+                  <span>Lavender Lilac</span>
+                  <div class="swatch-circle" style="background-color: #C3AED6;"></div>
+                </div>
+                <div class="option-desc">Ungu muda periwinkle yang puitis dan menyejukkan pandangan mata.</div>
+                <div class="option-price">Termasuk</div>
+              </div>
+
+              <div class="option-radio-card" onclick="selectBuilderOption('color', 'amethyst', 0, 'Royal Amethyst (#8675A9)', this)">
+                <div class="option-label">
+                  <span>Royal Amethyst</span>
+                  <div class="swatch-circle" style="background-color: #8675A9;"></div>
+                </div>
+                <div class="option-desc">Ungu plum pekat mewah, memberikan kontras megah nan berkelas.</div>
+                <div class="option-price">Termasuk</div>
+              </div>
+            </div>
+
+            <!-- Step 3: Filler Bunga Kering -->
+            <div class="step-header">
+              <span class="step-number">3</span>
+              <h3 class="step-title">Pilih Filler & Bunga Pendamping Kering</h3>
+            </div>
+            <div class="options-grid">
+              <div class="option-radio-card selected" onclick="selectBuilderOption('filler', 'lavender', 0, 'French Dried Lavender Asli', this)">
+                <div class="option-label">
+                  <span>Dried Lavender</span>
+                  <span>💜 Wangi Alami</span>
+                </div>
+                <div class="option-desc">Bunga lavender kering asli Provence yang memancarkan aroma terapi relaksasi.</div>
+                <div class="option-price">Termasuk</div>
+              </div>
+
+              <div class="option-radio-card" onclick="selectBuilderOption('filler', 'babysbreath', 0, 'Dried Baby\'s Breath Pastel', this)">
+                <div class="option-label">
+                  <span>Baby\'s Breath</span>
+                  <span>☁️ Lembut</span>
+                </div>
+                <div class="option-desc">Ranting kuncup putih dan pink mungil seperti awan lembut mengelilingi mawar.</div>
+                <div class="option-price">Termasuk</div>
+              </div>
+
+              <div class="option-radio-card" onclick="selectBuilderOption('filler', 'bunny', 0, 'Lagurus Bunny Tails Pastel', this)">
+                <div class="option-label">
+                  <span>Bunny Tails Lagurus</span>
+                  <span>🌾 Berbulu</span>
+                </div>
+                <div class="option-desc">Rumput hias lembut bertekstur bulu kelinci yang menggemaskan dan estetik.</div>
+                <div class="option-price">Termasuk</div>
+              </div>
+
+              <div class="option-radio-card" onclick="selectBuilderOption('filler', 'caspea', 0, 'Dried Caspea & Statice Lilac', this)">
+                <div class="option-label">
+                  <span>Caspea & Statice</span>
+                  <span>✨ Tekstur</span>
+                </div>
+                <div class="option-desc">Ranting bunga halus tahan banting memberikan volume yang padat dan berseni.</div>
+                <div class="option-price">Termasuk</div>
+              </div>
+            </div>
+
+            <!-- Step 4: Personalisasi Ucapan & Segel Wax Seal -->
+            <div class="step-header">
+              <span class="step-number">4</span>
+              <h3 class="step-title">Personalisasi Kartu & Aksesoris</h3>
+            </div>
+            <div style="margin-bottom: 14px;">
+              <label style="display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 6px;">
+                Pesan Kartu Ucapan (Dicetak dengan stempel wax seal cap emas):
+              </label>
+              <textarea id="builderCardMessage" class="input-recipient" rows="3" placeholder="Contoh: Selamat atas gelar barunya, Sarah! Bangga sekali dengan perjuanganmu. Dari Kevin." oninput="updateBuilderReceipt()"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Receipt Summary -->
+        <div class="builder-receipt-col">
+          <div class="builder-receipt-card">
+            <h3 class="receipt-title font-serif">Ringkasan Kado Kustom</h3>
+            <p class="receipt-subtitle">Estimasi pengerjaan: 1 hari kerja (Ready kirim)</p>
+
+            <div class="receipt-item">
+              <span class="item-label">Format Wadah:</span>
+              <span class="item-val" id="recFormat">Kubah Kaca Lampu LED (14x22cm)</span>
+            </div>
+
+            <div class="receipt-item">
+              <span class="item-label">Warna Mawar:</span>
+              <span class="item-val" id="recColor">Peach Blossom (#FFD5CD)</span>
+            </div>
+
+            <div class="receipt-item">
+              <span class="item-label">Bunga Filler:</span>
+              <span class="item-val" id="recFiller">French Dried Lavender Asli</span>
+            </div>
+
+            <div class="receipt-item">
+              <span class="item-label">Kartu Wax Seal:</span>
+              <span class="item-val" id="recCard">Gratis (Custom Message)</span>
+            </div>
+
+            <div class="receipt-item">
+              <span class="item-label">Pengemasan:</span>
+              <span class="item-val">Busa + Box Kado Pita</span>
+            </div>
+
+            <div class="receipt-divider"></div>
+
+            <div class="receipt-total">
+              <span class="total-label">Total Investasi:</span>
+              <span class="total-price" id="recTotal">Rp 385.000</span>
+            </div>
+
+            <button class="btn-primary" style="width: 100%; justify-content: center; padding: 14px; font-size: 15px;" onclick="addCustomToCart()">
+              + Masukkan ke Keranjang
+            </button>
+            <p style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 10px;">
+              Atau langsung checkout pesanan ini lewat WhatsApp Admin.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ready Catalog Section -->
+  <section class="catalog-section" id="katalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Koleksi Siap Kirim Hari Ini</span>
+        <h2 class="section-title">Karya Rangkaian Pilihan Atelier</h2>
+        <p class="section-desc">Pilihan buket dan kubah kaca terlaris yang sudah dirangkai dengan teliti dan siap dikirim hari ini juga.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="catalog-filters">
+        <button class="filter-btn active" onclick="filterCatalog('all', this)">Semua Koleksi (6)</button>
+        <button class="filter-btn" onclick="filterCatalog('wisuda', this)">Wisuda & Kelulusan</button>
+        <button class="filter-btn" onclick="filterCatalog('cloche', this)">Kubah Kaca LED</button>
+        <button class="filter-btn" onclick="filterCatalog('seserahan', this)">Seserahan & Nikah</button>
+        <button class="filter-btn" onclick="filterCatalog('dekorasi', this)">Dekorasi Ruang</button>
+      </div>
+
+      <!-- Grid Products -->
+      <div class="products-grid" id="catalogGrid">
+        <!-- Product 1 -->
+        <div class="product-card" data-category="cloche">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=800&q=80" alt="Kubah Kaca Mawar Peach & Lampu LED">
+            <span class="product-badge">Terlaris Bulanan</span>
+            <span class="product-duration-tag">Tahan 3-5 Tahun</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Kubah Kaca Cloche</span>
+            <h3 class="product-name">Kubah Kaca Mawar Peach & Fairy Lights</h3>
+            <div class="product-specs">
+              Dimensi Ø14cm x Tinggi 22cm. Mawar peach abadi Grade A, baby's breath pink, dan tatakan kayu solid berperekat lampu LED saklar bawah.
+              <span>Komposisi: 100% Mawar Preserved Asli & Gliserin Nabati</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 385.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Kubah Kaca Mawar Peach & Fairy Lights', 385000, 'https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-category="wisuda">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80" alt="Buket Wisuda Lilac & Bunny Tails">
+            <span class="product-badge">Favorit Wisuda</span>
+            <span class="product-duration-tag">Tahan Selamanya</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Buket Wisuda & Hadiah</span>
+            <h3 class="product-name">Buket Wisuda Lavender Lilac & Bunny Tails</h3>
+            <div class="product-specs">
+              Tinggi 42cm. Rangkaian French dried lavender wangi alami, bunny tails lembut, dan statice ungu dibalut kain rami premium warna oatmeal.
+              <span>Bonus: Kartu ucapan selamat wisuda + wax seal cap</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 265.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Buket Wisuda Lavender Lilac & Bunny Tails', 265000, 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-category="seserahan">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80" alt="Box Akrilik Mawar Abadi & Cincin Seserahan">
+            <span class="product-badge">Eksklusif Pernikahan</span>
+            <span class="product-duration-tag">Tahan 5 Tahun</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Seserahan & Cincin Nikah</span>
+            <h3 class="product-name">Box Akrilik Mawar Abadi Ring Bearer</h3>
+            <div class="product-specs">
+              Dimensi 15x15x12cm akrilik ultra-bening tebal 3mm. Berisi 2 kuntum mawar peach & pink abadi dengan slot ganda cincin kawin beludru plum.
+              <span>Termasuk: Grafir nama inisial pasangan pada tutup akrilik</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 340.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Box Akrilik Mawar Abadi Ring Bearer', 340000, 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-category="cloche">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" alt="Mini Cloche Mawar Sakura Meja Belajar">
+            <span class="product-badge">Best Value</span>
+            <span class="product-duration-tag">Tahan 3 Tahun</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Kubah Mini Cloche</span>
+            <h3 class="product-name">Mini Cloche Mawar Sakura & Baby's Breath</h3>
+            <div class="product-specs">
+              Dimensi Ø9cm x Tinggi 15cm. 1 kuntum mawar baby pink, caspea ungu muda, dan lumut abadi hijau di bawah kubah kaca imut berpita beludru.
+              <span>Sempurna untuk kado ulang tahun sahabat & hiasan meja kerja</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 195.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Mini Cloche Mawar Sakura & Baby\'s Breath', 195000, 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-category="wisuda">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=800&q=80" alt="Buket Mawar Amethyst & Baby's Breath Pastel">
+            <span class="product-badge">Elegansi Mewah</span>
+            <span class="product-duration-tag">Tahan 4 Tahun</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Buket Mawar Preserved</span>
+            <h3 class="product-name">Buket Tiga Mawar Royal Amethyst & Peach</h3>
+            <div class="product-specs">
+              Tinggi 45cm. 3 tangkai mawar abadi kombinasi ungu plum dan peach, filler dried limonium impor, dan wrapping kertas sutra matte waterproof.
+              <span>Cocok untuk kado wisuda cumlaude dan anniversary pernikahan</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 295.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Buket Tiga Mawar Royal Amethyst & Peach', 295000, 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-category="dekorasi">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=800&q=80" alt="Pot Keramik Rustic French Dried Lavender">
+            <span class="product-badge">Aromaterapi Alami</span>
+            <span class="product-duration-tag">Tahan 2 Tahun</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Dekorasi Ruangan & Vas</span>
+            <h3 class="product-name">Pot Keramik Rustic Dried Lavender Provence</h3>
+            <div class="product-specs">
+              Tinggi 25cm. Seikat penuh daun dan bunga lavender kering asli Prancis di dalam vas keramik tanah liat handmade bermotif ribbed rustic.
+              <span>Aroma herbal lembut membantu tidur lebih nyenyak dan rileks</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 175.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Pot Keramik Rustic Dried Lavender Provence', 175000, 'https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Care & Shipping Guarantees -->
+  <section class="care-section" id="perawatan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Panduan Perawatan & Keamanan Kirim</span>
+        <h2 class="section-title">Mudah Dirawat & 100% Aman Dikirim</h2>
+        <p class="section-desc">Bunga abadi tidak rewel. Ikuti 3 anjuran praktis ini agar bunga tetap merekah segar hingga 5 tahun ke depan.</p>
+      </div>
+
+      <div class="care-grid">
+        <div class="care-card">
+          <span class="care-icon">🚫💧</span>
+          <h4>Jangan Pernah Diberi Air</h4>
+          <p>Bunga preserved sudah digantikan kadar air alaminya dengan formula gliserin nabati. Air justru akan merusak kelopak dan memudarkan pigmen warnanya.</p>
+        </div>
+
+        <div class="care-card">
+          <span class="care-icon">🌤️🍃</span>
+          <h4>Hindari Sinar Matahari Langsung</h4>
+          <p>Letakkan di dalam ruangan dengan sirkulasi udara normal. Jangan letakkan tepat di bawah terik sinar jendela atau di depan hembusan langsung AC yang sangat lembap.</p>
+        </div>
+
+        <div class="care-card">
+          <span class="care-icon">📦🛡️</span>
+          <h4>Garansi Ganti Baru Pengiriman</h4>
+          <p>Seluruh kubah kaca kami bungkus dengan 5 lapis bubble wrap tebal, rangka sterofoam kustom, dan kardus tebal ganda. Jika kaca pecah di perjalanan, kami ganti 100% baru gratis!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Pertanyaan Sering Diajukan</span>
+        <h2 class="section-title">Informasi Lengkap Seputar Pesanan</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item active">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah bunga yang digunakan benar-benar bunga mawar asli?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Ya, 100% bunga asli! Kami menggunakan bunga mawar potong segar berkualitas tinggi yang dipetik saat mekar terbaik. Cairan sel bunga diganti dengan larutan gliserin dan pewarna nabati alami, sehingga bunga tidak akan mengering keriput melainkan tetap kenyal dan lembut seperti baru dipetik.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Berapa lama bunga preserved ini dapat bertahan?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Rata-rata bunga abadi kami bertahan 3 hingga 5 tahun dalam kondisi prima jika disimpan di dalam ruangan bersuhu normal dan terhindar dari air maupun kelembapan ekstrem.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Bagaimana cara menyalakan lampu LED pada kubah kaca?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Di bagian bawah tatakan kayu pinus solid terdapat saklar geser kecil yang rapi beserta kompartemen 3 buah baterai kancing (LR44/AAA tergantung model) yang sudah termasuk dalam paket pengiriman dan sangat mudah diganti jika habis.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Bisa kirim ke luar kota dan luar pulau Jawa?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Bisa ke seluruh Indonesia! Setiap kubah kaca dikemas dengan cetakan sterofoam busa yang presisi mengunci kaca, dilapisi 5 lapis bubble wrap tebal, dan dimasukkan ke dalam kardus kardus ganda (double-wall). Kami juga menyediakan opsi peti kayu untuk pengiriman luar pulau.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah bisa request kartu ucapan dengan pesan personal?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Tentu saja gratis! Setiap pembelian buket maupun kubah kaca sudah termasuk kartu ucapan berbahan kertas linen tebal yang dicetak rapi dan disegel dengan stempel cap lilin wax seal berwarna emas. Anda cukup mengetikkan pesan di catatan pesanan saat checkout.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="font-serif">MEKAR ABADI</h3>
+          <p>Atelier bunga abadi mawar preserved dan dried flowers artisan. Menghadirkan kenangan mekar yang bertahan melintasi waktu untuk momen-momen paling berharga dalam hidup Anda.</p>
+          <div style="font-size: 13px; color: var(--color-peach);">
+            📍 Studio Florist: Jakarta Selatan & Bandung Dago • Pengiriman Seluruh Indonesia
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Koleksi Unggulan</h5>
+          <ul>
+            <li><a href="#katalog">Kubah Kaca Lampu LED</a></li>
+            <li><a href="#katalog">Buket Wisuda Kain Rami</a></li>
+            <li><a href="#katalog">Box Akrilik Ring Seserahan</a></li>
+            <li><a href="#katalog">Mini Cloche Meja Belajar</a></li>
+            <li><a href="#katalog">Pot Lavender Aromaterapi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Layanan Klien</h5>
+          <ul>
+            <li><a href="#builder">Rancang Kado Kustom</a></li>
+            <li><a href="#perawatan">Panduan Perawatan</a></li>
+            <li><a href="#perawatan">Garansi Anti-Pecah</a></li>
+            <li><a href="#faq">Tanya Jawab (FAQ)</a></li>
+            <li><a href="https://wa.me/6281234567890" target="_blank">Konsultasi WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Jam Operasional</h5>
+          <p style="font-size: 13px; color: #B9AEC9; margin-bottom: 8px;">Senin – Sabtu: 08.00 – 20.00 WIB</p>
+          <p style="font-size: 13px; color: #B9AEC9; margin-bottom: 14px;">Minggu: 09.00 – 17.00 WIB</p>
+          <div style="font-size: 12px; color: #8D819F;">
+            Pengiriman Same-Day GoSend / GrabExpress untuk area Jadetabek & Bandung Kota.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 MEKAR ABADI Atelier. Hak cipta dilindungi undang-undang.</div>
+        <div>Dibuat dengan standar anti-slop NECTOR.UI • Preserved Flower Artisan</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3 class="font-serif">Keranjang Kado Bunga</h3>
+      <button class="btn-close-drawer" onclick="toggleCartDrawer()">&times;</button>
+    </div>
+
+    <div class="cart-items-body" id="cartItemsList">
+      <div class="cart-empty-state" id="cartEmptyState">
+        <div style="font-size: 36px; margin-bottom: 10px;">🌸</div>
+        <p>Keranjang masih kosong.</p>
+        <p style="font-size: 12.5px; margin-top: 4px;">Pilih rangkaian bunga siap kirim atau rakit kado kustom Anda.</p>
+      </div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span style="font-weight: 700;">Total Biaya:</span>
+        <span class="subtotal-val" id="cartTotalVal">Rp 0</span>
+      </div>
+
+      <input type="text" id="custName" class="input-recipient" placeholder="Nama Lengkap Pemesan">
+      <input type="text" id="custCity" class="input-recipient" placeholder="Kota Pengiriman (misal: Jakarta Selatan, Surabaya)">
+      <textarea id="custNotes" class="input-recipient" rows="2" placeholder="Catatan Tambahan / Ucapan Kartu"></textarea>
+
+      <button class="btn-primary" style="width: 100%; justify-content: center; padding: 13px; font-size: 15px;" onclick="checkoutWhatsApp()">
+        Pesan via WhatsApp Sekarang
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/6281234567890?text=Halo%20Mekar%20Abadi,%20saya%20tertarik%20dengan%20koleksi%20bunga%20abadi" target="_blank" class="floating-wa-btn">
+    <span>💬</span>
+    <span>Chat Florist</span>
+  </a>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg">
+    <span id="toastIcon">✨</span>
+    <span id="toastText">Pesan berhasil disalin!</span>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // State Keranjang Belanja
+    let cart = [];
+
+    // State Builder Kustom
+    let builderState = {
+      format: { key: 'cloche', name: 'Kubah Kaca Lampu LED (14x22cm)', price: 385000 },
+      color: { key: 'peach', name: 'Peach Blossom (#FFD5CD)', price: 0 },
+      filler: { key: 'lavender', name: 'French Dried Lavender Asli', price: 0 }
+    };
+
+    // Fungsi Switch Mode Kubah Kaca (Siang / Malam)
+    function setClocheMode(mode) {
+      const stage = document.getElementById('clocheStage');
+      const btnDay = document.getElementById('btnDayMode');
+      const btnNight = document.getElementById('btnNightMode');
+      const desc = document.getElementById('clocheModeDesc');
+
+      if (mode === 'night') {
+        stage.classList.add('night-mode');
+        btnDay.classList.remove('active');
+        btnNight.classList.add('active');
+        desc.textContent = 'Mode Malam: Lampu LED kawat hangat berpendar menawan di kamar tidur';
+        showToast('🌙 Mode Malam aktif: Lampu LED fairy lights menyala hangat');
+      } else {
+        stage.classList.remove('night-mode');
+        btnNight.classList.remove('active');
+        btnDay.classList.add('active');
+        desc.textContent = 'Mode Siang: Cahaya natural lembut di ruang tamu';
+        showToast('☀️ Mode Siang aktif: Tampilan warna mawar di cahaya alami');
+      }
+    }
+
+    // Fungsi Salin Kode Warna Hex (Permintaan Utama User)
+    function copyColorHex(hexCode, colorName) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(hexCode).then(() => {
+          showToast(`📋 Berhasil disalin: ${colorName} (${hexCode})`);
+        }).catch(() => {
+          fallbackCopyText(hexCode, colorName);
+        });
+      } else {
+        fallbackCopyText(hexCode, colorName);
+      }
+    }
+
+    function fallbackCopyText(text, name) {
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast(`📋 Berhasil disalin: ${name} (${text})`);
+    }
+
+    // Fungsi Builder Kustom
+    function selectBuilderOption(category, key, price, name, element) {
+      const parentGrid = element.parentElement;
+      const cards = parentGrid.querySelectorAll('.option-radio-card');
+      cards.forEach(card => card.classList.remove('selected'));
+      element.classList.add('selected');
+
+      if (category === 'format') {
+        builderState.format = { key, name, price };
+      } else if (category === 'color') {
+        builderState.color = { key, name, price };
+      } else if (category === 'filler') {
+        builderState.filler = { key, name, price };
+      }
+
+      updateBuilderReceipt();
+    }
+
+    function updateBuilderReceipt() {
+      const total = builderState.format.price + builderState.color.price + builderState.filler.price;
+      document.getElementById('recFormat').textContent = builderState.format.name;
+      document.getElementById('recColor').textContent = builderState.color.name;
+      document.getElementById('recFiller').textContent = builderState.filler.name;
+      document.getElementById('recTotal').textContent = formatRupiah(total);
+    }
+
+    function addCustomToCart() {
+      const total = builderState.format.price + builderState.color.price + builderState.filler.price;
+      const customMsg = document.getElementById('builderCardMessage').value.trim();
+      const customTitle = `Kado Kustom: ${builderState.format.name} [Mawar: ${builderState.color.name}]`;
+      const customImg = 'https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=800&q=80';
+
+      addToCart(customTitle, total, customImg, customMsg);
+      toggleCartDrawer(true);
+    }
+
+    // Filter Katalog
+    function filterCatalog(category, button) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const cards = document.querySelectorAll('#catalogGrid .product-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Keranjang Belanja
+    function addToCart(title, price, img, note = '') {
+      const existing = cart.find(item => item.title === title && item.note === note);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ title, price, img, qty: 1, note });
+      }
+      updateCartUI();
+      showToast(`🌸 Ditambahkan: ${title}`);
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const itemsList = document.getElementById('cartItemsList');
+      const cartCount = document.getElementById('cartCount');
+      const cartTotalVal = document.getElementById('cartTotalVal');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      cartCount.textContent = totalItems;
+      cartTotalVal.textContent = formatRupiah(totalPrice);
+
+      if (cart.length === 0) {
+        itemsList.innerHTML = `
+          <div class="cart-empty-state">
+            <div style="font-size: 36px; margin-bottom: 10px;">🌸</div>
+            <p>Keranjang masih kosong.</p>
+            <p style="font-size: 12.5px; margin-top: 4px;">Pilih rangkaian bunga siap kirim atau rakit kado kustom Anda.</p>
+          </div>
+        `;
+        return;
+      }
+
+      itemsList.innerHTML = cart.map((item, idx) => `
+        <div class="cart-item-row">
+          <img src="${item.img}" alt="${item.title}" class="cart-item-thumb">
+          <div class="cart-item-info">
+            <div class="cart-item-title">${item.title}</div>
+            <div class="cart-item-price">${formatRupiah(item.price)}</div>
+            ${item.note ? `<div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Pesan: "${item.note}"</div>` : ''}
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+              <span class="qty-val">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+              <button class="btn-remove-item" onclick="removeItem(${idx})">Hapus</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleCartDrawer(forceOpen = null) {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      const isOpen = forceOpen !== null ? forceOpen : !drawer.classList.contains('open');
+
+      if (isOpen) {
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+      } else {
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+      }
+    }
+
+    // Checkout WhatsApp
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang belanja Anda masih kosong.');
+        return;
+      }
+
+      const name = document.getElementById('custName').value.trim() || 'Pelanggan';
+      const city = document.getElementById('custCity').value.trim() || 'Jakarta';
+      const notes = document.getElementById('custNotes').value.trim();
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      let text = `Halo Admin MEKAR ABADI, saya ingin memesan rangkaian bunga berikut:\n\n`;
+      text += `👤 *Nama Pemesan*: ${name}\n`;
+      text += `📍 *Kota Tujuan*: ${city}\n\n`;
+      text += `🛍️ *Daftar Pesanan*:\n`;
+
+      cart.forEach((item, i) => {
+        text += `${i + 1}. ${item.title} (${item.qty}x) - ${formatRupiah(item.price * item.qty)}\n`;
+        if (item.note) {
+          text += `   ↳ Pesan Kartu: "${item.note}"\n`;
+        }
+      });
+
+      text += `\n💰 *Total Biaya*: ${formatRupiah(totalPrice)}\n`;
+      if (notes) {
+        text += `📝 *Catatan*: ${notes}\n`;
+      }
+      text += `\nMohon konfirmasi ketersediaan dan ongkos kirim amannya. Terima kasih!`;
+
+      const encoded = encodeURIComponent(text);
+      window.open(`https://wa.me/6281234567890?text=${encoded}`, '_blank');
+    }
+
+    // Accordion FAQ
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      item.classList.toggle('active');
+    }
+
+    // Format Rupiah
+    function formatRupiah(number) {
+      return 'Rp ' + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    // Toast Popup
+    function showToast(message) {
+      const toast = document.getElementById('toastMsg');
+      const toastText = document.getElementById('toastText');
+      toastText.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2800);
+    }
+  </script>
+</body>
+</html>
