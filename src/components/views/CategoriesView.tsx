@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer, GlassWater, Camera, Dumbbell, Gauge, Sun, Smile, Flame, Leaf, Cake } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer, GlassWater, Camera, Dumbbell, Gauge, Sun, Smile, Flame, Leaf, Cake, Droplets } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'soap',
+      title: 'Sabun Mandi Alami & Kulit Sensitif',
+      icon: Droplets,
+      desc: 'Studio sabun batang proses dingin (cold-process) berbasis minyak nabati murni, susu kambing & lempung alami: penemu sabun sesuai tipe kulit, perakit bundling kustom 3 atau 4 sabun, dan pemesanan WhatsApp instan.',
+      accent: '#99DDCC'
+    },
     {
       id: 'cake',
       title: 'Kue Bento & Tartlet Manis',

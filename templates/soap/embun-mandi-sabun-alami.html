@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMBUN MANDI — Studio Sabun Batang Alami Proses Dingin & Perawatan Kulit Sensitif Nusantara</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       EMBUN MANDI — PALET BERSIH PASTEL SEAFOAM & CLOUD BREEZE
+       Palette from uploaded image:
+       #BAD7DF (Soft Cloud Blue)
+       #FFE2E2 (Soft Petal Pink)
+       #F6F6F6 (Pure Milk Linen Off-White Canvas)
+       #99DDCC (Fresh Seafoam Mint)
+       ========================================================================== */
+    :root {
+      --bg-canvas: #F6F6F6;
+      --bg-surface: #FFFFFF;
+      --accent-cloud: #BAD7DF;
+      --accent-cloud-soft: rgba(186, 215, 223, 0.45);
+      --accent-petal: #FFE2E2;
+      --accent-petal-soft: rgba(255, 226, 226, 0.45);
+      --accent-mint: #99DDCC;
+      --accent-mint-soft: rgba(153, 221, 204, 0.35);
+      --accent-teal: #3B9E8A;
+      --accent-dark: #1C2A30;
+      --text-ink: #1C2A30;
+      --text-muted: #4D626C;
+      --text-subtle: #7A909C;
+      --border-hairline: #E1EBE8;
+      --border-medium: #C8DDD8;
+
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-pill: 9999px;
+
+      --shadow-sm: 0 2px 8px rgba(28, 42, 48, 0.04);
+      --shadow-md: 0 8px 24px rgba(28, 42, 48, 0.07);
+      --shadow-lg: 0 16px 40px rgba(28, 42, 48, 0.1);
+      --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+      border: none;
+      background: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.01em;
+    }
+
+    /* Top Announcement Bar */
+    .top-announcement {
+      background-color: var(--accent-dark);
+      color: #F6F6F6;
+      font-size: 13px;
+      padding: 8px 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-weight: 500;
+    }
+    .top-announcement span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge-pill-mint {
+      background-color: var(--accent-mint);
+      color: var(--accent-dark);
+      padding: 2px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Site Navigation Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(246, 246, 246, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-logo-mark {
+      width: 40px;
+      height: 40px;
+      background-color: var(--accent-mint);
+      color: var(--accent-dark);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 800;
+      font-size: 22px;
+      box-shadow: 0 2px 10px rgba(153, 221, 204, 0.6);
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--text-ink);
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+    .nav-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-ink);
+      transition: color var(--transition-fast);
+    }
+    .nav-link:hover {
+      color: var(--accent-teal);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-cart-nav {
+      position: relative;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+      transition: all var(--transition-fast);
+    }
+    .btn-cart-nav:hover {
+      border-color: var(--accent-mint);
+      box-shadow: var(--shadow-sm);
+    }
+    .cart-counter {
+      background-color: var(--accent-teal);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-wa-header {
+      background-color: var(--accent-dark);
+      color: #F6F6F6;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-wa-header:hover {
+      background-color: #2D414B;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 68px 0 60px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .hero-kicker-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-kicker-tag {
+      background-color: var(--accent-mint);
+      color: var(--accent-dark);
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-kicker-loc {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 4.4vw, 56px);
+      line-height: 1.16;
+      font-weight: 700;
+      color: var(--text-ink);
+      letter-spacing: -0.01em;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent-teal);
+    }
+    .hero-subhead {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .hero-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent-teal);
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 8px;
+    }
+    .btn-hero-primary {
+      background-color: var(--accent-teal);
+      color: #FFFFFF;
+      padding: 14px 26px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(59, 158, 138, 0.25);
+      transition: all var(--transition-fast);
+    }
+    .btn-hero-primary:hover {
+      background-color: #2F8372;
+      transform: translateY(-2px);
+    }
+    .btn-hero-secondary {
+      background-color: var(--bg-surface);
+      color: var(--text-ink);
+      border: 1px solid var(--border-medium);
+      padding: 14px 24px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+    }
+    .btn-hero-secondary:hover {
+      border-color: var(--accent-teal);
+      background-color: #F8FBFB;
+    }
+
+    /* Hero Visual Card */
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-color: var(--bg-surface);
+      border: 2px solid var(--border-hairline);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-img-box {
+      position: relative;
+      height: 460px;
+      background-color: var(--accent-cloud-soft);
+      overflow: hidden;
+    }
+    .hero-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms ease;
+    }
+    .hero-visual-card:hover .hero-img-box img {
+      transform: scale(1.04);
+    }
+    .hero-overlay-card {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: var(--shadow-md);
+    }
+    .hoc-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hoc-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-teal);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .hoc-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .hoc-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .btn-hoc-add {
+      background-color: var(--accent-teal);
+      color: #FFFFFF;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-hoc-add:hover {
+      background-color: #2F8372;
+    }
+
+    /* Trust Pillars */
+    .section-pillars {
+      padding: 40px 0 60px;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .pillar-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+    }
+    .pillar-card:hover {
+      border-color: var(--accent-mint);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .pillar-icon-box {
+      width: 44px;
+      height: 44px;
+      background-color: var(--accent-mint-soft);
+      color: var(--accent-dark);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Skin Type & Sensitivity Matcher Studio */
+    .section-matcher {
+      padding: 72px 0 84px;
+      background: linear-gradient(180deg, var(--bg-canvas) 0%, #EEF5F4 100%);
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .section-header-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+    .sec-kicker {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent-teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .sec-title {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 3.6vw, 42px);
+      font-weight: 700;
+      color: var(--text-ink);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .sec-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .matcher-stage-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .matcher-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .m-step-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .msb-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .msb-num {
+      width: 20px;
+      height: 20px;
+      background-color: var(--accent-mint);
+      color: var(--accent-dark);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .condition-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .btn-cond-opt {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      text-align: left;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-ink);
+      transition: all var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .btn-cond-opt span:last-child {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .btn-cond-opt.active {
+      background-color: var(--accent-cloud-soft);
+      border-color: var(--accent-cloud);
+      box-shadow: 0 0 0 1px var(--accent-cloud);
+    }
+
+    .sensation-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .btn-sens-opt {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      transition: all var(--transition-fast);
+    }
+    .btn-sens-opt.active {
+      background-color: var(--accent-mint-soft);
+      border-color: var(--accent-mint);
+    }
+
+    /* Recommendation Stage */
+    .recommendation-stage {
+      background: linear-gradient(135deg, #F8FAF9 0%, #EBF4F2 100%);
+      border: 2px dashed var(--accent-mint);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 18px;
+    }
+    .rec-soap-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-teal);
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-hairline);
+    }
+    .rec-img-box {
+      width: 140px;
+      height: 140px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background-color: var(--bg-surface);
+      border: 3px solid #FFFFFF;
+    }
+    .rec-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .rec-soap-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .rec-soap-reason {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 280px;
+    }
+    .rec-price-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent-teal);
+    }
+    .btn-add-rec-soap {
+      background-color: var(--accent-teal);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(59, 158, 138, 0.25);
+      transition: background-color var(--transition-fast);
+    }
+    .btn-add-rec-soap:hover {
+      background-color: #2F8372;
+    }
+
+    /* Catalog Section */
+    .section-catalog {
+      padding: 72px 0 84px;
+    }
+    .filter-tabs-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .btn-filter-tab {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      color: var(--text-ink);
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      transition: all var(--transition-fast);
+    }
+    .btn-filter-tab:hover {
+      border-color: var(--accent-teal);
+    }
+    .btn-filter-tab.active {
+      background-color: var(--accent-teal);
+      color: #FFFFFF;
+      border-color: var(--accent-teal);
+      box-shadow: 0 4px 12px rgba(59, 158, 138, 0.2);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+    }
+    .product-card:hover {
+      border-color: var(--accent-mint);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .product-img-wrap {
+      position: relative;
+      height: 230px;
+      background-color: var(--accent-cloud-soft);
+      overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.05);
+    }
+    .product-tag-chip {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: rgba(255, 255, 255, 0.94);
+      color: var(--text-ink);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-sm);
+    }
+    .product-weight-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: var(--accent-dark);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+    }
+
+    .product-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 12px;
+    }
+    .product-header-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .product-category-text {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-teal);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .product-title {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-ink);
+      line-height: 1.25;
+    }
+    .product-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .product-footer-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .price-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .price-label {
+      font-size: 10px;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .price-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent-teal);
+    }
+    .btn-add-cart {
+      background-color: var(--accent-teal);
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-add-cart:hover {
+      background-color: #2F8372;
+    }
+
+    /* Custom Soap Bundle Builder */
+    .section-bundling {
+      padding: 72px 0 84px;
+      background-color: #EEF5F4;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .bundling-stage-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+    }
+    .bb-steps-col {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .bb-step-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .bb-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .bb-num {
+      width: 22px;
+      height: 22px;
+      background-color: var(--accent-mint);
+      color: var(--accent-dark);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bundle-tier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .btn-bundle-tier {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: all var(--transition-fast);
+    }
+    .btn-bundle-tier:hover {
+      border-color: var(--accent-mint);
+    }
+    .btn-bundle-tier.active {
+      background-color: var(--accent-mint-soft);
+      border-color: var(--accent-mint);
+      box-shadow: 0 0 0 1px var(--accent-mint);
+    }
+    .bbt-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .bbt-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .bbt-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-teal);
+      margin-top: 4px;
+    }
+
+    .soap-checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .soap-check-label {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-ink);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .soap-check-label:hover {
+      border-color: var(--accent-mint);
+    }
+    .soap-check-label input {
+      accent-color: var(--accent-teal);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Bundle Summary Sidebar */
+    .bb-summary-col {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .bbs-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .bbs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .bbs-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .bbs-item span:first-child {
+      color: var(--text-ink);
+      font-weight: 500;
+    }
+    .bbs-item span:last-child {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+
+    .bbs-total-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+    .bbs-total-val {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent-teal);
+    }
+    .btn-add-bundle {
+      background-color: var(--accent-teal);
+      color: #FFFFFF;
+      padding: 13px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-add-bundle:hover {
+      background-color: #2F8372;
+    }
+
+    /* Eco Impact Calculator */
+    .section-eco {
+      padding: 64px 0 80px;
+    }
+    .eco-calc-card {
+      background: linear-gradient(135deg, var(--bg-surface) 0%, #F0F7F6 100%);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .eco-stats-display {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .eco-stat-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .esb-num {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent-teal);
+    }
+    .esb-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    /* Customer Reviews */
+    .section-reviews {
+      padding: 80px 0;
+      background-color: #EEF5F4;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .review-stars {
+      color: #E68A00;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+    .review-quote {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-ink);
+      font-style: italic;
+    }
+    .review-author-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      background-color: var(--accent-cloud);
+      color: var(--accent-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .review-meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .rm-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .rm-loc {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* FAQ Section */
+    .section-faq {
+      padding: 80px 0;
+    }
+    .faq-accordion-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color var(--transition-fast);
+    }
+    .faq-toggle-btn {
+      width: 100%;
+      padding: 20px 24px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-ink);
+    }
+    .faq-icon {
+      font-size: 18px;
+      transition: transform var(--transition-fast);
+      color: var(--accent-teal);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Site Footer */
+    .site-footer {
+      background-color: var(--accent-dark);
+      color: #F6F6F6;
+      padding: 64px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      color: #F6F6F6;
+    }
+    .footer-brand-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #BAD7DF;
+      margin-top: 12px;
+      max-width: 320px;
+    }
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-mint);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: #BAD7DF;
+      transition: color var(--transition-fast);
+    }
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+    .footer-wa-box {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-footer-wa {
+      background-color: var(--accent-mint);
+      color: var(--accent-dark);
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+      transition: opacity var(--transition-fast);
+    }
+    .btn-footer-wa:hover {
+      opacity: 0.9;
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #8CAAB2;
+    }
+
+    /* Cart Slide-over Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -460px;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background-color: var(--bg-surface);
+      box-shadow: -8px 0 30px rgba(0,0,0,0.15);
+      z-index: 101;
+      display: flex;
+      flex-direction: column;
+      transition: right var(--transition-base);
+    }
+    .cart-drawer.open {
+      right: 0;
+    }
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cd-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .btn-close-drawer {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--bg-canvas);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+    .cart-items-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .cart-item-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px;
+      background-color: var(--bg-canvas);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-hairline);
+    }
+    .ci-img {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background-color: var(--accent-cloud-soft);
+    }
+    .ci-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .ci-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .ci-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .ci-price {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-teal);
+    }
+    .ci-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-qty {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .ci-qty-num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .cart-drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-hairline);
+      background-color: var(--bg-canvas);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cart-summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+    .csr-total-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent-teal);
+    }
+    .cart-customer-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .input-cart-field {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    .btn-checkout-wa {
+      background-color: var(--accent-teal);
+      color: #FFFFFF;
+      padding: 13px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-checkout-wa:hover {
+      background-color: #2F8372;
+    }
+
+    /* Toast Notification */
+    .toast-pill {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: var(--accent-dark);
+      color: #F6F6F6;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast-pill.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .matcher-stage-card {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bundling-stage-card {
+        grid-template-columns: 1fr;
+      }
+      .eco-calc-card {
+        grid-template-columns: 1fr;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .condition-grid, .sensation-row, .bundle-tier-grid, .soap-checklist-grid, .eco-stats-display {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-announcement">
+    <span>
+      <span class="badge-pill-mint">100% BEBAS DETERJEN SINTETIS</span>
+      Bebas SLS & Paraben • Gratis Pouch Jaring Busa Tiap Pembelian 3 Sabun • Kemasan Bebas Plastik
+    </span>
+  </aside>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#" class="brand-wrap">
+        <div class="brand-logo-mark">🫧</div>
+        <div class="brand-text">
+          <span class="brand-title">EMBUN MANDI</span>
+          <span class="brand-sub">Sabun Batang Alami Nusantara</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#koleksi" class="nav-link">Koleksi Sabun</a></li>
+          <li><a href="#penemu" class="nav-link">Penemu Formula</a></li>
+          <li><a href="#bundling" class="nav-link">Paket Bundling</a></li>
+          <li><a href="#dampak" class="nav-link">Dampak Hijau</a></li>
+          <li><a href="#ulasan" class="nav-link">Ulasan</a></li>
+          <li><a href="#faq" class="nav-link">Tanya Jawab</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-cart-nav" onclick="toggleCartDrawer(true)" title="Lihat Keranjang">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span>Keranjang</span>
+          <span class="cart-counter" id="navCartCount">0</span>
+        </button>
+        <a href="https://wa.me/6281234567890?text=Halo%20Embun%20Mandi,%20saya%20mau%20konsultasi%20sabun%20kulit%20sensitif" target="_blank" rel="noopener noreferrer" class="btn-wa-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Konsultasi WA</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-kicker-row">
+            <span class="hero-kicker-tag">PROSES DINGIN 6 PEKAN • 100% NABATI</span>
+            <span class="hero-kicker-loc mono">Bandung & Bali</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Kembalikan kelembutan alami kulit dengan <em>sabun batang murni.</em>
+          </h1>
+
+          <p class="hero-subhead">
+            Bebas deterjen sintesis (0% SLS), tanpa paraben, dan tanpa alkohol. Kami memproduksi sabun batang proses dingin dari minyak zaitun extra virgin, susu kambing segar, dan lempung mineral alami yang mempertahankan 100% gliserin pelembap alami.
+          </p>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <span class="stat-number">0% SLS</span>
+              <span class="stat-label">Bebas Busa Deterjen Keras</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-number">100% Gliserin</span>
+              <span class="stat-label">Kulit Lembap Tanpa Ketarik</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-number">42 Hari</span>
+              <span class="stat-label">Masa Pemeraman Sempurna</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#penemu" class="btn-hero-primary">
+              <span>Temukan Sabun Kulit Anda</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#koleksi" class="btn-hero-secondary">
+              <span>Lihat Semua Varian</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="hero-img-box">
+            <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=1200&q=80" alt="Sabun Batang Alami Embun Mandi">
+          </div>
+          <div class="hero-overlay-card">
+            <div class="hoc-left">
+              <span class="hoc-badge">FORMULA TERLARIS</span>
+              <div class="hoc-title">Susu Kambing & Gandum Oat</div>
+              <div class="hoc-desc">5.0 ★ (740+ Ulasan) • Formula Paling Lembut & Eksim</div>
+            </div>
+            <button class="btn-hoc-add" onclick="quickAddHeroItem()">
+              + Tambah Rp 48.000
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Pillars -->
+    <section class="section-pillars">
+      <div class="container pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🧼</div>
+          <h3 class="pillar-title">Bebas Deterjen Sintetis</h3>
+          <p class="pillar-desc">Busa padat berlimpah dihasilkan alami dari asam laurat minyak kelapa murni, bukan zat pembusa kimiawi seperti SLS yang mengikis skin barrier.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">💧</div>
+          <h3 class="pillar-title">100% Gliserin Alami</h3>
+          <p class="pillar-desc">Metode cold-process mempertahankan gliserin alami pelembap kulit. Kulit terasa kenyal dan tidak kering atau bersisik seusai mandi.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🌱</div>
+          <h3 class="pillar-title">Kemasan Kertas Daur Ulang</h3>
+          <p class="pillar-desc">100% bebas botol plastik. Dikemas dengan kertas daur ulang berpori ramah lingkungan yang aman terurai kembali ke tanah.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">👶</div>
+          <h3 class="pillar-title">Aman untuk Bayi & Eksim</h3>
+          <p class="pillar-desc">Varian unscented murni tanpa pewangi sintesis, aman digunakan untuk kulit bayi yang lembut serta penderita dermatitis atopi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Skin Type Matcher -->
+    <section class="section-matcher" id="penemu">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Kuis Interaktif</span>
+          <h2 class="sec-title">Penemu Formula Sesuai Tipe Kulit</h2>
+          <p class="sec-desc">Pilih kondisi kulit dan sensasi mandi yang Anda butuhkan. Kami akan mencocokkan formula sabun batang alami yang paling tepat untuk Anda.</p>
+        </div>
+
+        <div class="matcher-stage-card">
+          <div class="matcher-controls">
+            <!-- Step 1 -->
+            <div class="m-step-block">
+              <span class="msb-title"><span class="msb-num">1</span> Pilih Kondisi / Masalah Kulit Anda</span>
+              <div class="condition-grid">
+                <button class="btn-cond-opt active" onclick="setCondition('dry', this)">
+                  <span>Kering & Eksim Gatal</span>
+                  <span>Butuh kelembapan ekstra tinggi</span>
+                </button>
+                <button class="btn-cond-opt" onclick="setCondition('acne', this)">
+                  <span>Berminyak & Jerawat Punggung</span>
+                  <span>Butuh pembersih pori & anti-bakteri</span>
+                </button>
+                <button class="btn-cond-opt" onclick="setCondition('sensitive', this)">
+                  <span>Sensitif & Alergi Wangi</span>
+                  <span>Formula murni tanpa minyak atsiri</span>
+                </button>
+                <button class="btn-cond-opt" onclick="setCondition('normal', this)">
+                  <span>Normal Kusam & Kasar</span>
+                  <span>Butuh eksfoliasi dan pencerah</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="m-step-block">
+              <span class="msb-title"><span class="msb-num">2</span> Pilih Sensasi Mandi Favorit</span>
+              <div class="sensation-row">
+                <button class="btn-sens-opt active" onclick="setSensation('creamy', this)">
+                  Busa Creamy Lembut
+                </button>
+                <button class="btn-sens-opt" onclick="setSensation('cool', this)">
+                  Dingin Semriwing
+                </button>
+                <button class="btn-sens-opt" onclick="setSensation('scrub', this)">
+                  Scrub Alami Halus
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Recommendation Card -->
+          <div class="recommendation-stage">
+            <span class="rec-soap-badge">FORMULA REKOMENDASI TERBAIK</span>
+            
+            <div class="rec-img-box">
+              <img src="https://images.unsplash.com/photo-1598662957563-ee4965d4d72c?auto=format&fit=crop&w=300&q=80" alt="Sabun Rekomendasi" id="recSoapImg">
+            </div>
+
+            <div>
+              <h4 class="rec-soap-title" id="recSoapTitle">Susu Kambing & Gandum Oat</h4>
+              <p class="rec-soap-reason" id="recSoapReason">
+                Mengandung lipid alami susu kambing dan oat koloid penenang gatal, sangat lembut untuk melembapkan kulit kering dan eksim.
+              </p>
+            </div>
+
+            <span class="rec-price-val" id="recSoapPrice">Rp 48.000</span>
+
+            <button class="btn-add-rec-soap" onclick="addRecommendedSoap()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              <span>+ Tambah ke Keranjang</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ready-to-Order Soap Catalog -->
+    <section class="section-catalog" id="koleksi">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Katalog Formula Dingin</span>
+          <h2 class="sec-title">Koleksi Sabun Batang Alami</h2>
+          <p class="sec-desc">Setiap batang sabun dipotong manual dan diperam selama 42 hari untuk menghasilkan kelembutan sempurna dan busa padat yang memanjakan tubuh.</p>
+        </div>
+
+        <!-- Filter Tab Buttons -->
+        <div class="filter-tabs-row">
+          <button class="btn-filter-tab active" onclick="filterCatalog('all', this)">Semua Formula (6)</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('sensitive', this)">🌱 Kulit Sensitif & Eksim</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('cooling', this)">❄️ Segar Dingin & Relaksasi</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('scrub', this)">✨ Eksfoliasi & Pencerah</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('unscented', this)">🌾 Bebas Pewangi</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGridContainer">
+          
+          <!-- Product 1 -->
+          <article class="product-card" data-category="sensitive unscented">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1598662957563-ee4965d4d72c?auto=format&fit=crop&w=800&q=80" alt="Sabun Susu Kambing dan Gandum Oat">
+              <span class="product-tag-chip">BESTSELLER EKSIM</span>
+              <span class="product-weight-badge">110 GRAM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Susu Kambing • Gandum Oat</span>
+                <h3 class="product-title">Susu Kambing & Gandum Oat</h3>
+              </div>
+              <p class="product-desc">Formula paling lembut tanpa pewangi. Memadukan susu kambing segar lokal dan butiran gandum oat koloid untuk meredakan kemerahan dan rasa gatal eksim.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 48.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p1', 'Susu Kambing & Gandum Oat', 'Batang 110g', 48000, 'https://images.unsplash.com/photo-1598662957563-ee4965d4d72c?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card" data-category="scrub">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=800&q=80" alt="Sabun Mawar Merah Muda dan French Pink Clay">
+              <span class="product-tag-chip">FRENCH PINK CLAY</span>
+              <span class="product-weight-badge">110 GRAM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Lempung Prancis • Mawar</span>
+                <h3 class="product-title">Mawar & French Pink Clay</h3>
+              </div>
+              <p class="product-desc">Lempung merah muda Prancis yang kaya mineral silika dipadu air suling kelopak mawar. Membersihkan kotoran pori-pori sekaligus mencerahkan kulit kusam.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 52.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p2', 'Mawar & French Pink Clay', 'Batang 110g', 52000, 'https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card" data-category="cooling">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80" alt="Sabun Sea Salt dan Daun Eukaliptus">
+              <span class="product-tag-chip">GARAM LAUT BALI</span>
+              <span class="product-weight-badge">115 GRAM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Garam Laut • Eukaliptus</span>
+                <h3 class="product-title">Sea Salt & Daun Eukaliptus</h3>
+              </div>
+              <p class="product-desc">Garam laut kristal Bali dipadu minyak atsiri daun eukaliptus murni. Aroma spa herbal yang melegakan pernapasan dan merilekskan otot sehabis lelah bekerja.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 50.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p3', 'Sea Salt & Daun Eukaliptus', 'Batang 115g', 50000, 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="product-card" data-category="cooling">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?auto=format&fit=crop&w=800&q=80" alt="Sabun Peppermint dan Alga Hijau">
+              <span class="product-tag-chip">DINGIN MENYEGARKAN</span>
+              <span class="product-weight-badge">110 GRAM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Minyak Peppermint • Spirulina</span>
+                <h3 class="product-title">Peppermint & Alga Hijau</h3>
+              </div>
+              <p class="product-desc">Sensasi dingin semriwing instan dari daun peppermint dipadu nutrisi klorofil spirulina. Mengurangi biang keringat dan menyegarkan mandi pagi.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 50.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p4', 'Peppermint & Alga Hijau', 'Batang 110g', 50000, 'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 5 -->
+          <article class="product-card" data-category="scrub">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1547793549-70faf88838c8?auto=format&fit=crop&w=800&q=80" alt="Sabun Kopi Robusta dan Minyak Zaitun">
+              <span class="product-tag-chip">SCRUB ALAMI</span>
+              <span class="product-weight-badge">115 GRAM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Biji Kopi • Zaitun Extra Virgin</span>
+                <h3 class="product-title">Kopi Robusta & Minyak Zaitun</h3>
+              </div>
+              <p class="product-desc">Butiran bubuk kopi robusta halus Jawa Barat berfungsi sebagai scrub alami untuk mengangkat sel kulit mati pada siku, lutut, dan tumit kasar.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 46.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p5', 'Kopi Robusta & Minyak Zaitun', 'Batang 115g', 46000, 'https://images.unsplash.com/photo-1547793549-70faf88838c8?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 6 -->
+          <article class="product-card" data-category="sensitive">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=80" alt="Sabun Minyak Kelapa Murni dan Madu Hutan">
+              <span class="product-tag-chip">LEMBAP EKSTRA</span>
+              <span class="product-weight-badge">110 GRAM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Minyak Kelapa Murni • Madu Hutan</span>
+                <h3 class="product-title">Kelapa Murni & Madu Hutan</h3>
+              </div>
+              <p class="product-desc">Minyak kelapa perasan dingin (VCO) dipadu madu hutan Sumbawa murni. Mengunci kelembapan alami kulit kering agar kembali kenyal dan sehat.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 48.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p6', 'Kelapa Murni & Madu Hutan', 'Batang 110g', 48000, 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom Soap Bundle Builder -->
+    <section class="section-bundling" id="bundling">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Hemat & Hadiah Kado</span>
+          <h2 class="sec-title">Perakit Paket Bundling Mandi</h2>
+          <p class="sec-desc">Pilih 3 atau 4 varian sabun batang alami sesuai selera Anda. Otomatis mendapatkan diskon paket hemat, gratis pouch jaring busa, dan tatakan kayu jati alami.</p>
+        </div>
+
+        <div class="bundling-stage-card">
+          <div class="bb-steps-col">
+            <!-- Step 1 -->
+            <div class="bb-step-item">
+              <h3 class="bb-title"><span class="bb-num">1</span> Pilih Ukuran Paket Bundling</h3>
+              <div class="bundle-tier-grid">
+                <div class="btn-bundle-tier active" onclick="setBundleTier(3, 15000, 'Paket 3 Sabun (Diskon Rp 15k)', this)">
+                  <span class="bbt-name">Paket Trio Mandi (3 Sabun)</span>
+                  <span class="bbt-sub">Stok mandi sekeluarga untuk 1.5 bulan</span>
+                  <span class="bbt-badge">HEMAT RP 15.000</span>
+                </div>
+                <div class="btn-bundle-tier" onclick="setBundleTier(4, 25000, 'Paket Kuartet Mandi (4 Sabun)', this)">
+                  <span class="bbt-name">Paket Kuartet Mandi (4 Sabun)</span>
+                  <span class="bbt-sub">Stok mandi komplit + kado sahabat</span>
+                  <span class="bbt-badge">HEMAT RP 25.000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bb-step-item">
+              <h3 class="bb-title"><span class="bb-num">2</span> Pilih Varian Sabun Batang</h3>
+              <div class="soap-checklist-grid">
+                <label class="soap-check-label">
+                  <input type="checkbox" checked onchange="updateBundleSummary()" data-name="Susu Kambing & Oat" data-price="48000" class="bundle-soap-cb">
+                  <span>Susu Kambing & Oat (Rp 48k)</span>
+                </label>
+                <label class="soap-check-label">
+                  <input type="checkbox" checked onchange="updateBundleSummary()" data-name="Mawar & Pink Clay" data-price="52000" class="bundle-soap-cb">
+                  <span>Mawar & Pink Clay (Rp 52k)</span>
+                </label>
+                <label class="soap-check-label">
+                  <input type="checkbox" checked onchange="updateBundleSummary()" data-name="Sea Salt Eukaliptus" data-price="50000" class="bundle-soap-cb">
+                  <span>Sea Salt Eukaliptus (Rp 50k)</span>
+                </label>
+                <label class="soap-check-label">
+                  <input type="checkbox" onchange="updateBundleSummary()" data-name="Peppermint Spirulina" data-price="50000" class="bundle-soap-cb">
+                  <span>Peppermint Alga (Rp 50k)</span>
+                </label>
+                <label class="soap-check-label">
+                  <input type="checkbox" onchange="updateBundleSummary()" data-name="Kopi Robusta Scrub" data-price="46000" class="bundle-soap-cb">
+                  <span>Kopi Robusta Scrub (Rp 46k)</span>
+                </label>
+                <label class="soap-check-label">
+                  <input type="checkbox" onchange="updateBundleSummary()" data-name="Kelapa Murni & Madu" data-price="48000" class="bundle-soap-cb">
+                  <span>Kelapa & Madu (Rp 48k)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Bonus Inclusions -->
+            <div style="background-color: var(--accent-mint-soft); border-radius: var(--radius-sm); padding: 14px 18px; font-size: 13px; color: var(--accent-dark); line-height: 1.5;">
+              ✨ <strong>Bonus Gratis Termasuk:</strong> 1x Pouch Jaring Busa (Foaming Net), 1x Tatakan Kayu Jati Tahan Air, dan Kartu Ucapan Kado Kraft.
+            </div>
+          </div>
+
+          <!-- Summary Col -->
+          <div class="bb-summary-col">
+            <h3 class="bbs-title">Ringkasan Paket Bundling</h3>
+            <ul class="bbs-list" id="bundleSummaryList">
+              <li class="bbs-item"><span>Susu Kambing & Oat</span><span>Rp 48.000</span></li>
+              <li class="bbs-item"><span>Mawar & Pink Clay</span><span>Rp 52.000</span></li>
+              <li class="bbs-item"><span>Sea Salt Eukaliptus</span><span>Rp 50.000</span></li>
+              <li class="bbs-item"><span>Pouch Jaring Busa</span><span>GRATIS</span></li>
+              <li class="bbs-item"><span>Tatakan Kayu Jati</span><span>GRATIS</span></li>
+              <li class="bbs-item" style="color: var(--accent-teal); font-weight: 700;"><span>Diskon Paket Trio</span><span>-Rp 15.000</span></li>
+            </ul>
+
+            <div class="bbs-total-row">
+              <span style="font-size: 14px; font-weight: 700; color: var(--text-ink);">Total Bundling</span>
+              <span class="bbs-total-val" id="bundleTotalDisplay">Rp 135.000</span>
+            </div>
+
+            <button class="btn-add-bundle" onclick="addBundleToCart()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              <span>+ Masukkan Paket ke Keranjang</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eco Impact Calculator -->
+    <section class="section-eco" id="dampak">
+      <div class="container">
+        <div class="eco-calc-card">
+          <div>
+            <span class="sec-kicker">Gaya Hidup Bebas Plastik</span>
+            <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--text-ink); margin-bottom: 10px;">
+              Kalkulator Jejak Hijau Mandi Anda
+            </h3>
+            <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">
+              Berapa botol plastik sabun cair yang berhasil Anda cegah agar tidak mencemari laut dengan beralih ke sabun batangan alami?
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="font-size: 13px; font-weight: 700; color: var(--text-ink);">Jumlah Anggota Keluarga: <span id="familyCountDisplay" class="mono font-bold" style="color: var(--accent-teal);">2 Orang</span></label>
+              <input type="range" min="1" max="6" value="2" id="familyRangeInput" oninput="updateEcoStats(this.value)" style="width: 100%; accent-color: var(--accent-teal);">
+            </div>
+          </div>
+
+          <div class="eco-stats-display">
+            <div class="eco-stat-box">
+              <span class="esb-num" id="plasticBottlesSaved">24</span>
+              <span class="esb-label">Botol Plastik Sabun Cair Dicegah / Tahun</span>
+            </div>
+            <div class="eco-stat-box">
+              <span class="esb-num" id="chemicalLitersPrevented">4.8 L</span>
+              <span class="esb-label">Limbah Kimia Deterjen Sintetis Dicegah</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="section-reviews" id="ulasan">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Kisah Nyata</span>
+          <h2 class="sec-title">Ulasan dari Sahabat Embun Mandi</h2>
+          <p class="sec-desc">Lebih dari 5.200 batang sabun telah dikirim ke berbagai pulau untuk merawat kulit sensitif secara alami.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Saya penderita eksim menahun di lengan. Pakai sabun cair biasa selalu terasa perih dan gatal. Setelah pakai varian Susu Kambing & Oat Embun Mandi, kulit tenang banget dan gak pernah ketarik lagi."</p>
+            <div class="review-author-row">
+              <div class="review-avatar">TR</div>
+              <div class="review-meta">
+                <span class="rm-name">Tania Rahmadini</span>
+                <span class="rm-loc">Jakarta Selatan • Pembeli Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Suka banget sama aroma Sea Salt Eukaliptus-nya! Sehabis pulang kerja mandi pakai air hangat dan sabun ini, badan langsung rileks dan tidurnya jadi nyenyak banget."</p>
+            <div class="review-author-row">
+              <div class="review-avatar">BH</div>
+              <div class="review-meta">
+                <span class="rm-name">Bima Haryanto</span>
+                <span class="rm-loc">Bandung • Pembeli Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Paket bundling-nya hemat banget dan tatakan kayu jatinya estetik di kamar mandi. Busanya melimpah padahal tanpa SLS sama sekali. Senang bisa ikut mengurangi botol plastik."</p>
+            <div class="review-author-row">
+              <div class="review-avatar">MS</div>
+              <div class="review-meta">
+                <span class="rm-name">Melisa Safitri</span>
+                <span class="rm-loc">Yogyakarta • Pembeli Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="section-faq" id="faq">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Informasi Produk</span>
+          <h2 class="sec-title">Pertanyaan yang Sering Diajukan</h2>
+          <p class="sec-desc">Seputar cara pemakaian, masa simpan, dan keaslian bahan.</p>
+        </div>
+
+        <div class="faq-accordion-wrap">
+          <div class="faq-item open">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Bagaimana cara menyimpan sabun batang alami agar tidak cepat lembek?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Karena mengandung 100% gliserin alami pelembap, sabun cold-process menyerap kelembapan udara. Selalu letakkan sabun di atas tatakan kayu jati berlubang atau gantung di dalam pouch jaring busa di tempat berventilasi agar cepat kering setelah digunakan.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Apakah sabun batang ini bisa dipakai untuk kulit wajah?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Varian Susu Kambing & Oat serta Mawar Pink Clay sangat aman digunakan untuk mencuci wajah karena formulanya lembut dan bebas minyak atsiri keras. Untuk jenis kulit berminyak, varian Mawar Pink Clay membantu menyerap minyak berlebih tanpa membuat kulit kering.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Berapa lama masa simpan sabun sebelum digunakan?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Sabun batang alami kami bertahan hingga 18 bulan dalam kemasan kertas aslinya jika disimpan di tempat kering dan sejuk (suhu ruang normal, terhindar dari sinar matahari langsung).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Mengapa sabun Embun Mandi tidak berbusa berlebihan seperti sabun pabrikan?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Sabun pabrikan komersial umumnya menggunakan Sodium Lauryl Sulfate (SLS/SLES) yaitu zat deterjen sintetis industri yang menghasilkan busa instan namun membuat kulit kering. Busa sabun kami berasal dari asam lemak alami minyak nabati yang menghasilkan busa creamy padat dan lembut di kulit.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="footer-brand-title">EMBUN MANDI</span>
+          <p class="footer-brand-desc">
+            Studio sabun batang alami proses dingin, minyak nabati murni, dan perawatan kulit sensitif Nusantara. Merawat kulit Anda sembari menjaga kelestarian bumi.
+          </p>
+          <span class="mono" style="font-size: 11px; color: var(--accent-mint); display: block; margin-top: 14px;">
+            Izin Edar BPOM RI: NA18230501892 • Sertifikat Halal: ID3211000192831
+          </span>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Koleksi Formula</h4>
+          <ul class="footer-links">
+            <li><a href="#penemu">Penemu Sabun Kulit</a></li>
+            <li><a href="#koleksi">Susu Kambing & Oat</a></li>
+            <li><a href="#koleksi">Sea Salt Eukaliptus</a></li>
+            <li><a href="#koleksi">Mawar & Pink Clay</a></li>
+            <li><a href="#bundling">Paket Bundling Hemat</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Komitmen Hijau</h4>
+          <ul class="footer-links">
+            <li><a href="#dampak">100% Bebas Botol Plastik</a></li>
+            <li><a href="#dampak">Aman Terumbu Karang</a></li>
+            <li><a href="#dapur">Minyak Zaitun & VCO Murni</a></li>
+            <li><a href="#dapur">Tanpa Uji Coba Hewan (Cruelty-Free)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-wa-box">
+          <h4 style="font-size: 14px; font-weight: 800; color: #F6F6F6;">Konsultasi Kulit via WhatsApp</h4>
+          <p style="font-size: 12px; color: #BAD7DF; line-height: 1.5;">Punya kondisi kulit eksim atau alergi khusus? Konsultasikan langsung dengan formulator kami:</p>
+          <a href="https://wa.me/6281234567890?text=Halo%20Embun%20Mandi,%20saya%20mau%20konsultasi%20kondisi%20kulit%20sensitif" target="_blank" rel="noopener noreferrer" class="btn-footer-wa">
+            Chat WhatsApp: 0812-3456-7890
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 EMBUN MANDI Natural Soap Atelier. Hak cipta dilindungi.</span>
+        <span>Dirancang dengan standar bebas slop AI • NECTOR.UI Showcase</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-over Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer(false)"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3 class="cd-title">Keranjang Belanja</h3>
+      <button class="btn-close-drawer" onclick="toggleCartDrawer(false)" title="Tutup">✕</button>
+    </div>
+
+    <div class="cart-items-body" id="cartItemsList">
+      <p style="text-align: center; color: var(--text-muted); font-size: 13px; margin: auto;">Keranjang belanja Anda masih kosong.<br>Silakan pilih varian sabun alami di etalase kami.</p>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal Pesanan:</span>
+        <span class="csr-total-val" id="cartSubtotalVal">Rp 0</span>
+      </div>
+
+      <div class="cart-customer-fields">
+        <input type="text" class="input-cart-field" id="custName" placeholder="Nama Pemesan" value="Siti Rahmawati">
+        <input type="text" class="input-cart-field" id="custCity" placeholder="Kota Pengiriman (mis: Jakarta Selatan / Bandung)" value="Jakarta Selatan">
+      </div>
+
+      <button class="btn-checkout-wa" onclick="checkoutCartWhatsApp()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+        <span>Kirim Pesanan ke WhatsApp Admin</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Pill -->
+  <div class="toast-pill" id="toastPill">
+    <span id="toastMsg">Sabun berhasil ditambahkan ke keranjang!</span>
+  </div>
+
+  <!-- JavaScript Interactivity -->
+  <script>
+    /* ==========================================================================
+       CART STATE & MANAGEMENT
+       ========================================================================== */
+    let cart = [];
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastPill');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2400);
+    }
+
+    function toggleCartDrawer(open) {
+      const overlay = document.getElementById('cartOverlay');
+      const drawer = document.getElementById('cartDrawer');
+      if (open) {
+        overlay.classList.add('open');
+        drawer.classList.add('open');
+      } else {
+        overlay.classList.remove('open');
+        drawer.classList.remove('open');
+      }
+    }
+
+    function renderCart() {
+      const listEl = document.getElementById('cartItemsList');
+      const countEl = document.getElementById('navCartCount');
+      const totalEl = document.getElementById('cartSubtotalVal');
+
+      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      countEl.textContent = totalItems;
+
+      if (cart.length === 0) {
+        listEl.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 13px; margin: auto;">Keranjang belanja Anda masih kosong.<br>Silakan pilih varian sabun alami di etalase kami.</p>';
+        totalEl.textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      listEl.innerHTML = cart.map((item, idx) => {
+        subtotal += item.price * item.qty;
+        return `
+          <div class="cart-item-row">
+            <img src="${item.img}" alt="${item.name}" class="ci-img">
+            <div class="ci-info">
+              <span class="ci-name">${item.name}</span>
+              <span class="ci-sub">${item.sub}</span>
+              <span class="ci-price">Rp ${(item.price).toLocaleString('id-ID')}</span>
+            </div>
+            <div class="ci-actions">
+              <button class="btn-qty" onclick="changeQty(${idx}, -1)">−</button>
+              <span class="ci-qty-num">${item.qty}</span>
+              <button class="btn-qty" onclick="changeQty(${idx}, 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      totalEl.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+    }
+
+    function addToCart(id, name, sub, price, img) {
+      const existing = cart.find(i => i.name === name && i.sub === sub);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, name, sub, price, img, qty: 1 });
+      }
+      renderCart();
+      showToast(`${name} ditambahkan ke keranjang!`);
+    }
+
+    function quickAddHeroItem() {
+      addToCart('p1', 'Susu Kambing & Gandum Oat', 'Batang 110g', 48000, 'https://images.unsplash.com/photo-1598662957563-ee4965d4d72c?auto=format&fit=crop&w=200&q=80');
+      toggleCartDrawer(true);
+    }
+
+    function changeQty(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      renderCart();
+    }
+
+    function checkoutCartWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang belanja Anda masih kosong.');
+        return;
+      }
+      const name = document.getElementById('custName').value.trim() || 'Pelanggan';
+      const city = document.getElementById('custCity').value.trim() || 'Jakarta';
+
+      let text = `Halo Embun Mandi, saya ingin memesan sabun batang alami berikut:%0A%0A`;
+      let total = 0;
+      cart.forEach((item, i) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        text += `${i + 1}. ${item.name} (${item.sub}) x${item.qty} = Rp ${itemTotal.toLocaleString('id-ID')}%0A`;
+      });
+      text += `%0ATotal Pesanan: Rp ${total.toLocaleString('id-ID')}%0A`;
+      text += `Nama Pemesan: ${name}%0A`;
+      text += `Kota Pengiriman: ${city}%0A%0A`;
+      text += `Mohon info ongkir dan nomor rekening pembayaran. Terima kasih!`;
+
+      window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    }
+
+    /* Filter Catalog */
+    function filterCatalog(category, btn) {
+      const container = document.getElementById('productGridContainer');
+      const tabs = document.querySelectorAll('.btn-filter-tab');
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = container.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const catData = card.getAttribute('data-category') || '';
+        if (category === 'all' || catData.includes(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    /* ==========================================================================
+       SKIN TYPE & SENSITIVITY MATCHER STATE
+       ========================================================================== */
+    const soapRecommendations = {
+      dry: {
+        title: 'Susu Kambing & Gandum Oat',
+        reason: 'Mengandung lipid alami susu kambing dan oat koloid penenang gatal, sangat lembut untuk melembapkan kulit kering dan eksim.',
+        price: 48000,
+        img: 'https://images.unsplash.com/photo-1598662957563-ee4965d4d72c?auto=format&fit=crop&w=300&q=80'
+      },
+      acne: {
+        title: 'Sea Salt & Daun Eukaliptus',
+        reason: 'Mineral garam laut dan eukaliptus murni membersihkan bakteri penyebab jerawat punggung tanpa membuat kulit kering bersisik.',
+        price: 50000,
+        img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=300&q=80'
+      },
+      sensitive: {
+        title: 'Kelapa Murni & Madu Hutan (Unscented)',
+        reason: '100% bebas minyak atsiri dan pewangi sintetis. Lemak asam laurat VCO dan madu hutan memulihkan skin barrier sensitif.',
+        price: 48000,
+        img: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=300&q=80'
+      },
+      normal: {
+        title: 'Mawar & French Pink Clay',
+        reason: 'Lempung Prancis menyerap kotoran mikro dan mawar damaskus mengembalikan kilau alami kulit sehat yang bebas kusam.',
+        price: 52000,
+        img: 'https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=300&q=80'
+      }
+    };
+
+    let selectedCondition = 'dry';
+
+    function setCondition(cond, btn) {
+      selectedCondition = cond;
+      document.querySelectorAll('.btn-cond-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderRecommendation();
+    }
+
+    function setSensation(sens, btn) {
+      document.querySelectorAll('.btn-sens-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function renderRecommendation() {
+      const rec = soapRecommendations[selectedCondition];
+      document.getElementById('recSoapTitle').textContent = rec.title;
+      document.getElementById('recSoapReason').textContent = rec.reason;
+      document.getElementById('recSoapPrice').textContent = `Rp ${rec.price.toLocaleString('id-ID')}`;
+      document.getElementById('recSoapImg').src = rec.img;
+    }
+
+    function addRecommendedSoap() {
+      const rec = soapRecommendations[selectedCondition];
+      addToCart('rec-soap', rec.title, 'Batang 110g', rec.price, rec.img);
+      toggleCartDrawer(true);
+    }
+
+    /* ==========================================================================
+       CUSTOM SOAP BUNDLE BUILDER
+       ========================================================================== */
+    let bundleState = {
+      requiredCount: 3,
+      discount: 15000,
+      tierName: 'Paket Trio Mandi (3 Sabun)'
+    };
+
+    function setBundleTier(count, discount, name, el) {
+      document.querySelectorAll('.btn-bundle-tier').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      bundleState.requiredCount = count;
+      bundleState.discount = discount;
+      bundleState.tierName = name;
+      updateBundleSummary();
+    }
+
+    function updateBundleSummary() {
+      const checkedCbs = document.querySelectorAll('.bundle-soap-cb:checked');
+      const selectedSoaps = Array.from(checkedCbs).map(cb => ({
+        name: cb.getAttribute('data-name'),
+        price: parseInt(cb.getAttribute('data-price'), 10)
+      }));
+
+      let subtotal = 0;
+      let listHtml = '';
+
+      selectedSoaps.forEach(soap => {
+        subtotal += soap.price;
+        listHtml += `<li class="bbs-item"><span>${soap.name}</span><span>Rp ${soap.price.toLocaleString('id-ID')}</span></li>`;
+      });
+
+      listHtml += `<li class="bbs-item"><span>Pouch Jaring Busa</span><span>GRATIS</span></li>`;
+      listHtml += `<li class="bbs-item"><span>Tatakan Kayu Jati</span><span>GRATIS</span></li>`;
+
+      const finalTotal = Math.max(0, subtotal - bundleState.discount);
+      listHtml += `<li class="bbs-item" style="color: var(--accent-teal); font-weight: 700;"><span>Diskon ${bundleState.tierName}</span><span>-Rp ${bundleState.discount.toLocaleString('id-ID')}</span></li>`;
+
+      document.getElementById('bundleSummaryList').innerHTML = listHtml;
+      document.getElementById('bundleTotalDisplay').textContent = `Rp ${finalTotal.toLocaleString('id-ID')}`;
+    }
+
+    function addBundleToCart() {
+      const checkedCbs = document.querySelectorAll('.bundle-soap-cb:checked');
+      if (checkedCbs.length < bundleState.requiredCount) {
+        alert(`Harap pilih minimal ${bundleState.requiredCount} varian sabun batang untuk paket ini.`);
+        return;
+      }
+
+      let subtotal = 0;
+      const soapNames = [];
+      checkedCbs.forEach(cb => {
+        subtotal += parseInt(cb.getAttribute('data-price'), 10);
+        soapNames.push(cb.getAttribute('data-name'));
+      });
+
+      const finalTotal = Math.max(0, subtotal - bundleState.discount);
+      const subInfo = `${soapNames.join(' + ')} | Gratis Pouch & Tatakan Kayu`;
+
+      addToCart('bundle-soap', bundleState.tierName, subInfo, finalTotal, 'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=200&q=80');
+      toggleCartDrawer(true);
+    }
+
+    /* Eco Impact Calculator */
+    function updateEcoStats(val) {
+      const familySize = parseInt(val, 10);
+      document.getElementById('familyCountDisplay').textContent = `${familySize} Orang`;
+      const bottlesSaved = familySize * 12;
+      const litersPrevented = (familySize * 2.4).toFixed(1);
+
+      document.getElementById('plasticBottlesSaved').textContent = bottlesSaved;
+      document.getElementById('chemicalLitersPrevented').textContent = `${litersPrevented} L`;
+    }
+
+    /* FAQ Toggle */
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

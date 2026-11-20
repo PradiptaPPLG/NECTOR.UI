@@ -3,6 +3,85 @@ import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
+    id: 'tpl-56',
+    slug: 'embun-mandi-sabun-alami',
+    title: 'EMBUN MANDI',
+    tagline: 'Studio sabun batang alami proses dingin & perawatan kulit sensitif Nusantara',
+    description: 'Template website atelier sabun mandi alami proses dingin (cold-process artisan soap) dan perawatan kulit sensitif berbasis minyak nabati murni (minyak zaitun, kelapa murni, shea butter), susu kambing segar, dan lempung mineral alami. Dirancang dengan standar anti-slop tinggi yang berfokus langsung pada produk fisik nyata: penemu formula sabun sesuai jenis kulit (Skin Type & Sensitivity Finder), perakit paket bundling kustom 3 atau 4 sabun dengan bonus foaming net pouch, katalog varian sabun bebas deterjen sintetis (SLS/Paraben-free), kalkulator penghematan botol plastik ramah lingkungan, serta sistem keranjang belanja langsung terhubung ke WhatsApp Admin.',
+    category: 'soap',
+    tags: ['Sabun Alami', 'Cold Process Soap', 'Kulit Sensitif', 'Bebas SLS & Paraben', 'Zero Waste', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Skin Type Matcher', 'Soap Bundle Builder', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'soap',
+    previewComponentKey: 'soap-embun-mandi',
+    htmlPath: '/templates/soap/embun-mandi-sabun-alami.html',
+    htmlFolderPath: 'templates/soap/embun-mandi-sabun-alami.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
+      'Palet harmoni seafoam mint & cloud: cloud blue (#BAD7DF), petal pink (#FFE2E2), milk linen (#F6F6F6), seafoam mint (#99DDCC)',
+      'Penemu Formula Sabun Sesuai Tipe Kulit (Skin Type Matcher) interaktif dengan rekomendasi solusi eksim dan kulit kering',
+      'Perakit Paket Bundling Mandi (Custom Soap Bundle Builder) 3 atau 4 sabun dengan diskon otomatis dan bonus aksesoris kayu',
+      'Kalkulator Jejak Hijau Ramah Lingkungan (Plastic Bottles Saved Calculator) berdasarkan jumlah anggota keluarga',
+      'Transparansi proses saponifikasi dingin 6 pekan (42 hari) menjaga 100% gliserin pelembap alami tanpa zat kimia keras',
+      'Drawer keranjang belanja slide-over dengan formulir kota pengiriman dan tombol pembuat pesan checkout WhatsApp otomatis'
+    ],
+    usageInstructions: [
+      'Buka berkas public/templates/soap/embun-mandi-sabun-alami.html di editor kode Anda.',
+      'Ubah komposisi minyak nabati, berat gramatur (110g / 115g), dan harga sabun sesuai katalog UMKM Anda.',
+      'Sesuaikan nomor WhatsApp admin pada fungsi checkout untuk menerima pesanan langsung.',
+      'Buka langsung di browser atau uji responsivitasnya melalui etalase NECTOR.UI.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'embun-mandi-sabun-alami.html',
+        language: 'html',
+        content: `<!-- EMBUN MANDI — NECTOR.UI Cold-Process Natural Soap Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>EMBUN MANDI — Studio Sabun Batang Alami Proses Dingin & Perawatan Kulit Sensitif Nusantara</title>
+  <style>
+    :root {
+      --bg-canvas: #F6F6F6;
+      --bg-surface: #FFFFFF;
+      --accent-cloud: #BAD7DF;
+      --accent-petal: #FFE2E2;
+      --accent-mint: #99DDCC;
+      --accent-dark: #1C2A30;
+      --text-ink: #1C2A30;
+      --text-muted: #4D626C;
+    }
+  </style>
+</head>
+<body>
+  <h1>EMBUN MANDI</h1>
+  <p>Kembalikan kelembutan alami kulit dengan sabun batang murni.</p>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS lengkap dengan skin type matcher dan bundle builder.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt untuk website e-commerce atelier sabun batang alami EMBUN MANDI berkonsep cold-process botanical soap & sensitive skin care.',
+      designDirection: 'Dominasi warna soft cloud blue (#BAD7DF), soft petal pink (#FFE2E2), pure milk linen (#F6F6F6), dan fresh seafoam mint (#99DDCC). Tipografi elegan Fraunces dan Plus Jakarta Sans yang bersih dan segar.',
+      layoutAndGrid: 'Asymmetric editorial hero grid dengan fotografi nyata sabun batang alami dan busa lembut. Kuis penemu sabun sesuai tipe kulit, perakit bundling kustom 3 atau 4 sabun, dan drawer keranjang WhatsApp.',
+      typographyAndColor: 'Headings dalam serif Fraunces yang bersih, body teks dalam Plus Jakarta Sans, angka berat gramatur dan pH dalam JetBrains Mono.',
+      interactions: 'Kuis interaktif pencocok tipe kulit, perakit bundling sabun dengan diskon otomatis, kalkulator botol plastik terhemat, dan checkout WhatsApp instan.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, zero dependencies, valid W3C markup.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#99DDCC',
+    colorPalette: [
+      { hex: '#BAD7DF', rgb: 'rgb(186, 215, 223)', name: 'Soft Cloud Blue', role: 'Warna Aksen Garam Laut, Badge Penenang & Highlight' },
+      { hex: '#FFE2E2', rgb: 'rgb(255, 226, 226)', name: 'Soft Petal Pink', role: 'Warna Kartu Lembut, Aksen Mawar & Busa Halus' },
+      { hex: '#F6F6F6', rgb: 'rgb(246, 246, 246)', name: 'Pure Milk Linen', role: 'Warna Kanvas & Latar Belakang Bersih' },
+      { hex: '#99DDCC', rgb: 'rgb(153, 221, 204)', name: 'Fresh Seafoam Mint', role: 'Warna Aksen Utama, Tombol Aksi & Badge Herbal' }
+    ]
+  },
+  {
     id: 'tpl-55',
     slug: 'manis-kecil-bento-cake',
     title: 'MANIS KECIL',

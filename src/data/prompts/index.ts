@@ -55,8 +55,10 @@ import { RUMAH_VELVET_MASTER_PROMPT } from './beautyPrompt';
 import { AQUA_NUSANTARA_MASTER_PROMPT } from './aquascapePrompt';
 import { teaMasterPrompt } from './teaPrompt';
 import { cakeMasterPrompt } from './cakePrompt';
+import { soapMasterPrompt } from './soapPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'embun-mandi-sabun-alami': soapMasterPrompt,
   'manis-kecil-bento-cake': cakeMasterPrompt,
   'sedap-daun-artisan-tea': teaMasterPrompt,
   'akuaskap-ikan-hias-tropis': AQUA_NUSANTARA_MASTER_PROMPT,
