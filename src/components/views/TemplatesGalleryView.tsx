@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import type { Template } from '../../types';
 import { TemplateThumbnail } from '../common/TemplateThumbnail';
-import { Eye, Code, Sparkles, MessageSquare, Bookmark, ArrowUpDown } from 'lucide-react';
+import { Eye, Code, Sparkles, Palette, MessageSquare, Bookmark, ArrowUpDown } from 'lucide-react';
 import { getTemplateCommissionUrl } from '../../utils/whatsapp';
 import { isNewTemplate } from '../../utils/templateDate';
 
@@ -263,6 +263,14 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                     >
                       <Sparkles size={13} />
                       <span>Prompt</span>
+                    </button>
+                    <button
+                      className="btn-action-ghost"
+                      onClick={() => onSelectTemplate(template, 'color')}
+                      title="Inspeksi palet warna dan salin kode hex"
+                    >
+                      <Palette size={13} />
+                      <span>Color</span>
                     </button>
                     <a
                       href={getTemplateCommissionUrl(template.title)}

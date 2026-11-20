@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import type { Template } from '../../types';
 import { TemplateThumbnail } from '../common/TemplateThumbnail';
-import { ArrowRight, Code, Eye, Bookmark, MessageSquare, Layers, Sparkles } from 'lucide-react';
+import { ArrowRight, Code, Eye, Bookmark, MessageSquare, Layers, Sparkles, Palette } from 'lucide-react';
 import { getTemplateCommissionUrl } from '../../utils/whatsapp';
 import { isNewTemplate } from '../../utils/templateDate';
 
@@ -289,6 +289,14 @@ export const HomeView: React.FC<Props> = ({
                     <button className="btn-action-ghost" onClick={() => onSelectTemplate(template, 'code')}>
                       <Code size={13} />
                       <span>Kode</span>
+                    </button>
+                    <button className="btn-action-ghost" onClick={() => onSelectTemplate(template, 'prompt')} title="Spesifikasi Prompt">
+                      <Sparkles size={13} />
+                      <span>Prompt</span>
+                    </button>
+                    <button className="btn-action-ghost" onClick={() => onSelectTemplate(template, 'color')} title="Palet Warna">
+                      <Palette size={13} />
+                      <span>Color</span>
                     </button>
                     <a
                       href={getTemplateCommissionUrl(template.title)}

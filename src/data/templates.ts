@@ -3,6 +3,85 @@ import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
+    id: 'tpl-54',
+    slug: 'sedap-daun-artisan-tea',
+    title: 'SEDAP DAUN',
+    tagline: 'Atelier teh artisan & racikan tisane bunga herbal alami Nusantara',
+    description: 'Template website etalase dan studio teh artisan lokal yang menghadirkan daun teh petik pucuk pegunungan Jawa Barat, tisane bunga kering tanpa kafein, dan racikan herbal rimpang hangat. Dirancang dengan standar anti-slop tinggi yang berfokus langsung pada produk fisik nyata: foto asli daun teh dan teko seduh kaca, panduan seduh interaktif (Brewing Ratio & Timer) untuk teh hijau, teh hitam, dan tisane bunga, filter suasana hati dan manfaat seduhan (Rileks, Fokus Pagi, Imunitas Hangat, Bebas Kafein), perakit custom hampers teh dengan pilihan kaleng kedap udara dan bonus saringan infuser, serta keranjang belanja instan terhubung ke WhatsApp Admin.',
+    category: 'tea',
+    tags: ['Artisan Tea', 'Tisane Herbal', 'UMKM Kuliner', 'Panduan Seduh Interaktif', 'Hampers Teh', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Brewing Ratio Timer', 'Gift Box Builder', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'tea',
+    previewComponentKey: 'tea-sedap-daun',
+    htmlPath: '/templates/tea/sedap-daun-artisan-tea.html',
+    htmlFolderPath: 'templates/tea/sedap-daun-artisan-tea.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
+      'Palet harmoni botani antislop: linen cream (#FEF5ED), pale mint sage (#D3E4CD), olive leaf (#ADC2A9), eucalyptus slate (#99A799)',
+      'Katalog filter suasana hati instan (Semua Racikan, Rileks & Tidur Nyenyak, Segar Fokus Pagi, Hangat Imunitas, Bebas Kafein)',
+      'Pengalih kemasan dinamis (Kaleng Kedap Udara vs Pouch Ramah Lingkungan) dengan penyesuaian harga real-time',
+      'Kalkulator dan Stopwatch Seduh interaktif (Brewing Guide & Live Timer) dengan visual progress ring dan audio dentang lembut',
+      'Perakit Paket Hampers Kado Kustom 4 langkah dengan kalkulasi harga instan dan pratinjau kartu ucapan personal live',
+      'Drawer keranjang belanja slide-over dengan ringkasan pesanan otomatis terhubung ke formulir pemesanan WhatsApp'
+    ],
+    usageInstructions: [
+      'Buka berkas public/templates/tea/sedap-daun-artisan-tea.html di text editor pilihan Anda.',
+      'Sesuaikan daftar racikan teh, berat gramatur (75g / 50g), dan harga jual rupiah pada data produk.',
+      'Ganti nomor WhatsApp pada tautan checkout sesuai nomor resmi kontak UMKM Anda.',
+      'Buka langsung di browser tanpa kompilasi atau jalankan melalui etalase NECTOR.UI.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'sedap-daun-artisan-tea.html',
+        language: 'html',
+        content: `<!-- SEDAP DAUN — NECTOR.UI Artisan Tea & Herbal Tisane Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SEDAP DAUN — Atelier Teh Artisan & Racikan Tisane Herbal Nusantara</title>
+  <style>
+    :root {
+      --bg-canvas: #FEF5ED;
+      --bg-surface: #FFFFFF;
+      --bg-sage-tint: #D3E4CD;
+      --accent-olive: #ADC2A9;
+      --accent-slate: #99A799;
+      --accent-dark: #3F5244;
+      --text-ink: #242F26;
+      --text-muted: #576359;
+    }
+  </style>
+</head>
+<body>
+  <h1>SEDAP DAUN</h1>
+  <p>Secangkir kehangatan dari daun teh pilihan dan bunga herbal Nusantara.</p>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS lengkap dengan timer seduh dan perakit hampers.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt untuk website e-commerce dan studio teh artisan SEDAP DAUN berkonsep slow tea atelier dengan palet earthy sage botanical.',
+      designDirection: 'Dominasi warna linen cream (#FEF5ED), pale mint sage (#D3E4CD), olive herbal (#ADC2A9), dan eucalyptus slate (#99A799). Tipografi hangat Fraunces dan Plus Jakarta Sans yang jernih dan ramah.',
+      layoutAndGrid: 'Asymmetric editorial hero grid dengan foto nyata daun teh dan teko kaca. Filter suasana hati responsif, kalkulator timer seduh melingkar, dan perakit hampers kado 4 langkah.',
+      typographyAndColor: 'Headings dalam serif anggun Fraunces, body teks dalam Plus Jakarta Sans, angka takaran dan suhu air dalam JetBrains Mono.',
+      interactions: 'Filter katalog tanpa reload, switch kemasan kaleng vs pouch, live countdown stopwatch seduh dengan animasi SVG dan audio chime, custom hampers builder, serta drawer keranjang belanja WhatsApp.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop lebar, zero dependencies, valid W3C markup.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#99A799',
+    colorPalette: [
+      { hex: '#FEF5ED', rgb: 'rgb(254, 245, 237)', name: 'Warm Linen Cream', role: 'Warna Kanvas & Latar Belakang Hangat' },
+      { hex: '#D3E4CD', rgb: 'rgb(211, 228, 205)', name: 'Pale Mint Sage', role: 'Warna Kartu, Highlight & Border Halus' },
+      { hex: '#ADC2A9', rgb: 'rgb(173, 194, 169)', name: 'Muted Olive Leaf', role: 'Warna Sekunder, Tag & Badge Botani' },
+      { hex: '#99A799', rgb: 'rgb(153, 167, 153)', name: 'Dried Eucalyptus Slate', role: 'Warna Aksen Utama & Tombol Primer' }
+    ]
+  },
+  {
     id: 'tpl-11',
     slug: 'savore-cafe',
     title: 'SAVORÉ',

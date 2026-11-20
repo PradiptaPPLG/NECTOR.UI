@@ -1,0 +1,2864 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEDAP DAUN — Atelier Teh Artisan & Racikan Tisane Herbal Nusantara</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       SEDAP DAUN — PALET BOTANIKAL HARMONIS (ANTI-SLOP CRAFT STANDARDS)
+       Palette extracted from prompt photo:
+       #FEF5ED (Warm Linen Cream)
+       #D3E4CD (Pale Mint Sage)
+       #ADC2A9 (Olive Herbal Leaf)
+       #99A799 (Dried Eucalyptus Slate)
+       ========================================================================== */
+    :root {
+      --bg-canvas: #FEF5ED;
+      --bg-surface: #FFFFFF;
+      --bg-sage-tint: #D3E4CD;
+      --bg-sage-soft: rgba(211, 228, 205, 0.4);
+      --accent-olive: #ADC2A9;
+      --accent-slate: #99A799;
+      --accent-dark: #3F5244;
+      --accent-deep: #2A382E;
+      --text-ink: #242F26;
+      --text-muted: #576359;
+      --text-subtle: #7A897D;
+      --border-hairline: #E2ECE0;
+      --border-medium: #C8D7C5;
+      --border-focus: #99A799;
+      --danger: #B84A39;
+      
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+
+      --shadow-sm: 0 2px 6px rgba(36, 47, 38, 0.04);
+      --shadow-md: 0 8px 24px rgba(36, 47, 38, 0.07);
+      --shadow-lg: 0 16px 40px rgba(36, 47, 38, 0.1);
+      --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+      border: none;
+      background: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.01em;
+    }
+
+    /* Top Announcement Bar */
+    .top-announcement {
+      background-color: var(--accent-deep);
+      color: #FEF5ED;
+      font-size: 13px;
+      padding: 8px 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-weight: 500;
+    }
+    .top-announcement span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge-pill-light {
+      background-color: rgba(254, 245, 237, 0.18);
+      color: #FEF5ED;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Main Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(254, 245, 237, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+      transition: background-color var(--transition-fast);
+    }
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-logo-mark {
+      width: 38px;
+      height: 38px;
+      background-color: var(--accent-dark);
+      color: var(--bg-canvas);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text-ink);
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-ink);
+      transition: color var(--transition-fast);
+      position: relative;
+    }
+    .nav-link:hover {
+      color: var(--accent-dark);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-cart-nav {
+      position: relative;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-ink);
+      transition: all var(--transition-fast);
+    }
+    .btn-cart-nav:hover {
+      border-color: var(--accent-slate);
+      box-shadow: var(--shadow-sm);
+    }
+    .cart-counter {
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-wa-header {
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-wa-header:hover {
+      background-color: var(--accent-deep);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 72px 0 64px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .hero-kicker-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-kicker-tag {
+      background-color: var(--bg-sage-tint);
+      color: var(--accent-dark);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-kicker-loc {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 4.4vw, 56px);
+      line-height: 1.15;
+      font-weight: 600;
+      color: var(--text-ink);
+      letter-spacing: -0.01em;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent-dark);
+    }
+    .hero-subhead {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 580px;
+    }
+
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 20px 0;
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .hero-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 8px;
+    }
+    .btn-hero-primary {
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      padding: 14px 26px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+    .btn-hero-primary:hover {
+      background-color: var(--accent-deep);
+      transform: translateY(-2px);
+    }
+    .btn-hero-secondary {
+      background-color: var(--bg-surface);
+      color: var(--text-ink);
+      border: 1px solid var(--border-medium);
+      padding: 14px 24px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+    }
+    .btn-hero-secondary:hover {
+      border-color: var(--accent-slate);
+      background-color: #FAF5EE;
+    }
+
+    /* Hero Visual Card */
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-img-box {
+      position: relative;
+      height: 480px;
+      background-color: #E8EDE5;
+      overflow: hidden;
+    }
+    .hero-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms ease;
+    }
+    .hero-visual-card:hover .hero-img-box img {
+      transform: scale(1.03);
+    }
+    .hero-overlay-card {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background-color: rgba(254, 245, 237, 0.96);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(200, 215, 197, 0.8);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .hoc-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hoc-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .hoc-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .hoc-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .btn-hoc-add {
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-hoc-add:hover {
+      background-color: var(--accent-deep);
+    }
+
+    /* Pillars / Values Section */
+    .section-pillars {
+      padding: 40px 0 64px;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .pillar-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all var(--transition-fast);
+    }
+    .pillar-card:hover {
+      border-color: var(--border-medium);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+    .pillar-icon-box {
+      width: 44px;
+      height: 44px;
+      background-color: var(--bg-sage-tint);
+      color: var(--accent-dark);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Catalog Section */
+    .section-catalog {
+      padding: 64px 0 80px;
+      background-color: #FAF4EB;
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .section-header-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+    .sec-kicker {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .sec-title {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 3.6vw, 42px);
+      font-weight: 700;
+      color: var(--text-ink);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .sec-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Mood Filter Bar */
+    .filter-tabs-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .btn-filter-tab {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      color: var(--text-ink);
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-filter-tab:hover {
+      border-color: var(--accent-dark);
+    }
+    .btn-filter-tab.active {
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      border-color: var(--accent-dark);
+      box-shadow: 0 4px 12px rgba(63, 82, 68, 0.2);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+    }
+    .product-card:hover {
+      border-color: var(--border-medium);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .product-img-wrap {
+      position: relative;
+      height: 240px;
+      background-color: #E8EDE5;
+      overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.05);
+    }
+    .product-tag-chip {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: rgba(254, 245, 237, 0.94);
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-hairline);
+    }
+    .product-caffeine-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: rgba(36, 47, 38, 0.85);
+      color: #FEF5ED;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.02em;
+    }
+
+    .product-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 14px;
+    }
+    .product-header-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .product-category-text {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-slate);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .product-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-ink);
+      line-height: 1.25;
+    }
+    .product-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Packaging Switcher */
+    .packaging-switch-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-canvas);
+      padding: 4px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-hairline);
+    }
+    .pkg-option-btn {
+      flex: 1;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      text-align: center;
+      color: var(--text-muted);
+      transition: all var(--transition-fast);
+    }
+    .pkg-option-btn.active {
+      background-color: var(--bg-surface);
+      color: var(--accent-dark);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .product-footer-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .price-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .price-label {
+      font-size: 10px;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .price-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+    .btn-add-cart {
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+    .btn-add-cart:hover {
+      background-color: var(--accent-deep);
+      transform: translateY(-1px);
+    }
+
+    /* Interactive Brewing Guide & Live Countdown Timer */
+    .section-brewing {
+      padding: 80px 0;
+      position: relative;
+    }
+    .brewing-stage-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .brewing-controls-col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .brewing-nav-pills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .btn-tea-type {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: all var(--transition-fast);
+    }
+    .btn-tea-type:hover {
+      border-color: var(--accent-slate);
+    }
+    .btn-tea-type.active {
+      background-color: var(--bg-sage-tint);
+      border-color: var(--accent-olive);
+    }
+    .btt-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .btt-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .brewing-params-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+    .bparam-box {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .bparam-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .bparam-val {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    /* Live Timer Component */
+    .timer-stage-col {
+      background: linear-gradient(145deg, #FAF4EB 0%, #EFF5EC 100%);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    .timer-ring-wrap {
+      position: relative;
+      width: 190px;
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .timer-svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+    .timer-circle-bg {
+      fill: none;
+      stroke: #D3E4CD;
+      stroke-width: 8;
+    }
+    .timer-circle-progress {
+      fill: none;
+      stroke: var(--accent-dark);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 534;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 1s linear, stroke var(--transition-fast);
+    }
+    .timer-display-inner {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .timer-clock {
+      font-family: var(--font-mono);
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--text-ink);
+      line-height: 1;
+    }
+    .timer-status-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .timer-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-timer-primary {
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+    }
+    .btn-timer-primary:hover {
+      background-color: var(--accent-deep);
+    }
+    .btn-timer-secondary {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      color: var(--text-ink);
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: 13px;
+      transition: all var(--transition-fast);
+    }
+    .btn-timer-secondary:hover {
+      border-color: var(--accent-dark);
+    }
+
+    /* Custom Hampers Gift Box Builder */
+    .section-hampers {
+      padding: 80px 0;
+      background-color: #FAF4EB;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .hampers-builder-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+    }
+    .hb-steps-col {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .hb-step-item {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+
+    .box-type-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .box-card-btn {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all var(--transition-fast);
+    }
+    .box-card-btn:hover {
+      border-color: var(--accent-slate);
+    }
+    .box-card-btn.active {
+      background-color: var(--bg-sage-tint);
+      border-color: var(--accent-olive);
+      box-shadow: 0 0 0 1px var(--accent-olive);
+    }
+    .bcb-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .bcb-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .bcb-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-top: 4px;
+    }
+
+    .tea-check-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .tea-check-label {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-ink);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .tea-check-label:hover {
+      border-color: var(--accent-slate);
+    }
+    .tea-check-label input {
+      accent-color: var(--accent-dark);
+      width: 16px;
+      height: 16px;
+    }
+
+    .addon-check-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .addon-card-label {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .addon-card-label:hover {
+      border-color: var(--accent-slate);
+    }
+    .addon-card-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .addon-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .addon-price {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+
+    /* Live Greeting Card Preview */
+    .greeting-card-preview {
+      background-color: #FEFBF7;
+      border: 1px dashed var(--accent-olive);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .gcp-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .gcp-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .gcp-input {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    .gcp-textarea {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 12px;
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    /* Hampers Summary Sidebar */
+    .hb-summary-col {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .hbs-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .hbs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .hbs-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .hbs-item span:first-child {
+      color: var(--text-ink);
+      font-weight: 500;
+    }
+    .hbs-item span:last-child {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-ink);
+    }
+
+    .hbs-total-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 6px 0;
+    }
+    .hbs-total-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .hbs-total-val {
+      font-family: var(--font-mono);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+    .btn-checkout-hampers {
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      padding: 14px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-checkout-hampers:hover {
+      background-color: var(--accent-deep);
+    }
+
+    /* Tea Origin & Farm Story */
+    .section-origin {
+      padding: 80px 0;
+    }
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .origin-img-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-medium);
+      box-shadow: var(--shadow-md);
+      height: 440px;
+      background-color: #E8EDE5;
+    }
+    .origin-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .origin-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .origin-points {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .op-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .op-bullet {
+      width: 20px;
+      height: 20px;
+      background-color: var(--bg-sage-tint);
+      color: var(--accent-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .op-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .op-text strong {
+      color: var(--text-ink);
+    }
+
+    /* Customer Reviews */
+    .section-reviews {
+      padding: 80px 0;
+      background-color: #FAF4EB;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .review-stars {
+      color: #D4A340;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+    .review-quote {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-ink);
+      font-style: italic;
+    }
+    .review-author-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      background-color: var(--bg-sage-tint);
+      color: var(--accent-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .review-meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .rm-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .rm-loc {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* FAQ Section */
+    .section-faq {
+      padding: 80px 0;
+    }
+    .faq-accordion-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color var(--transition-fast);
+    }
+    .faq-item:hover {
+      border-color: var(--border-medium);
+    }
+    .faq-toggle-btn {
+      width: 100%;
+      padding: 20px 24px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-ink);
+    }
+    .faq-icon {
+      font-size: 18px;
+      transition: transform var(--transition-fast);
+      color: var(--accent-slate);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--accent-deep);
+      color: #FEF5ED;
+      padding: 64px 0 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .footer-brand-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: #FEF5ED;
+    }
+    .footer-brand-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #C8D7C5;
+      max-width: 320px;
+    }
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ADC2A9;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: #D3E4CD;
+      transition: color var(--transition-fast);
+    }
+    .footer-links a:hover {
+      color: #FEF5ED;
+    }
+    .footer-wa-box {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .fw-text {
+      font-size: 13px;
+      color: #D3E4CD;
+      line-height: 1.5;
+    }
+    .btn-footer-wa {
+      background-color: var(--accent-olive);
+      color: var(--accent-deep);
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      transition: opacity var(--transition-fast);
+    }
+    .btn-footer-wa:hover {
+      opacity: 0.9;
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #A3B59F;
+    }
+
+    /* Cart Slide-over Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -460px;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background-color: var(--bg-surface);
+      box-shadow: -8px 0 30px rgba(0,0,0,0.15);
+      z-index: 101;
+      display: flex;
+      flex-direction: column;
+      transition: right var(--transition-base);
+    }
+    .cart-drawer.open {
+      right: 0;
+    }
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cd-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .btn-close-drawer {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--bg-canvas);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--text-muted);
+      transition: background-color var(--transition-fast);
+    }
+    .btn-close-drawer:hover {
+      background-color: var(--border-medium);
+      color: var(--text-ink);
+    }
+    .cart-items-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .cart-item-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px;
+      background-color: var(--bg-canvas);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-hairline);
+    }
+    .ci-img {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background-color: #E8EDE5;
+    }
+    .ci-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .ci-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .ci-pkg {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .ci-price {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+    .ci-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-qty {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .ci-qty-num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .cart-drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-hairline);
+      background-color: var(--bg-canvas);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .cart-summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+    .csr-total-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+    .cart-customer-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .input-cart-field {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    .btn-checkout-wa {
+      background-color: var(--accent-dark);
+      color: #FEF5ED;
+      padding: 13px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-checkout-wa:hover {
+      background-color: var(--accent-deep);
+    }
+
+    /* Toast Notification */
+    .toast-pill {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: var(--accent-deep);
+      color: #FEF5ED;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast-pill.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .brewing-stage-card {
+        grid-template-columns: 1fr;
+      }
+      .hampers-builder-card {
+        grid-template-columns: 1fr;
+      }
+      .origin-grid {
+        grid-template-columns: 1fr;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-stats-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .box-type-grid, .tea-check-list, .addon-check-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-announcement">
+    <span>
+      <span class="badge-pill-light">PANEN SEGAR PAGI INI</span>
+      Daun Teh Pucuk Malabar & Ciwidey • Gratis Sendok Takar Kayu Jati Tiap Beli 2 Kaleng
+    </span>
+  </aside>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#" class="brand-wrap">
+        <div class="brand-logo-mark">S</div>
+        <div class="brand-text">
+          <span class="brand-title">SEDAP DAUN</span>
+          <span class="brand-sub">Atelier Teh Artisan & Tisane</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#koleksi" class="nav-link">Koleksi Teh</a></li>
+          <li><a href="#panduan-seduh" class="nav-link">Panduan Seduh</a></li>
+          <li><a href="#rakit-hampers" class="nav-link">Rakit Hampers</a></li>
+          <li><a href="#kebun" class="nav-link">Asal Kebun</a></li>
+          <li><a href="#ulasan" class="nav-link">Ulasan</a></li>
+          <li><a href="#faq" class="nav-link">Tanya Jawab</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-cart-nav" onclick="toggleCartDrawer(true)" title="Lihat Keranjang Belanja">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span>Keranjang</span>
+          <span class="cart-counter" id="navCartCount">0</span>
+        </button>
+        <a href="https://wa.me/6281234567890?text=Halo%20Sedap%20Daun,%20saya%20ingin%20konsultasi%20racikan%20teh%20dan%20tisane" target="_blank" rel="noopener noreferrer" class="btn-wa-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Konsultasi WA</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-kicker-row">
+            <span class="hero-kicker-tag">100% ALAMI • PETIK PUCUK BERKALA</span>
+            <span class="hero-kicker-loc mono">Bandung & Wonosobo</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Secangkir kehangatan dari daun teh pilihan dan <em>bunga herbal Nusantara.</em>
+          </h1>
+
+          <p class="hero-subhead">
+            Bebas perisa buatan dan tanpa pengawet sintesis. Kami meracik daun teh pegunungan tinggi Jawa Barat dengan kelopak bunga melati, chamomile, dan rempah herbal alami untuk momen jeda yang menenangkan jiwa.
+          </p>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <span class="stat-number">100% Murni</span>
+              <span class="stat-label">Bunga & Daun Utuh Kering</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-number">P-IRT & Halal</span>
+              <span class="stat-label">Terdaftar Resmi & Tersertifikasi</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-number">14 Hari</span>
+              <span class="stat-label">Siklus Panen Selalu Segar</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#koleksi" class="btn-hero-primary">
+              <span>Jelajahi Koleksi Teh</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#panduan-seduh" class="btn-hero-secondary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Coba Panduan Seduh</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="hero-img-box">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=1200&q=80" alt="Daun Teh dan Teko Kaca Seduhan Herbal Sedap Daun">
+          </div>
+          <div class="hero-overlay-card">
+            <div class="hoc-left">
+              <span class="hoc-badge">FAVORIT BULAN INI</span>
+              <div class="hoc-title">Melati Senja Jasmine Green Tea</div>
+              <div class="hoc-desc">5.0 ★ (480+ Ulasan) • Wangi Lembut Menenangkan</div>
+            </div>
+            <button class="btn-hoc-add" onclick="quickAddHeroItem()">
+              + Tambah Rp 65.000
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Pillars Section -->
+    <section class="section-pillars">
+      <div class="container pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🌿</div>
+          <h3 class="pillar-title">Bebas Perisa Sintetis</h3>
+          <p class="pillar-desc">Semua aroma murni berasal dari kuntum bunga melati asli, irisan buah kering, dan herba segar tanpa bahan kimia aditif.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🥫</div>
+          <h3 class="pillar-title">Kaleng Kedap Udara</h3>
+          <p class="pillar-desc">Menggunakan kaleng double-lid kedap udara yang menjaga kelembaban stabil dan melindungi minyak atsiri teh hingga 18 bulan.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">☀️</div>
+          <h3 class="pillar-title">Petik Pucuk Pagi Hari</h3>
+          <p class="pillar-desc">Dipetik pukul 06.00-09.00 saat embun mengering untuk memastikan kadar antioksidan polifenol dan rasa manis alami tertinggi.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🌙</div>
+          <h3 class="pillar-title">Pilihan Bebas Kafein</h3>
+          <p class="pillar-desc">Tersedia pilihan tisane bunga herbal 0 mg kafein yang aman dinikmati di malam hari sebelum tidur tanpa khawatir insomnia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Tea Catalog with Mood & Benefit Filters -->
+    <section class="section-catalog" id="koleksi">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Katalog Racikan Alami</span>
+          <h2 class="sec-title">Pilihan Teh & Tisane Bunga Nusantara</h2>
+          <p class="sec-desc">Temukan racikan yang selaras dengan suasana hati dan kebutuhan tubuh Anda hari ini. Dari kesegaran pagi yang membakar semangat hingga kelembutan tisane penenang malam.</p>
+        </div>
+
+        <!-- Filter Tab Buttons -->
+        <div class="filter-tabs-row">
+          <button class="btn-filter-tab active" onclick="filterCatalog('all', this)">Semua Racikan (6)</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('relax', this)">🌙 Rileks & Tidur Nyenyak</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('focus', this)">☀️ Segar & Fokus Pagi</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('immunity', this)">🫚 Hangat Tubuh & Imunitas</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('caffeine-free', this)">🍃 Bebas Kafein (0 mg)</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGridContainer">
+          
+          <!-- Product 1 -->
+          <article class="product-card" data-category="focus">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=800&q=80" alt="Melati Senja Jasmine Green Tea">
+              <span class="product-tag-chip">TEH HIJAU MELATI</span>
+              <span class="product-caffeine-badge">KAFEIN RENDAH</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Teh Hijau Pekoe • Ciwidey</span>
+                <h3 class="product-title">Melati Senja (Jasmine Green)</h3>
+              </div>
+              <p class="product-desc">Daun teh hijau pekoe pegunungan tinggi diracik bersama kuntum bunga melati asli Jawa Barat. Warna seduhan kuning keemasan dengan wangi lembut menenangkan.</p>
+              
+              <div class="packaging-switch-row">
+                <button class="pkg-option-btn active" onclick="switchPackage('p1', 'tin', 65000, 'Kaleng 75g', this)">Kaleng 75g</button>
+                <button class="pkg-option-btn" onclick="switchPackage('p1', 'pouch', 45000, 'Pouch 50g', this)">Pouch 50g</button>
+              </div>
+
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val" id="price-p1">Rp 65.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p1', 'Melati Senja', 'Kaleng 75g', 65000, 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card" data-category="relax caffeine-free">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&w=800&q=80" alt="Chamomile Lavender Calma Tisane">
+              <span class="product-tag-chip">TISANE BUNGA</span>
+              <span class="product-caffeine-badge">0 MG KAFEIN</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Tisane Bunga Kering • Alami</span>
+                <h3 class="product-title">Chamomile Lavender Calma</h3>
+              </div>
+              <p class="product-desc">Perpaduan kuntum chamomile utuh, kelopak lavender harum, dan daun spearmint segar. Pilihan terbaik untuk melepas lelah dan menyambut tidur lelap.</p>
+              
+              <div class="packaging-switch-row">
+                <button class="pkg-option-btn active" onclick="switchPackage('p2', 'tin', 78000, 'Kaleng 60g', this)">Kaleng 60g</button>
+                <button class="pkg-option-btn" onclick="switchPackage('p2', 'pouch', 55000, 'Pouch 40g', this)">Pouch 40g</button>
+              </div>
+
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val" id="price-p2">Rp 78.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p2', 'Chamomile Lavender Calma', 'Kaleng 60g', 78000, 'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card" data-category="immunity caffeine-free">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80" alt="Serai Jahe Merah Hangat">
+              <span class="product-tag-chip">REMPAH RIMPANG</span>
+              <span class="product-caffeine-badge">0 MG KAFEIN</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Rimpang Herbal • Wonosobo</span>
+                <h3 class="product-title">Serai Jahe Merah Hangat</h3>
+              </div>
+              <p class="product-desc">Irisan rimpang jahe merah kering oven suhu rendah dipadu batang serai wangi, biji kapulaga, dan daun pandan. Menghangatkan tenggorokan dan stamina.</p>
+              
+              <div class="packaging-switch-row">
+                <button class="pkg-option-btn active" onclick="switchPackage('p3', 'tin', 60000, 'Kaleng 80g', this)">Kaleng 80g</button>
+                <button class="pkg-option-btn" onclick="switchPackage('p3', 'pouch', 42000, 'Pouch 50g', this)">Pouch 50g</button>
+              </div>
+
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val" id="price-p3">Rp 60.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p3', 'Serai Jahe Merah', 'Kaleng 80g', 60000, 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="product-card" data-category="focus">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=800&q=80" alt="Earl Grey Jeruk Purut">
+              <span class="product-tag-chip">TEH HITAM AROMA</span>
+              <span class="product-caffeine-badge">KAFEIN SEDANG</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Teh Hitam Orthodox • Malabar</span>
+                <h3 class="product-title">Earl Grey Jeruk Purut</h3>
+              </div>
+              <p class="product-desc">Teh hitam pekat berkualitas dipadu minyak esensial bergamot murni dan sentuhan parutan kulit jeruk purut lokal. Rasa mantap dan wangi segar pembuka hari.</p>
+              
+              <div class="packaging-switch-row">
+                <button class="pkg-option-btn active" onclick="switchPackage('p4', 'tin', 68000, 'Kaleng 75g', this)">Kaleng 75g</button>
+                <button class="pkg-option-btn" onclick="switchPackage('p4', 'pouch', 48000, 'Pouch 50g', this)">Pouch 50g</button>
+              </div>
+
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val" id="price-p4">Rp 68.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p4', 'Earl Grey Jeruk Purut', 'Kaleng 75g', 68000, 'https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 5 -->
+          <article class="product-card" data-category="immunity caffeine-free">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80" alt="Rosella Apel Berry Glow">
+              <span class="product-tag-chip">TISANE BUAH & BUNGA</span>
+              <span class="product-caffeine-badge">0 MG KAFEIN</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Tisane Bunga Segar • Subang</span>
+                <h3 class="product-title">Rosella Apel Berry Glow</h3>
+              </div>
+              <p class="product-desc">Kelopak bunga rosella merah ungu dipadu irisan apel Malang kering dan daun mint. Rasa asam manis segar kaya vitamin C, nikmat diminum hangat atau dingin.</p>
+              
+              <div class="packaging-switch-row">
+                <button class="pkg-option-btn active" onclick="switchPackage('p5', 'tin', 58000, 'Kaleng 70g', this)">Kaleng 70g</button>
+                <button class="pkg-option-btn" onclick="switchPackage('p5', 'pouch', 39000, 'Pouch 45g', this)">Pouch 45g</button>
+              </div>
+
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val" id="price-p5">Rp 58.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p5', 'Rosella Apel Berry Glow', 'Kaleng 70g', 58000, 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 6 -->
+          <article class="product-card" data-category="relax">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=800&q=80" alt="Teh Putih Pucuk Perak Silver Needle">
+              <span class="product-tag-chip">TEH PUTIH MURNI</span>
+              <span class="product-caffeine-badge">KAFEIN SANGAT RENDAH</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Pucuk Jarum Perak • Langka</span>
+                <h3 class="product-title">Pucuk Perak (Silver Needle)</h3>
+              </div>
+              <p class="product-desc">Hanya kuncup daun termuda berbulu halus keperakan yang dipetik sebelum fajar. Menghasilkan rasa manis alami melon yang sangat lembut tanpa rasa sepat sama sekali.</p>
+              
+              <div class="packaging-switch-row">
+                <button class="pkg-option-btn active" onclick="switchPackage('p6', 'tin', 95000, 'Kaleng 50g', this)">Kaleng 50g</button>
+                <button class="pkg-option-btn" onclick="switchPackage('p6', 'pouch', 70000, 'Pouch 35g', this)">Pouch 35g</button>
+              </div>
+
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val" id="price-p6">Rp 95.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p6', 'Pucuk Perak Silver Needle', 'Kaleng 50g', 95000, 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Brewing Guide & Live Countdown Timer -->
+    <section class="section-brewing" id="panduan-seduh">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Kalkulator & Stopwatch Seduh</span>
+          <h2 class="sec-title">Panduan Seduhan Sempurna</h2>
+          <p class="sec-desc">Suhu air dan durasi seduh yang tepat mengeluarkan minyak atsiri alami tanpa rasa pahit berlebih. Pilih jenis racikan Anda dan mulai stopwatch seduh di bawah ini.</p>
+        </div>
+
+        <div class="brewing-stage-card">
+          <div class="brewing-controls-col">
+            <h3 style="font-family: var(--font-serif); font-size: 20px; font-weight: 700;">1. Pilih Varian yang Ingin Diseduh</h3>
+            
+            <div class="brewing-nav-pills">
+              <button class="btn-tea-type active" onclick="setBrewType('green', this)">
+                <span class="btt-name">Teh Hijau (Melati Senja)</span>
+                <span class="btt-sub">Suhu Rendah 75°C • Rasa Lembut</span>
+              </button>
+              <button class="btn-tea-type" onclick="setBrewType('white', this)">
+                <span class="btt-name">Teh Putih (Pucuk Perak)</span>
+                <span class="btt-sub">Suhu 82°C • Manis Alami</span>
+              </button>
+              <button class="btn-tea-type" onclick="setBrewType('black', this)">
+                <span class="btt-name">Teh Hitam (Earl Grey)</span>
+                <span class="btt-sub">Suhu 95°C • Pekat & Berani</span>
+              </button>
+              <button class="btn-tea-type" onclick="setBrewType('tisane', this)">
+                <span class="btt-name">Tisane Herbal & Bunga</span>
+                <span class="btt-sub">Suhu 98°C • Ekstraksi Sempurna</span>
+              </button>
+            </div>
+
+            <div class="brewing-params-grid">
+              <div class="bparam-box">
+                <span class="bparam-label">Suhu Air</span>
+                <span class="bparam-val" id="paramTemp">75° - 80°C</span>
+              </div>
+              <div class="bparam-box">
+                <span class="bparam-label">Takaran Daun</span>
+                <span class="bparam-val" id="paramGrams">3 Gram (1 sdt)</span>
+              </div>
+              <div class="bparam-box">
+                <span class="bparam-label">Volume Air</span>
+                <span class="bparam-val" id="paramWater">200 ml</span>
+              </div>
+            </div>
+
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;" id="paramNote">
+              💡 <em>Tips barista:</em> Tuang air panas ke cangkir terlebih dahulu selama 1 menit agar suhunya turun dari 100°C ke ~78°C sebelum disiram ke daun teh hijau.
+            </p>
+          </div>
+
+          <!-- Timer Component -->
+          <div class="timer-stage-col">
+            <span class="mono" style="font-size: 11px; font-weight: 700; color: var(--accent-dark); letter-spacing: 0.08em;">PANDUAN STOPWATCH SEDUH</span>
+            
+            <div class="timer-ring-wrap">
+              <svg class="timer-svg" viewBox="0 0 190 190">
+                <circle class="timer-circle-bg" cx="95" cy="95" r="85"></circle>
+                <circle class="timer-circle-progress" id="timerProgressCircle" cx="95" cy="95" r="85"></circle>
+              </svg>
+              <div class="timer-display-inner">
+                <span class="timer-clock" id="timerClockDisplay">02:30</span>
+                <span class="timer-status-text" id="timerStatusLabel">SIAP SEDUH</span>
+              </div>
+            </div>
+
+            <div class="timer-actions-row">
+              <button class="btn-timer-primary" id="btnTimerControl" onclick="toggleTimer()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span id="btnTimerText">Mulai Seduh</span>
+              </button>
+              <button class="btn-timer-secondary" onclick="resetTimer()">
+                Ulangi
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom Hampers Gift Box Builder -->
+    <section class="section-hampers" id="rakit-hampers">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Hadiah Kado Bermakna</span>
+          <h2 class="sec-title">Perakit Paket Hampers Teh Kustom</h2>
+          <p class="sec-desc">Kirimkan kehangatan untuk sahabat, keluarga, atau suvenir perusahaan. Pilih kotak kemasan, racikan teh favorit, bonus aksesoris, dan tulis kartu ucapan gratis.</p>
+        </div>
+
+        <div class="hampers-builder-card">
+          <div class="hb-steps-col">
+            
+            <!-- Step 1 -->
+            <div class="hb-step-item">
+              <div class="step-header">
+                <span class="step-num">1</span>
+                <h3 class="step-title">Pilih Kotak Kemasan Kado</h3>
+              </div>
+              <div class="box-type-grid">
+                <div class="box-card-btn active" onclick="selectHampersBox('hardbox', 45000, 'Hardbox Sage Green Satin', this)">
+                  <span class="bcb-name">Hardbox Sage Green Satin</span>
+                  <span class="bcb-sub">Kotak kaku eksklusif dengan pita satin eucalyptus</span>
+                  <span class="bcb-price">Rp 45.000</span>
+                </div>
+                <div class="box-card-btn" onclick="selectHampersBox('besek', 30000, 'Besek Anyaman Bambu Natural', this)">
+                  <span class="bcb-name">Besek Anyaman Bambu Natural</span>
+                  <span class="bcb-sub">Nuansa rustic tradisional ramah lingkungan</span>
+                  <span class="bcb-price">Rp 30.000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="hb-step-item">
+              <div class="step-header">
+                <span class="step-num">2</span>
+                <h3 class="step-title">Pilih Varian Kaleng Teh (Minimal 2 Varian)</h3>
+              </div>
+              <div class="tea-check-list">
+                <label class="tea-check-label">
+                  <input type="checkbox" checked onchange="updateHampersTotal()" data-name="Melati Senja" data-price="65000" class="hampers-tea-cb">
+                  <span>Melati Senja Green (Rp 65.000)</span>
+                </label>
+                <label class="tea-check-label">
+                  <input type="checkbox" checked onchange="updateHampersTotal()" data-name="Chamomile Lavender" data-price="78000" class="hampers-tea-cb">
+                  <span>Chamomile Calma (Rp 78.000)</span>
+                </label>
+                <label class="tea-check-label">
+                  <input type="checkbox" onchange="updateHampersTotal()" data-name="Serai Jahe Merah" data-price="60000" class="hampers-tea-cb">
+                  <span>Serai Jahe Merah (Rp 60.000)</span>
+                </label>
+                <label class="tea-check-label">
+                  <input type="checkbox" onchange="updateHampersTotal()" data-name="Earl Grey Purut" data-price="68000" class="hampers-tea-cb">
+                  <span>Earl Grey Jeruk Purut (Rp 68.000)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="hb-step-item">
+              <div class="step-header">
+                <span class="step-num">3</span>
+                <h3 class="step-title">Tambahan Aksesoris (Opsional)</h3>
+              </div>
+              <div class="addon-check-grid">
+                <label class="addon-card-label">
+                  <div class="addon-card-top">
+                    <input type="checkbox" checked onchange="updateHampersTotal()" data-name="Sendok Takar Jati" data-price="20000" class="hampers-addon-cb">
+                    <span class="addon-title">Sendok Kayu Jati</span>
+                  </div>
+                  <span class="addon-price">+ Rp 20.000</span>
+                </label>
+                <label class="addon-card-label">
+                  <div class="addon-card-top">
+                    <input type="checkbox" onchange="updateHampersTotal()" data-name="Saringan Teh Stainless" data-price="35000" class="hampers-addon-cb">
+                    <span class="addon-title">Saringan Stainless</span>
+                  </div>
+                  <span class="addon-price">+ Rp 35.000</span>
+                </label>
+                <label class="addon-card-label">
+                  <div class="addon-card-top">
+                    <input type="checkbox" onchange="updateHampersTotal()" data-name="Madu Hutan 100ml" data-price="35000" class="hampers-addon-cb">
+                    <span class="addon-title">Madu Hutan 100ml</span>
+                  </div>
+                  <span class="addon-price">+ Rp 35.000</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="hb-step-item">
+              <div class="step-header">
+                <span class="step-num">4</span>
+                <h3 class="step-title">Kartu Ucapan Kado (Gratis)</h3>
+              </div>
+              <div class="greeting-card-preview">
+                <span class="gcp-tag">PRATINJAU KARTU UCAPAN TERLAMPIR</span>
+                <div class="gcp-inputs">
+                  <input type="text" class="gcp-input" id="gcpTo" placeholder="Untuk: Sahabatku Maya" value="Untuk: Maya & Keluarga">
+                  <input type="text" class="gcp-input" id="gcpFrom" placeholder="Dari: Rian" value="Dari: Rian & Nisa">
+                </div>
+                <textarea class="gcp-textarea" id="gcpMessage" placeholder="Tuliskan ucapan hangat Anda...">Selamat menikmati momen jeda minum teh yang tenang dan menyehatkan di rumah baru!</textarea>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Summary Col -->
+          <div class="hb-summary-col">
+            <h3 class="hbs-title">Ringkasan Hampers</h3>
+            <ul class="hbs-list" id="hampersSummaryList">
+              <li class="hbs-item"><span>Hardbox Sage Green Satin</span><span>Rp 45.000</span></li>
+              <li class="hbs-item"><span>Melati Senja Green</span><span>Rp 65.000</span></li>
+              <li class="hbs-item"><span>Chamomile Calma</span><span>Rp 78.000</span></li>
+              <li class="hbs-item"><span>Sendok Kayu Jati</span><span>Rp 20.000</span></li>
+              <li class="hbs-item"><span>Kartu Ucapan Kustom</span><span>GRATIS</span></li>
+            </ul>
+
+            <div class="hbs-total-row">
+              <span class="hbs-total-label">Total Paket Hampers</span>
+              <span class="hbs-total-val" id="hampersTotalDisplay">Rp 208.000</span>
+            </div>
+
+            <p style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">
+              ✨ Termasuk pita satin, kartu ucapan cetak tebal, dan bubble wrap ganda untuk pengiriman luar kota.
+            </p>
+
+            <button class="btn-checkout-hampers" onclick="addHampersToCart()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              <span>+ Masukkan Hampers ke Keranjang</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Origin & Tea Farm Story -->
+    <section class="section-origin" id="kebun">
+      <div class="container origin-grid">
+        <div class="origin-img-frame">
+          <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=1000&q=80" alt="Kebun Teh Lereng Pegunungan Jawa Barat">
+        </div>
+
+        <div class="origin-text-col">
+          <span class="sec-kicker">Kemitraan Petani Lokal</span>
+          <h2 class="sec-title">Petik Pucuk dari Lereng Pegunungan Ciwidey & Malabar</h2>
+          <p class="sec-desc">
+            Kualitas rasa teh bermula dari tanah dan ketinggian lereng tempatnya bertumbuh. Kami bermitra langsung dengan kelompok tani mandiri di Jawa Barat pada ketinggian 1.500 mdpl.
+          </p>
+
+          <div class="origin-points">
+            <div class="op-item">
+              <div class="op-bullet">✓</div>
+              <p class="op-text"><strong>Standar Panen P+2:</strong> Hanya pucuk teratas dan dua helai daun muda yang dipetik demi rasa manis lembut tanpa rasa pahit yang kasar.</p>
+            </div>
+            <div class="op-item">
+              <div class="op-bullet">✓</div>
+              <p class="op-text"><strong>Pengeringan Suhu Terkontrol:</strong> Proses pengeringan sirkulasi udara bersih mempertahankan kadar antioksidan polifenol dan warna hijau alami daun.</p>
+            </div>
+            <div class="op-item">
+              <div class="op-bullet">✓</div>
+              <p class="op-text"><strong>Keadilan Harga Petani:</strong> Pembelian langsung tanpa perantara tengkulak memberi harga beli layak yang mendukung kelestarian ekosistem kebun.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="section-reviews" id="ulasan">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Pengalaman Nyata</span>
+          <h2 class="sec-title">Cerita dari Penikmat Teh Sedap Daun</h2>
+          <p class="sec-desc">Lebih dari 4.000 kaleng telah terkirim ke berbagai kota di Indonesia untuk menemani ritual jeda dan relaksasi.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Melati Senja-nya benar-benar beda dari teh melati biasa di pasaran. Wangi bunganya alami sekali dan tidak bikin tenggorokan kering. Seduhan keduanya masih sangat harum."</p>
+            <div class="review-author-row">
+              <div class="review-avatar">DW</div>
+              <div class="review-meta">
+                <span class="rm-name">Dina Wardani</span>
+                <span class="rm-loc">Jakarta Selatan • Pembeli Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Pesan paket hampers besek untuk hantaran mertua. Kemasannya rapi sekali, pita satinnya elegan, dan kartu ucapannya dicetak cantik. Mertua suka sekali varian Chamomile Calma-nya."</p>
+            <div class="review-author-row">
+              <div class="review-avatar">AS</div>
+              <div class="review-meta">
+                <span class="rm-name">Aditya Santoso</span>
+                <span class="rm-loc">Bandung • Pembeli Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Fitur panduan seduh dan timernya sangat ngebantu! Saya baru tahu menyeduh teh hijau tidak boleh pakai air mendidih 100°C. Setelah ikut instruksinya, rasa sepatnya hilang sama sekali."</p>
+            <div class="review-author-row">
+              <div class="review-avatar">RL</div>
+              <div class="review-meta">
+                <span class="rm-name">Ratna Lestari</span>
+                <span class="rm-loc">Surabaya • Pembeli Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="section-faq" id="faq">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Informasi Lengkap</span>
+          <h2 class="sec-title">Pertanyaan yang Sering Diajukan</h2>
+          <p class="sec-desc">Hal-hal yang sering ditanyakan seputar masa simpan, cara seduh, dan pengiriman.</p>
+        </div>
+
+        <div class="faq-accordion-wrap">
+          <div class="faq-item open">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Berapa lama masa simpan teh di dalam kaleng?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Kaleng aluminium kedap udara kami dilengkapi double-lid penahan udara. Dalam keadaan tertutup rapat dan disimpan di tempat sejuk kering (suhu ruang, jauh dari sinar matahari langsung), daun teh dan tisane bertahan segar dengan aroma optimal hingga 18 bulan sejak tanggal pengemasan.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Apakah daun teh bisa diseduh lebih dari satu kali?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Ya, daun teh berkualitas tinggi seperti Melati Senja dan Pucuk Perak dapat diseduh ulang 2 hingga 3 kali. Untuk seduhan kedua dan ketiga, tambahkan waktu seduh sekitar 30-45 detik agar ekstrak rasa tetap seimbang.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Apakah tisane bunga chamomile aman untuk penderita asam lambung?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Sangat aman. Chamomile dan serai jahe merah merupakan racikan bebas kafein (0 mg) dan tidak bersifat asam, sehingga sangat bersahabat bagi lambung sensitif dan aman dikonsumsi malam hari sebelum tidur.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Bagaimana prosedur pemesanan dan pengiriman hampers kado?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Setelah merakit hampers dan mengisi kartu ucapan di website ini, klik tombol pemesanan WhatsApp. Pesanan akan diverifikasi oleh tim kami, dikemas dengan bubble wrap ganda dan kardus proteksi tebal, lalu dikirim via ekspedisi reguler atau kilat ke alamat penerima di seluruh kota di Indonesia.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <span class="footer-brand-title">SEDAP DAUN</span>
+          <p class="footer-brand-desc">
+            Atelier teh artisan & tisane herbal alami Nusantara. Menghadirkan daun teh petik pucuk pegunungan tinggi Jawa Barat dan racikan rempah murni untuk ritual jeda yang menenangkan.
+          </p>
+          <span class="mono" style="font-size: 11px; color: #ADC2A9;">Izin Edar P-IRT: 5103273010488-26 • Halal ID: ID3211000189420</span>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi Cepat</h4>
+          <ul class="footer-links">
+            <li><a href="#koleksi">Katalog Racikan</a></li>
+            <li><a href="#panduan-seduh">Panduan Seduh & Timer</a></li>
+            <li><a href="#rakit-hampers">Perakit Hampers Kado</a></li>
+            <li><a href="#kebun">Kemitraan Kebun Malabar</a></li>
+            <li><a href="#ulasan">Ulasan Pelanggan</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Koleksi Terpopuler</h4>
+          <ul class="footer-links">
+            <li><a href="#koleksi">Melati Senja (Jasmine Green)</a></li>
+            <li><a href="#koleksi">Chamomile Lavender Calma</a></li>
+            <li><a href="#koleksi">Serai Jahe Merah Hangat</a></li>
+            <li><a href="#koleksi">Earl Grey Jeruk Purut</a></li>
+            <li><a href="#koleksi">Pucuk Perak Silver Needle</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-wa-box">
+          <h4 style="font-size: 14px; font-weight: 700; color: #FEF5ED;">Pesan Cepat via WhatsApp</h4>
+          <p class="fw-text">Butuh rekomendasi rasa, suvenir pernikahan, atau hampers perusahaan? Tim kami siap membantu Anda.</p>
+          <a href="https://wa.me/6281234567890?text=Halo%20Sedap%20Daun,%20saya%20ingin%20tanya%20pesanan%20kustom" target="_blank" rel="noopener noreferrer" class="btn-footer-wa">
+            Chat WhatsApp Admin: 0812-3456-7890
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 SEDAP DAUN Tea Atelier. Seluruh hak cipta dilindungi.</span>
+        <span>Dirancang dengan standar bebas slop AI • NECTOR.UI Showcase</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer(false)"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3 class="cd-title">Keranjang Belanja</h3>
+      <button class="btn-close-drawer" onclick="toggleCartDrawer(false)" title="Tutup">✕</button>
+    </div>
+
+    <div class="cart-items-body" id="cartItemsList">
+      <p style="text-align: center; color: var(--text-muted); font-size: 13px; margin: auto;">Keranjang Anda masih kosong.<br>Silakan pilih racikan teh di etalase kami.</p>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal Pesanan:</span>
+        <span class="csr-total-val" id="cartSubtotalVal">Rp 0</span>
+      </div>
+
+      <div class="cart-customer-fields">
+        <input type="text" class="input-cart-field" id="custName" placeholder="Nama Lengkap Anda" value="Budi Santoso">
+        <input type="text" class="input-cart-field" id="custCity" placeholder="Kota Pengiriman (mis: Bandung / Jakarta Selatan)" value="Jakarta Selatan">
+      </div>
+
+      <button class="btn-checkout-wa" onclick="checkoutCartWhatsApp()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+        <span>Kirim Pesanan ke WhatsApp</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Pill -->
+  <div class="toast-pill" id="toastPill">
+    <span id="toastMsg">Item berhasil ditambahkan ke keranjang!</span>
+  </div>
+
+  <!-- JavaScript Interactivity -->
+  <script>
+    /* ==========================================================================
+       SHOPPING CART STATE & MANAGEMENT
+       ========================================================================== */
+    let cart = [];
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastPill');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2400);
+    }
+
+    function toggleCartDrawer(open) {
+      const overlay = document.getElementById('cartOverlay');
+      const drawer = document.getElementById('cartDrawer');
+      if (open) {
+        overlay.classList.add('open');
+        drawer.classList.add('open');
+      } else {
+        overlay.classList.remove('open');
+        drawer.classList.remove('open');
+      }
+    }
+
+    function renderCart() {
+      const listEl = document.getElementById('cartItemsList');
+      const countEl = document.getElementById('navCartCount');
+      const totalEl = document.getElementById('cartSubtotalVal');
+
+      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      countEl.textContent = totalItems;
+
+      if (cart.length === 0) {
+        listEl.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 13px; margin: auto;">Keranjang Anda masih kosong.<br>Silakan pilih racikan teh di etalase kami.</p>';
+        totalEl.textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      listEl.innerHTML = cart.map((item, idx) => {
+        subtotal += item.price * item.qty;
+        return `
+          <div class="cart-item-row">
+            <img src="${item.img}" alt="${item.name}" class="ci-img">
+            <div class="ci-info">
+              <span class="ci-name">${item.name}</span>
+              <span class="ci-pkg">${item.pkg}</span>
+              <span class="ci-price">Rp ${(item.price).toLocaleString('id-ID')}</span>
+            </div>
+            <div class="ci-actions">
+              <button class="btn-qty" onclick="changeQty(${idx}, -1)">−</button>
+              <span class="ci-qty-num">${item.qty}</span>
+              <button class="btn-qty" onclick="changeQty(${idx}, 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      totalEl.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+    }
+
+    function addToCart(id, name, pkg, price, img) {
+      const existing = cart.find(i => i.name === name && i.pkg === pkg);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, name, pkg, price, img, qty: 1 });
+      }
+      renderCart();
+      showToast(`${name} (${pkg}) ditambahkan ke keranjang!`);
+    }
+
+    function quickAddHeroItem() {
+      addToCart('p1', 'Melati Senja', 'Kaleng 75g', 65000, 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=200&q=80');
+      toggleCartDrawer(true);
+    }
+
+    function changeQty(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      renderCart();
+    }
+
+    function checkoutCartWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang belanja Anda masih kosong.');
+        return;
+      }
+      const name = document.getElementById('custName').value.trim() || 'Pelanggan';
+      const city = document.getElementById('custCity').value.trim() || 'Jakarta';
+      
+      let text = `Halo Sedap Daun, saya ingin memesan produk teh berikut:%0A%0A`;
+      let total = 0;
+      cart.forEach((item, i) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        text += `${i + 1}. ${item.name} (${item.pkg}) x${item.qty} = Rp ${itemTotal.toLocaleString('id-ID')}%0A`;
+      });
+      text += `%0ATotal Pesanan: Rp ${total.toLocaleString('id-ID')}%0A`;
+      text += `Nama Pemesan: ${name}%0A`;
+      text += `Kota Pengiriman: ${city}%0A%0A`;
+      text += `Mohon info ongkir dan nomor rekening pembayaran. Terima kasih!`;
+
+      window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    }
+
+    /* Packaging Switcher for Products */
+    function switchPackage(pId, type, price, label, btn) {
+      const row = btn.parentElement;
+      row.querySelectorAll('.pkg-option-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const priceEl = document.getElementById(`price-${pId}`);
+      if (priceEl) {
+        priceEl.textContent = `Rp ${price.toLocaleString('id-ID')}`;
+      }
+
+      // Update the add to cart button onclick
+      const card = btn.closest('.product-card');
+      const addBtn = card.querySelector('.btn-add-cart');
+      const title = card.querySelector('.product-title').textContent;
+      const img = card.querySelector('.product-img-wrap img').src;
+      addBtn.setAttribute('onclick', `addToCart('${pId}', '${title}', '${label}', ${price}, '${img}')`);
+    }
+
+    /* Filter Catalog */
+    function filterCatalog(category, btn) {
+      const container = document.getElementById('productGridContainer');
+      const tabs = document.querySelectorAll('.btn-filter-tab');
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = container.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const catData = card.getAttribute('data-category') || '';
+        if (category === 'all' || catData.includes(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    /* ==========================================================================
+       BREWING RATIO & LIVE STOPWATCH TIMER
+       ========================================================================== */
+    const brewingSpecs = {
+      green: {
+        temp: '75° - 80°C',
+        grams: '3 Gram (1 sdt)',
+        water: '200 ml',
+        durationSec: 150,
+        note: '💡 Tips barista: Tuang air panas ke cangkir terlebih dahulu selama 1 menit agar suhunya turun dari 100°C ke ~78°C sebelum disiram ke daun teh hijau.'
+      },
+      white: {
+        temp: '80° - 85°C',
+        grams: '2.5 Gram (1.5 sdt)',
+        water: '200 ml',
+        durationSec: 240,
+        note: '💡 Tips barista: Kuncup teh putih sangat lembut. Diamkan teko terbuka tanpa tutup rapat agar aroma manis alami tidak terkunci terlalu pekat.'
+      },
+      black: {
+        temp: '95° - 98°C',
+        grams: '3 Gram (1 sdt)',
+        water: '200 ml',
+        durationSec: 180,
+        note: '💡 Tips barista: Gunakan air mendidih segar (bukan air yang direbus berulang kali) agar kadar oksigen tinggi mengangkat karakter rasa citrus bergamot.'
+      },
+      tisane: {
+        temp: '98° - 100°C',
+        grams: '3.5 Gram (2 sdt)',
+        water: '220 ml',
+        durationSec: 300,
+        note: '💡 Tips barista: Tisane bunga dan rimpang butuh suhu tinggi dan penutup teko rapat selama 5 menit agar seluruh minyak esensial herbal terekstraksi sempurna.'
+      }
+    };
+
+    let currentBrewType = 'green';
+    let timerTotalDuration = 150;
+    let timerRemaining = 150;
+    let timerInterval = null;
+    let timerRunning = false;
+
+    function setBrewType(type, btn) {
+      currentBrewType = type;
+      document.querySelectorAll('.btn-tea-type').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const spec = brewingSpecs[type];
+      document.getElementById('paramTemp').textContent = spec.temp;
+      document.getElementById('paramGrams').textContent = spec.grams;
+      document.getElementById('paramWater').textContent = spec.water;
+      document.getElementById('paramNote').innerHTML = spec.note;
+
+      resetTimer(spec.durationSec);
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timerRemaining / 60);
+      const secs = timerRemaining % 60;
+      const displayStr = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      document.getElementById('timerClockDisplay').textContent = displayStr;
+
+      // Circle progress calculation (circumference 2 * PI * 85 ~= 534)
+      const circumference = 534;
+      const offset = circumference - (timerRemaining / timerTotalDuration) * circumference;
+      document.getElementById('timerProgressCircle').style.strokeDashoffset = offset;
+    }
+
+    function toggleTimer() {
+      const btnText = document.getElementById('btnTimerText');
+      const statusLabel = document.getElementById('timerStatusLabel');
+
+      if (!timerRunning) {
+        // Start Timer
+        timerRunning = true;
+        btnText.textContent = 'Jeda Seduh';
+        statusLabel.textContent = 'SEDANG MENYEDUH...';
+        document.getElementById('timerProgressCircle').style.stroke = 'var(--accent-dark)';
+
+        timerInterval = setInterval(() => {
+          if (timerRemaining > 0) {
+            timerRemaining--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            timerRunning = false;
+            btnText.textContent = 'Seduhan Selesai!';
+            statusLabel.textContent = 'SIAP DINIKMATI!';
+            document.getElementById('timerProgressCircle').style.stroke = '#2E7D32';
+            playChimeSound();
+            showToast('🌿 Waktu seduh selesai! Pisahkan daun teh dan nikmati kehangatannya.');
+          }
+        }, 1000);
+      } else {
+        // Pause Timer
+        clearInterval(timerInterval);
+        timerRunning = false;
+        btnText.textContent = 'Lanjutkan';
+        statusLabel.textContent = 'DIJEDA';
+      }
+    }
+
+    function resetTimer(customDuration) {
+      if (timerInterval) clearInterval(timerInterval);
+      timerRunning = false;
+      timerTotalDuration = customDuration || brewingSpecs[currentBrewType].durationSec;
+      timerRemaining = timerTotalDuration;
+      document.getElementById('btnTimerText').textContent = 'Mulai Seduh';
+      document.getElementById('timerStatusLabel').textContent = 'SIAP SEDUH';
+      document.getElementById('timerProgressCircle').style.stroke = 'var(--accent-dark)';
+      updateTimerDisplay();
+    }
+
+    function playChimeSound() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+        osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.3); // A5
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.8);
+      } catch (e) {
+        console.log('Audio chime not supported');
+      }
+    }
+
+    /* ==========================================================================
+       HAMPERS GIFT BOX BUILDER
+       ========================================================================== */
+    let hampersState = {
+      boxName: 'Hardbox Sage Green Satin',
+      boxPrice: 45000,
+      teas: [
+        { name: 'Melati Senja', price: 65000 },
+        { name: 'Chamomile Calma', price: 78000 }
+      ],
+      addons: [
+        { name: 'Sendok Kayu Jati', price: 20000 }
+      ]
+    };
+
+    function selectHampersBox(type, price, name, el) {
+      document.querySelectorAll('.box-card-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      hampersState.boxName = name;
+      hampersState.boxPrice = price;
+      updateHampersTotal();
+    }
+
+    function updateHampersTotal() {
+      // Collect selected teas
+      const teaCbs = document.querySelectorAll('.hampers-tea-cb:checked');
+      hampersState.teas = Array.from(teaCbs).map(cb => ({
+        name: cb.getAttribute('data-name'),
+        price: parseInt(cb.getAttribute('data-price'), 10)
+      }));
+
+      // Collect selected addons
+      const addonCbs = document.querySelectorAll('.hampers-addon-cb:checked');
+      hampersState.addons = Array.from(addonCbs).map(cb => ({
+        name: cb.getAttribute('data-name'),
+        price: parseInt(cb.getAttribute('data-price'), 10)
+      }));
+
+      // Calculate total
+      let total = hampersState.boxPrice;
+      let summaryHtml = `<li class="hbs-item"><span>${hampersState.boxName}</span><span>Rp ${hampersState.boxPrice.toLocaleString('id-ID')}</span></li>`;
+
+      hampersState.teas.forEach(tea => {
+        total += tea.price;
+        summaryHtml += `<li class="hbs-item"><span>Kaleng: ${tea.name}</span><span>Rp ${tea.price.toLocaleString('id-ID')}</span></li>`;
+      });
+
+      hampersState.addons.forEach(add => {
+        total += add.price;
+        summaryHtml += `<li class="hbs-item"><span>Aksesoris: ${add.name}</span><span>Rp ${add.price.toLocaleString('id-ID')}</span></li>`;
+      });
+
+      summaryHtml += `<li class="hbs-item"><span>Kartu Ucapan Kustom</span><span>GRATIS</span></li>`;
+
+      document.getElementById('hampersSummaryList').innerHTML = summaryHtml;
+      document.getElementById('hampersTotalDisplay').textContent = `Rp ${total.toLocaleString('id-ID')}`;
+    }
+
+    function addHampersToCart() {
+      if (hampersState.teas.length < 2) {
+        alert('Harap pilih minimal 2 varian kaleng teh untuk paket hampers kado.');
+        return;
+      }
+
+      let total = hampersState.boxPrice;
+      hampersState.teas.forEach(t => total += t.price);
+      hampersState.addons.forEach(a => total += a.price);
+
+      const to = document.getElementById('gcpTo').value.trim();
+      const from = document.getElementById('gcpFrom').value.trim();
+      const msg = document.getElementById('gcpMessage').value.trim();
+
+      const teaNames = hampersState.teas.map(t => t.name).join(' + ');
+      const hampersTitle = `Paket Hampers Kado (${hampersState.boxName})`;
+      const pkgInfo = `${teaNames} | Kartu: ${to}`;
+
+      addToCart('hampers-custom', hampersTitle, pkgInfo, total, 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=200&q=80');
+      toggleCartDrawer(true);
+    }
+
+    /* FAQ Toggle */
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+
+    // Initialize timer display on page load
+    updateTimerDisplay();
+  </script>
+</body>
+</html>

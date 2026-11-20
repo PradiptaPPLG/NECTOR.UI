@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Template } from '../../types';
-import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer, GlassWater, Camera, Dumbbell, Gauge, Sun, Smile, Flame } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Scissors, Flower2, Wheat, Store, Sparkles, ShoppingCart, BookOpen, Apple, GraduationCap, PawPrint, Cookie, Shirt, FlaskConical, Footprints, Package, TreePine, Armchair, IceCream2, Waves, Glasses, Cherry, Heart, Briefcase, ShieldCheck, Watch, Compass, Headphones, Keyboard, Moon, Paintbrush, Anchor, Palette, Guitar, Bike, Hammer, GlassWater, Camera, Dumbbell, Gauge, Sun, Smile, Flame, Leaf } from 'lucide-react';
 
 interface Props {
   templates: Template[];
@@ -12,6 +12,13 @@ export const CategoriesView: React.FC<Props> = ({
   onSelectCategory
 }) => {
   const categoryDefs = [
+    {
+      id: 'tea',
+      title: 'Teh Artisan & Tisane Herbal',
+      icon: Leaf,
+      desc: 'Atelier daun teh petik pucuk pegunungan Jawa Barat & tisane bunga herbal alami: panduan seduh interaktif (Brewing Ratio & Timer), filter suasana hati & kafein, perakit custom gift hampers teh, dan pemesanan WhatsApp instan.',
+      accent: '#99A799'
+    },
     {
       id: 'aquascape',
       title: 'Akuaskap & Ikan Hias Tropis',
