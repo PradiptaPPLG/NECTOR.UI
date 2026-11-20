@@ -3,6 +3,83 @@ import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
+    id: 'tpl-63',
+    slug: 'kala-rebah-sprei-katun-bambu',
+    title: 'KALA REBAH',
+    tagline: 'Atelier sprei katun bambu organik 300 TC, bedcover dingin & tencel Nusantara',
+    description: 'Template website atelier sprei katun bambu organik 300 Thread Count dan serat tencel sutra dingin (KALA REBAH). Dirancang dengan standar anti-slop tinggi yang berfokus murni pada produk fisik nyata: studio padu padan warna sprei kasur 2D interaktif (kombinasi warna sprei, ukuran single hingga extra king, dan opsi tinggi kasur 30cm/40cm), kalkulator ukuran matras kasur agar sprei terpasang rapi tanpa kerut, swatch palet warna resmi atelier klik-salin hex instan, panduan perawatan serat alami bebas tungau, katalog sprei dan bedcover quilt siap kirim, serta drawer tas belanja terhubung langsung ke WhatsApp Admin.',
+    category: 'bedding',
+    tags: ['Sprei Katun Bambu', 'Bedcover Dingin', 'Tencel Sutra', 'Karet Keliling 360', 'Anti Tungau', 'Tinggi Kasur 40cm', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Bedding Studio 2D', 'Mattress Calculator', 'Size Selector', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'bedding',
+    previewComponentKey: 'bedding-kala-rebah',
+    htmlPath: '/templates/bedding/kala-rebah-sprei-katun-bambu.html',
+    htmlFolderPath: 'templates/bedding/kala-rebah-sprei-katun-bambu.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
+      'Palet harmoni kamar tidur resmi: dusty rose blossom (#EAC7C7), coastal sky blue (#A0C3D2), warm alabaster linen (#F7F5EB), dan muted biscuit greige (#EAE0DA)',
+      'Latar kanvas bertekstur micro-pattern tenunan benang sprei halus yang menenangkan, bersih, dan tidak monoton',
+      'Studio padu padan kasur 2D interaktif dengan pemilihan warna sprei matras, ukuran kasur (120/160/180/200), dan tinggi saku 30cm/40cm',
+      'Kalkulator ukuran kasur & tinggi matras untuk rekomendasi sprei yang terpasang kencang anti geser',
+      'Swatch bar palet warna resmi atelier dengan fitur salin kode hex dan nilai RGB sekali klik ke clipboard',
+      'Katalog lengkap set sprei katun bambu, tencel 60s, selimut bedcover quilt empuk, hingga sarung bantal ekstra',
+      'Drawer keranjang belanja slide-over dengan generator format pesan pesanan WhatsApp otomatis'
+    ],
+    usageInstructions: [
+      'Buka berkas public/templates/bedding/kala-rebah-sprei-katun-bambu.html di text editor pilihan Anda.',
+      'Ubah daftar ukuran sprei (Single, Queen, King, Extra King) dan harga produk sesuai katalog atelier Anda.',
+      'Sesuaikan nomor WhatsApp admin pada fungsi checkout untuk menerima pesanan langsung dari pelanggan.',
+      'Buka langsung di browser atau uji responsivitasnya melalui etalase NECTOR.UI.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'kala-rebah-sprei-katun-bambu.html',
+        language: 'html',
+        content: `<!-- KALA REBAH — NECTOR.UI Organic Bamboo Bedding Atelier Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KALA REBAH — Atelier Sprei Katun Bambu Organik, Bedcover Dingin & Tencel Nusantara</title>
+  <style>
+    :root {
+      --color-rose: #EAC7C7;
+      --color-sky: #A0C3D2;
+      --color-alabaster: #F7F5EB;
+      --color-biscuit: #EAE0DA;
+      --color-ink: #252A32;
+    }
+  </style>
+</head>
+<body>
+  <h1>KALA REBAH</h1>
+  <p>Atelier sprei katun bambu organik 300 TC dan tencel sutra dingin Nusantara.</p>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS lengkap dengan bedding studio 2D, mattress calculator, dan checkout WhatsApp.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt untuk website e-commerce atelier perlengkapan tidur KALA REBAH berkonsep sprei katun bambu organik 300 TC, bedcover dingin, tencel sutra & kalkulator ukuran matras.',
+      designDirection: 'Dominasi warna tenang dan sejuk: dusty rose blossom (#EAC7C7), coastal sky blue (#A0C3D2), warm alabaster linen (#F7F5EB), dan muted biscuit greige (#EAE0DA). Latar kanvas bermotif mikro tenunan serat halus dengan kontras teks arang pekat (#252A32) berstandar AAA (> 12:1).',
+      layoutAndGrid: 'Asymmetric editorial hero grid dengan fotografi tempat tidur nyata, swatch bar warna klik-salin hex, studio padu padan kasur 2D, kalkulator ukuran matras, dan katalog filter model.',
+      typographyAndColor: 'Headings dalam Plus Jakarta Sans bold yang hangat dan menenangkan, body teks dalam Plus Jakarta Sans reguler yang bersih, spesifikasi dimensi kasur cm dan harga dalam JetBrains Mono.',
+      interactions: 'Studio padu padan sprei 2D dengan pilihan warna matras dan ukuran kasur live, kalkulator kasur otomatis, swatch bar klik-salin hex, dan drawer keranjang WhatsApp.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, zero dependencies, valid W3C markup.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#A0C3D2',
+    colorPalette: [
+      { hex: '#EAC7C7', rgb: 'rgb(234, 199, 199)', name: 'Dusty Rose Blossom', role: 'Warna Varian Sprei Pastel Lembut & Aksen Hangat' },
+      { hex: '#A0C3D2', rgb: 'rgb(160, 195, 210)', name: 'Coastal Sky Blue', role: 'Warna Utama Sprei Sejuk, Tombol Aksi & Badge' },
+      { hex: '#F7F5EB', rgb: 'rgb(247, 245, 235)', name: 'Warm Alabaster Linen', role: 'Warna Latar Kanvas Utama & Sprei Broken White' },
+      { hex: '#EAE0DA', rgb: 'rgb(234, 224, 218)', name: 'Muted Biscuit Greige', role: 'Warna Selimut Bedcover Sand Oat & Border Halus' },
+    ],
+  },
+  {
     id: 'tpl-62',
     slug: 'kebun-kaca-terrarium-lumut',
     title: 'KEBUN KACA',

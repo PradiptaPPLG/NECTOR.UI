@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'bedding',
+      title: 'Sprei Katun Bambu & Bedcover',
+      icon: Moon,
+      desc: 'Atelier sprei katun bambu organik 300 TC adem bebas tungau, karet keliling 360° anti geser, studio padu padan warna kasur 2D, kalkulator tinggi matras, dan pemesanan WhatsApp instan.',
+      accent: '#A0C3D2'
+    },
+    {
       id: 'terrarium',
       title: 'Terrarium Kaca & Lumut Meja',
       icon: Leaf,

@@ -63,6 +63,7 @@ export type Category =
   | 'scarf'
   | 'tumbler'
   | 'terrarium'
+  | 'bedding'
   | 'umkm';
 
 export type WeddingSubcategory =
