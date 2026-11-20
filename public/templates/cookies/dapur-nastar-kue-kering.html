@@ -1,0 +1,3051 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUMAH NASTAR — Kue Kering Mentega Wijsman Asli & Hampers Hari Raya</title>
+  <meta name="description" content="Toko kue kering mentega Wijsman asli, nastar lumer selai nanas madu, kastengel keju edam tua, dan hampers hari raya elegan tanpa bahan pengawet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-terracotta: #A75D5D;
+      --color-coral: #D3756B;
+      --color-salmon: #F0997D;
+      --color-butter-cream: #FFC3A1;
+      --color-bg: #FDFBF7;
+      --color-surface: #FFFFFF;
+      --color-surface-soft: #FFF4ED;
+      --color-surface-tint: #FBECE4;
+      --color-text-main: #281B1B;
+      --color-text-muted: #644E4E;
+      --color-border: #ECD7CA;
+      --color-border-dark: #A75D5D;
+      --color-green: #2E7D32;
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --shadow-sm: 0 2px 8px rgba(40, 27, 27, 0.04);
+      --shadow-md: 0 8px 24px rgba(40, 27, 27, 0.08);
+      --shadow-lg: 0 16px 36px rgba(40, 27, 27, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-main);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Kitchen Notice Bar */
+    .top-kitchen-bar {
+      background-color: var(--color-terracotta);
+      color: #FFF8F3;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 50;
+    }
+
+    .kitchen-ticker {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .kitchen-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kitchen-item span.dot {
+      color: var(--color-butter-cream);
+    }
+
+    .audio-switch-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #FFFFFF;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .audio-switch-btn:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .oven-icon {
+      font-size: 12px;
+      transition: transform 0.2s;
+    }
+
+    .oven-icon.active {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 4px #FFA726);
+    }
+
+    /* Sticky Site Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(253, 251, 247, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 40;
+      transition: all 0.2s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-surface-soft);
+      border: 1.5px solid var(--color-terracotta);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-title {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--color-terracotta);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--color-text-main);
+      font-size: 14px;
+      transition: color 0.15s;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover {
+      color: var(--color-coral);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-btn {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-terracotta);
+      color: var(--color-text-main);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .cart-btn:hover {
+      background-color: var(--color-surface-soft);
+      border-color: var(--color-coral);
+    }
+
+    .cart-count {
+      background-color: var(--color-terracotta);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-surface-soft);
+      border: 1px solid var(--color-salmon);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-terracotta);
+      margin-bottom: 20px;
+    }
+
+    .hero-heading {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+      color: var(--color-text-main);
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background-color: var(--color-coral);
+      color: #FFFFFF;
+      border: 1.5px solid #281B1B;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 3px 3px 0 #281B1B;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 #281B1B;
+      background-color: #C26359;
+    }
+
+    .btn-secondary {
+      background-color: var(--color-surface);
+      color: var(--color-text-main);
+      border: 1.5px solid var(--color-border);
+      padding: 14px 26px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-terracotta);
+      background-color: var(--color-surface-soft);
+    }
+
+    .hero-features-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .h-feat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .h-feat-title {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-terracotta);
+    }
+
+    .h-feat-desc {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    /* Hero Visual Card */
+    .hero-card {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .hero-card-img-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4 / 3.2;
+      background-color: var(--color-surface-tint);
+    }
+
+    .hero-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-card:hover .hero-card-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--color-terracotta);
+      border: 1px solid var(--color-salmon);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-card-body {
+      padding: 18px 6px 6px;
+    }
+
+    .hero-rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .stars-group {
+      color: #E67E22;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .review-count {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .hero-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .hero-card-flavor-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .flavor-chip {
+      background-color: var(--color-surface-soft);
+      color: var(--color-terracotta);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+    }
+
+    .hero-card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--color-border);
+      padding-top: 14px;
+    }
+
+    .hero-price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-price-label {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .hero-price-val {
+      font-family: var(--font-mono);
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--color-terracotta);
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      background-color: var(--color-surface-soft);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+      border: 1px solid var(--color-salmon);
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Interactive Feature 1: Taste & Texture Finder */
+    .finder-section {
+      padding: 64px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .finder-card-box {
+      background: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .finder-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-num {
+      background-color: var(--color-terracotta);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .taste-options-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .taste-opt-btn {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .taste-opt-btn:hover {
+      border-color: var(--color-coral);
+      background-color: #FFFDFB;
+    }
+
+    .taste-opt-btn.active {
+      border-color: #281B1B;
+      background-color: var(--color-surface-soft);
+      box-shadow: 2px 2px 0 #281B1B;
+    }
+
+    .opt-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--color-text-main);
+    }
+
+    .opt-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Finder Recommendation Result Card */
+    .finder-result-box {
+      background-color: #FFFFFF;
+      border: 1.5px solid #281B1B;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: 4px 4px 0 #281B1B;
+    }
+
+    .f-res-img {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: var(--color-surface-soft);
+    }
+
+    .f-res-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .f-res-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-terracotta);
+      background: var(--color-surface-soft);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .f-res-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .f-res-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    .f-res-price {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-terracotta);
+      margin-bottom: 8px;
+    }
+
+    /* Product Catalog Section */
+    .catalog-section {
+      padding: 72px 0;
+    }
+
+    .filter-tabs-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .filter-tab-btn {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      color: var(--color-text-main);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-tab-btn:hover {
+      border-color: var(--color-coral);
+    }
+
+    .filter-tab-btn.active {
+      background-color: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+      color: #FFFFFF;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-coral);
+    }
+
+    .product-thumb-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      background-color: var(--color-surface-tint);
+      overflow: hidden;
+    }
+
+    .product-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-thumb-wrap img {
+      transform: scale(1.05);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(6px);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-terracotta);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-salmon);
+    }
+
+    .product-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .p-category {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-coral);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .p-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .p-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
+    /* Jar Size Selector */
+    .jar-selector-wrap {
+      margin-bottom: 16px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .jar-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--color-text-muted);
+    }
+
+    .jar-buttons-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .jar-btn {
+      flex: 1;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 6px 4px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.1s;
+    }
+
+    .jar-btn.active {
+      background-color: var(--color-terracotta);
+      color: #FFFFFF;
+      border-color: var(--color-terracotta);
+    }
+
+    .card-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .p-price {
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--color-terracotta);
+    }
+
+    .btn-add-cart {
+      background-color: var(--color-surface-soft);
+      color: var(--color-text-main);
+      border: 1px solid var(--color-coral);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-add-cart:hover {
+      background-color: var(--color-coral);
+      color: #FFFFFF;
+      border-color: #281B1B;
+    }
+
+    /* Interactive Feature 3: Holiday Hampers Builder */
+    .builder-section {
+      padding: 72px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .builder-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .b-card {
+      background-color: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .b-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hampers-tier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .hampers-tier-card {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+    }
+
+    .hampers-tier-card.active {
+      border-color: #281B1B;
+      background-color: var(--color-surface-soft);
+      box-shadow: 2px 2px 0 #281B1B;
+    }
+
+    .h-box-icon {
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+
+    .h-box-name {
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .h-box-cap {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .h-box-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--color-terracotta);
+    }
+
+    /* Cookie Checkboxes Grid */
+    .cookie-pick-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .cookie-check-item {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+    }
+
+    .cookie-check-item:hover {
+      border-color: var(--color-coral);
+    }
+
+    .cookie-check-item.selected {
+      border-color: #281B1B;
+      background-color: var(--color-surface-soft);
+    }
+
+    .cookie-check-box {
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid var(--color-salmon);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .cookie-check-item.selected .cookie-check-box {
+      background-color: var(--color-terracotta);
+      border-color: var(--color-terracotta);
+    }
+
+    .cookie-check-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .cookie-check-price {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-control label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .form-control input, .form-control select, .form-control textarea {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--color-text-main);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-control input:focus, .form-control select:focus, .form-control textarea:focus {
+      border-color: var(--color-terracotta);
+      box-shadow: 0 0 0 2px var(--color-surface-soft);
+    }
+
+    /* Live Hampers Greeting Card Preview Sticky */
+    .builder-summary-sticky {
+      position: sticky;
+      top: 96px;
+      background-color: var(--color-bg);
+      border: 1.5px solid #281B1B;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: 6px 6px 0 #281B1B;
+    }
+
+    .summary-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    /* Live Greeting Card Box */
+    .live-holiday-card {
+      background: linear-gradient(135deg, #FFF9F5 0%, #FDF3EC 100%);
+      border: 1.5px dashed var(--color-salmon);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .card-theme-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--color-terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .card-to {
+      font-size: 14px;
+      font-weight: 800;
+      color: #281B1B;
+      margin-bottom: 6px;
+    }
+
+    .card-quote {
+      font-size: 13px;
+      font-style: italic;
+      color: #553E3E;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      min-height: 38px;
+    }
+
+    .card-from {
+      font-size: 12px;
+      font-weight: 700;
+      text-align: right;
+      color: var(--color-terracotta);
+    }
+
+    .summary-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    .s-item-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-text-muted);
+    }
+
+    .s-item-row.strong {
+      color: var(--color-text-main);
+      font-weight: 700;
+    }
+
+    .summary-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1.5px solid #281B1B;
+      margin-bottom: 20px;
+    }
+
+    .total-label {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .total-val {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--color-terracotta);
+    }
+
+    .btn-checkout-hampers {
+      width: 100%;
+      background-color: var(--color-coral);
+      color: #FFFFFF;
+      border: 1.5px solid #281B1B;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 3px 3px 0 #281B1B;
+      transition: all 0.15s;
+    }
+
+    .btn-checkout-hampers:hover {
+      background-color: #C26359;
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 #281B1B;
+    }
+
+    /* Guest Calculator Section */
+    .calc-section {
+      padding: 64px 0;
+    }
+
+    .calc-box {
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calc-slider-wrap {
+      margin-bottom: 32px;
+    }
+
+    .calc-slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .slider-guest-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      color: var(--color-terracotta);
+      background-color: var(--color-surface-soft);
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-salmon);
+    }
+
+    .calc-range-input {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--color-border);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .calc-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--color-terracotta);
+      border: 3px solid var(--color-butter-cream);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(40, 27, 27, 0.25);
+    }
+
+    .calc-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .calc-metric-card {
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .c-metric-val {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-terracotta);
+      margin-bottom: 4px;
+    }
+
+    .c-metric-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .c-metric-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Wijsman Quality Assurance */
+    .quality-section {
+      padding: 64px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .quality-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .quality-card {
+      background-color: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quality-card-icon {
+      font-size: 28px;
+      background-color: var(--color-surface-soft);
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-salmon);
+    }
+
+    .quality-card-title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .quality-card-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* Reviews Section */
+    .reviews-section {
+      padding: 64px 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .r-stars {
+      color: #E67E22;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .r-quote {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #382828;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .r-author-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 12px;
+    }
+
+    .r-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: var(--color-surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--color-terracotta);
+      border: 1px solid var(--color-salmon);
+    }
+
+    .r-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .r-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .r-item {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Slide-over Cart Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      z-index: 101;
+      box-shadow: -8px 0 32px rgba(40, 27, 27, 0.15);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer-overlay.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--color-bg);
+    }
+
+    .cart-drawer-title {
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-terracotta);
+    }
+
+    .cart-close-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      padding: 4px;
+    }
+
+    .cart-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-empty-state {
+      text-align: center;
+      padding: 48px 12px;
+      color: var(--color-text-muted);
+    }
+
+    .cart-item-card {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .cart-item-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--color-surface-tint);
+    }
+
+    .cart-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cart-item-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cart-item-jar {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-terracotta);
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 2px 4px;
+    }
+
+    .qty-btn {
+      background: none;
+      border: none;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      color: #281B1B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .cart-drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--color-border);
+      background-color: var(--color-bg);
+    }
+
+    .coupon-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .coupon-input {
+      flex: 1;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .btn-apply-coupon {
+      background: var(--color-terracotta);
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cart-price-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .c-sum-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-text-muted);
+    }
+
+    .c-sum-row.total {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      padding-top: 8px;
+      border-top: 1.5px solid #281B1B;
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      background-color: #25D366;
+      color: #FFFFFF;
+      border: none;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+      transition: all 0.15s;
+    }
+
+    .btn-checkout-wa:hover {
+      background-color: #20BD5A;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #231616;
+      color: #FDFBF7;
+      padding: 64px 0 32px;
+      border-top: 1px solid #3E2929;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: #D3BFB7;
+    }
+
+    .footer-links-list a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #3E2929;
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #A8958F;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+      .builder-summary-sticky {
+        position: static;
+      }
+      .quality-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-kitchen-bar {
+        font-size: 11px;
+        padding: 6px 12px;
+      }
+      .header-inner {
+        height: 64px;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .hero-heading {
+        font-size: 28px;
+      }
+      .finder-steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .finder-result-box {
+        grid-template-columns: 1fr;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .hampers-tier-grid {
+        grid-template-columns: 1fr;
+      }
+      .cookie-pick-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group-row {
+        grid-template-columns: 1fr;
+      }
+      .calc-metrics-grid {
+        grid-template-columns: 1fr;
+      }
+      .quality-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-features-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Kitchen Status Bar -->
+  <div class="top-kitchen-bar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0;">
+      <div class="kitchen-ticker">
+        <div class="kitchen-item">
+          <span>🔥 Dapur Sedang Memanggang (Batch Hari Ini Siap Dikirim)</span>
+          <span class="dot">·</span>
+          <span>🧈 100% Mentega Wijsman Asli Tanpa Campuran Margarin</span>
+          <span class="dot">·</span>
+          <span>📦 Garansi Toples Utuh Anti Hancur Pengiriman ke Seluruh Indonesia</span>
+        </div>
+      </div>
+      <button class="audio-switch-btn" id="audioToggleBtn" title="Dengarkan Suara Dapur Oven Tradisional">
+        <span class="oven-icon" id="ovenIcon">🔥</span>
+        <span id="audioStatusText">Suara Dapur: Mati</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-group">
+        <div class="brand-mark">🍪</div>
+        <div>
+          <h1 class="brand-title">RUMAH NASTAR</h1>
+          <p class="brand-sub">KUE KERING WIJSMAN & HAMPERS HARI RAYA</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#koleksi" class="nav-link">Katalog Toples</a></li>
+          <li><a href="#finder" class="nav-link">Pencari Rasa</a></li>
+          <li><a href="#hampers" class="nav-link">Rakit Hampers Hari Raya</a></li>
+          <li><a href="#kalkulator" class="nav-link">Kalkulator Tamu</a></li>
+          <li><a href="#jaminan" class="nav-link">Jaminan Wijsman</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-btn" id="openCartBtn">
+          <span>🛍️ Keranjang</span>
+          <span class="cart-count" id="cartCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-text-col">
+        <div class="hero-badge-row">
+          <span>🧈 100% MENTEGA WIJSMAN ASLI</span>
+          <span>·</span>
+          <span>SELAI NANAS MADU ASLI</span>
+        </div>
+        <h2 class="hero-heading">
+          Kelezatan Kue Kering Butter Asli yang Lumer Lembut di Setiap Gigitan.
+        </h2>
+        <p class="hero-sub">
+          Dibuat dari resep warisan keluarga sejak 2012 menggunakan mentega murni Wijsman Belanda, selai nanas madu legit tanpa pemanis buatan, dan keju edam tua gurih. Tekstur lumer di lidah, aroma harum semerbak, dan bebas bahan pengawet kimia.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#koleksi" class="btn-primary">
+            <span>Lihat Katalog Toples</span>
+            <span>→</span>
+          </a>
+          <a href="#hampers" class="btn-secondary">
+            <span>🎁 Rakit Hampers Hari Raya</span>
+          </a>
+        </div>
+
+        <div class="hero-features-list">
+          <div class="h-feat-item">
+            <span class="h-feat-title">100% Wijsman</span>
+            <span class="h-feat-desc">Mentega kaleng murni</span>
+          </div>
+          <div class="h-feat-item">
+            <span class="h-feat-title">Segel Kedap</span>
+            <span class="h-feat-desc">Awet renyah 4 bulan</span>
+          </div>
+          <div class="h-feat-item">
+            <span class="h-feat-title">Garansi Utuh</span>
+            <span class="h-feat-desc">Ganti baru jika hancur</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card -->
+      <div class="hero-card">
+        <div class="hero-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1000&q=80" alt="Nastar Wijsman Lumer" loading="eager">
+          <div class="hero-floating-badge">⭐ TERLARIS SEPANJANG MASA #1</div>
+        </div>
+        <div class="hero-card-body">
+          <div class="hero-rating-row">
+            <div class="stars-group">★★★★★</div>
+            <span class="review-count">3.120+ Ulasan Terverifikasi</span>
+          </div>
+          <h3 class="hero-card-title">Nastar Klasik Mentega Wijsman</h3>
+          <div class="hero-card-flavor-chips">
+            <span class="flavor-chip">Selai Nanas Madu Subang</span>
+            <span class="flavor-chip">Lumer di Lidah</span>
+            <span class="flavor-chip">Harum Cengkih Alami</span>
+          </div>
+          <div class="hero-card-foot">
+            <div class="hero-price-wrap">
+              <span class="hero-price-label">Harga Spesial (Toples 350g)</span>
+              <span class="hero-price-val">Rp 115.000</span>
+            </div>
+            <button class="btn-primary" style="padding: 10px 18px; font-size: 13px;" onclick="addToCart('h1', 'Nastar Klasik Mentega Wijsman', 115000, 'Toples Segi 350g', 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80')">
+              <span>+ Pesan Ini</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 1: Taste & Texture Finder -->
+  <section class="finder-section" id="finder">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">PENCARI RASA FAVORIT</span>
+        <h2 class="section-title">Temukan Kue Kering yang Paling Cocok dengan Seleramu</h2>
+        <p class="section-desc">
+          Pilih profil rasa dan tekstur yang paling disukai keluargamu, kami akan merekomendasikan toples kue kering terbaik untuk suguhan meja tamumu.
+        </p>
+      </div>
+
+      <div class="finder-card-box">
+        <div class="finder-steps-grid">
+          <!-- Step 1: Profil Rasa -->
+          <div>
+            <h3 class="step-title">
+              <span class="step-num">1</span>
+              <span>Rasa apa yang paling kamu sukai?</span>
+            </h3>
+            <div class="taste-options-list" id="tasteOptions">
+              <button class="taste-opt-btn active" data-taste="pineapple">
+                <span class="opt-name">🍍 Manis Asam Nanas</span>
+                <span class="opt-sub">Legit segar lumer di lidah</span>
+              </button>
+              <button class="taste-opt-btn" data-taste="cheese">
+                <span class="opt-name">🧀 Gurih Keju Renyah</span>
+                <span class="opt-sub">Keju edam tua & cheddar asin gurih</span>
+              </button>
+              <button class="taste-opt-btn" data-taste="sweet-snow">
+                <span class="opt-name">❄️ Manis Dingin Lumer</span>
+                <span class="opt-sub">Gula halus dingin & kacang mede</span>
+              </button>
+              <button class="taste-opt-btn" data-taste="choco">
+                <span class="opt-name">🍫 Cokelat Belgia Pekat</span>
+                <span class="opt-sub">Cokelat lumer bertabur kacang</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Karakter Tekstur -->
+          <div>
+            <h3 class="step-title">
+              <span class="step-num">2</span>
+              <span>Karakter gigitan seperti apa yang dicari?</span>
+            </h3>
+            <div class="taste-options-list" id="textureOptions">
+              <button class="taste-opt-btn active" data-texture="melt">
+                <span class="opt-name">🧈 Lumer di Mulut</span>
+                <span class="opt-sub">Lembut langsung hancur tanpa dikunyah</span>
+              </button>
+              <button class="taste-opt-btn" data-texture="crunchy">
+                <span class="opt-name">🥨 Renyah Kres Kres</span>
+                <span class="opt-sub">Garing gurih bikin nagih terus</span>
+              </button>
+              <button class="taste-opt-btn" data-texture="grainy">
+                <span class="opt-name">🥜 Gurih Berbutir Mede</span>
+                <span class="opt-sub">Kombinasi renyah kacang dan adonan</span>
+              </button>
+              <button class="taste-opt-btn" data-texture="light">
+                <span class="opt-name">🍃 Tipis & Sangat Ringan</span>
+                <span class="opt-sub">Renyah lumer lidah kucing</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Recommendation Result Card -->
+        <div class="finder-result-box" id="finderResultBox">
+          <div class="f-res-img">
+            <img id="resImg" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80" alt="Rekomendasi Nastar">
+          </div>
+          <div>
+            <span class="f-res-badge" id="resBadge">PILIHAN PALING FAVORIT KELUARGA</span>
+            <h4 class="f-res-title" id="resTitle">Nastar Klasik Mentega Wijsman</h4>
+            <p class="f-res-desc" id="resDesc">
+              Kulit adonan kue yang lumer lembut di mulut berkat mentega Wijsman murni, berpadu sempurna dengan isian selai nanas madu Subang yang manis asam legit tanpa serat kasar.
+            </p>
+            <div style="font-size: 12px; color: var(--color-text-muted);">
+              <strong>Bahan Pilihan:</strong> <span id="resIngredients">Mentega Wijsman Murni, Nanas Madu Asli, Kuning Telur Omega, Cengkih Harum</span>
+            </div>
+          </div>
+          <div style="text-align: right; display: flex; flex-direction: column; justify-content: center; align-items: flex-end;">
+            <div class="f-res-price" id="resPrice">Rp 115.000</div>
+            <button class="btn-primary" id="resAddBtn" style="white-space: nowrap;">
+              <span>+ Masukkan Keranjang</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section class="catalog-section" id="koleksi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">KATALOG TOPLES</span>
+        <h2 class="section-title">Kue Kering Segar Baru Matang Dari Oven</h2>
+        <p class="section-desc">
+          Dipanggang segar setiap hari tanpa stok lama. Dikemas rapat dengan segel aluminium kedap udara dan toples tebal bebas bocor.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs-row" id="catalogFilters">
+        <button class="filter-tab-btn active" data-filter="all">Semua Kue Kering</button>
+        <button class="filter-tab-btn" data-filter="manis">Varian Manis & Lumer</button>
+        <button class="filter-tab-btn" data-filter="keju">Varian Gurih Keju</button>
+        <button class="filter-tab-btn" data-filter="cokelat">Varian Cokelat & Kacang</button>
+        <button class="filter-tab-btn" data-filter="hampers">Paket Hampers Hari Raya</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Product 1 -->
+        <div class="product-card" data-cat="manis">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80" alt="Nastar Mentega Wijsman">
+            <span class="card-badge">Paling Laris</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Varian Manis & Lumer</span>
+            <h3 class="p-title">Nastar Klasik Mentega Wijsman</h3>
+            <p class="p-desc">Nastar bulat keemasan bermahkotakan cengkih. Selai nanas madu legit dipadukan mentega Wijsman murni yang langsung lumer saat digigit.</p>
+            
+            <div class="jar-selector-wrap">
+              <div class="jar-label-row">
+                <span>Pilih Ukuran Toples:</span>
+                <span id="label-p1">Toples Segi 350g</span>
+              </div>
+              <div class="jar-buttons-group">
+                <button class="jar-btn active" onclick="selectJar('p1', 'Toples Segi 350g', 115000, this)">350 Gram</button>
+                <button class="jar-btn" onclick="selectJar('p1', 'Toples Bulat 500g', 160000, this)">500 Gram</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p1">Rp 115.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p1', 'Nastar Klasik Mentega Wijsman', getPrice('p1', 115000), getJar('p1', 'Toples Segi 350g'), 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-cat="keju">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=600&q=80" alt="Kastengel Keju Edam Tua">
+            <span class="card-badge">Keju Edam Melimpah</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Varian Gurih Keju</span>
+            <h3 class="p-title">Kastengel Keju Edam Tua & Cheddar</h3>
+            <p class="p-desc">Kastengel super gurih renyah dengan parutan keju edam tua Belanda di dalam adonan dan taburan cheddar kering garing di atasnya.</p>
+            
+            <div class="jar-selector-wrap">
+              <div class="jar-label-row">
+                <span>Pilih Ukuran Toples:</span>
+                <span id="label-p2">Toples Segi 350g</span>
+              </div>
+              <div class="jar-buttons-group">
+                <button class="jar-btn active" onclick="selectJar('p2', 'Toples Segi 350g', 125000, this)">350 Gram</button>
+                <button class="jar-btn" onclick="selectJar('p2', 'Toples Bulat 500g', 175000, this)">500 Gram</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p2">Rp 125.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p2', 'Kastengel Keju Edam Tua & Cheddar', getPrice('p2', 125000), getJar('p2', 'Toples Segi 350g'), 'https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-cat="manis">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80" alt="Putri Salju Kacang Mede">
+            <span class="card-badge">Sensasi Dingin Lumer</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Varian Manis & Lumer</span>
+            <h3 class="p-title">Putri Salju Kacang Mede Lumer</h3>
+            <p class="p-desc">Bentuk bulan sabit renyah berisi cincangan kacang mede sangrai gurih, diselimuti taburan gula halus dingin yang langsung lumer di lidah.</p>
+            
+            <div class="jar-selector-wrap">
+              <div class="jar-label-row">
+                <span>Pilih Ukuran Toples:</span>
+                <span id="label-p3">Toples Segi 350g</span>
+              </div>
+              <div class="jar-buttons-group">
+                <button class="jar-btn active" onclick="selectJar('p3', 'Toples Segi 350g', 110000, this)">350 Gram</button>
+                <button class="jar-btn" onclick="selectJar('p3', 'Toples Bulat 500g', 155000, this)">500 Gram</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p3">Rp 110.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p3', 'Putri Salju Kacang Mede Lumer', getPrice('p3', 110000), getJar('p3', 'Toples Segi 350g'), 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-cat="keju">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=600&q=80" alt="Sagu Keju Pandan Santan">
+            <span class="card-badge">Renyah Lumer</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Varian Gurih Keju</span>
+            <h3 class="p-title">Sagu Keju Santan Harum Pandan</h3>
+            <p class="p-desc">Tepung sagu disangrai bersama daun pandan wangi, dipadukan santan kelapa kental dan keju cheddar. Gigitan renyah berlanjut lumer lembut.</p>
+            
+            <div class="jar-selector-wrap">
+              <div class="jar-label-row">
+                <span>Pilih Ukuran Toples:</span>
+                <span id="label-p4">Toples Segi 350g</span>
+              </div>
+              <div class="jar-buttons-group">
+                <button class="jar-btn active" onclick="selectJar('p4', 'Toples Segi 350g', 95000, this)">350 Gram</button>
+                <button class="jar-btn" onclick="selectJar('p4', 'Toples Bulat 500g', 135000, this)">500 Gram</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p4">Rp 95.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p4', 'Sagu Keju Santan Harum Pandan', getPrice('p4', 95000), getJar('p4', 'Toples Segi 350g'), 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-cat="cokelat">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80" alt="Choco Cashew Cookies">
+            <span class="card-badge">Cokelat Belgia</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Varian Cokelat & Kacang</span>
+            <h3 class="p-title">Choco Cashew Butter Cookies</h3>
+            <p class="p-desc">Kue mentega dengan lelehan butir cokelat Belgia pekat (dark chocolate) dan taburan remah kacang mede panggang yang renyah.</p>
+            
+            <div class="jar-selector-wrap">
+              <div class="jar-label-row">
+                <span>Pilih Ukuran Toples:</span>
+                <span id="label-p5">Toples Segi 350g</span>
+              </div>
+              <div class="jar-buttons-group">
+                <button class="jar-btn active" onclick="selectJar('p5', 'Toples Segi 350g', 105000, this)">350 Gram</button>
+                <button class="jar-btn" onclick="selectJar('p5', 'Toples Bulat 500g', 145000, this)">500 Gram</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p5">Rp 105.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p5', 'Choco Cashew Butter Cookies', getPrice('p5', 105000), getJar('p5', 'Toples Segi 350g'), 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-cat="hampers">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Hampers Duo Manis">
+            <span class="card-badge">Paling Pas Buat Hadiah</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Paket Hampers Hari Raya</span>
+            <h3 class="p-title">Box Duo Manis (Nastar + Kastengel)</h3>
+            <p class="p-desc">Hardbox eksklusif berpita satin terakota berisi 1 toples Nastar Wijsman 350g dan 1 toples Kastengel Edam 350g + kartu ucapan cetak nama.</p>
+            
+            <div class="jar-selector-wrap">
+              <div class="jar-label-row">
+                <span>Kelengkapan Paket:</span>
+                <span>Box Mewah + 2 Toples</span>
+              </div>
+              <div style="font-size: 12px; color: var(--color-green); font-weight: 700;">
+                ✓ Termasuk Cetak Kartu Ucapan Gratis
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price">Rp 245.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p6', 'Box Duo Manis (Nastar + Kastengel)', 245000, 'Box 2 Toples Segi', 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 3: Holiday Hampers Builder -->
+  <section class="builder-section" id="hampers">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">KREASI HAMPERS KUSTOM</span>
+        <h2 class="section-title">Rakit Paket Hampers Hadiah Hari Raya Sesukamu</h2>
+        <p class="section-desc">
+          Pilih ukuran hardbox mewah berpita satin, tentukan varian kue favorit untuk orang tua, sahabat, atau rekan kerja, dan tulis kartu ucapan personal secara langsung.
+        </p>
+      </div>
+
+      <div class="builder-grid">
+        <div class="builder-controls">
+          <!-- Step 1: Pilih Box Hampers -->
+          <div class="b-card">
+            <h3 class="b-card-title">
+              <span class="step-num">1</span>
+              <span>Pilih Ukuran Kotak Hampers Mewah</span>
+            </h3>
+            <div class="hampers-tier-grid" id="tierGrid">
+              <div class="hampers-tier-card active" data-tier="duo" data-price="245000" data-max="2" onclick="selectTier('duo', 'Box Duo Manis (Isi 2 Toples)', 245000, 2, this)">
+                <div class="h-box-icon">🎁</div>
+                <div class="h-box-name">Box Duo Manis</div>
+                <div class="h-box-cap">Kapasitas 2 Toples</div>
+                <div class="h-box-price">Rp 245.000</div>
+              </div>
+              <div class="hampers-tier-card" data-tier="trio" data-price="365000" data-max="3" onclick="selectTier('trio', 'Box Trio Berkah (Isi 3 Toples)', 365000, 3, this)">
+                <div class="h-box-icon">🎀</div>
+                <div class="h-box-name">Box Trio Berkah</div>
+                <div class="h-box-cap">Kapasitas 3 Toples</div>
+                <div class="h-box-price">Rp 365.000</div>
+              </div>
+              <div class="hampers-tier-card" data-tier="royal" data-price="495000" data-max="4" onclick="selectTier('royal', 'Box Royal Family (Isi 4 Toples + Cangkir)', 495000, 4, this)">
+                <div class="h-box-icon">👑</div>
+                <div class="h-box-name">Box Royal Family</div>
+                <div class="h-box-cap">4 Toples + Cangkir</div>
+                <div class="h-box-price">Rp 495.000</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Pilih Isi Kue Toples -->
+          <div class="b-card">
+            <h3 class="b-card-title">
+              <span class="step-num">2</span>
+              <span>Pilih Kue yang Dimasukkan (<span id="pickedCountText">2</span>/<span id="maxBoxCountText">2</span> Terpilih)</span>
+            </h3>
+            <div class="cookie-pick-grid">
+              <div class="cookie-check-item selected" onclick="toggleCookiePick(this, 'Nastar Wijsman 350g')">
+                <div class="cookie-check-box">✓</div>
+                <div>
+                  <div class="cookie-check-title">Nastar Klasik Wijsman</div>
+                  <div class="cookie-check-price">Selai nanas madu legit</div>
+                </div>
+              </div>
+              <div class="cookie-check-item selected" onclick="toggleCookiePick(this, 'Kastengel Edam 350g')">
+                <div class="cookie-check-box">✓</div>
+                <div>
+                  <div class="cookie-check-title">Kastengel Keju Edam Tua</div>
+                  <div class="cookie-check-price">Gurih renyah melimpah</div>
+                </div>
+              </div>
+              <div class="cookie-check-item" onclick="toggleCookiePick(this, 'Putri Salju Mede 350g')">
+                <div class="cookie-check-box"></div>
+                <div>
+                  <div class="cookie-check-title">Putri Salju Kacang Mede</div>
+                  <div class="cookie-check-price">Dingin lumer lembut</div>
+                </div>
+              </div>
+              <div class="cookie-check-item" onclick="toggleCookiePick(this, 'Sagu Keju Pandan 350g')">
+                <div class="cookie-check-box"></div>
+                <div>
+                  <div class="cookie-check-title">Sagu Keju Santan Pandan</div>
+                  <div class="cookie-check-price">Renyah gurih santan</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Kartu Ucapan Hari Raya -->
+          <div class="b-card">
+            <h3 class="b-card-title">
+              <span class="step-num">3</span>
+              <span>Kartu Ucapan Hari Raya (Gratis Dicetak)</span>
+            </h3>
+            <div class="form-group-row">
+              <div class="form-control">
+                <label for="cardTheme">Pilih Momen / Acara:</label>
+                <select id="cardTheme" onchange="updateHolidayCardPreview()">
+                  <option value="Selamat Hari Raya Idul Fitri">🌙 Selamat Hari Raya Idul Fitri (Mohon Maaf Lahir & Batin)</option>
+                  <option value="Selamat Hari Natal & Tahun Baru">🎄 Selamat Hari Natal & Tahun Baru (Merry Christmas)</option>
+                  <option value="Selamat Tahun Baru Imlek">🧧 Selamat Tahun Baru Imlek (Gong Xi Fa Cai)</option>
+                  <option value="Doa Tulus & Terima Kasih Spesial">💐 Doa Tulus & Terima Kasih Spesial</option>
+                </select>
+              </div>
+              <div class="form-control">
+                <label for="cardTo">Nama Penerima (Kepada):</label>
+                <input type="text" id="cardTo" placeholder="Contoh: Keluarga Om Hendra" value="Keluarga Besar Om Hendra & Tante Dewi" oninput="updateHolidayCardPreview()">
+              </div>
+            </div>
+            <div class="form-control" style="margin-bottom: 12px;">
+              <label for="cardMessage">Pesan Doa / Ucapan:</label>
+              <textarea id="cardMessage" rows="2" placeholder="Tuliskan doa atau ucapan hangat..." oninput="updateHolidayCardPreview()">Semoga hari raya ini membawa kebahagiaan, kesehatan, dan keberkahan berlimpah untuk seluruh keluarga tercinta!</textarea>
+            </div>
+            <div class="form-control">
+              <label for="cardFrom">Dari Pengirim:</label>
+              <input type="text" id="cardFrom" placeholder="Contoh: Dari Dimas & Sekar" value="Dari Dimas, Sekar & Anak-Anak" oninput="updateHolidayCardPreview()">
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Live Preview of Hampers & Card -->
+        <div class="builder-summary-sticky">
+          <h3 class="summary-title">Pratinjau Paket Hampers Kamu</h3>
+
+          <!-- Live Holiday Card Box -->
+          <div class="live-holiday-card">
+            <div class="card-theme-badge" id="prevCardTheme">🌙 SELAMAT HARI RAYA IDUL FITRI</div>
+            <div class="card-to" id="prevCardTo">Kepada: Keluarga Besar Om Hendra & Tante Dewi</div>
+            <div class="card-quote" id="prevCardMsg">"Semoga hari raya ini membawa kebahagiaan, kesehatan, dan keberkahan berlimpah untuk seluruh keluarga tercinta!"</div>
+            <div class="card-from" id="prevCardFrom">Dari: Dimas, Sekar & Anak-Anak</div>
+          </div>
+
+          <!-- Items list breakdown -->
+          <div class="summary-items-list">
+            <div class="s-item-row strong">
+              <span id="prevTierName">Box Duo Manis (Isi 2 Toples)</span>
+              <span id="prevTierPrice">Rp 245.000</span>
+            </div>
+            <div id="prevCookiesContainer">
+              <div class="s-item-row">
+                <span>• Nastar Wijsman 350g</span>
+                <span>Termasuk</span>
+              </div>
+              <div class="s-item-row">
+                <span>• Kastengel Edam 350g</span>
+                <span>Termasuk</span>
+              </div>
+            </div>
+            <div class="s-item-row">
+              <span>• Hardbox Eksklusif + Pita Satin Terakota</span>
+              <span style="color: var(--color-green); font-weight: bold;">GRATIS</span>
+            </div>
+            <div class="s-item-row">
+              <span>• Kartu Ucapan Hari Raya Dicetak Khusus</span>
+              <span style="color: var(--color-green); font-weight: bold;">GRATIS</span>
+            </div>
+          </div>
+
+          <div class="summary-total-row">
+            <span class="total-label">Total Harga Paket:</span>
+            <span class="total-val" id="builderTotalPrice">Rp 245.000</span>
+          </div>
+
+          <button class="btn-checkout-hampers" onclick="checkoutHampersWhatsApp()">
+            <span>💬 Pesan Paket Hampers Ini via WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 4: Guest Portion Calculator -->
+  <section class="calc-section" id="kalkulator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">KALKULATOR PORSI TAMU</span>
+        <h2 class="section-title">Berapa Banyak Toples yang Perlu Disiapkan?</h2>
+        <p class="section-desc">
+          Geser jumlah perkiraan kerabat atau tamu yang akan berkunjung, dan dapatkan rekomendasi jumlah toples kue kering agar meja suguhanmu tetap cantik dan cukup sepanjang hari raya.
+        </p>
+      </div>
+
+      <div class="calc-box">
+        <div class="calc-slider-wrap">
+          <div class="calc-slider-label">
+            <span>Perkiraan Tamu Berkunjung:</span>
+            <span class="slider-guest-val" id="sliderGuestText">15 Orang Tamu</span>
+          </div>
+          <input type="range" class="calc-range-input" id="calcGuestSlider" min="5" max="50" step="5" value="15" oninput="updateGuestCalculator(this.value)">
+        </div>
+
+        <div class="calc-metrics-grid">
+          <div class="calc-metric-card">
+            <div class="c-metric-val" id="metricJars">3 - 4 Toples</div>
+            <div class="c-metric-title">Rekomendasi Jumlah Toples</div>
+            <div class="c-metric-sub">Kombinasi Nastar + Kastengel + Putri Salju</div>
+          </div>
+          <div class="calc-metric-card">
+            <div class="c-metric-val" id="metricCookies">~90 Keping</div>
+            <div class="c-metric-title">Estimasi Total Suguhan</div>
+            <div class="c-metric-sub">Rata-rata 5-6 keping per tamu yang berkunjung</div>
+          </div>
+          <div class="calc-metric-card">
+            <div class="c-metric-val" id="metricDuration">Aman 3 Hari</div>
+            <div class="c-metric-title">Daya Tahan di Meja Tamu</div>
+            <div class="c-metric-sub">Cukup untuk silaturahmi hari ke-1 sampai ke-3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality Assurance Section -->
+  <section class="quality-section" id="jaminan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">JAMINAN MUTU RESEP KELUARGA</span>
+        <h2 class="section-title">Kenapa Mentega Wijsman Membuatnya Berbeda?</h2>
+        <p class="section-desc">
+          Komitmen kami menggunakan bahan murni premium tanpa jalan pintas margarin murah atau pengawet kimia.
+        </p>
+      </div>
+
+      <div class="quality-cards-grid">
+        <div class="quality-card">
+          <div class="quality-card-icon">🧈</div>
+          <h3 class="quality-card-title">1. 100% Wijsman Asli</h3>
+          <p class="quality-card-desc">Mentega kaleng murni Belanda tanpa campuran margarin murah. Aromanya harum semerbak sejak pertama kali toples dibuka.</p>
+        </div>
+
+        <div class="quality-card">
+          <div class="quality-card-icon">🍍</div>
+          <h3 class="quality-card-title">2. Nanas Madu Subang</h3>
+          <p class="quality-card-desc">Dipilih dari nanas madu segar tanpa pemanis buatan. Dimasak perlahan 6 jam hingga karamel kental yang legit tanpa rasa asam menusuk.</p>
+        </div>
+
+        <div class="quality-card">
+          <div class="quality-card-icon">🧀</div>
+          <h3 class="quality-card-title">3. Keju Edam Tua</h3>
+          <p class="quality-card-desc">Keju apel merah edam tua Belanda yang diparut halus di dalam adonan, menghasilkan rasa asin gurih khas kastengel otentik.</p>
+        </div>
+
+        <div class="quality-card">
+          <div class="quality-card-icon">🛡️</div>
+          <h3 class="quality-card-title">4. Garansi Anti Hancur</h3>
+          <p class="quality-card-desc">Dikemas dengan toples tebal, segel aluminium kedap, dan bubble wrap 4 lapis. Jika kue hancur saat pengiriman, kami ganti baru gratis!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ULASAN PELANGGAN</span>
+        <h2 class="section-title">Cerita Meja Tamu yang Selalu Habis Duluan</h2>
+        <p class="section-desc">Ulasan nyata dari ribuan keluarga yang mempercayakan hidangan hari raya pada Rumah Nastar.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-quote">
+              "Nastar Wijsman-nya beneran nggak ada tandingannya! Kulitnya renyah tapi pas masuk mulut langsung lumer nyatu sama selai nanasnya yang legit banget. Pas Lebaran kemarin toples nastar ini yang pertama kali ludes diserbu keluarga besar."
+            </p>
+          </div>
+          <div class="r-author-row">
+            <div class="r-avatar">HA</div>
+            <div class="r-meta">
+              <span class="r-name">Hj. Anisa Rahmawati</span>
+              <span class="r-item">Pelanggan Setia Nastar Wijsman · Bandung</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-quote">
+              "Kastengelnya kejunya berasa banget, bukan kayak kue kering kiloan yang berasa terigu doang. Edam tuanya renyah kres kres pas digigit. Packing toplesnya juga rapat ada segel aluminiumnya, jadi kuenya nggak melempem sama sekali."
+            </p>
+          </div>
+          <div class="r-author-row">
+            <div class="r-avatar">KW</div>
+            <div class="r-meta">
+              <span class="r-name">Kusuma Wijaya</span>
+              <span class="r-item">Penikmat Kastengel Edam · Jakarta Barat</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-quote">
+              "Kantor kami pesan 45 Box Trio Berkah buat hampers relasi bisnis. Respon dari klien-klien kami luar biasa puas! Box-nya tebel mewah berpita terakota elegan, dan kartu ucapannya dicetak rapi ada nama perusahaannya. Tahun depan pasti pesan ke sini lagi!"
+            </p>
+          </div>
+          <div class="r-author-row">
+            <div class="r-avatar">MS</div>
+            <div class="r-meta">
+              <span class="r-name">Maudy Savitri</span>
+              <span class="r-item">Corporate Secretary · Surabaya</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay">
+    <div class="cart-drawer">
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+          <span>🛍️ Keranjang Belanja Kue Kering</span>
+          <span class="cart-count" id="drawerCountBadge">0</span>
+        </div>
+        <button class="cart-close-btn" id="closeCartBtn">✕</button>
+      </div>
+
+      <div class="cart-drawer-body" id="cartItemsContainer">
+        <!-- Dynamic via JS -->
+      </div>
+
+      <div class="cart-drawer-footer">
+        <div class="coupon-row">
+          <input type="text" class="coupon-input" id="couponInput" placeholder="KODE DISKON (WIJSMANBARU)">
+          <button class="btn-apply-coupon" onclick="applyCoupon()">Gunakan</button>
+        </div>
+
+        <div class="cart-price-summary">
+          <div class="c-sum-row">
+            <span>Subtotal Produk:</span>
+            <span id="cartSubtotalText">Rp 0</span>
+          </div>
+          <div class="c-sum-row" id="discountRow" style="display: none; color: var(--color-green);">
+            <span>Diskon Promo Perdana:</span>
+            <span id="cartDiscountText">- Rp 0</span>
+          </div>
+          <div class="c-sum-row">
+            <span>Garansi Pengemasan:</span>
+            <span style="color: var(--color-green); font-weight: 700;">Gratis Bubble Wrap & Dus Tebal</span>
+          </div>
+          <div class="c-sum-row total">
+            <span>Total Pembayaran:</span>
+            <span id="cartTotalText">Rp 0</span>
+          </div>
+        </div>
+
+        <button class="btn-checkout-wa" onclick="checkoutCartWhatsApp()">
+          <span>💬 Kirim Pesanan ke WhatsApp Dapur</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-group" style="margin-bottom: 16px;">
+            <div class="brand-mark" style="background: var(--color-surface); border-color: #FFFFFF;">🍪</div>
+            <div>
+              <h2 class="brand-title" style="color: #FFFFFF;">RUMAH NASTAR</h2>
+              <p class="brand-sub" style="color: #D3BFB7;">KUE KERING WIJSMAN & HAMPERS HARI RAYA</p>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: #D3BFB7; line-height: 1.6; max-width: 380px;">
+            Dapur kue kering keluarga spesialis mentega Wijsman murni sejak 2012. Menyajikan kehangatan nastar selai nanas madu lumer, kastengel keju edam tua, dan hampers hari raya untuk keluarga di seluruh Indonesia.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#koleksi">Katalog Toples</a></li>
+            <li><a href="#finder">Pencari Rasa Favorit</a></li>
+            <li><a href="#hampers">Rakit Hampers Hari Raya</a></li>
+            <li><a href="#kalkulator">Kalkulator Tamu</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Jaminan Kualitas</h4>
+          <ul class="footer-links-list">
+            <li>100% Mentega Wijsman Murni</li>
+            <li>Nanas Madu Subang Asli</li>
+            <li>Keju Edam Tua Belanda</li>
+            <li>Bebas Pengawet Kimia</li>
+            <li>Garansi Kue Utuh Anti Hancur</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Kontak & Pemesanan</h4>
+          <ul class="footer-links-list">
+            <li>WhatsApp: +62 813-8901-2345</li>
+            <li>Jam Baking: Setiap Hari (07.00 - 18.00 WIB)</li>
+            <li>Dapur Utama: Menteng, Jakarta Pusat</li>
+            <li>Pengiriman: Paxel Same Day, J&T Cargo, GoSend Instant</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 RUMAH NASTAR Indonesia. Hak Cipta Dilindungi Undang-Undang.</div>
+        <div>Membawa kehangatan dan keharuman mentega asli di setiap perayaan keluarga.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Implementation -->
+  <script>
+    // State Management
+    let cart = [];
+    let discountAmount = 0;
+    let selectedTier = {
+      key: 'duo',
+      name: 'Box Duo Manis (Isi 2 Toples)',
+      price: 245000,
+      max: 2
+    };
+    let pickedHampersCookies = ['Nastar Wijsman 350g', 'Kastengel Edam 350g'];
+
+    function formatRupiah(num) {
+      return 'Rp ' + Number(num).toLocaleString('id-ID');
+    }
+
+    // 1. Oven & Glass Jar Clink Sound Synthesizer via Web Audio API
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let ovenNoiseNode = null;
+    let ovenGainNode = null;
+    let clinkTimer = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+    }
+
+    function toggleOvenAudio() {
+      initAudio();
+      const btn = document.getElementById('audioToggleBtn');
+      const icon = document.getElementById('ovenIcon');
+      const statusText = document.getElementById('audioStatusText');
+
+      if (isAudioPlaying) {
+        if (ovenGainNode) {
+          ovenGainNode.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+          setTimeout(() => {
+            if (ovenNoiseNode) ovenNoiseNode.stop();
+            clearInterval(clinkTimer);
+            isAudioPlaying = false;
+          }, 500);
+        }
+        icon.classList.remove('active');
+        statusText.textContent = 'Suara Dapur: Mati';
+      } else {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        startKitchenAmbiance();
+        isAudioPlaying = true;
+        icon.classList.add('active');
+        statusText.textContent = 'Suara Dapur: Berdengung';
+      }
+    }
+
+    function startKitchenAmbiance() {
+      // Warm low frequency oven ventilation hum
+      const bufferSize = audioCtx.sampleRate * 2;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      let lastOut = 0.0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        data[i] = (lastOut + (0.015 * white)) / 1.015;
+        lastOut = data[i];
+      }
+
+      ovenNoiseNode = audioCtx.createBufferSource();
+      ovenNoiseNode.buffer = buffer;
+      ovenNoiseNode.loop = true;
+
+      const ovenFilter = audioCtx.createBiquadFilter();
+      ovenFilter.type = 'lowpass';
+      ovenFilter.frequency.setValueAtTime(320, audioCtx.currentTime);
+
+      ovenGainNode = audioCtx.createGain();
+      ovenGainNode.gain.setValueAtTime(0.01, audioCtx.currentTime);
+      ovenGainNode.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 1);
+
+      ovenNoiseNode.connect(ovenFilter);
+      ovenFilter.connect(ovenGainNode);
+      ovenGainNode.connect(audioCtx.destination);
+      ovenNoiseNode.start();
+
+      // Gentle glass jar lid ping
+      playJarClink();
+      clinkTimer = setInterval(playJarClink, 4800);
+    }
+
+    function playJarClink() {
+      if (!isAudioPlaying) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1480, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.3);
+
+      gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.4);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.45);
+    }
+
+    document.getElementById('audioToggleBtn').addEventListener('click', toggleOvenAudio);
+
+    // 2. Interactive Feature 1: Taste & Texture Finder
+    const finderDatabase = {
+      'pineapple-melt': {
+        title: 'Nastar Klasik Mentega Wijsman',
+        desc: 'Kulit adonan kue yang lumer lembut di mulut berkat mentega Wijsman murni, berpadu sempurna dengan isian selai nanas madu Subang yang manis asam legit tanpa serat kasar.',
+        ingredients: 'Mentega Wijsman Murni, Nanas Madu Asli, Kuning Telur Omega, Cengkih Harum',
+        price: 115000,
+        badge: 'PILIHAN PALING FAVORIT KELUARGA',
+        img: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80'
+      },
+      'cheese-crunchy': {
+        title: 'Kastengel Keju Edam Tua & Cheddar',
+        desc: 'Tekstur renyah garing dengan rasa asin gurih melimpah dari parutan keju edam tua asli Belanda di dalam adonan dan taburan keju cheddar kering di atasnya.',
+        ingredients: 'Keju Edam Tua Belanda, Keju Cheddar, Mentega Wijsman, Kuning Telur',
+        price: 125000,
+        badge: 'GURIH ASIN KEJU PREMIUM',
+        img: 'https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=400&q=80'
+      },
+      'sweet-snow-grainy': {
+        title: 'Putri Salju Kacang Mede Lumer',
+        desc: 'Kue berbentuk bulan sabit bertabur gula dingin halus. Saat digigit, tekstur gurih renyah kacang mede sangrai berpadu dengan adonan mentega yang lumer sejuk di lidah.',
+        ingredients: 'Kacang Mede Sangrai, Gula Halus Dingin, Mentega Wijsman, Tepung Sangrai',
+        price: 110000,
+        badge: 'MANIS SEJUK LUMER MEDE',
+        img: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=400&q=80'
+      },
+      'choco-melt': {
+        title: 'Choco Cashew Butter Cookies',
+        desc: 'Adonan kue mentega cokelat harum dengan butiran cokelat Belgia murni dan potongan kacang mede gurih. Pilihan tepat untuk anak-anak dan pecinta cokelat sejati.',
+        ingredients: 'Cokelat Belgia Murni, Kacang Mede, Mentega Wijsman, Ekstrak Vanila',
+        price: 105000,
+        badge: 'COKELAT PEKAT FAVORIT ANAK',
+        img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80'
+      }
+    };
+
+    let selectedTaste = 'pineapple';
+    let selectedTexture = 'melt';
+
+    function updateFinderResult() {
+      const key = `${selectedTaste}-${selectedTexture}`;
+      const data = finderDatabase[key] || finderDatabase['pineapple-melt'];
+
+      document.getElementById('resTitle').textContent = data.title;
+      document.getElementById('resDesc').textContent = data.desc;
+      document.getElementById('resIngredients').textContent = data.ingredients;
+      document.getElementById('resPrice').textContent = formatRupiah(data.price);
+      document.getElementById('resBadge').textContent = data.badge;
+      document.getElementById('resImg').src = data.img;
+
+      document.getElementById('resAddBtn').onclick = function() {
+        addToCart('finder-res', data.title, data.price, 'Toples Pilihan Kuis (350g)', data.img);
+      };
+    }
+
+    document.querySelectorAll('#tasteOptions .taste-opt-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#tasteOptions .taste-opt-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        selectedTaste = this.dataset.taste;
+        updateFinderResult();
+      });
+    });
+
+    document.querySelectorAll('#textureOptions .taste-opt-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#textureOptions .taste-opt-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        selectedTexture = this.dataset.texture;
+        updateFinderResult();
+      });
+    });
+
+    updateFinderResult();
+
+    // 3. Catalog Filter Tabs
+    document.querySelectorAll('#catalogFilters .filter-tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#catalogFilters .filter-tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.dataset.filter;
+
+        document.querySelectorAll('#productsGrid .product-card').forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Jar size selector helpers
+    const productJars = {};
+
+    function selectJar(productId, jarLabel, price, btnElement) {
+      const parent = btnElement.closest('.product-card-body');
+      parent.querySelectorAll('.jar-btn').forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      productJars[productId] = {
+        price: price,
+        jarName: jarLabel
+      };
+
+      document.getElementById(`price-${productId}`).textContent = formatRupiah(price);
+      document.getElementById(`label-${productId}`).textContent = jarLabel;
+    }
+
+    function getPrice(productId, fallback) {
+      return productJars[productId] ? productJars[productId].price : fallback;
+    }
+
+    function getJar(productId, fallback) {
+      return productJars[productId] ? productJars[productId].jarName : fallback;
+    }
+
+    // 4. Holiday Hampers Builder Logic
+    function selectTier(key, name, price, maxCount, element) {
+      document.querySelectorAll('#tierGrid .hampers-tier-card').forEach(c => c.classList.remove('active'));
+      element.classList.add('active');
+
+      selectedTier = { key, name, price, max: maxCount };
+
+      document.getElementById('maxBoxCountText').textContent = maxCount;
+      document.getElementById('prevTierName').textContent = name;
+      document.getElementById('prevTierPrice').textContent = formatRupiah(price);
+      document.getElementById('builderTotalPrice').textContent = formatRupiah(price);
+
+      updateHampersCookiesDisplay();
+    }
+
+    function toggleCookiePick(element, cookieName) {
+      const isSelected = element.classList.contains('selected');
+      const box = element.querySelector('.cookie-check-box');
+
+      if (isSelected) {
+        element.classList.remove('selected');
+        box.textContent = '';
+        pickedHampersCookies = pickedHampersCookies.filter(c => c !== cookieName);
+      } else {
+        if (pickedHampersCookies.length >= selectedTier.max) {
+          alert(`Maksimal kotak ini hanya dapat memuat ${selectedTier.max} toples kue. Kamu bisa memilih 'Box Trio Berkah' atau 'Box Royal Family' untuk memuat lebih banyak.`);
+          return;
+        }
+        element.classList.add('selected');
+        box.textContent = '✓';
+        pickedHampersCookies.push(cookieName);
+      }
+
+      updateHampersCookiesDisplay();
+    }
+
+    function updateHampersCookiesDisplay() {
+      document.getElementById('pickedCountText').textContent = pickedHampersCookies.length;
+
+      const container = document.getElementById('prevCookiesContainer');
+      container.innerHTML = '';
+
+      if (pickedHampersCookies.length === 0) {
+        container.innerHTML = '<div style="color:#888; font-style:italic;">Belum ada toples kue yang dipilih</div>';
+      } else {
+        pickedHampersCookies.forEach(name => {
+          const row = document.createElement('div');
+          row.className = 's-item-row';
+          row.innerHTML = `<span>• ${name}</span><span>Termasuk</span>`;
+          container.appendChild(row);
+        });
+      }
+    }
+
+    function updateHolidayCardPreview() {
+      const theme = document.getElementById('cardTheme').value;
+      const to = document.getElementById('cardTo').value.trim() || 'Keluarga Tercinta';
+      const msg = document.getElementById('cardMessage').value.trim() || 'Semoga hari raya ini dipenuhi kedamaian dan kebahagiaan!';
+      const from = document.getElementById('cardFrom').value.trim() || 'Keluarga Kami';
+
+      document.getElementById('prevCardTheme').textContent = theme.toUpperCase();
+      document.getElementById('prevCardTo').textContent = `Kepada: ${to}`;
+      document.getElementById('prevCardMsg').textContent = `"${msg}"`;
+      document.getElementById('prevCardFrom').textContent = `Dari: ${from}`;
+    }
+
+    function checkoutHampersWhatsApp() {
+      if (pickedHampersCookies.length === 0) {
+        alert('Silakan pilih minimal 1 toples kue untuk dimasukkan ke dalam hampers.');
+        return;
+      }
+
+      const to = document.getElementById('cardTo').value.trim();
+      const theme = document.getElementById('cardTheme').value;
+      const msg = document.getElementById('cardMessage').value.trim();
+      const from = document.getElementById('cardFrom').value.trim();
+      const total = document.getElementById('builderTotalPrice').textContent;
+
+      let cookiesListText = pickedHampersCookies.map((c, i) => `${i + 1}. ${c}`).join('%0A');
+
+      const text = `Halo Admin RUMAH NASTAR! Saya ingin memesan Paket Hampers Hari Raya:%0A%0A` +
+        `🎁 *Pilihan Box:* ${selectedTier.name} (${formatRupiah(selectedTier.price)})%0A` +
+        `🍪 *Isi Toples Kue:*%0A${cookiesListText}%0A%0A` +
+        `💌 *Tema Kartu Ucapan:* ${theme}%0A` +
+        `• *Kepada:* ${to}%0A` +
+        `• *Pesan Ucapan:* "${msg}"%0A` +
+        `• *Dari:* ${from}%0A%0A` +
+        `💰 *Total Pembayaran:* ${total}%0A%0A` +
+        `Mohon info ketersediaan stok batch hari ini dan nomor rekening transfer ya. Terima kasih!`;
+
+      window.open(`https://wa.me/6281389012345?text=${text}`, '_blank');
+    }
+
+    // 5. Interactive Feature 4: Guest Portion Calculator
+    function updateGuestCalculator(guests) {
+      document.getElementById('sliderGuestText').textContent = guests + ' Orang Tamu';
+
+      const g = parseInt(guests);
+      let jars = '2 Toples';
+      let cookies = '~50 Keping';
+      let duration = 'Aman 2 Hari';
+
+      if (g >= 10 && g < 20) {
+        jars = '3 - 4 Toples';
+        cookies = '~90 Keping';
+        duration = 'Aman 3 Hari';
+      } else if (g >= 20 && g < 35) {
+        jars = '5 - 6 Toples';
+        cookies = '~150 Keping';
+        duration = 'Aman 4-5 Hari';
+      } else if (g >= 35) {
+        jars = '7 - 8 Toples';
+        cookies = '~220 Keping';
+        duration = 'Aman 1 Minggu Penuh';
+      }
+
+      document.getElementById('metricJars').textContent = jars;
+      document.getElementById('metricCookies').textContent = cookies;
+      document.getElementById('metricDuration').textContent = duration;
+    }
+
+    // 6. Cart System & WhatsApp Checkout
+    function addToCart(id, name, price, jar, img) {
+      const existing = cart.find(item => item.id === id && item.jar === jar);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, name, price, jar, img, qty: 1 });
+      }
+      renderCart();
+      openCartDrawer();
+    }
+
+    function changeQty(index, delta) {
+      if (!cart[index]) return;
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      const badge1 = document.getElementById('cartCountBadge');
+      const badge2 = document.getElementById('drawerCountBadge');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge1.textContent = totalItems;
+      badge2.textContent = totalItems;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="cart-empty-state">
+            <div style="font-size: 36px; margin-bottom: 12px;">🍪</div>
+            <p><strong>Keranjang belanjamu masih kosong.</strong></p>
+            <p style="font-size: 13px; margin-top: 4px;">Pilih toples kue kering Wijsman favoritmu dan tambahkan ke sini.</p>
+          </div>
+        `;
+        document.getElementById('cartSubtotalText').textContent = 'Rp 0';
+        document.getElementById('cartTotalText').textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      container.innerHTML = '';
+
+      cart.forEach((item, index) => {
+        subtotal += item.price * item.qty;
+        const div = document.createElement('div');
+        div.className = 'cart-item-card';
+        div.innerHTML = `
+          <div class="cart-item-thumb">
+            <img src="${item.img}" alt="${item.name}">
+          </div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-jar">Kemasan: ${item.jar}</div>
+            <div class="cart-item-price">${formatRupiah(item.price)}</div>
+          </div>
+          <div class="cart-qty-ctrl">
+            <button class="qty-btn" onclick="changeQty(${index}, -1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      const total = Math.max(0, subtotal - discountAmount);
+      document.getElementById('cartSubtotalText').textContent = formatRupiah(subtotal);
+      document.getElementById('cartTotalText').textContent = formatRupiah(total);
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('couponInput').value.trim().toUpperCase();
+      if (code === 'WIJSMANBARU') {
+        discountAmount = 20000;
+        document.getElementById('discountRow').style.display = 'flex';
+        document.getElementById('cartDiscountText').textContent = '- Rp 20.000';
+        alert('Kupon berhasil diterapkan! Anda mendapatkan potongan Rp 20.000.');
+        renderCart();
+      } else if (!code) {
+        alert('Silakan ketik kode kupon diskon.');
+      } else {
+        alert('Kode kupon tidak valid. Gunakan kode "WIJSMANBARU" untuk diskon perdana!');
+      }
+    }
+
+    function checkoutCartWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang belanjamu masih kosong.');
+        return;
+      }
+
+      let subtotal = 0;
+      let itemsText = cart.map((item, i) => {
+        subtotal += item.price * item.qty;
+        return `${i + 1}. ${item.name} (${item.jar}) × ${item.qty} = ${formatRupiah(item.price * item.qty)}`;
+      }).join('%0A');
+
+      const total = Math.max(0, subtotal - discountAmount);
+
+      const text = `Halo Admin RUMAH NASTAR! Saya ingin memesan kue kering berikut:%0A%0A` +
+        `🛍️ *DAFTAR PESANAN TOPLES:*%0A${itemsText}%0A%0A` +
+        (discountAmount > 0 ? `🎟️ *Diskon Kupon:* - ${formatRupiah(discountAmount)}%0A` : '') +
+        `📦 *Pengemasan:* Dus Tebal & Bubble Wrap Anti Hancur%0A` +
+        `💰 *TOTAL PEMBAYARAN:* ${formatRupiah(total)}%0A%0A` +
+        `Mohon segera diproses pesanan batch hari ini ya. Terima kasih!`;
+
+      window.open(`https://wa.me/6281389012345?text=${text}`, '_blank');
+    }
+
+    // Drawer Open / Close
+    const cartOverlay = document.getElementById('cartOverlay');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+
+    function openCartDrawer() {
+      cartOverlay.classList.add('open');
+    }
+
+    function closeCartDrawer() {
+      cartOverlay.classList.remove('open');
+    }
+
+    openCartBtn.addEventListener('click', openCartDrawer);
+    closeCartBtn.addEventListener('click', closeCartDrawer);
+    cartOverlay.addEventListener('click', function(e) {
+      if (e.target === cartOverlay) {
+        closeCartDrawer();
+      }
+    });
+
+    // Initialize
+    updateGuestCalculator(15);
+  </script>
+</body>
+</html>

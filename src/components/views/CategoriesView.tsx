@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'cookies',
+      title: 'Kue Kering Mentega & Hampers Hari Raya',
+      icon: Cookie,
+      desc: 'Toko kue kering mentega Wijsman asli, nastar lumer selai nanas madu Subang, kastengel keju edam tua, putri salju mede, dan hampers hari raya elegan: penemu rasa & tekstur kue, perakit custom hampers lebaran dengan kartu ucapan gratis, dan kalkulator toples tamu.',
+      accent: '#D3756B'
+    },
+    {
       id: 'craft',
       title: 'Kriya Anyaman Rotan & Bambu',
       icon: Store,

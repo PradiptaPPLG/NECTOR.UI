@@ -3808,6 +3808,90 @@ export function TanahLiatStudio() {
       { hex: '#B0A695', rgb: 'rgb(176, 166, 149)', name: 'Muted Greige Clay', role: 'Garis Pembatas Halus, Aksen Badge Ukuran & Tutup Anyaman' },
       { hex: '#776B5D', rgb: 'rgb(119, 107, 93)', name: 'Deep Walnut Umber', role: 'Tombol Aksi Utama (CTA), Sorotan Harga & Warna Brand Mark' }
     ]
+  },
+  {
+    id: 'tpl-50',
+    slug: 'dapur-nastar-kue-kering',
+    title: 'RUMAH NASTAR (Kue Kering Mentega Wijsman Asli & Hampers Hari Raya)',
+    tagline: 'Kue kering mentega Wijsman asli, nastar selai nanas madu lumer, kastengel keju edam tua, dan hampers hari raya elegan tanpa bahan pengawet',
+    description: 'Template website etalase toko kue kering dan hampers hari raya RUMAH NASTAR dengan palet warna Deep Terracotta Maroon (#A75D5D), Warm Coral Clay (#D3756B), Warm Salmon Peach (#F0997D), dan Cantaloupe Butter Cream (#FFC3A1). Menghadirkan fotografi produk asli berkualitas tinggi yang menggugah selera tanpa elemen 3D membingungkan, bahasa Indonesia yang ramah dan bersahabat bagi publik dan pembeli hampers, fitur Taste & Texture Finder interaktif, etalase 6 toples kue kering unggulan dengan pemilih ukuran toples (350g & 500g), Holiday Hampers Builder dengan preview kartu ucapan live, kalkulator porsi toples tamu silaturahmi, jaminan keamanan toples anti-remuk, serta slide-over keranjang belanja terhubung langsung ke checkout WhatsApp.',
+    category: 'cookies',
+    tags: ['Kue Kering', 'Nastar Wijsman', 'Kastengel Keju', 'Hampers Lebaran', 'Putri Salju Mede', 'Parcel Hari Raya', 'Butter Cookies', 'UMKM Kuliner', 'Kado Natal & Imlek'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Web Audio API Oven Ambiance Synthesizer', 'Taste & Texture Finder', 'Holiday Hampers Builder', 'Guest Jar Calculator', 'Slide-Over Cart Drawer', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'bakery',
+    previewComponentKey: 'cookies-nastar',
+    htmlPath: '/templates/cookies/dapur-nastar-kue-kering.html',
+    htmlFolderPath: 'templates/cookies/dapur-nastar-kue-kering.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa dependensi eksternal atau build step',
+      'Penemu rasa & tekstur kue interaktif (Taste & Texture Finder) untuk mencocokkan selera manis, gurih asin, renyah, atau lumer di lidah',
+      'Katalog 6 varian kue kering unggulan dengan toggle ukuran toples segel (350 gram & 500 gram)',
+      'Perakit hampers hari raya kustom (Holiday Hampers Builder) dengan 3 pilihan box premium, seleksi kue, tema kartu ucapan, dan pratinjau kartu live',
+      'Kalkulator estimasi toples tamu silaturahmi berdasarkan perkiraan jumlah tamu',
+      'Pemberitahuan slot panggangan batch hari ini dan audio synthesizer oven dapur Web Audio API',
+      'Slide-over keranjang belanja dengan kupon diskon WIJSMANBARU dan pengiriman rincian pesanan rapi ke WhatsApp'
+    ],
+    usageInstructions: [
+      'Buka folder templates/cookies/dapur-nastar-kue-kering.html di editor kode Anda.',
+      'Sesuaikan nomor WhatsApp admin di variabel checkoutWhatsAppNumber.',
+      'Ganti nama kue, harga toples, atau foto produk sesuai katalog usaha Anda.',
+      'Buka file HTML langsung di browser untuk menguji semua fitur interaktif.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'dapur-nastar-kue-kering.html',
+        language: 'html',
+        content: `<!-- RUMAH NASTAR — NECTOR.UI Kue Kering & Hampers Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>RUMAH NASTAR — Kue Kering Mentega Wijsman Asli & Hampers Hari Raya</title>
+  <style>
+    :root {
+      --color-terracotta: #A75D5D;
+      --color-coral: #D3756B;
+      --color-salmon: #F0997D;
+      --color-butter-cream: #FFC3A1;
+      --color-bg: #FDFBF7;
+      --color-surface: #FFFFFF;
+      --color-surface-soft: #FFF4ED;
+      --color-text-main: #281B1B;
+      --color-text-muted: #644E4E;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-kitchen-bar">SLOT PANGGANGAN HARI INI: 18 / 30 TOPLES TERSEDIA · 100% BUTTER WIJSMAN ASLI</div>
+  <header class="site-header">
+    <div class="brand-title">RUMAH NASTAR <span>KUE KERING MENTEGA ASLI</span></div>
+    <nav>Varian Kue · Penemu Rasa · Rakit Hampers · Hitung Tamu · Ulasan Pembeli</nav>
+  </header>
+  <!-- Full Interactive Bakery E-Commerce: Taste Finder, Hamper Builder, Guest Calculator, Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website toko kue kering dan hampers hari raya RUMAH NASTAR dengan palet warna Deep Terracotta Maroon (#A75D5D), Warm Coral Clay (#D3756B), Warm Salmon Peach (#F0997D), Cantaloupe Butter Cream (#FFC3A1), Bakery Canvas Warm White (#FDFBF7), dan Dark Roast Charcoal (#281B1B). Dilengkapi Taste & Texture Finder interaktif, katalog 6 produk dengan toggle toples 350g/500g, Holiday Hampers Builder dengan custom live greeting card preview, Guest Jar Calculator, synthesizer audio oven dapur Web Audio API, serta slide-over keranjang belanja terhubung ke pemesanan WhatsApp.',
+      designDirection: 'Clean editorial artisanal bakery & gift hamper UMKM berstandar antislop: Deep Terracotta Maroon (#A75D5D), Warm Coral Clay (#D3756B), Warm Salmon Peach (#F0997D), Cantaloupe Butter Cream (#FFC3A1), dan Dark Roast Charcoal (#281B1B). Tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Bilah status dapur atas dengan audio switch oven Web Audio API, sticky header dengan brand mark dan badge keranjang, hero berdampak visual kuat dengan foto produk nastar nyata dan metrik terverifikasi, Taste & Texture Finder 2 baris filter interaktif, katalog 6 produk toples dengan selector ukuran, perakit hampers hari raya dengan live greeting card preview, kalkulator toples tamu silaturahmi, 4 kartu garansi kualitas toples aman, testimoni pembeli terverifikasi, dan slide-over cart drawer WhatsApp.',
+      typographyAndColor: 'Plus Jakarta Sans (bobot 400-800) untuk kehangatan, keramahan, dan nafsu makan pembeli kue kering mentega asli, JetBrains Mono untuk harga rupiah (Rp), gramasi toples (350g / 500g), persentase diskon, dan kupon.',
+      interactions: 'Taste & Texture Finder dinamis yang menyaring kue berdasarkan profil rasa dan tekstur, selector ukuran toples 350g vs 500g dengan penyesuaian harga instan, perakit hampers dengan formulir ucapan kustom dan live card visualizer, kalkulator slider jumlah tamu yang merekomendasikan jumlah toples, pengubah kuantitas keranjang belanja, kupon diskon WIJSMANBARU, dan checkout otomatis terhubung ke WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, responsive smartphone hingga layar desktop lebar, Web Audio API prosedural, foto produk asli Unsplash kue kering berkualitas tinggi.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#D3756B',
+    colorPalette: [
+      { hex: '#A75D5D', rgb: 'rgb(167, 93, 93)', name: 'Deep Terracotta Maroon', role: 'Elemen Kontras Tinggi, Hardbox Hampers & Bingkai Kartu Penegasan' },
+      { hex: '#D3756B', rgb: 'rgb(211, 117, 107)', name: 'Warm Coral Clay', role: 'Tombol Aksi Utama (CTA), Badge Diskon & Sorotan Harga Unggulan' },
+      { hex: '#F0997D', rgb: 'rgb(240, 153, 125)', name: 'Warm Salmon Peach', role: 'Aksen Keju Panggang, Garis Pembatas Halus & Tab Kategori' },
+      { hex: '#FFC3A1', rgb: 'rgb(255, 195, 161)', name: 'Cantaloupe Butter Cream', role: 'Panel Lembut Adonan Mentega, Tag Pilihan Aktif & Latar Notifikasi' }
+    ]
   }
 ];
 
