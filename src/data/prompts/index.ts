@@ -48,8 +48,10 @@ import { REDLINE_AUTOMOTIVE_MASTER_PROMPT } from './automotivePrompt';
 import { SOLARA_ENERGY_MASTER_PROMPT } from './solarPrompt';
 import { DENTIA_DENTAL_MASTER_PROMPT } from './dentalPrompt';
 import { KANDELA_CANDLERY_MASTER_PROMPT } from './candleryPrompt';
+import { RUMAH_ANYAM_MASTER_PROMPT } from './craftPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'anyam-kriya-rotan': RUMAH_ANYAM_MASTER_PROMPT,
   'kandela-aroma-candlery': KANDELA_CANDLERY_MASTER_PROMPT,
   'dentia-dental-clinic': DENTIA_DENTAL_MASTER_PROMPT,
   'solara-energy-systems': SOLARA_ENERGY_MASTER_PROMPT,
