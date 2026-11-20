@@ -123,6 +123,7 @@ export const TemplateThumbnail: React.FC<Props> = ({
     'solara-energy-systems': 'https://solara.energy.nector.ui',
     'dentia-dental-clinic': 'https://dentia.dental.nector.ui',
     'kandela-aroma-candlery': 'https://kandela.candlery.nector.ui',
+    'anyam-kriya-rotan': 'https://anyam.craft.nector.ui',
   };
 
   const domainUrl = urlMap[slug] || `https://${slug}.nector.ui`;

@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'craft',
+      title: 'Kriya Anyaman Rotan & Bambu',
+      icon: Store,
+      desc: 'Kerajinan anyaman rotan alam & bambu apus ramah lingkungan: simulator ukuran ruangan interaktif (Room Size Visualizer), perakit kado pindahan rumah dengan tag ukir kayu gratis, dan tudung saji anti-lalat.',
+      accent: '#776B5D'
+    },
+    {
       id: 'candlery',
       title: 'Lilin Aromaterapi & Hampers Rumah',
       icon: Flame,

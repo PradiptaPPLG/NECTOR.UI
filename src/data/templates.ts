@@ -3724,6 +3724,90 @@ export function TanahLiatStudio() {
       { hex: '#FFC7C7', rgb: 'rgb(255, 199, 199)', name: 'Rose Quartz Accent', role: 'Tombol Aksi Utama (CTA), Tagline Sorotan & Indikator Aktif' },
       { hex: '#AAAAAA', rgb: 'rgb(170, 170, 170)', name: 'Cool Zinc Silver', role: 'Garis Pembatas Halus, Tutup Wadah Lilin Logam & Teks Sekunder' }
     ]
+  },
+  {
+    id: 'tpl-49',
+    slug: 'anyam-kriya-rotan',
+    title: 'RUMAH ANYAM (Kriya Anyaman Rotan, Bambu & Dekorasi Rumah Alami)',
+    tagline: 'Kerajinan anyaman rotan dan bambu ramah lingkungan: keranjang serbaguna, tudung saji rapat, tas jali modern, dan hampers kado rumah baru',
+    description: 'Template website etalase toko online produk kerajinan anyaman rotan, bambu apus, dan serat alami ramah lingkungan RUMAH ANYAM dengan palet warna Warm Bleached Ecru (#F3EEEA), Soft Biscuit Sand (#EBE3D5), Muted Greige Clay (#B0A695), dan Deep Walnut Umber (#776B5D). Menghadirkan fotografi produk nyata berkualitas tinggi yang memikat tanpa model 3D membingungkan, bahasa Indonesia yang hangat dan ramah publik tanpa istilah teknis aneh, simulator interaktif ukuran produk terhadap luas ruangan (Room Size & Fit Visualizer), katalog produk dengan pemilih varian warna anyaman alami, perakit paket kado pindahan rumah (Housewarming Gift Builder) dengan tag kayu ukir nama kustom gratis, panduan perawatan anyaman anti-jamur, serta slide-over keranjang belanja terhubung langsung ke pemesanan WhatsApp.',
+    category: 'craft',
+    tags: ['Rattan Craft', 'Bamboo Weave', 'Woven Basket', 'Japandi Home Decor', 'Food Cover', 'Placemat', 'Housewarming Gift', 'Eco-Friendly Craft', 'Handmade UMKM'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Web Audio API Bamboo Ambient Synthesizer', 'Room Size & Fit Visualizer', 'Housewarming Gift Builder', 'Slide-Over Cart Drawer', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'agency',
+    previewComponentKey: 'craft-anyam',
+    htmlPath: '/templates/craft/anyam-kriya-rotan.html',
+    htmlFolderPath: 'templates/craft/anyam-kriya-rotan.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa dependensi npm eksternal atau build step',
+      'Simulator ukuran ruangan interaktif (Room Size & Fit Visualizer) dengan panduan dimensi cm, kapasitas muat, dan rekomendasi penataan ruang tamu, meja makan, kamar tidur, dan teras',
+      'Katalog 6 produk kriya anyaman unggulan dengan pemilih varian warna anyaman alami (Alami Natural, Putih Terang, Cokelat Asap)',
+      'Perakit paket kado pindahan rumah (Housewarming Gift Builder) dengan tag kayu ukir laser nama gratis dan pratinjau live',
+      'Panduan perawatan anyaman anti-jamur 4 langkah praktis (Kuas kering, lap lembap, angin-anginkan teduh, ventilasi baik)',
+      'Synthesizer audio petikan bilah bambu tradisional merdu dan gemercik air alami Web Audio API prosedural dengan tombol sakelar aktif/bisu',
+      'Drawer slide-over keranjang belanja dengan kupon diskon perdana (ANYAMBARU) dan tombol pemesanan WhatsApp otomatis',
+      'Bahasa Indonesia yang bersahaja, hangat, dan nyata bagi pembeli produk fisik tanpa istilah asing rumit',
+      'Palet warna netral bersahaja (#F3EEEA, #EBE3D5, #B0A695, #776B5D) dengan rasio kontras teks sangat tajam (WCAG AAA)'
+    ],
+    usageInstructions: [
+      'Buka templates/craft/anyam-kriya-rotan.html di editor kode Anda.',
+      'Sesuaikan daftar produk anyaman, harga, dan varian warna pada skrip JavaScript.',
+      'Ganti nomor WhatsApp (+62 812-3456-7890) dengan nomor resmi toko atau pengrajin Anda.',
+      'Buka file HTML langsung di browser desktop atau smartphone untuk mulai berjualan.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'anyam-kriya-rotan.html',
+        language: 'html',
+        content: `<!-- RUMAH ANYAM — Kriya Anyaman Rotan, Bambu & Dekorasi Rumah Alami -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>RUMAH ANYAM — Kriya Anyaman Rotan & Bambu</title>
+  <style>
+    :root {
+      --color-bg: #F3EEEA;
+      --color-surface: #FFFFFF;
+      --color-surface-soft: #EBE3D5;
+      --color-greige: #B0A695;
+      --color-umber: #776B5D;
+      --color-text-main: #26221D;
+      --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-workshop-bar">WORKSHOP BUKA: 08.30 - 17.00 WIB · 100% ROTAN ASLI NUSANTARA</div>
+  <header class="site-header">
+    <div class="brand-title">RUMAH ANYAM <span>KRIYA NUSANTARA</span></div>
+    <nav>Koleksi Anyaman · Simulasi Ruangan · Paket Kado Rumah · Panduan Anti-Jamur · Ulasan</nav>
+  </header>
+  <!-- Full Interactive Craft E-Commerce: Room Visualizer, Gift Builder, Care Guide, Cart Drawer -->
+</body>
+</html>`,
+        description: 'Single-file standalone HTML + CSS + JS yang dapat langsung dibuka di browser apa pun.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt website toko online kriya anyaman rotan, bambu apus, dan dekorasi rumah alami RUMAH ANYAM dengan palet warna Warm Bleached Ecru (#F3EEEA), Soft Biscuit Sand (#EBE3D5), Muted Greige Clay (#B0A695), Deep Walnut Umber (#776B5D), dan Dark Charcoal Brown (#26221D). Dilengkapi simulator ukuran ruangan interaktif (Room Size & Fit Visualizer), katalog produk dengan varian anyaman warna alami, perakit paket kado pindahan rumah dengan tag kayu ukir nama kustom gratis dan pratinjau live, panduan perawatan anyaman anti-jamur, synthesizer audio bilah bambu alami Web Audio API, serta slide-over keranjang belanja terhubung ke pemesanan WhatsApp.',
+      designDirection: 'Clean aesthetic sustainable craft & home living UMKM berstandar antislop: Warm Bleached Ecru (#F3EEEA), Soft Biscuit Sand (#EBE3D5), Muted Greige Clay (#B0A695), Deep Walnut Umber (#776B5D), dan Dark Charcoal Brown (#26221D). Tipografi Plus Jakarta Sans dan JetBrains Mono.',
+      layoutAndGrid: 'Bilah status workshop atas dengan audio switch bambu Web Audio API, sticky header dengan brand mark anyaman dan badge keranjang, hero berdampak visual kuat dengan foto produk nyata dan metrik terverifikasi, simulator ukuran ruangan 2 kolom dengan kartu rekomendasi dinamis, katalog 6 produk dengan filter tabs dan selector varian anyaman, perakit paket kado pindahan rumah dengan sticky live wooden tag preview, panduan perawatan anti-jamur 4 kartu, testimoni pembeli terverifikasi, dan slide-over cart drawer WhatsApp.',
+      typographyAndColor: 'Plus Jakarta Sans (bobot 400-800) untuk kehangatan, keramahan, dan kepercayaan pembeli produk kriya fisik, JetBrains Mono untuk harga rupiah (Rp), dimensi centimeter (cm), volume kapasitas liter, dan kode kupon.',
+      interactions: 'Simulator pemilihan sudut ruangan (Living, Dining, Bedroom, Patio) yang merespons dimensi centimeter dan kapasitas barang, perakit paket kado rumah baru dengan formulir teks ukir tag kayu live-preview, synthesizer audio bambu merdu Web Audio API, pengubah kuantitas keranjang belanja, kupon diskon ANYAMBARU, dan checkout otomatis terhubung ke WhatsApp.',
+      technicalRequirements: 'Zero dependencies, single file standalone HTML, responsive smartphone hingga layar desktop lebar, Web Audio API prosedural, foto produk asli Unsplash berkualitas tinggi.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#776B5D',
+    colorPalette: [
+      { hex: '#F3EEEA', rgb: 'rgb(243, 238, 234)', name: 'Warm Bleached Ecru', role: 'Latar Belakang Kanvas Utama, Cerah, Hangat, Bersih & Alami' },
+      { hex: '#EBE3D5', rgb: 'rgb(235, 227, 213)', name: 'Soft Biscuit Sand', role: 'Panel Kartu Produk, Wadah Simulasi Ruangan & Latar Kalkulator' },
+      { hex: '#B0A695', rgb: 'rgb(176, 166, 149)', name: 'Muted Greige Clay', role: 'Garis Pembatas Halus, Aksen Badge Ukuran & Tutup Anyaman' },
+      { hex: '#776B5D', rgb: 'rgb(119, 107, 93)', name: 'Deep Walnut Umber', role: 'Tombol Aksi Utama (CTA), Sorotan Harga & Warna Brand Mark' }
+    ]
   }
 ];
 

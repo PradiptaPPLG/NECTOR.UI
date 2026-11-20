@@ -1,0 +1,2747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUMAH ANYAM — Kriya Anyaman Rotan, Bambu & Dekorasi Rumah Alami</title>
+  <meta name="description" content="Toko kerajinan kriya anyaman rotan dan bambu ramah lingkungan. Keranjang serbaguna, tudung saji anti-lalat, tas jali modern, dan hampers kado pindahan rumah.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #F3EEEA;
+      --color-surface: #FFFFFF;
+      --color-surface-soft: #EBE3D5;
+      --color-greige: #B0A695;
+      --color-umber: #776B5D;
+      --color-umber-dark: #584E42;
+      --color-text-main: #26221D;
+      --color-text-muted: #5E554C;
+      --color-border: #D8CEBE;
+      --color-border-light: #E4DCD0;
+      --color-badge-bg: #EFE8DE;
+      --color-green: #2E7D32;
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --shadow-sm: 0 2px 8px rgba(38, 34, 29, 0.04);
+      --shadow-md: 0 8px 24px rgba(38, 34, 29, 0.07);
+      --shadow-lg: 0 16px 36px rgba(38, 34, 29, 0.09);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-main);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Workshop Telemetry Bar */
+    .top-workshop-bar {
+      background-color: var(--color-umber);
+      color: #F3EEEA;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 50;
+    }
+
+    .workshop-ticker {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .workshop-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .workshop-item span.dot {
+      color: var(--color-greige);
+    }
+
+    .audio-switch-btn {
+      background: rgba(243, 238, 234, 0.15);
+      border: 1px solid rgba(243, 238, 234, 0.25);
+      color: #FFFFFF;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .audio-switch-btn:hover {
+      background: rgba(243, 238, 234, 0.28);
+    }
+
+    .bamboo-icon {
+      font-size: 12px;
+      transition: transform 0.2s;
+    }
+
+    .bamboo-icon.active {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 4px #EBE3D5);
+    }
+
+    /* Sticky Site Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(243, 238, 234, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 40;
+      transition: all 0.2s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-surface-soft);
+      border: 1.5px solid var(--color-umber);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-title {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--color-text-main);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--color-text-main);
+      font-size: 14px;
+      transition: color 0.15s;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover {
+      color: var(--color-umber);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-btn {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-umber);
+      color: var(--color-text-main);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .cart-btn:hover {
+      background-color: var(--color-surface-soft);
+    }
+
+    .cart-count {
+      background-color: var(--color-umber);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-surface-soft);
+      border: 1px solid var(--color-greige);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-umber-dark);
+      margin-bottom: 20px;
+    }
+
+    .hero-heading {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+      color: var(--color-text-main);
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background-color: var(--color-umber);
+      color: #F3EEEA;
+      border: 1.5px solid #26221D;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 3px 3px 0 #26221D;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 #26221D;
+      background-color: var(--color-umber-dark);
+    }
+
+    .btn-secondary {
+      background-color: var(--color-surface);
+      color: var(--color-text-main);
+      border: 1.5px solid var(--color-greige);
+      padding: 14px 26px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-text-main);
+      background-color: var(--color-surface-soft);
+    }
+
+    .hero-features-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .h-feat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .h-feat-title {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .h-feat-desc {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    /* Hero Visual Card */
+    .hero-card {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .hero-card-img-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4 / 3.2;
+      background-color: #EAE3D8;
+    }
+
+    .hero-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-card:hover .hero-card-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(243, 238, 234, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-card-body {
+      padding: 18px 6px 6px;
+    }
+
+    .hero-rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .stars-group {
+      color: #C19A6B;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .review-count {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .hero-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .hero-card-craft-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .craft-chip {
+      background-color: var(--color-surface-soft);
+      color: var(--color-umber-dark);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border-light);
+    }
+
+    .hero-card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--color-border-light);
+      padding-top: 14px;
+    }
+
+    .hero-price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-price-label {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .hero-price-val {
+      font-family: var(--font-mono);
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--color-umber);
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-umber);
+      background-color: var(--color-surface-soft);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+      border: 1px solid var(--color-greige);
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Interactive Feature 1: Room Size & Fit Visualizer */
+    .visualizer-section {
+      padding: 64px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .visualizer-card-box {
+      background: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .room-selector-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .room-tab-btn {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .room-tab-btn:hover {
+      border-color: var(--color-umber);
+      background-color: #FAF7F4;
+    }
+
+    .room-tab-btn.active {
+      border-color: #26221D;
+      background-color: var(--color-surface-soft);
+      box-shadow: 2px 2px 0 #26221D;
+    }
+
+    .r-tab-icon {
+      font-size: 24px;
+    }
+
+    .r-tab-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .r-tab-desc {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .visualizer-display-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      background-color: #FFFFFF;
+      border: 1.5px solid #26221D;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: 4px 4px 0 #26221D;
+      align-items: center;
+    }
+
+    .vis-img-wrap {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background-color: #ECE5DC;
+    }
+
+    .vis-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .vis-details-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .vis-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-umber);
+      background: var(--color-surface-soft);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .vis-title {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .vis-desc {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    .vis-specs-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-size: 12px;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spec-key {
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .spec-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .vis-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .vis-price {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-umber);
+    }
+
+    /* Product Catalog Section */
+    .catalog-section {
+      padding: 72px 0;
+    }
+
+    .filter-tabs-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .filter-tab-btn {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      color: var(--color-text-main);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-tab-btn:hover {
+      border-color: var(--color-umber);
+    }
+
+    .filter-tab-btn.active {
+      background-color: var(--color-umber);
+      border-color: var(--color-umber);
+      color: #FFFFFF;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background-color: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-umber);
+    }
+
+    .product-thumb-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      background-color: #EBE3D5;
+      overflow: hidden;
+    }
+
+    .product-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-thumb-wrap img {
+      transform: scale(1.05);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(243, 238, 234, 0.95);
+      backdrop-filter: blur(6px);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+    }
+
+    .product-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .p-category {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-umber);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .p-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .p-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
+    /* Weave Color Variant Selector */
+    .variant-selector-wrap {
+      margin-bottom: 16px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--color-border-light);
+    }
+
+    .variant-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--color-text-muted);
+    }
+
+    .variant-buttons-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .variant-btn {
+      flex: 1;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 6px 4px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.1s;
+    }
+
+    .variant-btn.active {
+      background-color: var(--color-umber);
+      color: #FFFFFF;
+      border-color: var(--color-umber);
+    }
+
+    .card-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .p-price {
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--color-umber);
+    }
+
+    .btn-add-cart {
+      background-color: var(--color-surface-soft);
+      color: var(--color-text-main);
+      border: 1px solid var(--color-border);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-add-cart:hover {
+      background-color: var(--color-umber);
+      color: #FFFFFF;
+      border-color: var(--color-umber);
+    }
+
+    /* Interactive Feature 3: Housewarming Gift Builder */
+    .builder-section {
+      padding: 72px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .builder-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .b-card {
+      background-color: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .b-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-num {
+      background-color: var(--color-umber);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .package-options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .package-opt-card {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+    }
+
+    .package-opt-card.active {
+      border-color: #26221D;
+      background-color: var(--color-surface-soft);
+      box-shadow: 2px 2px 0 #26221D;
+    }
+
+    .pkg-icon {
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+
+    .pkg-title {
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .pkg-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .pkg-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--color-umber);
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-control label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .form-control input, .form-control select, .form-control textarea {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--color-text-main);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-control input:focus, .form-control select:focus, .form-control textarea:focus {
+      border-color: var(--color-umber);
+      box-shadow: 0 0 0 2px var(--color-surface-soft);
+    }
+
+    /* Live Wooden Tag & Hampers Summary Sticky */
+    .builder-summary-sticky {
+      position: sticky;
+      top: 96px;
+      background-color: var(--color-bg);
+      border: 1.5px solid #26221D;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: 6px 6px 0 #26221D;
+    }
+
+    .summary-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    /* Live Wooden Tag Preview */
+    .wooden-tag-preview {
+      background-color: #E8DEC8;
+      border: 2px dashed #9E8C72;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 20px;
+      position: relative;
+      text-align: center;
+    }
+
+    .tag-hole {
+      width: 12px;
+      height: 12px;
+      background: #776B5D;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+    }
+
+    .tag-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: #6E5C47;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .tag-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: #382C1E;
+      margin-bottom: 6px;
+    }
+
+    .tag-quote {
+      font-size: 12px;
+      font-style: italic;
+      color: #5C4C38;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .tag-sender {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6E5C47;
+    }
+
+    .summary-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    .s-item-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-text-muted);
+    }
+
+    .s-item-row.strong {
+      color: var(--color-text-main);
+      font-weight: 700;
+    }
+
+    .summary-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1.5px solid #26221D;
+      margin-bottom: 20px;
+    }
+
+    .total-label {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .total-val {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--color-umber);
+    }
+
+    .btn-checkout-hampers {
+      width: 100%;
+      background-color: var(--color-umber);
+      color: #FFFFFF;
+      border: 1.5px solid #26221D;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 3px 3px 0 #26221D;
+      transition: all 0.15s;
+    }
+
+    .btn-checkout-hampers:hover {
+      background-color: var(--color-umber-dark);
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 #26221D;
+    }
+
+    /* Care Guide Section */
+    .care-section {
+      padding: 64px 0;
+    }
+
+    .care-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .care-card {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .care-card-icon {
+      font-size: 28px;
+      background-color: var(--color-surface-soft);
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-border);
+    }
+
+    .care-card-title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .care-card-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* Testimonials Section */
+    .reviews-section {
+      padding: 64px 0;
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background-color: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .r-stars {
+      color: #C19A6B;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .r-quote {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #38322B;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .r-author-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 12px;
+    }
+
+    .r-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: var(--color-surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--color-umber);
+      border: 1px solid var(--color-border);
+    }
+
+    .r-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .r-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .r-item {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    /* Slide-over Cart Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      z-index: 101;
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer-overlay.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--color-bg);
+    }
+
+    .cart-drawer-title {
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cart-close-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      padding: 4px;
+    }
+
+    .cart-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-empty-state {
+      text-align: center;
+      padding: 48px 12px;
+      color: var(--color-text-muted);
+    }
+
+    .cart-item-card {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .cart-item-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #EBE3D5;
+    }
+
+    .cart-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cart-item-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cart-item-variant {
+      font-size: 11px;
+      color: var(--color-text-muted);
+    }
+
+    .cart-item-price {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-umber);
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 2px 4px;
+    }
+
+    .qty-btn {
+      background: none;
+      border: none;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      color: #26221D;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .cart-drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--color-border);
+      background-color: var(--color-bg);
+    }
+
+    .coupon-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .coupon-input {
+      flex: 1;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .btn-apply-coupon {
+      background: var(--color-umber);
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cart-price-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .c-sum-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-text-muted);
+    }
+
+    .c-sum-row.total {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-text-main);
+      padding-top: 8px;
+      border-top: 1.5px solid #26221D;
+    }
+
+    .btn-checkout-wa {
+      width: 100%;
+      background-color: #25D366;
+      color: #FFFFFF;
+      border: none;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+      transition: all 0.15s;
+    }
+
+    .btn-checkout-wa:hover {
+      background-color: #20BD5A;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--color-umber-dark);
+      color: #F3EEEA;
+      padding: 64px 0 32px;
+      border-top: 1px solid #483E34;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--color-greige);
+    }
+
+    .footer-links-list a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #483E34;
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--color-greige);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .visualizer-display-grid {
+        grid-template-columns: 1fr;
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+      .builder-summary-sticky {
+        position: static;
+      }
+      .care-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-workshop-bar {
+        font-size: 11px;
+        padding: 6px 12px;
+      }
+      .header-inner {
+        height: 64px;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .hero-heading {
+        font-size: 28px;
+      }
+      .room-selector-tabs {
+        grid-template-columns: 1fr 1fr;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .package-options-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group-row {
+        grid-template-columns: 1fr;
+      }
+      .care-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-features-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Workshop Telemetry Bar -->
+  <div class="top-workshop-bar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0;">
+      <div class="workshop-ticker">
+        <div class="workshop-item">
+          <span>🌿 Workshop Kriya Buka Hari Ini (08.30 - 17.00 WIB)</span>
+          <span class="dot">·</span>
+          <span>🎋 100% Rotan Asli & Serat Alami Nusantara</span>
+          <span class="dot">·</span>
+          <span>📦 Garansi Pengiriman Bebas Rusak & Kardus Tebal</span>
+        </div>
+      </div>
+      <button class="audio-switch-btn" id="audioToggleBtn" title="Dengarkan Suara Studio Anyam Tradisional">
+        <span class="bamboo-icon" id="bambooIcon">🎋</span>
+        <span id="audioStatusText">Suara Bambu: Mati</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-group">
+        <div class="brand-mark">🧺</div>
+        <div>
+          <h1 class="brand-title">RUMAH ANYAM</h1>
+          <p class="brand-sub">KRIYA ROTAN, BAMBU & SERAT ALAMI</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#koleksi" class="nav-link">Koleksi Anyaman</a></li>
+          <li><a href="#simulasi" class="nav-link">Simulasi Ruangan</a></li>
+          <li><a href="#hampers" class="nav-link">Paket Kado Rumah</a></li>
+          <li><a href="#panduan" class="nav-link">Panduan Anti-Jamur</a></li>
+          <li><a href="#ulasan" class="nav-link">Ulasan Pembeli</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-btn" id="openCartBtn">
+          <span>🛍️ Keranjang</span>
+          <span class="cart-count" id="cartCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-text-col">
+        <div class="hero-badge-row">
+          <span>🌿 KERAJINAN TANGAN NUSANTARA</span>
+          <span>·</span>
+          <span>100% BEBAS PLASTIK</span>
+        </div>
+        <h2 class="hero-heading">
+          Sentuhan Hangat Anyaman Alami untuk Sudut Rumah yang Lebih Asri.
+        </h2>
+        <p class="hero-sub">
+          Dianyam teliti oleh para perajin lokal di Kulon Progo dan Tasikmalaya menggunakan rotan alam pilihan, bambu apus kering oven, dan serat eceng gondok. Kuat, tahan lembap, dan memberi estetika Japandi alami yang menyejukkan.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#koleksi" class="btn-primary">
+            <span>Jelajahi Koleksi Anyaman</span>
+            <span>→</span>
+          </a>
+          <a href="#simulasi" class="btn-secondary">
+            <span>📐 Simulasi Ukuran Ruangan</span>
+          </a>
+        </div>
+
+        <div class="hero-features-list">
+          <div class="h-feat-item">
+            <span class="h-feat-title">100% Rotan Asli</span>
+            <span class="h-feat-desc">Kering oven anti jamur</span>
+          </div>
+          <div class="h-feat-item">
+            <span class="h-feat-title">Kuat & Awet</span>
+            <span class="h-feat-desc">Bertahan hingga 10 tahun</span>
+          </div>
+          <div class="h-feat-item">
+            <span class="h-feat-title">Ramah Bumi</span>
+            <span class="h-feat-desc">Mudah terurai alami</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card -->
+      <div class="hero-card">
+        <div class="hero-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1594040226829-7f251ab46d80?auto=format&fit=crop&w=1000&q=80" alt="Keranjang Rotan Rumah Anyam" loading="eager">
+          <div class="hero-floating-badge">⭐ PILIHAN UTAMA RUMAH JAPANDI</div>
+        </div>
+        <div class="hero-card-body">
+          <div class="hero-rating-row">
+            <div class="stars-group">★★★★★</div>
+            <span class="review-count">2.180+ Ulasan Terverifikasi</span>
+          </div>
+          <h3 class="hero-card-title">Keranjang Rotan Silang Serbaguna</h3>
+          <div class="hero-card-craft-chips">
+            <span class="craft-chip">Rotan Alam Grade A</span>
+            <span class="craft-chip">Anyaman Rapat 2 Lapis</span>
+            <span class="craft-chip">Gagang Kayu Solid</span>
+          </div>
+          <div class="hero-card-foot">
+            <div class="hero-price-wrap">
+              <span class="hero-price-label">Harga Spesial (Ukuran Sedang)</span>
+              <span class="hero-price-val">Rp 145.000</span>
+            </div>
+            <button class="btn-primary" style="padding: 10px 18px; font-size: 13px;" onclick="addToCart('h1', 'Keranjang Rotan Silang Serbaguna (Sedang)', 145000, 'Alami Natural (Sedang 35cm)', 'https://images.unsplash.com/photo-1594040226829-7f251ab46d80?auto=format&fit=crop&w=400&q=80')">
+              <span>+ Pesan Ini</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 1: Room Size & Fit Visualizer -->
+  <section class="visualizer-section" id="simulasi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">SIMULATOR UKURAN</span>
+        <h2 class="section-title">Temukan Ukuran Anyaman yang Pas di Ruanganmu</h2>
+        <p class="section-desc">
+          Pilih sudut ruangan rumah yang ingin kamu tata, dan lihat panduan dimensi centimeter nyata serta rekomendasi produk yang paling cocok.
+        </p>
+      </div>
+
+      <div class="visualizer-card-box">
+        <div class="room-selector-tabs" id="roomSelectorTabs">
+          <div class="room-tab-btn active" data-room="living">
+            <span class="r-tab-icon">🛋️</span>
+            <span class="r-tab-title">Ruang Tamu & Meja Kopi</span>
+            <span class="r-tab-desc">Nampan saji & keranjang majalah</span>
+          </div>
+          <div class="room-tab-btn" data-room="dining">
+            <span class="r-tab-icon">🍽️</span>
+            <span class="r-tab-title">Meja Makan & Dapur</span>
+            <span class="r-tab-desc">Tudung saji & tatakan piring</span>
+          </div>
+          <div class="room-tab-btn" data-room="bedroom">
+            <span class="r-tab-icon">🛏️</span>
+            <span class="r-tab-title">Kamar Tidur & Wardrobe</span>
+            <span class="r-tab-desc">Keranjang laundry & wadah selimut</span>
+          </div>
+          <div class="room-tab-btn" data-room="patio">
+            <span class="r-tab-icon">🧺</span>
+            <span class="r-tab-title">Teras & Tanaman</span>
+            <span class="r-tab-desc">Cover pot anyaman & keranjang gantung</span>
+          </div>
+        </div>
+
+        <div class="visualizer-display-grid" id="visDisplayBox">
+          <div class="vis-img-wrap">
+            <img id="visImg" src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80" alt="Simulasi Ruang Tamu">
+          </div>
+          <div class="vis-details-col">
+            <span class="vis-badge" id="visBadge">PILIHAN IDEAL RUANG TAMU</span>
+            <h3 class="vis-title" id="visTitle">Nampan Saji Rotan Gagang Kayu Jati</h3>
+            <p class="vis-desc" id="visDesc">
+              Didesain khusus untuk meja kopi ruang tamu. Sangat serasi untuk menyajikan teko teh hangat, cangkir tamu, atau menata toples camilan tanpa membuat meja terlihat berantakan.
+            </p>
+
+            <div class="vis-specs-table">
+              <div class="spec-item">
+                <span class="spec-key">Dimensi Panjang × Lebar:</span>
+                <span class="spec-val" id="visDim">38 × 26 × 6 cm</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Daya Tampung:</span>
+                <span class="spec-val" id="visCap">1 Teko + 4 Cangkir Teh</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Bahan Utama:</span>
+                <span class="spec-val">Rotan Alam + Kayu Jati Perhutani</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-key">Finishing:</span>
+                <span class="spec-val">Waterbased Non-Toxic Matte</span>
+              </div>
+            </div>
+
+            <div class="vis-action-row">
+              <span class="vis-price" id="visPrice">Rp 125.000</span>
+              <button class="btn-primary" id="visAddBtn">
+                <span>+ Masukkan ke Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section class="catalog-section" id="koleksi">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">KATALOG PILIHAN</span>
+        <h2 class="section-title">Kriya Anyaman untuk Setiap Kebutuhan Rumah</h2>
+        <p class="section-desc">
+          Semua produk dianyam manual satu per satu dengan tangan. Finishing ramah lingkungan tanpa bau cat kimia menyengat, aman untuk makanan dan pakaian bayi.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs-row" id="catalogFilters">
+        <button class="filter-tab-btn active" data-filter="all">Semua Kriya</button>
+        <button class="filter-tab-btn" data-filter="storage">Keranjang Penyimpanan</button>
+        <button class="filter-tab-btn" data-filter="dining">Tudung Saji & Meja Makan</button>
+        <button class="filter-tab-btn" data-filter="bag">Tas Anyaman Jali</button>
+        <button class="filter-tab-btn" data-filter="lamp">Dekorasi & Kap Lampu</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Product 1 -->
+        <div class="product-card" data-cat="storage">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1594040226829-7f251ab46d80?auto=format&fit=crop&w=600&q=80" alt="Keranjang Rotan Silang">
+            <span class="card-badge">Paling Laris</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Keranjang Penyimpanan</span>
+            <h3 class="p-title">Keranjang Rotan Silang Serbaguna</h3>
+            <p class="p-desc">Keranjang anyaman rotan dua lapis yang kokoh untuk pakaian bersih, mainan anak, atau wadah selimut santai.</p>
+            
+            <div class="variant-selector-wrap">
+              <div class="variant-label-row">
+                <span>Pilih Warna Anyaman:</span>
+                <span id="var-p1">Alami Natural</span>
+              </div>
+              <div class="variant-buttons-group">
+                <button class="variant-btn active" onclick="selectVariant('p1', 'Alami Natural', 145000, this)">Alami</button>
+                <button class="variant-btn" onclick="selectVariant('p1', 'Putih Terang Bleached', 155000, this)">Putih Terang</button>
+                <button class="variant-btn" onclick="selectVariant('p1', 'Cokelat Asap Smoked', 155000, this)">Cokelat Asap</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p1">Rp 145.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p1', 'Keranjang Rotan Silang Serbaguna', getPrice('p1', 145000), getVariant('p1', 'Alami Natural'), 'https://images.unsplash.com/photo-1594040226829-7f251ab46d80?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-cat="dining">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600&q=80" alt="Tudung Saji Bambu Minimalis">
+            <span class="card-badge">Anti-Lalat Rapat</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Tudung Saji & Meja Makan</span>
+            <h3 class="p-title">Tudung Saji Bambu Minimalis Rapat</h3>
+            <p class="p-desc">Dianyam sangat rapat dari irisan bambu apus halus. Makanan tetap terlindungi dari lalat dan debu tanpa embun di dalamnya.</p>
+            
+            <div class="variant-selector-wrap">
+              <div class="variant-label-row">
+                <span>Pilihan Bentuk:</span>
+                <span id="var-p2">Persegi 4 Piring</span>
+              </div>
+              <div class="variant-buttons-group">
+                <button class="variant-btn active" onclick="selectVariant('p2', 'Persegi 4 Piring', 115000, this)">Persegi</button>
+                <button class="variant-btn" onclick="selectVariant('p2', 'Bulat Meja Bundar', 115000, this)">Bulat Bundar</button>
+                <button class="variant-btn" onclick="selectVariant('p2', 'Jumbo 6 Piring', 135000, this)">Jumbo 6 Piring</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p2">Rp 115.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p2', 'Tudung Saji Bambu Minimalis Rapat', getPrice('p2', 115000), getVariant('p2', 'Persegi 4 Piring'), 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-cat="dining">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Tatakan Piring Placemat">
+            <span class="card-badge">Set 4 Pcs</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Tudung Saji & Meja Makan</span>
+            <h3 class="p-title">Set 4 Pcs Tatakan Piring Eceng Gondok</h3>
+            <p class="p-desc">Tatakan piring dan mangkuk berdiameter 35 cm. Tahan panas dari panci sup, tidak licin di atas meja kaca, dan mudah dibersihkan.</p>
+            
+            <div class="variant-selector-wrap">
+              <div class="variant-label-row">
+                <span>Warna Finishing:</span>
+                <span id="var-p3">Serat Alami Natural</span>
+              </div>
+              <div class="variant-buttons-group">
+                <button class="variant-btn active" onclick="selectVariant('p3', 'Serat Alami Natural', 95000, this)">Alami</button>
+                <button class="variant-btn" onclick="selectVariant('p3', 'Kombinasi Putih Katun', 105000, this)">Putih Katun</button>
+                <button class="variant-btn" onclick="selectVariant('p3', 'Cokelat Kayu', 105000, this)">Cokelat Kayu</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p3">Rp 95.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p3', 'Set 4 Pcs Tatakan Piring Eceng Gondok', getPrice('p3', 95000), getVariant('p3', 'Serat Alami Natural'), 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-cat="bag">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Tas Anyaman Jali Modern">
+            <span class="card-badge">Tahan Air</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Tas Anyaman Jali</span>
+            <h3 class="p-title">Tas Anyaman Jali Modern Dua Warna</h3>
+            <p class="p-desc">Tas belanja dan piknik kekinian dari serat daur ulang tebal tahan air. Kuat menampung beban hingga 15 kg tanpa kendur atau putus.</p>
+            
+            <div class="variant-selector-wrap">
+              <div class="variant-label-row">
+                <span>Warna Kombinasi:</span>
+                <span id="var-p4">Krem Biscuit & Cokelat</span>
+              </div>
+              <div class="variant-buttons-group">
+                <button class="variant-btn active" onclick="selectVariant('p4', 'Krem Biscuit & Cokelat', 75000, this)">Krem & Cokelat</button>
+                <button class="variant-btn" onclick="selectVariant('p4', 'Putih Gading & Mawar', 75000, this)">Gading & Mawar</button>
+                <button class="variant-btn" onclick="selectVariant('p4', 'Hitam Charcoal Elegan', 75000, this)">Hitam Elegan</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p4">Rp 75.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p4', 'Tas Anyaman Jali Modern Dua Warna', getPrice('p4', 75000), getVariant('p4', 'Krem Biscuit & Cokelat'), 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-cat="dining">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=600&q=80" alt="Nampan Saji Rotan Kayu Jati">
+            <span class="card-badge">Kayu Jati Solid</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Tudung Saji & Meja Makan</span>
+            <h3 class="p-title">Nampan Saji Rotan Gagang Kayu Jati</h3>
+            <p class="p-desc">Perpaduan dasar anyaman rotan motif bintang dan bingkai kayu jati solid. Sangat anggun untuk menjamu tamu di ruang santai.</p>
+            
+            <div class="variant-selector-wrap">
+              <div class="variant-label-row">
+                <span>Ukuran Nampan:</span>
+                <span id="var-p5">Sedang (38 × 26 cm)</span>
+              </div>
+              <div class="variant-buttons-group">
+                <button class="variant-btn active" onclick="selectVariant('p5', 'Sedang (38 × 26 cm)', 125000, this)">Sedang</button>
+                <button class="variant-btn" onclick="selectVariant('p5', 'Besar (44 × 32 cm)', 155000, this)">Besar</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p5">Rp 125.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p5', 'Nampan Saji Rotan Gagang Kayu Jati', getPrice('p5', 125000), getVariant('p5', 'Sedang (38 × 26 cm)'), 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-cat="lamp">
+          <div class="product-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Kap Lampu Gantung Bambu">
+            <span class="card-badge">Pilihan Kafe</span>
+          </div>
+          <div class="product-card-body">
+            <span class="p-category">Dekorasi & Kap Lampu</span>
+            <h3 class="p-title">Kap Lampu Gantung Anyaman Bambu Kubah</h3>
+            <p class="p-desc">Menyebarkan pendaran cahaya hangat dengan bayangan anyaman silang yang memukau di plafon ruang makan atau cafe.</p>
+            
+            <div class="variant-selector-wrap">
+              <div class="variant-label-row">
+                <span>Diameter Kubah:</span>
+                <span id="var-p6">Diameter 35 cm</span>
+              </div>
+              <div class="variant-buttons-group">
+                <button class="variant-btn active" onclick="selectVariant('p6', 'Diameter 35 cm', 165000, this)">35 cm</button>
+                <button class="variant-btn" onclick="selectVariant('p6', 'Diameter 45 cm', 215000, this)">45 cm</button>
+              </div>
+            </div>
+
+            <div class="card-footer-row">
+              <span class="p-price" id="price-p6">Rp 165.000</span>
+              <button class="btn-add-cart" onclick="addToCart('p6', 'Kap Lampu Gantung Anyaman Bambu Kubah', getPrice('p6', 165000), getVariant('p6', 'Diameter 35 cm'), 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80')">
+                <span>+ Keranjang</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Feature 3: Housewarming Gift Builder -->
+  <section class="builder-section" id="hampers">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">PAKET KADO RUMAH BARU</span>
+        <h2 class="section-title">Kado Pindahan Rumah Paling Berkesan</h2>
+        <p class="section-desc">
+          Beri hadiah pindahan rumah (housewarming) atau ucapan selamat pernikahan yang bermanfaat untuk dipakai sehari-hari. Lengkap dengan tag kayu ukir nama kustom gratis.
+        </p>
+      </div>
+
+      <div class="builder-grid">
+        <div class="builder-controls">
+          <!-- Step 1: Pilih Paket -->
+          <div class="b-card">
+            <h3 class="b-card-title">
+              <span class="step-num">1</span>
+              <span>Pilih Paket Kriya Anyaman</span>
+            </h3>
+            <div class="package-options-grid" id="packageOptionsGrid">
+              <div class="package-opt-card active" data-pkg="dining" data-price="235000" onclick="selectPackage('dining', 'Paket Meja Makan Harmoni', 235000, '1 Tudung Saji Bambu + 4 Placemat + Kotak Anyaman', this)">
+                <div class="pkg-icon">🍽️</div>
+                <div class="pkg-title">Meja Makan Harmoni</div>
+                <div class="pkg-sub">1 Tudung Saji + 4 Placemat</div>
+                <div class="pkg-price">Rp 235.000</div>
+              </div>
+              <div class="package-opt-card" data-pkg="corner" data-price="195000" onclick="selectPackage('corner', 'Paket Sudut Kamar Estetik', 195000, '1 Keranjang Laundry Rotan + 1 Pot Cover Tanaman', this)">
+                <div class="pkg-icon">🛋️</div>
+                <div class="pkg-title">Sudut Kamar Estetik</div>
+                <div class="pkg-sub">1 Laundry Basket + 1 Pot Cover</div>
+                <div class="pkg-price">Rp 195.000</div>
+              </div>
+              <div class="package-opt-card" data-pkg="souvenir" data-price="160000" onclick="selectPackage('souvenir', 'Paket Souvenir Anyaman Cantik', 160000, '5 Tas Jali Mini + Pita + Kartu Nama', this)">
+                <div class="pkg-icon">🎁</div>
+                <div class="pkg-title">Souvenir Anyaman</div>
+                <div class="pkg-sub">5 Tas Jali + Pita Cantik</div>
+                <div class="pkg-price">Rp 160.000</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Kustom Ukir Tag Kayu -->
+          <div class="b-card">
+            <h3 class="b-card-title">
+              <span class="step-num">2</span>
+              <span>Ukir Tag Kayu Kustom (Gratis Termasuk Pita Goni)</span>
+            </h3>
+            <div class="form-group-row">
+              <div class="form-control">
+                <label for="tagTo">Nama Keluarga / Penerima:</label>
+                <input type="text" id="tagTo" placeholder="Contoh: Keluarga Pratama" value="Keluarga Danang & Maya" oninput="updateTagPreview()">
+              </div>
+              <div class="form-control">
+                <label for="tagEvent">Momen / Acara:</label>
+                <select id="tagEvent" onchange="updateTagPreview()">
+                  <option value="Selamat Menempati Rumah Baru">🏡 Selamat Menempati Rumah Baru</option>
+                  <option value="Selamat Hari Bahagia / Pernikahan">💍 Selamat Menempuh Hidup Baru</option>
+                  <option value="Terima Kasih Atas Kerja Sama">🤝 Apresiasi & Terima Kasih Spesial</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-control" style="margin-bottom: 12px;">
+              <label for="tagMessage">Pesan Ucapan Singkat:</label>
+              <textarea id="tagMessage" rows="2" placeholder="Tuliskan doa atau ucapan hangat..." oninput="updateTagPreview()">Semoga rumah barunya selalu dipenuhi kehangatan, berkah, dan kedamaian setiap hari!</textarea>
+            </div>
+            <div class="form-control">
+              <label for="tagFrom">Dari Pengirim:</label>
+              <input type="text" id="tagFrom" placeholder="Contoh: Dari Teman-Teman Kantor" value="Rian, Budi & Tim Desain" oninput="updateTagPreview()">
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Live Preview of Wooden Tag & Hampers -->
+        <div class="builder-summary-sticky">
+          <h3 class="summary-title">Pratinjau Kado Rumah Baru</h3>
+
+          <!-- Live Wooden Tag Preview -->
+          <div class="wooden-tag-preview">
+            <div class="tag-hole"></div>
+            <div class="tag-title" id="prevTagEvent">🏡 SELAMAT MENEMPATI RUMAH BARU</div>
+            <div class="tag-name" id="prevTagName">Keluarga Danang & Maya</div>
+            <div class="tag-quote" id="prevTagQuote">"Semoga rumah barunya selalu dipenuhi kehangatan, berkah, dan kedamaian setiap hari!"</div>
+            <div class="tag-sender" id="prevTagSender">Dari: Rian, Budi & Tim Desain</div>
+          </div>
+
+          <!-- Items list breakdown -->
+          <div class="summary-items-list">
+            <div class="s-item-row strong">
+              <span id="prevPkgName">Paket Meja Makan Harmoni</span>
+              <span id="prevPkgPrice">Rp 235.000</span>
+            </div>
+            <div class="s-item-row">
+              <span id="prevPkgContents">• 1 Tudung Saji Bambu + 4 Placemat + Kotak Anyaman</span>
+              <span>Termasuk</span>
+            </div>
+            <div class="s-item-row">
+              <span>• Tag Kayu Ukir Laser + Tali Goni Alami</span>
+              <span style="color: var(--color-green); font-weight: bold;">GRATIS</span>
+            </div>
+            <div class="s-item-row">
+              <span>• Pengemasan Kardus Tebal & Buble Wrap</span>
+              <span style="color: var(--color-green); font-weight: bold;">GRATIS</span>
+            </div>
+          </div>
+
+          <div class="summary-total-row">
+            <span class="total-label">Total Paket Kado:</span>
+            <span class="total-val" id="builderTotalPrice">Rp 235.000</span>
+          </div>
+
+          <button class="btn-checkout-hampers" onclick="checkoutHampersWhatsApp()">
+            <span>💬 Pesan Paket Kado Ini via WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Care Guide Section -->
+  <section class="care-section" id="panduan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">PANDUAN ANTI-JAMUR</span>
+        <h2 class="section-title">Merawat Anyaman Alami Agar Awet 10 Tahun</h2>
+        <p class="section-desc">
+          Material serat alam sangat ramah lingkungan. Ikuti 4 langkah sederhana ini agar anyamanmu selalu bersih, cerah, dan bebas jamur seumur hidup.
+        </p>
+      </div>
+
+      <div class="care-cards-grid">
+        <div class="care-card">
+          <div class="care-card-icon">🧹</div>
+          <h3 class="care-card-title">1. Bersihkan Pakai Kuas</h3>
+          <p class="care-card-desc">Gunakan kuas cat kering berbulu halus atau vacuum cleaner berkala untuk mengangkat debu di sela-sela anyaman yang sempit.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-card-icon">🧼</div>
+          <h3 class="care-card-title">2. Lap Kain Lembap</h3>
+          <p class="care-card-desc">Bila terkena tumpahan saus atau kuah, cukup seka dengan kain lembap bersabun lembut, lalu keringkan dengan kain mikrofiber bersih.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-card-icon">🌬️</div>
+          <h3 class="care-card-title">3. Angin-Anginkan</h3>
+          <p class="care-card-desc">Cukup diangin-anginkan di tempat teduh yang berangin. Hindari menjemur di bawah matahari terik ekstrem agar serat tidak mudah getas.</p>
+        </div>
+
+        <div class="care-card">
+          <div class="care-card-icon">🏠</div>
+          <h3 class="care-card-title">4. Ruangan Berventilasi</h3>
+          <p class="care-card-desc">Tempatkan di ruangan dengan sirkulasi udara baik. Hindari menaruh anyaman di pojok gelap yang lembap dan tergenang air.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="reviews-section" id="ulasan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ULASAN PEMBELI</span>
+        <h2 class="section-title">Cerita Rumah yang Lebih Asri Bersama Kami</h2>
+        <p class="section-desc">Ulasan asli dari para pemilik rumah, perias interior, dan pengelola cafe di Indonesia.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-quote">
+              "Keranjang rotannya rapi banget anyamannya, seratnya halus nggak ada yang mencuat nusuk tangan. Aku pakai buat keranjang baju kotor di kamar mandi kering, estetik banget kayak kamar hotel di Bali! Kardus packingnya tebal banget aman sampai Padang."
+            </p>
+          </div>
+          <div class="r-author-row">
+            <div class="r-avatar">RN</div>
+            <div class="r-meta">
+              <span class="r-name">Rina Novianti</span>
+              <span class="r-item">Keranjang Rotan Silang · Padang</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-quote">
+              "Beli 6 kap lampu bambu kubah buat cafe kecil kami di Dago. Pas malam hari dinyalakan lampunya, bayangan anyamannya di plafon bikin suasana jadi super hangat dan syahdu. Banyak pelanggan yang foto-foto buat konten medsos."
+            </p>
+          </div>
+          <div class="r-author-row">
+            <div class="r-avatar">DA</div>
+            <div class="r-meta">
+              <span class="r-name">Dimas Anggara</span>
+              <span class="r-item">Pengelola Cafe Kopi Kayu · Bandung</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-quote">
+              "Pesen Paket Meja Makan Harmoni buat kado pindahan rumah kakak ipar. Tag ukir kayunya cantik banget ada nama keluarganya. Kakak ipar terharu dan tudung sajinya langsung dipakai di meja makan baru. Kado yang bener-bener bermanfaat!"
+            </p>
+          </div>
+          <div class="r-author-row">
+            <div class="r-avatar">FT</div>
+            <div class="r-meta">
+              <span class="r-name">Fitri Tamara</span>
+              <span class="r-item">Paket Kado Rumah Baru · Tangerang</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay">
+    <div class="cart-drawer">
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+          <span>🛍️ Keranjang Belanja Anyaman</span>
+          <span class="cart-count" id="drawerCountBadge">0</span>
+        </div>
+        <button class="cart-close-btn" id="closeCartBtn">✕</button>
+      </div>
+
+      <div class="cart-drawer-body" id="cartItemsContainer">
+        <!-- Dynamic JS -->
+      </div>
+
+      <div class="cart-drawer-footer">
+        <div class="coupon-row">
+          <input type="text" class="coupon-input" id="couponInput" placeholder="KODE DISKON (ANYAMBARU)">
+          <button class="btn-apply-coupon" onclick="applyCoupon()">Gunakan</button>
+        </div>
+
+        <div class="cart-price-summary">
+          <div class="c-sum-row">
+            <span>Subtotal Kriya:</span>
+            <span id="cartSubtotalText">Rp 0</span>
+          </div>
+          <div class="c-sum-row" id="discountRow" style="display: none; color: var(--color-green);">
+            <span>Diskon Promo Perdana:</span>
+            <span id="cartDiscountText">- Rp 0</span>
+          </div>
+          <div class="c-sum-row">
+            <span>Garansi Pengemasan:</span>
+            <span style="color: var(--color-green); font-weight: 700;">Gratis Bubble Wrap</span>
+          </div>
+          <div class="c-sum-row total">
+            <span>Total Pembayaran:</span>
+            <span id="cartTotalText">Rp 0</span>
+          </div>
+        </div>
+
+        <button class="btn-checkout-wa" onclick="checkoutCartWhatsApp()">
+          <span>💬 Kirim Pesanan ke WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-group" style="margin-bottom: 16px;">
+            <div class="brand-mark" style="background: var(--color-surface); border-color: #FFFFFF;">🧺</div>
+            <div>
+              <h2 class="brand-title" style="color: #FFFFFF;">RUMAH ANYAM</h2>
+              <p class="brand-sub" style="color: var(--color-greige);">KRIYA ROTAN, BAMBU & SERAT ALAMI</p>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--color-greige); line-height: 1.6; max-width: 380px;">
+            Bengkel kriya kerajinan tangan anyaman rotan alam, bambu apus, dan eceng gondok. Mendukung penghidupan ratusan keluarga perajin lokal di Kulon Progo dan Tasikmalaya.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#koleksi">Koleksi Produk</a></li>
+            <li><a href="#simulasi">Simulasi Ruangan</a></li>
+            <li><a href="#hampers">Paket Kado Rumah</a></li>
+            <li><a href="#panduan">Panduan Anti-Jamur</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Jaminan Kami</h4>
+          <ul class="footer-links-list">
+            <li>100% Rotan Asli Nusantara</li>
+            <li>Kering Oven Standar Ekspor</li>
+            <li>Bebas Serangga & Jamur</li>
+            <li>Bebas Plastik Sekali Pakai</li>
+            <li>Garansi Pengiriman Aman</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Kontak & Workshop</h4>
+          <ul class="footer-links-list">
+            <li>WhatsApp: +62 812-3456-7890</li>
+            <li>Jam Kerja: Senin - Sabtu (08.30 - 17.00 WIB)</li>
+            <li>Studio: Kulon Progo, D.I. Yogyakarta</li>
+            <li>Pengiriman: J&T Cargo, SiCepat, Kargo Truk</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 RUMAH ANYAM Kriya Nusantara. Hak Cipta Dilindungi.</div>
+        <div>Melestarikan kriya anyaman serat alam untuk bumi yang lebih lestari.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Implementation -->
+  <script>
+    // State Management
+    let cart = [];
+    let discountAmount = 0;
+    let selectedPackage = {
+      name: 'Paket Meja Makan Harmoni',
+      price: 235000,
+      contents: '1 Tudung Saji Bambu + 4 Placemat + Kotak Anyaman'
+    };
+
+    function formatRupiah(num) {
+      return 'Rp ' + Number(num).toLocaleString('id-ID');
+    }
+
+    // 1. Traditional Bamboo & Water Ambient Synthesizer via Web Audio API
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let bambooTimer = null;
+    let streamNode = null;
+    let streamGain = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+    }
+
+    function toggleBambooAudio() {
+      initAudio();
+      const btn = document.getElementById('audioToggleBtn');
+      const icon = document.getElementById('bambooIcon');
+      const statusText = document.getElementById('audioStatusText');
+
+      if (isAudioPlaying) {
+        if (streamGain) {
+          streamGain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+          setTimeout(() => {
+            if (streamNode) streamNode.stop();
+            clearInterval(bambooTimer);
+            isAudioPlaying = false;
+          }, 500);
+        }
+        icon.classList.remove('active');
+        statusText.textContent = 'Suara Bambu: Mati';
+      } else {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        startAmbientSoundscape();
+        isAudioPlaying = true;
+        icon.classList.add('active');
+        statusText.textContent = 'Suara Bambu: Mengalun';
+      }
+    }
+
+    function startAmbientSoundscape() {
+      // 1. Soft running water sound
+      const bufferSize = audioCtx.sampleRate * 2;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      let lastOut = 0.0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        data[i] = (lastOut + (0.02 * white)) / 1.02;
+        lastOut = data[i];
+      }
+
+      streamNode = audioCtx.createBufferSource();
+      streamNode.buffer = buffer;
+      streamNode.loop = true;
+
+      const waterFilter = audioCtx.createBiquadFilter();
+      waterFilter.type = 'lowpass';
+      waterFilter.frequency.setValueAtTime(450, audioCtx.currentTime);
+
+      streamGain = audioCtx.createGain();
+      streamGain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+      streamGain.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime + 1);
+
+      streamNode.connect(waterFilter);
+      waterFilter.connect(streamGain);
+      streamGain.connect(audioCtx.destination);
+      streamNode.start();
+
+      // 2. Periodic gentle pentatonic bamboo bell chime
+      playBambooChime();
+      bambooTimer = setInterval(playBambooChime, 3200);
+    }
+
+    function playBambooChime() {
+      if (!isAudioPlaying) return;
+      // Pentatonic frequencies (Slendro/Pelog inspired warm wooden tones)
+      const notes = [329.63, 392.00, 440.00, 523.25, 659.25];
+      const freq = notes[Math.floor(Math.random() * notes.length)];
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+      // Wooden mallet transient attack and warm decay
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 1.3);
+    }
+
+    document.getElementById('audioToggleBtn').addEventListener('click', toggleBambooAudio);
+
+    // 2. Room Size & Fit Visualizer
+    const roomVisualizerData = {
+      living: {
+        badge: 'PILIHAN IDEAL RUANG TAMU',
+        title: 'Nampan Saji Rotan Gagang Kayu Jati',
+        desc: 'Didesain khusus untuk meja kopi ruang tamu. Sangat serasi untuk menyajikan teko teh hangat, cangkir tamu, atau menata toples camilan tanpa membuat meja terlihat berantakan.',
+        img: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80',
+        dim: '38 × 26 × 6 cm',
+        cap: '1 Teko + 4 Cangkir Teh',
+        price: 125000
+      },
+      dining: {
+        badge: 'PILIHAN MEJA MAKAN & DAPUR',
+        title: 'Tudung Saji Bambu Minimalis Rapat',
+        desc: 'Ukuran pas untuk meja makan 4-6 kursi. Menutup piring lauk, sayur mangkuk, dan nasi dengan sirkulasi udara bersih tanpa khawatir dihinggapi lalat.',
+        img: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=80',
+        dim: '60 × 40 × 22 cm',
+        cap: '4 Piring Lauk + 1 Mangkuk Sup',
+        price: 115000
+      },
+      bedroom: {
+        badge: 'PILIHAN KAMAR TIDUR & WARDROBE',
+        title: 'Keranjang Laundry Rotan Silang Bersih',
+        desc: 'Menampung pakaian kotor atau selimut ganti di pojok kamar. Anyaman berventilasi menjaga baju tidak apek meski dibiarkan hingga akhir pekan.',
+        img: 'https://images.unsplash.com/photo-1594040226829-7f251ab46d80?auto=format&fit=crop&w=800&q=80',
+        dim: 'Diameter 35 cm × Tinggi 45 cm',
+        cap: 'Kapasitas 45 Liter (~12 kg Pakaian)',
+        price: 145000
+      },
+      patio: {
+        badge: 'PILIHAN TERAS & SUDUT TANAMAN',
+        title: 'Pot Cover Anyaman Eceng Gondok',
+        desc: 'Menutupi pot plastik hitam tanaman monstera, lidah mertua, atau palem indoor. Teras dan ruang santai seketika terlihat lebih bersih dan asri.',
+        img: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80',
+        dim: 'Diameter 30 cm × Tinggi 32 cm',
+        cap: 'Cocok untuk Pot Plastik No. 25-28',
+        price: 85000
+      }
+    };
+
+    document.querySelectorAll('#roomSelectorTabs .room-tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#roomSelectorTabs .room-tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const roomKey = this.dataset.room;
+        const data = roomVisualizerData[roomKey];
+
+        document.getElementById('visBadge').textContent = data.badge;
+        document.getElementById('visTitle').textContent = data.title;
+        document.getElementById('visDesc').textContent = data.desc;
+        document.getElementById('visImg').src = data.img;
+        document.getElementById('visDim').textContent = data.dim;
+        document.getElementById('visCap').textContent = data.cap;
+        document.getElementById('visPrice').textContent = formatRupiah(data.price);
+
+        document.getElementById('visAddBtn').onclick = function() {
+          addToCart('vis-' + roomKey, data.title, data.price, 'Varian Simulasi Ruangan', data.img);
+        };
+      });
+    });
+
+    // Default room simulation add button handler
+    document.getElementById('visAddBtn').onclick = function() {
+      addToCart('vis-living', 'Nampan Saji Rotan Gagang Kayu Jati', 125000, 'Ukuran Sedang (38x26cm)', 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=400&q=80');
+    };
+
+    // 3. Catalog Filter Tabs
+    document.querySelectorAll('#catalogFilters .filter-tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#catalogFilters .filter-tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.dataset.filter;
+
+        document.querySelectorAll('#productsGrid .product-card').forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Variant selector helpers
+    const productVariants = {};
+
+    function selectVariant(productId, variantName, price, btnElement) {
+      const parent = btnElement.closest('.product-card-body');
+      parent.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      productVariants[productId] = {
+        price: price,
+        variantName: variantName
+      };
+
+      document.getElementById(`price-${productId}`).textContent = formatRupiah(price);
+      document.getElementById(`var-${productId}`).textContent = variantName;
+    }
+
+    function getPrice(productId, fallback) {
+      return productVariants[productId] ? productVariants[productId].price : fallback;
+    }
+
+    function getVariant(productId, fallback) {
+      return productVariants[productId] ? productVariants[productId].variantName : fallback;
+    }
+
+    // 4. Housewarming Gift Builder Logic
+    function selectPackage(pkgKey, name, price, contents, element) {
+      document.querySelectorAll('#packageOptionsGrid .package-opt-card').forEach(c => c.classList.remove('active'));
+      element.classList.add('active');
+
+      selectedPackage = { name, price, contents };
+
+      document.getElementById('prevPkgName').textContent = name;
+      document.getElementById('prevPkgPrice').textContent = formatRupiah(price);
+      document.getElementById('prevPkgContents').textContent = '• ' + contents;
+      document.getElementById('builderTotalPrice').textContent = formatRupiah(price);
+    }
+
+    function updateTagPreview() {
+      const to = document.getElementById('tagTo').value.trim() || 'Keluarga Bahagia';
+      const eventText = document.getElementById('tagEvent').value;
+      const msg = document.getElementById('tagMessage').value.trim() || 'Semoga rumah barunya selalu dipenuhi kehangatan!';
+      const from = document.getElementById('tagFrom').value.trim() || 'Sahabatmu';
+
+      document.getElementById('prevTagEvent').textContent = '🏡 ' + eventText.toUpperCase();
+      document.getElementById('prevTagName').textContent = to;
+      document.getElementById('prevTagQuote').textContent = `"${msg}"`;
+      document.getElementById('prevTagSender').textContent = `Dari: ${from}`;
+    }
+
+    function checkoutHampersWhatsApp() {
+      const to = document.getElementById('tagTo').value.trim();
+      const eventText = document.getElementById('tagEvent').value;
+      const msg = document.getElementById('tagMessage').value.trim();
+      const from = document.getElementById('tagFrom').value.trim();
+      const total = document.getElementById('builderTotalPrice').textContent;
+
+      const text = `Halo Admin RUMAH ANYAM! Saya ingin memesan Paket Kado Rumah Baru:%0A%0A` +
+        `📦 *Paket Dipilih:* ${selectedPackage.name} (${formatRupiah(selectedPackage.price)})%0A` +
+        `🎋 *Rincian Isi:* ${selectedPackage.contents}%0A%0A` +
+        `🏷️ *Kustom Ukir Tag Kayu Gratis:*%0A` +
+        `• *Acara/Momen:* ${eventText}%0A` +
+        `• *Untuk:* ${to}%0A` +
+        `• *Pesan Ucapan:* "${msg}"%0A` +
+        `• *Dari Pengirim:* ${from}%0A%0A` +
+        `💰 *Total Biaya:* ${total}%0A%0A` +
+        `Mohon konfirmasi ketersediaan paket dan nomor rekening transfer ya. Terima kasih!`;
+
+      window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    }
+
+    // 5. Cart System & WhatsApp Checkout
+    function addToCart(id, name, price, variant, img) {
+      const existing = cart.find(item => item.id === id && item.variant === variant);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, name, price, variant, img, qty: 1 });
+      }
+      renderCart();
+      openCartDrawer();
+    }
+
+    function changeQty(index, delta) {
+      if (!cart[index]) return;
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      const badge1 = document.getElementById('cartCountBadge');
+      const badge2 = document.getElementById('drawerCountBadge');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge1.textContent = totalItems;
+      badge2.textContent = totalItems;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="cart-empty-state">
+            <div style="font-size: 36px; margin-bottom: 12px;">🧺</div>
+            <p><strong>Keranjang belanja anyamanmu masih kosong.</strong></p>
+            <p style="font-size: 13px; margin-top: 4px;">Pilih kerajinan anyaman rotan favoritmu dan tambahkan ke sini.</p>
+          </div>
+        `;
+        document.getElementById('cartSubtotalText').textContent = 'Rp 0';
+        document.getElementById('cartTotalText').textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      container.innerHTML = '';
+
+      cart.forEach((item, index) => {
+        subtotal += item.price * item.qty;
+        const div = document.createElement('div');
+        div.className = 'cart-item-card';
+        div.innerHTML = `
+          <div class="cart-item-thumb">
+            <img src="${item.img}" alt="${item.name}">
+          </div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-variant">Varian: ${item.variant}</div>
+            <div class="cart-item-price">${formatRupiah(item.price)}</div>
+          </div>
+          <div class="cart-qty-ctrl">
+            <button class="qty-btn" onclick="changeQty(${index}, -1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      const total = Math.max(0, subtotal - discountAmount);
+      document.getElementById('cartSubtotalText').textContent = formatRupiah(subtotal);
+      document.getElementById('cartTotalText').textContent = formatRupiah(total);
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('couponInput').value.trim().toUpperCase();
+      if (code === 'ANYAMBARU') {
+        discountAmount = 15000;
+        document.getElementById('discountRow').style.display = 'flex';
+        document.getElementById('cartDiscountText').textContent = '- Rp 15.000';
+        alert('Kupon berhasil diterapkan! Anda mendapatkan potongan Rp 15.000.');
+        renderCart();
+      } else if (!code) {
+        alert('Silakan ketik kode kupon diskon.');
+      } else {
+        alert('Kode kupon tidak valid. Gunakan kode "ANYAMBARU" untuk diskon perdana!');
+      }
+    }
+
+    function checkoutCartWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang belanjamu masih kosong.');
+        return;
+      }
+
+      let subtotal = 0;
+      let itemsText = cart.map((item, i) => {
+        subtotal += item.price * item.qty;
+        return `${i + 1}. ${item.name} (${item.variant}) × ${item.qty} = ${formatRupiah(item.price * item.qty)}`;
+      }).join('%0A');
+
+      const total = Math.max(0, subtotal - discountAmount);
+
+      const text = `Halo Admin RUMAH ANYAM! Saya ingin memesan produk kriya berikut:%0A%0A` +
+        `🛍️ *DAFTAR PESANAN:*%0A${itemsText}%0A%0A` +
+        (discountAmount > 0 ? `🎟️ *Diskon Kupon:* - ${formatRupiah(discountAmount)}%0A` : '') +
+        `📦 *Packing:* Bubble Wrap & Kardus Tebal Aman%0A` +
+        `💰 *TOTAL PEMBAYARAN:* ${formatRupiah(total)}%0A%0A` +
+        `Mohon diproses pesanannya ya kak. Terima kasih!`;
+
+      window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    }
+
+    // Drawer Open / Close
+    const cartOverlay = document.getElementById('cartOverlay');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+
+    function openCartDrawer() {
+      cartOverlay.classList.add('open');
+    }
+
+    function closeCartDrawer() {
+      cartOverlay.classList.remove('open');
+    }
+
+    openCartBtn.addEventListener('click', openCartDrawer);
+    closeCartBtn.addEventListener('click', closeCartDrawer);
+    cartOverlay.addEventListener('click', function(e) {
+      if (e.target === cartOverlay) {
+        closeCartDrawer();
+      }
+    });
+  </script>
+</body>
+</html>
