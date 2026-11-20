@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { Template } from '../../types';
 import { TemplateThumbnail } from '../common/TemplateThumbnail';
 import { ArrowRight, Code, Eye, Bookmark, MessageSquare, Layers, Sparkles } from 'lucide-react';
 import { getTemplateCommissionUrl } from '../../utils/whatsapp';
+import { isNewTemplate } from '../../utils/templateDate';
 
 interface Props {
   templates: Template[];
@@ -12,6 +13,17 @@ interface Props {
   isSaved: (templateId: string) => boolean;
   onOpenCommission?: (template?: Template) => void;
 }
+
+const parseTemplateIdNum = (id: string): number => {
+  const match = id.match(/\d+/);
+  return match ? parseInt(match[0], 10) : 0;
+};
+
+const compareNewest = (a: Template, b: Template) => {
+  const dateDiff = new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+  if (dateDiff !== 0) return dateDiff;
+  return parseTemplateIdNum(b.id) - parseTemplateIdNum(a.id);
+};
 
 export const HomeView: React.FC<Props> = ({
   templates,
@@ -23,34 +35,18 @@ export const HomeView: React.FC<Props> = ({
 }) => {
   const [heroIndex, setHeroIndex] = useState(0);
 
-  const featuredTemplates = templates.filter(t => t.featured);
-  const recentTemplates = [...templates].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()).slice(0, 4);
+  const featuredTemplates = useMemo(() => {
+    return [...templates].filter(t => t.featured).sort(compareNewest);
+  }, [templates]);
 
-  // Prominent hero showcase plates across real templates
-  const heroShowcaseList = [
-    templates.find(t => t.slug === 'dentia-dental-clinic') || templates[0],
-    templates.find(t => t.slug === 'solara-energy-systems') || templates[0],
-    templates.find(t => t.slug === 'redline-motoworks') || templates[0],
-    templates.find(t => t.slug === 'kinetic-fitness-gym') || templates[0],
-    templates.find(t => t.slug === 'lumina-creative-photography') || templates[0],
-    templates.find(t => t.slug === 'lumen-artisan-glasscraft') || templates[0],
-    templates.find(t => t.slug === 'forja-damascus-cutlery') || templates[0],
-    templates.find(t => t.slug === 'aerovelo-titanium-bicycles') || templates[0],
-    templates.find(t => t.slug === 'lignum-acoustic-lutherie') || templates[0],
-    templates.find(t => t.slug === 'aurelia-botanical-watercolor') || templates[0],
-    templates.find(t => t.slug === 'havn-wooden-boatcraft') || templates[0],
-    templates.find(t => t.slug === 'koru-mineral-limewash') || templates[0],
-    templates.find(t => t.slug === 'somna-sleep-sanctuary') || templates[0],
-    templates.find(t => t.slug === 'axis-mechanical-keyboards') || templates[0],
-    templates.find(t => t.slug === 'resonance-analog-audio') || templates[0],
-    templates.find(t => t.slug === 'cyano-blueprint-architecture') || templates[0],
-    templates.find(t => t.slug === 'celeste-astronomical-horology') || templates[0],
-    templates.find(t => t.slug === 'aura-derma-clinic') || templates[0],
-    templates.find(t => t.slug === 'tatah-artisanal-leather') || templates[1],
-    templates.find(t => t.slug === 'etoile-bridal-couture') || templates[2],
-    templates.find(t => t.slug === 'chidori-kyoto-wagashi') || templates[3],
-    templates.find(t => t.slug === 'verra-japanese-eyewear') || templates[4],
-  ];
+  const recentTemplates = useMemo(() => {
+    return [...templates].sort(compareNewest).slice(0, 6);
+  }, [templates]);
+
+  // Prominent hero showcase plates across real templates sorted newest first
+  const heroShowcaseList = useMemo(() => {
+    return [...templates].sort(compareNewest).slice(0, 24);
+  }, [templates]);
 
   const currentHeroTemplate = heroShowcaseList[heroIndex] || templates[0];
 
@@ -249,7 +245,12 @@ export const HomeView: React.FC<Props> = ({
 
                 <div className="card-content">
                   <div className="card-meta-row">
-                    <span className="card-category mono">{template.category.toUpperCase()}</span>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      <span className="card-category mono">{template.category.toUpperCase()}</span>
+                      {isNewTemplate(template.publishedAt) && (
+                        <span className="badge-new-template" title="Template baru dirilis dalam 3 hari terakhir">BARU</span>
+                      )}
+                    </div>
                     <button
                       className={`card-save-btn ${isSaved(template.id) ? 'saved' : ''}`}
                       onClick={(e) => {

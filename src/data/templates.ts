@@ -3651,6 +3651,19 @@ TEMPLATES_DATA.forEach((template) => {
   }
 });
 
+// Helper to extract numeric template index for deterministic descending order
+const parseTemplateIdNum = (id: string): number => {
+  const match = id.match(/\d+/);
+  return match ? parseInt(match[0], 10) : 0;
+};
+
+// Sort TEMPLATES_DATA so newest releases are placed at the very top by default across all views
+TEMPLATES_DATA.sort((a, b) => {
+  const dateDiff = new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+  if (dateDiff !== 0) return dateDiff;
+  return parseTemplateIdNum(b.id) - parseTemplateIdNum(a.id);
+});
+
 
 
 

@@ -3,6 +3,7 @@ import type { Template } from '../../types';
 import { TemplateThumbnail } from '../common/TemplateThumbnail';
 import { Eye, Code, Sparkles, MessageSquare, Bookmark, ArrowUpDown } from 'lucide-react';
 import { getTemplateCommissionUrl } from '../../utils/whatsapp';
+import { isNewTemplate } from '../../utils/templateDate';
 
 interface Props {
   templates: Template[];
@@ -25,10 +26,23 @@ export const TemplatesGalleryView: React.FC<Props> = ({
   isSaved,
   onToggleSave
 }) => {
-  const [sortBy, setSortBy] = useState<'featured' | 'newest' | 'alphabetical'>('featured');
+  const [sortBy, setSortBy] = useState<'newest' | 'featured' | 'alphabetical'>('newest');
 
   const categories = [
     { id: 'all', label: 'Semua Etalase' },
+    { id: 'dental', label: 'Klinik Gigi' },
+    { id: 'solar', label: 'Panel Surya' },
+    { id: 'automotive', label: 'Bengkel Motor' },
+    { id: 'fitness', label: 'Pusat Kebugaran' },
+    { id: 'photography', label: 'Studio Foto' },
+    { id: 'glasscraft', label: 'Kaca Tiup' },
+    { id: 'cutlery', label: 'Pisau Tempa' },
+    { id: 'cycling', label: 'Sepeda Balap' },
+    { id: 'lutherie', label: 'Gitar Akustik' },
+    { id: 'stationery', label: 'Cat Air Madu' },
+    { id: 'maritime', label: 'Perahu Kayu' },
+    { id: 'interior', label: 'Cat Limewash' },
+    { id: 'sleep', label: 'Sirkadian Tidur' },
     { id: 'keyboards', label: 'Keyboard Mekanikal' },
     { id: 'audio', label: 'Audio & Akustik Hi-Fi' },
     { id: 'architecture', label: 'Arsitektur & Cetak Biru' },
@@ -78,13 +92,28 @@ export const TemplatesGalleryView: React.FC<Props> = ({
       return matchCat && matchQuery;
     });
 
+    const parseTemplateIdNum = (id: string): number => {
+      const match = id.match(/\d+/);
+      return match ? parseInt(match[0], 10) : 0;
+    };
+
+    const compareNewest = (a: Template, b: Template) => {
+      const dateDiff = new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+      if (dateDiff !== 0) return dateDiff;
+      return parseTemplateIdNum(b.id) - parseTemplateIdNum(a.id);
+    };
+
     if (sortBy === 'newest') {
-      result.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+      result.sort(compareNewest);
     } else if (sortBy === 'alphabetical') {
       result.sort((a, b) => a.title.localeCompare(b.title));
     } else {
-      // featured first, then newest
-      result.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      // featured first, tie-break with newest
+      result.sort((a, b) => {
+        const featDiff = (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+        if (featDiff !== 0) return featDiff;
+        return compareNewest(a, b);
+      });
     }
 
     return result;
@@ -130,8 +159,8 @@ export const TemplatesGalleryView: React.FC<Props> = ({
               onChange={e => setSortBy(e.target.value as any)}
               className="sort-select mono"
             >
-              <option value="featured">Urutkan: Unggulan</option>
               <option value="newest">Urutkan: Terbaru</option>
+              <option value="featured">Urutkan: Unggulan</option>
               <option value="alphabetical">Urutkan: Abjad (A-Z)</option>
             </select>
           </div>
@@ -173,7 +202,12 @@ export const TemplatesGalleryView: React.FC<Props> = ({
                 {/* Content */}
                 <div className="card-content">
                   <div className="card-meta-row">
-                    <span className="card-category mono">{template.category.toUpperCase()}</span>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      <span className="card-category mono">{template.category.toUpperCase()}</span>
+                      {isNewTemplate(template.publishedAt) && (
+                        <span className="badge-new-template" title="Template baru dirilis dalam 3 hari terakhir">BARU</span>
+                      )}
+                    </div>
                     <button
                       className={`card-save-btn ${isSaved(template.id) ? 'saved' : ''}`}
                       onClick={() => onToggleSave(template.id)}
