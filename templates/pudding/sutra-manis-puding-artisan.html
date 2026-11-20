@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUTRA MANIS — Dapur Puding Sutra Buah Asli, Dessert Jar Lumer & Hampers Hantaran Nusantara</title>
+  <meta name="description" content="Atelier puding sutra lembut lumer di lidah dalam toples kaca steril berlapis saus stroberi, raspberry, dan vanila murni. Hampers arisan, lamaran, dan syukuran kantor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Palette dari Foto Referensi */
+      --color-vanilla: #FFF5E4;
+      --color-blush: #FFC4C4;
+      --color-raspberry: #EE6983;
+      --color-cherry: #850E35;
+      --color-cherry-dark: #660B29;
+
+      /* UI & Kanvas */
+      --bg-canvas: #FFFDF9;
+      --bg-surface: #FFFFFF;
+      --bg-cream-soft: #FFF9EE;
+      --bg-blush-soft: #FFF0F0;
+      --bg-cherry-soft: #F9E8EC;
+
+      /* Teks Kontras Tinggi (AAA 14:1) */
+      --text-ink: #2B0612;
+      --text-muted: #6B3445;
+      --text-subtle: #965B6C;
+
+      /* Border & Hairline */
+      --border-hairline: #F2DEE4;
+      --border-focus: #850E35;
+
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(133, 14, 53, 0.06);
+      --shadow-md: 0 8px 24px rgba(133, 14, 53, 0.1);
+      --shadow-lg: 0 16px 40px rgba(133, 14, 53, 0.14);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-canvas);
+      /* Subtle micro plus/cross grid pattern */
+      background-image: radial-gradient(rgba(133, 14, 53, 0.12) 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      color: var(--text-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-ink);
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Announcement Bar */
+    .announcement-bar {
+      background: linear-gradient(90deg, #850E35, #660B29);
+      color: #FFFFFF;
+      font-size: 13px;
+      padding: 9px 16px;
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .announcement-bar strong {
+      color: var(--color-vanilla);
+      font-weight: 700;
+    }
+
+    /* Header & Navigation */
+    header.site-header {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .brand-logo .brand-name {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--color-cherry);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .brand-logo .brand-tagline {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 3px;
+    }
+
+    nav.nav-links {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
+    nav.nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 14.5px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    nav.nav-links a:hover {
+      color: var(--color-cherry);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .btn-cart-toggle {
+      background-color: var(--bg-cherry-soft);
+      border: 1px solid var(--border-hairline);
+      color: var(--color-cherry);
+      padding: 9px 16px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-cart-toggle:hover {
+      background-color: #F3D2DC;
+      border-color: var(--color-cherry);
+    }
+    .cart-badge {
+      background-color: var(--color-cherry);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+    }
+
+    .btn-primary {
+      background-color: var(--color-cherry);
+      color: #FFFFFF;
+      padding: 11px 22px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(133, 14, 53, 0.3);
+      transition: all 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: var(--color-cherry-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(133, 14, 53, 0.4);
+    }
+
+    .btn-outline {
+      background-color: #FFFFFF;
+      color: var(--text-ink);
+      border: 1.5px solid var(--border-hairline);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-outline:hover {
+      border-color: var(--color-cherry);
+      color: var(--color-cherry);
+      background-color: var(--bg-cherry-soft);
+    }
+
+    /* Hero Section */
+    section.hero-section {
+      padding: 56px 0 44px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-cherry-soft);
+      border: 1px solid var(--border-hairline);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--color-cherry);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-kicker .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--color-cherry);
+    }
+    .hero-title {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--text-ink);
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 38px;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-top: 26px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .metric-item .metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-cherry);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .metric-item .metric-label {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* Hero Showcase Card */
+    .hero-showcase-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .hero-img-wrap {
+      width: 100%;
+      height: 380px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-floating-badge {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-floating-badge h4 {
+      font-size: 15px;
+      color: var(--color-cherry);
+      margin-bottom: 2px;
+    }
+    .hero-floating-badge p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Palette Strip Section (Sesuai Permintaan User: Ada buletan warna & bisa disalin) */
+    section.palette-strip-section {
+      padding: 20px 0 36px;
+    }
+    .palette-container-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 22px 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .palette-info h4 {
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+    .palette-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .palette-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .color-swatch-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .color-swatch-chip:hover {
+      border-color: var(--color-cherry);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .swatch-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+    .swatch-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-ink);
+    }
+    .swatch-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      background-color: rgba(0, 0, 0, 0.04);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .swatch-copy-icon {
+      font-size: 12px;
+      color: var(--color-cherry);
+    }
+
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+    .section-subtitle {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--color-cherry);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .section-title {
+      font-size: 38px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 15.5px;
+      color: var(--text-muted);
+    }
+
+    /* Interactive Layer Inspector (Anti-slop Visual Guide) */
+    section.inspector-section {
+      padding: 56px 0;
+    }
+    .inspector-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .jar-visual-container {
+      background: linear-gradient(180deg, var(--bg-canvas) 0%, #F5EAEF 100%);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .jar-graphic {
+      width: 220px;
+      height: 310px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 2px solid rgba(133, 14, 53, 0.2);
+      border-radius: 20px 20px 30px 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(133, 14, 53, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .jar-lid {
+      width: 140px;
+      height: 18px;
+      background: #E8D4C8;
+      border: 2px solid #850E35;
+      border-radius: 6px 6px 0 0;
+      margin: 0 auto;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .jar-layer {
+      transition: all 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      padding: 6px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    .jar-layer-top {
+      height: 35%;
+      background: linear-gradient(180deg, #850E35, #EE6983);
+      position: relative;
+    }
+    .jar-layer-mid {
+      height: 35%;
+      background: linear-gradient(180deg, #EE6983, #FFC4C4);
+      color: #850E35;
+      text-shadow: none;
+    }
+    .jar-layer-bot {
+      height: 30%;
+      background: linear-gradient(180deg, #FFC4C4, #FFF5E4);
+      color: #6B3445;
+      text-shadow: none;
+    }
+
+    .flavor-selector-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .flavor-pill {
+      background-color: var(--bg-canvas);
+      border: 1.5px solid var(--border-hairline);
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .flavor-pill:hover {
+      border-color: var(--color-cherry);
+      color: var(--color-cherry);
+    }
+    .flavor-pill.active {
+      background-color: var(--color-cherry);
+      border-color: var(--color-cherry);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(133, 14, 53, 0.25);
+    }
+
+    .layer-detail-card {
+      background-color: var(--bg-canvas);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border: 1px solid var(--border-hairline);
+      margin-bottom: 20px;
+    }
+    .layer-item-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .layer-item-row:last-child {
+      margin-bottom: 0;
+    }
+    .layer-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+    .layer-text-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .layer-text-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* Custom Hampers Builder */
+    section.builder-section {
+      padding: 64px 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: flex-start;
+    }
+    .builder-step-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--color-cherry);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .step-title {
+      font-size: 20px;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .option-box-card {
+      border: 1.5px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      cursor: pointer;
+      background-color: var(--bg-canvas);
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .option-box-card:hover {
+      border-color: var(--color-raspberry);
+      background-color: #FFFFFF;
+    }
+    .option-box-card.selected {
+      border-color: var(--color-cherry);
+      background-color: var(--bg-cherry-soft);
+      box-shadow: 0 0 0 1px var(--color-cherry);
+    }
+    .option-box-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .option-box-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .option-box-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-cherry);
+    }
+
+    /* Flavor Slots in Builder */
+    .flavor-slots-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .slot-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+    }
+    .slot-name {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .slot-counter {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-slot-qty {
+      width: 26px;
+      height: 26px;
+      border-radius: 4px;
+      border: 1px solid var(--border-hairline);
+      background-color: #FFFFFF;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .slot-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 13px;
+      width: 20px;
+      text-align: center;
+    }
+
+    /* Sticky Receipt */
+    .builder-receipt-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 96px;
+    }
+    .receipt-title {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    .receipt-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--border-hairline);
+    }
+    .receipt-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 13.5px;
+    }
+    .receipt-item .item-label {
+      color: var(--text-muted);
+    }
+    .receipt-item .item-val {
+      font-weight: 600;
+      color: var(--text-ink);
+      text-align: right;
+    }
+    .receipt-divider {
+      height: 1px;
+      background-color: var(--border-hairline);
+      margin: 18px 0;
+    }
+    .receipt-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+    .receipt-total .total-label {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .receipt-total .total-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-cherry);
+    }
+
+    /* Catalog Section */
+    section.catalog-section {
+      padding: 64px 0;
+    }
+    .catalog-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .filter-btn {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      border-color: var(--color-cherry);
+      color: var(--color-cherry);
+    }
+    .filter-btn.active {
+      background-color: var(--color-cherry);
+      border-color: var(--color-cherry);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(133, 14, 53, 0.25);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-raspberry);
+    }
+    .product-image-wrap {
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-canvas);
+    }
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-image-wrap img {
+      transform: scale(1.05);
+    }
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--color-cherry);
+      border: 1px solid var(--border-hairline);
+    }
+    .product-volume-tag {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background-color: rgba(43, 6, 18, 0.82);
+      color: #FFFFFF;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .product-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .product-category {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-cherry);
+      margin-bottom: 6px;
+    }
+    .product-name {
+      font-size: 21px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .product-specs {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .product-specs span {
+      display: block;
+      color: var(--text-subtle);
+      font-size: 11.5px;
+      margin-top: 4px;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .product-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-cherry);
+    }
+    .btn-add-cart {
+      background-color: var(--bg-cherry-soft);
+      color: var(--color-cherry);
+      border: 1px solid var(--border-hairline);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-add-cart:hover {
+      background-color: var(--color-cherry);
+      color: #FFFFFF;
+      border-color: var(--color-cherry);
+    }
+
+    /* Event Calculator */
+    section.calculator-section {
+      padding: 56px 0;
+      background-color: var(--bg-cherry-soft);
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .calc-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-sm);
+    }
+    .calc-slider-box {
+      margin-bottom: 24px;
+    }
+    .calc-slider-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .calc-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #E8D4C8;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-cherry);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .calc-results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      background-color: var(--bg-canvas);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .calc-res-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-cherry);
+    }
+    .calc-res-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Trust & Cold Chain */
+    section.coldchain-section {
+      padding: 64px 0;
+    }
+    .coldchain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .coldchain-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .coldchain-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .coldchain-card h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .coldchain-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* FAQ Section */
+    section.faq-section {
+      padding: 64px 0;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-top: 1px solid var(--border-hairline);
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 18px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-question:hover {
+      color: var(--color-cherry);
+    }
+    .faq-answer {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      display: none;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faq-toggle-icon {
+      font-size: 18px;
+      color: var(--color-cherry);
+      transition: transform 0.2s ease;
+    }
+    .faq-item.active .faq-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background-color: #2B0612;
+      color: #F7EAEF;
+      padding: 56px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer-brand h3 {
+      font-size: 28px;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .footer-brand p {
+      font-size: 13.5px;
+      color: #D1B3BC;
+      line-height: 1.6;
+      max-width: 320px;
+      margin-bottom: 18px;
+    }
+    .footer-col h5 {
+      font-size: 14px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 9px;
+    }
+    .footer-col ul li a {
+      color: #D1B3BC;
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: color 0.2s ease;
+    }
+    .footer-col ul li a:hover {
+      color: var(--color-vanilla);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      color: #9C7883;
+    }
+
+    /* Slide-over Cart Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(43, 6, 18, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 440px;
+      height: 100vh;
+      background-color: var(--bg-surface);
+      z-index: 1000;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-drawer-header h3 {
+      font-size: 20px;
+    }
+    .btn-close-drawer {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    .cart-items-body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+    }
+    .cart-empty-state {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text-muted);
+    }
+    .cart-item-row {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .cart-item-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background-color: var(--bg-canvas);
+    }
+    .cart-item-info {
+      flex-grow: 1;
+    }
+    .cart-item-title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .cart-item-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--color-cherry);
+      font-weight: 600;
+    }
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-canvas);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qty-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+    .btn-remove-item {
+      background: none;
+      border: none;
+      color: #D9534F;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    .cart-drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-hairline);
+      background-color: var(--bg-canvas);
+    }
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .cart-subtotal-row .subtotal-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-cherry);
+    }
+    .input-recipient {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      margin-bottom: 10px;
+      font-family: inherit;
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: #2B0612;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      z-index: 2000;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #25D366;
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 90;
+      transition: all 0.2s ease;
+    }
+    .floating-wa-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .inspector-box {
+        grid-template-columns: 1fr;
+      }
+      .builder-grid {
+        grid-template-columns: 1fr;
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .coldchain-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      nav.nav-links {
+        display: none;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 38px;
+      }
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .coldchain-grid {
+        grid-template-columns: 1fr;
+      }
+      .palette-container-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-metrics {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    🍓 <strong>SUTRA MANIS:</strong> 100% Buah Stroberi & Berry Asli • Gratis Thermal Bag & Ice Gel • Pengiriman Instan Same-Day Jadetabek & Bandung
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-logo">
+        <span class="brand-name">SUTRA MANIS</span>
+        <span class="brand-tagline">Dapur Puding Sutra & Dessert Jar</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#katalog">Katalog Dessert Jar</a>
+        <a href="#lapisan">Eksplorasi Lapisan</a>
+        <a href="#builder">Rakit Box Hampers</a>
+        <a href="#kalkulator">Kalkulator Acara</a>
+        <a href="#jaminan">Jaminan Segar</a>
+        <a href="#faq">Tanya Jawab</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-cart-toggle" onclick="toggleCartDrawer()">
+          🛒 Keranjang
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <a href="https://wa.me/6281234567890?text=Halo%20Sutra%20Manis,%20saya%20ingin%20memesan%20puding%20sutra" target="_blank" class="btn-primary">
+          Pesan WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-kicker">
+          <span class="dot"></span>
+          Artisan Silky Fruit Pudding Studio
+        </div>
+        <h1 class="hero-title">
+          Kelembutan Puding Sutra Murni Berlapis Saus Buah Asli yang Lumer di Lidah.
+        </h1>
+        <p class="hero-desc">
+          Dimasak fresh setiap subuh dari susu sapi pasteurisasi murni, ekstrak vanila Madagascar, dan selai stroberi Garut asli. Tanpa pemanis buatan, tanpa pengawet sintetis, dan 30% lebih rendah gula. Sempurna untuk hampers arisan, lamaran, syukuran, maupun kudapan sehat keluarga.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#katalog" class="btn-primary">Pesan Jar Siap Kirim</a>
+          <a href="#builder" class="btn-outline">Rakit Box Hampers Kustom</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Buah Berry & Stroberi Asli</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">0%</div>
+            <div class="metric-label">Pengawet & Perisa Kimia</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">-30%</div>
+            <div class="metric-label">Less Sugar (Rendah Gula)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card -->
+      <div class="hero-showcase-card">
+        <div class="hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80" alt="Puding Sutra Buah Stroberi & Berry Asli">
+          <div class="hero-floating-badge">
+            <h4>Puding Sutra Stroberi & Vanilla</h4>
+            <p>200ml Glass Jar • Dibuat Fresh Hari Ini • Rp 35.000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color Swatch Section (Permintaan User: Ada buletan warnanya lalu bisa di salin) -->
+  <section class="palette-strip-section">
+    <div class="container">
+      <div class="palette-container-box">
+        <div class="palette-info">
+          <h4>🎨 Palet Harmoni Rasa & Warna SUTRA MANIS</h4>
+          <p>Klik lingkaran warna di bawah untuk menyalin kode heksadesimal ke clipboard Anda:</p>
+        </div>
+        <div class="palette-swatches">
+          <div class="color-swatch-chip" onclick="copyColorHex('#FFF5E4', 'Vanilla Cream')">
+            <div class="swatch-circle" style="background-color: #FFF5E4;"></div>
+            <span class="swatch-label">Vanilla Cream</span>
+            <span class="swatch-hex">#FFF5E4</span>
+            <span class="swatch-copy-icon">📋</span>
+          </div>
+
+          <div class="color-swatch-chip" onclick="copyColorHex('#FFC4C4', 'Strawberry Blush')">
+            <div class="swatch-circle" style="background-color: #FFC4C4;"></div>
+            <span class="swatch-label">Strawberry Blush</span>
+            <span class="swatch-hex">#FFC4C4</span>
+            <span class="swatch-copy-icon">📋</span>
+          </div>
+
+          <div class="color-swatch-chip" onclick="copyColorHex('#EE6983', 'Raspberry Coulis')">
+            <div class="swatch-circle" style="background-color: #EE6983;"></div>
+            <span class="swatch-label">Raspberry Coulis</span>
+            <span class="swatch-hex">#EE6983</span>
+            <span class="swatch-copy-icon">📋</span>
+          </div>
+
+          <div class="color-swatch-chip" onclick="copyColorHex('#850E35', 'Velvet Cherry Wine')">
+            <div class="swatch-circle" style="background-color: #850E35;"></div>
+            <span class="swatch-label">Velvet Cherry Wine</span>
+            <span class="swatch-hex">#850E35</span>
+            <span class="swatch-copy-icon">📋</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Layer Savor Inspector (Pengganti 3D Gimmick) -->
+  <section class="inspector-section" id="lapisan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Transparansi Bahan Baku Nyata</span>
+        <h2 class="section-title">Anatomi Lapisan Dessert Jar Puding Sutra</h2>
+        <p class="section-desc">Setiap toples kaca 200ml diracik dengan harmoni rasa seimbang: asam segar buah asli berpadu lembutnya puding krim vanila.</p>
+      </div>
+
+      <div class="inspector-box">
+        <!-- Kolom Diagram Toples -->
+        <div class="jar-visual-container">
+          <div class="jar-lid"></div>
+          <div class="jar-graphic" id="jarGraphic">
+            <div class="jar-layer jar-layer-top" id="layerTop">Potongan Buah & Coulis</div>
+            <div class="jar-layer jar-layer-mid" id="layerMid">Puding Sutra Buah Segar</div>
+            <div class="jar-layer jar-layer-bot" id="layerBot">Puding Susu Vanilla Krim</div>
+          </div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 14px; font-weight: 600;">
+            Toples Kaca Kedap Udara 200ml (Food Grade & Steril)
+          </p>
+        </div>
+
+        <!-- Kolom Keterangan Lapisan & Pilihan Rasa -->
+        <div class="inspector-details">
+          <div class="flavor-selector-pills">
+            <button class="flavor-pill active" onclick="selectInspectorFlavor('strawberry', this)">Stroberi Sutra Vanilla</button>
+            <button class="flavor-pill" onclick="selectInspectorFlavor('raspberry', this)">Raspberry Velvet Royale</button>
+            <button class="flavor-pill" onclick="selectInspectorFlavor('cherry', this)">Black Cherry Compote</button>
+            <button class="flavor-pill" onclick="selectInspectorFlavor('mango', this)">Mangga Kelapa Muda</button>
+          </div>
+
+          <div class="layer-detail-card" id="layerDetailCard">
+            <div class="layer-item-row">
+              <div class="layer-dot" style="background-color: #850E35;"></div>
+              <div>
+                <div class="layer-text-title" id="txtLayer1Title">Lapisan 1: Stroberi Garut Utuh & Saus Kental Asli</div>
+                <div class="layer-text-desc" id="txtLayer1Desc">Potongan buah stroberi segar lokal yang dimasak perlahan bersama perasan lemon segar tanpa gelatin hewan dan tanpa pemanis sintetis.</div>
+              </div>
+            </div>
+
+            <div class="layer-item-row">
+              <div class="layer-dot" style="background-color: #EE6983;"></div>
+              <div>
+                <div class="layer-text-title" id="txtLayer2Title">Lapisan 2: Puding Sutra Stroberi Merah Muda</div>
+                <div class="layer-text-desc" id="txtLayer2Desc">Puding agar rumput laut nabati berpadu puree stroberi alami. Tekstur kenyal lembut yang lumer ketika disentuh sendok.</div>
+              </div>
+            </div>
+
+            <div class="layer-item-row">
+              <div class="layer-dot" style="background-color: #FFF5E4; border: 1px solid #CCC;"></div>
+              <div>
+                <div class="layer-text-title" id="txtLayer3Title">Lapisan 3: Puding Krim Susu Vanila Madagascar</div>
+                <div class="layer-text-desc" id="txtLayer3Desc">Basis krim susu sapi pasteurisasi kaya nutrisi dengan bintik biji vanila Madagascar murni. Gurih, manis lembut, dan menenangkan.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px; align-items: center;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--color-cherry); font-weight: 700;">
+              145 kkal • 8g Less Sugar
+            </div>
+            <button class="btn-primary" onclick="addInspectedFlavorToCart()">
+              + Tambah Varian Ini ke Keranjang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Hampers Box Builder -->
+  <section class="builder-section" id="builder">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Perakit Hampers & Hantaran</span>
+        <h2 class="section-title">Rakit Box Hadiah Puding Kustom Anda</h2>
+        <p class="section-desc">Pilih ukuran box mewah, tentukan kombinasi rasa toples puding, dan tambahkan kartu ucapan pita beludru cherry.</p>
+      </div>
+
+      <div class="builder-grid">
+        <!-- Steps Column -->
+        <div class="builder-steps-col">
+          <!-- Step 1: Ukuran Box -->
+          <div class="builder-step-card">
+            <div class="step-header">
+              <span class="step-number">1</span>
+              <h3 class="step-title">Pilih Ukuran Box Hampers</h3>
+            </div>
+            <div class="options-grid">
+              <div class="option-box-card selected" onclick="selectBoxSize(4, 140000, 'Box Reguler Isi 4 Jar', this)">
+                <div class="option-box-title">Box Isi 4 Jar</div>
+                <div class="option-box-sub">Porsi pas untuk kado ulang tahun & sahabat</div>
+                <div class="option-box-price">Rp 140.000</div>
+              </div>
+
+              <div class="option-box-card" onclick="selectBoxSize(6, 195000, 'Box Eksklusif Isi 6 Jar', this)">
+                <div class="option-box-title">Box Isi 6 Jar</div>
+                <div class="option-box-sub">Favorit hantaran lamaran & hampers keluarga</div>
+                <div class="option-box-price">Rp 195.000</div>
+              </div>
+
+              <div class="option-box-card" onclick="selectBoxSize(9, 280000, 'Box Pesta Arisan Isi 9 Jar', this)">
+                <div class="option-box-title">Box Isi 9 Jar</div>
+                <div class="option-box-sub">Koleksi lengkap untuk pesta & rapat kantor</div>
+                <div class="option-box-price">Rp 280.000</div>
+              </div>
+            </div>
+
+            <!-- Step 2: Kombinasi Rasa -->
+            <div class="step-header">
+              <span class="step-number">2</span>
+              <h3 class="step-title">Pilih Kombinasi Rasa (Total: <span id="slotsSelected">0</span>/<span id="slotsMax">4</span> Jar)</h3>
+            </div>
+            <div class="flavor-slots-container">
+              <div class="slot-row">
+                <span class="slot-name">🍓 Stroberi Sutra & Madagascar Vanilla</span>
+                <div class="slot-counter">
+                  <button class="btn-slot-qty" onclick="changeSlot('stroberi', -1)">-</button>
+                  <span class="slot-val" id="slotVal_stroberi">2</span>
+                  <button class="btn-slot-qty" onclick="changeSlot('stroberi', 1)">+</button>
+                </div>
+              </div>
+
+              <div class="slot-row">
+                <span class="slot-name">🫐 Raspberry Velvet Royale</span>
+                <div class="slot-counter">
+                  <button class="btn-slot-qty" onclick="changeSlot('raspberry', -1)">-</button>
+                  <span class="slot-val" id="slotVal_raspberry">1</span>
+                  <button class="btn-slot-qty" onclick="changeSlot('raspberry', 1)">+</button>
+                </div>
+              </div>
+
+              <div class="slot-row">
+                <span class="slot-name">🍒 Black Cherry & Dark Chocolate Silk</span>
+                <div class="slot-counter">
+                  <button class="btn-slot-qty" onclick="changeSlot('cherry', -1)">-</button>
+                  <span class="slot-val" id="slotVal_cherry">1</span>
+                  <button class="btn-slot-qty" onclick="changeSlot('cherry', 1)">+</button>
+                </div>
+              </div>
+
+              <div class="slot-row">
+                <span class="slot-name">🥭 Mangga Arumanis & Santan Kelapa</span>
+                <div class="slot-counter">
+                  <button class="btn-slot-qty" onclick="changeSlot('mangga', -1)">-</button>
+                  <span class="slot-val" id="slotVal_mangga">0</span>
+                  <button class="btn-slot-qty" onclick="changeSlot('mangga', 1)">+</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Kartu Ucapan -->
+            <div class="step-header">
+              <span class="step-number">3</span>
+              <h3 class="step-title">Kartu Ucapan & Pesan Hangat</h3>
+            </div>
+            <div>
+              <label style="display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 6px;">
+                Tulis Pesan untuk Penerima (Dicetak rapi di atas kartu linen):
+              </label>
+              <textarea id="builderCardMsg" class="input-recipient" rows="3" placeholder="Contoh: Selamat atas kelahiran putri tercinta, Mbak Rani! Semoga menjadi anak yang solehah. Dari Keluarga Hendra." oninput="updateReceiptUI()"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Receipt Column -->
+        <div class="builder-receipt-col">
+          <div class="builder-receipt-card">
+            <h3 class="receipt-title font-serif">Ringkasan Hampers Box</h3>
+            <p class="receipt-subtitle">Termasuk tas thermal insulated & ice gel pendingin</p>
+
+            <div class="receipt-item">
+              <span class="item-label">Ukuran Box:</span>
+              <span class="item-val" id="recBoxName">Box Reguler Isi 4 Jar</span>
+            </div>
+
+            <div class="receipt-item">
+              <span class="item-label">Isi Varian:</span>
+              <span class="item-val" id="recFlavorsList">2 Stroberi, 1 Raspberry, 1 Cherry</span>
+            </div>
+
+            <div class="receipt-item">
+              <span class="item-label">Aksesoris:</span>
+              <span class="item-val">Pita Satin Velvet Wine + Sendok Kayu</span>
+            </div>
+
+            <div class="receipt-item">
+              <span class="item-label">Kartu Ucapan:</span>
+              <span class="item-val">Gratis (Custom Message)</span>
+            </div>
+
+            <div class="receipt-divider"></div>
+
+            <div class="receipt-total">
+              <span class="total-label">Total Investasi:</span>
+              <span class="total-price" id="recBoxPrice">Rp 140.000</span>
+            </div>
+
+            <button class="btn-primary" style="width: 100%; justify-content: center; padding: 14px; font-size: 15px;" onclick="addHampersToCart()">
+              + Masukkan ke Keranjang
+            </button>
+            <p style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 10px;">
+              Bisa langsung pesan banyak untuk acara arisan & kantor lewat WhatsApp.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ready Catalog Section -->
+  <section class="catalog-section" id="katalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Pilihan Siap Kirim Hari Ini</span>
+        <h2 class="section-title">Katalog Dessert Jar Puding Sutra</h2>
+        <p class="section-desc">Pesan satuan atau bundling untuk dinikmati sendiri di rumah. Dikirim dingin dan higienis.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="catalog-filters">
+        <button class="filter-btn active" onclick="filterCatalog('all', this)">Semua Menu (6)</button>
+        <button class="filter-btn" onclick="filterCatalog('berry', this)">Buah Berry Asli</button>
+        <button class="filter-btn" onclick="filterCatalog('choco', this)">Cokelat & Kopi</button>
+        <button class="filter-btn" onclick="filterCatalog('tropis', this)">Tradisional Tropis</button>
+        <button class="filter-btn" onclick="filterCatalog('lowsugar', this)">Less Sugar</button>
+      </div>
+
+      <!-- Grid Products -->
+      <div class="products-grid" id="catalogGrid">
+        <!-- Product 1 -->
+        <div class="product-card" data-category="berry">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Stroberi Sutra & Madagascar Vanilla">
+            <span class="product-badge">Terlaris #1</span>
+            <span class="product-volume-tag">200ml Glass Jar</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Puding Buah Berry</span>
+            <h3 class="product-name">Stroberi Sutra & Madagascar Vanilla</h3>
+            <div class="product-specs">
+              Toples kaca 200ml berisi potongan stroberi Garut segar, coulis asam manis buah asli, dan lapisan krim susu vanila Madagascar yang lumer di lidah.
+              <span>Bahan: Susu Murni, Stroberi Asli, Vanila Pods, Agar Nabati Halal</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 35.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Stroberi Sutra & Madagascar Vanilla', 35000, 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-category="berry">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80" alt="Raspberry Velvet Royale">
+            <span class="product-badge">Favorit Asam Manis</span>
+            <span class="product-volume-tag">200ml Glass Jar</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Puding Buah Berry</span>
+            <h3 class="product-name">Raspberry Velvet Royale</h3>
+            <div class="product-specs">
+              Puree raspberry impor merah merona berpadu puding sutra lembut dan saus raspberry asam segar yang melegakan dahaga.
+              <span>Bahan: Raspberry Asli, Susu Segar Pasteurisasi, Gula Tebu Alami</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 38.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Raspberry Velvet Royale', 38000, 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-category="choco">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80" alt="Black Cherry & Dark Chocolate Silk">
+            <span class="product-badge">Signature Royale</span>
+            <span class="product-volume-tag">200ml Glass Jar</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Cokelat & Ceri</span>
+            <h3 class="product-name">Black Cherry & Dark Chocolate Silk</h3>
+            <div class="product-specs">
+              Selai black cherry pekat di atas puding cokelat Belgia gelap 60% yang lembut pekat. Perpaduan manis buah dan aroma kakao mewah.
+              <span>Bahan: Kakao Belgia, Ceri Hitam, Susu Evaporasi, Vanila</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 38.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Black Cherry & Dark Chocolate Silk', 38000, 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-category="lowsugar">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1579954115563-e72bf1381629?auto=format&fit=crop&w=800&q=80" alt="Panna Cotta Vanilla & Berry Compote Less Sugar">
+            <span class="product-badge">Pilihan Rendah Gula</span>
+            <span class="product-volume-tag">200ml Glass Jar</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Less Sugar Panna Cotta</span>
+            <h3 class="product-name">Panna Cotta Vanilla & Mixed Berry Less Sugar</h3>
+            <div class="product-specs">
+              Rendah kalori dengan pemanis daun stevia alami, bintik vanila pods asli dan topping tiga macam buah beri segar. Ramah untuk diet.
+              <span>Bahan: Daun Stevia Alami, Susu Almond & Sapi Rendah Lemak, Beri</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 36.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Panna Cotta Vanilla & Mixed Berry Less Sugar', 36000, 'https://images.unsplash.com/photo-1579954115563-e72bf1381629?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-category="tropis">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80" alt="Mangga Arumanis & Santan Kelapa Muda">
+            <span class="product-badge">Rasa Tropis Segar</span>
+            <span class="product-volume-tag">200ml Glass Jar</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Puding Tropis Segar</span>
+            <h3 class="product-name">Mangga Arumanis & Santan Kelapa Muda</h3>
+            <div class="product-specs">
+              Saus mangga Arumanis matang pohon yang legit harum dipadu puding santan kelapa muda perasan pertama yang gurih lembut khas Nusantara.
+              <span>Bahan: Mangga Arumanis Asli, Santan Kelapa Murni, Ekstrak Daun Pandan</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 35.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Mangga Arumanis & Santan Kelapa Muda', 35000, 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-category="choco">
+          <div class="product-image-wrap">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80" alt="Belgian Cocoa & Espresso Cream">
+            <span class="product-badge">Aroma Kopi Mantap</span>
+            <span class="product-volume-tag">200ml Glass Jar</span>
+          </div>
+          <div class="product-content">
+            <span class="product-category">Cokelat & Kopi</span>
+            <h3 class="product-name">Belgian Cocoa & Espresso Mocca Cream</h3>
+            <div class="product-specs">
+              Ekstrak kopi espresso arabika Jawa Barat dipadukan dengan puding cokelat hitam Belgia dan lapisan krim susu vanila lembut.
+              <span>Bahan: Kopi Arabika Asli, Dark Cocoa Powder, Susu Pasteurisasi</span>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">Rp 36.000</span>
+              <button class="btn-add-cart" onclick="addToCart('Belgian Cocoa & Espresso Mocca Cream', 36000, 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80')">
+                + Keranjang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Portion Calculator -->
+  <section class="calculator-section" id="kalkulator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Estimasi Cepat Acara Anda</span>
+        <h2 class="section-title">Kalkulator Kebutuhan Porsi Acara & Arisan</h2>
+        <p class="section-desc">Berapa banyak toples puding yang perlu disiapkan untuk tamu undangan Anda? Geser slider di bawah ini:</p>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-slider-box">
+          <div class="calc-slider-header">
+            <span style="font-weight: 700;">Jumlah Tamu Undangan:</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--color-cherry);" id="calcGuestCount">30 Orang</span>
+          </div>
+          <input type="range" min="10" max="150" step="5" value="30" class="calc-slider" id="guestRange" oninput="calculateEventDessert(this.value)">
+        </div>
+
+        <div class="calc-results-grid">
+          <div>
+            <div class="calc-res-val" id="resJarCount">35 Jar</div>
+            <div class="calc-res-lbl">Rekomendasi Jumlah Jar</div>
+          </div>
+          <div>
+            <div class="calc-res-val" id="resBoxCombo">4 Box Isi 9 + 1 Cup</div>
+            <div class="calc-res-lbl">Paket Box Paling Hemat</div>
+          </div>
+          <div>
+            <div class="calc-res-val" id="resEstCost">Rp 1.150.000</div>
+            <div class="calc-res-lbl">Estimasi Biaya (+ Diskon 10%)</div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 24px;">
+          <a href="https://wa.me/6281234567890?text=Halo%20Sutra%20Manis,%20saya%20ingin%20konsultasi%20paket%20puding%20untuk%20acara%2030%20orang" target="_blank" class="btn-primary">
+            Konsultasi Kebutuhan Acara via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cold Chain Guarantees -->
+  <section class="coldchain-section" id="jaminan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Standar Higienitas & Rantai Dingin</span>
+        <h2 class="section-title">Segar & Dingin Sempurna Sampai ke Tangan Anda</h2>
+        <p class="section-desc">Kami menjaga suhu 4°C sepanjang perjalanan agar puding tetap lumer lembut dan buah tetap segar renyah.</p>
+      </div>
+
+      <div class="coldchain-grid">
+        <div class="coldchain-card">
+          <span class="coldchain-icon">🌅⏱️</span>
+          <h4>Fresh Made Tiap Fajar</h4>
+          <p>Seluruh puding dimasak mulai pukul 04.00 pagi. Kami tidak pernah mengirimkan stok sisa hari kemarin demi kesegaran rasa maksimal.</p>
+        </div>
+
+        <div class="coldchain-card">
+          <span class="coldchain-icon">🫙✨</span>
+          <h4>Toples Kaca Sterilisasi</h4>
+          <p>Wadah jar kaca disterilisasi suhu uap panas sebelum pengisian. 100% higienis, kedap udara, dan bebas bau plastik.</p>
+        </div>
+
+        <div class="coldchain-card">
+          <span class="coldchain-icon">❄️🛍️</span>
+          <h4>Tas Thermal & Ice Gel Gratis</h4>
+          <p>Setiap paket dilengkapi insulated cooler bag tebal dan ice pack pendingin yang menjaga suhu dingin hingga 6 jam di perjalanan.</p>
+        </div>
+
+        <div class="coldchain-card">
+          <span class="coldchain-icon">🛡️🤝</span>
+          <h4>Garansi 100% Ganti Baru</h4>
+          <p>Jika toples pecah atau puding rusak selama pengantaran kurir GoSend/Grab, kami kirimkan toples baru pengganti langsung tanpa biaya!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Pertanyaan Sering Diajukan</span>
+        <h2 class="section-title">Informasi Pesanan & Ketahanan Puding</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item active">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Berapa lama puding sutra ini dapat disimpan?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Puding sutra kami bertahan hingga 4–5 hari jika disimpan di dalam chiller/kulkas bersuhu 2°C–5°C dalam keadaan toples tertutup rapat. Untuk kualitas rasa buah terbaik, kami sarankan dinikmati dalam 3 hari pertama setelah diterima.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah produk ini menggunakan gelatin hewani?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Tidak! Kami 100% menggunakan agar-agar rumput laut nabati murni bersertifikat Halal MUI. Sangat aman dan nyaman dikonsumsi oleh siapa saja tanpa rasa was-was.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah toples kaca dapat digunakan kembali (reusable)?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Tentu saja! Toples kaca kami berkualitas tebal dan memiliki tutup kedap udara. Sangat ramah lingkungan dan bisa Anda cuci bersih untuk wadah bumbu dapur, selai, atau hiasan vas mini di rumah.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Bagaimana cara pengiriman agar puding tidak rusak di jalan?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Kami menggunakan layanan kurir instan atau same-day (GoSend / GrabExpress / Paxel pendingin). Setiap box dimasukkan ke dalam insulated thermal bag bersama es gel beku sehingga puding tetap kokoh, dingin, dan segar saat tiba di meja Anda.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Bisa pesan hampers dengan kartu ucapan kustom untuk arisan/kado?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Sangat bisa dan gratis! Anda cukup memilih opsi box hampers, mengetikkan pesan ucapan yang diinginkan, dan tim kami akan mencetaknya di atas kartu ucapan berbahan linen tebal dengan pita satin beludru cherry yang mewah.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="font-serif">SUTRA MANIS</h3>
+          <p>Dapur puding sutra artisan bertekstur lumer di lidah dengan saus buah stroberi, raspberry, dan vanila asli. Menghadirkan manis yang hangat dan berkelas untuk momen hantaran teristimewa Anda.</p>
+          <div style="font-size: 13px; color: var(--color-vanilla);">
+            📍 Dapur Atelier: Jakarta Selatan & Bandung Kota • Pengiriman Instan Dingin
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Menu Pilihan</h5>
+          <ul>
+            <li><a href="#katalog">Stroberi Sutra Vanilla</a></li>
+            <li><a href="#katalog">Raspberry Velvet Royale</a></li>
+            <li><a href="#katalog">Black Cherry & Dark Cocoa</a></li>
+            <li><a href="#katalog">Mangga Arumanis Tropis</a></li>
+            <li><a href="#katalog">Panna Cotta Less Sugar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Layanan Klien</h5>
+          <ul>
+            <li><a href="#builder">Rakit Box Hampers</a></li>
+            <li><a href="#kalkulator">Kalkulator Porsi Acara</a></li>
+            <li><a href="#jaminan">Jaminan Rantai Dingin</a></li>
+            <li><a href="#faq">Tanya Jawab (FAQ)</a></li>
+            <li><a href="https://wa.me/6281234567890" target="_blank">Pemesanan WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Waktu Dapur & Kirim</h5>
+          <p style="font-size: 13px; color: #D1B3BC; margin-bottom: 8px;">Batch 1 (Pagi): 08.00 – 12.00 WIB</p>
+          <p style="font-size: 13px; color: #D1B3BC; margin-bottom: 14px;">Batch 2 (Sore): 13.00 – 18.00 WIB</p>
+          <div style="font-size: 12px; color: #9C7883;">
+            Buka setiap hari Senin – Minggu untuk pesanan personal maupun acara arisan.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 SUTRA MANIS Atelier. Hak cipta dilindungi undang-undang.</div>
+        <div>Dibuat dengan standar anti-slop NECTOR.UI • Silky Fruit Pudding Artisan</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3 class="font-serif">Keranjang Puding Dingin</h3>
+      <button class="btn-close-drawer" onclick="toggleCartDrawer()">&times;</button>
+    </div>
+
+    <div class="cart-items-body" id="cartItemsList">
+      <div class="cart-empty-state" id="cartEmptyState">
+        <div style="font-size: 36px; margin-bottom: 10px;">🍓</div>
+        <p>Keranjang masih kosong.</p>
+        <p style="font-size: 12.5px; margin-top: 4px;">Pilih dessert jar favorit atau rakit box hampers hantaran Anda.</p>
+      </div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span style="font-weight: 700;">Total Biaya:</span>
+        <span class="subtotal-val" id="cartTotalVal">Rp 0</span>
+      </div>
+
+      <input type="text" id="custName" class="input-recipient" placeholder="Nama Lengkap Pemesan">
+      <input type="text" id="custCity" class="input-recipient" placeholder="Kota & Alamat Lengkap Pengiriman">
+      <textarea id="custNotes" class="input-recipient" rows="2" placeholder="Catatan Pengiriman (misal: kirim jam 14.00, titip security)"></textarea>
+
+      <button class="btn-primary" style="width: 100%; justify-content: center; padding: 13px; font-size: 15px;" onclick="checkoutWhatsApp()">
+        Pesan via WhatsApp Sekarang
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/6281234567890?text=Halo%20Sutra%20Manis,%20saya%20ingin%20memesan%20puding%20sutra" target="_blank" class="floating-wa-btn">
+    <span>💬</span>
+    <span>Pesan WhatsApp</span>
+  </a>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg">
+    <span id="toastIcon">✨</span>
+    <span id="toastText">Pesan berhasil disalin!</span>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // State Keranjang
+    let cart = [];
+
+    // State Layer Inspector
+    let currentInspectedFlavor = {
+      name: 'Stroberi Sutra & Madagascar Vanilla',
+      price: 35000,
+      img: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80'
+    };
+
+    // State Builder Box
+    let builderBox = {
+      size: 4,
+      name: 'Box Reguler Isi 4 Jar',
+      price: 140000,
+      slots: {
+        stroberi: 2,
+        raspberry: 1,
+        cherry: 1,
+        mangga: 0
+      }
+    };
+
+    // Salin Kode Warna Hex (Fitur Permintaan Utama User)
+    function copyColorHex(hexCode, colorName) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(hexCode).then(() => {
+          showToast(`📋 Berhasil disalin: ${colorName} (${hexCode})`);
+        }).catch(() => {
+          fallbackCopyText(hexCode, colorName);
+        });
+      } else {
+        fallbackCopyText(hexCode, colorName);
+      }
+    }
+
+    function fallbackCopyText(text, name) {
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast(`📋 Berhasil disalin: ${name} (${text})`);
+    }
+
+    // Layer Inspector Switcher
+    function selectInspectorFlavor(key, element) {
+      const pills = document.querySelectorAll('.flavor-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      element.classList.add('active');
+
+      const topLayer = document.getElementById('layerTop');
+      const midLayer = document.getElementById('layerMid');
+      const botLayer = document.getElementById('layerBot');
+
+      const t1 = document.getElementById('txtLayer1Title');
+      const d1 = document.getElementById('txtLayer1Desc');
+      const t2 = document.getElementById('txtLayer2Title');
+      const d2 = document.getElementById('txtLayer2Desc');
+      const t3 = document.getElementById('txtLayer3Title');
+      const d3 = document.getElementById('txtLayer3Desc');
+
+      if (key === 'strawberry') {
+        topLayer.style.background = 'linear-gradient(180deg, #850E35, #EE6983)';
+        midLayer.style.background = 'linear-gradient(180deg, #EE6983, #FFC4C4)';
+        botLayer.style.background = 'linear-gradient(180deg, #FFC4C4, #FFF5E4)';
+
+        t1.textContent = 'Lapisan 1: Stroberi Garut Utuh & Saus Kental Asli';
+        d1.textContent = 'Potongan buah stroberi segar lokal yang dimasak perlahan bersama perasan lemon segar tanpa gelatin hewan dan tanpa pemanis sintetis.';
+        t2.textContent = 'Lapisan 2: Puding Sutra Stroberi Merah Muda';
+        d2.textContent = 'Puding agar rumput laut nabati berpadu puree stroberi alami. Tekstur kenyal lembut yang lumer ketika disentuh sendok.';
+        t3.textContent = 'Lapisan 3: Puding Krim Susu Vanila Madagascar';
+        d3.textContent = 'Basis krim susu sapi pasteurisasi kaya nutrisi dengan bintik biji vanila Madagascar murni. Gurih, manis lembut, dan menenangkan.';
+
+        currentInspectedFlavor = {
+          name: 'Stroberi Sutra & Madagascar Vanilla',
+          price: 35000,
+          img: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80'
+        };
+      } else if (key === 'raspberry') {
+        topLayer.style.background = 'linear-gradient(180deg, #850E35, #D82148)';
+        midLayer.style.background = 'linear-gradient(180deg, #D82148, #EE6983)';
+        botLayer.style.background = 'linear-gradient(180deg, #EE6983, #FFF5E4)';
+
+        t1.textContent = 'Lapisan 1: Raspberry Coulis Asli & Biji Halus';
+        d1.textContent = 'Saus buah raspberry impor dengan rasa asam segar dominan yang membersihkan lidah dari rasa eneg.';
+        t2.textContent = 'Lapisan 2: Puding Raspberry Merah Delima';
+        d2.textContent = 'Puding sutra kaya antioksidan beraroma buah segar alami tanpa pewarna kimia buatan.';
+        t3.textContent = 'Lapisan 3: Puding Panna Cotta Susu Murni';
+        d3.textContent = 'Lapisan penyeimbang rasa asam raspberry dengan sensasi lembut manis tipis susu sapi segar.';
+
+        currentInspectedFlavor = {
+          name: 'Raspberry Velvet Royale',
+          price: 38000,
+          img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80'
+        };
+      } else if (key === 'cherry') {
+        topLayer.style.background = 'linear-gradient(180deg, #420517, #850E35)';
+        midLayer.style.background = 'linear-gradient(180deg, #850E35, #5A2A38)';
+        botLayer.style.background = 'linear-gradient(180deg, #5A2A38, #30171F)';
+
+        t1.textContent = 'Lapisan 1: Black Cherry Compote & Potongan Ceri';
+        d1.textContent = 'Ceri hitam utuh dimasak dengan gula karamel halus menghasilkan selai berkilau gelap pekat mewah.';
+        t2.textContent = 'Lapisan 2: Puding Black Cherry Sutra';
+        d2.textContent = 'Puding lembut rasa buah ceri dengan perpaduan keasaman buah batu yang khas.';
+        t3.textContent = 'Lapisan 3: Puding Cokelat Hitam Belgia 60%';
+        d3.textContent = 'Basis kakao gelap Belgia pekat dengan rasa pahit-manis yang elegan dan menawan.';
+
+        currentInspectedFlavor = {
+          name: 'Black Cherry & Dark Chocolate Silk',
+          price: 38000,
+          img: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80'
+        };
+      } else if (key === 'mango') {
+        topLayer.style.background = 'linear-gradient(180deg, #E67E22, #F39C12)';
+        midLayer.style.background = 'linear-gradient(180deg, #F39C12, #FAD7A0)';
+        botLayer.style.background = 'linear-gradient(180deg, #FAD7A0, #FFF5E4)';
+
+        t1.textContent = 'Lapisan 1: Puree Mangga Arumanis & Daging Buah';
+        d1.textContent = 'Daging mangga Arumanis matang pohon dipotong dadu dalam saus puree mangga kental harum alami.';
+        t2.textContent = 'Lapisan 2: Puding Mangga Tropis Lembut';
+        d2.textContent = 'Puding lumer dengan cita rasa mangga manis segar khas kebun tropis Nusantara.';
+        t3.textContent = 'Lapisan 3: Puding Santan Kelapa Muda Daun Pandan';
+        d3.textContent = 'Perasan pertama santan kelapa muda gurih beraroma pandan suji yang menyatu nikmat.';
+
+        currentInspectedFlavor = {
+          name: 'Mangga Arumanis & Santan Kelapa',
+          price: 35000,
+          img: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80'
+        };
+      }
+    }
+
+    function addInspectedFlavorToCart() {
+      addToCart(currentInspectedFlavor.name, currentInspectedFlavor.price, currentInspectedFlavor.img);
+      toggleCartDrawer(true);
+    }
+
+    // Builder Box Hampers Logic
+    function selectBoxSize(size, price, name, element) {
+      const cards = document.querySelectorAll('.option-box-card');
+      cards.forEach(c => c.classList.remove('selected'));
+      element.classList.add('selected');
+
+      builderBox.size = size;
+      builderBox.price = price;
+      builderBox.name = name;
+
+      // Reset slots agar proporsional
+      if (size === 4) {
+        builderBox.slots = { stroberi: 2, raspberry: 1, cherry: 1, mangga: 0 };
+      } else if (size === 6) {
+        builderBox.slots = { stroberi: 2, raspberry: 2, cherry: 1, mangga: 1 };
+      } else if (size === 9) {
+        builderBox.slots = { stroberi: 3, raspberry: 2, cherry: 2, mangga: 2 };
+      }
+
+      updateSlotUI();
+      updateReceiptUI();
+    }
+
+    function changeSlot(flavor, delta) {
+      const currentTotal = Object.values(builderBox.slots).reduce((a, b) => a + b, 0);
+      const currentVal = builderBox.slots[flavor] || 0;
+
+      if (delta > 0 && currentTotal >= builderBox.size) {
+        showToast(`⚠️ Kuota toples sudah penuh (${builderBox.size} Jar). Kurangi varian lain terlebih dahulu.`);
+        return;
+      }
+      if (delta < 0 && currentVal <= 0) {
+        return;
+      }
+
+      builderBox.slots[flavor] = currentVal + delta;
+      updateSlotUI();
+      updateReceiptUI();
+    }
+
+    function updateSlotUI() {
+      document.getElementById('slotVal_stroberi').textContent = builderBox.slots.stroberi;
+      document.getElementById('slotVal_raspberry').textContent = builderBox.slots.raspberry;
+      document.getElementById('slotVal_cherry').textContent = builderBox.slots.cherry;
+      document.getElementById('slotVal_mangga').textContent = builderBox.slots.mangga;
+
+      const currentTotal = Object.values(builderBox.slots).reduce((a, b) => a + b, 0);
+      document.getElementById('slotsSelected').textContent = currentTotal;
+      document.getElementById('slotsMax').textContent = builderBox.size;
+    }
+
+    function updateReceiptUI() {
+      document.getElementById('recBoxName').textContent = builderBox.name;
+      document.getElementById('recBoxPrice').textContent = formatRupiah(builderBox.price);
+
+      const items = [];
+      if (builderBox.slots.stroberi > 0) items.push(`${builderBox.slots.stroberi} Stroberi`);
+      if (builderBox.slots.raspberry > 0) items.push(`${builderBox.slots.raspberry} Raspberry`);
+      if (builderBox.slots.cherry > 0) items.push(`${builderBox.slots.cherry} Cherry`);
+      if (builderBox.slots.mangga > 0) items.push(`${builderBox.slots.mangga} Mangga`);
+
+      document.getElementById('recFlavorsList').textContent = items.join(', ') || 'Belum dipilih';
+    }
+
+    function addHampersToCart() {
+      const currentTotal = Object.values(builderBox.slots).reduce((a, b) => a + b, 0);
+      if (currentTotal < builderBox.size) {
+        alert(`Harap lengkapi pilihan rasa hingga ${builderBox.size} jar (saat ini baru ${currentTotal} jar).`);
+        return;
+      }
+
+      const cardMsg = document.getElementById('builderCardMsg').value.trim();
+      const items = [];
+      if (builderBox.slots.stroberi > 0) items.push(`${builderBox.slots.stroberi} Stroberi`);
+      if (builderBox.slots.raspberry > 0) items.push(`${builderBox.slots.raspberry} Raspberry`);
+      if (builderBox.slots.cherry > 0) items.push(`${builderBox.slots.cherry} Cherry`);
+      if (builderBox.slots.mangga > 0) items.push(`${builderBox.slots.mangga} Mangga`);
+
+      const title = `Hampers: ${builderBox.name} [${items.join(', ')}]`;
+      const img = 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80';
+
+      addToCart(title, builderBox.price, img, cardMsg);
+      toggleCartDrawer(true);
+    }
+
+    // Filter Katalog
+    function filterCatalog(category, button) {
+      const buttons = document.querySelectorAll('.catalog-filters .filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const cards = document.querySelectorAll('#catalogGrid .product-card');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (category === 'all' || cat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Event Portion Calculator
+    function calculateEventDessert(guests) {
+      document.getElementById('calcGuestCount').textContent = guests + ' Orang';
+      const jarNeeded = Math.round(guests * 1.15);
+      document.getElementById('resJarCount').textContent = jarNeeded + ' Jar';
+
+      const boxCount = Math.floor(jarNeeded / 9);
+      const remainder = jarNeeded % 9;
+      document.getElementById('resBoxCombo').textContent = `${boxCount} Box Isi 9 + ${remainder} Jar`;
+
+      const rawCost = jarNeeded * 35000;
+      const discountCost = Math.round(rawCost * 0.90);
+      document.getElementById('resEstCost').textContent = formatRupiah(discountCost);
+    }
+
+    // Cart System
+    function addToCart(title, price, img, note = '') {
+      const existing = cart.find(item => item.title === title && item.note === note);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ title, price, img, qty: 1, note });
+      }
+      updateCartUI();
+      showToast(`🍓 Ditambahkan: ${title}`);
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const list = document.getElementById('cartItemsList');
+      const count = document.getElementById('cartCount');
+      const totalVal = document.getElementById('cartTotalVal');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      count.textContent = totalItems;
+      totalVal.textContent = formatRupiah(totalPrice);
+
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div class="cart-empty-state">
+            <div style="font-size: 36px; margin-bottom: 10px;">🍓</div>
+            <p>Keranjang masih kosong.</p>
+            <p style="font-size: 12.5px; margin-top: 4px;">Pilih dessert jar favorit atau rakit box hampers hantaran Anda.</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = cart.map((item, idx) => `
+        <div class="cart-item-row">
+          <img src="${item.img}" alt="${item.title}" class="cart-item-thumb">
+          <div class="cart-item-info">
+            <div class="cart-item-title">${item.title}</div>
+            <div class="cart-item-price">${formatRupiah(item.price)}</div>
+            ${item.note ? `<div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Ucapan: "${item.note}"</div>` : ''}
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+              <span class="qty-val">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+              <button class="btn-remove-item" onclick="removeItem(${idx})">Hapus</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleCartDrawer(forceOpen = null) {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      const isOpen = forceOpen !== null ? forceOpen : !drawer.classList.contains('open');
+
+      if (isOpen) {
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+      } else {
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+      }
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang pesanan masih kosong.');
+        return;
+      }
+
+      const name = document.getElementById('custName').value.trim() || 'Pelanggan';
+      const city = document.getElementById('custCity').value.trim() || 'Jakarta';
+      const notes = document.getElementById('custNotes').value.trim();
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      let text = `Halo Admin SUTRA MANIS, saya ingin memesan puding sutra dingin:\n\n`;
+      text += `👤 *Nama Pemesan*: ${name}\n`;
+      text += `📍 *Kota / Alamat*: ${city}\n\n`;
+      text += `🛍️ *Rincian Pesanan*:\n`;
+
+      cart.forEach((item, i) => {
+        text += `${i + 1}. ${item.title} (${item.qty}x) - ${formatRupiah(item.price * item.qty)}\n`;
+        if (item.note) {
+          text += `   ↳ Catatan: "${item.note}"\n`;
+        }
+      });
+
+      text += `\n💰 *Total Biaya*: ${formatRupiah(totalPrice)}\n`;
+      if (notes) {
+        text += `📝 *Catatan Pengiriman*: ${notes}\n`;
+      }
+      text += `\nMohon konfirmasi ketersediaan batch fresh hari ini dan ongkir pendinginnya. Terima kasih!`;
+
+      const encoded = encodeURIComponent(text);
+      window.open(`https://wa.me/6281234567890?text=${encoded}`, '_blank');
+    }
+
+    // Accordion FAQ
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function formatRupiah(number) {
+      return 'Rp ' + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toastMsg');
+      const toastText = document.getElementById('toastText');
+      toastText.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2800);
+    }
+  </script>
+</body>
+</html>

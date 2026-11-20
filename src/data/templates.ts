@@ -3,6 +3,84 @@ import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
+    id: 'tpl-58',
+    slug: 'sutra-manis-puding-artisan',
+    title: 'SUTRA MANIS',
+    tagline: 'Dapur puding sutra buah asli, dessert jar lumer & hampers hantaran Nusantara',
+    description: 'Template website dapur puding sutra lembut lumer di lidah (melt-in-your-mouth silky pudding) dalam toples kaca steril 200ml berlapis selai stroberi Garut asli, raspberry coulis kental, dan vanila Madagascar murni. Dirancang dengan standar anti-slop tinggi yang berfokus langsung pada produk kuliner fisik nyata: inspektor anatomi lapisan dessert jar (Layer Savor Inspector) dengan animasi lapisan bahan murni dan rincian nutrisi, studio perakit paket box hampers hantaran isi 4, 6, atau 9 jar dengan opsi kartu ucapan pita beludru cherry, swatch palet warna interaktif dengan fitur salin heksadesimal sekali klik, kalkulator kebutuhan porsi acara & arisan, jaminan rantai dingin insulated thermal bag, serta drawer keranjang belanja terhubung ke WhatsApp Admin.',
+    category: 'pudding',
+    tags: ['Puding Sutra', 'Silky Pudding', 'Dessert Jar', 'Hampers Hantaran', 'Buah Asli', 'Less Sugar', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Layer Savor Inspector', 'Custom Hampers Builder', 'Event Calculator', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'pudding',
+    previewComponentKey: 'pudding-sutra-manis',
+    htmlPath: '/templates/pudding/sutra-manis-puding-artisan.html',
+    htmlFolderPath: 'templates/pudding/sutra-manis-puding-artisan.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
+      'Palet harmoni vanilla strawberry & velvet cherry: warm vanilla (#FFF5E4), strawberry blush (#FFC4C4), raspberry glaze (#EE6983), velvet cherry wine (#850E35)',
+      'Inspektor anatomi lapisan toples kaca (Layer Savor Inspector) interaktif dengan diagram 3 lapis bahan murni dan kalori gizi',
+      'Studio perakit box hampers hantaran (Custom Box Builder) 3 langkah dengan penghitung kuota toples dan kalkulasi harga instan',
+      'Swatch warna koleksi interaktif dengan fitur salin kode hex sekali klik ke clipboard',
+      'Kalkulator kebutuhan porsi dessert acara & arisan dengan rekomendasi paket box paling hemat',
+      'Drawer keranjang belanja slide-over dengan kolom request jam kirim dan pembuatan format pesan checkout WhatsApp instan'
+    ],
+    usageInstructions: [
+      'Buka berkas public/templates/pudding/sutra-manis-puding-artisan.html di text editor pilihan Anda.',
+      'Ubah daftar menu varian puding, ukuran toples (200ml / 250ml), dan harga hampers sesuai katalog dapur Anda.',
+      'Sesuaikan nomor WhatsApp admin pada fungsi checkout untuk menerima pesanan langsung.',
+      'Buka langsung di browser atau uji responsivitasnya melalui etalase NECTOR.UI.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'sutra-manis-puding-artisan.html',
+        language: 'html',
+        content: `<!-- SUTRA MANIS — NECTOR.UI Silky Fruit Pudding Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SUTRA MANIS — Dapur Puding Sutra Buah Asli, Dessert Jar Lumer & Hampers Hantaran Nusantara</title>
+  <style>
+    :root {
+      --color-vanilla: #FFF5E4;
+      --color-blush: #FFC4C4;
+      --color-raspberry: #EE6983;
+      --color-cherry: #850E35;
+      --bg-canvas: #FFFDF9;
+      --text-ink: #2B0612;
+      --text-muted: #6B3445;
+    }
+  </style>
+</head>
+<body>
+  <h1>SUTRA MANIS</h1>
+  <p>Kelembutan puding sutra murni berlapis saus buah asli yang lumer di lidah.</p>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS lengkap dengan layer inspector, hampers builder, dan checkout WhatsApp.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt untuk website e-commerce dapur puding sutra buah asli SUTRA MANIS berkonsep silky dessert jar, hampers hantaran arisan & pengiriman dingin.',
+      designDirection: 'Dominasi warna warm vanilla cream (#FFF5E4), soft rose strawberry (#FFC4C4), raspberry glaze (#EE6983), dan deep velvet cherry wine (#850E35). Latar kanvas gading hangat dengan pola plus grid halus dan teks kontras tinggi arang anggur pekat (#2B0612) berstandar AAA.',
+      layoutAndGrid: 'Asymmetric editorial hero grid dengan fotografi nyata dessert jar, bar swatch warna klik-salin hex, layer inspector edukatif, hampers box builder dinamis, dan kalkulator acara.',
+      typographyAndColor: 'Headings dalam serif elegan Playfair Display, body teks dalam Plus Jakarta Sans, volume mililiter dan nominal rupiah dalam JetBrains Mono.',
+      interactions: 'Layer inspector interaktif dengan animasi ganti rasa, copy-to-clipboard kode hex warna, hampers builder dengan kuota toples, dan drawer keranjang WhatsApp.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, zero dependencies, valid W3C markup.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#850E35',
+    colorPalette: [
+      { hex: '#FFF5E4', rgb: 'rgb(255, 245, 228)', name: 'Warm Vanilla Cream', role: 'Warna Puding Susu Vanila Madagascar & Aksen Kartu Krim' },
+      { hex: '#FFC4C4', rgb: 'rgb(255, 196, 196)', name: 'Soft Rose Strawberry Blush', role: 'Warna Susu Stroberi Segar, Badge Rasa & Pita Halus' },
+      { hex: '#EE6983', rgb: 'rgb(238, 105, 131)', name: 'Raspberry Coral Glaze', role: 'Warna Saus Buah Raspberry Kental & Sorotan Selai' },
+      { hex: '#850E35', rgb: 'rgb(133, 14, 53)', name: 'Deep Velvet Cherry Wine', role: 'Warna Aksen Utama, Tombol Kontras & Pita Beludru Kado' }
+    ]
+  },
+  {
     id: 'tpl-57',
     slug: 'mekar-abadi-bunga-kering',
     title: 'MEKAR ABADI',
