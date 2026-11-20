@@ -3,6 +3,84 @@ import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
+    id: 'tpl-60',
+    slug: 'kirana-scarf-hijab-voal',
+    title: 'KIRANA SCARF',
+    tagline: 'Atelier hijab voal ultrafine 60s, scarf sutra satin & pashmina silk kado Nusantara',
+    description: 'Template website atelier modest fashion hijab dan scarf premium (KIRANA SCARF) yang berfokus langsung pada produk fisik nyata: hijab voal ultrafine 60s tegak mandiri di dahi, scarf sutra satin berkilau lembut untuk pesta, dan pashmina crinkle silk ironless. Dilengkapi studio inspeksi jatuh kain & finishing tepi interaktif (Ultrasonic Scallop Petal, Wave Minimalist, Clean Hem), studio perakit hampers hardbox kado berpita satin dengan kartu ucapan personal, swatch palet warna resmi atelier klik-salin hex instan, panduan perawatan serat hijab, serta drawer tas belanja terhubung langsung ke WhatsApp Admin.',
+    category: 'scarf',
+    tags: ['Hijab Voal Ultrafine', 'Scarf Sutra Satin', 'Pashmina Crinkle', 'Laser Cut Finishing', 'Hampers Hardbox Kado', 'Modest Fashion', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Fabric Drape Viewer', 'Laser Cut Selector', 'Hampers Box Builder', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'scarf',
+    previewComponentKey: 'scarf-kirana',
+    htmlPath: '/templates/scarf/kirana-scarf-hijab-voal.html',
+    htmlFolderPath: 'templates/scarf/kirana-scarf-hijab-voal.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
+      'Palet warna harmoni atelier: almond linen (#F5EEE6), butter milk (#FFF8E3), peach powder (#F3D7CA), dan dusty peony (#E6A4B4)',
+      'Latar kanvas bertekstur micro-pattern anyaman linen halus (woven linen micro-grid) yang elegan dan berkarakter',
+      'Studio inspeksi jatuh kain interaktif (Fabric Drape & Edge Viewer) dengan perbandingan voal 60s vs sutra satin vs pashmina crinkle',
+      'Pemilih finishing tepian laser cut: ultrasonic scallop petal, wave minimalist, dan jahit tepi halus',
+      'Studio perakit hampers hardbox kado (Gift Box Builder) duo/trio dengan kustomisasi nama dan kartu ucapan personal',
+      'Swatch bar palet warna interaktif dengan fitur salin kode hex dan nilai RGB sekali klik',
+      'Drawer keranjang belanja slide-over dengan generator format pesan pesanan WhatsApp otomatis'
+    ],
+    usageInstructions: [
+      'Buka berkas public/templates/scarf/kirana-scarf-hijab-voal.html di text editor atau IDE pilihan Anda.',
+      'Ubah nama varian warna, bahan scarf, dan harga produk sesuai katalog butik atau atelier Anda.',
+      'Sesuaikan nomor WhatsApp admin pada fungsi checkout untuk menerima pesanan langsung dari pelanggan.',
+      'Buka langsung di browser atau uji responsivitasnya melalui etalase NECTOR.UI.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'kirana-scarf-hijab-voal.html',
+        language: 'html',
+        content: `<!-- KIRANA SCARF — NECTOR.UI Modest Hijab & Scarf Atelier Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>KIRANA SCARF — Atelier Hijab Voal Ultrafine, Scarf Sutra Satin & Pashmina Silk Nusantara</title>
+  <style>
+    :root {
+      --color-almond: #F5EEE6;
+      --color-butter: #FFF8E3;
+      --color-peach: #F3D7CA;
+      --color-rose: #E6A4B4;
+      --color-ink: #2C1E23;
+      --color-rose-deep: #A2485E;
+    }
+  </style>
+</head>
+<body>
+  <h1>KIRANA SCARF</h1>
+  <p>Atelier hijab voal ultrafine dan scarf sutra satin kualitas butik Nusantara.</p>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS lengkap dengan drape viewer, hampers builder, dan checkout WhatsApp.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt untuk website e-commerce atelier modest fashion KIRANA SCARF berkonsep hijab voal ultrafine 60s, scarf sutra satin, pashmina crinkle & perakit hampers kado hardbox.',
+      designDirection: 'Dominasi warna hangat atelier: almond linen (#F5EEE6), butter milk (#FFF8E3), peach powder (#F3D7CA), dan dusty peony (#E6A4B4). Latar kanvas bertekstur woven linen micro-grid halus dengan kontras teks arang plum pekat (#2C1E23) berstandar AAA.',
+      layoutAndGrid: 'Asymmetric editorial hero grid dengan fotografi kain nyata, swatch bar warna klik-salin hex, drape & edge finishing studio interaktif, perakit hampers kado dinamis, dan katalog produk siap kirim.',
+      typographyAndColor: 'Headings dalam Playfair Display yang anggun, body teks dalam Plus Jakarta Sans yang bersih dan terbaca jelas, spesifikasi ukuran dan harga dalam JetBrains Mono.',
+      interactions: 'Studio drape kain dengan opsi voal vs satin vs pashmina, pemilih tepian laser cut, hampers box builder dengan pilihan varian dan kartu ucapan, swatch bar klik-salin hex, dan drawer keranjang WhatsApp.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, zero dependencies, valid W3C markup.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#A2485E',
+    colorPalette: [
+      { hex: '#F5EEE6', rgb: 'rgb(245, 238, 230)', name: 'Almond Linen Cream', role: 'Warna Latar Utama & Hijab Voal Netral Hangat' },
+      { hex: '#FFF8E3', rgb: 'rgb(255, 248, 227)', name: 'Butter Milk Chiffon', role: 'Warna Kartu Cerah & Pashmina Broken White' },
+      { hex: '#F3D7CA', rgb: 'rgb(243, 215, 202)', name: 'Peach Powder Blush', role: 'Warna Aksen Nude & Scarf Sutra Satin Halus' },
+      { hex: '#E6A4B4', rgb: 'rgb(230, 164, 180)', name: 'Dusty Peony Rose', role: 'Warna Aksen Feminin Khas Atelier & Badge Unggulan' },
+    ],
+  },
+  {
     id: 'tpl-59',
     slug: 'sejuk-ria-es-stik-buah',
     title: 'SEJUK RIA',
