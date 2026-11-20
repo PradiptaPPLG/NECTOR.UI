@@ -61,7 +61,7 @@ import { puddingMasterPrompt } from './puddingPrompt';
 import { popsicleMasterPrompt } from './popsiclePrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
-  'loli-ria-es-buah-artisan': popsicleMasterPrompt,
+  'sejuk-ria-es-stik-buah': popsicleMasterPrompt,
   'sutra-manis-puding-artisan': puddingMasterPrompt,
   'mekar-abadi-bunga-kering': flowerMasterPrompt,
   'embun-mandi-sabun-alami': soapMasterPrompt,

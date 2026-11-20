@@ -14,9 +14,9 @@ export const CategoriesView: React.FC<Props> = ({
   const categoryDefs = [
     {
       id: 'popsicle',
-      title: 'Es Loli Buah Asli & Cooler Box Pesta',
+      title: 'Es Stik Buah Asli & Cooler Box Pesta',
       icon: Popsicle,
-      desc: 'Atelier es loli buah potong asli 100% segar & sorbet bar pastel: bebas pewarna buatan, 65 kkal rendah kalori, paket cooler box pesta isi 10 atau 20 batang berinsulasi dry ice, dan pemesanan WhatsApp instan.',
+      desc: 'Atelier es stik buah potong asli 100% segar & sorbet bar pastel: bebas pewarna buatan, 65 kkal rendah kalori, paket cooler box pesta isi 10 atau 20 batang berinsulasi dry ice, dan pemesanan WhatsApp instan.',
       accent: '#1F7A70'
     },
     {

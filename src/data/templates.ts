@@ -4,42 +4,42 @@ import { getMasterPrompt } from './prompts';
 export const TEMPLATES_DATA: Template[] = [
   {
     id: 'tpl-59',
-    slug: 'loli-ria-es-buah-artisan',
-    title: 'LOLI RIA',
-    tagline: 'Atelier es loli buah asli 100%, sorbet bar pastel & cooler box pesta Nusantara',
-    description: 'Template website atelier es loli buah asli (artisan fruit popsicles & sorbet bars) segar tanpa pewarna sintetis, tanpa pemanis buatan, dan 100% buah asli segar dataran tinggi Nusantara. Dirancang dengan standar anti-slop tinggi yang berfokus langsung pada produk fisik nyata: simulator rasa es loli interaktif (Popsicle Flavor Tasting Stage) dengan transparansi potongan buah asli utuh dan kalori rendah (65 kkal), studio perakit cooler box pesta isi 10 atau 20 batang dengan insulasi dry ice tahan 8 jam, swatch palet warna pastel klik-salin hex instan, kalkulator es pesta terik matahari, katalog stik loli siap kirim, serta drawer keranjang belanja terhubung ke WhatsApp Admin.',
+    slug: 'sejuk-ria-es-stik-buah',
+    title: 'SEJUK RIA',
+    tagline: 'Atelier es stik buah asli 100%, sorbet bar pastel & cooler box pesta Nusantara',
+    description: 'Template website atelier es stik buah asli (artisan fruit popsicles & sorbet bars) segar tanpa pewarna sintetis, tanpa pemanis buatan, dan 100% buah asli segar dataran tinggi Nusantara. Dirancang dengan standar anti-slop tinggi yang berfokus langsung pada produk fisik nyata: simulator rasa es buah interaktif (Popsicle Flavor Tasting Stage) dengan transparansi potongan buah asli utuh dan kalori rendah (65 kkal), studio perakit cooler box pesta isi 10 atau 20 batang dengan insulasi dry ice tahan 8 jam, swatch palet warna pastel klik-salin hex instan, kalkulator es pesta terik matahari, katalog stik es siap kirim, serta drawer keranjang belanja terhubung ke WhatsApp Admin.',
     category: 'popsicle',
-    tags: ['Es Loli Buah', 'Fruit Popsicles', 'Sorbet Bar', 'Pesta Ulang Tahun', 'Cooler Box Dry Ice', 'Low Calorie', 'WhatsApp Checkout'],
+    tags: ['Es Stik Buah', 'Fruit Popsicles', 'Sorbet Bar', 'Pesta Ulang Tahun', 'Cooler Box Dry Ice', 'Low Calorie', 'WhatsApp Checkout'],
     technologies: ['HTML5', 'Vanilla CSS', 'Popsicle Tasting Stage', 'Cooler Box Builder', 'Party Ice Calculator', 'WhatsApp Checkout'],
     thumbnailSvgType: 'popsicle',
-    previewComponentKey: 'popsicle-loli-ria',
-    htmlPath: '/templates/popsicle/loli-ria-es-buah-artisan.html',
-    htmlFolderPath: 'templates/popsicle/loli-ria-es-buah-artisan.html',
+    previewComponentKey: 'popsicle-sejuk-ria',
+    htmlPath: '/templates/popsicle/sejuk-ria-es-stik-buah.html',
+    htmlFolderPath: 'templates/popsicle/sejuk-ria-es-stik-buah.html',
     features: [
       'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
       'Palet harmoni pastel buah segar: cotton candy pink (#FFCFDF), lemon custard (#FEFDCA), honeydew lime (#E0F9B5), aqua sky (#A5DEE5)',
-      'Tahap pencicipan rasa es loli interaktif (Popsicle Flavor Tasting Stage) dengan visual stik buah utuh dan rincian nutrisi 65 kkal',
+      'Tahap pencicipan rasa es buah interaktif (Popsicle Flavor Tasting Stage) dengan visual stik buah utuh dan rincian nutrisi 65 kkal',
       'Studio perakit cooler box pesta (Party Cooler Box Builder) 3 langkah dengan insulasi dry ice tahan 8 jam dan gratis drip tray anti tetes',
       'Swatch warna koleksi interaktif dengan fitur salin kode hex sekali klik ke clipboard',
       'Kalkulator porsi es pesta & bazar sekolah dengan rekomendasi paket box paling hemat',
       'Drawer keranjang belanja slide-over dengan kolom jam acara pesta dan pembuatan format pesan checkout WhatsApp instan'
     ],
     usageInstructions: [
-      'Buka berkas public/templates/popsicle/loli-ria-es-buah-artisan.html di text editor pilihan Anda.',
-      'Ubah daftar varian rasa buah, harga stik loli (Rp 15.000 / Rp 16.000), dan paket cooler box sesuai katalog UMKM Anda.',
+      'Buka berkas public/templates/popsicle/sejuk-ria-es-stik-buah.html di text editor pilihan Anda.',
+      'Ubah daftar varian rasa buah, harga stik es (Rp 15.000 / Rp 16.000), dan paket cooler box sesuai katalog UMKM Anda.',
       'Sesuaikan nomor WhatsApp admin pada fungsi checkout untuk menerima pesanan langsung dari pelanggan.',
       'Buka langsung di browser atau uji responsivitasnya melalui etalase NECTOR.UI.'
     ],
     sourceFiles: [
       {
-        filename: 'loli-ria-es-buah-artisan.html',
+        filename: 'sejuk-ria-es-stik-buah.html',
         language: 'html',
-        content: `<!-- LOLI RIA — NECTOR.UI Artisan Fruit Popsicle Template -->
+        content: `<!-- SEJUK RIA — NECTOR.UI Artisan Fruit Popsicle Template -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>LOLI RIA — Atelier Es Loli Buah Asli 100%, Sorbet Bar Pastel & Cooler Box Pesta Nusantara</title>
+  <title>SEJUK RIA — Atelier Es Stik Buah Asli 100%, Sorbet Bar Pastel & Cooler Box Pesta Nusantara</title>
   <style>
     :root {
       --color-pink: #FFCFDF;
@@ -54,19 +54,19 @@ export const TEMPLATES_DATA: Template[] = [
   </style>
 </head>
 <body>
-  <h1>LOLI RIA</h1>
-  <p>Kesegaran buah asli Nusantara yang dibekukan menjadi es loli manis alami.</p>
+  <h1>SEJUK RIA</h1>
+  <p>Kesegaran buah asli Nusantara yang dibekukan menjadi es stik manis alami.</p>
 </body>
 </html>`,
         description: 'File mandiri HTML + CSS + JS lengkap dengan tasting stage, cooler box builder, dan checkout WhatsApp.'
       }
     ],
     prompt: {
-      summary: 'Prompt untuk website e-commerce atelier es loli buah asli LOLI RIA berkonsep artisan fruit popsicles, cooler box pesta anak & pengiriman beku dry ice.',
+      summary: 'Prompt untuk website e-commerce atelier es stik buah asli SEJUK RIA berkonsep artisan fruit popsicles, cooler box pesta anak & pengiriman beku dry ice.',
       designDirection: 'Dominasi warna candy pastel: cotton candy pink (#FFCFDF), lemon custard (#FEFDCA), honeydew lime (#E0F9B5), dan aqua sky breeze (#A5DEE5). Latar kanvas mint segar bertekstur dot grid lembut dengan kontras teks arang zamrud pekat (#16302B) berstandar AAA.',
       layoutAndGrid: 'Asymmetric editorial hero grid dengan fotografi nyata stik es buah, bar swatch warna klik-salin hex, tasting stage interaktif, cooler box builder dinamis, dan kalkulator pesta.',
       typographyAndColor: 'Headings dalam Playfair Display, body teks dalam Plus Jakarta Sans, kalori kkal dan harga dalam JetBrains Mono.',
-      interactions: 'Tasting stage dengan animasi stik es loli dinamis, copy-to-clipboard kode hex warna, cooler box builder dengan penghitung kuota stik, dan drawer keranjang WhatsApp.',
+      interactions: 'Tasting stage dengan animasi stik es buah dinamis, copy-to-clipboard kode hex warna, cooler box builder dengan penghitung kuota stik, dan drawer keranjang WhatsApp.',
       technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, zero dependencies, valid W3C markup.',
       isReconstructed: false
     },
@@ -75,10 +75,10 @@ export const TEMPLATES_DATA: Template[] = [
     livePreviewAvailable: true,
     accentColor: '#1F7A70',
     colorPalette: [
-      { hex: '#FFCFDF', rgb: 'rgb(255, 207, 223)', name: 'Cotton Candy Pink', role: 'Warna Es Loli Stroberi Susu & Sorotan Lembut' },
-      { hex: '#FEFDCA', rgb: 'rgb(254, 253, 202)', name: 'Lemon Custard Yellow', role: 'Warna Es Loli Mangga Lemon Madu & Kartu Cerah' },
-      { hex: '#E0F9B5', rgb: 'rgb(224, 249, 181)', name: 'Honeydew Lime Green', role: 'Warna Es Loli Melon Mint & Sorbet Buah Segar' },
-      { hex: '#A5DEE5', rgb: 'rgb(165, 222, 229)', name: 'Aqua Sky Breeze', role: 'Warna Es Loli Kelapa Muda Lagoon & Badge Suhu Beku' }
+      { hex: '#FFCFDF', rgb: 'rgb(255, 207, 223)', name: 'Cotton Candy Pink', role: 'Warna Es Stik Stroberi Susu & Sorotan Lembut' },
+      { hex: '#FEFDCA', rgb: 'rgb(254, 253, 202)', name: 'Lemon Custard Yellow', role: 'Warna Es Stik Mangga Lemon Madu & Kartu Cerah' },
+      { hex: '#E0F9B5', rgb: 'rgb(224, 249, 181)', name: 'Honeydew Lime Green', role: 'Warna Es Stik Melon Mint & Sorbet Buah Segar' },
+      { hex: '#A5DEE5', rgb: 'rgb(165, 222, 229)', name: 'Aqua Sky Breeze', role: 'Warna Es Stik Kelapa Muda Lagoon & Badge Suhu Beku' }
     ]
   },
   {
