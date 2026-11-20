@@ -54,8 +54,10 @@ import { NARA_BABY_MASTER_PROMPT } from './babyPrompt';
 import { RUMAH_VELVET_MASTER_PROMPT } from './beautyPrompt';
 import { AQUA_NUSANTARA_MASTER_PROMPT } from './aquascapePrompt';
 import { teaMasterPrompt } from './teaPrompt';
+import { cakeMasterPrompt } from './cakePrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'manis-kecil-bento-cake': cakeMasterPrompt,
   'sedap-daun-artisan-tea': teaMasterPrompt,
   'akuaskap-ikan-hias-tropis': AQUA_NUSANTARA_MASTER_PROMPT,
   'lip-velvet-kosmetik-lokal': RUMAH_VELVET_MASTER_PROMPT,

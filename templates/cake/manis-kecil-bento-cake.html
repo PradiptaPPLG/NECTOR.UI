@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANIS KECIL — Studio Kue Bento Kustom, Mini Tartlet Pastel & Hampers Hari Bahagia</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       MANIS KECIL — PALET WARNA SWEET PASTEL CUSTARD & PEACH BLUSH
+       Palette from uploaded image:
+       #FFEECC (Creamy Custard Butter)
+       #FFDDCC (Peach Apricot Bisque)
+       #FFCCCC (Blush Strawberry Blossom)
+       #FEBBCC (Candy Rose Petal)
+       ========================================================================== */
+    :root {
+      --bg-canvas: #FFEECC;
+      --bg-surface: #FFFFFF;
+      --bg-peach-soft: #FFDDCC;
+      --bg-peach-tint: rgba(255, 221, 204, 0.45);
+      --accent-blush: #FFCCCC;
+      --accent-rose: #FEBBCC;
+      --accent-cherry: #D95374;
+      --accent-deep: #A83350;
+      --text-ink: #3A2329;
+      --text-muted: #6C4A52;
+      --text-subtle: #8F6A73;
+      --border-hairline: #F5D5C6;
+      --border-medium: #E8BFB0;
+      --border-focus: #FEBBCC;
+
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-script: 'Caveat', cursive;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-pill: 9999px;
+
+      --shadow-sm: 0 2px 8px rgba(58, 35, 41, 0.05);
+      --shadow-md: 0 8px 24px rgba(58, 35, 41, 0.08);
+      --shadow-lg: 0 16px 40px rgba(58, 35, 41, 0.12);
+      --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+      border: none;
+      background: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      letter-spacing: -0.01em;
+    }
+
+    /* Top Announcement Bar */
+    .top-announcement {
+      background-color: var(--text-ink);
+      color: #FFEECC;
+      font-size: 13px;
+      padding: 8px 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-weight: 500;
+    }
+    .top-announcement span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge-pill-sweet {
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      padding: 2px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Site Navigation Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 238, 204, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-logo-mark {
+      width: 40px;
+      height: 40px;
+      background-color: var(--accent-rose);
+      color: var(--text-ink);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 800;
+      font-size: 22px;
+      box-shadow: 0 2px 8px rgba(254, 187, 204, 0.5);
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: var(--text-ink);
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+    .nav-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-ink);
+      transition: color var(--transition-fast);
+    }
+    .nav-link:hover {
+      color: var(--accent-cherry);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-cart-nav {
+      position: relative;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+      transition: all var(--transition-fast);
+    }
+    .btn-cart-nav:hover {
+      border-color: var(--accent-rose);
+      box-shadow: var(--shadow-sm);
+    }
+    .cart-counter {
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-wa-header {
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-wa-header:hover {
+      background-color: var(--accent-deep);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 68px 0 60px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .hero-kicker-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-kicker-tag {
+      background-color: var(--accent-rose);
+      color: var(--text-ink);
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-kicker-loc {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 4.4vw, 56px);
+      line-height: 1.16;
+      font-weight: 700;
+      color: var(--text-ink);
+      letter-spacing: -0.01em;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent-cherry);
+    }
+    .hero-subhead {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .hero-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent-cherry);
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 8px;
+    }
+    .btn-hero-primary {
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      padding: 14px 26px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(217, 83, 116, 0.25);
+      transition: all var(--transition-fast);
+    }
+    .btn-hero-primary:hover {
+      background-color: var(--accent-deep);
+      transform: translateY(-2px);
+    }
+    .btn-hero-secondary {
+      background-color: var(--bg-surface);
+      color: var(--text-ink);
+      border: 1px solid var(--border-medium);
+      padding: 14px 24px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+    }
+    .btn-hero-secondary:hover {
+      border-color: var(--accent-cherry);
+      background-color: #FFFDF9;
+    }
+
+    /* Hero Visual Card */
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-color: var(--bg-surface);
+      border: 2px solid var(--border-hairline);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-img-box {
+      position: relative;
+      height: 460px;
+      background-color: var(--bg-peach-soft);
+      overflow: hidden;
+    }
+    .hero-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms ease;
+    }
+    .hero-visual-card:hover .hero-img-box img {
+      transform: scale(1.04);
+    }
+    .hero-overlay-card {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: var(--shadow-md);
+    }
+    .hoc-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hoc-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-cherry);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .hoc-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .hoc-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .btn-hoc-add {
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-hoc-add:hover {
+      background-color: var(--accent-deep);
+    }
+
+    /* Trust Pillars */
+    .section-pillars {
+      padding: 40px 0 60px;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .pillar-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+    }
+    .pillar-card:hover {
+      border-color: var(--accent-rose);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .pillar-icon-box {
+      width: 44px;
+      height: 44px;
+      background-color: var(--bg-peach-soft);
+      color: var(--text-ink);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Live Bento Cake Customizer Studio */
+    .section-customizer {
+      padding: 72px 0 84px;
+      background: linear-gradient(180deg, var(--bg-canvas) 0%, #FFF5E4 100%);
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .section-header-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+    .sec-kicker {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent-cherry);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .sec-title {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 3.6vw, 42px);
+      font-weight: 700;
+      color: var(--text-ink);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .sec-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .customizer-stage-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .customizer-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .cust-step-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .csb-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .csb-num {
+      width: 20px;
+      height: 20px;
+      background-color: var(--accent-rose);
+      color: var(--text-ink);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Sponge options */
+    .sponge-options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .btn-sponge-opt {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      text-align: left;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-ink);
+      transition: all var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .btn-sponge-opt span:last-child {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .btn-sponge-opt.active {
+      background-color: var(--bg-peach-soft);
+      border-color: var(--accent-rose);
+      box-shadow: 0 0 0 1px var(--accent-rose);
+    }
+
+    /* Cream Color Swatches */
+    .color-swatch-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .btn-cream-color {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      font-size: 12px;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+    .color-circle-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .btn-cream-color.active {
+      background-color: var(--bg-surface);
+      border-color: var(--accent-cherry);
+      box-shadow: 0 2px 8px rgba(217, 83, 116, 0.2);
+    }
+
+    /* Piping Border Types */
+    .piping-options-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .btn-piping-opt {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      transition: all var(--transition-fast);
+    }
+    .btn-piping-opt.active {
+      background-color: var(--bg-peach-soft);
+      border-color: var(--accent-rose);
+    }
+
+    /* Lettering Input Box */
+    .lettering-input-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .input-lettering {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-ink);
+      transition: border-color var(--transition-fast);
+    }
+    .input-lettering:focus {
+      outline: none;
+      border-color: var(--accent-cherry);
+      background-color: #FFFFFF;
+    }
+    .lettering-counter-text {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    /* Live Bento Canvas Simulation */
+    .bento-preview-stage {
+      background: linear-gradient(135deg, #FAF3E8 0%, #FFF0DC 100%);
+      border: 2px dashed var(--accent-rose);
+      border-radius: var(--radius-lg);
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+      position: relative;
+    }
+    .bento-lunchbox-frame {
+      width: 240px;
+      height: 240px;
+      background-color: #F8EFE4;
+      border: 4px solid #E5D5C2;
+      border-radius: 36px;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.06), 0 12px 28px rgba(58, 35, 41, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    /* The Round Cake */
+    .live-cake-disc {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background-color: #FFEECC;
+      border: 6px dotted #FEBBCC;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: background-color 300ms ease, border 300ms ease;
+      position: relative;
+    }
+    .cake-piping-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      pointer-events: none;
+      border: 5px solid transparent;
+      transition: all 300ms ease;
+    }
+    .cake-piping-ring.piping-shell {
+      border: 6px dashed #FEBBCC;
+    }
+    .cake-piping-ring.piping-daisy {
+      border: 6px dotted #D95374;
+    }
+    .cake-piping-ring.piping-none {
+      border: none;
+    }
+
+    .cake-lettering-text {
+      font-family: var(--font-script);
+      font-size: 24px;
+      font-weight: 700;
+      color: #3A2329;
+      line-height: 1.15;
+      word-break: break-word;
+      text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+      transition: color 200ms ease;
+    }
+
+    .bento-meta-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-cherry);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-hairline);
+    }
+    .bento-calc-price {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent-cherry);
+    }
+    .btn-add-custom-cake {
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(217, 83, 116, 0.25);
+      transition: background-color var(--transition-fast);
+    }
+    .btn-add-custom-cake:hover {
+      background-color: var(--accent-deep);
+    }
+
+    /* Ready-to-Order Bento Catalog */
+    .section-catalog {
+      padding: 72px 0 84px;
+    }
+    .filter-tabs-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .btn-filter-tab {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      color: var(--text-ink);
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      transition: all var(--transition-fast);
+    }
+    .btn-filter-tab:hover {
+      border-color: var(--accent-cherry);
+    }
+    .btn-filter-tab.active {
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      border-color: var(--accent-cherry);
+      box-shadow: 0 4px 12px rgba(217, 83, 116, 0.2);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+    }
+    .product-card:hover {
+      border-color: var(--accent-rose);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .product-img-wrap {
+      position: relative;
+      height: 230px;
+      background-color: var(--bg-peach-soft);
+      overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.05);
+    }
+    .product-tag-chip {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: rgba(255, 255, 255, 0.94);
+      color: var(--text-ink);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-sm);
+    }
+    .product-size-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+    }
+
+    .product-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 12px;
+    }
+    .product-header-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .product-category-text {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-cherry);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .product-title {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-ink);
+      line-height: 1.25;
+    }
+    .product-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .product-footer-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .price-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .price-label {
+      font-size: 10px;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .price-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent-cherry);
+    }
+    .btn-add-cart {
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-add-cart:hover {
+      background-color: var(--accent-deep);
+    }
+
+    /* Addon Accessories & Party Favors */
+    .section-addons {
+      padding: 64px 0 80px;
+      background-color: #FAF2E3;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .addon-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-fast);
+    }
+    .addon-card:hover {
+      transform: translateY(-3px);
+    }
+    .addon-icon {
+      font-size: 24px;
+    }
+    .addon-name {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .addon-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .addon-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .addon-price {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--accent-cherry);
+    }
+    .btn-addon-add {
+      background-color: var(--bg-peach-soft);
+      color: var(--text-ink);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      transition: background-color var(--transition-fast);
+    }
+    .btn-addon-add:hover {
+      background-color: var(--accent-rose);
+    }
+
+    /* Kitchen Quality & Safety Story */
+    .section-kitchen {
+      padding: 80px 0;
+    }
+    .kitchen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .kitchen-img-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 2px solid var(--border-hairline);
+      box-shadow: var(--shadow-md);
+      height: 420px;
+      background-color: var(--bg-peach-soft);
+    }
+    .kitchen-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .kitchen-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .kitchen-points {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .kp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .kp-bullet {
+      width: 22px;
+      height: 22px;
+      background-color: var(--accent-rose);
+      color: var(--text-ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .kp-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .kp-text strong {
+      color: var(--text-ink);
+    }
+
+    /* Customer Reviews */
+    .section-reviews {
+      padding: 80px 0;
+      background-color: #FAF2E3;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .review-stars {
+      color: #E68A00;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+    .review-quote {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-ink);
+      font-style: italic;
+    }
+    .review-author-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      background-color: var(--accent-rose);
+      color: var(--text-ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .review-meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .rm-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .rm-loc {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* FAQ Section */
+    .section-faq {
+      padding: 80px 0;
+    }
+    .faq-accordion-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color var(--transition-fast);
+    }
+    .faq-toggle-btn {
+      width: 100%;
+      padding: 20px 24px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-ink);
+    }
+    .faq-icon {
+      font-size: 18px;
+      transition: transform var(--transition-fast);
+      color: var(--accent-cherry);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Site Footer */
+    .site-footer {
+      background-color: var(--text-ink);
+      color: #FFEECC;
+      padding: 64px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      color: #FFEECC;
+    }
+    .footer-brand-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #FFDDCC;
+      margin-top: 12px;
+      max-width: 320px;
+    }
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-rose);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: #FFDDCC;
+      transition: color var(--transition-fast);
+    }
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+    .footer-wa-box {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-footer-wa {
+      background-color: var(--accent-rose);
+      color: var(--text-ink);
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+      transition: opacity var(--transition-fast);
+    }
+    .btn-footer-wa:hover {
+      opacity: 0.9;
+    }
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #D6B2BA;
+    }
+
+    /* Cart Slide-over Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -460px;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background-color: var(--bg-surface);
+      box-shadow: -8px 0 30px rgba(0,0,0,0.15);
+      z-index: 101;
+      display: flex;
+      flex-direction: column;
+      transition: right var(--transition-base);
+    }
+    .cart-drawer.open {
+      right: 0;
+    }
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cd-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .btn-close-drawer {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--bg-canvas);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+    .cart-items-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .cart-item-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px;
+      background-color: var(--bg-canvas);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-hairline);
+    }
+    .ci-img {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background-color: var(--bg-peach-soft);
+    }
+    .ci-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .ci-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-ink);
+    }
+    .ci-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .ci-price {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-cherry);
+    }
+    .ci-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-qty {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .ci-qty-num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .cart-drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-hairline);
+      background-color: var(--bg-canvas);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cart-summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+    .csr-total-val {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent-cherry);
+    }
+    .cart-customer-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .input-cart-field {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    .btn-checkout-wa {
+      background-color: var(--accent-cherry);
+      color: #FFFFFF;
+      padding: 13px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color var(--transition-fast);
+    }
+    .btn-checkout-wa:hover {
+      background-color: var(--accent-deep);
+    }
+
+    /* Toast Notification */
+    .toast-pill {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: var(--text-ink);
+      color: #FFEECC;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast-pill.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .customizer-stage-card {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .addons-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .kitchen-grid {
+        grid-template-columns: 1fr;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .addons-grid {
+        grid-template-columns: 1fr;
+      }
+      .sponge-options-grid, .color-swatch-row {
+        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-announcement">
+    <span>
+      <span class="badge-pill-sweet">FRESH BAKE 05.00 PAGI</span>
+      Slot Kue Bento Harian Terbatas • Gratis 2 Lilin Pastel & Sendok Kayu Tiap Box • Pengiriman Aman Berpendingin
+    </span>
+  </aside>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#" class="brand-wrap">
+        <div class="brand-logo-mark">🍰</div>
+        <div class="brand-text">
+          <span class="brand-title">MANIS KECIL</span>
+          <span class="brand-sub">Studio Kue Bento & Tartlet</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#katalog" class="nav-link">Katalog Bento</a></li>
+          <li><a href="#customizer" class="nav-link">Desain Kustom</a></li>
+          <li><a href="#aksesoris" class="nav-link">Lilin & Aksesoris</a></li>
+          <li><a href="#dapur" class="nav-link">Dapur & Bahan</a></li>
+          <li><a href="#ulasan" class="nav-link">Ulasan</a></li>
+          <li><a href="#faq" class="nav-link">Tanya Jawab</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-cart-nav" onclick="toggleCartDrawer(true)" title="Lihat Keranjang">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span>Keranjang</span>
+          <span class="cart-counter" id="navCartCount">0</span>
+        </button>
+        <a href="https://wa.me/6281234567890?text=Halo%20Manis%20Kecil,%20saya%20mau%20pesan%20kue%20bento%20kustom" target="_blank" rel="noopener noreferrer" class="btn-wa-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Pesan WA</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-kicker-row">
+            <span class="hero-kicker-tag">KUE BENTO KOREA • LOW SUGAR</span>
+            <span class="hero-kicker-loc mono">Bandung & Jakarta</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Rayakan momen berharga dengan <em>kue bento manis</em> berporsi pas.
+          </h1>
+
+          <p class="hero-subhead">
+            Dibuat dari bolu chiffon lembut rendah gula (low-sugar) dan pure butter New Zealand. Berdiameter 10cm dalam kotak serat tebu ramah lingkungan, siap mengukir senyuman untuk kejutan ulang tahun, wisuda, atau hari jadi.
+          </p>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <span class="stat-number">Low Sugar</span>
+              <span class="stat-label">30% Lebih Rendah Gula</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-number">100% Mentega</span>
+              <span class="stat-label">Bebas Lemak Trans Sintesis</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-number">Same-Day</span>
+              <span class="stat-label">Siap Kirim & Garansi Utuh</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#customizer" class="btn-hero-primary">
+              <span>Rancang Kue Kustom Anda</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#katalog" class="btn-hero-secondary">
+              <span>Lihat Desain Siap Pesan</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="hero-img-box">
+            <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=1200&q=80" alt="Kue Bento Strawberry Vanilla Manis Kecil">
+          </div>
+          <div class="hero-overlay-card">
+            <div class="hoc-left">
+              <span class="hoc-badge">TERLARIS BULAN INI</span>
+              <div class="hoc-title">Strawberry Shortcake Bento</div>
+              <div class="hoc-desc">5.0 ★ (620+ Ulasan) • Bolu Chiffon & Selai Asli</div>
+            </div>
+            <button class="btn-hoc-add" onclick="quickAddHeroItem()">
+              + Tambah Rp 75.000
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Pillars -->
+    <section class="section-pillars">
+      <div class="container pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🍓</div>
+          <h3 class="pillar-title">30% Rendah Gula</h3>
+          <p class="pillar-desc">Rasa manis seimbang yang tidak berlebihan. Menggunakan gula tebu alami dengan rasa buah segar asli yang dominan.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🧈</div>
+          <h3 class="pillar-title">Pure Butter Asli</h3>
+          <p class="pillar-desc">100% mentega tawar murni tanpa margarin atau pemanis sintesis. Menghasilkan tekstur bolu yang lumer lembut di lidah.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">📦</div>
+          <h3 class="pillar-title">Kotak Serat Tebu</h3>
+          <p class="pillar-desc">Menggunakan lunchbox bagasse serat tebu alami ramah lingkungan (biodegradable) yang kokoh dan estetik.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon-box">🕯️</div>
+          <h3 class="pillar-title">Gratis Lilin & Sendok</h3>
+          <p class="pillar-desc">Setiap pembelian sudah termasuk 2 lilin spiral pastel, korek api, sendok kayu ramah lingkungan, dan kartu ucapan kado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Bento Cake Customizer -->
+    <section class="section-customizer" id="customizer">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Studio Interaktif</span>
+          <h2 class="sec-title">Rancang Kue Bento Impian Anda</h2>
+          <p class="sec-desc">Ketik pesan ucapan Anda dan saksikan tulisan tersebut muncul seketika di atas kue bento secara real-time. Pilih rasa bolu, warna krim pastel, dan hiasan piping tepi favorit.</p>
+        </div>
+
+        <div class="customizer-stage-card">
+          <!-- Left Controls -->
+          <div class="customizer-controls">
+            <!-- Step 1: Sponge Flavor -->
+            <div class="cust-step-block">
+              <span class="csb-title"><span class="csb-num">1</span> Pilih Rasa Bolu Sponge Cake</span>
+              <div class="sponge-options-grid">
+                <button class="btn-sponge-opt active" onclick="setSpongeFlavor('Vanilla Milk Chiffon', 0, this)">
+                  <span>Vanilla Milk Chiffon</span>
+                  <span>Lembut klasik beraroma vanila</span>
+                </button>
+                <button class="btn-sponge-opt" onclick="setSpongeFlavor('Rich Choco Fudge', 5000, this)">
+                  <span>Rich Choco Fudge (+Rp 5k)</span>
+                  <span>Cokelat pekat Belgia lumer</span>
+                </button>
+                <button class="btn-sponge-opt" onclick="setSpongeFlavor('Strawberry Velvet', 5000, this)">
+                  <span>Strawberry Velvet (+Rp 5k)</span>
+                  <span>Segar asam manis stroberi</span>
+                </button>
+                <button class="btn-sponge-opt" onclick="setSpongeFlavor('Earl Grey Milk Tea', 8000, this)">
+                  <span>Earl Grey Tea (+Rp 8k)</span>
+                  <span>Aroma teh bergamot wangi</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Base Cream Color -->
+            <div class="cust-step-block">
+              <span class="csb-title"><span class="csb-num">2</span> Pilih Warna Dasar Krim Pastel</span>
+              <div class="color-swatch-row">
+                <button class="btn-cream-color active" onclick="setCreamColor('#FFEECC', 'Vanilla Custard', this)">
+                  <span class="color-circle-dot" style="background-color: #FFEECC;"></span>
+                  <span>Custard Cream</span>
+                </button>
+                <button class="btn-cream-color" onclick="setCreamColor('#FFDDCC', 'Peach Apricot', this)">
+                  <span class="color-circle-dot" style="background-color: #FFDDCC;"></span>
+                  <span>Soft Peach</span>
+                </button>
+                <button class="btn-cream-color" onclick="setCreamColor('#FFCCCC', 'Blush Strawberry', this)">
+                  <span class="color-circle-dot" style="background-color: #FFCCCC;"></span>
+                  <span>Strawberry Blush</span>
+                </button>
+                <button class="btn-cream-color" onclick="setCreamColor('#FEBBCC', 'Candy Rose', this)">
+                  <span class="color-circle-dot" style="background-color: #FEBBCC;"></span>
+                  <span>Candy Rose</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Piping Border -->
+            <div class="cust-step-block">
+              <span class="csb-title"><span class="csb-num">3</span> Pilih Desain Hiasan Piping Tepi</span>
+              <div class="piping-options-row">
+                <button class="btn-piping-opt active" onclick="setPipingBorder('shell', this)">
+                  Renda Kerang Vintage
+                </button>
+                <button class="btn-piping-opt" onclick="setPipingBorder('daisy', this)">
+                  Kuntum Bunga Mungil
+                </button>
+                <button class="btn-piping-opt" onclick="setPipingBorder('none', this)">
+                  Polos Minimalis
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 4: Live Lettering Text -->
+            <div class="cust-step-block">
+              <span class="csb-title"><span class="csb-num">4</span> Ketik Tulisan Ucapan di Atas Kue</span>
+              <div class="lettering-input-wrap">
+                <input type="text" class="input-lettering" id="cakeLetteringInput" value="Happy 22nd Birthday Maya! ✨" maxlength="32" oninput="updateCakeText(this.value)">
+                <div class="lettering-counter-text">Maksimal 32 karakter (porsi pas di diameter 10cm)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Live Preview Stage -->
+          <div class="bento-preview-stage">
+            <span class="bento-meta-badge">PRATINJAU LANGSUNG KUE BENTO</span>
+            
+            <div class="bento-lunchbox-frame">
+              <div class="live-cake-disc" id="liveCakePreview" style="background-color: #FFEECC;">
+                <div class="cake-piping-ring piping-shell" id="livePipingRing"></div>
+                <div class="cake-lettering-text" id="liveCakeTextDisplay">
+                  Happy 22nd Birthday Maya! ✨
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 4px; align-items: center;">
+              <span style="font-size: 12px; color: var(--text-muted); font-weight: 600;" id="cakeSpecSummary">
+                Bolu Vanilla Chiffon • Krim Custard • Diameter 10cm
+              </span>
+              <span class="bento-calc-price" id="customCakePriceDisplay">Rp 85.000</span>
+            </div>
+
+            <button class="btn-add-custom-cake" onclick="addCustomBentoToCart()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              <span>+ Masukkan Kue Kustom ke Keranjang</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ready-to-Order Bento & Tartlet Catalog -->
+    <section class="section-catalog" id="katalog">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Desain Favorit Siap Pesan</span>
+          <h2 class="sec-title">Koleksi Bento Cake & Mini Tartlet</h2>
+          <p class="sec-desc">Pilihan desain kue bento terpopuler yang siap dipanggang fresh tiap pagi. Cocok untuk hadiah ulang tahun sahabat, hari jadi pacar, atau ucapan selamat kelulusan.</p>
+        </div>
+
+        <!-- Filter Tab Buttons -->
+        <div class="filter-tabs-row">
+          <button class="btn-filter-tab active" onclick="filterCatalog('all', this)">Semua Koleksi (6)</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('birthday', this)">🎂 Ulang Tahun Ceria</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('graduation', this)">🎓 Wisuda & Kelulusan</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('romance', this)">💖 Anniversary & Cinta</button>
+          <button class="btn-filter-tab" onclick="filterCatalog('tartlet', this)">🥧 Mini Fruit Tartlet</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGridContainer">
+          
+          <!-- Product 1 -->
+          <article class="product-card" data-category="birthday">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=80" alt="Bento Strawberry Shortcake">
+              <span class="product-tag-chip">BESTSELLER</span>
+              <span class="product-size-badge">10 CM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Bolu Chiffon • Stroberi</span>
+                <h3 class="product-title">Bento Strawberry Shortcake</h3>
+              </div>
+              <p class="product-desc">Bolu vanila chiffon lembut dipadu selai stroberi buah asli dan lapisan fresh cream ringan minim gula. Dilengkapi buah stroberi segar di atasnya.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 75.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p1', 'Bento Strawberry Shortcake', 'Diameter 10cm', 75000, 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card" data-category="birthday">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Bento Choco Caramel Fudge">
+              <span class="product-tag-chip">COKELAT PEKAT</span>
+              <span class="product-size-badge">10 CM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Bolu Cokelat • Salted Caramel</span>
+                <h3 class="product-title">Bento Choco Caramel Fudge</h3>
+              </div>
+              <p class="product-desc">Bolu cokelat Belgia moist dipadu lelehan saus karamel mentega gurih dan taburan sea salt. Pilihan utama untuk pecinta cokelat pekat sejati.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 80.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p2', 'Bento Choco Caramel Fudge', 'Diameter 10cm', 80000, 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card" data-category="romance birthday">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=800&q=80" alt="Bento Vintage Rose Birthday">
+              <span class="product-tag-chip">VINTAGE PIPING</span>
+              <span class="product-size-badge">10 CM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Bolu Earl Grey • Krim Peach</span>
+                <h3 class="product-title">Bento Vintage Rose Cake</h3>
+              </div>
+              <p class="product-desc">Hiasan piping renda vintage era Victoria dalam gradasi warna peach dan rose pink. Sangat fotogenik untuk perayaan anniversary dan ulang tahun pacar.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 85.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p3', 'Bento Vintage Rose Cake', 'Diameter 10cm', 85000, 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="product-card" data-category="graduation">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=800&q=80" alt="Bento Graduation Celebration">
+              <span class="product-tag-chip">WISUDA FAVORIT</span>
+              <span class="product-size-badge">10 CM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Bolu Vanila Keju • Toga Top</span>
+                <h3 class="product-title">Bento Graduation Congrats</h3>
+              </div>
+              <p class="product-desc">Kue bento bertuliskan 'Happy Graduation!' dengan ilustrasi topi toga wisuda mungil. Hadiah manis paling berkesan untuk sahabat yang baru sidang skripsi.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 85.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p4', 'Bento Graduation Congrats', 'Diameter 10cm', 85000, 'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 5 -->
+          <article class="product-card" data-category="tartlet">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" alt="Mini Fruit Tartlet Box">
+              <span class="product-tag-chip">ISI 4 TARTLET</span>
+              <span class="product-size-badge">BOX 4 PCS</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Tartlet Buah Segar • Mentega</span>
+                <h3 class="product-title">Mini Fruit Tartlet (Box Isi 4)</h3>
+              </div>
+              <p class="product-desc">Kulit tart renyah gurih mentega dipadu krim diplomat vanila Madagaskar dan potongan stroberi, anggur hijau, serta kiwi segar.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 68.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p5', 'Mini Fruit Tartlet Box 4', 'Box Isi 4', 68000, 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 6 -->
+          <article class="product-card" data-category="romance">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?auto=format&fit=crop&w=800&q=80" alt="Bento Heart Love Cake">
+              <span class="product-tag-chip">BENTUK HATI</span>
+              <span class="product-size-badge">10 CM</span>
+            </div>
+            <div class="product-body">
+              <div class="product-header-block">
+                <span class="product-category-text">Bolu Red Velvet • Krim Keju</span>
+                <h3 class="product-title">Bento Sweet Heart Cake</h3>
+              </div>
+              <p class="product-desc">Kue bento berbentuk hati mungil dengan krim keju lembut dan sponge red velvet klasik. Cocok untuk merayakan tanggal jadian atau kado valentine.</p>
+              
+              <div class="product-footer-row">
+                <div class="price-box">
+                  <span class="price-label">Harga</span>
+                  <span class="price-val">Rp 78.000</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('p6', 'Bento Sweet Heart Cake', 'Diameter 10cm', 78000, 'https://images.unsplash.com/photo-1562440499-64c9a111f713?auto=format&fit=crop&w=200&q=80')">
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Party Accessories & Candles -->
+    <section class="section-addons" id="aksesoris">
+      <div class="container">
+        <div class="section-header-center" style="margin-bottom: 32px;">
+          <span class="sec-kicker">Pelengkap Hari Bahagia</span>
+          <h2 class="sec-title">Lilin Lucu & Aksesoris Pesta</h2>
+          <p class="sec-desc">Tambahkan detail manis agar momen meniup lilin terasa semakin istimewa.</p>
+        </div>
+
+        <div class="addons-grid">
+          <div class="addon-card">
+            <span class="addon-icon">🕯️</span>
+            <h4 class="addon-name">Lilin Ulir Pastel Emas (Isi 6)</h4>
+            <p class="addon-desc">Lilin panjang berulir dengan gradasi warna pastel dan sentuhan kilau emas lembut.</p>
+            <div class="addon-footer">
+              <span class="addon-price">Rp 8.000</span>
+              <button class="btn-addon-add" onclick="addToCart('add-1', 'Lilin Ulir Pastel Emas', '1 Set Isi 6', 8000, 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=200&q=80')">+ Tambah</button>
+            </div>
+          </div>
+
+          <div class="addon-card">
+            <span class="addon-icon">🎉</span>
+            <h4 class="addon-name">Topi Pesta Mini Polkadot</h4>
+            <p class="addon-desc">Topi kerucut mini warna peach dengan pompom bulu halus untuk foto kejutan ulang tahun.</p>
+            <div class="addon-footer">
+              <span class="addon-price">Rp 10.000</span>
+              <button class="btn-addon-add" onclick="addToCart('add-2', 'Topi Pesta Mini Polkadot', '1 Pcs', 10000, 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=200&q=80')">+ Tambah</button>
+            </div>
+          </div>
+
+          <div class="addon-card">
+            <span class="addon-icon">❄️</span>
+            <h4 class="addon-name">Thermal Cooler Bag + Ice Gel</h4>
+            <p class="addon-desc">Tas pendingin penahan suhu agar kue bento tetap dingin dan krim tidak meleleh di perjalanan.</p>
+            <div class="addon-footer">
+              <span class="addon-price">Rp 15.000</span>
+              <button class="btn-addon-add" onclick="addToCart('add-3', 'Thermal Cooler Bag + Ice Gel', '1 Set', 15000, 'https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=200&q=80')">+ Tambah</button>
+            </div>
+          </div>
+
+          <div class="addon-card">
+            <span class="addon-icon">💌</span>
+            <h4 class="addon-name">Kartu Ucapan Pop-Up 3D</h4>
+            <p class="addon-desc">Kartu ucapan timbul bertema perayaan manis dengan amplop segel wax stamp vintage.</p>
+            <div class="addon-footer">
+              <span class="addon-price">Rp 12.000</span>
+              <button class="btn-addon-add" onclick="addToCart('add-4', 'Kartu Ucapan Pop-Up 3D', '1 Pcs', 12000, 'https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=200&q=80')">+ Tambah</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kitchen Quality Story -->
+    <section class="section-kitchen" id="dapur">
+      <div class="container kitchen-grid">
+        <div class="kitchen-img-frame">
+          <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1000&q=80" alt="Dapur Pemanggangan Roti dan Kue Manis Kecil">
+        </div>
+
+        <div class="kitchen-text-col">
+          <span class="sec-kicker">Standar Dapur Higienis</span>
+          <h2 class="sec-title">Dipanggang Segar Pagi Hari Tanpa Penimbunan Semalam</h2>
+          <p class="sec-desc">
+            Kami percaya kue ulang tahun haruslah terasa segar, lembut, dan harum saat kotak dibuka. Di dapur kami, oven dinyalakan mulai jam 05.00 subuh untuk memanggang bolu pesanan hari itu juga.
+          </p>
+
+          <div class="kitchen-points">
+            <div class="kp-item">
+              <div class="kp-bullet">✓</div>
+              <p class="kp-text"><strong>Telur Ayam Omega Segar:</strong> Dipasok harian dari peternak lokal bebas antibiotik, menghasilkan daya kembang bolu yang tinggi tanpa baking powder sintetis.</p>
+            </div>
+            <div class="kp-item">
+              <div class="kp-bullet">✓</div>
+              <p class="kp-text"><strong>Selai Buah Asli Dibuat Mandiri:</strong> Selai stroberi dan blueberry dimasak perlahan dari buah utuh dengan tambahan air lemon segar, bukan selai kalengan berperisa kimia.</p>
+            </div>
+            <div class="kp-item">
+              <div class="kp-bullet">✓</div>
+              <p class="kp-text"><strong>Garansi 100% Utuh Sampai Tujuan:</strong> Dasar lunchbox dilengkapi stiker pengunci kue silikon food-grade sehingga kue tidak bergeser saat diantar kurir.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="section-reviews" id="ulasan">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Cerita Senyuman</span>
+          <h2 class="sec-title">Ulasan Bahagia Pelanggan Kami</h2>
+          <p class="sec-desc">Lebih dari 3.800 kue bento telah menemani momen perayaan berharga di berbagai kota.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Puas banget pesan kue bento custom di sini! Tulisannya rapi persis kayak di live preview-nya. Bolunya beneran gak bikin enek, rasa stroberinya seger banget. Teman kosan sampai ikutan pesan."</p>
+            <div class="review-author-row">
+              <div class="review-avatar">AN</div>
+              <div class="review-meta">
+                <span class="rm-name">Anisa Novitasari</span>
+                <span class="rm-loc">Bandung • Pembeli Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Pesan dadakan H-1 buat sidang wisuda pacar. Jam 10 pagi sudah sampai kantor dengan kondisi mulus banget gak ada krim yang meleyot. Lilin spiralnya lucu banget!"</p>
+            <div class="review-author-row">
+              <div class="review-avatar">FR</div>
+              <div class="review-meta">
+                <span class="rm-name">Fajar Ramadhan</span>
+                <span class="rm-loc">Jakarta Selatan • Pembeli Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Mini fruit tartlet-nya enak parah! Kulit pie-nya wangi butter banget dan buahnya fresh renyah. Ukurannya pas buat camilan sore bareng keluarga."</p>
+            <div class="review-author-row">
+              <div class="review-avatar">CL</div>
+              <div class="review-meta">
+                <span class="rm-name">Clara Liu</span>
+                <span class="rm-loc">Tangerang • Pembeli Terverifikasi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="section-faq" id="faq">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Informasi Penting</span>
+          <h2 class="sec-title">Pertanyaan yang Sering Diajukan</h2>
+          <p class="sec-desc">Seputar daya simpan, pemesanan dadakan, dan pengantaran kue.</p>
+        </div>
+
+        <div class="faq-accordion-wrap">
+          <div class="faq-item open">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Berapa lama kue bento bisa bertahan di suhu ruang dan kulkas?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Di suhu ruang ber-AC, kue bento bertahan segar sekitar 4-5 jam. Jika belum langsung disantap, kami sarankan segera memasukkan lunchbox ke dalam kulkas (chiller). Di dalam chiller, kue bento bertahan hingga 3 hari dengan rasa dan kelembutan bolu yang tetap terjaga.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Apakah bisa memesan kue bento untuk pengiriman hari ini (Same-Day)?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Bisa! Kami menyediakan slot fresh-bake harian untuk pengiriman same-day. Pemesanan same-day dibuka mulai pukul 08.00 pagi dengan estimasi pengerjaan tulisan custom sekitar 2 jam sebelum dikirim via kurir instan.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Berapa maksimal huruf tulisan ucapan di atas kue bento?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Karena diameter kue bento adalah 10 cm, panjang tulisan ideal berkisar antara 20 hingga 32 karakter (2-3 baris pendek) agar komposisi tulisan tangan tetap rapi, proporsional, dan estetik saat difoto.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-toggle-btn" onclick="toggleFaq(this)">
+              <span>Bagaimana prosedur keamanan pengiriman agar kue tidak rusak?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Setiap lunchbox kami lengkapi dengan bantalan silikon perekat di bagian bawah kue, serta kantong luar yang kokoh dengan peringatan stiker 'Fragile / Jangan Dibanting'. Jika terjadi kerusakan fisik akibat kelalaian kurir, kami memberikan garansi penggantian kue baru atau pengembalian dana 100%.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="footer-brand-title">MANIS KECIL</span>
+          <p class="footer-brand-desc">
+            Studio kue bento kustom, bolu chiffon rendah gula, dan mini tartlet hari bahagia. Merayakan senyuman di setiap momen berharga Anda.
+          </p>
+          <span class="mono" style="font-size: 11px; color: var(--accent-rose); display: block; margin-top: 14px;">
+            P-IRT No: 2063273010992-26 • Halal ID: ID3211000249821
+          </span>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Katalog Pilihan</h4>
+          <ul class="footer-links">
+            <li><a href="#customizer">Studio Kue Kustom</a></li>
+            <li><a href="#katalog">Strawberry Shortcake</a></li>
+            <li><a href="#katalog">Choco Caramel Fudge</a></li>
+            <li><a href="#katalog">Mini Fruit Tartlet</a></li>
+            <li><a href="#aksesoris">Lilin & Aksesoris</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Area Layanan</h4>
+          <ul class="footer-links">
+            <li><a href="#dapur">Kota Bandung & Cimahi</a></li>
+            <li><a href="#dapur">Jakarta Selatan & Pusat</a></li>
+            <li><a href="#dapur">Tangerang & BSD</a></li>
+            <li><a href="#dapur">Pengiriman Instan Berpendingin</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-wa-box">
+          <h4 style="font-size: 14px; font-weight: 800; color: #FFEECC;">Konsultasi Pesanan Cepat</h4>
+          <p style="font-size: 12px; color: #FFDDCC; line-height: 1.5;">Ingin custom gambar kartun atau pesanan hampers kantor dalam jumlah banyak? Hubungi admin kami:</p>
+          <a href="https://wa.me/6281234567890?text=Halo%20Manis%20Kecil,%20saya%20mau%20konsultasi%20kue%20bento" target="_blank" rel="noopener noreferrer" class="btn-footer-wa">
+            Chat WhatsApp: 0812-3456-7890
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 MANIS KECIL Bento Cake Studio. Hak cipta dilindungi.</span>
+        <span>Dirancang dengan standar bebas slop AI • NECTOR.UI Showcase</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-over Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer(false)"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3 class="cd-title">Keranjang Manis</h3>
+      <button class="btn-close-drawer" onclick="toggleCartDrawer(false)" title="Tutup">✕</button>
+    </div>
+
+    <div class="cart-items-body" id="cartItemsList">
+      <p style="text-align: center; color: var(--text-muted); font-size: 13px; margin: auto;">Keranjang Anda masih kosong.<br>Silakan rancang kue kustom atau pilih desain di etalase kami.</p>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal Pesanan:</span>
+        <span class="csr-total-val" id="cartSubtotalVal">Rp 0</span>
+      </div>
+
+      <div class="cart-customer-fields">
+        <input type="text" class="input-cart-field" id="custName" placeholder="Nama Pemesan" value="Maya Wardani">
+        <input type="text" class="input-cart-field" id="custCity" placeholder="Alamat Pengiriman (mis: Dago, Bandung / Tebet, Jaksel)" value="Dago Atas, Bandung">
+        <input type="date" class="input-cart-field" id="custDate" value="2026-11-21">
+      </div>
+
+      <button class="btn-checkout-wa" onclick="checkoutCartWhatsApp()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+        <span>Kirim Pesanan ke WhatsApp Admin</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Pill -->
+  <div class="toast-pill" id="toastPill">
+    <span id="toastMsg">Kue berhasil ditambahkan ke keranjang!</span>
+  </div>
+
+  <!-- JavaScript Interactivity -->
+  <script>
+    /* ==========================================================================
+       CART STATE & MANAGEMENT
+       ========================================================================== */
+    let cart = [];
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastPill');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2400);
+    }
+
+    function toggleCartDrawer(open) {
+      const overlay = document.getElementById('cartOverlay');
+      const drawer = document.getElementById('cartDrawer');
+      if (open) {
+        overlay.classList.add('open');
+        drawer.classList.add('open');
+      } else {
+        overlay.classList.remove('open');
+        drawer.classList.remove('open');
+      }
+    }
+
+    function renderCart() {
+      const listEl = document.getElementById('cartItemsList');
+      const countEl = document.getElementById('navCartCount');
+      const totalEl = document.getElementById('cartSubtotalVal');
+
+      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      countEl.textContent = totalItems;
+
+      if (cart.length === 0) {
+        listEl.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 13px; margin: auto;">Keranjang Anda masih kosong.<br>Silakan rancang kue kustom atau pilih desain di etalase kami.</p>';
+        totalEl.textContent = 'Rp 0';
+        return;
+      }
+
+      let subtotal = 0;
+      listEl.innerHTML = cart.map((item, idx) => {
+        subtotal += item.price * item.qty;
+        return `
+          <div class="cart-item-row">
+            <img src="${item.img}" alt="${item.name}" class="ci-img">
+            <div class="ci-info">
+              <span class="ci-name">${item.name}</span>
+              <span class="ci-sub">${item.sub}</span>
+              <span class="ci-price">Rp ${(item.price).toLocaleString('id-ID')}</span>
+            </div>
+            <div class="ci-actions">
+              <button class="btn-qty" onclick="changeQty(${idx}, -1)">−</button>
+              <span class="ci-qty-num">${item.qty}</span>
+              <button class="btn-qty" onclick="changeQty(${idx}, 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      totalEl.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+    }
+
+    function addToCart(id, name, sub, price, img) {
+      const existing = cart.find(i => i.name === name && i.sub === sub);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, name, sub, price, img, qty: 1 });
+      }
+      renderCart();
+      showToast(`${name} berhasil ditambahkan!`);
+    }
+
+    function quickAddHeroItem() {
+      addToCart('p1', 'Bento Strawberry Shortcake', 'Diameter 10cm', 75000, 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=200&q=80');
+      toggleCartDrawer(true);
+    }
+
+    function changeQty(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      renderCart();
+    }
+
+    function checkoutCartWhatsApp() {
+      if (cart.length === 0) {
+        alert('Keranjang belanja Anda masih kosong.');
+        return;
+      }
+      const name = document.getElementById('custName').value.trim() || 'Pelanggan';
+      const city = document.getElementById('custCity').value.trim() || 'Bandung';
+      const date = document.getElementById('custDate').value || 'Besok';
+
+      let text = `Halo Manis Kecil, saya mau memesan kue bento berikut:%0A%0A`;
+      let total = 0;
+      cart.forEach((item, i) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        text += `${i + 1}. ${item.name} (${item.sub}) x${item.qty} = Rp ${itemTotal.toLocaleString('id-ID')}%0A`;
+      });
+      text += `%0ATotal Pesanan: Rp ${total.toLocaleString('id-ID')}%0A`;
+      text += `Nama Pemesan: ${name}%0A`;
+      text += `Alamat Pengiriman: ${city}%0A`;
+      text += `Tanggal Pengiriman: ${date}%0A%0A`;
+      text += `Mohon konfirmasi slot dan info nomor rekening. Terima kasih!`;
+
+      window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    }
+
+    /* Filter Catalog */
+    function filterCatalog(category, btn) {
+      const container = document.getElementById('productGridContainer');
+      const tabs = document.querySelectorAll('.btn-filter-tab');
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = container.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const catData = card.getAttribute('data-category') || '';
+        if (category === 'all' || catData.includes(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    /* ==========================================================================
+       LIVE BENTO CAKE CUSTOMIZER STUDIO STATE
+       ========================================================================== */
+    let customCake = {
+      spongeName: 'Vanilla Milk Chiffon',
+      spongeExtra: 0,
+      creamColor: '#FFEECC',
+      creamName: 'Vanilla Custard',
+      pipingType: 'shell',
+      letteringText: 'Happy 22nd Birthday Maya! ✨',
+      basePrice: 85000
+    };
+
+    function setSpongeFlavor(name, extraPrice, btn) {
+      customCake.spongeName = name;
+      customCake.spongeExtra = extraPrice;
+      document.querySelectorAll('.btn-sponge-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      recalcCustomCake();
+    }
+
+    function setCreamColor(colorHex, name, btn) {
+      customCake.creamColor = colorHex;
+      customCake.creamName = name;
+      document.querySelectorAll('.btn-cream-color').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const cakeEl = document.getElementById('liveCakePreview');
+      cakeEl.style.backgroundColor = colorHex;
+      recalcCustomCake();
+    }
+
+    function setPipingBorder(type, btn) {
+      customCake.pipingType = type;
+      document.querySelectorAll('.btn-piping-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const ringEl = document.getElementById('livePipingRing');
+      ringEl.className = `cake-piping-ring piping-${type}`;
+    }
+
+    function updateCakeText(val) {
+      customCake.letteringText = val.trim() || 'Happy Birthday!';
+      document.getElementById('liveCakeTextDisplay').textContent = customCake.letteringText;
+    }
+
+    function recalcCustomCake() {
+      const total = customCake.basePrice + customCake.spongeExtra;
+      document.getElementById('customCakePriceDisplay').textContent = `Rp ${total.toLocaleString('id-ID')}`;
+      document.getElementById('cakeSpecSummary').textContent = `Bolu ${customCake.spongeName} • Krim ${customCake.creamName} • Diameter 10cm`;
+    }
+
+    function addCustomBentoToCart() {
+      const total = customCake.basePrice + customCake.spongeExtra;
+      const subInfo = `Bolu ${customCake.spongeName} | Tulisan: "${customCake.letteringText}"`;
+      addToCart('bento-custom', 'Custom Bento Cake (Diameter 10cm)', subInfo, total, 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=200&q=80');
+      toggleCartDrawer(true);
+    }
+
+    /* FAQ Toggle */
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

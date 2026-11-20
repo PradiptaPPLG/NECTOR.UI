@@ -3,6 +3,85 @@ import { getMasterPrompt } from './prompts';
 
 export const TEMPLATES_DATA: Template[] = [
   {
+    id: 'tpl-55',
+    slug: 'manis-kecil-bento-cake',
+    title: 'MANIS KECIL',
+    tagline: 'Studio kue bento kustom, mini tartlet pastel & hampers hari bahagia',
+    description: 'Template website studio bakery dan kue bento (Korean lunchbox cake) kustom lokal yang menghadirkan kue ulang tahun mini berdiameter 10cm, tartlet buah segar, dan paket perayaan manis dengan rasa premium minim gula. Dirancang dengan standar anti-slop tinggi yang berfokus langsung pada produk fisik nyata: live bento cake customizer dengan pengetik tulisan ucapan langsung di atas kue (Live Cake Lettering Preview), pemilih warna dasar krim pastel dan piping border, katalog desain kue siap pesan berdasarkan momen (Ulang Tahun, Wisuda, Anniversary, Ucapan Hangat), pemilih paket lilin & sendok kayu ramah lingkungan, serta checkout pesanan instan terhubung ke WhatsApp Admin.',
+    category: 'cake',
+    tags: ['Bento Cake', 'Korean Cake', 'Kue Ulang Tahun', 'Live Cake Customizer', 'UMKM Kuliner', 'WhatsApp Checkout'],
+    technologies: ['HTML5', 'Vanilla CSS', 'Live Lettering Preview', 'Custom Bento Designer', 'WhatsApp Checkout'],
+    thumbnailSvgType: 'cake',
+    previewComponentKey: 'cake-manis-kecil',
+    htmlPath: '/templates/cake/manis-kecil-bento-cake.html',
+    htmlFolderPath: 'templates/cake/manis-kecil-bento-cake.html',
+    features: [
+      'Struktur mandiri 1 file (HTML + CSS + JS) tanpa perlu build step atau runtime framework tambahan',
+      'Palet harmoni sweet pastel: custard butter (#FFEECC), peach bisque (#FFDDCC), strawberry blush (#FFCCCC), candy rose (#FEBBCC)',
+      'Studio Kustomisasi Kue Bento Langsung (Live Lettering Preview) dengan rendering tulisan ucapan real-time di atas kue',
+      'Katalog desain kue siap pesan dengan filter kategori momen perayaan (Ulang Tahun, Wisuda, Anniversary, Mini Tartlet)',
+      'Paket aksesoris pesta lengkap (lilin ulir pastel emas, topi pesta mini, cooler bag thermal pendingin, dan kartu pop-up)',
+      'Transparansi dapur higienis: fresh bake tiap subuh, 30% lebih rendah gula, 100% mentega New Zealand tanpa lemak trans',
+      'Drawer keranjang belanja slide-over dengan formulir tanggal pengiriman dan pembuat tautan WhatsApp terstruktur rapi'
+    ],
+    usageInstructions: [
+      'Buka berkas public/templates/cake/manis-kecil-bento-cake.html di text editor pilihan Anda.',
+      'Ubah pilihan rasa sponge, daftar harga, dan varian desain kue bento sesuai etalase bakery Anda.',
+      'Sesuaikan nomor kontak WhatsApp pada fungsi checkout dengan nomor resmi UMKM Anda.',
+      'Jalankan langsung di browser atau uji responsivitasnya melalui etalase NECTOR.UI.'
+    ],
+    sourceFiles: [
+      {
+        filename: 'manis-kecil-bento-cake.html',
+        language: 'html',
+        content: `<!-- MANIS KECIL — NECTOR.UI Korean Bento Cake & Mini Tartlet Template -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>MANIS KECIL — Studio Kue Bento Kustom, Mini Tartlet Pastel & Hampers Hari Bahagia</title>
+  <style>
+    :root {
+      --bg-canvas: #FFEECC;
+      --bg-surface: #FFFFFF;
+      --bg-peach-soft: #FFDDCC;
+      --accent-blush: #FFCCCC;
+      --accent-rose: #FEBBCC;
+      --accent-cherry: #D95374;
+      --text-ink: #3A2329;
+      --text-muted: #6C4A52;
+    }
+  </style>
+</head>
+<body>
+  <h1>MANIS KECIL</h1>
+  <p>Rayakan momen berharga dengan kue bento manis berporsi pas.</p>
+</body>
+</html>`,
+        description: 'File mandiri HTML + CSS + JS lengkap dengan live bento customizer dan checkout WhatsApp.'
+      }
+    ],
+    prompt: {
+      summary: 'Prompt untuk website e-commerce bakery dan studio kue bento kustom MANIS KECIL berkonsep sweet pastel Korean lunchbox cake.',
+      designDirection: 'Dominasi warna creamy custard (#FFEECC), peach apricot (#FFDDCC), blush strawberry (#FFCCCC), dan candy rose (#FEBBCC). Tipografi hangat Fraunces, Plus Jakarta Sans, dan tulisan tangan Caveat.',
+      layoutAndGrid: 'Asymmetric editorial hero grid dengan foto nyata kue bento dan lunchbox tebu. Studio live lettering preview interaktif, filter katalog momen perayaan, dan drawer keranjang pesanan WhatsApp.',
+      typographyAndColor: 'Headings dalam serif Fraunces, body teks dalam Plus Jakarta Sans, live preview tulisan di atas kue dalam font script Caveat, angka harga dalam JetBrains Mono.',
+      interactions: 'Pengetik ucapan real-time di atas kue, selector rasa sponge & warna krim pastel, filter kategori tanpa reload halaman, dan pengiriman pesanan WhatsApp otomatis.',
+      technicalRequirements: '100% standalone single-file HTML, responsif smartphone hingga desktop, zero dependencies, valid W3C markup.',
+      isReconstructed: false
+    },
+    featured: true,
+    publishedAt: '2026-11-20',
+    livePreviewAvailable: true,
+    accentColor: '#FEBBCC',
+    colorPalette: [
+      { hex: '#FFEECC', rgb: 'rgb(255, 238, 204)', name: 'Creamy Custard Butter', role: 'Warna Kanvas & Latar Belakang Hangat' },
+      { hex: '#FFDDCC', rgb: 'rgb(255, 221, 204)', name: 'Peach Apricot Bisque', role: 'Warna Kartu, Highlight & Border Lembut' },
+      { hex: '#FFCCCC', rgb: 'rgb(255, 204, 204)', name: 'Blush Strawberry Blossom', role: 'Warna Aksen Sekunder & Hiasan Piping' },
+      { hex: '#FEBBCC', rgb: 'rgb(254, 187, 204)', name: 'Candy Rose Petal', role: 'Warna Aksen Utama, Badge & Tombol Primer' }
+    ]
+  },
+  {
     id: 'tpl-54',
     slug: 'sedap-daun-artisan-tea',
     title: 'SEDAP DAUN',
