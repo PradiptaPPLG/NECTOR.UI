@@ -13,6 +13,13 @@ export const CategoriesView: React.FC<Props> = ({
 }) => {
   const categoryDefs = [
     {
+      id: 'pudding',
+      title: 'Puding Sutra Buah Asli & Hampers',
+      icon: Cherry,
+      desc: 'Dapur puding sutra lembut (silky pudding) dalam jar kaca steril berlapis saus stroberi, raspberry, dan vanila murni: eksklusif hampers arisan & lamaran, inspektor lapisan puding, kalkulator porsi acara, dan pemesanan WhatsApp instan.',
+      accent: '#850E35'
+    },
+    {
       id: 'flower',
       title: 'Bunga Abadi (Preserved) & Buket Wisuda',
       icon: Flower2,

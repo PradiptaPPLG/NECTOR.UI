@@ -58,6 +58,7 @@ export type Category =
   | 'cake'
   | 'soap'
   | 'flower'
+  | 'pudding'
   | 'umkm';
 
 export type WeddingSubcategory =

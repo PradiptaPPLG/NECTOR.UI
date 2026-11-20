@@ -57,8 +57,10 @@ import { teaMasterPrompt } from './teaPrompt';
 import { cakeMasterPrompt } from './cakePrompt';
 import { soapMasterPrompt } from './soapPrompt';
 import { flowerMasterPrompt } from './flowerPrompt';
+import { puddingMasterPrompt } from './puddingPrompt';
 
 export const MASTER_PROMPTS_BY_SLUG: Record<string, string> = {
+  'sutra-manis-puding-artisan': puddingMasterPrompt,
   'mekar-abadi-bunga-kering': flowerMasterPrompt,
   'embun-mandi-sabun-alami': soapMasterPrompt,
   'manis-kecil-bento-cake': cakeMasterPrompt,
@@ -170,4 +172,5 @@ export {
   RUMAH_VELVET_MASTER_PROMPT,
   AQUA_NUSANTARA_MASTER_PROMPT,
   flowerMasterPrompt,
+  puddingMasterPrompt,
 };
