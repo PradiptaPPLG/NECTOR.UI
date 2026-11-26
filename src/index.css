@@ -101,14 +101,6 @@ html {
   color-scheme: light;
 }
 
-/* Lenis Smooth Scroll Optimization: disable CSS smooth scroll when Lenis is running */
-html.lenis {
-  scroll-behavior: auto !important;
-}
-html.lenis, html.lenis body {
-  height: auto;
-}
-
 html[data-theme="dark"] {
   color-scheme: dark;
 }
