@@ -805,6 +805,8 @@
   display: flex;
   flex-direction: column;
   transition: transform 180ms ease, border-color 150ms ease, box-shadow 180ms ease;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 450px;
 }
 
 .template-card:hover {
