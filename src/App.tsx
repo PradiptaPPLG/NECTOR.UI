@@ -1,6 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import Lenis from 'lenis';
-import 'lenis/dist/lenis.css';
+import { useState, useEffect } from 'react';
 import { TEMPLATES_DATA } from './data/templates';
 import type { Template, ToastNotification } from './types';
 import { Header } from './components/layout/Header';
@@ -67,40 +65,6 @@ export function App() {
   });
   const [commissionTemplateContext, setCommissionTemplateContext] = useState<Template | null>(null);
 
-  // Lenis Smooth Scroll Instance (Awwwards-grade momentum scrolling)
-  const lenisRef = useRef<Lenis | null>(null);
-
-  useEffect(() => {
-    // Respect user's motion preferences
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
-
-    const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      autoRaf: true,
-      anchors: true,
-    });
-    lenisRef.current = lenis;
-
-    return () => {
-      lenis.destroy();
-      lenisRef.current = null;
-    };
-  }, []);
-
-  // Pause Lenis smooth scrolling when commission modal is open to lock background
-  useEffect(() => {
-    if (!lenisRef.current) return;
-    if (isCommissionOpen) {
-      lenisRef.current.stop();
-    } else {
-      lenisRef.current.start();
-    }
-  }, [isCommissionOpen]);
-
   // Sync theme to root HTML attribute
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -147,22 +111,14 @@ export function App() {
     if (categoryFilter) {
       setSelectedCategory(categoryFilter);
     }
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectTemplate = (template: Template, initialTab: 'preview' | 'code' | 'prompt' | 'color' = 'preview') => {
     setSelectedTemplate(template);
     setInitialDetailTab(initialTab);
     setCurrentView('detail');
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOpenCommission = (template?: Template) => {
