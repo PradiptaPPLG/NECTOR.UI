@@ -10,7 +10,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Lenis Smooth Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.20/dist/lenis.css">
+
   <style>
+    /* Lenis Smooth Scroll Optimization */
+    html.lenis {
+      scroll-behavior: auto !important;
+    }
+    html.lenis, html.lenis body {
+      height: auto;
+    }
     /* RESET & BASE */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -2309,6 +2319,19 @@ Mohon konfirmasi ketersediaan stok botol dan instruksi pembayaran. Terima kasih!
     document.addEventListener('DOMContentLoaded', () => {
       renderCart();
     });
+  </script>
+
+  <!-- Lenis Smooth Scroll Script -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script>
+    if (typeof Lenis !== 'undefined') {
+      const lenis = new Lenis({
+        duration: 1.15,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        autoRaf: true,
+      });
+    }
   </script>
 </body>
 </html>
